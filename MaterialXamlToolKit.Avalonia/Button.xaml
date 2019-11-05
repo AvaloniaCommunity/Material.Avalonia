@@ -13,10 +13,10 @@
     <Setter Property="Padding" Value="4"/>
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid>
-          <ripple:RippleEffect
-              RippleFill="#F1F2F2"
-              RippleOpacity="0.2">
+        <ripple:RippleEffect
+            RippleFill="#F1F2F2"
+            RippleOpacity="0.2">
+          <Grid>
             <Border Name="buttonBorder"
                     Background="{Binding $parent[Button].Background}"
                     CornerRadius="3">
@@ -31,11 +31,11 @@
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
             </Border>
-          </ripple:RippleEffect>
-          <Border Name="pointerover"
-                  CornerRadius="3"
-                  Background="White"/>
-        </Grid>
+            <Border Name="pointerover"
+                    CornerRadius="3"
+                    Background="White"/>
+          </Grid>
+        </ripple:RippleEffect>
       </ControlTemplate>
     </Setter>
   </Style>

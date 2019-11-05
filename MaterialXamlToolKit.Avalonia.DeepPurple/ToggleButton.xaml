@@ -9,5 +9,6 @@
   </Style>
   <Style Selector="ToggleButton:pressed  /template/ ContentPresenter">
     <Setter Property="Background" Value="{DynamicResource DeepPurpleBrush}"/>
+    <Setter Property="TextBlock.Foreground" Value="White"/>
   </Style>
 </Styles>
