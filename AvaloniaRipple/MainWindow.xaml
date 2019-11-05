@@ -79,7 +79,6 @@
                     <RadioButton Content="test1" />
                     <RadioButton Content="test1" />
                   <CheckBox Classes="material" Content="Check Me" />
-                    <ToggleButton Classes="material" Content="Custom toggle button" />
                 </StackPanel>
             </StackPanel>
             <StackPanel>
