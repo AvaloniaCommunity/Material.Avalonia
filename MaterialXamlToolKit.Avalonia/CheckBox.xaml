@@ -1,0 +1,65 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style Selector="CheckBox.material">
+    <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="2,1,2,1" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid>
+          <Grid ColumnDefinitions="Auto,*">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              TextBlock.Foreground="{TemplateBinding Foreground}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              Margin="{TemplateBinding Padding}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Grid.Column="1"
+                              IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+
+            <Border Name="check"
+                    Width="36"
+                    Height="18"
+                    CornerRadius="9"
+                    Grid.Column="0"
+                    VerticalAlignment="Center">
+              <Ellipse Name="circle"
+                       Width="14"
+                       Height="14"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       StrokeThickness="1">
+                <Ellipse.Transitions>
+                  <ThicknessTransition Property="Margin" Duration="0:0:0.1"/>
+                </Ellipse.Transitions>
+              </Ellipse>
+            </Border>
+            <Border Name="pointerover"
+                    CornerRadius="9"
+                    Background="White"/>
+          </Grid>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="CheckBox.material:checked /template/ Ellipse#circle">
+    <Setter Property="Margin" Value="19,2,3,2" />
+  </Style>
+  <Style Selector="CheckBox.material:unchecked /template/ Ellipse#circle">
+    <Setter Property="Margin" Value="3,2,3,2" />
+  </Style>
+
+  <Style Selector="CheckBox.material /template/ Border#pointerover">
+    <Setter Property="Opacity" Value="0"></Setter>
+  </Style>
+  <Style Selector="CheckBox.material:pointerover /template/ Border#pointerover">
+    <Setter Property="Opacity" Value="0.2"></Setter>
+  </Style>
+
+  <Style Selector="ToggleButton.material:disabled">
+    <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+  </Style>
+</Styles>

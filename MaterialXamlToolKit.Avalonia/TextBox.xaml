@@ -1,0 +1,69 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="TextBox">
+        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+        
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource HighlightBrush}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="0 0 0 3">
+                        <DockPanel Margin="{TemplateBinding Padding}">
+
+                            <TextBlock Name="floatingWatermark"
+                                       Foreground="{DynamicResource ThemeAccentBrush}"
+                                       FontSize="{DynamicResource FontSizeSmall}"
+                                       Text="{TemplateBinding Watermark}"
+                                       DockPanel.Dock="Top">
+                                <TextBlock.IsVisible>
+                                    <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                                 Path="UseFloatingWatermark" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                                 Path="Text"
+                                                 Converter="{x:Static StringConverters.IsNotNullOrEmpty}" />
+                                    </MultiBinding>
+                                </TextBlock.IsVisible>
+                            </TextBlock>
+
+                            <DataValidationErrors>
+                                <ScrollViewer
+                                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+
+                                    <Panel>
+                                        <TextBlock Name="watermark"
+                                                   Opacity="0.5"
+                                                   Text="{TemplateBinding Watermark}"
+                                                   IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}" />
+                                        <TextPresenter Name="PART_TextPresenter"
+                                                       Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                       CaretIndex="{TemplateBinding CaretIndex}"
+                                                       SelectionStart="{TemplateBinding SelectionStart}"
+                                                       SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                                       TextWrapping="{TemplateBinding TextWrapping}"
+                                                       PasswordChar="{TemplateBinding PasswordChar}"
+                                                       SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                       CaretBrush="{TemplateBinding CaretBrush}" />
+                                    </Panel>
+                                </ScrollViewer>
+                            </DataValidationErrors>
+                        </DockPanel>
+                    </Border>
+                    <Border Name="fborder"
+                            Background="Transparent"
+                          
+                            BorderThickness="0 0 0 3" >
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

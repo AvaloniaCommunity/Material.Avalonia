@@ -1,0 +1,11 @@
+<Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="ProgressBar">
+        <!--TODO: Change colors to pallete-->
+        <Setter Property="Background" Value="{DynamicResource DeepAccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource DeepAccentBrush3}" />
+    </Style>
+    <Style Selector="ProgressBar /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource DeepAccentBrush}" />
+        
+    </Style>
+</Styles>

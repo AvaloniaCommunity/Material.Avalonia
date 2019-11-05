@@ -1,0 +1,19 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+    <Style Selector="TabItem:selected">
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten3Brush}"/>
+        <Setter Property="TextBlock.Foreground" Value="White"/>
+    </Style>
+    <Style Selector="TabItem:selected:focus">
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten2Brush}"/>
+        <Setter Property="TextBlock.Foreground" Value="White"/>
+    </Style>
+    <Style Selector="TabItem:selected:pointerover">
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten2Brush}"/>
+        <Setter Property="TextBlock.Foreground" Value="White"/>
+    </Style>
+    <Style Selector="TabItem:selected:focus:pointerover">
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten1Brush}"/>
+        <Setter Property="TextBlock.Foreground" Value="White"/>
+    </Style>
+</Styles>

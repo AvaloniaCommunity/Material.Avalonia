@@ -1,0 +1,28 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="TextBox">
+        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten5Brush}" />
+    </Style>
+    <Style Selector="TextBox:pointerover /template/ Border#border">
+        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten3Brush}" />
+    </Style>
+    <Style Selector="TextBox:focus /template/ Border#border">
+        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten5Brush}" />
+    </Style>
+    <Style Selector="TextBox:focus /template/ Border#fborder">
+        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleBrush}" />
+        <Style.Animations>
+            <Animation Duration="0:0:0.5">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Width" Value="0" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+                </KeyFrame>
+
+            </Animation>
+        </Style.Animations>
+        <!--<Setter Property="BorderBrush" Value="{DynamicResource MainDeepBrush}"/>-->
+
+    </Style>
+
+</Styles>
