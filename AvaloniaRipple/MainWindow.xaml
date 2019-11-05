@@ -78,7 +78,7 @@
                     <RadioButton Content="test1" />
                     <RadioButton Content="test1" />
                     <RadioButton Content="test1" />
-                  <CheckBox Classes="material" Content="Check Me" />
+                  <CheckBox Content="Check Me" />
                 </StackPanel>
             </StackPanel>
             <StackPanel>

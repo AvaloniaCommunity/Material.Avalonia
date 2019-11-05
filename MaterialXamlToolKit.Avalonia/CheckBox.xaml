@@ -1,5 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <Style Selector="CheckBox.material">
+  <Style Selector="CheckBox">
     <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Padding" Value="2,1,2,1" />
@@ -45,21 +45,21 @@
     </Setter>
   </Style>
 
-  <Style Selector="CheckBox.material:checked /template/ Ellipse#circle">
+  <Style Selector="CheckBox:checked /template/ Ellipse#circle">
     <Setter Property="Margin" Value="19,2,3,2" />
   </Style>
-  <Style Selector="CheckBox.material:unchecked /template/ Ellipse#circle">
+  <Style Selector="CheckBox:unchecked /template/ Ellipse#circle">
     <Setter Property="Margin" Value="3,2,3,2" />
   </Style>
 
-  <Style Selector="CheckBox.material /template/ Border#pointerover">
+  <Style Selector="CheckBox /template/ Border#pointerover">
     <Setter Property="Opacity" Value="0"></Setter>
   </Style>
-  <Style Selector="CheckBox.material:pointerover /template/ Border#pointerover">
+  <Style Selector="CheckBox:pointerover /template/ Border#pointerover">
     <Setter Property="Opacity" Value="0.2"></Setter>
   </Style>
 
-  <Style Selector="ToggleButton.material:disabled">
+  <Style Selector="ToggleButton:disabled">
     <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
   </Style>
 </Styles>
