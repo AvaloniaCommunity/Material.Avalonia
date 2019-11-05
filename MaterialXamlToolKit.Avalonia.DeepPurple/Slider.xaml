@@ -25,7 +25,8 @@
                             <Thumb.Template>
                                 <ControlTemplate>
                                     <Grid>
-                                        <Ellipse Width="12" Height="12" Fill="{DynamicResource DeepPurpleLighten2Brush}" />
+                                        <Ellipse Width="12" Height="12"
+                                                 Fill="{DynamicResource DeepPurpleLighten2Brush}" />
                                     </Grid>
                                 </ControlTemplate>
                             </Thumb.Template>
@@ -60,7 +61,8 @@
                             <Thumb.Template>
                                 <ControlTemplate>
                                     <Grid>
-                                        <Ellipse Width="12" Height="12" Fill="{DynamicResource DeepPurpleLighten2Brush}" />
+                                        <Ellipse Width="12" Height="12"
+                                                 Fill="{DynamicResource DeepPurpleLighten2Brush}" />
                                     </Grid>
                                 </ControlTemplate>
                             </Thumb.Template>

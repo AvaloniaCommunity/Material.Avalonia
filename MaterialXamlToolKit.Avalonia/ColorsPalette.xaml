@@ -1,563 +1,563 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=netstandard">
-  <Styles.Resources>
+    <Styles.Resources>
 
-    <Color x:Key="RedColor">#F44336</Color>
-    <Color x:Key="RedLighten5Color">#FFEBEE</Color>
-    <Color x:Key="RedLighten4Color">#FFCDD2</Color>
-    <Color x:Key="RedLighten3Color">#EF9A9A</Color>
-    <Color x:Key="RedLighten2Color">#E57373</Color>
-    <Color x:Key="RedLighten1Color">#EF5350</Color>
-    <Color x:Key="RedDarken1Color">#E53935</Color>
-    <Color x:Key="RedDarken2Color">#D32F2F</Color>
-    <Color x:Key="RedDarken3Color">#C62828</Color>
-    <Color x:Key="RedDarken4Color">#B71C1C</Color>
-    <Color x:Key="RedAccent1Color">#FF8A80</Color>
-    <Color x:Key="RedAccent2Color">#FF5252</Color>
-    <Color x:Key="RedAccent3Color">#FF1744</Color>
-    <Color x:Key="RedAccent4Color">#D50000</Color>
+        <Color x:Key="RedColor">#F44336</Color>
+        <Color x:Key="RedLighten5Color">#FFEBEE</Color>
+        <Color x:Key="RedLighten4Color">#FFCDD2</Color>
+        <Color x:Key="RedLighten3Color">#EF9A9A</Color>
+        <Color x:Key="RedLighten2Color">#E57373</Color>
+        <Color x:Key="RedLighten1Color">#EF5350</Color>
+        <Color x:Key="RedDarken1Color">#E53935</Color>
+        <Color x:Key="RedDarken2Color">#D32F2F</Color>
+        <Color x:Key="RedDarken3Color">#C62828</Color>
+        <Color x:Key="RedDarken4Color">#B71C1C</Color>
+        <Color x:Key="RedAccent1Color">#FF8A80</Color>
+        <Color x:Key="RedAccent2Color">#FF5252</Color>
+        <Color x:Key="RedAccent3Color">#FF1744</Color>
+        <Color x:Key="RedAccent4Color">#D50000</Color>
 
-    <Color x:Key="PinkColor">#E91E63</Color>
-    <Color x:Key="PinkLighten5Color">#FCE4EC</Color>
-    <Color x:Key="PinkLighten4Color">#F8BBD0</Color>
-    <Color x:Key="PinkLighten3Color">#F48FB1</Color>
-    <Color x:Key="PinkLighten2Color">#F06292</Color>
-    <Color x:Key="PinkLighten1Color">#EC407A</Color>
-    <Color x:Key="PinkDarken1Color">#D81B60</Color>
-    <Color x:Key="PinkDarken2Color">#C2185B</Color>
-    <Color x:Key="PinkDarken3Color">#AD1457</Color>
-    <Color x:Key="PinkDarken4Color">#880E4F</Color>
-    <Color x:Key="PinkAccent1Color">#FF80AB</Color>
-    <Color x:Key="PinkAccent2Color">#FF4081</Color>
-    <Color x:Key="PinkAccent3Color">#F50057</Color>
-    <Color x:Key="PinkAccent4Color">#C51162</Color>
+        <Color x:Key="PinkColor">#E91E63</Color>
+        <Color x:Key="PinkLighten5Color">#FCE4EC</Color>
+        <Color x:Key="PinkLighten4Color">#F8BBD0</Color>
+        <Color x:Key="PinkLighten3Color">#F48FB1</Color>
+        <Color x:Key="PinkLighten2Color">#F06292</Color>
+        <Color x:Key="PinkLighten1Color">#EC407A</Color>
+        <Color x:Key="PinkDarken1Color">#D81B60</Color>
+        <Color x:Key="PinkDarken2Color">#C2185B</Color>
+        <Color x:Key="PinkDarken3Color">#AD1457</Color>
+        <Color x:Key="PinkDarken4Color">#880E4F</Color>
+        <Color x:Key="PinkAccent1Color">#FF80AB</Color>
+        <Color x:Key="PinkAccent2Color">#FF4081</Color>
+        <Color x:Key="PinkAccent3Color">#F50057</Color>
+        <Color x:Key="PinkAccent4Color">#C51162</Color>
 
-    <Color x:Key="PurpleColor">#9C27B0</Color>
-    <Color x:Key="PurpleLighten5Color">#F3E5F5</Color>
-    <Color x:Key="PurpleLighten4Color">#E1BEE7</Color>
-    <Color x:Key="PurpleLighten3Color">#CE93D8</Color>
-    <Color x:Key="PurpleLighten2Color">#BA68C8</Color>
-    <Color x:Key="PurpleLighten1Color">#AB47BC</Color>
-    <Color x:Key="PurpleDarken1Color">#8E24AA</Color>
-    <Color x:Key="PurpleDarken2Color">#7B1FA2</Color>
-    <Color x:Key="PurpleDarken3Color">#6A1B9A</Color>
-    <Color x:Key="PurpleDarken4Color">#4A148C</Color>
-    <Color x:Key="PurpleAccent1Color">#EA80FC</Color>
-    <Color x:Key="PurpleAccent2Color">#E040FB</Color>
-    <Color x:Key="PurpleAccent3Color">#D500F9</Color>
-    <Color x:Key="PurpleAccent4Color">#AA00FF</Color>
+        <Color x:Key="PurpleColor">#9C27B0</Color>
+        <Color x:Key="PurpleLighten5Color">#F3E5F5</Color>
+        <Color x:Key="PurpleLighten4Color">#E1BEE7</Color>
+        <Color x:Key="PurpleLighten3Color">#CE93D8</Color>
+        <Color x:Key="PurpleLighten2Color">#BA68C8</Color>
+        <Color x:Key="PurpleLighten1Color">#AB47BC</Color>
+        <Color x:Key="PurpleDarken1Color">#8E24AA</Color>
+        <Color x:Key="PurpleDarken2Color">#7B1FA2</Color>
+        <Color x:Key="PurpleDarken3Color">#6A1B9A</Color>
+        <Color x:Key="PurpleDarken4Color">#4A148C</Color>
+        <Color x:Key="PurpleAccent1Color">#EA80FC</Color>
+        <Color x:Key="PurpleAccent2Color">#E040FB</Color>
+        <Color x:Key="PurpleAccent3Color">#D500F9</Color>
+        <Color x:Key="PurpleAccent4Color">#AA00FF</Color>
 
-    <Color x:Key="DeepPurpleColor">#673AB7</Color>
-    <Color x:Key="DeepPurpleLighten5Color">#EDE7F6</Color>
-    <Color x:Key="DeepPurpleLighten4Color">#D1C4E9</Color>
-    <Color x:Key="DeepPurpleLighten3Color">#B39DDB</Color>
-    <Color x:Key="DeepPurpleLighten2Color">#9575CD</Color>
-    <Color x:Key="DeepPurpleLighten1Color">#7E57C2</Color>
-    <Color x:Key="DeepPurpleDarken1Color">#5E35B1</Color>
-    <Color x:Key="DeepPurpleDarken2Color">#512DA8</Color>
-    <Color x:Key="DeepPurpleDarken3Color">#4527A0</Color>
-    <Color x:Key="DeepPurpleDarken4Color">#311B92</Color>
-    <Color x:Key="DeepPurpleAccent1Color">#B388FF</Color>
-    <Color x:Key="DeepPurpleAccent2Color">#7C4DFF</Color>
-    <Color x:Key="DeepPurpleAccent3Color">#651FFF</Color>
-    <Color x:Key="DeepPurpleAccent4Color">#6200EA</Color>
+        <Color x:Key="DeepPurpleColor">#673AB7</Color>
+        <Color x:Key="DeepPurpleLighten5Color">#EDE7F6</Color>
+        <Color x:Key="DeepPurpleLighten4Color">#D1C4E9</Color>
+        <Color x:Key="DeepPurpleLighten3Color">#B39DDB</Color>
+        <Color x:Key="DeepPurpleLighten2Color">#9575CD</Color>
+        <Color x:Key="DeepPurpleLighten1Color">#7E57C2</Color>
+        <Color x:Key="DeepPurpleDarken1Color">#5E35B1</Color>
+        <Color x:Key="DeepPurpleDarken2Color">#512DA8</Color>
+        <Color x:Key="DeepPurpleDarken3Color">#4527A0</Color>
+        <Color x:Key="DeepPurpleDarken4Color">#311B92</Color>
+        <Color x:Key="DeepPurpleAccent1Color">#B388FF</Color>
+        <Color x:Key="DeepPurpleAccent2Color">#7C4DFF</Color>
+        <Color x:Key="DeepPurpleAccent3Color">#651FFF</Color>
+        <Color x:Key="DeepPurpleAccent4Color">#6200EA</Color>
 
-    <Color x:Key="IndigoColor">#3F51B5</Color>
-    <Color x:Key="IndigoLighten5Color">#E8EAF6</Color>
-    <Color x:Key="IndigoLighten4Color">#C5CAE9</Color>
-    <Color x:Key="IndigoLighten3Color">#9FA8DA</Color>
-    <Color x:Key="IndigoLighten2Color">#7986CB</Color>
-    <Color x:Key="IndigoLighten1Color">#5C6BC0</Color>
-    <Color x:Key="IndigoDarken1Color">#3949AB</Color>
-    <Color x:Key="IndigoDarken2Color">#303F9F</Color>
-    <Color x:Key="IndigoDarken3Color">#283593</Color>
-    <Color x:Key="IndigoDarken4Color">#1A237E</Color>
-    <Color x:Key="IndigoAccent1Color">#8C9EFF</Color>
-    <Color x:Key="IndigoAccent2Color">#536DFE</Color>
-    <Color x:Key="IndigoAccent3Color">#3D5AFE</Color>
-    <Color x:Key="IndigoAccent4Color">#304FFE</Color>
+        <Color x:Key="IndigoColor">#3F51B5</Color>
+        <Color x:Key="IndigoLighten5Color">#E8EAF6</Color>
+        <Color x:Key="IndigoLighten4Color">#C5CAE9</Color>
+        <Color x:Key="IndigoLighten3Color">#9FA8DA</Color>
+        <Color x:Key="IndigoLighten2Color">#7986CB</Color>
+        <Color x:Key="IndigoLighten1Color">#5C6BC0</Color>
+        <Color x:Key="IndigoDarken1Color">#3949AB</Color>
+        <Color x:Key="IndigoDarken2Color">#303F9F</Color>
+        <Color x:Key="IndigoDarken3Color">#283593</Color>
+        <Color x:Key="IndigoDarken4Color">#1A237E</Color>
+        <Color x:Key="IndigoAccent1Color">#8C9EFF</Color>
+        <Color x:Key="IndigoAccent2Color">#536DFE</Color>
+        <Color x:Key="IndigoAccent3Color">#3D5AFE</Color>
+        <Color x:Key="IndigoAccent4Color">#304FFE</Color>
 
-    <Color x:Key="BlueColor">#2196F3</Color>
-    <Color x:Key="BlueLighten5Color">#E3F2FD</Color>
-    <Color x:Key="BlueLighten4Color">#BBDEFB</Color>
-    <Color x:Key="BlueLighten3Color">#90CAF9</Color>
-    <Color x:Key="BlueLighten2Color">#64B5F6</Color>
-    <Color x:Key="BlueLighten1Color">#42A5F5</Color>
-    <Color x:Key="BlueDarken1Color">#1E88E5</Color>
-    <Color x:Key="BlueDarken2Color">#1976D2</Color>
-    <Color x:Key="BlueDarken3Color">#1565C0</Color>
-    <Color x:Key="BlueDarken4Color">#0D47A1</Color>
-    <Color x:Key="BlueAccent1Color">#82B1FF</Color>
-    <Color x:Key="BlueAccent2Color">#448AFF</Color>
-    <Color x:Key="BlueAccent3Color">#2979FF</Color>
-    <Color x:Key="BlueAccent4Color">#2962FF</Color>
+        <Color x:Key="BlueColor">#2196F3</Color>
+        <Color x:Key="BlueLighten5Color">#E3F2FD</Color>
+        <Color x:Key="BlueLighten4Color">#BBDEFB</Color>
+        <Color x:Key="BlueLighten3Color">#90CAF9</Color>
+        <Color x:Key="BlueLighten2Color">#64B5F6</Color>
+        <Color x:Key="BlueLighten1Color">#42A5F5</Color>
+        <Color x:Key="BlueDarken1Color">#1E88E5</Color>
+        <Color x:Key="BlueDarken2Color">#1976D2</Color>
+        <Color x:Key="BlueDarken3Color">#1565C0</Color>
+        <Color x:Key="BlueDarken4Color">#0D47A1</Color>
+        <Color x:Key="BlueAccent1Color">#82B1FF</Color>
+        <Color x:Key="BlueAccent2Color">#448AFF</Color>
+        <Color x:Key="BlueAccent3Color">#2979FF</Color>
+        <Color x:Key="BlueAccent4Color">#2962FF</Color>
 
-    <Color x:Key="LightBlueColor">#03A9F4</Color>
-    <Color x:Key="LightBlueLighten5Color">#E1F5FE</Color>
-    <Color x:Key="LightBlueLighten4Color">#B3E5FC</Color>
-    <Color x:Key="LightBlueLighten3Color">#81D4FA</Color>
-    <Color x:Key="LightBlueLighten2Color">#4FC3F7</Color>
-    <Color x:Key="LightBlueLighten1Color">#29B6F6</Color>
-    <Color x:Key="LightBlueDarken1Color">#039BE5</Color>
-    <Color x:Key="LightBlueDarken2Color">#0288D1</Color>
-    <Color x:Key="LightBlueDarken3Color">#0277BD</Color>
-    <Color x:Key="LightBlueDarken4Color">#01579B</Color>
-    <Color x:Key="LightBlueAccent1Color">#80D8FF</Color>
-    <Color x:Key="LightBlueAccent2Color">#40C4FF</Color>
-    <Color x:Key="LightBlueAccent3Color">#00B0FF</Color>
-    <Color x:Key="LightBlueAccent4Color">#0091EA</Color>
+        <Color x:Key="LightBlueColor">#03A9F4</Color>
+        <Color x:Key="LightBlueLighten5Color">#E1F5FE</Color>
+        <Color x:Key="LightBlueLighten4Color">#B3E5FC</Color>
+        <Color x:Key="LightBlueLighten3Color">#81D4FA</Color>
+        <Color x:Key="LightBlueLighten2Color">#4FC3F7</Color>
+        <Color x:Key="LightBlueLighten1Color">#29B6F6</Color>
+        <Color x:Key="LightBlueDarken1Color">#039BE5</Color>
+        <Color x:Key="LightBlueDarken2Color">#0288D1</Color>
+        <Color x:Key="LightBlueDarken3Color">#0277BD</Color>
+        <Color x:Key="LightBlueDarken4Color">#01579B</Color>
+        <Color x:Key="LightBlueAccent1Color">#80D8FF</Color>
+        <Color x:Key="LightBlueAccent2Color">#40C4FF</Color>
+        <Color x:Key="LightBlueAccent3Color">#00B0FF</Color>
+        <Color x:Key="LightBlueAccent4Color">#0091EA</Color>
 
-    <Color x:Key="CyanColor">#00BCD4</Color>
-    <Color x:Key="CyanLighten5Color">#E0F7FA</Color>
-    <Color x:Key="CyanLighten4Color">#B2EBF2</Color>
-    <Color x:Key="CyanLighten3Color">#80DEEA</Color>
-    <Color x:Key="CyanLighten2Color">#4DD0E1</Color>
-    <Color x:Key="CyanLighten1Color">#26C6DA</Color>
-    <Color x:Key="CyanDarken1Color">#00ACC1</Color>
-    <Color x:Key="CyanDarken2Color">#0097A7</Color>
-    <Color x:Key="CyanDarken3Color">#00838F</Color>
-    <Color x:Key="CyanDarken4Color">#006064</Color>
-    <Color x:Key="CyanAccent1Color">#84FFFF</Color>
-    <Color x:Key="CyanAccent2Color">#18FFFF</Color>
-    <Color x:Key="CyanAccent3Color">#00E5FF</Color>
-    <Color x:Key="CyanAccent4Color">#00B8D4</Color>
+        <Color x:Key="CyanColor">#00BCD4</Color>
+        <Color x:Key="CyanLighten5Color">#E0F7FA</Color>
+        <Color x:Key="CyanLighten4Color">#B2EBF2</Color>
+        <Color x:Key="CyanLighten3Color">#80DEEA</Color>
+        <Color x:Key="CyanLighten2Color">#4DD0E1</Color>
+        <Color x:Key="CyanLighten1Color">#26C6DA</Color>
+        <Color x:Key="CyanDarken1Color">#00ACC1</Color>
+        <Color x:Key="CyanDarken2Color">#0097A7</Color>
+        <Color x:Key="CyanDarken3Color">#00838F</Color>
+        <Color x:Key="CyanDarken4Color">#006064</Color>
+        <Color x:Key="CyanAccent1Color">#84FFFF</Color>
+        <Color x:Key="CyanAccent2Color">#18FFFF</Color>
+        <Color x:Key="CyanAccent3Color">#00E5FF</Color>
+        <Color x:Key="CyanAccent4Color">#00B8D4</Color>
 
-    <Color x:Key="TealColor">#009688</Color>
-    <Color x:Key="TealLighten5Color">#E0F2F1</Color>
-    <Color x:Key="TealLighten4Color">#B2DFDB</Color>
-    <Color x:Key="TealLighten3Color">#80CBC4</Color>
-    <Color x:Key="TealLighten2Color">#4DB6AC</Color>
-    <Color x:Key="TealLighten1Color">#26A69A</Color>
-    <Color x:Key="TealDarken1Color">#00897B</Color>
-    <Color x:Key="TealDarken2Color">#00796B</Color>
-    <Color x:Key="TealDarken3Color">#00695C</Color>
-    <Color x:Key="TealDarken4Color">#004D40</Color>
-    <Color x:Key="TealAccent1Color">#A7FFEB</Color>
-    <Color x:Key="TealAccent2Color">#64FFDA</Color>
-    <Color x:Key="TealAccent3Color">#1DE9B6</Color>
-    <Color x:Key="TealAccent4Color">#00BFA5</Color>
+        <Color x:Key="TealColor">#009688</Color>
+        <Color x:Key="TealLighten5Color">#E0F2F1</Color>
+        <Color x:Key="TealLighten4Color">#B2DFDB</Color>
+        <Color x:Key="TealLighten3Color">#80CBC4</Color>
+        <Color x:Key="TealLighten2Color">#4DB6AC</Color>
+        <Color x:Key="TealLighten1Color">#26A69A</Color>
+        <Color x:Key="TealDarken1Color">#00897B</Color>
+        <Color x:Key="TealDarken2Color">#00796B</Color>
+        <Color x:Key="TealDarken3Color">#00695C</Color>
+        <Color x:Key="TealDarken4Color">#004D40</Color>
+        <Color x:Key="TealAccent1Color">#A7FFEB</Color>
+        <Color x:Key="TealAccent2Color">#64FFDA</Color>
+        <Color x:Key="TealAccent3Color">#1DE9B6</Color>
+        <Color x:Key="TealAccent4Color">#00BFA5</Color>
 
-    <Color x:Key="GreenColor">#4CAF50</Color>
-    <Color x:Key="GreenLighten5Color">#E8F5E9</Color>
-    <Color x:Key="GreenLighten4Color">#C8E6C9</Color>
-    <Color x:Key="GreenLighten3Color">#A5D6A7</Color>
-    <Color x:Key="GreenLighten2Color">#81C784</Color>
-    <Color x:Key="GreenLighten1Color">#66BB6A</Color>
-    <Color x:Key="GreenDarken1Color">#43A047</Color>
-    <Color x:Key="GreenDarken2Color">#388E3C</Color>
-    <Color x:Key="GreenDarken3Color">#2E7D32</Color>
-    <Color x:Key="GreenDarken4Color">#1B5E20</Color>
-    <Color x:Key="GreenAccent1Color">#B9F6CA</Color>
-    <Color x:Key="GreenAccent2Color">#69F0AE</Color>
-    <Color x:Key="GreenAccent3Color">#00E676</Color>
-    <Color x:Key="GreenAccent4Color">#00C853</Color>
+        <Color x:Key="GreenColor">#4CAF50</Color>
+        <Color x:Key="GreenLighten5Color">#E8F5E9</Color>
+        <Color x:Key="GreenLighten4Color">#C8E6C9</Color>
+        <Color x:Key="GreenLighten3Color">#A5D6A7</Color>
+        <Color x:Key="GreenLighten2Color">#81C784</Color>
+        <Color x:Key="GreenLighten1Color">#66BB6A</Color>
+        <Color x:Key="GreenDarken1Color">#43A047</Color>
+        <Color x:Key="GreenDarken2Color">#388E3C</Color>
+        <Color x:Key="GreenDarken3Color">#2E7D32</Color>
+        <Color x:Key="GreenDarken4Color">#1B5E20</Color>
+        <Color x:Key="GreenAccent1Color">#B9F6CA</Color>
+        <Color x:Key="GreenAccent2Color">#69F0AE</Color>
+        <Color x:Key="GreenAccent3Color">#00E676</Color>
+        <Color x:Key="GreenAccent4Color">#00C853</Color>
 
-    <Color x:Key="LightGreenColor">#8BC34A</Color>
-    <Color x:Key="LightGreenLighten5Color">#F1F8E9</Color>
-    <Color x:Key="LightGreenLighten4Color">#DCEDC8</Color>
-    <Color x:Key="LightGreenLighten3Color">#C5E1A5</Color>
-    <Color x:Key="LightGreenLighten2Color">#AED581</Color>
-    <Color x:Key="LightGreenLighten1Color">#9CCC65</Color>
-    <Color x:Key="LightGreenDarken1Color">#7CB342</Color>
-    <Color x:Key="LightGreenDarken2Color">#689F38</Color>
-    <Color x:Key="LightGreenDarken3Color">#558B2F</Color>
-    <Color x:Key="LightGreenDarken4Color">#33691E</Color>
-    <Color x:Key="LightGreenAccent1Color">#CCFF90</Color>
-    <Color x:Key="LightGreenAccent2Color">#B2FF59</Color>
-    <Color x:Key="LightGreenAccent3Color">#76FF03</Color>
-    <Color x:Key="LightGreenAccent4Color">#64DD17</Color>
+        <Color x:Key="LightGreenColor">#8BC34A</Color>
+        <Color x:Key="LightGreenLighten5Color">#F1F8E9</Color>
+        <Color x:Key="LightGreenLighten4Color">#DCEDC8</Color>
+        <Color x:Key="LightGreenLighten3Color">#C5E1A5</Color>
+        <Color x:Key="LightGreenLighten2Color">#AED581</Color>
+        <Color x:Key="LightGreenLighten1Color">#9CCC65</Color>
+        <Color x:Key="LightGreenDarken1Color">#7CB342</Color>
+        <Color x:Key="LightGreenDarken2Color">#689F38</Color>
+        <Color x:Key="LightGreenDarken3Color">#558B2F</Color>
+        <Color x:Key="LightGreenDarken4Color">#33691E</Color>
+        <Color x:Key="LightGreenAccent1Color">#CCFF90</Color>
+        <Color x:Key="LightGreenAccent2Color">#B2FF59</Color>
+        <Color x:Key="LightGreenAccent3Color">#76FF03</Color>
+        <Color x:Key="LightGreenAccent4Color">#64DD17</Color>
 
-    <Color x:Key="LimeColor">#CDDC39</Color>
-    <Color x:Key="LimeLighten5Color">#F9FBE7</Color>
-    <Color x:Key="LimeLighten4Color">#F0F4C3</Color>
-    <Color x:Key="LimeLighten3Color">#E6EE9C</Color>
-    <Color x:Key="LimeLighten2Color">#DCE775</Color>
-    <Color x:Key="LimeLighten1Color">#D4E157</Color>
-    <Color x:Key="LimeDarken1Color">#C0CA33</Color>
-    <Color x:Key="LimeDarken2Color">#AFB42B</Color>
-    <Color x:Key="LimeDarken3Color">#9E9D24</Color>
-    <Color x:Key="LimeDarken4Color">#827717</Color>
-    <Color x:Key="LimeAccent1Color">#F4FF81</Color>
-    <Color x:Key="LimeAccent2Color">#EEFF41</Color>
-    <Color x:Key="LimeAccent3Color">#C6FF00</Color>
-    <Color x:Key="LimeAccent4Color">#AEEA00</Color>
+        <Color x:Key="LimeColor">#CDDC39</Color>
+        <Color x:Key="LimeLighten5Color">#F9FBE7</Color>
+        <Color x:Key="LimeLighten4Color">#F0F4C3</Color>
+        <Color x:Key="LimeLighten3Color">#E6EE9C</Color>
+        <Color x:Key="LimeLighten2Color">#DCE775</Color>
+        <Color x:Key="LimeLighten1Color">#D4E157</Color>
+        <Color x:Key="LimeDarken1Color">#C0CA33</Color>
+        <Color x:Key="LimeDarken2Color">#AFB42B</Color>
+        <Color x:Key="LimeDarken3Color">#9E9D24</Color>
+        <Color x:Key="LimeDarken4Color">#827717</Color>
+        <Color x:Key="LimeAccent1Color">#F4FF81</Color>
+        <Color x:Key="LimeAccent2Color">#EEFF41</Color>
+        <Color x:Key="LimeAccent3Color">#C6FF00</Color>
+        <Color x:Key="LimeAccent4Color">#AEEA00</Color>
 
-    <Color x:Key="YellowColor">#FFEB3B</Color>
-    <Color x:Key="YellowLighten5Color">#FFFDE7</Color>
-    <Color x:Key="YellowLighten4Color">#FFF9C4</Color>
-    <Color x:Key="YellowLighten3Color">#FFF59D</Color>
-    <Color x:Key="YellowLighten2Color">#FFF176</Color>
-    <Color x:Key="YellowLighten1Color">#FFEE58</Color>
-    <Color x:Key="YellowDarken1Color">#FDD835</Color>
-    <Color x:Key="YellowDarken2Color">#FBC02D</Color>
-    <Color x:Key="YellowDarken3Color">#F9A825</Color>
-    <Color x:Key="YellowDarken4Color">#F57F17</Color>
-    <Color x:Key="YellowAccent1Color">#FFFF8D</Color>
-    <Color x:Key="YellowAccent2Color">#FFFF00</Color>
-    <Color x:Key="YellowAccent3Color">#FFEA00</Color>
-    <Color x:Key="YellowAccent4Color">#FFD600</Color>
+        <Color x:Key="YellowColor">#FFEB3B</Color>
+        <Color x:Key="YellowLighten5Color">#FFFDE7</Color>
+        <Color x:Key="YellowLighten4Color">#FFF9C4</Color>
+        <Color x:Key="YellowLighten3Color">#FFF59D</Color>
+        <Color x:Key="YellowLighten2Color">#FFF176</Color>
+        <Color x:Key="YellowLighten1Color">#FFEE58</Color>
+        <Color x:Key="YellowDarken1Color">#FDD835</Color>
+        <Color x:Key="YellowDarken2Color">#FBC02D</Color>
+        <Color x:Key="YellowDarken3Color">#F9A825</Color>
+        <Color x:Key="YellowDarken4Color">#F57F17</Color>
+        <Color x:Key="YellowAccent1Color">#FFFF8D</Color>
+        <Color x:Key="YellowAccent2Color">#FFFF00</Color>
+        <Color x:Key="YellowAccent3Color">#FFEA00</Color>
+        <Color x:Key="YellowAccent4Color">#FFD600</Color>
 
-    <Color x:Key="AmberColor">#FFC107</Color>
-    <Color x:Key="AmberLighten5Color">#FFF8E1</Color>
-    <Color x:Key="AmberLighten4Color">#FFECB3</Color>
-    <Color x:Key="AmberLighten3Color">#FFE082</Color>
-    <Color x:Key="AmberLighten2Color">#FFD54F</Color>
-    <Color x:Key="AmberLighten1Color">#FFCA28</Color>
-    <Color x:Key="AmberDarken1Color">#FFB300</Color>
-    <Color x:Key="AmberDarken2Color">#FFA000</Color>
-    <Color x:Key="AmberDarken3Color">#FF8F00</Color>
-    <Color x:Key="AmberDarken4Color">#FF6F00</Color>
-    <Color x:Key="AmberAccent1Color">#FFE57F</Color>
-    <Color x:Key="AmberAccent2Color">#FFD740</Color>
-    <Color x:Key="AmberAccent3Color">#FFC400</Color>
-    <Color x:Key="AmberAccent4Color">#FFAB00</Color>
+        <Color x:Key="AmberColor">#FFC107</Color>
+        <Color x:Key="AmberLighten5Color">#FFF8E1</Color>
+        <Color x:Key="AmberLighten4Color">#FFECB3</Color>
+        <Color x:Key="AmberLighten3Color">#FFE082</Color>
+        <Color x:Key="AmberLighten2Color">#FFD54F</Color>
+        <Color x:Key="AmberLighten1Color">#FFCA28</Color>
+        <Color x:Key="AmberDarken1Color">#FFB300</Color>
+        <Color x:Key="AmberDarken2Color">#FFA000</Color>
+        <Color x:Key="AmberDarken3Color">#FF8F00</Color>
+        <Color x:Key="AmberDarken4Color">#FF6F00</Color>
+        <Color x:Key="AmberAccent1Color">#FFE57F</Color>
+        <Color x:Key="AmberAccent2Color">#FFD740</Color>
+        <Color x:Key="AmberAccent3Color">#FFC400</Color>
+        <Color x:Key="AmberAccent4Color">#FFAB00</Color>
 
-    <Color x:Key="OrangeColor">#FF9800</Color>
-    <Color x:Key="OrangeLighten5Color">#FFF3E0</Color>
-    <Color x:Key="OrangeLighten4Color">#FFE0B2</Color>
-    <Color x:Key="OrangeLighten3Color">#FFCC80</Color>
-    <Color x:Key="OrangeLighten2Color">#FFB74D</Color>
-    <Color x:Key="OrangeLighten1Color">#FFA726</Color>
-    <Color x:Key="OrangeDarken1Color">#FB8C00</Color>
-    <Color x:Key="OrangeDarken2Color">#F57C00</Color>
-    <Color x:Key="OrangeDarken3Color">#EF6C00</Color>
-    <Color x:Key="OrangeDarken4Color">#E65100</Color>
-    <Color x:Key="OrangeAccent1Color">#FFD180</Color>
-    <Color x:Key="OrangeAccent2Color">#FFAB40</Color>
-    <Color x:Key="OrangeAccent3Color">#FF9100</Color>
-    <Color x:Key="OrangeAccent4Color">#FF6D00</Color>
+        <Color x:Key="OrangeColor">#FF9800</Color>
+        <Color x:Key="OrangeLighten5Color">#FFF3E0</Color>
+        <Color x:Key="OrangeLighten4Color">#FFE0B2</Color>
+        <Color x:Key="OrangeLighten3Color">#FFCC80</Color>
+        <Color x:Key="OrangeLighten2Color">#FFB74D</Color>
+        <Color x:Key="OrangeLighten1Color">#FFA726</Color>
+        <Color x:Key="OrangeDarken1Color">#FB8C00</Color>
+        <Color x:Key="OrangeDarken2Color">#F57C00</Color>
+        <Color x:Key="OrangeDarken3Color">#EF6C00</Color>
+        <Color x:Key="OrangeDarken4Color">#E65100</Color>
+        <Color x:Key="OrangeAccent1Color">#FFD180</Color>
+        <Color x:Key="OrangeAccent2Color">#FFAB40</Color>
+        <Color x:Key="OrangeAccent3Color">#FF9100</Color>
+        <Color x:Key="OrangeAccent4Color">#FF6D00</Color>
 
-    <Color x:Key="DeepOrangeColor">#FF5722</Color>
-    <Color x:Key="DeepOrangeLighten5Color">#FBE9E7</Color>
-    <Color x:Key="DeepOrangeLighten4Color">#FFCCBC</Color>
-    <Color x:Key="DeepOrangeLighten3Color">#FFAB91</Color>
-    <Color x:Key="DeepOrangeLighten2Color">#FF8A65</Color>
-    <Color x:Key="DeepOrangeLighten1Color">#FF7043</Color>
-    <Color x:Key="DeepOrangeDarken1Color">#F4511E</Color>
-    <Color x:Key="DeepOrangeDarken2Color">#E64A19</Color>
-    <Color x:Key="DeepOrangeDarken3Color">#D84315</Color>
-    <Color x:Key="DeepOrangeDarken4Color">#BF360C</Color>
-    <Color x:Key="DeepOrangeAccent1Color">#FF9E80</Color>
-    <Color x:Key="DeepOrangeAccent2Color">#FF6E40</Color>
-    <Color x:Key="DeepOrangeAccent3Color">#FF3D00</Color>
-    <Color x:Key="DeepOrangeAccent4Color">#DD2C00</Color>
+        <Color x:Key="DeepOrangeColor">#FF5722</Color>
+        <Color x:Key="DeepOrangeLighten5Color">#FBE9E7</Color>
+        <Color x:Key="DeepOrangeLighten4Color">#FFCCBC</Color>
+        <Color x:Key="DeepOrangeLighten3Color">#FFAB91</Color>
+        <Color x:Key="DeepOrangeLighten2Color">#FF8A65</Color>
+        <Color x:Key="DeepOrangeLighten1Color">#FF7043</Color>
+        <Color x:Key="DeepOrangeDarken1Color">#F4511E</Color>
+        <Color x:Key="DeepOrangeDarken2Color">#E64A19</Color>
+        <Color x:Key="DeepOrangeDarken3Color">#D84315</Color>
+        <Color x:Key="DeepOrangeDarken4Color">#BF360C</Color>
+        <Color x:Key="DeepOrangeAccent1Color">#FF9E80</Color>
+        <Color x:Key="DeepOrangeAccent2Color">#FF6E40</Color>
+        <Color x:Key="DeepOrangeAccent3Color">#FF3D00</Color>
+        <Color x:Key="DeepOrangeAccent4Color">#DD2C00</Color>
 
-    <Color x:Key="BrownColor">#795548</Color>
-    <Color x:Key="BrownLighten5Color">#EFEBE9</Color>
-    <Color x:Key="BrownLighten4Color">#D7CCC8</Color>
-    <Color x:Key="BrownLighten3Color">#BCAAA4</Color>
-    <Color x:Key="BrownLighten2Color">#A1887F</Color>
-    <Color x:Key="BrownLighten1Color">#8D6E63</Color>
-    <Color x:Key="BrownDarken1Color">#6D4C41</Color>
-    <Color x:Key="BrownDarken2Color">#5D4037</Color>
-    <Color x:Key="BrownDarken3Color">#4E342E</Color>
-    <Color x:Key="BrownDarken4Color">#3E2723</Color>
+        <Color x:Key="BrownColor">#795548</Color>
+        <Color x:Key="BrownLighten5Color">#EFEBE9</Color>
+        <Color x:Key="BrownLighten4Color">#D7CCC8</Color>
+        <Color x:Key="BrownLighten3Color">#BCAAA4</Color>
+        <Color x:Key="BrownLighten2Color">#A1887F</Color>
+        <Color x:Key="BrownLighten1Color">#8D6E63</Color>
+        <Color x:Key="BrownDarken1Color">#6D4C41</Color>
+        <Color x:Key="BrownDarken2Color">#5D4037</Color>
+        <Color x:Key="BrownDarken3Color">#4E342E</Color>
+        <Color x:Key="BrownDarken4Color">#3E2723</Color>
 
-    <Color x:Key="BlueGreyColor">#607D8B</Color>
-    <Color x:Key="BlueGreyLighten5Color">#ECEFF1</Color>
-    <Color x:Key="BlueGreyLighten4Color">#CFD8DC</Color>
-    <Color x:Key="BlueGreyLighten3Color">#B0BEC5</Color>
-    <Color x:Key="BlueGreyLighten2Color">#90A4AE</Color>
-    <Color x:Key="BlueGreyLighten1Color">#78909C</Color>
-    <Color x:Key="BlueGreyDarken1Color">#546E7A</Color>
-    <Color x:Key="BlueGreyDarken2Color">#455A64</Color>
-    <Color x:Key="BlueGreyDarken3Color">#37474F</Color>
-    <Color x:Key="BlueGreyDarken4Color">#263238</Color>
+        <Color x:Key="BlueGreyColor">#607D8B</Color>
+        <Color x:Key="BlueGreyLighten5Color">#ECEFF1</Color>
+        <Color x:Key="BlueGreyLighten4Color">#CFD8DC</Color>
+        <Color x:Key="BlueGreyLighten3Color">#B0BEC5</Color>
+        <Color x:Key="BlueGreyLighten2Color">#90A4AE</Color>
+        <Color x:Key="BlueGreyLighten1Color">#78909C</Color>
+        <Color x:Key="BlueGreyDarken1Color">#546E7A</Color>
+        <Color x:Key="BlueGreyDarken2Color">#455A64</Color>
+        <Color x:Key="BlueGreyDarken3Color">#37474F</Color>
+        <Color x:Key="BlueGreyDarken4Color">#263238</Color>
 
-    <Color x:Key="GreyColor">#9E9E9E</Color>
-    <Color x:Key="GreyLighten5Color">#FAFAFA</Color>
-    <Color x:Key="GreyLighten4Color">#F5F5F5</Color>
-    <Color x:Key="GreyLighten3Color">#EEEEEE</Color>
-    <Color x:Key="GreyLighten2Color">#E0E0E0</Color>
-    <Color x:Key="GreyLighten1Color">#BDBDBD</Color>
-    <Color x:Key="GreyDarken1Color">#757575</Color>
-    <Color x:Key="GreyDarken2Color">#616161</Color>
-    <Color x:Key="GreyDarken3Color">#424242</Color>
-    <Color x:Key="GreyDarken4Color">#212121</Color>
+        <Color x:Key="GreyColor">#9E9E9E</Color>
+        <Color x:Key="GreyLighten5Color">#FAFAFA</Color>
+        <Color x:Key="GreyLighten4Color">#F5F5F5</Color>
+        <Color x:Key="GreyLighten3Color">#EEEEEE</Color>
+        <Color x:Key="GreyLighten2Color">#E0E0E0</Color>
+        <Color x:Key="GreyLighten1Color">#BDBDBD</Color>
+        <Color x:Key="GreyDarken1Color">#757575</Color>
+        <Color x:Key="GreyDarken2Color">#616161</Color>
+        <Color x:Key="GreyDarken3Color">#424242</Color>
+        <Color x:Key="GreyDarken4Color">#212121</Color>
 
-    <Color x:Key="BlackColor">#000000</Color>
-    <Color x:Key="WhiteColor">#FFFFFF</Color>
+        <Color x:Key="BlackColor">#000000</Color>
+        <Color x:Key="WhiteColor">#FFFFFF</Color>
 
 
-    <SolidColorBrush x:Key="RedBrush" Color="{ DynamicResource RedColor}" />
-    <SolidColorBrush x:Key="RedLighten5Brush" Color="{ DynamicResource RedLighten5Color}" />
-    <SolidColorBrush x:Key="RedLighten4Brush" Color="{ DynamicResource RedLighten4Color}" />
-    <SolidColorBrush x:Key="RedLighten3Brush" Color="{ DynamicResource RedLighten3Color}" />
-    <SolidColorBrush x:Key="RedLighten2Brush" Color="{ DynamicResource RedLighten2Color}" />
-    <SolidColorBrush x:Key="RedLighten1Brush" Color="{ DynamicResource RedLighten1Color}" />
-    <SolidColorBrush x:Key="RedDarken1Brush" Color="{ DynamicResource RedDarken1Color}" />
-    <SolidColorBrush x:Key="RedDarken2Brush" Color="{ DynamicResource RedDarken2Color}" />
-    <SolidColorBrush x:Key="RedDarken3Brush" Color="{ DynamicResource RedDarken3Color}" />
-    <SolidColorBrush x:Key="RedDarken4Brush" Color="{ DynamicResource RedDarken4Color}" />
-    <SolidColorBrush x:Key="RedAccent1Brush" Color="{ DynamicResource RedAccent1Color}" />
-    <SolidColorBrush x:Key="RedAccent2Brush" Color="{ DynamicResource RedAccent2Color}" />
-    <SolidColorBrush x:Key="RedAccent3Brush" Color="{ DynamicResource RedAccent3Color}" />
-    <SolidColorBrush x:Key="RedAccent4Brush" Color="{ DynamicResource RedAccent4Color}" />
+        <SolidColorBrush x:Key="RedBrush" Color="{ DynamicResource RedColor}" />
+        <SolidColorBrush x:Key="RedLighten5Brush" Color="{ DynamicResource RedLighten5Color}" />
+        <SolidColorBrush x:Key="RedLighten4Brush" Color="{ DynamicResource RedLighten4Color}" />
+        <SolidColorBrush x:Key="RedLighten3Brush" Color="{ DynamicResource RedLighten3Color}" />
+        <SolidColorBrush x:Key="RedLighten2Brush" Color="{ DynamicResource RedLighten2Color}" />
+        <SolidColorBrush x:Key="RedLighten1Brush" Color="{ DynamicResource RedLighten1Color}" />
+        <SolidColorBrush x:Key="RedDarken1Brush" Color="{ DynamicResource RedDarken1Color}" />
+        <SolidColorBrush x:Key="RedDarken2Brush" Color="{ DynamicResource RedDarken2Color}" />
+        <SolidColorBrush x:Key="RedDarken3Brush" Color="{ DynamicResource RedDarken3Color}" />
+        <SolidColorBrush x:Key="RedDarken4Brush" Color="{ DynamicResource RedDarken4Color}" />
+        <SolidColorBrush x:Key="RedAccent1Brush" Color="{ DynamicResource RedAccent1Color}" />
+        <SolidColorBrush x:Key="RedAccent2Brush" Color="{ DynamicResource RedAccent2Color}" />
+        <SolidColorBrush x:Key="RedAccent3Brush" Color="{ DynamicResource RedAccent3Color}" />
+        <SolidColorBrush x:Key="RedAccent4Brush" Color="{ DynamicResource RedAccent4Color}" />
 
-    <SolidColorBrush x:Key="PinkBrush" Color="{ DynamicResource PinkColor}" />
-    <SolidColorBrush x:Key="PinkLighten5Brush" Color="{ DynamicResource PinkLighten5Color}" />
-    <SolidColorBrush x:Key="PinkLighten4Brush" Color="{ DynamicResource PinkLighten4Color}" />
-    <SolidColorBrush x:Key="PinkLighten3Brush" Color="{ DynamicResource PinkLighten3Color}" />
-    <SolidColorBrush x:Key="PinkLighten2Brush" Color="{ DynamicResource PinkLighten2Color}" />
-    <SolidColorBrush x:Key="PinkLighten1Brush" Color="{ DynamicResource PinkLighten1Color}" />
-    <SolidColorBrush x:Key="PinkDarken1Brush" Color="{ DynamicResource PinkDarken1Color}" />
-    <SolidColorBrush x:Key="PinkDarken2Brush" Color="{ DynamicResource PinkDarken2Color}" />
-    <SolidColorBrush x:Key="PinkDarken3Brush" Color="{ DynamicResource PinkDarken3Color}" />
-    <SolidColorBrush x:Key="PinkDarken4Brush" Color="{ DynamicResource PinkDarken4Color}" />
-    <SolidColorBrush x:Key="PinkAccent1Brush" Color="{ DynamicResource PinkAccent1Color}" />
-    <SolidColorBrush x:Key="PinkAccent2Brush" Color="{ DynamicResource PinkAccent2Color}" />
-    <SolidColorBrush x:Key="PinkAccent3Brush" Color="{ DynamicResource PinkAccent3Color}" />
-    <SolidColorBrush x:Key="PinkAccent4Brush" Color="{ DynamicResource PinkAccent4Color}" />
+        <SolidColorBrush x:Key="PinkBrush" Color="{ DynamicResource PinkColor}" />
+        <SolidColorBrush x:Key="PinkLighten5Brush" Color="{ DynamicResource PinkLighten5Color}" />
+        <SolidColorBrush x:Key="PinkLighten4Brush" Color="{ DynamicResource PinkLighten4Color}" />
+        <SolidColorBrush x:Key="PinkLighten3Brush" Color="{ DynamicResource PinkLighten3Color}" />
+        <SolidColorBrush x:Key="PinkLighten2Brush" Color="{ DynamicResource PinkLighten2Color}" />
+        <SolidColorBrush x:Key="PinkLighten1Brush" Color="{ DynamicResource PinkLighten1Color}" />
+        <SolidColorBrush x:Key="PinkDarken1Brush" Color="{ DynamicResource PinkDarken1Color}" />
+        <SolidColorBrush x:Key="PinkDarken2Brush" Color="{ DynamicResource PinkDarken2Color}" />
+        <SolidColorBrush x:Key="PinkDarken3Brush" Color="{ DynamicResource PinkDarken3Color}" />
+        <SolidColorBrush x:Key="PinkDarken4Brush" Color="{ DynamicResource PinkDarken4Color}" />
+        <SolidColorBrush x:Key="PinkAccent1Brush" Color="{ DynamicResource PinkAccent1Color}" />
+        <SolidColorBrush x:Key="PinkAccent2Brush" Color="{ DynamicResource PinkAccent2Color}" />
+        <SolidColorBrush x:Key="PinkAccent3Brush" Color="{ DynamicResource PinkAccent3Color}" />
+        <SolidColorBrush x:Key="PinkAccent4Brush" Color="{ DynamicResource PinkAccent4Color}" />
 
-    <SolidColorBrush x:Key="PurpleBrush" Color="{ DynamicResource PurpleColor}" />
-    <SolidColorBrush x:Key="PurpleLighten5Brush" Color="{ DynamicResource PurpleLighten5Color}" />
-    <SolidColorBrush x:Key="PurpleLighten4Brush" Color="{ DynamicResource PurpleLighten4Color}" />
-    <SolidColorBrush x:Key="PurpleLighten3Brush" Color="{ DynamicResource PurpleLighten3Color}" />
-    <SolidColorBrush x:Key="PurpleLighten2Brush" Color="{ DynamicResource PurpleLighten2Color}" />
-    <SolidColorBrush x:Key="PurpleLighten1Brush" Color="{ DynamicResource PurpleLighten1Color}" />
-    <SolidColorBrush x:Key="PurpleDarken1Brush" Color="{ DynamicResource PurpleDarken1Color}" />
-    <SolidColorBrush x:Key="PurpleDarken2Brush" Color="{ DynamicResource PurpleDarken2Color}" />
-    <SolidColorBrush x:Key="PurpleDarken3Brush" Color="{ DynamicResource PurpleDarken3Color}" />
-    <SolidColorBrush x:Key="PurpleDarken4Brush" Color="{ DynamicResource PurpleDarken4Color}" />
-    <SolidColorBrush x:Key="PurpleAccent1Brush" Color="{ DynamicResource PurpleAccent1Color}" />
-    <SolidColorBrush x:Key="PurpleAccent2Brush" Color="{ DynamicResource PurpleAccent2Color}" />
-    <SolidColorBrush x:Key="PurpleAccent3Brush" Color="{ DynamicResource PurpleAccent3Color}" />
-    <SolidColorBrush x:Key="PurpleAccent4Brush" Color="{ DynamicResource PurpleAccent4Color}" />
+        <SolidColorBrush x:Key="PurpleBrush" Color="{ DynamicResource PurpleColor}" />
+        <SolidColorBrush x:Key="PurpleLighten5Brush" Color="{ DynamicResource PurpleLighten5Color}" />
+        <SolidColorBrush x:Key="PurpleLighten4Brush" Color="{ DynamicResource PurpleLighten4Color}" />
+        <SolidColorBrush x:Key="PurpleLighten3Brush" Color="{ DynamicResource PurpleLighten3Color}" />
+        <SolidColorBrush x:Key="PurpleLighten2Brush" Color="{ DynamicResource PurpleLighten2Color}" />
+        <SolidColorBrush x:Key="PurpleLighten1Brush" Color="{ DynamicResource PurpleLighten1Color}" />
+        <SolidColorBrush x:Key="PurpleDarken1Brush" Color="{ DynamicResource PurpleDarken1Color}" />
+        <SolidColorBrush x:Key="PurpleDarken2Brush" Color="{ DynamicResource PurpleDarken2Color}" />
+        <SolidColorBrush x:Key="PurpleDarken3Brush" Color="{ DynamicResource PurpleDarken3Color}" />
+        <SolidColorBrush x:Key="PurpleDarken4Brush" Color="{ DynamicResource PurpleDarken4Color}" />
+        <SolidColorBrush x:Key="PurpleAccent1Brush" Color="{ DynamicResource PurpleAccent1Color}" />
+        <SolidColorBrush x:Key="PurpleAccent2Brush" Color="{ DynamicResource PurpleAccent2Color}" />
+        <SolidColorBrush x:Key="PurpleAccent3Brush" Color="{ DynamicResource PurpleAccent3Color}" />
+        <SolidColorBrush x:Key="PurpleAccent4Brush" Color="{ DynamicResource PurpleAccent4Color}" />
 
-    <SolidColorBrush x:Key="DeepPurpleBrush" Color="{ DynamicResource DeepPurpleColor}" />
-    <SolidColorBrush x:Key="DeepPurpleLighten5Brush" Color="{ DynamicResource DeepPurpleLighten5Color}" />
-    <SolidColorBrush x:Key="DeepPurpleLighten4Brush" Color="{ DynamicResource DeepPurpleLighten4Color}" />
-    <SolidColorBrush x:Key="DeepPurpleLighten3Brush" Color="{ DynamicResource DeepPurpleLighten3Color}" />
-    <SolidColorBrush x:Key="DeepPurpleLighten2Brush" Color="{ DynamicResource DeepPurpleLighten2Color}" />
-    <SolidColorBrush x:Key="DeepPurpleLighten1Brush" Color="{ DynamicResource DeepPurpleLighten1Color}" />
-    <SolidColorBrush x:Key="DeepPurpleDarken1Brush" Color="{ DynamicResource DeepPurpleDarken1Color}" />
-    <SolidColorBrush x:Key="DeepPurpleDarken2Brush" Color="{ DynamicResource DeepPurpleDarken2Color}" />
-    <SolidColorBrush x:Key="DeepPurpleDarken3Brush" Color="{ DynamicResource DeepPurpleDarken3Color}" />
-    <SolidColorBrush x:Key="DeepPurpleDarken4Brush" Color="{ DynamicResource DeepPurpleDarken4Color}" />
-    <SolidColorBrush x:Key="DeepPurpleAccent1Brush" Color="{ DynamicResource DeepPurpleAccent1Color}" />
-    <SolidColorBrush x:Key="DeepPurpleAccent2Brush" Color="{ DynamicResource DeepPurpleAccent2Color}" />
-    <SolidColorBrush x:Key="DeepPurpleAccent3Brush" Color="{ DynamicResource DeepPurpleAccent3Color}" />
-    <SolidColorBrush x:Key="DeepPurpleAccent4Brush" Color="{ DynamicResource DeepPurpleAccent4Color}" />
+        <SolidColorBrush x:Key="DeepPurpleBrush" Color="{ DynamicResource DeepPurpleColor}" />
+        <SolidColorBrush x:Key="DeepPurpleLighten5Brush" Color="{ DynamicResource DeepPurpleLighten5Color}" />
+        <SolidColorBrush x:Key="DeepPurpleLighten4Brush" Color="{ DynamicResource DeepPurpleLighten4Color}" />
+        <SolidColorBrush x:Key="DeepPurpleLighten3Brush" Color="{ DynamicResource DeepPurpleLighten3Color}" />
+        <SolidColorBrush x:Key="DeepPurpleLighten2Brush" Color="{ DynamicResource DeepPurpleLighten2Color}" />
+        <SolidColorBrush x:Key="DeepPurpleLighten1Brush" Color="{ DynamicResource DeepPurpleLighten1Color}" />
+        <SolidColorBrush x:Key="DeepPurpleDarken1Brush" Color="{ DynamicResource DeepPurpleDarken1Color}" />
+        <SolidColorBrush x:Key="DeepPurpleDarken2Brush" Color="{ DynamicResource DeepPurpleDarken2Color}" />
+        <SolidColorBrush x:Key="DeepPurpleDarken3Brush" Color="{ DynamicResource DeepPurpleDarken3Color}" />
+        <SolidColorBrush x:Key="DeepPurpleDarken4Brush" Color="{ DynamicResource DeepPurpleDarken4Color}" />
+        <SolidColorBrush x:Key="DeepPurpleAccent1Brush" Color="{ DynamicResource DeepPurpleAccent1Color}" />
+        <SolidColorBrush x:Key="DeepPurpleAccent2Brush" Color="{ DynamicResource DeepPurpleAccent2Color}" />
+        <SolidColorBrush x:Key="DeepPurpleAccent3Brush" Color="{ DynamicResource DeepPurpleAccent3Color}" />
+        <SolidColorBrush x:Key="DeepPurpleAccent4Brush" Color="{ DynamicResource DeepPurpleAccent4Color}" />
 
-    <SolidColorBrush x:Key="IndigoBrush" Color="{ DynamicResource IndigoColor}" />
-    <SolidColorBrush x:Key="IndigoLighten5Brush" Color="{ DynamicResource IndigoLighten5Color}" />
-    <SolidColorBrush x:Key="IndigoLighten4Brush" Color="{ DynamicResource IndigoLighten4Color}" />
-    <SolidColorBrush x:Key="IndigoLighten3Brush" Color="{ DynamicResource IndigoLighten3Color}" />
-    <SolidColorBrush x:Key="IndigoLighten2Brush" Color="{ DynamicResource IndigoLighten2Color}" />
-    <SolidColorBrush x:Key="IndigoLighten1Brush" Color="{ DynamicResource IndigoLighten1Color}" />
-    <SolidColorBrush x:Key="IndigoDarken1Brush" Color="{ DynamicResource IndigoDarken1Color}" />
-    <SolidColorBrush x:Key="IndigoDarken2Brush" Color="{ DynamicResource IndigoDarken2Color}" />
-    <SolidColorBrush x:Key="IndigoDarken3Brush" Color="{ DynamicResource IndigoDarken3Color}" />
-    <SolidColorBrush x:Key="IndigoDarken4Brush" Color="{ DynamicResource IndigoDarken4Color}" />
-    <SolidColorBrush x:Key="IndigoAccent1Brush" Color="{ DynamicResource IndigoAccent1Color}" />
-    <SolidColorBrush x:Key="IndigoAccent2Brush" Color="{ DynamicResource IndigoAccent2Color}" />
-    <SolidColorBrush x:Key="IndigoAccent3Brush" Color="{ DynamicResource IndigoAccent3Color}" />
-    <SolidColorBrush x:Key="IndigoAccent4Brush" Color="{ DynamicResource IndigoAccent4Color}" />
+        <SolidColorBrush x:Key="IndigoBrush" Color="{ DynamicResource IndigoColor}" />
+        <SolidColorBrush x:Key="IndigoLighten5Brush" Color="{ DynamicResource IndigoLighten5Color}" />
+        <SolidColorBrush x:Key="IndigoLighten4Brush" Color="{ DynamicResource IndigoLighten4Color}" />
+        <SolidColorBrush x:Key="IndigoLighten3Brush" Color="{ DynamicResource IndigoLighten3Color}" />
+        <SolidColorBrush x:Key="IndigoLighten2Brush" Color="{ DynamicResource IndigoLighten2Color}" />
+        <SolidColorBrush x:Key="IndigoLighten1Brush" Color="{ DynamicResource IndigoLighten1Color}" />
+        <SolidColorBrush x:Key="IndigoDarken1Brush" Color="{ DynamicResource IndigoDarken1Color}" />
+        <SolidColorBrush x:Key="IndigoDarken2Brush" Color="{ DynamicResource IndigoDarken2Color}" />
+        <SolidColorBrush x:Key="IndigoDarken3Brush" Color="{ DynamicResource IndigoDarken3Color}" />
+        <SolidColorBrush x:Key="IndigoDarken4Brush" Color="{ DynamicResource IndigoDarken4Color}" />
+        <SolidColorBrush x:Key="IndigoAccent1Brush" Color="{ DynamicResource IndigoAccent1Color}" />
+        <SolidColorBrush x:Key="IndigoAccent2Brush" Color="{ DynamicResource IndigoAccent2Color}" />
+        <SolidColorBrush x:Key="IndigoAccent3Brush" Color="{ DynamicResource IndigoAccent3Color}" />
+        <SolidColorBrush x:Key="IndigoAccent4Brush" Color="{ DynamicResource IndigoAccent4Color}" />
 
-    <SolidColorBrush x:Key="BlueBrush" Color="{ DynamicResource BlueColor}" />
-    <SolidColorBrush x:Key="BlueLighten5Brush" Color="{ DynamicResource BlueLighten5Color}" />
-    <SolidColorBrush x:Key="BlueLighten4Brush" Color="{ DynamicResource BlueLighten4Color}" />
-    <SolidColorBrush x:Key="BlueLighten3Brush" Color="{ DynamicResource BlueLighten3Color}" />
-    <SolidColorBrush x:Key="BlueLighten2Brush" Color="{ DynamicResource BlueLighten2Color}" />
-    <SolidColorBrush x:Key="BlueLighten1Brush" Color="{ DynamicResource BlueLighten1Color}" />
-    <SolidColorBrush x:Key="BlueDarken1Brush" Color="{ DynamicResource BlueDarken1Color}" />
-    <SolidColorBrush x:Key="BlueDarken2Brush" Color="{ DynamicResource BlueDarken2Color}" />
-    <SolidColorBrush x:Key="BlueDarken3Brush" Color="{ DynamicResource BlueDarken3Color}" />
-    <SolidColorBrush x:Key="BlueDarken4Brush" Color="{ DynamicResource BlueDarken4Color}" />
-    <SolidColorBrush x:Key="BlueAccent1Brush" Color="{ DynamicResource BlueAccent1Color}" />
-    <SolidColorBrush x:Key="BlueAccent2Brush" Color="{ DynamicResource BlueAccent2Color}" />
-    <SolidColorBrush x:Key="BlueAccent3Brush" Color="{ DynamicResource BlueAccent3Color}" />
-    <SolidColorBrush x:Key="BlueAccent4Brush" Color="{ DynamicResource BlueAccent4Color}" />
+        <SolidColorBrush x:Key="BlueBrush" Color="{ DynamicResource BlueColor}" />
+        <SolidColorBrush x:Key="BlueLighten5Brush" Color="{ DynamicResource BlueLighten5Color}" />
+        <SolidColorBrush x:Key="BlueLighten4Brush" Color="{ DynamicResource BlueLighten4Color}" />
+        <SolidColorBrush x:Key="BlueLighten3Brush" Color="{ DynamicResource BlueLighten3Color}" />
+        <SolidColorBrush x:Key="BlueLighten2Brush" Color="{ DynamicResource BlueLighten2Color}" />
+        <SolidColorBrush x:Key="BlueLighten1Brush" Color="{ DynamicResource BlueLighten1Color}" />
+        <SolidColorBrush x:Key="BlueDarken1Brush" Color="{ DynamicResource BlueDarken1Color}" />
+        <SolidColorBrush x:Key="BlueDarken2Brush" Color="{ DynamicResource BlueDarken2Color}" />
+        <SolidColorBrush x:Key="BlueDarken3Brush" Color="{ DynamicResource BlueDarken3Color}" />
+        <SolidColorBrush x:Key="BlueDarken4Brush" Color="{ DynamicResource BlueDarken4Color}" />
+        <SolidColorBrush x:Key="BlueAccent1Brush" Color="{ DynamicResource BlueAccent1Color}" />
+        <SolidColorBrush x:Key="BlueAccent2Brush" Color="{ DynamicResource BlueAccent2Color}" />
+        <SolidColorBrush x:Key="BlueAccent3Brush" Color="{ DynamicResource BlueAccent3Color}" />
+        <SolidColorBrush x:Key="BlueAccent4Brush" Color="{ DynamicResource BlueAccent4Color}" />
 
-    <SolidColorBrush x:Key="LightBlueBrush" Color="{ DynamicResource LightBlueColor}" />
-    <SolidColorBrush x:Key="LightBlueLighten5Brush" Color="{ DynamicResource LightBlueLighten5Color}" />
-    <SolidColorBrush x:Key="LightBlueLighten4Brush" Color="{ DynamicResource LightBlueLighten4Color}" />
-    <SolidColorBrush x:Key="LightBlueLighten3Brush" Color="{ DynamicResource LightBlueLighten3Color}" />
-    <SolidColorBrush x:Key="LightBlueLighten2Brush" Color="{ DynamicResource LightBlueLighten2Color}" />
-    <SolidColorBrush x:Key="LightBlueLighten1Brush" Color="{ DynamicResource LightBlueLighten1Color}" />
-    <SolidColorBrush x:Key="LightBlueDarken1Brush" Color="{ DynamicResource LightBlueDarken1Color}" />
-    <SolidColorBrush x:Key="LightBlueDarken2Brush" Color="{ DynamicResource LightBlueDarken2Color}" />
-    <SolidColorBrush x:Key="LightBlueDarken3Brush" Color="{ DynamicResource LightBlueDarken3Color}" />
-    <SolidColorBrush x:Key="LightBlueDarken4Brush" Color="{ DynamicResource LightBlueDarken4Color}" />
-    <SolidColorBrush x:Key="LightBlueAccent1Brush" Color="{ DynamicResource LightBlueAccent1Color}" />
-    <SolidColorBrush x:Key="LightBlueAccent2Brush" Color="{ DynamicResource LightBlueAccent2Color}" />
-    <SolidColorBrush x:Key="LightBlueAccent3Brush" Color="{ DynamicResource LightBlueAccent3Color}" />
-    <SolidColorBrush x:Key="LightBlueAccent4Brush" Color="{ DynamicResource LightBlueAccent4Color}" />
+        <SolidColorBrush x:Key="LightBlueBrush" Color="{ DynamicResource LightBlueColor}" />
+        <SolidColorBrush x:Key="LightBlueLighten5Brush" Color="{ DynamicResource LightBlueLighten5Color}" />
+        <SolidColorBrush x:Key="LightBlueLighten4Brush" Color="{ DynamicResource LightBlueLighten4Color}" />
+        <SolidColorBrush x:Key="LightBlueLighten3Brush" Color="{ DynamicResource LightBlueLighten3Color}" />
+        <SolidColorBrush x:Key="LightBlueLighten2Brush" Color="{ DynamicResource LightBlueLighten2Color}" />
+        <SolidColorBrush x:Key="LightBlueLighten1Brush" Color="{ DynamicResource LightBlueLighten1Color}" />
+        <SolidColorBrush x:Key="LightBlueDarken1Brush" Color="{ DynamicResource LightBlueDarken1Color}" />
+        <SolidColorBrush x:Key="LightBlueDarken2Brush" Color="{ DynamicResource LightBlueDarken2Color}" />
+        <SolidColorBrush x:Key="LightBlueDarken3Brush" Color="{ DynamicResource LightBlueDarken3Color}" />
+        <SolidColorBrush x:Key="LightBlueDarken4Brush" Color="{ DynamicResource LightBlueDarken4Color}" />
+        <SolidColorBrush x:Key="LightBlueAccent1Brush" Color="{ DynamicResource LightBlueAccent1Color}" />
+        <SolidColorBrush x:Key="LightBlueAccent2Brush" Color="{ DynamicResource LightBlueAccent2Color}" />
+        <SolidColorBrush x:Key="LightBlueAccent3Brush" Color="{ DynamicResource LightBlueAccent3Color}" />
+        <SolidColorBrush x:Key="LightBlueAccent4Brush" Color="{ DynamicResource LightBlueAccent4Color}" />
 
-    <SolidColorBrush x:Key="CyanBrush" Color="{ DynamicResource CyanColor}" />
-    <SolidColorBrush x:Key="CyanLighten5Brush" Color="{ DynamicResource CyanLighten5Color}" />
-    <SolidColorBrush x:Key="CyanLighten4Brush" Color="{ DynamicResource CyanLighten4Color}" />
-    <SolidColorBrush x:Key="CyanLighten3Brush" Color="{ DynamicResource CyanLighten3Color}" />
-    <SolidColorBrush x:Key="CyanLighten2Brush" Color="{ DynamicResource CyanLighten2Color}" />
-    <SolidColorBrush x:Key="CyanLighten1Brush" Color="{ DynamicResource CyanLighten1Color}" />
-    <SolidColorBrush x:Key="CyanDarken1Brush" Color="{ DynamicResource CyanDarken1Color}" />
-    <SolidColorBrush x:Key="CyanDarken2Brush" Color="{ DynamicResource CyanDarken2Color}" />
-    <SolidColorBrush x:Key="CyanDarken3Brush" Color="{ DynamicResource CyanDarken3Color}" />
-    <SolidColorBrush x:Key="CyanDarken4Brush" Color="{ DynamicResource CyanDarken4Color}" />
-    <SolidColorBrush x:Key="CyanAccent1Brush" Color="{ DynamicResource CyanAccent1Color}" />
-    <SolidColorBrush x:Key="CyanAccent2Brush" Color="{ DynamicResource CyanAccent2Color}" />
-    <SolidColorBrush x:Key="CyanAccent3Brush" Color="{ DynamicResource CyanAccent3Color}" />
-    <SolidColorBrush x:Key="CyanAccent4Brush" Color="{ DynamicResource CyanAccent4Color}" />
+        <SolidColorBrush x:Key="CyanBrush" Color="{ DynamicResource CyanColor}" />
+        <SolidColorBrush x:Key="CyanLighten5Brush" Color="{ DynamicResource CyanLighten5Color}" />
+        <SolidColorBrush x:Key="CyanLighten4Brush" Color="{ DynamicResource CyanLighten4Color}" />
+        <SolidColorBrush x:Key="CyanLighten3Brush" Color="{ DynamicResource CyanLighten3Color}" />
+        <SolidColorBrush x:Key="CyanLighten2Brush" Color="{ DynamicResource CyanLighten2Color}" />
+        <SolidColorBrush x:Key="CyanLighten1Brush" Color="{ DynamicResource CyanLighten1Color}" />
+        <SolidColorBrush x:Key="CyanDarken1Brush" Color="{ DynamicResource CyanDarken1Color}" />
+        <SolidColorBrush x:Key="CyanDarken2Brush" Color="{ DynamicResource CyanDarken2Color}" />
+        <SolidColorBrush x:Key="CyanDarken3Brush" Color="{ DynamicResource CyanDarken3Color}" />
+        <SolidColorBrush x:Key="CyanDarken4Brush" Color="{ DynamicResource CyanDarken4Color}" />
+        <SolidColorBrush x:Key="CyanAccent1Brush" Color="{ DynamicResource CyanAccent1Color}" />
+        <SolidColorBrush x:Key="CyanAccent2Brush" Color="{ DynamicResource CyanAccent2Color}" />
+        <SolidColorBrush x:Key="CyanAccent3Brush" Color="{ DynamicResource CyanAccent3Color}" />
+        <SolidColorBrush x:Key="CyanAccent4Brush" Color="{ DynamicResource CyanAccent4Color}" />
 
-    <SolidColorBrush x:Key="TealBrush" Color="{ DynamicResource TealColor}" />
-    <SolidColorBrush x:Key="TealLighten5Brush" Color="{ DynamicResource TealLighten5Color}" />
-    <SolidColorBrush x:Key="TealLighten4Brush" Color="{ DynamicResource TealLighten4Color}" />
-    <SolidColorBrush x:Key="TealLighten3Brush" Color="{ DynamicResource TealLighten3Color}" />
-    <SolidColorBrush x:Key="TealLighten2Brush" Color="{ DynamicResource TealLighten2Color}" />
-    <SolidColorBrush x:Key="TealLighten1Brush" Color="{ DynamicResource TealLighten1Color}" />
-    <SolidColorBrush x:Key="TealDarken1Brush" Color="{ DynamicResource TealDarken1Color}" />
-    <SolidColorBrush x:Key="TealDarken2Brush" Color="{ DynamicResource TealDarken2Color}" />
-    <SolidColorBrush x:Key="TealDarken3Brush" Color="{ DynamicResource TealDarken3Color}" />
-    <SolidColorBrush x:Key="TealDarken4Brush" Color="{ DynamicResource TealDarken4Color}" />
-    <SolidColorBrush x:Key="TealAccent1Brush" Color="{ DynamicResource TealAccent1Color}" />
-    <SolidColorBrush x:Key="TealAccent2Brush" Color="{ DynamicResource TealAccent2Color}" />
-    <SolidColorBrush x:Key="TealAccent3Brush" Color="{ DynamicResource TealAccent3Color}" />
-    <SolidColorBrush x:Key="TealAccent4Brush" Color="{ DynamicResource TealAccent4Color}" />
+        <SolidColorBrush x:Key="TealBrush" Color="{ DynamicResource TealColor}" />
+        <SolidColorBrush x:Key="TealLighten5Brush" Color="{ DynamicResource TealLighten5Color}" />
+        <SolidColorBrush x:Key="TealLighten4Brush" Color="{ DynamicResource TealLighten4Color}" />
+        <SolidColorBrush x:Key="TealLighten3Brush" Color="{ DynamicResource TealLighten3Color}" />
+        <SolidColorBrush x:Key="TealLighten2Brush" Color="{ DynamicResource TealLighten2Color}" />
+        <SolidColorBrush x:Key="TealLighten1Brush" Color="{ DynamicResource TealLighten1Color}" />
+        <SolidColorBrush x:Key="TealDarken1Brush" Color="{ DynamicResource TealDarken1Color}" />
+        <SolidColorBrush x:Key="TealDarken2Brush" Color="{ DynamicResource TealDarken2Color}" />
+        <SolidColorBrush x:Key="TealDarken3Brush" Color="{ DynamicResource TealDarken3Color}" />
+        <SolidColorBrush x:Key="TealDarken4Brush" Color="{ DynamicResource TealDarken4Color}" />
+        <SolidColorBrush x:Key="TealAccent1Brush" Color="{ DynamicResource TealAccent1Color}" />
+        <SolidColorBrush x:Key="TealAccent2Brush" Color="{ DynamicResource TealAccent2Color}" />
+        <SolidColorBrush x:Key="TealAccent3Brush" Color="{ DynamicResource TealAccent3Color}" />
+        <SolidColorBrush x:Key="TealAccent4Brush" Color="{ DynamicResource TealAccent4Color}" />
 
-    <SolidColorBrush x:Key="GreenBrush" Color="{ DynamicResource GreenColor}" />
-    <SolidColorBrush x:Key="GreenLighten5Brush" Color="{ DynamicResource GreenLighten5Color}" />
-    <SolidColorBrush x:Key="GreenLighten4Brush" Color="{ DynamicResource GreenLighten4Color}" />
-    <SolidColorBrush x:Key="GreenLighten3Brush" Color="{ DynamicResource GreenLighten3Color}" />
-    <SolidColorBrush x:Key="GreenLighten2Brush" Color="{ DynamicResource GreenLighten2Color}" />
-    <SolidColorBrush x:Key="GreenLighten1Brush" Color="{ DynamicResource GreenLighten1Color}" />
-    <SolidColorBrush x:Key="GreenDarken1Brush" Color="{ DynamicResource GreenDarken1Color}" />
-    <SolidColorBrush x:Key="GreenDarken2Brush" Color="{ DynamicResource GreenDarken2Color}" />
-    <SolidColorBrush x:Key="GreenDarken3Brush" Color="{ DynamicResource GreenDarken3Color}" />
-    <SolidColorBrush x:Key="GreenDarken4Brush" Color="{ DynamicResource GreenDarken4Color}" />
-    <SolidColorBrush x:Key="GreenAccent1Brush" Color="{ DynamicResource GreenAccent1Color}" />
-    <SolidColorBrush x:Key="GreenAccent2Brush" Color="{ DynamicResource GreenAccent2Color}" />
-    <SolidColorBrush x:Key="GreenAccent3Brush" Color="{ DynamicResource GreenAccent3Color}" />
-    <SolidColorBrush x:Key="GreenAccent4Brush" Color="{ DynamicResource GreenAccent4Color}" />
+        <SolidColorBrush x:Key="GreenBrush" Color="{ DynamicResource GreenColor}" />
+        <SolidColorBrush x:Key="GreenLighten5Brush" Color="{ DynamicResource GreenLighten5Color}" />
+        <SolidColorBrush x:Key="GreenLighten4Brush" Color="{ DynamicResource GreenLighten4Color}" />
+        <SolidColorBrush x:Key="GreenLighten3Brush" Color="{ DynamicResource GreenLighten3Color}" />
+        <SolidColorBrush x:Key="GreenLighten2Brush" Color="{ DynamicResource GreenLighten2Color}" />
+        <SolidColorBrush x:Key="GreenLighten1Brush" Color="{ DynamicResource GreenLighten1Color}" />
+        <SolidColorBrush x:Key="GreenDarken1Brush" Color="{ DynamicResource GreenDarken1Color}" />
+        <SolidColorBrush x:Key="GreenDarken2Brush" Color="{ DynamicResource GreenDarken2Color}" />
+        <SolidColorBrush x:Key="GreenDarken3Brush" Color="{ DynamicResource GreenDarken3Color}" />
+        <SolidColorBrush x:Key="GreenDarken4Brush" Color="{ DynamicResource GreenDarken4Color}" />
+        <SolidColorBrush x:Key="GreenAccent1Brush" Color="{ DynamicResource GreenAccent1Color}" />
+        <SolidColorBrush x:Key="GreenAccent2Brush" Color="{ DynamicResource GreenAccent2Color}" />
+        <SolidColorBrush x:Key="GreenAccent3Brush" Color="{ DynamicResource GreenAccent3Color}" />
+        <SolidColorBrush x:Key="GreenAccent4Brush" Color="{ DynamicResource GreenAccent4Color}" />
 
-    <SolidColorBrush x:Key="LightGreenBrush" Color="{ DynamicResource LightGreenColor}" />
-    <SolidColorBrush x:Key="LightGreenLighten5Brush" Color="{ DynamicResource LightGreenLighten5Color}" />
-    <SolidColorBrush x:Key="LightGreenLighten4Brush" Color="{ DynamicResource LightGreenLighten4Color}" />
-    <SolidColorBrush x:Key="LightGreenLighten3Brush" Color="{ DynamicResource LightGreenLighten3Color}" />
-    <SolidColorBrush x:Key="LightGreenLighten2Brush" Color="{ DynamicResource LightGreenLighten2Color}" />
-    <SolidColorBrush x:Key="LightGreenLighten1Brush" Color="{ DynamicResource LightGreenLighten1Color}" />
-    <SolidColorBrush x:Key="LightGreenDarken1Brush" Color="{ DynamicResource LightGreenDarken1Color}" />
-    <SolidColorBrush x:Key="LightGreenDarken2Brush" Color="{ DynamicResource LightGreenDarken2Color}" />
-    <SolidColorBrush x:Key="LightGreenDarken3Brush" Color="{ DynamicResource LightGreenDarken3Color}" />
-    <SolidColorBrush x:Key="LightGreenDarken4Brush" Color="{ DynamicResource LightGreenDarken4Color}" />
-    <SolidColorBrush x:Key="LightGreenAccent1Brush" Color="{ DynamicResource LightGreenAccent1Color}" />
-    <SolidColorBrush x:Key="LightGreenAccent2Brush" Color="{ DynamicResource LightGreenAccent2Color}" />
-    <SolidColorBrush x:Key="LightGreenAccent3Brush" Color="{ DynamicResource LightGreenAccent3Color}" />
-    <SolidColorBrush x:Key="LightGreenAccent4Brush" Color="{ DynamicResource LightGreenAccent4Color}" />
+        <SolidColorBrush x:Key="LightGreenBrush" Color="{ DynamicResource LightGreenColor}" />
+        <SolidColorBrush x:Key="LightGreenLighten5Brush" Color="{ DynamicResource LightGreenLighten5Color}" />
+        <SolidColorBrush x:Key="LightGreenLighten4Brush" Color="{ DynamicResource LightGreenLighten4Color}" />
+        <SolidColorBrush x:Key="LightGreenLighten3Brush" Color="{ DynamicResource LightGreenLighten3Color}" />
+        <SolidColorBrush x:Key="LightGreenLighten2Brush" Color="{ DynamicResource LightGreenLighten2Color}" />
+        <SolidColorBrush x:Key="LightGreenLighten1Brush" Color="{ DynamicResource LightGreenLighten1Color}" />
+        <SolidColorBrush x:Key="LightGreenDarken1Brush" Color="{ DynamicResource LightGreenDarken1Color}" />
+        <SolidColorBrush x:Key="LightGreenDarken2Brush" Color="{ DynamicResource LightGreenDarken2Color}" />
+        <SolidColorBrush x:Key="LightGreenDarken3Brush" Color="{ DynamicResource LightGreenDarken3Color}" />
+        <SolidColorBrush x:Key="LightGreenDarken4Brush" Color="{ DynamicResource LightGreenDarken4Color}" />
+        <SolidColorBrush x:Key="LightGreenAccent1Brush" Color="{ DynamicResource LightGreenAccent1Color}" />
+        <SolidColorBrush x:Key="LightGreenAccent2Brush" Color="{ DynamicResource LightGreenAccent2Color}" />
+        <SolidColorBrush x:Key="LightGreenAccent3Brush" Color="{ DynamicResource LightGreenAccent3Color}" />
+        <SolidColorBrush x:Key="LightGreenAccent4Brush" Color="{ DynamicResource LightGreenAccent4Color}" />
 
-    <SolidColorBrush x:Key="LimeBrush" Color="{ DynamicResource LimeColor}" />
-    <SolidColorBrush x:Key="LimeLighten5Brush" Color="{ DynamicResource LimeLighten5Color}" />
-    <SolidColorBrush x:Key="LimeLighten4Brush" Color="{ DynamicResource LimeLighten4Color}" />
-    <SolidColorBrush x:Key="LimeLighten3Brush" Color="{ DynamicResource LimeLighten3Color}" />
-    <SolidColorBrush x:Key="LimeLighten2Brush" Color="{ DynamicResource LimeLighten2Color}" />
-    <SolidColorBrush x:Key="LimeLighten1Brush" Color="{ DynamicResource LimeLighten1Color}" />
-    <SolidColorBrush x:Key="LimeDarken1Brush" Color="{ DynamicResource LimeDarken1Color}" />
-    <SolidColorBrush x:Key="LimeDarken2Brush" Color="{ DynamicResource LimeDarken2Color}" />
-    <SolidColorBrush x:Key="LimeDarken3Brush" Color="{ DynamicResource LimeDarken3Color}" />
-    <SolidColorBrush x:Key="LimeDarken4Brush" Color="{ DynamicResource LimeDarken4Color}" />
-    <SolidColorBrush x:Key="LimeAccent1Brush" Color="{ DynamicResource LimeAccent1Color}" />
-    <SolidColorBrush x:Key="LimeAccent2Brush" Color="{ DynamicResource LimeAccent2Color}" />
-    <SolidColorBrush x:Key="LimeAccent3Brush" Color="{ DynamicResource LimeAccent3Color}" />
-    <SolidColorBrush x:Key="LimeAccent4Brush" Color="{ DynamicResource LimeAccent4Color}" />
+        <SolidColorBrush x:Key="LimeBrush" Color="{ DynamicResource LimeColor}" />
+        <SolidColorBrush x:Key="LimeLighten5Brush" Color="{ DynamicResource LimeLighten5Color}" />
+        <SolidColorBrush x:Key="LimeLighten4Brush" Color="{ DynamicResource LimeLighten4Color}" />
+        <SolidColorBrush x:Key="LimeLighten3Brush" Color="{ DynamicResource LimeLighten3Color}" />
+        <SolidColorBrush x:Key="LimeLighten2Brush" Color="{ DynamicResource LimeLighten2Color}" />
+        <SolidColorBrush x:Key="LimeLighten1Brush" Color="{ DynamicResource LimeLighten1Color}" />
+        <SolidColorBrush x:Key="LimeDarken1Brush" Color="{ DynamicResource LimeDarken1Color}" />
+        <SolidColorBrush x:Key="LimeDarken2Brush" Color="{ DynamicResource LimeDarken2Color}" />
+        <SolidColorBrush x:Key="LimeDarken3Brush" Color="{ DynamicResource LimeDarken3Color}" />
+        <SolidColorBrush x:Key="LimeDarken4Brush" Color="{ DynamicResource LimeDarken4Color}" />
+        <SolidColorBrush x:Key="LimeAccent1Brush" Color="{ DynamicResource LimeAccent1Color}" />
+        <SolidColorBrush x:Key="LimeAccent2Brush" Color="{ DynamicResource LimeAccent2Color}" />
+        <SolidColorBrush x:Key="LimeAccent3Brush" Color="{ DynamicResource LimeAccent3Color}" />
+        <SolidColorBrush x:Key="LimeAccent4Brush" Color="{ DynamicResource LimeAccent4Color}" />
 
-    <SolidColorBrush x:Key="YellowBrush" Color="{ DynamicResource YellowColor}" />
-    <SolidColorBrush x:Key="YellowLighten5Brush" Color="{ DynamicResource YellowLighten5Color}" />
-    <SolidColorBrush x:Key="YellowLighten4Brush" Color="{ DynamicResource YellowLighten4Color}" />
-    <SolidColorBrush x:Key="YellowLighten3Brush" Color="{ DynamicResource YellowLighten3Color}" />
-    <SolidColorBrush x:Key="YellowLighten2Brush" Color="{ DynamicResource YellowLighten2Color}" />
-    <SolidColorBrush x:Key="YellowLighten1Brush" Color="{ DynamicResource YellowLighten1Color}" />
-    <SolidColorBrush x:Key="YellowDarken1Brush" Color="{ DynamicResource YellowDarken1Color}" />
-    <SolidColorBrush x:Key="YellowDarken2Brush" Color="{ DynamicResource YellowDarken2Color}" />
-    <SolidColorBrush x:Key="YellowDarken3Brush" Color="{ DynamicResource YellowDarken3Color}" />
-    <SolidColorBrush x:Key="YellowDarken4Brush" Color="{ DynamicResource YellowDarken4Color}" />
-    <SolidColorBrush x:Key="YellowAccent1Brush" Color="{ DynamicResource YellowAccent1Color}" />
-    <SolidColorBrush x:Key="YellowAccent2Brush" Color="{ DynamicResource YellowAccent2Color}" />
-    <SolidColorBrush x:Key="YellowAccent3Brush" Color="{ DynamicResource YellowAccent3Color}" />
-    <SolidColorBrush x:Key="YellowAccent4Brush" Color="{ DynamicResource YellowAccent4Color}" />
+        <SolidColorBrush x:Key="YellowBrush" Color="{ DynamicResource YellowColor}" />
+        <SolidColorBrush x:Key="YellowLighten5Brush" Color="{ DynamicResource YellowLighten5Color}" />
+        <SolidColorBrush x:Key="YellowLighten4Brush" Color="{ DynamicResource YellowLighten4Color}" />
+        <SolidColorBrush x:Key="YellowLighten3Brush" Color="{ DynamicResource YellowLighten3Color}" />
+        <SolidColorBrush x:Key="YellowLighten2Brush" Color="{ DynamicResource YellowLighten2Color}" />
+        <SolidColorBrush x:Key="YellowLighten1Brush" Color="{ DynamicResource YellowLighten1Color}" />
+        <SolidColorBrush x:Key="YellowDarken1Brush" Color="{ DynamicResource YellowDarken1Color}" />
+        <SolidColorBrush x:Key="YellowDarken2Brush" Color="{ DynamicResource YellowDarken2Color}" />
+        <SolidColorBrush x:Key="YellowDarken3Brush" Color="{ DynamicResource YellowDarken3Color}" />
+        <SolidColorBrush x:Key="YellowDarken4Brush" Color="{ DynamicResource YellowDarken4Color}" />
+        <SolidColorBrush x:Key="YellowAccent1Brush" Color="{ DynamicResource YellowAccent1Color}" />
+        <SolidColorBrush x:Key="YellowAccent2Brush" Color="{ DynamicResource YellowAccent2Color}" />
+        <SolidColorBrush x:Key="YellowAccent3Brush" Color="{ DynamicResource YellowAccent3Color}" />
+        <SolidColorBrush x:Key="YellowAccent4Brush" Color="{ DynamicResource YellowAccent4Color}" />
 
-    <SolidColorBrush x:Key="AmberBrush" Color="{ DynamicResource AmberColor}" />
-    <SolidColorBrush x:Key="AmberLighten5Brush" Color="{ DynamicResource AmberLighten5Color}" />
-    <SolidColorBrush x:Key="AmberLighten4Brush" Color="{ DynamicResource AmberLighten4Color}" />
-    <SolidColorBrush x:Key="AmberLighten3Brush" Color="{ DynamicResource AmberLighten3Color}" />
-    <SolidColorBrush x:Key="AmberLighten2Brush" Color="{ DynamicResource AmberLighten2Color}" />
-    <SolidColorBrush x:Key="AmberLighten1Brush" Color="{ DynamicResource AmberLighten1Color}" />
-    <SolidColorBrush x:Key="AmberDarken1Brush" Color="{ DynamicResource AmberDarken1Color}" />
-    <SolidColorBrush x:Key="AmberDarken2Brush" Color="{ DynamicResource AmberDarken2Color}" />
-    <SolidColorBrush x:Key="AmberDarken3Brush" Color="{ DynamicResource AmberDarken3Color}" />
-    <SolidColorBrush x:Key="AmberDarken4Brush" Color="{ DynamicResource AmberDarken4Color}" />
-    <SolidColorBrush x:Key="AmberAccent1Brush" Color="{ DynamicResource AmberAccent1Color}" />
-    <SolidColorBrush x:Key="AmberAccent2Brush" Color="{ DynamicResource AmberAccent2Color}" />
-    <SolidColorBrush x:Key="AmberAccent3Brush" Color="{ DynamicResource AmberAccent3Color}" />
-    <SolidColorBrush x:Key="AmberAccent4Brush" Color="{ DynamicResource AmberAccent4Color}" />
+        <SolidColorBrush x:Key="AmberBrush" Color="{ DynamicResource AmberColor}" />
+        <SolidColorBrush x:Key="AmberLighten5Brush" Color="{ DynamicResource AmberLighten5Color}" />
+        <SolidColorBrush x:Key="AmberLighten4Brush" Color="{ DynamicResource AmberLighten4Color}" />
+        <SolidColorBrush x:Key="AmberLighten3Brush" Color="{ DynamicResource AmberLighten3Color}" />
+        <SolidColorBrush x:Key="AmberLighten2Brush" Color="{ DynamicResource AmberLighten2Color}" />
+        <SolidColorBrush x:Key="AmberLighten1Brush" Color="{ DynamicResource AmberLighten1Color}" />
+        <SolidColorBrush x:Key="AmberDarken1Brush" Color="{ DynamicResource AmberDarken1Color}" />
+        <SolidColorBrush x:Key="AmberDarken2Brush" Color="{ DynamicResource AmberDarken2Color}" />
+        <SolidColorBrush x:Key="AmberDarken3Brush" Color="{ DynamicResource AmberDarken3Color}" />
+        <SolidColorBrush x:Key="AmberDarken4Brush" Color="{ DynamicResource AmberDarken4Color}" />
+        <SolidColorBrush x:Key="AmberAccent1Brush" Color="{ DynamicResource AmberAccent1Color}" />
+        <SolidColorBrush x:Key="AmberAccent2Brush" Color="{ DynamicResource AmberAccent2Color}" />
+        <SolidColorBrush x:Key="AmberAccent3Brush" Color="{ DynamicResource AmberAccent3Color}" />
+        <SolidColorBrush x:Key="AmberAccent4Brush" Color="{ DynamicResource AmberAccent4Color}" />
 
-    <SolidColorBrush x:Key="OrangeBrush" Color="{ DynamicResource OrangeColor}" />
-    <SolidColorBrush x:Key="OrangeLighten5Brush" Color="{ DynamicResource OrangeLighten5Color}" />
-    <SolidColorBrush x:Key="OrangeLighten4Brush" Color="{ DynamicResource OrangeLighten4Color}" />
-    <SolidColorBrush x:Key="OrangeLighten3Brush" Color="{ DynamicResource OrangeLighten3Color}" />
-    <SolidColorBrush x:Key="OrangeLighten2Brush" Color="{ DynamicResource OrangeLighten2Color}" />
-    <SolidColorBrush x:Key="OrangeLighten1Brush" Color="{ DynamicResource OrangeLighten1Color}" />
-    <SolidColorBrush x:Key="OrangeDarken1Brush" Color="{ DynamicResource OrangeDarken1Color}" />
-    <SolidColorBrush x:Key="OrangeDarken2Brush" Color="{ DynamicResource OrangeDarken2Color}" />
-    <SolidColorBrush x:Key="OrangeDarken3Brush" Color="{ DynamicResource OrangeDarken3Color}" />
-    <SolidColorBrush x:Key="OrangeDarken4Brush" Color="{ DynamicResource OrangeDarken4Color}" />
-    <SolidColorBrush x:Key="OrangeAccent1Brush" Color="{ DynamicResource OrangeAccent1Color}" />
-    <SolidColorBrush x:Key="OrangeAccent2Brush" Color="{ DynamicResource OrangeAccent2Color}" />
-    <SolidColorBrush x:Key="OrangeAccent3Brush" Color="{ DynamicResource OrangeAccent3Color}" />
-    <SolidColorBrush x:Key="OrangeAccent4Brush" Color="{ DynamicResource OrangeAccent4Color}" />
+        <SolidColorBrush x:Key="OrangeBrush" Color="{ DynamicResource OrangeColor}" />
+        <SolidColorBrush x:Key="OrangeLighten5Brush" Color="{ DynamicResource OrangeLighten5Color}" />
+        <SolidColorBrush x:Key="OrangeLighten4Brush" Color="{ DynamicResource OrangeLighten4Color}" />
+        <SolidColorBrush x:Key="OrangeLighten3Brush" Color="{ DynamicResource OrangeLighten3Color}" />
+        <SolidColorBrush x:Key="OrangeLighten2Brush" Color="{ DynamicResource OrangeLighten2Color}" />
+        <SolidColorBrush x:Key="OrangeLighten1Brush" Color="{ DynamicResource OrangeLighten1Color}" />
+        <SolidColorBrush x:Key="OrangeDarken1Brush" Color="{ DynamicResource OrangeDarken1Color}" />
+        <SolidColorBrush x:Key="OrangeDarken2Brush" Color="{ DynamicResource OrangeDarken2Color}" />
+        <SolidColorBrush x:Key="OrangeDarken3Brush" Color="{ DynamicResource OrangeDarken3Color}" />
+        <SolidColorBrush x:Key="OrangeDarken4Brush" Color="{ DynamicResource OrangeDarken4Color}" />
+        <SolidColorBrush x:Key="OrangeAccent1Brush" Color="{ DynamicResource OrangeAccent1Color}" />
+        <SolidColorBrush x:Key="OrangeAccent2Brush" Color="{ DynamicResource OrangeAccent2Color}" />
+        <SolidColorBrush x:Key="OrangeAccent3Brush" Color="{ DynamicResource OrangeAccent3Color}" />
+        <SolidColorBrush x:Key="OrangeAccent4Brush" Color="{ DynamicResource OrangeAccent4Color}" />
 
-    <SolidColorBrush x:Key="DeepOrangeBrush" Color="{ DynamicResource DeepOrangeColor}" />
-    <SolidColorBrush x:Key="DeepOrangeLighten5Brush" Color="{ DynamicResource DeepOrangeLighten5Color}" />
-    <SolidColorBrush x:Key="DeepOrangeLighten4Brush" Color="{ DynamicResource DeepOrangeLighten4Color}" />
-    <SolidColorBrush x:Key="DeepOrangeLighten3Brush" Color="{ DynamicResource DeepOrangeLighten3Color}" />
-    <SolidColorBrush x:Key="DeepOrangeLighten2Brush" Color="{ DynamicResource DeepOrangeLighten2Color}" />
-    <SolidColorBrush x:Key="DeepOrangeLighten1Brush" Color="{ DynamicResource DeepOrangeLighten1Color}" />
-    <SolidColorBrush x:Key="DeepOrangeDarken1Brush" Color="{ DynamicResource DeepOrangeDarken1Color}" />
-    <SolidColorBrush x:Key="DeepOrangeDarken2Brush" Color="{ DynamicResource DeepOrangeDarken2Color}" />
-    <SolidColorBrush x:Key="DeepOrangeDarken3Brush" Color="{ DynamicResource DeepOrangeDarken3Color}" />
-    <SolidColorBrush x:Key="DeepOrangeDarken4Brush" Color="{ DynamicResource DeepOrangeDarken4Color}" />
-    <SolidColorBrush x:Key="DeepOrangeAccent1Brush" Color="{ DynamicResource DeepOrangeAccent1Color}" />
-    <SolidColorBrush x:Key="DeepOrangeAccent2Brush" Color="{ DynamicResource DeepOrangeAccent2Color}" />
-    <SolidColorBrush x:Key="DeepOrangeAccent3Brush" Color="{ DynamicResource DeepOrangeAccent3Color}" />
-    <SolidColorBrush x:Key="DeepOrangeAccent4Brush" Color="{ DynamicResource DeepOrangeAccent4Color}" />
+        <SolidColorBrush x:Key="DeepOrangeBrush" Color="{ DynamicResource DeepOrangeColor}" />
+        <SolidColorBrush x:Key="DeepOrangeLighten5Brush" Color="{ DynamicResource DeepOrangeLighten5Color}" />
+        <SolidColorBrush x:Key="DeepOrangeLighten4Brush" Color="{ DynamicResource DeepOrangeLighten4Color}" />
+        <SolidColorBrush x:Key="DeepOrangeLighten3Brush" Color="{ DynamicResource DeepOrangeLighten3Color}" />
+        <SolidColorBrush x:Key="DeepOrangeLighten2Brush" Color="{ DynamicResource DeepOrangeLighten2Color}" />
+        <SolidColorBrush x:Key="DeepOrangeLighten1Brush" Color="{ DynamicResource DeepOrangeLighten1Color}" />
+        <SolidColorBrush x:Key="DeepOrangeDarken1Brush" Color="{ DynamicResource DeepOrangeDarken1Color}" />
+        <SolidColorBrush x:Key="DeepOrangeDarken2Brush" Color="{ DynamicResource DeepOrangeDarken2Color}" />
+        <SolidColorBrush x:Key="DeepOrangeDarken3Brush" Color="{ DynamicResource DeepOrangeDarken3Color}" />
+        <SolidColorBrush x:Key="DeepOrangeDarken4Brush" Color="{ DynamicResource DeepOrangeDarken4Color}" />
+        <SolidColorBrush x:Key="DeepOrangeAccent1Brush" Color="{ DynamicResource DeepOrangeAccent1Color}" />
+        <SolidColorBrush x:Key="DeepOrangeAccent2Brush" Color="{ DynamicResource DeepOrangeAccent2Color}" />
+        <SolidColorBrush x:Key="DeepOrangeAccent3Brush" Color="{ DynamicResource DeepOrangeAccent3Color}" />
+        <SolidColorBrush x:Key="DeepOrangeAccent4Brush" Color="{ DynamicResource DeepOrangeAccent4Color}" />
 
-    <SolidColorBrush x:Key="BrownBrush" Color="{ DynamicResource BrownColor}" />
-    <SolidColorBrush x:Key="BrownLighten5Brush" Color="{ DynamicResource BrownLighten5Color}" />
-    <SolidColorBrush x:Key="BrownLighten4Brush" Color="{ DynamicResource BrownLighten4Color}" />
-    <SolidColorBrush x:Key="BrownLighten3Brush" Color="{ DynamicResource BrownLighten3Color}" />
-    <SolidColorBrush x:Key="BrownLighten2Brush" Color="{ DynamicResource BrownLighten2Color}" />
-    <SolidColorBrush x:Key="BrownLighten1Brush" Color="{ DynamicResource BrownLighten1Color}" />
-    <SolidColorBrush x:Key="BrownDarken1Brush" Color="{ DynamicResource BrownDarken1Color}" />
-    <SolidColorBrush x:Key="BrownDarken2Brush" Color="{ DynamicResource BrownDarken2Color}" />
-    <SolidColorBrush x:Key="BrownDarken3Brush" Color="{ DynamicResource BrownDarken3Color}" />
-    <SolidColorBrush x:Key="BrownDarken4Brush" Color="{ DynamicResource BrownDarken4Color}" />
+        <SolidColorBrush x:Key="BrownBrush" Color="{ DynamicResource BrownColor}" />
+        <SolidColorBrush x:Key="BrownLighten5Brush" Color="{ DynamicResource BrownLighten5Color}" />
+        <SolidColorBrush x:Key="BrownLighten4Brush" Color="{ DynamicResource BrownLighten4Color}" />
+        <SolidColorBrush x:Key="BrownLighten3Brush" Color="{ DynamicResource BrownLighten3Color}" />
+        <SolidColorBrush x:Key="BrownLighten2Brush" Color="{ DynamicResource BrownLighten2Color}" />
+        <SolidColorBrush x:Key="BrownLighten1Brush" Color="{ DynamicResource BrownLighten1Color}" />
+        <SolidColorBrush x:Key="BrownDarken1Brush" Color="{ DynamicResource BrownDarken1Color}" />
+        <SolidColorBrush x:Key="BrownDarken2Brush" Color="{ DynamicResource BrownDarken2Color}" />
+        <SolidColorBrush x:Key="BrownDarken3Brush" Color="{ DynamicResource BrownDarken3Color}" />
+        <SolidColorBrush x:Key="BrownDarken4Brush" Color="{ DynamicResource BrownDarken4Color}" />
 
-    <SolidColorBrush x:Key="BlueGreyBrush" Color="{ DynamicResource BlueGreyColor}" />
-    <SolidColorBrush x:Key="BlueGreyLighten5Brush" Color="{ DynamicResource BlueGreyLighten5Color}" />
-    <SolidColorBrush x:Key="BlueGreyLighten4Brush" Color="{ DynamicResource BlueGreyLighten4Color}" />
-    <SolidColorBrush x:Key="BlueGreyLighten3Brush" Color="{ DynamicResource BlueGreyLighten3Color}" />
-    <SolidColorBrush x:Key="BlueGreyLighten2Brush" Color="{ DynamicResource BlueGreyLighten2Color}" />
-    <SolidColorBrush x:Key="BlueGreyLighten1Brush" Color="{ DynamicResource BlueGreyLighten1Color}" />
-    <SolidColorBrush x:Key="BlueGreyDarken1Brush" Color="{ DynamicResource BlueGreyDarken1Color}" />
-    <SolidColorBrush x:Key="BlueGreyDarken2Brush" Color="{ DynamicResource BlueGreyDarken2Color}" />
-    <SolidColorBrush x:Key="BlueGreyDarken3Brush" Color="{ DynamicResource BlueGreyDarken3Color}" />
-    <SolidColorBrush x:Key="BlueGreyDarken4Brush" Color="{ DynamicResource BlueGreyDarken4Color}" />
+        <SolidColorBrush x:Key="BlueGreyBrush" Color="{ DynamicResource BlueGreyColor}" />
+        <SolidColorBrush x:Key="BlueGreyLighten5Brush" Color="{ DynamicResource BlueGreyLighten5Color}" />
+        <SolidColorBrush x:Key="BlueGreyLighten4Brush" Color="{ DynamicResource BlueGreyLighten4Color}" />
+        <SolidColorBrush x:Key="BlueGreyLighten3Brush" Color="{ DynamicResource BlueGreyLighten3Color}" />
+        <SolidColorBrush x:Key="BlueGreyLighten2Brush" Color="{ DynamicResource BlueGreyLighten2Color}" />
+        <SolidColorBrush x:Key="BlueGreyLighten1Brush" Color="{ DynamicResource BlueGreyLighten1Color}" />
+        <SolidColorBrush x:Key="BlueGreyDarken1Brush" Color="{ DynamicResource BlueGreyDarken1Color}" />
+        <SolidColorBrush x:Key="BlueGreyDarken2Brush" Color="{ DynamicResource BlueGreyDarken2Color}" />
+        <SolidColorBrush x:Key="BlueGreyDarken3Brush" Color="{ DynamicResource BlueGreyDarken3Color}" />
+        <SolidColorBrush x:Key="BlueGreyDarken4Brush" Color="{ DynamicResource BlueGreyDarken4Color}" />
 
-    <SolidColorBrush x:Key="GreyBrush" Color="{ DynamicResource GreyColor}" />
-    <SolidColorBrush x:Key="GreyLighten5Brush" Color="{ DynamicResource GreyLighten5Color}" />
-    <SolidColorBrush x:Key="GreyLighten4Brush" Color="{ DynamicResource GreyLighten4Color}" />
-    <SolidColorBrush x:Key="GreyLighten3Brush" Color="{ DynamicResource GreyLighten3Color}" />
-    <SolidColorBrush x:Key="GreyLighten2Brush" Color="{ DynamicResource GreyLighten2Color}" />
-    <SolidColorBrush x:Key="GreyLighten1Brush" Color="{ DynamicResource GreyLighten1Color}" />
-    <SolidColorBrush x:Key="GreyDarken1Brush" Color="{ DynamicResource GreyDarken1Color}" />
-    <SolidColorBrush x:Key="GreyDarken2Brush" Color="{ DynamicResource GreyDarken2Color}" />
-    <SolidColorBrush x:Key="GreyDarken3Brush" Color="{ DynamicResource GreyDarken3Color}" />
-    <SolidColorBrush x:Key="GreyDarken4Brush" Color="{ DynamicResource GreyDarken4Color}" />
+        <SolidColorBrush x:Key="GreyBrush" Color="{ DynamicResource GreyColor}" />
+        <SolidColorBrush x:Key="GreyLighten5Brush" Color="{ DynamicResource GreyLighten5Color}" />
+        <SolidColorBrush x:Key="GreyLighten4Brush" Color="{ DynamicResource GreyLighten4Color}" />
+        <SolidColorBrush x:Key="GreyLighten3Brush" Color="{ DynamicResource GreyLighten3Color}" />
+        <SolidColorBrush x:Key="GreyLighten2Brush" Color="{ DynamicResource GreyLighten2Color}" />
+        <SolidColorBrush x:Key="GreyLighten1Brush" Color="{ DynamicResource GreyLighten1Color}" />
+        <SolidColorBrush x:Key="GreyDarken1Brush" Color="{ DynamicResource GreyDarken1Color}" />
+        <SolidColorBrush x:Key="GreyDarken2Brush" Color="{ DynamicResource GreyDarken2Color}" />
+        <SolidColorBrush x:Key="GreyDarken3Brush" Color="{ DynamicResource GreyDarken3Color}" />
+        <SolidColorBrush x:Key="GreyDarken4Brush" Color="{ DynamicResource GreyDarken4Color}" />
 
-    <SolidColorBrush x:Key="BlackBrush" Color="{ DynamicResource BlackColor}" />
-    <SolidColorBrush x:Key="WhiteBrush" Color="{ DynamicResource WhiteColor}" />
-    
-    
-     <Color x:Key="ThemeAccentColor">#CC119EDA</Color>
+        <SolidColorBrush x:Key="BlackBrush" Color="{ DynamicResource BlackColor}" />
+        <SolidColorBrush x:Key="WhiteBrush" Color="{ DynamicResource WhiteColor}" />
+
+
+        <Color x:Key="ThemeAccentColor">#CC119EDA</Color>
         <Color x:Key="ThemeAccentColor2">#99119EDA</Color>
         <Color x:Key="ThemeAccentColor3">#66119EDA</Color>
         <Color x:Key="ThemeAccentColor4">#33119EDA</Color>
@@ -566,8 +566,8 @@
         <Color x:Key="ThemeBorderLowColor">#FFAAAAAA</Color>
         <Color x:Key="ThemeBorderMidColor">#FF888888</Color>
         <Color x:Key="ThemeBorderHighColor">#FF333333</Color>
-      
-      
+
+
         <Color x:Key="ThemeControlLowColor">#FF868999</Color>
         <Color x:Key="ThemeControlMidColor">#FFF5F5F5</Color>
         <Color x:Key="ThemeControlMidHighColor">#FFC2C3C9</Color>
@@ -596,7 +596,9 @@
         <SolidColorBrush x:Key="ThemeControlVeryHighBrush" Color="{DynamicResource ThemeControlVeryHighColor}"></SolidColorBrush>
         <SolidColorBrush x:Key="ThemeControlHighlightLowBrush" Color="{DynamicResource ThemeControlHighlightLowColor}"></SolidColorBrush>
         <SolidColorBrush x:Key="ThemeControlHighlightMidBrush" Color="{DynamicResource ThemeControlHighlightMidColor}"></SolidColorBrush>
-        <SolidColorBrush x:Key="ThemeControlHighlightHighBrush" Color="{DynamicResource ThemeControlHighlightHighColor}"></SolidColorBrush>
+        <SolidColorBrush x:Key="ThemeControlHighlightHighBrush"
+                         Color="{DynamicResource ThemeControlHighlightHighColor}">
+        </SolidColorBrush>
         <SolidColorBrush x:Key="ThemeForegroundBrush" Color="{DynamicResource ThemeForegroundColor}"></SolidColorBrush>
         <SolidColorBrush x:Key="ThemeForegroundLowBrush" Color="{DynamicResource ThemeForegroundLowColor}"></SolidColorBrush>
 
@@ -609,11 +611,11 @@
         <SolidColorBrush x:Key="ErrorBrush" Color="{DynamicResource ErrorColor}"></SolidColorBrush>
         <SolidColorBrush x:Key="ErrorLowBrush" Color="{DynamicResource ErrorLowColor}"></SolidColorBrush>
 
-        <SolidColorBrush x:Key="NotificationCardBackgroundBrush" Color="#444444" Opacity="0.75"/>
-        <SolidColorBrush x:Key="NotificationCardInformationBackgroundBrush" Color="#007ACC" Opacity="0.75"/>
-        <SolidColorBrush x:Key="NotificationCardSuccessBackgroundBrush" Color="#1F9E45" Opacity="0.75"/>
-        <SolidColorBrush x:Key="NotificationCardWarningBackgroundBrush" Color="#FDB328" Opacity="0.75"/>
-        <SolidColorBrush x:Key="NotificationCardErrorBackgroundBrush" Color="#BD202C" Opacity="0.75"/>
+        <SolidColorBrush x:Key="NotificationCardBackgroundBrush" Color="#444444" Opacity="0.75" />
+        <SolidColorBrush x:Key="NotificationCardInformationBackgroundBrush" Color="#007ACC" Opacity="0.75" />
+        <SolidColorBrush x:Key="NotificationCardSuccessBackgroundBrush" Color="#1F9E45" Opacity="0.75" />
+        <SolidColorBrush x:Key="NotificationCardWarningBackgroundBrush" Color="#FDB328" Opacity="0.75" />
+        <SolidColorBrush x:Key="NotificationCardErrorBackgroundBrush" Color="#BD202C" Opacity="0.75" />
 
         <Thickness x:Key="ThemeBorderThickness">1</Thickness>
         <sys:Double x:Key="ThemeDisabledOpacity">0.5</sys:Double>
@@ -625,5 +627,5 @@
         <sys:Double x:Key="ScrollBarThickness">18</sys:Double>
         <sys:Double x:Key="ScrollBarThumbThickness">8</sys:Double>
 
-  </Styles.Resources>
+    </Styles.Resources>
 </Styles>

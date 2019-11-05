@@ -1,14 +1,14 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-  <Style Selector="CheckBox /template/ Ellipse">
-    <Setter Property="Stroke" Value="{DynamicResource GreyLighten3Brush}" />
-    <Setter Property="Fill" Value="{DynamicResource WhiteBrush}" />
-  </Style>
+    <Style Selector="CheckBox /template/ Ellipse">
+        <Setter Property="Stroke" Value="{DynamicResource GreyLighten3Brush}" />
+        <Setter Property="Fill" Value="{DynamicResource WhiteBrush}" />
+    </Style>
 
-  <Style Selector="CheckBox:checked /template/ Border#check">
-    <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten1Brush}" />
-  </Style>
-  <Style Selector="CheckBox:unchecked /template/ Border#check">
-    <Setter Property="Background" Value="{DynamicResource GreyLighten1Brush}" />
-  </Style>
+    <Style Selector="CheckBox:checked /template/ Border#check">
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten1Brush}" />
+    </Style>
+    <Style Selector="CheckBox:unchecked /template/ Border#check">
+        <Setter Property="Background" Value="{DynamicResource GreyLighten1Brush}" />
+    </Style>
 </Styles>

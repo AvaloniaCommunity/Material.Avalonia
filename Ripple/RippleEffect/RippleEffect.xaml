@@ -4,7 +4,7 @@
 
     <Style Selector="cc|RippleEffect">
         <Setter Property="Template">
-            <ControlTemplate >
+            <ControlTemplate>
                 <Grid ClipToBounds="True">
 
                     <ContentPresenter Name="Content"

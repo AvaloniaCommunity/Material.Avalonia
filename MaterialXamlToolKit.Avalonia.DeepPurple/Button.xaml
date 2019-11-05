@@ -1,11 +1,11 @@
 <Styles
     xmlns="https://github.com/avaloniaui">
     <Style Selector="Button">
-       <Setter Property="Background" Value="{DynamicResource DeepPurpleBrush}"/> 
-       <Setter Property="TextBlock.Foreground" Value="White"/>
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleBrush}" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
     </Style>
     <Style Selector="Button:pressed  /template/ ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource DeepPurpleBrush}"/>
-       
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleBrush}" />
+
     </Style>
 </Styles>

@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace ColorPaletteGenerator
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             GenerateXamlColors("ColorsPalette.xaml", File.ReadAllLines("Colors.txt"));
-
-
         }
-        
+
         /// <summary>
-        /// Генерируем файл стилей
+        ///     Генерируем файл стилей
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="text"></param>
-        static void GenerateXamlColors(string fileName, string[] text)
+        private static void GenerateXamlColors(string fileName, string[] text)
         {
             var data = ParseData(text);
 
@@ -36,11 +33,11 @@ namespace ColorPaletteGenerator
         }
 
         /// <summary>
-        /// парсим файл
+        ///     парсим файл
         /// </summary>
         /// <param name="lines"></param>
         /// <returns></returns>
-        static List<Dictionary<string, string>> ParseData(string[] lines)
+        private static List<Dictionary<string, string>> ParseData(string[] lines)
         {
             var ret = new List<Dictionary<string, string>>();
             var d = new Dictionary<string, string>();
@@ -54,7 +51,7 @@ namespace ColorPaletteGenerator
                     continue;
                 }
 
-                int i = line.IndexOf(' ');
+                var i = line.IndexOf(' ');
                 var key = line.Substring(0, i).Trim();
                 var value = line.Substring(i + 1).Trim();
                 d.Add(key, value);
@@ -64,13 +61,13 @@ namespace ColorPaletteGenerator
 
             return ret;
         }
-        
+
         /// <summary>
-        /// Генерируем цвета
+        ///     Генерируем цвета
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        static string GenerateColors(List<Dictionary<string, string>> data)
+        private static string GenerateColors(List<Dictionary<string, string>> data)
         {
             return data.Select(d => d.Select(b =>
                         $"    <Color x:Key=\"{b.Key}Color\">{b.Value}</Color>")
@@ -79,11 +76,11 @@ namespace ColorPaletteGenerator
         }
 
         /// <summary>
-        /// Генерируем кисти
+        ///     Генерируем кисти
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        static string GenerateBrushes(List<Dictionary<string, string>> data)
+        private static string GenerateBrushes(List<Dictionary<string, string>> data)
         {
             return data.Select(d => d.Select(b =>
                         $"    <SolidColorBrush x:Key=\"{b.Key}Brush\" Color=\"{{ DynamicResource {b.Key}Color}}\" />")

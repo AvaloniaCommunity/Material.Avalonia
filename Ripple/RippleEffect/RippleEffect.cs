@@ -1,54 +1,29 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Shapes;
 using Avalonia.Media;
 using Avalonia.Styling;
-using System;
 
 namespace Ripple
 {
-     public class RippleEffect : ContentControl
+    public class RippleEffect : ContentControl
     {
-        #region Styled properties
-
-        public static readonly StyledProperty<Brush> RippleFillProperty =
-        AvaloniaProperty.Register<RippleEffect, Brush>(nameof(RippleFill));
-
-        public Brush RippleFill
-        {
-            get { return GetValue(RippleFillProperty); }
-            set { SetValue(RippleFillProperty, value); }
-        }
-
-        public static readonly StyledProperty<double> RippleOpacityProperty =
-       AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity));
-
-        public double RippleOpacity
-        {
-            get { return GetValue(RippleOpacityProperty); }
-            set { SetValue(RippleOpacityProperty, value); }
-        }
-
-        #endregion Styled properties
-
         private Ellipse _circle;
-        private Animation _ripple;
-        private Point _pointer;
-        private IAnimationSetter _toWidth;
         private IAnimationSetter _fromMargin;
-        private IAnimationSetter _toMargin;
         private bool _isRunning;
+        private Point _pointer;
+        private Animation _ripple;
+        private IAnimationSetter _toMargin;
+        private IAnimationSetter _toWidth;
 
         public RippleEffect()
         {
-            this.AddHandler(PointerPressedEvent, async (s, e) =>
+            AddHandler(PointerPressedEvent, async (s, e) =>
             {
-                if (_isRunning)
-                {
-                    return;
-                }
+                if (_isRunning) return;
                 _pointer = e.GetPosition(this);
                 _isRunning = true;
                 var maxWidth = Math.Max(Bounds.Width, Bounds.Height) * 2.2D;
@@ -76,5 +51,27 @@ namespace Ripple
 
             style.Animations.Remove(_ripple);
         }
+
+        #region Styled properties
+
+        public static readonly StyledProperty<Brush> RippleFillProperty =
+            AvaloniaProperty.Register<RippleEffect, Brush>(nameof(RippleFill));
+
+        public Brush RippleFill
+        {
+            get => GetValue(RippleFillProperty);
+            set => SetValue(RippleFillProperty, value);
+        }
+
+        public static readonly StyledProperty<double> RippleOpacityProperty =
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity));
+
+        public double RippleOpacity
+        {
+            get => GetValue(RippleOpacityProperty);
+            set => SetValue(RippleOpacityProperty, value);
+        }
+
+        #endregion Styled properties
     }
 }

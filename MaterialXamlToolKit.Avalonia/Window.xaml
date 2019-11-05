@@ -1,19 +1,19 @@
 <Style xmlns="https://github.com/avaloniaui" Selector="Window">
-  <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
-  <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}"/>
-  <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}"/>
-  <Setter Property="Template">
-    <ControlTemplate>
-      <Border Background="{TemplateBinding Background}">
-        <VisualLayerManager>
-          <ContentPresenter Name="PART_ContentPresenter"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Content="{TemplateBinding Content}"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>           
-        </VisualLayerManager>
-      </Border>
-    </ControlTemplate>
-  </Setter>
+    <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+    <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+    <Setter Property="Template">
+        <ControlTemplate>
+            <Border Background="{TemplateBinding Background}">
+                <VisualLayerManager>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </VisualLayerManager>
+            </Border>
+        </ControlTemplate>
+    </Setter>
 </Style>

@@ -1,7 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style Selector="TextBox">
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        
+
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource HighlightBrush}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />
@@ -59,8 +59,8 @@
                     </Border>
                     <Border Name="fborder"
                             Background="Transparent"
-                          
-                            BorderThickness="0 0 0 3" >
+
+                            BorderThickness="0 0 0 3">
                     </Border>
                 </Grid>
             </ControlTemplate>

@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
     <Window.Styles>
-       
+
         <Style Selector="RadioButton">
             <Setter Property="Margin" Value="5" />
         </Style>
@@ -78,7 +78,7 @@
                     <RadioButton Content="test1" />
                     <RadioButton Content="test1" />
                     <RadioButton Content="test1" />
-                  <CheckBox Content="Check Me" />
+                    <CheckBox Content="Check Me" />
                 </StackPanel>
             </StackPanel>
             <StackPanel>

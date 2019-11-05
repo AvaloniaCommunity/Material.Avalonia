@@ -2,51 +2,51 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ripple="clr-namespace:Ripple;assembly=Ripple">
-  
-  <Style Selector="ToggleButton">
-    <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-    <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-    <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
-    <Setter Property="Padding" Value="4" />
-    <Setter Property="HorizontalContentAlignment" Value="Center" />
-    <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <ripple:RippleEffect
-            RippleFill="#F1F2F2"
-            RippleOpacity="0.2">
-          <Grid>
-            <Border Name="buttonBorder"
-                    Background="{Binding $parent[Button].Background}"
-                    CornerRadius="3">
-        <ContentPresenter Name="PART_ContentPresenter"
-                          Background="{TemplateBinding Background}"
-                          BorderBrush="{TemplateBinding BorderBrush}"
-                          BorderThickness="{TemplateBinding BorderThickness}"
-                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                          Content="{TemplateBinding Content}"
-                          Padding="{TemplateBinding Padding}"
-                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-            </Border>
-            <Border Name="pointerover"
-                    CornerRadius="3"
-                    Background="White"/>
-          </Grid>
-        </ripple:RippleEffect>
-      </ControlTemplate>
-    </Setter>
-  </Style>
 
-  <Style Selector="ToggleButton /template/ Border#pointerover">
-    <Setter Property="Opacity" Value="0"></Setter>
-  </Style>
-  <Style Selector="ToggleButton:pointerover /template/ Border#pointerover">
-    <Setter Property="Opacity" Value="0.2"></Setter>
-  </Style>
-  
-  <Style Selector="ToggleButton:disabled">
-    <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}"/>
-  </Style>
+    <Style Selector="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ripple:RippleEffect
+                    RippleFill="#F1F2F2"
+                    RippleOpacity="0.2">
+                    <Grid>
+                        <Border Name="buttonBorder"
+                                Background="{Binding $parent[Button].Background}"
+                                CornerRadius="3">
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Background="{TemplateBinding Background}"
+                                              BorderBrush="{TemplateBinding BorderBrush}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <Border Name="pointerover"
+                                CornerRadius="3"
+                                Background="White" />
+                    </Grid>
+                </ripple:RippleEffect>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="ToggleButton /template/ Border#pointerover">
+        <Setter Property="Opacity" Value="0"></Setter>
+    </Style>
+    <Style Selector="ToggleButton:pointerover /template/ Border#pointerover">
+        <Setter Property="Opacity" Value="0.2"></Setter>
+    </Style>
+
+    <Style Selector="ToggleButton:disabled">
+        <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+    </Style>
 </Styles>

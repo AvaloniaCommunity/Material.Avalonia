@@ -1,14 +1,14 @@
 <Styles xmlns="https://github.com/avaloniaui">
 
     <Style Selector="RadioButton:pointerover /template/ Ellipse#border">
-        <Setter Property="Stroke" Value="{DynamicResource DeepPurpleBrush}"/>
+        <Setter Property="Stroke" Value="{DynamicResource DeepPurpleBrush}" />
     </Style>
     <Style Selector="RadioButton:checked /template/ Ellipse#border">
-        <Setter Property="Stroke" Value="{DynamicResource DeepPurpleBrush}"/>
+        <Setter Property="Stroke" Value="{DynamicResource DeepPurpleBrush}" />
     </Style>
     <Style Selector="RadioButton:checked /template/ Ellipse#checkMark">
-        <Setter Property="Fill" Value="{DynamicResource DeepPurpleBrush}"/>
-        
+        <Setter Property="Fill" Value="{DynamicResource DeepPurpleBrush}" />
+
     </Style>
 
 </Styles>
