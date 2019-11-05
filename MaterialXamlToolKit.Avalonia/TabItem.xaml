@@ -1,5 +1,9 @@
-<Styles xmlns="https://github.com/avaloniaui">
-    <Style Selector="TabItem">
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ripple="clr-namespace:Ripple;assembly=Ripple">
+
+  <Style Selector="TabItem">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}"/>
         <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLightBrush}"/>
@@ -7,6 +11,12 @@
         <Setter Property="Padding" Value="8"/>
         <Setter Property="Template">
             <ControlTemplate>
+        <ripple:RippleEffect
+            RippleFill="#F1F2F2"
+            RippleOpacity="0.2">
+            <Border Name="buttonBorder"
+                    Background="{Binding $parent[Button].Background}"
+                    CornerRadius="3">
                 <ContentPresenter
                     Name="PART_ContentPresenter"
                     Background="{TemplateBinding Background}"
@@ -18,26 +28,13 @@
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Margin="{TemplateBinding Margin}"
                     Padding="{TemplateBinding Padding}"/>
+                          </Border>
+        </ripple:RippleEffect>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="TabItem:disabled">
         <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}"/>
-    </Style>
-    <Style Selector="TabItem:pointerover">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}"/>
-    </Style>
-    <Style Selector="TabItem:selected">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}"/>
-    </Style>
-    <Style Selector="TabItem:selected:focus">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}"/>
-    </Style>
-    <Style Selector="TabItem:selected:pointerover">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}"/>
-    </Style>
-    <Style Selector="TabItem:selected:focus:pointerover">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}"/>
     </Style>
     <Style Selector="TabItem[TabStripPlacement=Right]">
         <Setter Property="HorizontalContentAlignment" Value="Right"/>
