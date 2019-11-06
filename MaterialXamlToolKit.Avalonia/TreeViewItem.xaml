@@ -1,74 +1,85 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ripple="clr-namespace:Ripple;assembly=Ripple"
         xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls">
-    <Style Selector="TreeViewItem">
-        <Style.Resources>
-            <converters:MarginMultiplierConverter Indent="16" Left="True" x:Key="LeftMarginConverter" />
-        </Style.Resources>
-        <Setter Property="Padding" Value="2" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <StackPanel>
-                    <Border Name="SelectionBorder"
-                            Focusable="True"
-                           
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            TemplatedControl.IsTemplateFocusTarget="True">
-                        <Grid Name="PART_Header"
-                              ColumnDefinitions="16, Auto"
-                              HorizontalAlignment="Left"
-                              Margin="{TemplateBinding Level, Mode=OneWay, Converter={StaticResource LeftMarginConverter}}">
-                            <ToggleButton Name="expander"
-                                          Focusable="False"
-                                          IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
-                            <ContentPresenter Name="PART_HeaderPresenter"
-                                              Focusable="False"
-                                              Content="{TemplateBinding Header}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalAlignment}"
-                                              Padding="{TemplateBinding Padding}"
-                                              Grid.Column="1" />
-                        </Grid>
-                    </Border>
-                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                    IsVisible="{TemplateBinding IsExpanded}"
-                                    Items="{TemplateBinding Items}"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
-                </StackPanel>
-            </ControlTemplate>
-        </Setter>
-    </Style>
+  
+  <Style Selector="TreeViewItem">
+    <Style.Resources>
+      <converters:MarginMultiplierConverter Indent="16" Left="True" x:Key="LeftMarginConverter" />
+    </Style.Resources>
+    <Setter Property="Padding" Value="2" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ripple:RippleEffect
+          RippleFill="#F1F2F2"
+          RippleOpacity="0.2">
+          <Border Name="buttonBorder"
+                  Background="{Binding $parent[Button].Background}"
+                  CornerRadius="3">
+        <StackPanel>
+          <Border Name="SelectionBorder"
+                  Focusable="True"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  TemplatedControl.IsTemplateFocusTarget="True">
+            <Grid Name="PART_Header"
+                  ColumnDefinitions="16, Auto"
+                  HorizontalAlignment="Left"
+                  Margin="{TemplateBinding Level, Mode=OneWay, Converter={StaticResource LeftMarginConverter}}">
+              <ToggleButton Name="expander"
+                            Focusable="False"
+                            IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
+              <ContentPresenter Name="PART_HeaderPresenter"
+                                Focusable="False"
+                                Content="{TemplateBinding Header}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalAlignment}"
+                                Padding="{TemplateBinding Padding}"
+                                Grid.Column="1" />
+            </Grid>
+          </Border>
+          <ItemsPresenter Name="PART_ItemsPresenter"
+                          IsVisible="{TemplateBinding IsExpanded}"
+                          Items="{TemplateBinding Items}"
+                          ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </StackPanel>
+          </Border>
+        </ripple:RippleEffect>
+      </ControlTemplate>
+    </Setter>
+  </Style>
 
-    <Style Selector="TreeViewItem /template/ ToggleButton#expander">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Background="Transparent"
-                        Width="14"
-                        Height="12"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-                    <Path Fill="{DynamicResource ThemeForegroundBrush}"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"
-                          Data="M 0 2 L 4 6 L 0 10 Z" />
-                </Border>
-            </ControlTemplate>
-        </Setter>
-    </Style>
+  <Style Selector="TreeViewItem /template/ ToggleButton#expander">
+    <Setter Property="Template">
+      <ControlTemplate>
+            <Border Background="Transparent"
+                    Width="14"
+                    Height="12"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+              <Path Fill="{DynamicResource ThemeForegroundBrush}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Data="M 0 2 L 4 6 L 0 10 Z" />
+            </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
 
-    <Style Selector="TreeViewItem /template/ ContentPresenter#PART_HeaderPresenter">
-        <Setter Property="Padding" Value="2" />
-    </Style>
+  <Style Selector="TreeViewItem /template/ ContentPresenter#PART_HeaderPresenter">
+    <Setter Property="Padding" Value="2" />
+  </Style>
 
-   
+  <Style Selector="TreeViewItem /template/ Border#SelectionBorder">
+    <Setter Property="Background" Value="Transparent" />
+  </Style>
 
-    <Style Selector="TreeViewItem /template/ ToggleButton#expander:checked">
-        <Setter Property="RenderTransform">
-            <RotateTransform Angle="45" />
-        </Setter>
-    </Style>
+  <Style Selector="TreeViewItem /template/ ToggleButton#expander:checked">
+    <Setter Property="RenderTransform">
+      <RotateTransform Angle="45" />
+    </Setter>
+  </Style>
 
-    <Style Selector="TreeViewItem:empty /template/ ToggleButton#expander">
-        <Setter Property="IsVisible" Value="False" />
-    </Style>
+  <Style Selector="TreeViewItem:empty /template/ ToggleButton#expander">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
 </Styles>

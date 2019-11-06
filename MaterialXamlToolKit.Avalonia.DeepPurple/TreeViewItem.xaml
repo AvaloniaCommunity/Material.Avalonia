@@ -3,10 +3,6 @@
     <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten2Brush}" />
   </Style>
 
-  <Style Selector="TreeViewItem /template/ Border#SelectionBorder">
-    <Setter Property="Background" Value="Transparent" />
-  </Style>
-
   <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder">
     <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten4Brush}" />
   </Style>
