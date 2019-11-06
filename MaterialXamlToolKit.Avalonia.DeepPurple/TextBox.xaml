@@ -1,17 +1,20 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style Selector="TextBox">
-        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten5Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken4Brush}" />
     </Style>
-    <Style Selector="TextBox:pointerover /template/ Border#border">
-        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten3Brush}" />
+    <Style Selector="TextBox:pointerover">
+        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken1Brush}" />
     </Style>
-    <Style Selector="TextBox:focus /template/ Border#border">
-        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten5Brush}" />
-    </Style>
-    <Style Selector="TextBox:focus /template/ Border#fborder">
-        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleBrush}" />
-        <!--<Setter Property="BorderBrush" Value="{DynamicResource MainDeepBrush}"/>-->
 
-    </Style>
+  <Style Selector="TextBox:focus /template/ Border#fborder">
+    <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken4Brush}" />
+  </Style>
+  <Style Selector="TextBox:focus:pointerover /template/ Border#fborder">
+    <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken1Brush}" />
+  </Style>
+  <Style Selector="TextBox:disabled">
+    <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten1Brush}" />
+    <Setter Property="Foreground" Value="{DynamicResource GreyBrush}" />
+  </Style>
 
 </Styles>
