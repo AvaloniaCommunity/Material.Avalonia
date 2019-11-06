@@ -8,7 +8,8 @@
     </Style>
     <Style Selector="RadioButton:checked /template/ Ellipse#checkMark">
         <Setter Property="Fill" Value="{DynamicResource DeepPurpleBrush}" />
-
     </Style>
-
+    <Style Selector="RadioButton /template/ Ellipse#ripple">
+        <Setter Property="Fill" Value="{DynamicResource DeepPurpleBrush}" />
+    </Style>
 </Styles>
