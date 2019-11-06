@@ -16,6 +16,7 @@
     <PackageReference Include="Avalonia.Desktop" Version="0.9.0-preview4" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MaterialXamlToolKit.Avalonia.Dark\MaterialXamlToolKit.Avalonia.Dark.csproj" />
     <ProjectReference Include="..\MaterialXamlToolKit.Avalonia.DeepPurple\MaterialXamlToolKit.Avalonia.DeepPurple.csproj" />
     <ProjectReference Include="..\MaterialXamlToolKit.Avalonia\MaterialXamlToolKit.Avalonia.csproj" />
   </ItemGroup>
