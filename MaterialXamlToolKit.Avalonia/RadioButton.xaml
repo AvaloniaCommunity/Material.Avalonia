@@ -7,31 +7,45 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="Auto,*" Background="{TemplateBinding Background}">
-                    <Ellipse Name="border"
-                             Stroke="{TemplateBinding BorderBrush}"
-                             StrokeThickness="1"
-                             Width="18"
-                             Height="18"
-                             VerticalAlignment="Center" />
-                    <ripple:RippleEffect
-                        RippleFill="#F1F2F2"
-                        RippleOpacity="0.5">
-                        <Ellipse Name="checkMark"
-                                 Width="10"
-                                 Height="10"
-                                 Stretch="Uniform"
-                                 UseLayoutRounding="False"
-                                 HorizontalAlignment="Center"
-                                 VerticalAlignment="Center" />
-                    </ripple:RippleEffect>
-                    <Ellipse Name="indeterminateMark"
-                             Fill="{DynamicResource ThemeAccentBrush}"
-                             Width="10"
-                             Height="10"
-                             Stretch="Uniform"
-                             UseLayoutRounding="False"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center" />
+
+                    <Border Height="26" Width="26">
+                        <Grid>
+                            <Ellipse Name="border"
+                                     Stroke="{TemplateBinding BorderBrush}"
+                                     StrokeThickness="1"
+                                     Width="18"
+                                     Height="18"
+
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center" />
+
+                            <Ellipse Name="checkMark"
+                                     Width="10"
+                                     Height="10"
+                                     Stretch="Uniform"
+
+                                     UseLayoutRounding="False"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" />
+
+                            <Ellipse Name="indeterminateMark"
+                                     Fill="{DynamicResource ThemeAccentBrush}"
+                                     Width="10"
+                                     Height="10"
+                                     Stretch="Uniform"
+                                     UseLayoutRounding="False"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" />
+
+                            <Ellipse Name="ripple"
+                                     Width="18"
+                                     Height="18"
+                                     Stretch="Uniform"
+                                     UseLayoutRounding="False"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
                     <ContentPresenter Name="PART_ContentPresenter"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       Content="{TemplateBinding Content}"
@@ -43,6 +57,9 @@
         </Setter>
 
     </Style>
+    <Style Selector="RadioButton /template/ Ellipse#ripple">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
     <Style Selector="RadioButton /template/ Ellipse#checkMark">
         <Setter Property="IsVisible" Value="False" />
     </Style>
@@ -50,6 +67,16 @@
         <Setter Property="IsVisible" Value="False" />
     </Style>
     <Style Selector="RadioButton:checked /template/ Ellipse#checkMark">
+        <Style.Animations>
+            <Animation Duration="0:0:0.3">
+                <KeyFrame Cue="0%">
+                    <Setter Property="IsVisible" Value="False" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="IsVisible" Value="True" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
         <Setter Property="IsVisible" Value="True" />
     </Style>
     <Style Selector="RadioButton:indeterminate /template/ Ellipse#indeterminateMark">
@@ -57,5 +84,20 @@
     </Style>
     <Style Selector="RadioButton:disabled /template/ Ellipse#border">
         <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+    </Style>
+    <Style Selector="RadioButton:checked /template/ Ellipse#ripple">
+        <Style.Animations>
+            <Animation Duration="0:0:0.8">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Width" Value="0" />
+                    <Setter Property="Height" Value="0" />
+                    <Setter Property="Opacity" Value="1" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Width" Value="25" />
+                    <Setter Property="Width" Value="25" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
     </Style>
 </Styles>
