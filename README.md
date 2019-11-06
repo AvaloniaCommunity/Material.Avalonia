@@ -1,3 +1,3 @@
 # material.avalonia
 material xaml 
-![](Images/preview.gif)
+![](Images/Peek%202019-11-06%2011-42.gif)
