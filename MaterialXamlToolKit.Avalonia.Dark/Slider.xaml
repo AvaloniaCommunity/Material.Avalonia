@@ -1,7 +1,9 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-  <Style Selector="Slider /template/ Ellipse">
+  <Style Selector="Slider /template/ Thumb /template/ Ellipse">
     <Setter Property="Fill" Value="{DynamicResource LightGreenDarken3Brush}" />
+    <Setter Property="Stroke" Value="{DynamicResource LightGreenDarken2Brush}" />
+    <Setter Property="StrokeThickness" Value="1" />
   </Style>
 
   <Style Selector="Slider /template/ Border#TrackBackground">
