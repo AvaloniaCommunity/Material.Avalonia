@@ -103,8 +103,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                            <ProgressBar Orientation="Horizontal" Value="50" Height="20" />
-                            <Slider Orientation="Horizontal" Value="50" Height="20" />
+                          <ProgressBar Value="{Binding #slider.Value}" Orientation="Horizontal" Height="20" />
+                          <Slider Name="slider" Orientation="Horizontal" Value="50" Height="20" />
                         </StackPanel>
                     </Grid>
                 </StackPanel>
