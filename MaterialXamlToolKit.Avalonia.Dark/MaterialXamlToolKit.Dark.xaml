@@ -2,8 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="MaterialXamlToolKit.Avalonia.Dark.MaterialXamlToolKitDark">
 
-
-
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/Window.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/TextBox.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/ListBox.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/ListBoxItem.xaml" />
 </Styles>
