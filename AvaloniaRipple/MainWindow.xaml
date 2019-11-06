@@ -168,6 +168,18 @@
                         <TextBox Text="Plain TextBox" />
                     </StackPanel>
                 </StackPanel>
+                <TreeView>
+                    <TreeViewItem Header="Fruit">
+                        <TreeViewItem Header="Lime"></TreeViewItem>
+                        <TreeViewItem Header="Orange"></TreeViewItem>
+                        <TreeViewItem Header="Apple"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Colors">
+                        <TreeViewItem Header="Red"></TreeViewItem>
+                        <TreeViewItem Header="Orange"></TreeViewItem>
+                        <TreeViewItem Header="Green"></TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
             </StackPanel>
         </Grid>
     </Grid>
