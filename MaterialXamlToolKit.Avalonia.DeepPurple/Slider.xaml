@@ -72,4 +72,7 @@
             </ControlTemplate>
         </Setter>
     </Style>
+  <Style Selector="Slider /template/ Thumb /template/ Ellipse">
+    <Setter Property="Fill" Value="{DynamicResource DeepPurpleLighten2Brush}" />
+  </Style>
 </Styles>

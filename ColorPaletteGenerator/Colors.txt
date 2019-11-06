@@ -270,6 +270,50 @@ GreyDarken1 #757575
 GreyDarken2 #616161
 GreyDarken3 #424242
 GreyDarken4 #212121
+GreyDarken5 #111111
 
 Black #000000
 White #FFFFFF
+
+ThemeAccent #CC119EDA
+ThemeAccent2 #99119EDA
+ThemeAccent3 #66119EDA
+ThemeAccent4 #33119EDA
+
+ThemeBackground #FFFFFFFF
+ThemeBorderLow #FFAAAAAA
+ThemeBorderMid #FF888888
+ThemeBorderHigh #FF333333
+
+ThemeControlLow #FF868999
+ThemeControlMid #FFF5F5F5
+ThemeControlMidHigh #FFC2C3C9
+ThemeControlHigh #FF686868
+ThemeControlVeryHigh #FF5B5B5B
+
+ThemeControlHighlightLow #FFF0F0F0
+ThemeControlHighlightMid #FFD0D0D0
+ThemeControlHighlightHigh #FF808080
+ThemeForeground #FF000000
+ThemeForegroundLow #FF808080
+
+Highlight #FF086F9E
+HighlightForeground #FFFFFFFF
+Error #FFFF0000
+ErrorLow #10FF0000
+
+<SolidColorBrush x:Key="NotificationCardBackgroundBrush" Color="#444444" Opacity="0.75" />
+<SolidColorBrush x:Key="NotificationCardInformationBackgroundBrush" Color="#007ACC" Opacity="0.75" />
+<SolidColorBrush x:Key="NotificationCardSuccessBackgroundBrush" Color="#1F9E45" Opacity="0.75" />
+<SolidColorBrush x:Key="NotificationCardWarningBackgroundBrush" Color="#FDB328" Opacity="0.75" />
+<SolidColorBrush x:Key="NotificationCardErrorBackgroundBrush" Color="#BD202C" Opacity="0.75" />
+
+<Thickness x:Key="ThemeBorderThickness">1</Thickness>
+<sys:Double x:Key="ThemeDisabledOpacity">0.5</sys:Double>
+
+<sys:Double x:Key="FontSizeSmall">10</sys:Double>
+<sys:Double x:Key="FontSizeNormal">12</sys:Double>
+<sys:Double x:Key="FontSizeLarge">16</sys:Double>
+
+<sys:Double x:Key="ScrollBarThickness">18</sys:Double>
+<sys:Double x:Key="ScrollBarThumbThickness">8</sys:Double>
