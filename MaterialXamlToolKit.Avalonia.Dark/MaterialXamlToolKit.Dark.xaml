@@ -6,4 +6,5 @@
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/TextBox.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/ListBox.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/ListBoxItem.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/RadioButton.xaml" />
 </Styles>
