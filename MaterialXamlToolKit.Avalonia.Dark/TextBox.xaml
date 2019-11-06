@@ -10,10 +10,10 @@
   </Style>
 
   <Style Selector="TextBox:focus /template/ Border#fborder">
-    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken2Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource LightGreenDarken3Brush}" />
   </Style>
   <Style Selector="TextBox:focus:pointerover /template/ Border#fborder">
-    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken1Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource LightGreenDarken2Brush}" />
   </Style>
   <Style Selector="TextBox:disabled">
     <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken3Brush}" />
