@@ -24,6 +24,7 @@
                                       IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
                                       Grid.Column="1">
                             <Path Name="path"
+                                  Fill="{Binding $parent[ToggleButton].Foreground}"
                                   Width="8"
                                   Height="4"
                                   Stretch="Uniform"
