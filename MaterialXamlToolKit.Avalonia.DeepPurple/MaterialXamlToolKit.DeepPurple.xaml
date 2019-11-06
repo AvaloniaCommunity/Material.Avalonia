@@ -12,4 +12,6 @@
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/Slider.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/TabItem.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/TextBox.xaml" />
+    <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/TreeView.xaml" />
+    <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/TreeViewItem.xaml" />
 </Styles>

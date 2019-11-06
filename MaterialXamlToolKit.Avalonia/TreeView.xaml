@@ -7,7 +7,8 @@
     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
     <Setter Property="Template">
         <ControlTemplate>
-            <Border BorderBrush="{TemplateBinding BorderBrush}"
+            <Border Name="border"
+                    BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}">
                 <ScrollViewer Background="{TemplateBinding Background}"
                               HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"

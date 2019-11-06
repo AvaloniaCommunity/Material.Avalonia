@@ -12,8 +12,7 @@
                 <StackPanel>
                     <Border Name="SelectionBorder"
                             Focusable="True"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
+                           
                             BorderThickness="{TemplateBinding BorderThickness}"
                             TemplatedControl.IsTemplateFocusTarget="True">
                         <Grid Name="PART_Header"
@@ -61,25 +60,7 @@
         <Setter Property="Padding" Value="2" />
     </Style>
 
-    <Style Selector="TreeViewItem /template/ Border#SelectionBorder:pointerover">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
-    </Style>
-
-    <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
-    </Style>
-
-    <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:focus">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-    </Style>
-
-    <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:pointerover">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-    </Style>
-
-    <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:pointerover:focus">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
-    </Style>
+   
 
     <Style Selector="TreeViewItem /template/ ToggleButton#expander:checked">
         <Setter Property="RenderTransform">

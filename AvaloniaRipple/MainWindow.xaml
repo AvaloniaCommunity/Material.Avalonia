@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="AvaloniaRipple"
-        Width="500"
-        Height="450"
+        Width="800"
+        Height="800"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
     <Window.Styles>
@@ -168,6 +168,18 @@
                         <TextBox Text="Plain TextBox" />
                     </StackPanel>
                 </StackPanel>
+                <TreeView>
+                    <TreeViewItem Header="Fruit">
+                        <TreeViewItem Header="Lime"></TreeViewItem>
+                        <TreeViewItem Header="Orange"></TreeViewItem>
+                        <TreeViewItem Header="Apple"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Colors">
+                        <TreeViewItem Header="Red"></TreeViewItem>
+                        <TreeViewItem Header="Orange"></TreeViewItem>
+                        <TreeViewItem Header="Green"></TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
             </StackPanel>
         </Grid>
     </Grid>
