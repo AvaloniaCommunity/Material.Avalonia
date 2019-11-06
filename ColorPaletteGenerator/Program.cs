@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 
 namespace ColorPaletteGenerator
 {
@@ -51,6 +52,12 @@ namespace ColorPaletteGenerator
                     continue;
                 }
 
+                if (line[0] == '<')
+                {
+                    d.Add(line, "<");
+                    continue;
+                }
+
                 var i = line.IndexOf(' ');
                 var key = line.Substring(0, i).Trim();
                 var value = line.Substring(i + 1).Trim();
@@ -69,10 +76,12 @@ namespace ColorPaletteGenerator
         /// <returns></returns>
         private static string GenerateColors(List<Dictionary<string, string>> data)
         {
-            return data.Select(d => d.Select(b =>
-                        $"    <Color x:Key=\"{b.Key}Color\">{b.Value}</Color>")
-                    .Aggregate((accumulator, piece) => $"{accumulator}\n{piece}"))
-                .Aggregate((accumulator, piece) => accumulator + "\n\n" + piece);
+            return data.Select(d => d
+                    .Select(b => b.Value == "<" ? "" : $"    <Color x:Key=\"{b.Key}Color\">{b.Value}</Color>")
+                    .Aggregate((accumulator, piece) =>
+                        $"{accumulator}{(string.IsNullOrWhiteSpace(piece) ? "" : "\n")}{piece}"))
+                .Aggregate((accumulator, piece) =>
+                    $"{accumulator}{(string.IsNullOrWhiteSpace(piece) ? "" : "\n\n")}{piece}");
         }
 
         /// <summary>
@@ -82,8 +91,11 @@ namespace ColorPaletteGenerator
         /// <returns></returns>
         private static string GenerateBrushes(List<Dictionary<string, string>> data)
         {
-            return data.Select(d => d.Select(b =>
-                        $"    <SolidColorBrush x:Key=\"{b.Key}Brush\" Color=\"{{ DynamicResource {b.Key}Color}}\" />")
+            return data.Select(d => d
+                    .Select(b =>
+                        b.Value == "<"
+                            ? $"    {b.Key}"
+                            : $"    <SolidColorBrush x:Key=\"{b.Key}Brush\" Color=\"{{ DynamicResource {b.Key}Color}}\" />")
                     .Aggregate((accumulator, piece) => $"{accumulator}\n{piece}"))
                 .Aggregate((accumulator, piece) => accumulator + "\n\n" + piece);
         }
