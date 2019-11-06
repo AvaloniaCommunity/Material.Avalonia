@@ -15,12 +15,12 @@
     <Setter Property="Stroke" Value="{DynamicResource GreyDarken2Brush}" />
   </Style>
   <Style Selector="RadioButton:checked /template/ Ellipse#checkMark">
-    <Setter Property="Fill" Value="{DynamicResource GreyDarken2Brush}" />
+    <Setter Property="Fill" Value="{DynamicResource LightGreenDarken3Brush}" />
   </Style>
   <Style Selector="RadioButton:checked:pointerover /template/ Ellipse#checkMark">
-    <Setter Property="Fill" Value="{DynamicResource GreyDarken1Brush}" />
+    <Setter Property="Fill" Value="{DynamicResource LightGreenDarken2Brush}" />
   </Style>
   <Style Selector="RadioButton /template/ Ellipse#ripple">
-    <Setter Property="Fill" Value="{DynamicResource GreyDarken2Brush}" />
+    <Setter Property="Fill" Value="{DynamicResource LightGreenDarken3Brush}" />
   </Style>
 </Styles>
