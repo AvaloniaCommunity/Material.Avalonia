@@ -4,9 +4,7 @@
     xmlns:ripple="clr-namespace:Ripple;assembly=Ripple">
 
   <Style Selector="ListBoxItem">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="0" />
+    
     <Setter Property="Padding" Value="2 1" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -33,23 +31,10 @@
     </Setter>
   </Style>
 
-  <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+  <Style Selector="ListBoxItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
   </Style>
-
-  <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
-  </Style>
-
-  <Style Selector="ListBoxItem:selected:focus /template/ ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-  </Style>
-
-  <Style Selector="ListBoxItem:selected:pointerover /template/ ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush3}" />
-  </Style>
-
-  <Style Selector="ListBoxItem:selected:focus:pointerover /template/ ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
-  </Style>
+  
 </Styles>

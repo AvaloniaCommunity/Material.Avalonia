@@ -1,4 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+    </Style>
     <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten3Brush}" />
     </Style>
@@ -11,10 +14,10 @@
         <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten2Brush}" />
     </Style>
 
-    <Style Selector="ListBoxItem:selected:focus:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten1Brush}" />
-    </Style>
+
     <Style Selector="ListBoxItem:selected">
         <Setter Property="Foreground" Value="White" />
     </Style>
+
+
 </Styles>
