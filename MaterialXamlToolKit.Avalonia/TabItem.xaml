@@ -4,9 +4,7 @@
     xmlns:ripple="clr-namespace:Ripple;assembly=Ripple">
 
     <Style Selector="TabItem">
-        <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLightBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Padding" Value="8" />
         <Setter Property="Template">
