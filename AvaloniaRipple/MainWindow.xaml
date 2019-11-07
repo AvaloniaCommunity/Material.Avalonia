@@ -32,18 +32,18 @@
     </Window.Styles>
 
     <Grid RowDefinitions="Auto, *">
-        <Menu Grid.Row="0" >
+        <Menu Grid.Row="0">
             <MenuItem Header="Menu #1">
                 <MenuItem Header="With Items">
-                    <MenuItem Header="Item #1"  />
-                    <MenuItem Header="Item #2"  />
+                    <MenuItem Header="Item #1" />
+                    <MenuItem Header="Item #2" />
                 </MenuItem>
-                    <MenuItem Header="Not Enable" IsEnabled="False" />
+                <MenuItem Header="Not Enable" IsEnabled="False" />
             </MenuItem>
             <MenuItem Header="Menu #2">
                 <MenuItem Header="With Items">
-                    <MenuItem Header="Item #1"  />
-                    <MenuItem Header="Item #2"  />
+                    <MenuItem Header="Item #1" />
+                    <MenuItem Header="Item #2" />
                 </MenuItem>
                 <MenuItem Header="Not Enable" IsEnabled="False" />
             </MenuItem>
@@ -103,11 +103,14 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                          <ProgressBar Value="{Binding #slider.Value}" Orientation="Horizontal" Height="20" />
-                          <Slider Name="slider" Orientation="Horizontal" Value="50" Height="20" />
+                            <ProgressBar Value="{Binding #slider.Value}" Orientation="Horizontal" Height="20" />
+                            <Slider Name="slider" Orientation="Horizontal" Value="50" Height="20" />
                         </StackPanel>
                     </Grid>
                 </StackPanel>
+                <Calendar Name="calendar1" FirstDayOfWeek="Monday">
+                   
+                </Calendar>
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Vertical">
                 <StackPanel>
@@ -170,14 +173,14 @@
                 </StackPanel>
                 <TreeView>
                     <TreeViewItem Header="Fruit">
-                        <TreeViewItem Header="Lime"></TreeViewItem>
-                        <TreeViewItem Header="Orange"></TreeViewItem>
-                        <TreeViewItem Header="Apple"></TreeViewItem>
+                        <TreeViewItem Header="Lime" />
+                        <TreeViewItem Header="Orange" />
+                        <TreeViewItem Header="Apple" />
                     </TreeViewItem>
                     <TreeViewItem Header="Colors">
-                        <TreeViewItem Header="Red"></TreeViewItem>
-                        <TreeViewItem Header="Orange"></TreeViewItem>
-                        <TreeViewItem Header="Green"></TreeViewItem>
+                        <TreeViewItem Header="Red" />
+                        <TreeViewItem Header="Orange" />
+                        <TreeViewItem Header="Green" />
                     </TreeViewItem>
                 </TreeView>
             </StackPanel>
