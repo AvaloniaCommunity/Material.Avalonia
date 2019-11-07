@@ -38,7 +38,6 @@
                         </ContentPresenter>
                         <Path Name="rightArrow"
                               Data="M0,0L4,3.5 0,7z"
-                              Fill="{DynamicResource ThemeForegroundBrush}"
                               Margin="10,0,0,0"
                               VerticalAlignment="Center"
                               Grid.Column="3" />
