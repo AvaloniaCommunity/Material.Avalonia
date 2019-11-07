@@ -6,6 +6,8 @@
     </Style>
     <Style Selector="Button:pressed  /template/ ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource DeepPurpleBrush}" />
-
+    </Style>
+    <Style Selector="Button:disabled">
+        <Setter Property="TextBlock.Foreground" Value="Black" />
     </Style>
 </Styles>
