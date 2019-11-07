@@ -12,12 +12,11 @@
                 <ripple:RippleEffect
                     RippleFill="#F1F2F2"
                     RippleOpacity="0.2">
-                    <Grid>
                         <Border Name="buttonBorder"
                                 Background="{Binding $parent[Button].Background}"
-                                CornerRadius="3">
+                                CornerRadius="4">
                             <ContentPresenter Name="PART_ContentPresenter"
-                                              CornerRadius="3"
+                                              CornerRadius="4"
                                               BorderBrush="{TemplateBinding BorderBrush}"
                                               BorderThickness="{TemplateBinding BorderThickness}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -27,24 +26,9 @@
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
-                        <Border Name="pointerover"
-                                CornerRadius="3"
-                                Background="White" />
-                    </Grid>
                 </ripple:RippleEffect>
             </ControlTemplate>
         </Setter>
-    </Style>
-
-    <Style Selector="Button /template/ Border#pointerover">
-        <Setter Property="Opacity" Value="0"></Setter>
-    </Style>
-    <Style Selector="Button:pointerover /template/ Border#pointerover">
-        <Setter Property="Opacity" Value="0.2"></Setter>
-    </Style>
-
-    <Style Selector="Button:pointerover /template/ ContentPresenter">
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
     </Style>
 
     <Style Selector="Button:disabled">

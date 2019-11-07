@@ -3,6 +3,13 @@
   <Style Selector="Button">
     <Setter Property="Background" Value="{DynamicResource GreyDarken5Brush}" />
     <Setter Property="TextBlock.Foreground" Value="{DynamicResource BrownLighten4Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken3Brush}" />
+    <Setter Property="BorderThickness" Value="1 1 1 1" />
+  </Style>
+
+  <Style Selector="Button:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken2Brush}" />
   </Style>
   
   <Style Selector="Button:pressed  /template/ ContentPresenter">
