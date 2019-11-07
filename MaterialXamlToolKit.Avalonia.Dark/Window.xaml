@@ -1,5 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="Window">
-      <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
     </Style>
 </Styles>
