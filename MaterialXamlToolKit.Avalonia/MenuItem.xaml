@@ -2,13 +2,11 @@
         xmlns:sys="clr-namespace:System;assembly=netstandard">
 
     <Style Selector="MenuItem">
-        <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="6 0" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
-                        Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid ColumnDefinitions="20,5,*,20">
@@ -46,8 +44,7 @@
                                StaysOpen="True"
                                IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
                                ObeyScreenEdges="True">
-                            <Border Background="{TemplateBinding Background}"
-                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                            <Border Name="MainBorder"
                                     BorderThickness="{TemplateBinding BorderThickness}">
                                 <ScrollViewer>
                                     <ItemsPresenter Name="PART_ItemsPresenter"
@@ -79,8 +76,6 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <Panel>
                         <ContentPresenter Name="PART_HeaderPresenter"
@@ -96,8 +91,7 @@
                                IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
                                StaysOpen="True"
                                ObeyScreenEdges="True">
-                            <Border Background="{TemplateBinding Background}"
-                                    BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                            <Border Name="MainBorder"
                                     BorderThickness="{TemplateBinding BorderThickness}">
                                 <ScrollViewer>
                                     <ItemsPresenter Name="PART_ItemsPresenter"
@@ -112,11 +106,6 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-    </Style>
-
-    <Style Selector="MenuItem:selected /template/ Border#root">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush4}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeAccentBrush}" />
     </Style>
 
     <Style Selector="MenuItem:empty /template/ Path#rightArrow">
