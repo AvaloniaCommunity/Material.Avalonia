@@ -11,4 +11,6 @@
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/ProgressBar.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/Slider.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/Button.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/Menu.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/MenuItem.xaml" />
 </Styles>
