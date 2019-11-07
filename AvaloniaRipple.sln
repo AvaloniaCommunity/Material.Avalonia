@@ -49,17 +49,10 @@ Global
 		{A0263A21-A5FA-4F74-BB54-C8810FE52618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0263A21-A5FA-4F74-BB54-C8810FE52618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0263A21-A5FA-4F74-BB54-C8810FE52618}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<<<< Temporary merge branch 1
-		{94013183-EE23-4AD9-8C2D-82D78AE36629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94013183-EE23-4AD9-8C2D-82D78AE36629}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94013183-EE23-4AD9-8C2D-82D78AE36629}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94013183-EE23-4AD9-8C2D-82D78AE36629}.Release|Any CPU.Build.0 = Release|Any CPU
-=========
 		{AE7993F6-BC21-4E09-833E-49E79200A139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE7993F6-BC21-4E09-833E-49E79200A139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE7993F6-BC21-4E09-833E-49E79200A139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE7993F6-BC21-4E09-833E-49E79200A139}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>>>> Temporary merge branch 2
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
