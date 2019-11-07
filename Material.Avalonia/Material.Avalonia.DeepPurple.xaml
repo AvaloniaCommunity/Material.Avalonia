@@ -1,0 +1,5 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Material.Avalonia.MaterialAvaloniaDeepPurple">
+    <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/MaterialXamlToolKit.DeepPurple.xaml" />
+</Styles>
