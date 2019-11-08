@@ -10,7 +10,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <ripple:RippleEffect
-                    RippleFill="#F1F2F2"
+                    RippleFill="{DynamicResource RippleEffectBrush}"
                     RippleOpacity="0.2">
                     <Border Name="buttonBorder"
                             Background="{Binding $parent[Button].Background}"

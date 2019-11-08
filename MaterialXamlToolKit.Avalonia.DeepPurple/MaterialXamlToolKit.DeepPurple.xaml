@@ -1,6 +1,11 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="MaterialXamlToolKit.Avalonia.DeepPurple.MaterialXamlToolKitDeepPurple">
+
+  <Styles.Resources>
+    <SolidColorBrush x:Key="RippleEffectBrush" Color="#F1F2F2" />
+  </Styles.Resources>
+  
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/Button.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/RadioButton.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/CheckBox.xaml" />

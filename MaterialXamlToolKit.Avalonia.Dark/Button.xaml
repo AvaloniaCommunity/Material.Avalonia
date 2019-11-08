@@ -11,8 +11,4 @@
     <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
     <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken2Brush}" />
   </Style>
-  
-  <Style Selector="Button:pressed  /template/ ContentPresenter">
-    <Setter Property="Background" Value="{DynamicResource GreyDarken5Brush}" />
-  </Style>
 </Styles>
