@@ -1,16 +1,9 @@
 <Styles xmlns="https://github.com/avaloniaui">
-  
+
   <Style Selector="MenuItem">
-    <Setter Property="Foreground" Value="{DynamicResource BrownLighten4Brush}" />
-  </Style>
-
-  <Style Selector="MenuItem /template/ Border#root">
-    <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
-  </Style>
-
-  <Style Selector="MenuItem /template/ Border#root">
     <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource BrownLighten4Brush}" />
+    <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
   </Style>
 
   <Style Selector="MenuItem /template/ Border#MainBorder">
@@ -32,5 +25,8 @@
 
   <Style Selector="MenuItem /template/ Path#rightArrow">
     <Setter Property="Fill" Value="{DynamicResource LightGreenDarken3Brush}" />
+  </Style>
+  <Style Selector="MenuItem:disabled">
+    <Setter Property="Foreground" Value="{DynamicResource GreyBrush}" />
   </Style>
 </Styles>
