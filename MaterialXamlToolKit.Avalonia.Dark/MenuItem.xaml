@@ -8,17 +8,18 @@
     <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
   </Style>
 
-  <Style Selector="Menu > MenuItem /template/ Border#root">
+  <Style Selector="MenuItem /template/ Border#root">
+    <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="Background" Value="Transparent" />
   </Style>
 
-  <Style Selector="MenuItem /template/ Border#root">
-    <Setter Property="BorderBrush" Value="Transparent" />
+  <Style Selector="MenuItem /template/ Border#MainBorder">
+    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken2Brush}" />
+    <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
   </Style>
 
-  <Style Selector="MenuItem /template/ Border#MainBorder">
-    <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-    <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
+  <Style Selector="MenuItem:pointerover /template/ Border#root">
+    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken1Brush}" />
   </Style>
 
   <Style Selector="MenuItem:selected /template/ Border#root">
