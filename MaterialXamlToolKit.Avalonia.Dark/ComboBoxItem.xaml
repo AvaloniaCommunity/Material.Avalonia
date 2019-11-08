@@ -1,0 +1,38 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+  <Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource GreyDarken3Brush}" />
+  </Style>
+  <Style Selector="ComboBoxItem /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
+  </Style>
+
+  <Style Selector="ComboBoxItem:selected:focus /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource BrownDarken3Brush}" />
+  </Style>
+
+  <Style Selector="ComboBoxItem:selected:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource GreyDarken2Brush}" />
+  </Style>
+
+  <Style Selector="ComboBoxItem:selected:focus:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource BrownDarken2Brush}" />
+  </Style>
+
+
+  <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource GreyDarken3Brush}" />
+  </Style>
+
+  <Style Selector="ListBoxItem:selected:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource GreyDarken2Brush}" />
+  </Style>
+
+  <Style Selector="ListBoxItem:selected:focus /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource BrownDarken3Brush}" />
+  </Style>
+
+  <Style Selector="ListBoxItem:selected:focus:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource BrownDarken2Brush}" />
+  </Style>
+</Styles>

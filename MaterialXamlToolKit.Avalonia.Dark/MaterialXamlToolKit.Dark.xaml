@@ -15,4 +15,6 @@
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/MenuItem.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/TabItem.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/TabControl.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/ComboBox.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.Dark/ComboBoxItem.xaml" />
 </Styles>
