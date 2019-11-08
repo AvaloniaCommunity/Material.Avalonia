@@ -1,16 +1,23 @@
 <Styles xmlns="https://github.com/avaloniaui">
-  
+
   <Style Selector="ComboBox">
     <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken2Brush}" />
     <Setter Property="Foreground" Value="{DynamicResource BrownLighten4Brush}" />
-  </Style>
-    <Style Selector="ComboBox /template/ ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource LightGreenDarken3Brush}" />
-    </Style>
-  <Style Selector="ComboBox /template/ ToggleButton:checked">
-    <Setter Property="Foreground" Value="{DynamicResource LightGreenDarken2Brush}" />
+    <Setter Property="Background" Value="Transparent" />
   </Style>
   <Style Selector="ComboBox:pointerover">
     <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken1Brush}" />
+  </Style>
+
+  <Style Selector="ComboBox /template/ ToggleButton:unchecked">
+    <Setter Property="Foreground" Value="{DynamicResource LightGreenDarken3Brush}" />
+  </Style>
+  <Style Selector="ComboBox /template/ ToggleButton:checked">
+    <Setter Property="Foreground" Value="{DynamicResource LightGreenDarken2Brush}" />
+  </Style>
+
+  <Style Selector="ComboBox:disabled">
+    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken3Brush}" />
+    <Setter Property="Foreground" Value="{DynamicResource GreyBrush}" />
   </Style>
 </Styles>
