@@ -7,8 +7,7 @@
 
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="CalendarButton">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeBorderHighBrush}" />
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
+       
         <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -39,7 +38,7 @@
 
                     <Rectangle Name="FocusVisual"
                                StrokeThickness="1"
-                               Stroke="{DynamicResource HighlightBrush}"
+                              
                                IsHitTestVisible="False" />
 
                 </Grid>

@@ -1,0 +1,7 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+  <Style Selector="TabControl">
+    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken2Brush}" />
+    <Setter Property="BorderThickness" Value="1 1 1 1" />
+  </Style>
+</Styles>

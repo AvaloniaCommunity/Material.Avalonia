@@ -1,0 +1,12 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+  <Style Selector="TabItem">
+    <Setter Property="Background" Value="{DynamicResource GreyDarken5Brush}" />
+  </Style>
+  <Style Selector="TabItem:pointerover">
+    <Setter Property="Background" Value="{DynamicResource BlueGreyDarken4Brush}" />
+  </Style>
+  <Style Selector="TabItem:selected">
+    <Setter Property="Background" Value="{DynamicResource GreyDarken4Brush}" />
+  </Style>
+</Styles>
