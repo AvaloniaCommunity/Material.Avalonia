@@ -1,0 +1,24 @@
+<Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="ScrollBar /template/ Thumb#thumb:pointerover">
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten3Brush}" />
+    </Style>
+    <Style Selector="ScrollBar /template/ Thumb#thumb:pressed">
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten1Brush}" />
+    </Style>
+    <Style Selector="ScrollBar /template/ RepeatButton.repeattrack">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{DynamicResource DeepPurpleLighten3Brush}" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="ScrollBar /template/ RepeatButton > Path">
+        <Setter Property="Fill" Value="{DynamicResource DeepPurpleLighten3Brush}" />
+    </Style>
+
+    <Style Selector="ScrollBar /template/ RepeatButton:pointerover > Path">
+        <Setter Property="Fill" Value="{DynamicResource DeepPurpleLighten1Brush}" />
+    </Style>
+    
+</Styles>

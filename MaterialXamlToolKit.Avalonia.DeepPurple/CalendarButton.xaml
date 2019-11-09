@@ -6,5 +6,11 @@
 -->
 
 <Styles xmlns="https://github.com/avaloniaui">
-
+    <Style Selector="CalendarButton /template/ Rectangle#FocusVisual">
+        <Setter Property="Stroke" Value="{DynamicResource DeepPurpleBrush}" />
+    </Style>
+    <Style Selector="CalendarButton">
+        <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten3Brush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten3Brush}" />
+    </Style>
 </Styles>

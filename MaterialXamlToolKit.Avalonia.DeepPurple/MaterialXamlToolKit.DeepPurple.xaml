@@ -15,7 +15,9 @@
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/ToggleButton.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/ProgressBar.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/Slider.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/ScrollBar.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/TabItem.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/TabControl.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/Window.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/TextBox.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/TreeView.xaml" />
@@ -23,4 +25,8 @@
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/Menu.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/MenuItem.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/Window.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/Calendar.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/CalendarButton.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/CalendarDayButton.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/CalendarItem.xaml" />
 </Styles>

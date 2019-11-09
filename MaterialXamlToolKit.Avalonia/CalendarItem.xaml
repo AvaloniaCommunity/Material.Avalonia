@@ -31,32 +31,7 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <Grid.Styles>
-                                    <Style Selector="Button.CalendarHeader">
-                                        <Setter Property="Cursor" Value="Hand" />
-                                        <Setter Property="Background" Value="Transparent" />
-                                        <Setter Property="BorderThickness" Value="0" />
-                                    </Style>
-                                    <Style Selector="Button.CalendarHeader:pressed  /template/ ContentPresenter">
-                                        <Setter Property="Background" Value="Transparent" />
-                                    </Style>
-
-                                    <Style Selector="Button.CalendarNavigation">
-                                        <Setter Property="Height" Value="20" />
-                                        <Setter Property="Width" Value="28" />
-                                    </Style>
-                                    <Style Selector="Button.CalendarNavigation > Path">
-                                        <Setter Property="Fill" Value="{DynamicResource ThemeForegroundBrush}" />
-                                    </Style>
-                                    <Style Selector="Button.CalendarNavigation:pointerover > Path">
-                                        <Setter Property="Fill" Value="{DynamicResource HighlightBrush}" />
-                                    </Style>
-
-                                    <Style Selector="Button#HeaderButton:pointerover">
-                                        <Setter Property="Foreground" Value="{DynamicResource HighlightBrush}" />
-                                    </Style>
-                                </Grid.Styles>
-
+                              
                                 <Rectangle Grid.ColumnSpan="3"
                                            Fill="{TemplateBinding HeaderBackground}"
                                            Stretch="Fill"
@@ -180,4 +155,5 @@
         <Setter Property="IsVisible" Value="True" />
     </Style>
 
+   
 </Styles>
