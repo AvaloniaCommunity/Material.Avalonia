@@ -6,5 +6,10 @@
 -->
 
 <Styles xmlns="https://github.com/avaloniaui">
-    
+    <Style Selector="Calendar">
+        <Setter Property="BorderBrush" Value="{DynamicResource GreyLighten1Brush}" />
+    </Style>
+    <Style Selector="Calendar:pointerover">
+        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten1Brush}" />
+    </Style>
 </Styles>

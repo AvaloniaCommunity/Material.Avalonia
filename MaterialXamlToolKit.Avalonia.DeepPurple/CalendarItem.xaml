@@ -8,5 +8,28 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   
+        <Style Selector="Button.CalendarHeader">
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style Selector="Button.CalendarHeader:pressed  /template/ ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+        </Style>
 
+        <Style Selector="Button.CalendarNavigation">
+                <Setter Property="Height" Value="20" />
+                <Setter Property="Width" Value="28" />
+        </Style>
+        <Style Selector="Button.CalendarNavigation > Path">
+                <Setter Property="Fill" Value="Black" />
+        </Style>
+        <Style Selector="Button.CalendarNavigation:pointerover > Path">
+                <Setter Property="Fill" Value="Black" />
+        </Style>
+
+        <Style Selector="Button#HeaderButton:pointerover">
+                <Setter Property="Foreground" Value="{DynamicResource DeepPurpleBrush}" />
+        </Style>
 </Styles>

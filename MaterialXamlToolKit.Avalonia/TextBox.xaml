@@ -73,4 +73,7 @@
       </Animation>
     </Style.Animations>
   </Style>
+  <Style Selector="TextBox">
+    <Setter Property="Cursor" Value="IBeam" />
+  </Style>
 </Styles>

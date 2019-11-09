@@ -7,7 +7,6 @@
 
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="CalendarDayButton">
-        <Setter Property="Background" Value="{DynamicResource ThemeAccentBrush2}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -19,13 +18,15 @@
                 <Panel Background="Transparent">
 
                     <Rectangle Name="TodayBackground"
-                               Fill="{DynamicResource HighlightBrush}" />
+                               />
 
                     <Rectangle Name="SelectedBackground"
+                              
                                Opacity="0.75"
                                Fill="{TemplateBinding Background}" />
 
                     <Rectangle Name="Background"
+                                
                                Opacity="0.5"
                                Fill="{TemplateBinding Background}" />
 
@@ -48,7 +49,6 @@
 
                     <Rectangle Name="FocusVisual"
                                StrokeThickness="1"
-                               Stroke="{DynamicResource HighlightBrush}"
                                IsHitTestVisible="False" />
 
                 </Panel>
@@ -99,12 +99,8 @@
     </Style>
 
 
-    <Style Selector="CalendarDayButton:inactive /template/ ContentControl#Content">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
-    </Style>
-    <Style Selector="CalendarDayButton:today /template/ ContentControl#Content">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeControlLowBrush}" />
-    </Style>
+    
+   
 
     <Style Selector="CalendarDayButton /template/ Path#BlackoutVisual">
         <Setter Property="Opacity" Value="0" />

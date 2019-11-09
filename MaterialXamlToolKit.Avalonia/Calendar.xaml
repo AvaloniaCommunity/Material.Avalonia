@@ -9,9 +9,6 @@
     <Style Selector="Calendar">
         <!--<Setter Property="Focusable" Value="False" />-->
         <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="HeaderBackground" Value="{DynamicResource ThemeAccentBrush2}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Name="Root"
@@ -27,5 +24,14 @@
                 </StackPanel>
             </ControlTemplate>
         </Setter>
+    </Style>
+    <Style Selector="Calendar">
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+    </Style>
+    <Style Selector="Calendar">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="Calendar">
+        <Setter Property="HeaderBackground" Value="Transparent" />
     </Style>
 </Styles>

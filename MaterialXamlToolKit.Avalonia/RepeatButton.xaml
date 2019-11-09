@@ -1,9 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="RepeatButton">
-        <Setter Property="Background"
-                Value="{DynamicResource ThemeControlMidBrush}" />
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource ThemeBorderLowBrush}" />
         <Setter Property="BorderThickness"
                 Value="{DynamicResource ThemeBorderThickness}" />
         <Setter Property="Foreground"

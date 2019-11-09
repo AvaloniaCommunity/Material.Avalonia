@@ -1,7 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style Selector="TextBox">
-        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken4Brush}" />
-    </Style>
+  
     <Style Selector="TextBox:pointerover">
         <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken1Brush}" />
     </Style>
@@ -13,7 +11,7 @@
     <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken1Brush}" />
   </Style>
   <Style Selector="TextBox:disabled">
-    <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten1Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource GreyBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource GreyBrush}" />
   </Style>
 
