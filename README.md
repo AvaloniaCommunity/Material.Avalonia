@@ -1,6 +1,9 @@
 # material.avalonia
 material xaml 
-![(https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
+
+
+[![nuget](https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
+
 ![](Images/Peek%202019-11-06%2011-42.gif)
 
 to use Add style
