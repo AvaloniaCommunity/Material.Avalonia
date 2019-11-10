@@ -1,0 +1,15 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+    <Style Selector="RadioButton:pointerover /template/ Ellipse#border">
+        <Setter Property="Stroke" Value="{DynamicResource LightGreenBrush}" />
+    </Style>
+    <Style Selector="RadioButton:checked /template/ Ellipse#border">
+        <Setter Property="Stroke" Value="{DynamicResource LightGreenBrush}" />
+    </Style>
+    <Style Selector="RadioButton:checked /template/ Ellipse#checkMark">
+        <Setter Property="Fill" Value="{DynamicResource LightGreenBrush}" />
+    </Style>
+    <Style Selector="RadioButton /template/ Ellipse#ripple">
+        <Setter Property="Fill" Value="{DynamicResource LightGreenBrush}" />
+    </Style>
+</Styles>

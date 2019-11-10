@@ -7,6 +7,7 @@
     <ItemGroup>
       <ProjectReference Include="..\MaterialXamlToolKit.Avalonia.Dark\MaterialXamlToolKit.Avalonia.Dark.csproj" />
       <ProjectReference Include="..\MaterialXamlToolKit.Avalonia.DeepPurple\MaterialXamlToolKit.Avalonia.DeepPurple.csproj" />
+      <ProjectReference Include="..\MaterialXamlToolKit.Avalonia.LightGreen\MaterialXamlToolKit.Avalonia.LightGreen.csproj" />
       <ProjectReference Include="..\MaterialXamlToolKit.Avalonia\MaterialXamlToolKit.Avalonia.csproj" />
     </ItemGroup>
     <ItemGroup>

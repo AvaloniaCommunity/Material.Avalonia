@@ -3,16 +3,16 @@
 
 
   <Style Selector="TextBox:focus /template/ Border#fborder">
-    <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken4Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource LightGreenDarken4Brush}" />
   </Style>
   <Style Selector="TextBox:pointerover /template/ Border#fborder">
-    <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten1Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource LightGreenLighten1Brush}" />
   </Style>
   <Style Selector="TextBox /template/ Border#fborder">
-    <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten3Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource LightGreenLighten3Brush}" />
   </Style>
   <Style Selector="TextBox:focus:pointerover /template/ Border#fborder">
-    <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleDarken1Brush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource LightGreenDarken1Brush}" />
   </Style>
   <Style Selector="TextBox:disabled">
     <Setter Property="BorderBrush" Value="{DynamicResource GreyBrush}" />

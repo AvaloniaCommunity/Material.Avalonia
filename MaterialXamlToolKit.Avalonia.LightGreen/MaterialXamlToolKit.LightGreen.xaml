@@ -1,0 +1,32 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="MaterialXamlToolKit.Avalonia.LightGreen.MaterialXamlToolKitLightGreen">
+
+  <Styles.Resources>
+    <SolidColorBrush x:Key="RippleEffectBrush" Color="#F1F2F2" />
+  </Styles.Resources>
+  
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/Button.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/RadioButton.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/CheckBox.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/ListBoxItem.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/ComboBox.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/ComboBoxItem.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/ToggleButton.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/ProgressBar.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/Slider.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/ScrollBar.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/TabItem.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/TabControl.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/Window.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/TextBox.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/TreeView.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/TreeViewItem.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/Menu.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/MenuItem.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/Window.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/Calendar.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/CalendarButton.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/CalendarDayButton.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.LightGreen/CalendarItem.xaml" />
+</Styles>

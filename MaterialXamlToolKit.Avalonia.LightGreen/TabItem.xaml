@@ -1,0 +1,22 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+    <Style Selector="TabItem:pointerover">
+        <Setter Property="Background" Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+    </Style>
+    <Style Selector="TabItem:selected">
+        <Setter Property="Background" Value="{DynamicResource LightGreenLighten3Brush}" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+    <Style Selector="TabItem:selected:focus">
+        <Setter Property="Background" Value="{DynamicResource LightGreenLighten2Brush}" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+    <Style Selector="TabItem:selected:pointerover">
+        <Setter Property="Background" Value="{DynamicResource LightGreenLighten2Brush}" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+    <Style Selector="TabItem:selected:focus:pointerover">
+        <Setter Property="Background" Value="{DynamicResource LightGreenLighten1Brush}" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+</Styles>
