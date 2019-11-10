@@ -1,0 +1,13 @@
+<Styles
+    xmlns="https://github.com/avaloniaui">
+    <Style Selector="Button">
+        <Setter Property="Background" Value="{DynamicResource LightGreenBrush}" />
+        <Setter Property="TextBlock.Foreground" Value="White" />
+    </Style>
+    <Style Selector="Button:pressed  /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource LightGreenBrush}" />
+    </Style>
+    <Style Selector="Button:disabled">
+        <Setter Property="TextBlock.Foreground" Value="Black" />
+    </Style>
+</Styles>

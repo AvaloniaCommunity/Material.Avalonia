@@ -1,0 +1,21 @@
+<Styles xmlns="https://github.com/avaloniaui">
+  <Style Selector="TreeViewItem /template/ Border#SelectionBorder:pointerover">
+    <Setter Property="Background" Value="{DynamicResource LightGreenLighten2Brush}" />
+  </Style>
+
+  <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder">
+    <Setter Property="Background" Value="{DynamicResource LightGreenLighten4Brush}" />
+  </Style>
+
+  <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:focus">
+    <Setter Property="Background" Value="{DynamicResource LightGreenLighten3Brush}" />
+  </Style>
+
+  <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:pointerover">
+    <Setter Property="Background" Value="{DynamicResource LightGreenLighten3Brush}" />
+  </Style>
+
+  <Style Selector="TreeViewItem:selected /template/ Border#SelectionBorder:pointerover:focus">
+    <Setter Property="Background" Value="{DynamicResource LightGreenLighten1Brush}" />
+  </Style>
+</Styles>

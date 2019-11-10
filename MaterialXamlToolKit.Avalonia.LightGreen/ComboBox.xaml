@@ -1,0 +1,11 @@
+<Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="ComboBox:pointerover /template/ Border#border">
+        <Setter Property="BorderBrush" Value="{DynamicResource LightGreenBrush}" />
+    </Style>
+    <Style Selector="ComboBox /template/ ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource LightGreenBrush}" />
+    </Style>
+    <Style Selector="ComboBox /template/ ToggleButton:checked">
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+</Styles>
