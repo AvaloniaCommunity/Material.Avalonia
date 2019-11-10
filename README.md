@@ -1,5 +1,5 @@
 # material.avalonia
-
+This repository is a set of styles that will help you customize your application in an appropriate material design.
 
 
 [![nuget](https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
