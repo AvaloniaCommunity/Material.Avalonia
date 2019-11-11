@@ -8,6 +8,9 @@
       <AvaloniaResource Include="Button.xaml">
         <SubType>Designer</SubType>
       </AvaloniaResource>
+      <AvaloniaResource Include="ButtonSpinner.xaml">
+        <SubType>Designer</SubType>
+      </AvaloniaResource>
       <AvaloniaResource Include="Calendar.xaml">
         <SubType>Designer</SubType>
       </AvaloniaResource>
