@@ -7,6 +7,7 @@
   </Styles.Resources>
   
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/Button.xaml" />
+  <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/ButtonSpinner.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/RadioButton.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/CheckBox.xaml" />
   <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia.DeepPurple/ListBoxItem.xaml" />
