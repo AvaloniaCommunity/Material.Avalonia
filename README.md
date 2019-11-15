@@ -16,7 +16,10 @@ Here u cans see an exapmle with Application style scope
 
 ```
 Now we have next pallets:
+
  LightGreen
+ 
  DeepPurple
+ 
  Dark
  
