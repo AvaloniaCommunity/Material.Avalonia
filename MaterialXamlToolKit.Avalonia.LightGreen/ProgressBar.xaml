@@ -1,0 +1,10 @@
+<Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="ProgressBar">
+        <Setter Property="Background" Value="{DynamicResource LightGreenLighten3Brush}" />
+        <Setter Property="Foreground" Value="{DynamicResource LightGreenDarken3Brush}" />
+    </Style>
+    <Style Selector="ProgressBar /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource LightGreenBrush}" />
+
+    </Style>
+</Styles>

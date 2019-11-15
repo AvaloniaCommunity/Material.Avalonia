@@ -111,6 +111,9 @@
                 <Calendar Name="calendar1" FirstDayOfWeek="Monday">
                    
                 </Calendar>
+                <ButtonSpinner>
+                    <TextBlock Text="1"></TextBlock>
+                </ButtonSpinner>
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Vertical">
                 <StackPanel>

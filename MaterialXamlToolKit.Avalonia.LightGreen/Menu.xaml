@@ -1,0 +1,8 @@
+<Styles
+    xmlns="https://github.com/avaloniaui">
+  <Style Selector="Menu">
+    <Setter Property="BorderThickness" Value="0 0 0 1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource GreyDarken2Brush}" />
+    <Setter Property="Foreground" Value="{DynamicResource BrownLighten4Brush}" />
+  </Style>
+</Styles>

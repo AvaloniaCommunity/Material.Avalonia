@@ -3,7 +3,8 @@
              xmlns:r="clr-namespace:Ripple;assembly=Ripple"
              x:Class="AvaloniaRipple.App">
     <Application.Styles>
-        <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.DeepPurple.xaml" />
+
         <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
+        <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.LightGreen.xaml" />
     </Application.Styles>
 </Application>
