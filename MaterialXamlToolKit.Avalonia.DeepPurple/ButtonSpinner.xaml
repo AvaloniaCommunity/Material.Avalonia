@@ -20,4 +20,5 @@
         <Setter Property="Background" Value="{DynamicResource DeepPurpleLighten3Brush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleLighten1Brush}" />
     </Style>
+
 </Styles>

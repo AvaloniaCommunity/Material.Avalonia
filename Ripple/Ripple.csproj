@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +13,7 @@
 
 
   <ItemGroup>
-    <AvaloniaResource Remove="Ripple\RippleEffect\RippleEffect.xaml"/>
+    <AvaloniaResource Remove="Ripple\RippleEffect\RippleEffect.xaml" />
   </ItemGroup>
 
   <ItemGroup>

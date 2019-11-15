@@ -8,7 +8,7 @@
     <Style Selector="ScrollBar /template/ RepeatButton.repeattrack">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{DynamicResource LightGreenLighten3Brush}" />
+                <Border Background="Transparent" />
             </ControlTemplate>
         </Setter>
     </Style>
