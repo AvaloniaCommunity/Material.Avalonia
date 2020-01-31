@@ -14,7 +14,7 @@ A collection of styles can be installed via [nuget-package](https://www.nuget.or
 <Application.Styles>        
     <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
     <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.{Palette}.xaml" />
-</Application.Styles
+</Application.Styles>
 ```
 
 Now we have next pallets:
