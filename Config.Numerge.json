@@ -1,0 +1,38 @@
+{
+    "Packages":
+    [
+      {
+        "Id": "Material.Avalonia",
+        "MergeAll": true,
+        "Exclude": ["Avalonia.Remote.Protocol"],
+        "Merge": [
+          {
+            "Id": "MaterialXamlToolKit.Avalonia",
+            "IgnoreMissingFrameworkBinaries": true,
+            "DoNotMergeDependencies": true
+          },
+          {
+            "Id": "MaterialXamlToolKit.Avalonia.Dark",
+            "IgnoreMissingFrameworkBinaries": true,
+            "IgnoreMissingFrameworkDependencies": true
+          },
+          {
+            "Id": "MaterialXamlToolKit.Avalonia.DeepPurple",
+            "IgnoreMissingFrameworkBinaries": true,
+            "IgnoreMissingFrameworkDependencies": true
+          },
+          {
+            "Id": "MaterialXamlToolKit.Avalonia.LightGreen",
+            "IgnoreMissingFrameworkBinaries": true,
+            "IgnoreMissingFrameworkDependencies": true
+          },
+          {
+            "Id": "Ripple",
+            "IgnoreMissingFrameworkBinaries": true,
+            "IgnoreMissingFrameworkDependencies": true
+          }
+  
+        ]
+      }
+    ]
+  }
