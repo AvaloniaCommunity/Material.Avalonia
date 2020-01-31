@@ -84,6 +84,7 @@
 
                 <StackPanel>
                     <StackPanel Orientation="Vertical">
+                        <TextBlock Margin="10" Text="Sample Text block with tooltip" ToolTip.Tip="ToolTip" ></TextBlock>
                         <TextBox Text="Sample textbox" />
                         <TextBox IsEnabled="False" Text="disabled textbox" />
                         <TextBox AcceptsReturn="True" Height="50" Text="Sample textarea" />
@@ -186,8 +187,10 @@
                         <TreeViewItem Header="Green" />
                     </TreeViewItem>
                 </TreeView>
+                
             </StackPanel>
         </Grid>
+        
     </Grid>
 
 </Window>

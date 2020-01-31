@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>0.1.0-preview5</PackageVersion>
+        <PackageVersion>0.9</PackageVersion>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar&lt;f98f96&gt;</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -11,6 +11,7 @@
         <PackageLicenseUrl>https://github.com/CreateLab/material.avalonia/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/CreateLab/material.avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <LangVersion>8</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -26,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.9.0-preview4" />
+      <PackageReference Include="Avalonia" Version="0.9.0" />
     </ItemGroup>
 
 </Project>
