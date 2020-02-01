@@ -4,7 +4,6 @@
       {
         "Id": "Material.Avalonia",
         "MergeAll": true,
-        "Exclude": ["Avalonia.Remote.Protocol"],
         "Merge": [
           {
             "Id": "MaterialXamlToolKit.Avalonia",
