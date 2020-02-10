@@ -25,4 +25,4 @@ Now we have next pallets:
 
 **Powered by**
 
-<img width="400" alt="portfolio_view" src="https://github.com/CreateLab/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png">
+<img width="400" alt="portfolio_view" src="https://github.com/CreateLab/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png" href="https://www.jetbrains.com/?from=ABC">
