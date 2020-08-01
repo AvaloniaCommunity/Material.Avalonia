@@ -5,6 +5,6 @@
     <Application.Styles>
 
         <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
-        <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.LightGreen.xaml" />
+        <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.DeepPurple.xaml" />
     </Application.Styles>
 </Application>

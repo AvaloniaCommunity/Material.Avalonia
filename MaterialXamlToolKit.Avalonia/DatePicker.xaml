@@ -92,8 +92,6 @@
                              BorderBrush="{TemplateBinding BorderBrush}"
                              BorderThickness="{TemplateBinding BorderThickness}"
                              Padding="{TemplateBinding Padding}"
-                             Watermark="{TemplateBinding Watermark}"
-                             UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
                              DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                              Grid.Column="0" />
 
@@ -113,8 +111,7 @@
                            PlacementTarget="{TemplateBinding}"
                            StaysOpen="False">
                         <Calendar Name="PART_Calendar"
-                                  FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
-                                  IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}" />
+                                 />
                     </Popup>
                 </Grid>
             </ControlTemplate>

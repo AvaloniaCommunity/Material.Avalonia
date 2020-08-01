@@ -29,9 +29,9 @@
                                      VerticalAlignment="Center"
                                      HorizontalAlignment="Left"
                                      StrokeThickness="1">
-                                <Ellipse.Transitions>
+                                <!--<Ellipse.Transitions>
                                     <ThicknessTransition Property="Margin" Duration="0:0:0.1" />
-                                </Ellipse.Transitions>
+                                </Ellipse.Transitions>-->
                             </Ellipse>
                         </Border>
                         <Border Name="pointerover"
