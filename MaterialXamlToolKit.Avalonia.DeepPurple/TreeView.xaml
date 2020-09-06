@@ -1,6 +1,0 @@
-<Styles xmlns="https://github.com/avaloniaui">
-    <Style Selector="TreeView:pointerover /template/ Border#border">
-        <Setter Property="BorderBrush" Value="{DynamicResource DeepPurpleBrush}" />
-    </Style>
-   
-</Styles>

@@ -9,17 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ripple", "Ripple\Ripple.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialXamlToolKit.Avalonia", "MaterialXamlToolKit.Avalonia\MaterialXamlToolKit.Avalonia.csproj", "{668BC955-5EEF-411B-8811-50F5C52E6760}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialXamlToolKit.Avalonia.DeepPurple", "MaterialXamlToolKit.Avalonia.DeepPurple\MaterialXamlToolKit.Avalonia.DeepPurple.csproj", "{A6ABC7E8-C1C3-444A-9043-F1429C77F2BA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoundRipple", "RoundRipple\RoundRipple.csproj", "{9E9DD053-66D3-451B-ADF0-799CC91A6F4C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorPaletteGenerator", "ColorPaletteGenerator\ColorPaletteGenerator.csproj", "{A0263A21-A5FA-4F74-BB54-C8810FE52618}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Avalonia", "Material.Avalonia\Material.Avalonia.csproj", "{AE7993F6-BC21-4E09-833E-49E79200A139}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialXamlToolKit.Avalonia.Dark", "MaterialXamlToolKit.Avalonia.Dark\MaterialXamlToolKit.Avalonia.Dark.csproj", "{94013183-EE23-4AD9-8C2D-82D78AE36629}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaterialXamlToolKit.Avalonia.LightGreen", "MaterialXamlToolKit.Avalonia.LightGreen\MaterialXamlToolKit.Avalonia.LightGreen.csproj", "{495BAFCC-C24B-4F6B-B235-2C1233B76D55}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomControls", "CustomControls\CustomControls.csproj", "{9C947701-E193-4BFB-B774-AB6035F71BB4}"
 EndProject
@@ -43,10 +37,6 @@ Global
 		{668BC955-5EEF-411B-8811-50F5C52E6760}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{668BC955-5EEF-411B-8811-50F5C52E6760}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{668BC955-5EEF-411B-8811-50F5C52E6760}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6ABC7E8-C1C3-444A-9043-F1429C77F2BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6ABC7E8-C1C3-444A-9043-F1429C77F2BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6ABC7E8-C1C3-444A-9043-F1429C77F2BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6ABC7E8-C1C3-444A-9043-F1429C77F2BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E9DD053-66D3-451B-ADF0-799CC91A6F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E9DD053-66D3-451B-ADF0-799CC91A6F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E9DD053-66D3-451B-ADF0-799CC91A6F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,14 +49,6 @@ Global
 		{AE7993F6-BC21-4E09-833E-49E79200A139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE7993F6-BC21-4E09-833E-49E79200A139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE7993F6-BC21-4E09-833E-49E79200A139}.Release|Any CPU.Build.0 = Release|Any CPU
-		{94013183-EE23-4AD9-8C2D-82D78AE36629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94013183-EE23-4AD9-8C2D-82D78AE36629}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94013183-EE23-4AD9-8C2D-82D78AE36629}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94013183-EE23-4AD9-8C2D-82D78AE36629}.Release|Any CPU.Build.0 = Release|Any CPU
-		{495BAFCC-C24B-4F6B-B235-2C1233B76D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{495BAFCC-C24B-4F6B-B235-2C1233B76D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{495BAFCC-C24B-4F6B-B235-2C1233B76D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{495BAFCC-C24B-4F6B-B235-2C1233B76D55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C947701-E193-4BFB-B774-AB6035F71BB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C947701-E193-4BFB-B774-AB6035F71BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C947701-E193-4BFB-B774-AB6035F71BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
