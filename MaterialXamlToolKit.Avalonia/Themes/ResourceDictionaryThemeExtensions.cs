@@ -1,6 +1,7 @@
 ﻿using System;
 using Avalonia.Controls;
 using Avalonia.Media;
+using JetBrains.Annotations;
 using MaterialColors;
 using MaterialColors.ColorManipulation;
 
@@ -81,8 +82,8 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
 
         public static ITheme GetTheme(this ResourceDictionary resourceDictionary) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
-            if (resourceDictionary[CurrentThemeKey] is ITheme theme) {
-                return theme;
+            if (resourceDictionary.TryGetResource(CurrentThemeKey , out var theme) && theme is ITheme) {
+                return (ITheme) theme;
             }
 
             Color secondaryMid = GetColor("SecondaryHueMidBrush");
@@ -165,9 +166,11 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
             }
         }
 
+        [CanBeNull]
         public static IThemeManager GetThemeManager(this ResourceDictionary resourceDictionary) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
-            return resourceDictionary[ThemeManagerKey] as IThemeManager;
+            
+            return resourceDictionary.TryGetResource(ThemeManagerKey, out object manager) ? manager as IThemeManager : null;
         }
 
         internal static void SetSolidColorBrush(this ResourceDictionary sourceDictionary, string name, Color value) {
@@ -176,7 +179,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
 
             sourceDictionary[name + "Color"] = value;
 
-            if (sourceDictionary[name] is SolidColorBrush brush) {
+            if (sourceDictionary.ContainsKey(name) && sourceDictionary[name] is SolidColorBrush brush) {
                 if (brush.Color == value) return;
 
                 // TODO Color change animation.
