@@ -7,6 +7,7 @@
         Width="800"
         Height="800"
         WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource MaterialDesignPaper}"
         mc:Ignorable="d">
     <Window.Styles>
 
@@ -184,7 +185,11 @@
                         <TreeViewItem Header="Green" />
                     </TreeViewItem>
                 </TreeView>
-                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center">Light</TextBlock>
+                    <CheckBox x:Name="BaseThemeCheckBox" Checked="BaseThemeChanged" Unchecked="BaseThemeChanged"></CheckBox>
+                    <TextBlock VerticalAlignment="Center">Dark</TextBlock>
+                </StackPanel>
             </StackPanel>
         </Grid>
         
