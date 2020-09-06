@@ -6,8 +6,8 @@ namespace MaterialXamlToolKit.Avalonia.Themes
 {
     public class BundledTheme : ResourceDictionary
     {
-        private BaseTheme? _baseTheme;
-        public BaseTheme? BaseTheme
+        private BaseThemeMode? _baseTheme;
+        public BaseThemeMode? BaseTheme
         {
             get { return _baseTheme; }
             set
@@ -50,7 +50,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes
 
         private void SetTheme()
         {
-            if (BaseTheme is BaseTheme baseTheme &&
+            if (BaseTheme is BaseThemeMode baseTheme &&
                 PrimaryColor is PrimaryColor primaryColor &&
                 SecondaryColor is SecondaryColor secondaryColor)
             {

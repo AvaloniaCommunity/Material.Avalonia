@@ -10,7 +10,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
         private static Guid CurrentThemeKey { get; } = Guid.NewGuid();
         private static Guid ThemeManagerKey { get; } = Guid.NewGuid();
 
-        public static void SetTheme(this ResourceDictionary resourceDictionary, ITheme theme) {
+        public static void SetTheme(this IResourceDictionary resourceDictionary, ITheme theme) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
 
             SetSolidColorBrush(resourceDictionary, "PrimaryHueLightBrush", theme.PrimaryLight.Color);
@@ -80,7 +80,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
             themeManager.OnThemeChange(oldTheme, theme);
         }
 
-        public static ITheme GetTheme(this ResourceDictionary resourceDictionary) {
+        public static ITheme GetTheme(this IResourceDictionary resourceDictionary) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
             if (resourceDictionary.TryGetResource(CurrentThemeKey , out var theme) && theme is ITheme) {
                 return (ITheme) theme;
@@ -167,13 +167,13 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
         }
 
         [CanBeNull]
-        public static IThemeManager GetThemeManager(this ResourceDictionary resourceDictionary) {
+        public static IThemeManager GetThemeManager(this IResourceDictionary resourceDictionary) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
             
             return resourceDictionary.TryGetResource(ThemeManagerKey, out object manager) ? manager as IThemeManager : null;
         }
 
-        internal static void SetSolidColorBrush(this ResourceDictionary sourceDictionary, string name, Color value) {
+        internal static void SetSolidColorBrush(this IResourceDictionary sourceDictionary, string name, Color value) {
             if (sourceDictionary == null) throw new ArgumentNullException(nameof(sourceDictionary));
             if (name == null) throw new ArgumentNullException(nameof(name));
 
@@ -199,9 +199,9 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
         }
 
         private class ThemeManager : IThemeManager {
-            private ResourceDictionary _ResourceDictionary;
+            private IResourceDictionary _ResourceDictionary;
 
-            public ThemeManager(ResourceDictionary resourceDictionary) {
+            public ThemeManager(IResourceDictionary resourceDictionary) {
                 _ResourceDictionary = resourceDictionary ?? throw new ArgumentNullException(nameof(resourceDictionary));
             }
 

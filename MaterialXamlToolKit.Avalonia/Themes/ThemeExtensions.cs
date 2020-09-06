@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Avalonia.Media;
 using MaterialColors;
 using MaterialColors.ColorManipulation;
@@ -12,24 +13,24 @@ namespace MaterialXamlToolKit.Avalonia.Themes
         internal static ColorPair ToPairedColor(this Hue hue) 
             => new ColorPair(hue.Color, hue.Foreground);
         
-        public static IBaseTheme GetBaseTheme(this BaseTheme baseTheme) {
-            return baseTheme switch {
-                BaseTheme.Dark  => Theme.Dark,
-                BaseTheme.Light => Theme.Light,
-                BaseTheme.Inherit => Theme.GetSystemTheme() switch {
-                    BaseTheme.Dark => Theme.Dark,
+        public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode) {
+            return baseThemeMode switch {
+                BaseThemeMode.Dark  => Theme.Dark,
+                BaseThemeMode.Light => Theme.Light,
+                BaseThemeMode.Inherit => Theme.GetSystemTheme() switch {
+                    BaseThemeMode.Dark => Theme.Dark,
                     _              => Theme.Light
                 },
                 _ => throw new InvalidOperationException()
             };
         }
 
-        public static BaseTheme GetBaseTheme(this ITheme theme)
+        public static BaseThemeMode GetBaseTheme(this ITheme theme)
         {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             var foreground = theme.Background.ContrastingForegroundColor();
-            return foreground == Colors.Black ? BaseTheme.Light : BaseTheme.Dark;
+            return foreground == Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
         }
 
         public static void SetBaseTheme(this ITheme theme, IBaseTheme baseTheme)

@@ -10,7 +10,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes
         public static IBaseTheme Light { get; } = new MaterialDesignLightTheme();
         public static IBaseTheme Dark { get; } = new MaterialDesignDarkTheme();
 
-        public static BaseTheme? GetSystemTheme()
+        public static BaseThemeMode? GetSystemTheme()
         {
             // TODO Implement getting system themes
             return null;

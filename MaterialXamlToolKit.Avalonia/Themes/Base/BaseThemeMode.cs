@@ -1,6 +1,6 @@
 ﻿namespace MaterialXamlToolKit.Avalonia.Themes.Base
 {
-    public enum BaseTheme
+    public enum BaseThemeMode
     {
         Inherit,
         Light,
