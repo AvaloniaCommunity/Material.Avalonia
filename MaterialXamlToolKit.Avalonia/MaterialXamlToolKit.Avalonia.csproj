@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <LangVersion>8</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,6 +13,7 @@
     </ItemGroup>
     
     <ItemGroup>
+      <ProjectReference Include="..\MaterialColors\MaterialColors.csproj" />
       <ProjectReference Include="..\Ripple\Ripple.csproj" />
       <ProjectReference Include="..\RoundRipple\RoundRipple.csproj" />
     </ItemGroup>
