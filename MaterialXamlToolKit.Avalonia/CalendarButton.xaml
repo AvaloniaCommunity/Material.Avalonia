@@ -7,8 +7,7 @@
 
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="CalendarButton">
-       
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="MinWidth" Value="37" />
@@ -64,10 +63,10 @@
     </Style>
 
     <Style Selector="CalendarButton /template/ ContentControl#Content">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
     </Style>
     <Style Selector="CalendarButton:inactive /template/ ContentControl#Content">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
     </Style>
 
 

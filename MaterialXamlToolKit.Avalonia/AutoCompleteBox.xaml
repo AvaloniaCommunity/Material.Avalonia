@@ -1,8 +1,9 @@
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="AutoCompleteBox">
-        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <!-- <Setter Property="BorderThickness" Value="0 0 0 1" /> -->
+        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
         <Setter Property="Padding" Value="4" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -20,7 +21,7 @@
                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
                            PlacementTarget="{TemplateBinding}"
                            StaysOpen="False">
-                        <Border BorderBrush="{DynamicResource ThemeBorderMidBrush}"
+                        <Border BorderBrush="{DynamicResource MaterialDesignTextAreaBorder}"
                                 BorderThickness="1">
                             <ListBox Name="PART_SelectingItemsControl"
                                      BorderThickness="0"

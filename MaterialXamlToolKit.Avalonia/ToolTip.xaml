@@ -1,7 +1,7 @@
 <Style xmlns="https://github.com/avaloniaui" Selector="ToolTip">
-    <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-    <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
     <Setter Property="Padding" Value="4,2" />
     <Setter Property="Template">
         <ControlTemplate>

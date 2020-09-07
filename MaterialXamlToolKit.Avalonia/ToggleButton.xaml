@@ -4,10 +4,9 @@
     xmlns:ripple="clr-namespace:Ripple;assembly=Ripple">
 
     <Style Selector="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderLowBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Padding" Value="4" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -47,6 +46,6 @@
     </Style>
 
     <Style Selector="ToggleButton:disabled">
-        <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        <Setter Property="Opacity" Value="0.5" /> <!-- FixOpacity -->
     </Style>
 </Styles>

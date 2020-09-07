@@ -4,7 +4,7 @@
     xmlns:ripple="clr-namespace:Ripple;assembly=Ripple">
 
     <Style Selector="TabItem">
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Padding" Value="8" />
         <Setter Property="Template">
@@ -32,7 +32,7 @@
         </Setter>
     </Style>
     <Style Selector="TabItem:disabled">
-        <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        <Setter Property="Opacity" Value="0.5" /> <!-- FixOpacity -->
     </Style>
     <Style Selector="TabItem[TabStripPlacement=Right]">
         <Setter Property="HorizontalContentAlignment" Value="Right" />

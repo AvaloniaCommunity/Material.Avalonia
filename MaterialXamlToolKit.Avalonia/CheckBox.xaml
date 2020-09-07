@@ -22,12 +22,14 @@
                                 Height="18"
                                 CornerRadius="9"
                                 Grid.Column="0"
+                                Background="{DynamicResource MaterialDesignCheckBoxOff}"
                                 VerticalAlignment="Center">
                             <Ellipse Name="circle"
                                      Width="14"
                                      Height="14"
                                      VerticalAlignment="Center"
                                      HorizontalAlignment="Left"
+                                     Fill="{TemplateBinding Foreground}"
                                      StrokeThickness="1">
                                 <!--<Ellipse.Transitions>
                                     <ThicknessTransition Property="Margin" Duration="0:0:0.1" />
@@ -58,6 +60,6 @@
     </Style>
 
     <Style Selector="ToggleButton:disabled">
-        <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        <Setter Property="Opacity" Value="0.5" /> <!-- FixOpacity -->
     </Style>
 </Styles>

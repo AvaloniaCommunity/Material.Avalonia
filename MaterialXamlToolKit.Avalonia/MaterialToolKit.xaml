@@ -10,13 +10,14 @@
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/CalendarItem.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/Carousel.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/CheckBox.xaml" /> <!--+-->
-    <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ColorsPalette.xaml" /> <!--colors-->
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ComboBox.xaml" /><!--+-->
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ComboBoxItem.xaml" /><!--+-->
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ContentControl.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ContextMenu.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/DataValidationErrors.xaml" />
-    <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/DatePicker.xaml" />
+    
+    <!-- BUG Crash while try to use DatePicker. Need full style rework. -->
+    <!-- <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/DatePicker.xaml" /> -->
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/EmbeddableControlRoot.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/Expander.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/FocusAdorner.xaml" />

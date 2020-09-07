@@ -1,7 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="ComboBox">
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderMidBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
         <Setter Property="Padding" Value="4" />
         <Setter Property="Template">
             <ControlTemplate>

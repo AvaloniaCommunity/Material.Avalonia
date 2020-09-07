@@ -1,8 +1,8 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Style Selector="TextBox">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="SelectionBrush" Value="{DynamicResource HighlightBrush}" />
-    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource HighlightForegroundBrush}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialDesignSelection}" />
     <Setter Property="Padding" Value="4" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -12,8 +12,8 @@
                   BorderThickness="{TemplateBinding BorderThickness}">
               <DockPanel Margin="{TemplateBinding Padding}">
                 <TextBlock Name="floatingWatermark"
-                           Foreground="{DynamicResource ThemeAccentBrush}"
-                           FontSize="{DynamicResource FontSizeSmall}"
+                           Foreground="{DynamicResource PrimaryHueMidBrush}"
+                           FontSize="14"
                            Text="{TemplateBinding Watermark}"
                            DockPanel.Dock="Top">
                   <TextBlock.IsVisible>

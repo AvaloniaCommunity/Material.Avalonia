@@ -18,7 +18,7 @@
                             CornerRadius="1">
 
                         <Border CornerRadius="1"
-                                BorderBrush="{DynamicResource ThemeBackgroundBrush}"
+                                BorderBrush="{DynamicResource MaterialDesignPaper}"
                                 BorderThickness="2">
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -126,11 +126,9 @@
                     </Border>
 
 
-                    <Rectangle Name="DisabledVisual"
-                               Stretch="Fill"
-                               Fill="{DynamicResource ThemeControlLowBrush}"
-                               Opacity="{DynamicResource ThemeDisabledOpacity}"
-                               Margin="0,2,0,2" />
+                    <Rectangle Name="DisabledVisual" Stretch="Fill"
+                               Fill="{DynamicResource MaterialDesignDivider}"
+                               Opacity="0.5" Margin="0,2,0,2" />  <!-- FixOpacity -->
 
                 </Panel>
             </ControlTemplate>

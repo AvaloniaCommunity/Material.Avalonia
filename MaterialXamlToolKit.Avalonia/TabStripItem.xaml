@@ -1,8 +1,8 @@
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="TabStripItem">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundLowBrush}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter Name="PART_ContentPresenter"
@@ -18,6 +18,6 @@
         </Setter>
     </Style>
     <Style Selector="TabStripItem:selected">
-        <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
     </Style>
 </Styles>

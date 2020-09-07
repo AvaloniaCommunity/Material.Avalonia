@@ -7,10 +7,16 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="4" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Padding" Value="16 4 16 4"/>
+        <Setter Property="Height" Value="32" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ripple:RippleEffect
-                    RippleFill="{DynamicResource RippleEffectBrush}"
+                    RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
                     RippleOpacity="0.2">
                         <Border Name="buttonBorder"
                                 Background="{Binding $parent[Button].Background}"
@@ -32,7 +38,8 @@
     </Style>
 
     <Style Selector="Button:disabled">
-        <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
+        <Setter Property="Opacity" Value="0.5" /> <!-- FixOpacity -->
+            
     </Style>
 
 </Styles>

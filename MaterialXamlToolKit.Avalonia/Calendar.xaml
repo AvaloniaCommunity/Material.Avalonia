@@ -5,10 +5,12 @@
 // All other rights reserved.
 -->
 
+<!-- TODO Full calendar redesign -->
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="Calendar">
         <!--<Setter Property="Focusable" Value="False" />-->
-        <Setter Property="BorderThickness" Value="{DynamicResource ThemeBorderThickness}" />
+        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Name="Root"
@@ -26,7 +28,7 @@
         </Setter>
     </Style>
     <Style Selector="Calendar">
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeBorderHighBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
     </Style>
     <Style Selector="Calendar">
         <Setter Property="Background" Value="Transparent" />

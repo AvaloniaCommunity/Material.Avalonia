@@ -81,7 +81,7 @@
     <Setter Property="Value" Value="{TemplateBinding Value, Mode=TwoWay}" />
   </Style>
   <Style Selector="Slider /template/ RepeatButton.repeattrack">
-    <Setter Property="Foreground" Value="{DynamicResource ThemeBorderLowBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}" />

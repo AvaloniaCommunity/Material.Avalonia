@@ -1,5 +1,5 @@
 <Style xmlns="https://github.com/avaloniaui" Selector="Window">
-    <Setter Property="FontSize" Value="{DynamicResource FontSizeNormal}" />
+    <Setter Property="FontSize" Value="14" />
     <Setter Property="Template">
         
         <ControlTemplate>

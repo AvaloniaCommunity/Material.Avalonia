@@ -1,5 +1,5 @@
 <Style xmlns="https://github.com/avaloniaui" Selector="PopupRoot">
-    <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
     <Setter Property="Template">
         <ControlTemplate>
             <VisualLayerManager IsPopup="True">

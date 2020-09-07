@@ -12,7 +12,7 @@
     </Style>
 
     <Style Selector="MenuItem > Separator, ContextMenu > Separator">
-        <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Margin" Value="29,1,0,1" />
         <Setter Property="Height" Value="1" />
     </Style>
