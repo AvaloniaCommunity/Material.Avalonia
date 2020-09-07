@@ -5,7 +5,6 @@
              x:Class="AvaloniaRipple.App">
     <Application.Resources>
         <themes:BundledTheme BaseTheme="Light" PrimaryColor="Amber" SecondaryColor="Blue"/>
-        <SolidColorBrush x:Key="RippleEffectBrush" Color="#4CAF50" />
     </Application.Resources>
     <Application.Styles>
         <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />

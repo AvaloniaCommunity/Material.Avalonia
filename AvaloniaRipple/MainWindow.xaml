@@ -7,6 +7,7 @@
         Width="800"
         Height="800"
         WindowStartupLocation="CenterScreen"
+        Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         mc:Ignorable="d">
     <Window.Styles>
@@ -190,6 +191,7 @@
                     <CheckBox x:Name="BaseThemeCheckBox" Checked="BaseThemeChanged" Unchecked="BaseThemeChanged"></CheckBox>
                     <TextBlock VerticalAlignment="Center">Dark</TextBlock>
                 </StackPanel>
+                <AutoCompleteBox></AutoCompleteBox>
             </StackPanel>
         </Grid>
         
