@@ -83,7 +83,7 @@
         <Setter Property="IsVisible" Value="True" />
     </Style>
     <Style Selector="RadioButton:disabled /template/ Ellipse#border">
-        <Setter Property="Opacity" Value="0.5" /> <!-- FixOpacity -->
+        <Setter Property="Opacity" Value="0.23" /> 
     </Style>
     <Style Selector="RadioButton:checked /template/ Ellipse#ripple">
         <Style.Animations>

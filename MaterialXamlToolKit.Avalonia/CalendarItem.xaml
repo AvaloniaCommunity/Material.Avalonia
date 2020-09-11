@@ -128,7 +128,8 @@
 
                     <Rectangle Name="DisabledVisual" Stretch="Fill"
                                Fill="{DynamicResource MaterialDesignDivider}"
-                               Opacity="0.5" Margin="0,2,0,2" />  <!-- FixOpacity -->
+                               Opacity="0.23"
+                               Margin="0,2,0,2" />  
 
                 </Panel>
             </ControlTemplate>

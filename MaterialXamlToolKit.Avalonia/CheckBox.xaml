@@ -60,6 +60,6 @@
     </Style>
 
     <Style Selector="ToggleButton:disabled">
-        <Setter Property="Opacity" Value="0.5" /> <!-- FixOpacity -->
+        <Setter Property="Opacity" Value="0.23" /> 
     </Style>
 </Styles>

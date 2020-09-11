@@ -32,7 +32,7 @@
         </Setter>
     </Style>
     <Style Selector="TabItem:disabled">
-        <Setter Property="Opacity" Value="0.5" /> <!-- FixOpacity -->
+        <Setter Property="Opacity" Value="0.23" /> 
     </Style>
     <Style Selector="TabItem[TabStripPlacement=Right]">
         <Setter Property="HorizontalContentAlignment" Value="Right" />

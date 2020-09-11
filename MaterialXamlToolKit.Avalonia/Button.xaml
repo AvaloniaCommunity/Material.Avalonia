@@ -38,7 +38,7 @@
     </Style>
 
     <Style Selector="Button:disabled">
-        <Setter Property="Opacity" Value="0.5" /> <!-- FixOpacity -->
+        <Setter Property="Opacity" Value="0.23" /> 
             
     </Style>
 
