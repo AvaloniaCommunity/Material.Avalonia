@@ -7,19 +7,27 @@
             <system:Double x:Key="ScrollBarThumbThickness">8</system:Double>
         </Style.Resources>
         <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{DynamicResource PrimaryHueMidBrush}">
-                    <Grid RowDefinitions="Auto,*,Auto">
+                <Border Background="{TemplateBinding Background}">
+                    <Grid RowDefinitions="Auto,*,Auto"
+                          Name="ScrollBarGrid" Opacity="0.5">
                         <RepeatButton Name="PART_LineUpButton" HorizontalAlignment="Center"
+                                      Background="{DynamicResource MaterialDesignSelection}"
                                       Classes="repeat"
                                       Grid.Row="0"
                                       Focusable="False"
-                                      MinHeight="{DynamicResource ScrollBarThickness}">
-                            <Path Data="M 0 4 L 8 4 L 4 0 Z" />
+                                      MinHeight="{DynamicResource ScrollBarThickness}"
+                                      MinWidth="{DynamicResource ScrollBarThickness}">
+                            <Viewbox Width="8" Height="8">
+                                <Path x:Name="ArrowTop"
+                                      Data="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"
+                                      Fill="{DynamicResource MaterialDesignBody}"
+                                      Stretch="Uniform" />
+                            </Viewbox>
                         </RepeatButton>
                         <Track Grid.Row="1"
-                               Grid.Column="1"
                                Minimum="{TemplateBinding Minimum}"
                                Maximum="{TemplateBinding Maximum}"
                                Value="{TemplateBinding Value, Mode=TwoWay}"
@@ -39,12 +47,18 @@
                             <Thumb Name="thumb" />
                         </Track>
                         <RepeatButton Name="PART_LineDownButton" HorizontalAlignment="Center"
+                                      Background="{DynamicResource MaterialDesignSelection}"
                                       Classes="repeat"
                                       Grid.Row="2"
-                                      Grid.Column="2"
                                       Focusable="False"
-                                      MinHeight="{DynamicResource ScrollBarThickness}">
-                            <Path Data="M 0 0 L 4 4 L 8 0 Z" />
+                                      MinHeight="{DynamicResource ScrollBarThickness}"
+                                      MinWidth="{DynamicResource ScrollBarThickness}">
+                            <Viewbox Width="8" Height="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Path x:Name="ArrowBottom"
+                                      Data="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"
+                                      Fill="{DynamicResource MaterialDesignBody}"
+                                      Stretch="Uniform" />
+                            </Viewbox>
                         </RepeatButton>
                     </Grid>
                 </Border>
@@ -55,20 +69,25 @@
         <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{DynamicResource PrimaryHueMidBrush}">
-                    <Grid ColumnDefinitions="Auto,*,Auto">
+                <Border Background="{TemplateBinding Background}">
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          Name="ScrollBarGrid" Opacity="0.5">
                         <RepeatButton Name="PART_LineUpButton" VerticalAlignment="Center"
+                                      Background="{DynamicResource MaterialDesignSelection}"
                                       Classes="repeat"
                                       Grid.Row="0"
                                       Grid.Column="0"
                                       Focusable="False"
-                                      
+                                      MinHeight="{DynamicResource ScrollBarThickness}"
                                       MinWidth="{DynamicResource ScrollBarThickness}">
-                            <Path Data="M 4 0 L 4 8 L 0 4 Z" />
+                            <Viewbox Width="8" Height="8"
+                                     HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Path x:Name="ArrowLeft"
+                                      Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+                                      Fill="{DynamicResource MaterialDesignBody}" Stretch="Uniform" />
+                            </Viewbox>
                         </RepeatButton>
-                        <Track Grid.Row="1"
-                               Grid.Column="1"
-                               
+                        <Track Grid.Column="1"
                                Minimum="{TemplateBinding Minimum}"
                                Maximum="{TemplateBinding Maximum}"
                                Value="{TemplateBinding Value, Mode=TwoWay}"
@@ -87,20 +106,39 @@
                             <Thumb Name="thumb" />
                         </Track>
                         <RepeatButton Name="PART_LineDownButton" VerticalAlignment="Center"
+                                      Background="{DynamicResource MaterialDesignSelection}"
                                       Classes="repeat"
-                                      Grid.Row="2"
                                       Grid.Column="2"
                                       Focusable="False"
+                                      MinHeight="{DynamicResource ScrollBarThickness}"
                                       MinWidth="{DynamicResource ScrollBarThickness}">
-                            <Path Data="M 0 0 L 4 4 L 0 8 Z" />
+                            <Viewbox Width="8" Height="8"
+                                     HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Path x:Name="ArrowRight"
+                                      Data="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                                      Fill="{DynamicResource MaterialDesignBody}" Stretch="Uniform" />
+                            </Viewbox>
                         </RepeatButton>
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
     </Style>
+
+    <Style Selector="ScrollBar:pointerover:not(:disabled) /template/ Grid#ScrollBarGrid">
+        <Style.Animations>
+            <Animation Duration="0:0:0.2" FillMode="Both">
+                <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="0.8" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+
     <Style Selector="ScrollBar /template/ Thumb#thumb">
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Opacity" Value="0.5" />
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -109,29 +147,45 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+    <Style Selector="ScrollBar:disabled /template/ Thumb#thumb">
+        <Setter Property="Opacity" Value="0.35" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style Selector="ScrollBar:horizontal /template/ Thumb#thumb">
         <Setter Property="MinWidth" Value="{DynamicResource ScrollBarThickness}" />
-        <Setter Property="Height" Value="{DynamicResource ScrollBarThumbThickness}" />
-    </Style>
-    <Style Selector="ScrollBar:vertical">
-        <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
+        <Setter Property="Height" Value="{TemplateBinding Height}" />
     </Style>
     <Style Selector="ScrollBar:vertical /template/ Thumb#thumb">
         <Setter Property="MinHeight" Value="{DynamicResource ScrollBarThickness}" />
-        <Setter Property="Width" Value="{DynamicResource ScrollBarThumbThickness}" />
+        <Setter Property="Width" Value="{TemplateBinding Width}" />
+    </Style>
+
+    <Style Selector="ScrollBar:vertical">
+        <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
     </Style>
     <Style Selector="ScrollBar /template/ RepeatButton.repeat">
         <Setter Property="Padding" Value="2" />
         <Setter Property="BorderThickness" Value="0" />
     </Style>
+
     <Style Selector="ScrollBar /template/ RepeatButton.repeattrack">
+        <!-- The background color is set to prevent click through -->
+        <!-- Perhaps it can be done differently, but I do not know this way -->
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="Background" Value="Red" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" />
+                <Border Background="{TemplateBinding Background}"
+                        Opacity="{TemplateBinding Opacity}" />
             </ControlTemplate>
         </Setter>
     </Style>
-
-   
 </Styles>
