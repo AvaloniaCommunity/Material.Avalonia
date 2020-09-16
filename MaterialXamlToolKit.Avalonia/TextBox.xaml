@@ -1,4 +1,5 @@
-<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
     <Style Selector="TextBox">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
@@ -64,14 +65,16 @@
     </Style>
     <Style Selector="TextBox:focus /template/ Border#activationIndicator">
         <Style.Animations>
-            <Animation Duration="0:0:0.25" FillMode="Both" Easing="BackEaseInOut">
-                <KeyFrame Cue="0%">
-                    <Setter Property="Width" Value="0" />
-                </KeyFrame>
-                <KeyFrame Cue="100%">
-                    <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
-                </KeyFrame>
-            </Animation>
+            <animations:ReverseAfterEndAnimation>
+                <Animation Duration="0:0:0.25" FillMode="Both" Easing="LinearEasing">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Width" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+                    </KeyFrame>
+                </Animation>
+            </animations:ReverseAfterEndAnimation>
         </Style.Animations>
     </Style>
     <Style Selector="TextBox /template/ Border#dborder">

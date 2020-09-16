@@ -1,7 +1,8 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:ripple="clr-namespace:Ripple;assembly=Ripple"
         xmlns:system="clr-namespace:System;assembly=netstandard"
-        xmlns:additional="clr-namespace:MaterialXamlToolKit.Avalonia.Additional">
+        xmlns:additional="clr-namespace:MaterialXamlToolKit.Avalonia.Additional"
+        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
     <Style Selector="RadioButton">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -54,7 +55,7 @@
     
 <Style Selector="RadioButton:pressed /template/ Ellipse#InteractionEllipse">
     <Style.Animations>
-        <additional:BeginAnimation>
+        <animations:BeginAnimation>
             <Animation Duration="0:0:0.3" FillMode="Both">
                 <KeyFrame Cue="0%">
                     <Setter Property="Width" Value="0"></Setter>
@@ -69,7 +70,7 @@
                     <Setter Property="Opacity" Value="0"></Setter>
                 </KeyFrame>
             </Animation>
-        </additional:BeginAnimation>
+        </animations:BeginAnimation>
     </Style.Animations>
 </Style>
     <Style Selector="RadioButton:disabled /template/ Ellipse#border">

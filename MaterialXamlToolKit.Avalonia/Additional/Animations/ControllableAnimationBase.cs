@@ -5,7 +5,7 @@ using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Metadata;
 
-namespace MaterialXamlToolKit.Avalonia.Additional {
+namespace MaterialXamlToolKit.Avalonia.Additional.Animations {
     /// <summary>
     /// Tracks the progress of an animation. This class should act the same as <see cref="Animation"/>
     /// </summary>

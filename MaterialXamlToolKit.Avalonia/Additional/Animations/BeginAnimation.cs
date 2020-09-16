@@ -1,7 +1,6 @@
-﻿using System;
-using System.Reactive.Subjects;
+﻿using System.Reactive.Subjects;
 
-namespace MaterialXamlToolKit.Avalonia.Additional {
+namespace MaterialXamlToolKit.Avalonia.Additional.Animations {
     /// <summary>
     /// Tracks the progress of an animation. Will always continue to end or until restart.
     /// Perhaps this has already been implemented without such crutches. Issue: https://github.com/AvaloniaUI/Avalonia/issues/4673
