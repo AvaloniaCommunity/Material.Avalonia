@@ -6,6 +6,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ClipToBounds="True">
+                    <Rectangle Fill="Red" Opacity="0"></Rectangle>
 
                     <ContentPresenter Name="Content"
                                       Content="{TemplateBinding Content}"
