@@ -40,7 +40,6 @@
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/Separator.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/Slider.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TabControl.xaml" /><!--+-->
-    <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TabItem.xaml" /><!--+-->
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TabStrip.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TabStripItem.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TextBox.xaml" /> <!--+-->
