@@ -1,65 +1,96 @@
-<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpf="clr-namespace:MaterialXamlToolKit.Avalonia.Assists"
+        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
     <Style Selector="CheckBox">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Padding" Value="2,1,2,1" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="ClipToBounds" Value="False"></Setter>
+        <Setter Property="Padding" Value="4,2,0,0"></Setter>
         <Setter Property="Template">
-            <ControlTemplate>
-                <Grid>
-                    <Grid ColumnDefinitions="Auto,*">
-                        <ContentPresenter Name="PART_ContentPresenter"
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid x:Name="templateRoot" Background="Transparent"
+                          ClipToBounds="False">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Viewbox 
+                            Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:CheckBoxAssist.CheckBoxSize)}"
+                            Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:CheckBoxAssist.CheckBoxSize)}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            ClipToBounds="False">
+                            <Canvas Width="24" Height="24" ClipToBounds="False">
+                                <Path x:Name="Graphic" />
+                                <Ellipse x:Name="InteractionEllipse" Fill="{TemplateBinding Foreground}" Width="0"
+                                         Height="0" Canvas.Top="12" Canvas.Left="12" Opacity="0" 
+                                         RenderTransformOrigin="0.5,0.5" ClipToBounds="False"
+                                         IsHitTestVisible="False">
+                                    <Ellipse.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform />
+                                            <SkewTransform />
+                                            <RotateTransform />
+                                            <TranslateTransform />
+                                        </TransformGroup>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Canvas>
+                        </Viewbox>
+                        <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Content="{TemplateBinding Content}"
-                                          Margin="{TemplateBinding Padding}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          Grid.Column="1"
-                                          IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
-
-                        <Border Name="check"
-                                Width="36"
-                                Height="18"
-                                CornerRadius="9"
-                                Grid.Column="0"
-                                Background="{DynamicResource MaterialDesignCheckBoxOff}"
-                                VerticalAlignment="Center">
-                            <Ellipse Name="circle"
-                                     Width="14"
-                                     Height="14"
-                                     VerticalAlignment="Center"
-                                     HorizontalAlignment="Left"
-                                     Fill="{TemplateBinding Foreground}"
-                                     StrokeThickness="1">
-                                <!--<Ellipse.Transitions>
-                                    <ThicknessTransition Property="Margin" Duration="0:0:0.1" />
-                                </Ellipse.Transitions>-->
-                            </Ellipse>
-                        </Border>
-                        <Border Name="pointerover"
-                                CornerRadius="9"
-                                Background="White" />
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Grid>
-                </Grid>
-            </ControlTemplate>
+                </ControlTemplate>
+            </Setter.Value>
         </Setter>
     </Style>
-
-    <Style Selector="CheckBox:checked /template/ Ellipse#circle">
-        <Setter Property="Margin" Value="19,2,3,2" />
+    
+    <Style Selector="CheckBox /template/ Path#Graphic">
+        <Setter Property="Data" Value="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z"></Setter>
+        <Setter Property="Fill" Value="{DynamicResource MaterialDesignCheckBoxOff}"></Setter>
     </Style>
-    <Style Selector="CheckBox:unchecked /template/ Ellipse#circle">
-        <Setter Property="Margin" Value="3,2,3,2" />
+    <Style Selector="CheckBox:checked /template/ Path#Graphic">
+        <Setter Property="Data" Value="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+        <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
     </Style>
-
-    <Style Selector="CheckBox /template/ Border#pointerover">
-        <Setter Property="Opacity" Value="0"></Setter>
+    
+    <Style Selector="CheckBox:disabled">
+        <Setter Property="Opacity" Value="0.56"/>
     </Style>
-    <Style Selector="CheckBox:pointerover /template/ Border#pointerover">
-        <Setter Property="Opacity" Value="0.2"></Setter>
+    <Style Selector="CheckBox:disabled /template/ Path#Graphic">
+        <Setter Property="Fill" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
     </Style>
-
-    <Style Selector="ToggleButton:disabled">
-        <Setter Property="Opacity" Value="0.23" /> 
+    
+    <Style Selector="CheckBox:indeterminate /template/ Path#Graphic">
+        <Setter Property="Data" Value="M6,13L6,11L18,11L18,13M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+        <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+    </Style>
+    
+    <Style Selector="CheckBox:pressed /template/ Ellipse#InteractionEllipse">
+        <Style.Animations>
+            <animations:BeginAnimation>
+                <Animation Duration="0:0:0.3" FillMode="Both">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Width" Value="0"></Setter>
+                        <Setter Property="Height" Value="0"></Setter>
+                        <Setter Property="Margin" Value="0 0 0 0"></Setter>
+                        <Setter Property="Opacity" Value="0.3"></Setter>
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Width" Value="48"></Setter>
+                        <Setter Property="Height" Value="48"></Setter>
+                        <Setter Property="Margin" Value="-24 -24 0 0"></Setter>
+                        <Setter Property="Opacity" Value="0"></Setter>
+                    </KeyFrame>
+                </Animation>
+            </animations:BeginAnimation>
+        </Style.Animations>
     </Style>
 </Styles>
