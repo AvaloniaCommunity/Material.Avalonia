@@ -44,6 +44,7 @@
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TabStripItem.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TextBox.xaml" /> <!--+-->
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ToggleButton.xaml" /> <!--+-->
+    <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ToggleSwitch.xaml" /> 
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ToolTip.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TreeView.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TreeViewItem.xaml" />
