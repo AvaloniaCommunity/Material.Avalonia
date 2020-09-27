@@ -1,61 +1,122 @@
-<Styles xmlns="https://github.com/avaloniaui">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
     <Style Selector="ProgressBar">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Template">
-            <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
-                    <Border Name="PART_Indicator" />
-                </Border>
-            </ControlTemplate>
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid Name="TemplateRoot" ClipToBounds="True">
+                        <Grid.RenderTransform>
+                            <ScaleTransform />
+                        </Grid.RenderTransform>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" />
+
+                        <Border Name="PART_Indicator" ClipToBounds="False"
+                                Background="{TemplateBinding Foreground}" />
+                        <Rectangle Name="Animation" Fill="{TemplateBinding Foreground}"
+                                   ClipToBounds="True"
+                                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
         </Setter>
     </Style>
-    <Style Selector="ProgressBar:horizontal /template/ Border#PART_Indicator">
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-    </Style>
-    <Style Selector="ProgressBar:vertical /template/ Border#PART_Indicator">
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Bottom" />
-    </Style>
-    <Style Selector="ProgressBar:horizontal">
-        <Setter Property="MinWidth" Value="200" />
-        <Setter Property="MinHeight" Value="14" />
+    
+    <Style Selector="ProgressBar">
+        <Setter Property="Height" Value="4"></Setter>
     </Style>
     <Style Selector="ProgressBar:vertical">
-        <Setter Property="MinWidth" Value="14" />
-        <Setter Property="MinHeight" Value="200" />
+        <Setter Property="Width" Value="4"></Setter>
     </Style>
-    <Style Selector="ProgressBar:horizontal:indeterminate /template/ Border#PART_Indicator">
+    
+    <Style Selector="ProgressBar /template/ Grid#TemplateRoot">
+        <Setter Property="RenderTransformOrigin" Value="0,0.5" />
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="ScaleTransform.ScaleX" Value="0" />
+        <Setter Property="ScaleTransform.ScaleY" Value="0" />
+    </Style>
+    <Style Selector="ProgressBar:vertical /template/ Grid#TemplateRoot">
+        <Setter Property="RenderTransformOrigin" Value="0.5,0" />
+    </Style>
+    <Style Selector="ProgressBar[IsVisible=true]:not(:notransitions) /template/ Grid#TemplateRoot">
         <Style.Animations>
-            <Animation Duration="0:0:3"
-                       IterationCount="Infinite"
-                       Easing="LinearEasing">
+            <animations:ReverseAfterEndAnimation>
+                <Animation Duration="0:0:1" FillMode="Both">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </animations:ReverseAfterEndAnimation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="ProgressBar:notransitions /template/ Grid#TemplateRoot">
+        <Setter Property="Opacity" Value="1" />
+        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+    </Style>
+
+    <Style Selector="ProgressBar /template/ Rectangle#Animation">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="ProgressBar:indeterminate:horizontal /template/ Rectangle#Animation">
+        <Setter Property="IsVisible" Value="True" />
+        <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="INFINITE">
                 <KeyFrame Cue="0%">
-                    <Setter Property="TranslateTransform.X"
-                            Value="{Binding IndeterminateStartingOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter Property="RenderTransformOrigin" Value="-50%,50%" />
+                    <Setter Property="ScaleTransform.ScaleX" Value="0.25" />
+                </KeyFrame>
+                <KeyFrame Cue="50%">
+                    <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+                    <Setter Property="ScaleTransform.ScaleX" Value="0.26" />
                 </KeyFrame>
                 <KeyFrame Cue="100%">
-                    <Setter Property="TranslateTransform.X"
-                            Value="{Binding IndeterminateEndingOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter Property="RenderTransformOrigin" Value="150%,50%" />
+                    <Setter Property="ScaleTransform.ScaleX" Value="0.25" />
                 </KeyFrame>
             </Animation>
         </Style.Animations>
     </Style>
-    <Style Selector="ProgressBar:vertical:indeterminate /template/ Border#PART_Indicator">
+    <Style Selector="ProgressBar:indeterminate:vertical /template/ Rectangle#Animation">
+        <Setter Property="IsVisible" Value="True" />
         <Style.Animations>
-            <Animation Duration="0:0:3"
-                       IterationCount="Infinite"
-                       Easing="LinearEasing">
+            <Animation Duration="0:0:2" IterationCount="INFINITE">
                 <KeyFrame Cue="0%">
-                    <Setter Property="TranslateTransform.Y"
-                            Value="{Binding IndeterminateStartingOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter Property="RenderTransformOrigin" Value="50%,-50%" />
+                    <Setter Property="ScaleTransform.ScaleY" Value="0.25" />
+                </KeyFrame>
+                <KeyFrame Cue="50%">
+                    <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+                    <Setter Property="ScaleTransform.ScaleY" Value="0.26" />
                 </KeyFrame>
                 <KeyFrame Cue="100%">
-                    <Setter Property="TranslateTransform.Y"
-                            Value="{Binding IndeterminateEndingOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Setter Property="RenderTransformOrigin" Value="50%,150%" />
+                    <Setter Property="ScaleTransform.ScaleY" Value="0.25" />
                 </KeyFrame>
             </Animation>
         </Style.Animations>
+    </Style>
+
+    <Style Selector="ProgressBar /template/ Border#PART_Indicator">
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+    </Style>
+    <Style Selector="ProgressBar:vertical /template/ Border#PART_Indicator">
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
     </Style>
 </Styles>
