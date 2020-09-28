@@ -1,94 +1,200 @@
-<Styles xmlns="https://github.com/avaloniaui">
-  <Style Selector="Slider:horizontal">
-    <Setter Property="MinWidth" Value="40" />
-    <Setter Property="MinHeight" Value="20" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" MinHeight="20" />
-            <RowDefinition Height="Auto" />
-          </Grid.RowDefinitions>
-          <Border Name="TrackBackground" Grid.Row="1" Height="4" Margin="6,0" VerticalAlignment="Center" />
-          <Track Name="PART_Track" Grid.Row="1" Orientation="Horizontal">
-            <Track.DecreaseButton>
-              <RepeatButton Name="PART_DecreaseButton"
-                            Height="4"
-                            Margin="6 0 -10 0"
-                            VerticalAlignment="Center"
-                            Classes="repeattrack" />
-            </Track.DecreaseButton>
-            <Track.IncreaseButton>
-              <RepeatButton Name="PART_IncreaseButton"
-                            Classes="repeattrack" />
-            </Track.IncreaseButton>
-            <Thumb MinWidth="20" MinHeight="20">
-              <Thumb.Template>
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+    <Style Selector="Slider">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="ClipToBounds" Value="False" />
+    </Style>
+    <Style Selector="Slider:disabled">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+    </Style>
+
+    <Style Selector="Slider">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                    <Grid RowDefinitions="Auto,Auto,Auto">
+                        <TickBar Name="TopTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,0,0,2"
+                                 Placement="Top" Grid.Row="0" TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                                 Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" />
+                        <TickBar Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,2,0,0"
+                                 Placement="Bottom" Grid.Row="2" TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                                 Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" />
+                        <Track Name="PART_Track" Grid.Row="1" MinHeight="{TemplateBinding MinHeight}"
+                               Orientation="Horizontal" Minimum="{TemplateBinding Minimum}"
+                               Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}">
+                            <Track.DecreaseButton>
+                                <RepeatButton Name="PART_DecreaseButton"
+                                              Classes="MaterialDesignHorizontalTrackRepeatButton"
+                                              Background="{Binding $parent[Slider].Foreground}" />
+                            </Track.DecreaseButton>
+                            <Track.IncreaseButton>
+                                <RepeatButton Name="PART_IncreaseButton"
+                                              Classes="MaterialDesignHorizontalTrackRepeatButton"
+                                              Background="{DynamicResource MaterialDesignCheckBoxOff}" />
+                            </Track.IncreaseButton>
+                            <Track.Thumb>
+                                <Thumb Name="thumb" Focusable="False" Height="18" Width="12" Margin="-12 0"
+                                       ClipToBounds="False"
+                                       Classes="MaterialDesignSliderThumb" />
+                            </Track.Thumb>
+                        </Track>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Slider:vertical">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="border" BorderBrush="{TemplateBinding BorderBrush}" ClipToBounds="False"
+                        BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                    <Grid ColumnDefinitions="Auto,Auto,Auto" ClipToBounds="False">
+                        <TickBar Name="TopTick" Grid.Column="0" Fill="{TemplateBinding Foreground}" Margin="0,0,2,0"
+                                 Placement="Left" Width="4" TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                                 Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" />
+                        <TickBar Name="BottomTick" Grid.Column="2" Fill="{TemplateBinding Foreground}" Margin="2,0,0,0"
+                                 Placement="Right" Width="4" TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                                 Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" />
+                        <Track Name="PART_Track" Grid.Column="1" MinWidth="{TemplateBinding MinWidth}"
+                               Orientation="Vertical" Minimum="{TemplateBinding Minimum}"
+                               Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}">
+                            <Track.DecreaseButton>
+                                <RepeatButton Name="PART_DecreaseButton"
+                                              VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                              Classes="MaterialDesignVerticalTrackRepeatButton"
+                                              Background="{Binding $parent[Slider].Foreground}" />
+                            </Track.DecreaseButton>
+                            <Track.IncreaseButton>
+                                <RepeatButton Name="PART_IncreaseButton"
+                                              VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                              Classes="MaterialDesignVerticalTrackRepeatButton"
+                                              Background="{DynamicResource MaterialDesignCheckBoxOff}" />
+                            </Track.IncreaseButton>
+                            <Thumb Name="thumb" Focusable="False" Height="12" VerticalAlignment="Top" Margin="0 -6"
+                                   ClipToBounds="False"
+                                   Classes="MaterialDesignSliderThumb"
+                                   Width="18" />
+                        </Track>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="Slider[TickPlacement=None] /template/ TickBar#TopTick">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="Slider[TickPlacement=None] /template/ TickBar#BottomTick">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="Slider[TickPlacement=Outside] /template/ TickBar#TopTick">
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="Slider[TickPlacement=Outside] /template/ TickBar#BottomTick">
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector="Slider[TickPlacement=TopLeft] /template/ TickBar#TopTick">
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector="Slider[TickPlacement=BottomRight] /template/ TickBar#BottomTick">
+        <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <!-- MaterialDesignSliderThumb -->
+    <Style Selector="Thumb.MaterialDesignSliderThumb">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid HorizontalAlignment="Center" UseLayoutRounding="True" VerticalAlignment="Center"
+                      ClipToBounds="False">
+                    <Ellipse Name="shadow"
+                             Width="24" Height="24" Margin="-12"
+                             Fill="{TemplateBinding Foreground}"
+                             UseLayoutRounding="True" ClipToBounds="False" />
+                    <Ellipse Name="grip" Width="12" Height="12" Fill="{TemplateBinding Foreground}"
+                             UseLayoutRounding="True" ClipToBounds="False" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="Thumb.MaterialDesignSliderThumb /template/ Ellipse#shadow">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+    <Style Selector="Thumb.MaterialDesignSliderThumb /template/ Ellipse#grip">
+        <Setter Property="Fill" Value="{DynamicResource Foreground}" />
+    </Style>
+    <Style Selector="Thumb.MaterialDesignSliderThumb:disabled /template/ Ellipse#grip">
+        <Setter Property="Fill" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Stroke" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+    </Style>
+    <Style Selector="Thumb.MaterialDesignSliderThumb:pointerover /template/ Ellipse#shadow">
+        <Style.Animations>
+            <animations:ReverseAfterEndAnimation>
+                <Animation Duration="0:0:0.2" FillMode="Both">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0.26" />
+                    </KeyFrame>
+                </Animation>
+            </animations:ReverseAfterEndAnimation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="Thumb.MaterialDesignSliderThumb:pressed /template/ Ellipse#grip">
+        <Style.Animations>
+            <animations:ReverseAfterEndAnimation>
+                <Animation Duration="0:0:0.2" FillMode="Both">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="ScaleTransform.ScaleX" Value="1.5" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1.5" />
+                    </KeyFrame>
+                </Animation>
+            </animations:ReverseAfterEndAnimation>
+        </Style.Animations>
+    </Style>
+
+    <!-- MaterialDesignHorizontalTrackRepeatButton -->
+    <Style Selector="RepeatButton.MaterialDesignHorizontalTrackRepeatButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
                 <ControlTemplate>
-                  <Grid>
-                    <Ellipse Width="12" Height="12" />
-                  </Grid>
+                    <Canvas Background="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                        <Rectangle Name="PART_SelectionRange" Fill="{TemplateBinding Background}" Height="2.0"
+                                   Canvas.Top="8"
+                                   Width="{Binding $parent[Slider].Bounds.Width}" />
+                    </Canvas>
                 </ControlTemplate>
-              </Thumb.Template>
-            </Thumb>
-          </Track>
-        </Grid>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-  <Style Selector="Slider:vertical">
-    <Setter Property="MinWidth" Value="20" />
-    <Setter Property="MinHeight" Value="40" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" MinWidth="26" />
-            <ColumnDefinition Width="Auto" />
-          </Grid.ColumnDefinitions>
-          <Border Name="TrackBackground" Grid.Column="1" Width="4" Margin="0,6" HorizontalAlignment="Center" />
-          <Track Name="PART_Track" Grid.Column="1" Orientation="Vertical" IsDirectionReversed="True">
-            <Track.DecreaseButton>
-              <RepeatButton Name="PART_DecreaseButton"
-                            Width="4"
-                            Margin="0 6 0 -10"
-                            HorizontalAlignment="Center"
-                            Classes="repeattrack" />
-            </Track.DecreaseButton>
-            <Track.IncreaseButton>
-              <RepeatButton Name="PART_IncreaseButton"
-                            Classes="repeattrack" />
-            </Track.IncreaseButton>
-            <Thumb MinWidth="20" MinHeight="20">
-              <Thumb.Template>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- MaterialDesignVerticalTrackRepeatButton -->
+    <Style Selector="RepeatButton.MaterialDesignVerticalTrackRepeatButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
                 <ControlTemplate>
-                  <Grid>
-                    <Ellipse Width="12" Height="12" />
-                  </Grid>
+                    <Canvas Background="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                        <Rectangle Name="PART_SelectionRange" Fill="{TemplateBinding Background}" Width="2.0"
+                                   Canvas.Left="8"
+                                   Height="{Binding $parent[Slider].Bounds.Height}" />
+                    </Canvas>
                 </ControlTemplate>
-              </Thumb.Template>
-            </Thumb>
-          </Track>
-        </Grid>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-  <Style Selector="Slider /template/ Track#PART_Track">
-    <Setter Property="Minimum" Value="{TemplateBinding Minimum}" />
-    <Setter Property="Maximum" Value="{TemplateBinding Maximum}" />
-    <Setter Property="Value" Value="{TemplateBinding Value, Mode=TwoWay}" />
-  </Style>
-  <Style Selector="Slider /template/ RepeatButton.repeattrack">
-    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border Background="{TemplateBinding Background}" />
-      </ControlTemplate>
-    </Setter>
-  </Style>
-  <Style Selector="Slider /template/ RepeatButton#PART_IncreaseButton.repeattrack">
-    <Setter Property="Background" Value="Transparent" />
-  </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </Styles>
