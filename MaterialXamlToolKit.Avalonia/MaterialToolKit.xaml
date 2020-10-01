@@ -47,7 +47,6 @@
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ToggleSwitch.xaml" /> 
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/ToolTip.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TreeView.xaml" />
-    <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/TreeViewItem.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/UserControl.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/Window.xaml" />
     <StyleInclude Source="avares://MaterialXamlToolKit.Avalonia/WindowNotificationManager.xaml" />
