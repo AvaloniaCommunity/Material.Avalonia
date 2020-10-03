@@ -39,7 +39,7 @@ namespace MaterialXamlToolKit.Avalonia.Assists {
         }
         
         public static readonly AvaloniaProperty<ShadowDepth> ShadowDepthProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, ShadowDepth>(
-            "ShadowDepth", typeof(ShadowAssist), ShadowDepth.Depth0, true);
+            "ShadowDepth", typeof(ShadowAssist), ShadowDepth.Depth0);
 
         private static void ShadowDepthChangedCallback(AvaloniaPropertyChangedEventArgs args) {
             if (args.Sender is Border border) {

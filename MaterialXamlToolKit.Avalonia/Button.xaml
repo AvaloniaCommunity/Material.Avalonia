@@ -1,45 +1,56 @@
 <Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ripple="clr-namespace:Ripple;assembly=Ripple">
+    xmlns:ripple="clr-namespace:Ripple;assembly=Ripple"
+    xmlns:assists="clr-namespace:MaterialXamlToolKit.Avalonia.Assists">
 
-    <Style Selector="Button">
+    <Style Selector="Button,ToggleButton">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="4" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Padding" Value="16 4 16 4"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Padding" Value="16 4 16 4" />
         <Setter Property="Height" Value="32" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <ripple:RippleEffect
-                    RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
-                    RippleOpacity="0.2">
-                        <Border Name="buttonBorder"
-                                Background="{Binding $parent[Button].Background}"
-                                CornerRadius="4">
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              CornerRadius="4"
-                                              BorderBrush="{TemplateBinding BorderBrush}"
-                                              BorderThickness="{TemplateBinding BorderThickness}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              Content="{TemplateBinding Content}"
-                                              Padding="{TemplateBinding Padding}"
-                                              TextBlock.Foreground="{TemplateBinding Foreground}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        </Border>
-                </ripple:RippleEffect>
+                <Border Name="buttonBorder" ClipToBounds="False"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                        assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+                    <ripple:RippleEffect
+                        RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
+                        RippleOpacity="0.2">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}"
+                                          Padding="{TemplateBinding Padding}"
+                                          TextBlock.Foreground="{TemplateBinding Foreground}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </ripple:RippleEffect>
+                </Border>
             </ControlTemplate>
         </Setter>
     </Style>
 
-    <Style Selector="Button:disabled">
-        <Setter Property="Opacity" Value="0.23" /> 
-            
+    <Style Selector="Button:disabled:not(.no-material),ToggleButton:disabled:not(.no-material)">
+        <Setter Property="Opacity" Value="0.23" />
     </Style>
 
+    <Style
+        Selector="Button:pointerover:not(.no-material) /template/ Border#buttonBorder,
+    ToggleButton:pointerover:not(.no-material) /template/ Border#buttonBorder">
+        <Setter Property="assists:ShadowAssist.Darken" Value="True" />
+    </Style>
 </Styles>
