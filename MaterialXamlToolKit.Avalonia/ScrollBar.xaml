@@ -1,6 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:system="clr-namespace:System;assembly=netstandard">
+        xmlns:system="clr-namespace:System;assembly=netstandard"
+        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
     <Style Selector="ScrollBar">
         <Style.Resources>
             <system:Double x:Key="ScrollBarThickness">18</system:Double>
@@ -127,11 +128,16 @@
 
     <Style Selector="ScrollBar:pointerover:not(:disabled) /template/ Grid#ScrollBarGrid">
         <Style.Animations>
-            <Animation Duration="0:0:0.2" FillMode="Both">
-                <KeyFrame Cue="100%">
-                    <Setter Property="Opacity" Value="0.8" />
-                </KeyFrame>
-            </Animation>
+            <animations:ReverseAfterEndAnimation>
+                <Animation Duration="0:0:0.2" FillMode="Both">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0.5" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0.8" />
+                    </KeyFrame>
+                </Animation>
+            </animations:ReverseAfterEndAnimation>
         </Style.Animations>
     </Style>
 
