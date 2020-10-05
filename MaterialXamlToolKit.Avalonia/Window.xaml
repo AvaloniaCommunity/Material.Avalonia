@@ -1,5 +1,10 @@
 <Style xmlns="https://github.com/avaloniaui" Selector="Window">
     <Setter Property="FontSize" Value="14" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"></Setter>
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"></Setter>
+    <Setter Property="TextBox.Foreground" Value="{DynamicResource MaterialDesignBody}"></Setter>
+    <Setter Property="TextBox.FontWeight" Value="Medium"></Setter>
+    <Setter Property="TextBox.FontSize" Value="14"></Setter>
     <Setter Property="Template">
         
         <ControlTemplate>
