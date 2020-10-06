@@ -1,7 +1,7 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ripple="clr-namespace:Ripple;assembly=Ripple"
+    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
     xmlns:assists="clr-namespace:MaterialXamlToolKit.Avalonia.Assists"
     xmlns:system="clr-namespace:System;assembly=netstandard"
     xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">

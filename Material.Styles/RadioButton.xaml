@@ -1,5 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:ripple="clr-namespace:Ripple;assembly=Ripple"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
         xmlns:system="clr-namespace:System;assembly=netstandard"
         xmlns:additional="clr-namespace:MaterialXamlToolKit.Avalonia.Additional"
         xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">

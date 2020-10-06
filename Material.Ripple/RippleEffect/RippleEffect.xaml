@@ -1,11 +1,12 @@
-<Styles xmlns="https://github.com/avaloniaui"
+﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ccr="clr-namespace:RoundRipple">
+        xmlns:cc="clr-namespace:Material.Ripple">
 
-    <Style Selector="ccr|RoundRippleEffect">
+    <Style Selector="cc|RippleEffect">
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ClipToBounds="True">
+                    <Rectangle Fill="Red" Opacity="0"></Rectangle>
 
                     <ContentPresenter Name="Content"
                                       Content="{TemplateBinding Content}"

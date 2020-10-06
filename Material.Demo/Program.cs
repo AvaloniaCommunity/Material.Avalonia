@@ -2,7 +2,7 @@
 using Avalonia.Controls;
 
 
-namespace AvaloniaRipple
+namespace Material.Demo
 {
     internal class Program
     {

@@ -1,15 +1,18 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using MaterialXamlToolKit.Avalonia.Themes;
 using MaterialXamlToolKit.Avalonia.Themes.Base;
 
-namespace AvaloniaRipple {
+namespace Material.Demo {
     public class MainWindow : Window {
         private PaletteHelper _paletteHelper;
 
         public MainWindow() {
             InitializeComponent();
+            this.AttachDevTools(new KeyGesture(Key.Back));
         }
 
         private void InitializeComponent() {

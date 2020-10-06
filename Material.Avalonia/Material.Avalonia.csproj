@@ -13,10 +13,6 @@
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\MaterialXamlToolKit.Avalonia\MaterialXamlToolKit.Avalonia.csproj" />
-    </ItemGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
             <SubType>Designer</SubType>
@@ -25,6 +21,10 @@
 
     <ItemGroup>
       <PackageReference Include="Avalonia" Version="0.10.0-preview2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
     </ItemGroup>
 
 </Project>

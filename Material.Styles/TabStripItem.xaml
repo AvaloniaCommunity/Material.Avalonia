@@ -1,6 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:assists="clr-namespace:MaterialXamlToolKit.Avalonia.Assists"
-        xmlns:ripple="clr-namespace:Ripple;assembly=Ripple"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
         xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
     <Style Selector="TabStrip > TabStripItem">
         <Setter Property="Background" Value="Transparent" />

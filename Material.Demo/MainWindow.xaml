@@ -1,21 +1,17 @@
-﻿<Window x:Class="AvaloniaRipple.MainWindow"
+﻿<Window x:Class="Material.Demo.MainWindow"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="AvaloniaRipple"
+        Title="Material.Demo"
         Width="800"
         Height="800"
         WindowStartupLocation="CenterScreen"
-        Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
         mc:Ignorable="d">
     <Window.Styles>
-
         <Style Selector="RadioButton">
             <Setter Property="Margin" Value="5" />
         </Style>
-
         <Style Selector="TextBox">
             <Setter Property="Margin" Value="5" />
         </Style>
@@ -57,9 +53,8 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Vertical">
-
                 <StackPanel Orientation="Vertical">
-                    <ListBox Height="60" VirtualizationMode="None">
+                    <ListBox Height="100" VirtualizationMode="None">
                         <ListBoxItem>
                             <TextBlock Text="test1" />
                         </ListBoxItem>
@@ -86,7 +81,7 @@
 
                 <StackPanel>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Margin="10" Text="Sample Text block with tooltip" ToolTip.Tip="ToolTip" ></TextBlock>
+                        <TextBlock Margin="10" Text="Sample Text block with tooltip" ToolTip.Tip="ToolTip" />
                         <TextBox Text="Sample textbox" />
                         <TextBox IsEnabled="False" Text="disabled textbox" />
                         <TextBox AcceptsReturn="True" Height="50" Text="Sample textarea" />
@@ -106,13 +101,13 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                            <ProgressBar Value="{Binding #slider.Value}" Orientation="Horizontal" Height="20" />
-                            <Slider Name="slider" Orientation="Horizontal" Value="50" Height="20" />
+                            <ProgressBar Value="{Binding #slider.Value}" Orientation="Horizontal" />
+                            <Slider Name="slider" Orientation="Horizontal" Value="50" />
                         </StackPanel>
                     </Grid>
                 </StackPanel>
                 <ButtonSpinner>
-                    <TextBlock Text="1"></TextBlock>
+                    <TextBlock Text="1" />
                 </ButtonSpinner>
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Vertical">
@@ -188,13 +183,13 @@
                 </TreeView>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center">Light</TextBlock>
-                    <CheckBox x:Name="BaseThemeCheckBox" Checked="BaseThemeChanged" Unchecked="BaseThemeChanged"></CheckBox>
+                    <CheckBox x:Name="BaseThemeCheckBox" Checked="BaseThemeChanged" Unchecked="BaseThemeChanged" />
                     <TextBlock VerticalAlignment="Center">Dark</TextBlock>
                 </StackPanel>
-                <AutoCompleteBox></AutoCompleteBox>
+                <AutoCompleteBox />
             </StackPanel>
         </Grid>
-        
+
     </Grid>
 
 </Window>

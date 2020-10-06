@@ -13,9 +13,8 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\MaterialColors\MaterialColors.csproj" />
-      <ProjectReference Include="..\Ripple\Ripple.csproj" />
-      <ProjectReference Include="..\RoundRipple\RoundRipple.csproj" />
+      <ProjectReference Include="..\Material.Colors\Material.Colors.csproj" />
+      <ProjectReference Include="..\Material.Ripple\Material.Ripple.csproj" />
     </ItemGroup>
 
     <ItemGroup>

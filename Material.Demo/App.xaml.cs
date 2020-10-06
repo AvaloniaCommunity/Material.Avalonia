@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Markup.Xaml;
 
-namespace AvaloniaRipple
+namespace Material.Demo
 {
     public class App : Application
     {

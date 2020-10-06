@@ -7,7 +7,7 @@ using Avalonia.Controls.Shapes;
 using Avalonia.Media;
 using Avalonia.Styling;
 
-namespace Ripple
+namespace Material.Ripple
 {
     public class RippleEffect : ContentControl
     {
