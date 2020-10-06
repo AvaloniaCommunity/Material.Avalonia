@@ -2,10 +2,10 @@
 using Avalonia.Controls;
 using Avalonia.Media;
 using JetBrains.Annotations;
-using MaterialColors;
-using MaterialColors.ColorManipulation;
+using Material.Colors;
+using Material.Colors.ColorManipulation;
 
-namespace MaterialXamlToolKit.Avalonia.Themes {
+namespace Material.Styles.Themes {
     public static class ResourceDictionaryExtensions {
         private static Guid CurrentThemeKey { get; } = Guid.NewGuid();
         private static Guid ThemeManagerKey { get; } = Guid.NewGuid();
@@ -70,11 +70,10 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialDesignTextAreaInactiveBorder", theme.TextAreaInactiveBorder);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignDataGridRowHoverBackground", theme.DataGridRowHoverBackground);
 
-            if (!(resourceDictionary.GetThemeManager() is ThemeManager themeManager)) {
+            if (!(resourceDictionary.GetThemeManager() is ThemeManager themeManager))
                 resourceDictionary[ThemeManagerKey] = themeManager = new ThemeManager(resourceDictionary);
-            }
 
-            ITheme oldTheme = resourceDictionary.GetTheme();
+            var oldTheme = resourceDictionary.GetTheme();
             resourceDictionary[CurrentThemeKey] = theme;
 
             themeManager.OnThemeChange(oldTheme, theme);
@@ -82,28 +81,20 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
 
         public static ITheme GetTheme(this IResourceDictionary resourceDictionary) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
-            if (resourceDictionary.TryGetResource(CurrentThemeKey , out var theme) && theme is ITheme) {
-                return (ITheme) theme;
-            }
+            if (resourceDictionary.TryGetResource(CurrentThemeKey, out var theme) && theme is ITheme) return (ITheme) theme;
 
-            Color secondaryMid = GetColor("SecondaryHueMidBrush");
-            Color secondaryMidForeground = GetColor("SecondaryHueMidForegroundBrush");
+            var secondaryMid = GetColor("SecondaryHueMidBrush");
+            var secondaryMidForeground = GetColor("SecondaryHueMidForegroundBrush");
 
-            if (!TryGetColor("SecondaryHueLightBrush", out Color secondaryLight)) {
-                secondaryLight = secondaryMid.Lighten();
-            }
+            if (!TryGetColor("SecondaryHueLightBrush", out var secondaryLight)) secondaryLight = secondaryMid.Lighten();
 
-            if (!TryGetColor("SecondaryHueLightForegroundBrush", out Color secondaryLightForeground)) {
+            if (!TryGetColor("SecondaryHueLightForegroundBrush", out var secondaryLightForeground))
                 secondaryLightForeground = secondaryLight.ContrastingForegroundColor();
-            }
 
-            if (!TryGetColor("SecondaryHueDarkBrush", out Color secondaryDark)) {
-                secondaryDark = secondaryMid.Darken();
-            }
+            if (!TryGetColor("SecondaryHueDarkBrush", out var secondaryDark)) secondaryDark = secondaryMid.Darken();
 
-            if (!TryGetColor("SecondaryHueDarkForegroundBrush", out Color secondaryDarkForeground)) {
+            if (!TryGetColor("SecondaryHueDarkForegroundBrush", out var secondaryDarkForeground))
                 secondaryDarkForeground = secondaryDark.ContrastingForegroundColor();
-            }
 
             //Attempt to simply look up the appropriate resources
             return new Theme {
@@ -146,11 +137,9 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
             };
 
             Color GetColor(params string[] keys) {
-                foreach (string key in keys) {
-                    if (TryGetColor(key, out Color color)) {
+                foreach (var key in keys)
+                    if (TryGetColor(key, out var color))
                         return color;
-                    }
-                }
 
                 throw new InvalidOperationException($"Could not locate required resource with key(s) '{string.Join(", ", keys)}'");
             }
@@ -169,8 +158,8 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
         [CanBeNull]
         public static IThemeManager GetThemeManager(this IResourceDictionary resourceDictionary) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
-            
-            return resourceDictionary.TryGetResource(ThemeManagerKey, out object manager) ? manager as IThemeManager : null;
+
+            return resourceDictionary.TryGetResource(ThemeManagerKey, out var manager) ? manager as IThemeManager : null;
         }
 
         internal static void SetSolidColorBrush(this IResourceDictionary sourceDictionary, string name, Color value) {
@@ -190,7 +179,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
                 // };
                 // brush.BeginAnimation(SolidColorBrush.ColorProperty, animation);
                 brush.Color = value;
-                
+
                 return;
             }
 
@@ -199,7 +188,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes {
         }
 
         private class ThemeManager : IThemeManager {
-            private IResourceDictionary _ResourceDictionary;
+            private readonly IResourceDictionary _ResourceDictionary;
 
             public ThemeManager(IResourceDictionary resourceDictionary) {
                 _ResourceDictionary = resourceDictionary ?? throw new ArgumentNullException(nameof(resourceDictionary));

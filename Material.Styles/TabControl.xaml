@@ -1,8 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:system="clr-namespace:System;assembly=netstandard"
-        xmlns:assists="clr-namespace:MaterialXamlToolKit.Avalonia.Assists"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
     <Style Selector="TabControl">
         <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
         <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
@@ -23,7 +22,7 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         BorderBrush="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveBrush), RelativeSource={RelativeSource AncestorType=TabControl}}"
-                                        Opacity="0.12"/>
+                                        Opacity="0.12" />
 
                                 <Border Name="HeaderPanelBorder" Background="Transparent" HorizontalAlignment="Stretch">
                                     <ItemsPresenter
@@ -66,7 +65,6 @@
         <Setter Property="Columns" Value="0" />
         <Setter Property="Rows" Value="1" />
     </Style>
-    
     
     <!-- For TabStripPlacement=Bottom -->
     <Style Selector="TabControl[TabStripPlacement=Bottom] /template/ Grid#HeaderGrid">
@@ -137,8 +135,7 @@
                             </ripple:RippleEffect>
                             <Border Name="border"
                                     Background="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabControl}}"
-                                    Height="2" Width="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
-                            </Border>
+                                    Height="2" Width="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
                         </Grid>
                     </LayoutTransformControl>
                 </ControlTemplate>
@@ -153,7 +150,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-        <Style
+    <Style
         Selector="TabControl[TabStripPlacement=Right] > TabItem /template/ LayoutTransformControl#LayoutTransform">
         <Setter Property="LayoutTransform">
             <Setter.Value>

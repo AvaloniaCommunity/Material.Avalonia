@@ -6,7 +6,7 @@ using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Styling;
 
-namespace MaterialXamlToolKit.Avalonia.Assists {
+namespace Material.Styles.Assists {
     public static class ShadowProvider {
         public static Color MaterialShadowColor { get; set; } = Color.FromArgb(107, 0, 0, 0);
 
@@ -33,20 +33,21 @@ namespace MaterialXamlToolKit.Avalonia.Assists {
     }
 
     public static class ShadowAssist {
+        public static readonly AvaloniaProperty<ShadowDepth> ShadowDepthProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, ShadowDepth>(
+            "ShadowDepth", typeof(ShadowAssist));
+
+        public static readonly AvaloniaProperty<bool> DarkenProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, bool>(
+            "Darken", typeof(ShadowAssist));
+
         static ShadowAssist() {
             ShadowDepthProperty.Changed.Subscribe(ShadowDepthChangedCallback);
             DarkenProperty.Changed.Subscribe(DarkenPropertyChangedCallback);
         }
-        
-        public static readonly AvaloniaProperty<ShadowDepth> ShadowDepthProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, ShadowDepth>(
-            "ShadowDepth", typeof(ShadowAssist), ShadowDepth.Depth0);
 
         private static void ShadowDepthChangedCallback(AvaloniaPropertyChangedEventArgs args) {
-            if (args.Sender is Border border) {
-                border.BoxShadow = (args.NewValue as ShadowDepth? ?? ShadowDepth.Depth0).ToBoxShadows();
-            }
+            if (args.Sender is Border border) border.BoxShadow = (args.NewValue as ShadowDepth? ?? ShadowDepth.Depth0).ToBoxShadows();
         }
-        
+
         public static void SetShadowDepth(AvaloniaObject element, ShadowDepth value) {
             element.SetValue(ShadowDepthProperty, value);
         }
@@ -54,9 +55,6 @@ namespace MaterialXamlToolKit.Avalonia.Assists {
         public static ShadowDepth GetShadowDepth(AvaloniaObject element) {
             return (ShadowDepth) element.GetValue(ShadowDepthProperty);
         }
-
-        public static readonly AvaloniaProperty<bool> DarkenProperty = AvaloniaProperty.RegisterAttached<AvaloniaObject, bool>(
-            "Darken", typeof(ShadowAssist));
 
         private static void DarkenPropertyChangedCallback(AvaloniaPropertyChangedEventArgs obj) {
             var border = obj.Sender as Border;
@@ -68,7 +66,7 @@ namespace MaterialXamlToolKit.Avalonia.Assists {
                 ? GetShadowDepth((AvaloniaObject) obj.Sender).ToBoxShadows(Color.FromArgb(255, 0, 0, 0))
                 : GetShadowDepth((AvaloniaObject) obj.Sender).ToBoxShadows();
 
-            var animation = new Animation() {Duration = TimeSpan.FromMilliseconds(350), FillMode = FillMode.Both};
+            var animation = new Animation {Duration = TimeSpan.FromMilliseconds(350), FillMode = FillMode.Both};
             animation.Children.Add(
                 new KeyFrame {
                     Cue = Cue.Parse("0%", CultureInfo.CurrentCulture),

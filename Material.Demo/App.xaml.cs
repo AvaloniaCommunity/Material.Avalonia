@@ -1,12 +1,9 @@
 ﻿using Avalonia;
 using Avalonia.Markup.Xaml;
 
-namespace Material.Demo
-{
-    public class App : Application
-    {
-        public override void Initialize()
-        {
+namespace Material.Demo {
+    public class App : Application {
+        public override void Initialize() {
             AvaloniaXamlLoader.Load(this);
         }
     }

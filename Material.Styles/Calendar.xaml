@@ -10,7 +10,7 @@
     <Style Selector="Calendar">
         <!--<Setter Property="Focusable" Value="False" />-->
         <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel Name="Root"

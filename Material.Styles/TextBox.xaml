@@ -1,5 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
     <Style Selector="TextBox">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
@@ -78,10 +78,10 @@
         </Style.Animations>
     </Style>
     <Style Selector="TextBox /template/ Border#dborder">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
     </Style>
     <Style Selector="TextBox:pointerover /template/ Border#dborder">
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
     </Style>
     <Style Selector="TextBox">
         <Setter Property="Cursor" Value="IBeam" />

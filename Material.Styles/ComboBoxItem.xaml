@@ -7,7 +7,7 @@
             <ControlTemplate>
                 <Grid>
                     <!-- Allows register clicks not only direct to content -->
-                    <Rectangle Fill="Black" Opacity="0"></Rectangle>
+                    <Rectangle Fill="Black" Opacity="0" />
                     <ContentPresenter Name="PART_ContentPresenter"
                                       Background="{TemplateBinding Background}"
                                       BorderBrush="{TemplateBinding BorderBrush}"

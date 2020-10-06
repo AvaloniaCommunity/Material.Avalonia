@@ -1,8 +1,6 @@
 <Styles
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-    xmlns:assists="clr-namespace:MaterialXamlToolKit.Avalonia.Assists">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- TODO: Rework ToggleButton -->
     <Style Selector="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
@@ -13,7 +11,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="16 4 16 4" />
         <Setter Property="Height" Value="32" />
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Cursor" Value="Hand" />
     </Style>
 
     <Style Selector="ToggleButton:checked">

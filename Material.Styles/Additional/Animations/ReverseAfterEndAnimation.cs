@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Reactive.Subjects;
-using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Animation;
 
-namespace MaterialXamlToolKit.Avalonia.Additional.Animations {
+namespace Material.Styles.Additional.Animations {
     public class ReverseAfterEndAnimation : ControllableAnimationBase {
         public bool WaitTillEnd { get; set; } = false;
-        
+
         // Required WaitTillEnd == true
         public TimeSpan DelayBetweenReverse { get; set; } = TimeSpan.Zero;
 
         public override IDisposable Apply(Animatable control, IClock clock, IObservable<bool> match, Action onComplete = null) {
-
-            var reversedAnimation = new Animation() {
+            var reversedAnimation = new Animation {
                 Delay = Animation.Delay, Duration = Animation.Duration, Easing = Animation.Easing, FillMode = Animation.FillMode,
                 IterationCount = new IterationCount(1), SpeedRatio = Animation.SpeedRatio
             };
@@ -29,7 +27,7 @@ namespace MaterialXamlToolKit.Avalonia.Additional.Animations {
             var lastValue = false;
             // Applying reversed animation
             var reversedObserver = new Subject<bool>();
-            Task timeOut = Task.CompletedTask;
+            var timeOut = Task.CompletedTask;
 
             match.Subscribe(async b => {
                 if (lastValue == b) return;
@@ -43,8 +41,8 @@ namespace MaterialXamlToolKit.Avalonia.Additional.Animations {
                     reversedObserver.OnNext(true);
                 }
             });
-            reversedAnimation.Apply(control, clock, reversedObserver, () => {});
-            
+            reversedAnimation.Apply(control, clock, reversedObserver, () => { });
+
             return base.Apply(control, clock, match, onComplete);
         }
 

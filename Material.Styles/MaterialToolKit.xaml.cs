@@ -1,13 +1,10 @@
 using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Markup.Xaml;
-using Avalonia.Styling;
-using MaterialXamlToolKit.Avalonia.Additional;
+using Material.Styles.Additional;
 
-namespace MaterialXamlToolKit.Avalonia
-{
-    public class MaterialToolKit : Styles
-    {
+namespace Material.Styles {
+    public class MaterialToolKit : Avalonia.Styling.Styles {
         public MaterialToolKit() {
             AvaloniaXamlLoader.Load(this);
             Animation.RegisterAnimator<RelativePointAnimator>(property => typeof(RelativePoint).IsAssignableFrom(property.PropertyType));

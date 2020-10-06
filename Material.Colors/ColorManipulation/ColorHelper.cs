@@ -1,12 +1,12 @@
 ﻿using System;
 using Avalonia.Media;
 
-namespace MaterialColors.ColorManipulation {
+namespace Material.Colors.ColorManipulation {
     public static class ColorHelper {
         public static Color ContrastingForegroundColor(this Color color) {
             double rgb_srgb(double d) {
                 d = d / 255.0;
-                return (d > 0.03928)
+                return d > 0.03928
                     ? d = Math.Pow((d + 0.055) / 1.055, 2.4)
                     : d = d / 12.92;
             }
@@ -16,7 +16,7 @@ namespace MaterialColors.ColorManipulation {
             var b = rgb_srgb(color.B);
 
             var luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-            return luminance > 0.179 ? Colors.Black : Colors.White;
+            return luminance > 0.179 ? Avalonia.Media.Colors.Black : Avalonia.Media.Colors.White;
         }
 
         public static Color ShiftLightness(this Color color, int amount = 1) {
@@ -34,14 +34,14 @@ namespace MaterialColors.ColorManipulation {
         }
 
         /// <summary>
-        /// Calculates the CIE76 distance between two colors.
+        ///     Calculates the CIE76 distance between two colors.
         /// </summary>
         /// <param name="color"></param>
         /// <param name="other"></param>
         /// <returns></returns>
         public static double Difference(this Color color, Color other) {
-            Lab lab1 = color.ToLab();
-            Lab lab2 = color.ToLab();
+            var lab1 = color.ToLab();
+            var lab2 = color.ToLab();
 
             return Math.Sqrt(Math.Pow(lab2.L - lab1.L, 2) +
                              Math.Pow(lab2.A - lab1.A, 2) +

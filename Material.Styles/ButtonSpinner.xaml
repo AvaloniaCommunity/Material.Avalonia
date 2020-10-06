@@ -3,10 +3,8 @@
         <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
     </Style>
- 
-  
     <Style Selector="ButtonSpinner /template/ RepeatButton#PART_IncreaseButton">
         <Setter Property="Content">
             <Template>
@@ -85,5 +83,4 @@
             </ControlTemplate>
         </Setter>
     </Style>
-    
 </Styles>

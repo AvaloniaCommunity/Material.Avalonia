@@ -5,13 +5,13 @@ using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Metadata;
 
-namespace MaterialXamlToolKit.Avalonia.Additional.Animations {
+namespace Material.Styles.Additional.Animations {
     /// <summary>
-    /// Tracks the progress of an animation. This class should act the same as <see cref="Animation"/>
+    ///     Tracks the progress of an animation. This class should act the same as <see cref="Animation" />
     /// </summary>
     public class ControllableAnimationBase : AvaloniaObject, IAnimation {
         /// <summary>
-        /// Defines the <see cref="Duration"/> property.
+        ///     Defines the <see cref="Duration" /> property.
         /// </summary>
         public static readonly DirectProperty<ControllableAnimationBase, Animation> AnimationProperty =
             AvaloniaProperty.RegisterDirect<ControllableAnimationBase, Animation>(
@@ -37,12 +37,12 @@ namespace MaterialXamlToolKit.Avalonia.Additional.Animations {
             return Animation.Apply(control, clock, observable, onComplete);
         }
 
-        internal virtual void OnNext(Subject<bool> match, bool previous, bool obj) {
-            match.OnNext(obj);
-        }
-
         public virtual Task RunAsync(Animatable control, IClock clock) {
             return Animation.RunAsync(control, clock);
+        }
+
+        internal virtual void OnNext(Subject<bool> match, bool previous, bool obj) {
+            match.OnNext(obj);
         }
     }
 }

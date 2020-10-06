@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace MaterialXamlToolKit.Avalonia.Themes
-{
-    public interface IThemeManager
-    {
+namespace Material.Styles.Themes {
+    public interface IThemeManager {
         event EventHandler<ThemeChangedEventArgs> ThemeChanged;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace MaterialColors.ColorManipulation {
+﻿namespace Material.Colors.ColorManipulation {
     public struct Hsb {
         public double Hue { get; }
         public double Saturation { get; }

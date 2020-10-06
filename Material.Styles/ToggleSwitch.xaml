@@ -1,24 +1,22 @@
 ﻿<Styles
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-    xmlns:assists="clr-namespace:MaterialXamlToolKit.Avalonia.Assists"
-    xmlns:system="clr-namespace:System;assembly=netstandard"
-    xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+    xmlns:assists="clr-namespace:Material.Styles.Assists"
+    xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
     <Style Selector="ToggleSwitch">
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}"></Setter>
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
                 Value="{DynamicResource PrimaryHueLightBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground" Value="Black" />
-        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1"></Setter>
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="0 1 0 0" />
         <Setter Property="OffContent" Value="" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="ClipToBounds" Value="False"></Setter>
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ColumnDefinitions="Auto, *" ClipToBounds="False">
@@ -62,8 +60,7 @@
                                             Width="25" Height="25"
                                             Margin="0,0,0,0"
                                             ClipToBounds="False"
-                                            assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}">
-                                    </Border>
+                                            assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
                                 </AdornerLayer>
                                 <ContentPresenter x:Name="OnContentPresenter"
                                                   Content="{TemplateBinding OnContent}"
@@ -102,20 +99,20 @@
     <Style Selector="ToggleSwitch:disabled">
         <Setter Property="Opacity" Value="0.23" />
     </Style>
-    
+
     <Style Selector="ToggleSwitch:pressed /template/ Ellipse#RippleThumb">
         <Style.Animations>
             <animations:ReverseAfterEndAnimation WaitTillEnd="True" DelayBetweenReverse="0:0:0.2">
                 <Animation Duration="0:0:0.2" FillMode="Both">
                     <KeyFrame Cue="1%">
-                        <Setter Property="Opacity" Value="0"></Setter>
-                        <Setter Property="ScaleTransform.ScaleX" Value="1"></Setter>
-                        <Setter Property="ScaleTransform.ScaleY" Value="1"></Setter>
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.26"></Setter>
-                        <Setter Property="ScaleTransform.ScaleX" Value="2.5"></Setter>
-                        <Setter Property="ScaleTransform.ScaleY" Value="2.5"></Setter>
+                        <Setter Property="Opacity" Value="0.26" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="2.5" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="2.5" />
                     </KeyFrame>
                 </Animation>
             </animations:ReverseAfterEndAnimation>
@@ -144,11 +141,9 @@
         <Setter Property="IsVisible" Value="False" />
     </Style>
 
-    <!-- <Style Selector="ToggleSwitch:checked"> -->
-    <!--     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" /> -->
-    <!-- </Style> -->
     <Style Selector="ToggleSwitch:checked /template/ Border#Thumb">
-        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+        <Setter Property="Background"
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
     </Style>
     <Style Selector="ToggleSwitch:checked /template/ Border#Track">
         <Setter Property="Background"

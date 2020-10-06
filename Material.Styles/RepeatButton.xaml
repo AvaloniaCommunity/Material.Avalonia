@@ -22,6 +22,6 @@
     </Style>
     <Style Selector="RepeatButton:disabled">
         <Setter Property="Opacity"
-                Value="0.23" /> 
+                Value="0.23" />
     </Style>
 </Styles>

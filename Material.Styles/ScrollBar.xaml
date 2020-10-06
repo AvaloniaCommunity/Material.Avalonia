@@ -1,11 +1,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:system="clr-namespace:System;assembly=netstandard"
-        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
     <Style Selector="ScrollBar">
         <Style.Resources>
             <system:Double x:Key="ScrollBarThickness">18</system:Double>
-            <system:Double x:Key="ScrollBarThumbThickness">8</system:Double>
         </Style.Resources>
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Background" Value="Transparent" />

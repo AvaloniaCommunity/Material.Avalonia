@@ -1,9 +1,3 @@
-using Avalonia.Styling;
-
-namespace Material.Avalonia
-{
-    public class MaterialAvaloniaTemplates:Styles
-    {
-        
-    }
+namespace Material.Avalonia {
+    public class MaterialAvaloniaTemplates : global::Avalonia.Styling.Styles { }
 }

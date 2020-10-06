@@ -1,5 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:assists="clr-namespace:MaterialXamlToolKit.Avalonia.Assists">
+        xmlns:assists="clr-namespace:Material.Styles.Assists">
     <Style Selector="TabStrip">
         <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
         <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"

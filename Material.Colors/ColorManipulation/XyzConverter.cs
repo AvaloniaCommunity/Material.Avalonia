@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia.Media;
 
-namespace MaterialColors.ColorManipulation {
+namespace Material.Colors.ColorManipulation {
     internal static class XyzConverter {
         public static Color ToColor(this Xyz xyz) {
             double xyz_rgb(double d) {

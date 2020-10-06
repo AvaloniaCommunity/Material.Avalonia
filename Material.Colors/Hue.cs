@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia.Media;
 
-namespace MaterialColors {
+namespace Material.Colors {
     public class Hue {
         public Hue(string name, Color color, Color foreground) {
             if (name == null) throw new ArgumentNullException(nameof(name));

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MaterialColors {
+namespace Material.Colors {
     /// <summary>
-    /// Defines a single colour swatch.
+    ///     Defines a single colour swatch.
     /// </summary>
     public class Swatch {
         public Swatch(string name, IEnumerable<Hue> primaryHues, IEnumerable<Hue> accentHues) {
@@ -36,12 +36,12 @@ namespace MaterialColors {
 
         public bool IsAccented => AccentHues.Any();
 
-        public override string ToString() {
-            return Name;
-        }
-
         public int ExemplarHueIndex => Math.Min(5, PrimaryHues.Count - 1);
 
         public int AccentExemplarHueIndex => Math.Min(2, AccentHues.Count - 1);
+
+        public override string ToString() {
+            return Name;
+        }
     }
 }

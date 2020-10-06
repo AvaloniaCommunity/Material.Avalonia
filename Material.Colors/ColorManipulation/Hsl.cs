@@ -1,4 +1,4 @@
-﻿namespace MaterialColors.ColorManipulation {
+﻿namespace Material.Colors.ColorManipulation {
     internal struct Hsl {
         public double H { get; }
         public double S { get; }

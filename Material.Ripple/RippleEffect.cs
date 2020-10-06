@@ -7,10 +7,8 @@ using Avalonia.Controls.Shapes;
 using Avalonia.Media;
 using Avalonia.Styling;
 
-namespace Material.Ripple
-{
-    public class RippleEffect : ContentControl
-    {
+namespace Material.Ripple {
+    public class RippleEffect : ContentControl {
         private Ellipse _circle;
         private IAnimationSetter _fromMargin;
         private bool _isRunning;
@@ -19,10 +17,8 @@ namespace Material.Ripple
         private IAnimationSetter _toMargin;
         private IAnimationSetter _toWidth;
 
-        public RippleEffect()
-        {
-            AddHandler(PointerPressedEvent, async (s, e) =>
-            {
+        public RippleEffect() {
+            AddHandler(PointerPressedEvent, async (s, e) => {
                 if (_isRunning) return;
                 _pointer = e.GetPosition(this);
                 _isRunning = true;
@@ -37,8 +33,7 @@ namespace Material.Ripple
             });
         }
 
-        protected override void OnTemplateApplied(TemplateAppliedEventArgs e)
-        {
+        protected override void OnTemplateApplied(TemplateAppliedEventArgs e) {
             base.OnTemplateApplied(e);
 
             _circle = e.NameScope.Find<Ellipse>("Circle");
@@ -57,8 +52,7 @@ namespace Material.Ripple
         public static readonly StyledProperty<Brush> RippleFillProperty =
             AvaloniaProperty.Register<RippleEffect, Brush>(nameof(RippleFill));
 
-        public Brush RippleFill
-        {
+        public Brush RippleFill {
             get => GetValue(RippleFillProperty);
             set => SetValue(RippleFillProperty, value);
         }
@@ -66,8 +60,7 @@ namespace Material.Ripple
         public static readonly StyledProperty<double> RippleOpacityProperty =
             AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity));
 
-        public double RippleOpacity
-        {
+        public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
             set => SetValue(RippleOpacityProperty, value);
         }

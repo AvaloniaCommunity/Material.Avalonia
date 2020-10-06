@@ -1,8 +1,7 @@
-﻿using System;
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
 
-namespace MaterialXamlToolKit.Avalonia.Assists {
+namespace Material.Styles.Assists {
     public static class CheckBoxAssist {
         private const double DefaultCheckBoxSize = 18.0;
 
@@ -11,8 +10,13 @@ namespace MaterialXamlToolKit.Avalonia.Assists {
         public static readonly AvaloniaProperty<double> CheckBoxSizeProperty
             = AvaloniaProperty.RegisterAttached<CheckBox, double>("CheckBoxSize", typeof(CheckBoxAssist), DefaultCheckBoxSize);
 
-        public static double GetCheckBoxSize(CheckBox element) => (double) element.GetValue(CheckBoxSizeProperty);
-        public static void SetCheckBoxSize(CheckBox element, double checkBoxSize) => element.SetValue(CheckBoxSizeProperty, checkBoxSize);
+        public static double GetCheckBoxSize(CheckBox element) {
+            return (double) element.GetValue(CheckBoxSizeProperty);
+        }
+
+        public static void SetCheckBoxSize(CheckBox element, double checkBoxSize) {
+            element.SetValue(CheckBoxSizeProperty, checkBoxSize);
+        }
 
         #endregion
     }

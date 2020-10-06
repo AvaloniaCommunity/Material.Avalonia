@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Avalonia.Media;
-using MaterialColors.Recommended;
+using Material.Colors.Recommended;
 
-namespace MaterialColors {
+namespace Material.Colors {
     public static class SwatchHelper {
         public static IEnumerable<ISwatch> Swatches { get; } = new ISwatch[] {
             new RedSwatch(),
@@ -24,7 +24,7 @@ namespace MaterialColors {
             new DeepOrangeSwatch(),
             new BrownSwatch(),
             new GreySwatch(),
-            new BlueGreySwatch(),
+            new BlueGreySwatch()
         };
 
         public static IDictionary<MaterialColor, Color> Lookup { get; } = Swatches.SelectMany(o => o.Lookup).ToDictionary(o => o.Key, o => o.Value);

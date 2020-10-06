@@ -1,16 +1,13 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-        xmlns:system="clr-namespace:System;assembly=netstandard"
-        xmlns:additional="clr-namespace:MaterialXamlToolKit.Avalonia.Additional"
-        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
     <Style Selector="RadioButton">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"></Setter>
-        <Setter Property="ClipToBounds" Value="False"></Setter>
-        <Setter Property="Padding" Value="4 2 0 0"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Padding" Value="4 2 0 0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -19,12 +16,14 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Viewbox Width="18" Height="18" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" ClipToBounds="False">
+                        <Viewbox Width="18" Height="18" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                 ClipToBounds="False">
                             <Canvas Width="24" Height="24" ClipToBounds="False">
                                 <Path Name="Graphic" Fill="{TemplateBinding Background}" ClipToBounds="False">
                                     <Path.Styles>
                                         <Style Selector="Path">
-                                            <Setter Property="Data" Value="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></Setter>
+                                            <Setter Property="Data"
+                                                    Value="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
                                         </Style>
                                     </Path.Styles>
                                 </Path>
@@ -46,41 +45,42 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           Margin="{TemplateBinding Padding}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"/>
+                                          Content="{TemplateBinding Content}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
-<Style Selector="RadioButton:pressed /template/ Ellipse#InteractionEllipse">
-    <Style.Animations>
-        <animations:BeginAnimation>
-            <Animation Duration="0:0:0.3" FillMode="Both">
-                <KeyFrame Cue="0%">
-                    <Setter Property="Width" Value="0"></Setter>
-                    <Setter Property="Height" Value="0"></Setter>
-                    <Setter Property="Margin" Value="0 0 0 0"></Setter>
-                    <Setter Property="Opacity" Value="0.3"></Setter>
-                </KeyFrame>
-                <KeyFrame Cue="100%">
-                    <Setter Property="Width" Value="48"></Setter>
-                    <Setter Property="Height" Value="48"></Setter>
-                    <Setter Property="Margin" Value="-24 -24 0 0"></Setter>
-                    <Setter Property="Opacity" Value="0"></Setter>
-                </KeyFrame>
-            </Animation>
-        </animations:BeginAnimation>
-    </Style.Animations>
-</Style>
+
+    <Style Selector="RadioButton:pressed /template/ Ellipse#InteractionEllipse">
+        <Style.Animations>
+            <animations:BeginAnimation>
+                <Animation Duration="0:0:0.3" FillMode="Both">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Width" Value="0" />
+                        <Setter Property="Height" Value="0" />
+                        <Setter Property="Margin" Value="0 0 0 0" />
+                        <Setter Property="Opacity" Value="0.3" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Width" Value="48" />
+                        <Setter Property="Height" Value="48" />
+                        <Setter Property="Margin" Value="-24 -24 0 0" />
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                </Animation>
+            </animations:BeginAnimation>
+        </Style.Animations>
+    </Style>
     <Style Selector="RadioButton:disabled /template/ Ellipse#border">
         <Setter Property="Fill"
                 Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
-        <Setter Property="Opacity" Value="0.26" /> 
+        <Setter Property="Opacity" Value="0.26" />
     </Style>
     <Style Selector="RadioButton:checked /template/ Path#Graphic">
         <Setter Property="Data"
                 Value="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7Z" />
-        <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=Background}" />
+        <Setter Property="Fill"
+                Value="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=Background}" />
     </Style>
 </Styles>

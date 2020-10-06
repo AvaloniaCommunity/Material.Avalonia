@@ -1,10 +1,8 @@
 ﻿using Avalonia.Media;
-using MaterialColors;
+using Material.Colors;
 
-namespace MaterialXamlToolKit.Avalonia.Themes
-{
-    public interface ITheme
-    {
+namespace Material.Styles.Themes {
+    public interface ITheme {
         ColorPair PrimaryLight { get; set; }
         ColorPair PrimaryMid { get; set; }
         ColorPair PrimaryDark { get; set; }
@@ -27,7 +25,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes
 
         Color Divider { get; set; }
         Color Selection { get; set; }
-        
+
         Color ToolForeground { get; set; }
         Color ToolBackground { get; set; }
 
@@ -48,7 +46,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes
         Color TextFieldBoxDisabledBackground { get; set; }
         Color TextAreaBorder { get; set; }
         Color TextAreaInactiveBorder { get; set; }
-        
+
         Color DataGridRowHoverBackground { get; set; }
     }
 }

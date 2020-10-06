@@ -1,5 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
     <Style Selector="Slider">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -20,7 +20,8 @@
                                  Placement="Top" Grid.Row="0" TickFrequency="{Binding $parent[Slider].TickFrequency}"
                                  Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" />
                         <TickBar Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,2,0,0"
-                                 Placement="Bottom" Grid.Row="2" TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                                 Placement="Bottom" Grid.Row="2"
+                                 TickFrequency="{Binding $parent[Slider].TickFrequency}"
                                  Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" />
                         <Track Name="PART_Track" Grid.Row="1" MinHeight="{TemplateBinding MinHeight}"
                                Orientation="Horizontal" Minimum="{TemplateBinding Minimum}"

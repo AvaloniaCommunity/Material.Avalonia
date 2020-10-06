@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace MaterialColors.Recommended {
+namespace Material.Colors.Recommended {
     public class LightBlueSwatch : ISwatch {
         public static Color LightBlue50 { get; } = Color.Parse("#E1F5FE");
         public static Color LightBlue100 { get; } = Color.Parse("#B3E5FC");
@@ -34,7 +34,7 @@ namespace MaterialColors.Recommended {
             {MaterialColor.LightBlueA100, LightBlueA100},
             {MaterialColor.LightBlueA200, LightBlueA200},
             {MaterialColor.LightBlueA400, LightBlueA400},
-            {MaterialColor.LightBlueA700, LightBlueA700},
+            {MaterialColor.LightBlueA700, LightBlueA700}
         };
 
         public IEnumerable<Color> Hues => Lookup.Values;

@@ -1,10 +1,8 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-        xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
-        xmlns:converters1="clr-namespace:MaterialXamlToolKit.Avalonia.Converters"
-        xmlns:wpf="clr-namespace:MaterialXamlToolKit.Avalonia.Assists"
-        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+        xmlns:converters1="clr-namespace:Material.Styles.Converters"
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
     <Style Selector="TreeView">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{x:Null}" />
@@ -50,7 +48,7 @@
                 <ControlTemplate>
                     <Grid ColumnDefinitions="Auto,Auto,*" RowDefinitions="Auto,Auto,*">
                         <Rectangle Opacity="0" Fill="Red"
-                                   Grid.RowSpan="3" Grid.ColumnSpan="3"></Rectangle>
+                                   Grid.RowSpan="3" Grid.ColumnSpan="3" />
                         <ToggleButton x:Name="Expander" ClickMode="Press"
                                       IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
                                       Classes="MaterialDesignExpandCollapseToggleStyle"
@@ -74,10 +72,10 @@
                                 RippleFill="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
                                 Focusable="False">
                                 <ContentPresenter x:Name="PART_Header" Margin="{Binding $parent[TreeViewItem].Padding}"
-                                                  Content="{TemplateBinding Header}"/>
+                                                  Content="{TemplateBinding Header}" />
                             </ripple:RippleEffect>
                         </Grid>
-                        
+
                         <ItemsPresenter x:Name="ItemsHost"
                                         Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
                                         Margin="-16 0 0 0"
@@ -91,40 +89,40 @@
         </Setter>
     </Style>
     <Style Selector="TreeViewItem:disabled">
-        <Setter Property="Opacity" Value="0.56"></Setter>
+        <Setter Property="Opacity" Value="0.56" />
     </Style>
     <Style Selector="TreeViewItem[ItemCount=0] /template/ ToggleButton#Expander">
-        <Setter Property="Opacity" Value="0"></Setter>
+        <Setter Property="Opacity" Value="0" />
     </Style>
     <Style Selector="TreeViewItem /template/ Border#MouseOverBorder">
-        <Setter Property="Opacity" Value="0"></Setter>
+        <Setter Property="Opacity" Value="0" />
     </Style>
     <Style Selector="TreeViewItem:pointerover /template/ Border#MouseOverBorder">
         <Style.Animations>
             <animations:ReverseAfterEndAnimation>
                 <Animation Duration="0:0:0.3" FillMode="Both">
                     <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0"></Setter>
+                        <Setter Property="Opacity" Value="0" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.1"></Setter>
+                        <Setter Property="Opacity" Value="0.1" />
                     </KeyFrame>
                 </Animation>
             </animations:ReverseAfterEndAnimation>
         </Style.Animations>
-    </Style>    
+    </Style>
     <Style Selector="TreeViewItem /template/ Border#SelectedBorder">
-        <Setter Property="Opacity" Value="0"></Setter>
+        <Setter Property="Opacity" Value="0" />
     </Style>
     <Style Selector="TreeViewItem:selected /template/ Border#SelectedBorder">
         <Style.Animations>
             <animations:ReverseAfterEndAnimation>
                 <Animation Duration="0:0:0.6" FillMode="Both">
                     <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0"></Setter>
+                        <Setter Property="Opacity" Value="0" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.18"></Setter>
+                        <Setter Property="Opacity" Value="0.18" />
                     </KeyFrame>
                 </Animation>
             </animations:ReverseAfterEndAnimation>
@@ -132,7 +130,7 @@
     </Style>
 
     <Style Selector="ToggleButton.MaterialDesignExpandCollapseToggleStyle">
-        <Setter Property="Cursor" Value="Arrow"></Setter>
+        <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Width" Value="16" />
         <Setter Property="Height" Value="16" />

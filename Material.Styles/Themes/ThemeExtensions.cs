@@ -1,40 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using Avalonia.Media;
-using MaterialColors;
-using MaterialColors.ColorManipulation;
-using MaterialXamlToolKit.Avalonia.Themes.Base;
+using Material.Colors;
+using Material.Colors.ColorManipulation;
+using Material.Styles.Themes.Base;
 
-namespace MaterialXamlToolKit.Avalonia.Themes
-{
-    public static class ThemeExtensions
-    {
-        internal static ColorPair ToPairedColor(this Hue hue) 
-            => new ColorPair(hue.Color, hue.Foreground);
-        
+namespace Material.Styles.Themes {
+    public static class ThemeExtensions {
+        internal static ColorPair ToPairedColor(this Hue hue) {
+            return new ColorPair(hue.Color, hue.Foreground);
+        }
+
         public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode) {
             return baseThemeMode switch {
                 BaseThemeMode.Dark  => Theme.Dark,
                 BaseThemeMode.Light => Theme.Light,
                 BaseThemeMode.Inherit => Theme.GetSystemTheme() switch {
                     BaseThemeMode.Dark => Theme.Dark,
-                    _              => Theme.Light
+                    _                  => Theme.Light
                 },
                 _ => throw new InvalidOperationException()
             };
         }
 
-        public static BaseThemeMode GetBaseTheme(this ITheme theme)
-        {
+        public static BaseThemeMode GetBaseTheme(this ITheme theme) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             var foreground = theme.Background.ContrastingForegroundColor();
-            return foreground == Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
+            return foreground == Avalonia.Media.Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
         }
 
-        public static void SetBaseTheme(this ITheme theme, IBaseTheme baseTheme)
-        {
+        public static void SetBaseTheme(this ITheme theme, IBaseTheme baseTheme) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.ValidationError = baseTheme.ValidationErrorColor;
@@ -67,8 +62,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes
             theme.DataGridRowHoverBackground = baseTheme.MaterialDesignDataGridRowHoverBackground;
         }
 
-        public static void SetPrimaryColor(this ITheme theme, Color primaryColor)
-        {
+        public static void SetPrimaryColor(this ITheme theme, Color primaryColor) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.PrimaryLight = primaryColor.Lighten();
@@ -76,8 +70,7 @@ namespace MaterialXamlToolKit.Avalonia.Themes
             theme.PrimaryDark = primaryColor.Darken();
         }
 
-        public static void SetSecondaryColor(this ITheme theme, Color accentColor)
-        {
+        public static void SetSecondaryColor(this ITheme theme, Color accentColor) {
             if (theme == null) throw new ArgumentNullException(nameof(theme));
             theme.SecondaryLight = accentColor.Lighten();
             theme.SecondaryMid = accentColor;

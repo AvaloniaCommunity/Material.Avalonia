@@ -16,20 +16,13 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Background="Transparent">
-
-                    <Rectangle Name="TodayBackground"
-                               />
-
+                    <Rectangle Name="TodayBackground" />
                     <Rectangle Name="SelectedBackground"
-                              
                                Opacity="0.75"
                                Fill="{TemplateBinding Background}" />
-
                     <Rectangle Name="Background"
-                                
                                Opacity="0.5"
                                Fill="{TemplateBinding Background}" />
-
                     <ContentControl Name="Content"
                                     ContentTemplate="{TemplateBinding ContentTemplate}"
                                     Content="{TemplateBinding Content}"
@@ -37,7 +30,6 @@
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                     FontSize="{TemplateBinding FontSize}"
                                     Margin="5,1,5,1" />
-
                     <Path Name="BlackoutVisual"
                           Margin="3"
                           HorizontalAlignment="Stretch"
@@ -46,11 +38,9 @@
                           Fill="{DynamicResource PrimaryHueMidForegroundBrush}"
                           Stretch="Fill"
                           Data="M8.1772461,11.029181 L10.433105,11.029181 L11.700684,12.801641 L12.973633,11.029181 L15.191895,11.029181 L12.844727,13.999395 L15.21875,17.060919 L12.962891,17.060919 L11.673828,15.256231 L10.352539,17.060919 L8.1396484,17.060919 L10.519043,14.042364 z" />
-
                     <Rectangle Name="FocusVisual"
                                StrokeThickness="1"
                                IsHitTestVisible="False" />
-
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -97,11 +87,7 @@
     <Style Selector="CalendarDayButton:today /template/ Rectangle#TodayBackground">
         <Setter Property="IsVisible" Value="True" />
     </Style>
-
-
     
-   
-
     <Style Selector="CalendarDayButton /template/ Path#BlackoutVisual">
         <Setter Property="Opacity" Value="0" />
     </Style>

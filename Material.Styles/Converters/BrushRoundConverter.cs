@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Globalization;
-using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
 
-namespace MaterialXamlToolKit.Avalonia.Converters {
+namespace Material.Styles.Converters {
     public class BrushRoundConverter : IValueConverter {
         public static readonly IValueConverter Instance = new BrushRoundConverter();
         public Brush HighValue { get; set; } = new SolidColorBrush(Brushes.White.Color);
 
         public Brush LowValue { get; set; } = new SolidColorBrush(Brushes.Black.Color);
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
             if (!(value is SolidColorBrush solidColorBrush)) return null;
 
             var color = solidColorBrush.Color;

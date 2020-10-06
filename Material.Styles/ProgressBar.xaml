@@ -1,5 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:animations="clr-namespace:MaterialXamlToolKit.Avalonia.Additional.Animations">
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
     <Style Selector="ProgressBar">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
@@ -27,14 +27,14 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style Selector="ProgressBar">
-        <Setter Property="Height" Value="4"></Setter>
+        <Setter Property="Height" Value="4" />
     </Style>
     <Style Selector="ProgressBar:vertical">
-        <Setter Property="Width" Value="4"></Setter>
+        <Setter Property="Width" Value="4" />
     </Style>
-    
+
     <Style Selector="ProgressBar /template/ Grid#TemplateRoot">
         <Setter Property="RenderTransformOrigin" Value="0,0.5" />
         <Setter Property="Opacity" Value="0" />
@@ -112,11 +112,11 @@
     </Style>
 
     <Style Selector="ProgressBar /template/ Border#PART_Indicator">
-        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
-        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
     </Style>
     <Style Selector="ProgressBar:vertical /template/ Border#PART_Indicator">
-        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
     </Style>
 </Styles>

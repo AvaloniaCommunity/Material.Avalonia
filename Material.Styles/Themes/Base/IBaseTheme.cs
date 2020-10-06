@@ -1,9 +1,7 @@
 ﻿using Avalonia.Media;
 
-namespace MaterialXamlToolKit.Avalonia.Themes.Base
-{
-    public interface IBaseTheme
-    {
+namespace Material.Styles.Themes.Base {
+    public interface IBaseTheme {
         Color ValidationErrorColor { get; }
         Color MaterialDesignBackground { get; }
         Color MaterialDesignPaper { get; }

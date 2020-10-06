@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace MaterialColors {
+namespace Material.Colors {
     public interface ISwatch {
         string Name { get; }
         IEnumerable<Color> Hues { get; }

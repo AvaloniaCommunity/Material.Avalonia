@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia.Media;
 
-namespace MaterialColors.ColorManipulation {
+namespace Material.Colors.ColorManipulation {
     internal static class LabConverter {
         public static Lab ToLab(this Color c) {
             var xyz = c.ToXyz();

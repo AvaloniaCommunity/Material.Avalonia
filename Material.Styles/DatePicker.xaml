@@ -53,8 +53,7 @@
                                                    Grid.RowSpan="1"
                                                    StrokeThickness="1"
                                                    Stroke="{DynamicResource MaterialDesignTextAreaBorder}"
-                                                   Fill="{DynamicResource SecondaryHueMidBrush}">
-                                        </Rectangle>
+                                                   Fill="{DynamicResource SecondaryHueMidBrush}" />
                                         <TextBlock Margin="0,-1,0,0"
                                                    VerticalAlignment="Center"
                                                    HorizontalAlignment="Center"
@@ -110,8 +109,7 @@
                     <Popup Name="PART_Popup"
                            PlacementTarget="{TemplateBinding}"
                            StaysOpen="False">
-                        <Calendar Name="PART_Calendar"
-                                 />
+                        <Calendar Name="PART_Calendar" />
                     </Popup>
                 </Grid>
             </ControlTemplate>

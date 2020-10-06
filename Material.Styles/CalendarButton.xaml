@@ -37,7 +37,6 @@
 
                     <Rectangle Name="FocusVisual"
                                StrokeThickness="1"
-                              
                                IsHitTestVisible="False" />
 
                 </Grid>

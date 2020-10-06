@@ -1,7 +1,5 @@
-﻿namespace MaterialXamlToolKit.Avalonia.Themes
-{
-    public enum PrimaryColor
-    {
+﻿namespace Material.Styles.Themes {
+    public enum PrimaryColor {
         Red = MaterialDesignColor.Red500,
         Pink = MaterialDesignColor.Pink500,
         Purple = MaterialDesignColor.Purple500,
@@ -20,11 +18,10 @@
         DeepOrange = MaterialDesignColor.DeepOrange500,
         Brown = MaterialDesignColor.Brown500,
         Grey = MaterialDesignColor.Grey500,
-        BlueGrey = MaterialDesignColor.BlueGrey500,
+        BlueGrey = MaterialDesignColor.BlueGrey500
     }
 
-    public enum SecondaryColor
-    {
+    public enum SecondaryColor {
         Red = MaterialDesignColor.RedSecondary,
         Pink = MaterialDesignColor.PinkSecondary,
         Purple = MaterialDesignColor.PurpleSecondary,
@@ -43,8 +40,7 @@
         DeepOrange = MaterialDesignColor.DeepOrangeSecondary
     }
 
-    public enum MaterialDesignColor
-    {
+    public enum MaterialDesignColor {
         Red50,
         Red100,
         Red200,
