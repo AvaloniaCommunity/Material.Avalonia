@@ -1,0 +1,24 @@
+<Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="ComboBoxItem">
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <!-- Allows register clicks not only direct to content -->
+                    <Rectangle Fill="Black" Opacity="0" />
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Padding="{TemplateBinding Padding}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

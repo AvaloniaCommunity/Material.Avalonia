@@ -1,0 +1,16 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+    <Style Selector="Separator">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="MinHeight" Value="1" />
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Rectangle Height="1" Fill="{TemplateBinding Background}"
+                           HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+</Styles>

@@ -1,0 +1,15 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=netstandard">
+    <StyleInclude Source="../../MaterialDesignColor.Teal.Primary.xaml"/>
+<Styles.Resources>
+
+        <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="{DynamicResource  Primary200}" />
+        <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="{DynamicResource  Primary200Foreground}" />
+        <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{DynamicResource  Primary500}" />
+        <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="{DynamicResource  Primary500Foreground}" />
+        <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="{DynamicResource  Primary700}" />
+        <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="{DynamicResource  Primary700Foreground}" />
+
+    </Styles.Resources>
+</Styles>

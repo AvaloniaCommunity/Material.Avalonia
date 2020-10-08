@@ -1,0 +1,16 @@
+<Style xmlns="https://github.com/avaloniaui" Selector="EmbeddableControlRoot">
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Template">
+        <ControlTemplate>
+            <Border Background="{TemplateBinding Background}">
+                <VisualLayerManager>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      Margin="{TemplateBinding Padding}" />
+                </VisualLayerManager>
+            </Border>
+        </ControlTemplate>
+    </Setter>
+</Style>

@@ -1,0 +1,23 @@
+<Style xmlns="https://github.com/avaloniaui" Selector="Window">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="TextBox.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="TextBox.FontWeight" Value="Medium" />
+    <Setter Property="TextBox.FontSize" Value="14" />
+    <Setter Property="Template">
+
+        <ControlTemplate>
+            <Border Background="{TemplateBinding Background}">
+                <VisualLayerManager>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </VisualLayerManager>
+            </Border>
+        </ControlTemplate>
+    </Setter>
+</Style>

@@ -1,0 +1,187 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+    <Style Selector="TabControl">
+        <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
+        <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
+                Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
+                Value="{DynamicResource MaterialDesignBodyLight}" />
+        <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid Name="GridRoot">
+                        <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch" />
+                        <DockPanel>
+                            <Grid Name="HeaderGrid">
+                                <Border Name="HeaderSeparatorBorder" Background="Transparent"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        BorderBrush="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveBrush), RelativeSource={RelativeSource AncestorType=TabControl}}"
+                                        Opacity="0.12" />
+
+                                <Border Name="HeaderPanelBorder" Background="Transparent" HorizontalAlignment="Stretch">
+                                    <ItemsPresenter
+                                        Name="PART_ItemsPresenter"
+                                        Items="{TemplateBinding Items}"
+                                        ItemTemplate="{TemplateBinding ItemTemplate}">
+                                        <ItemsPresenter.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <UniformGrid Name="HeaderPanel" Background="Transparent"
+                                                             HorizontalAlignment="{Binding Path=(assists:TabControlAssist.TabHeaderHorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                                                             VerticalAlignment="{Binding Path=(assists:TabControlAssist.TabHeaderVerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                                                             ZIndex="1" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsPresenter.ItemsPanel>
+                                    </ItemsPresenter>
+                                </Border>
+                            </Grid>
+
+                            <Border Name="PART_SelectedContentHostBorder">
+                                <ContentPresenter Name="PART_SelectedContentHost"
+                                                  Content="{TemplateBinding SelectedContent}" />
+                            </Border>
+                        </DockPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- For TabStripPlacement=Top -->
+    <Style Selector="TabControl /template/ Grid#HeaderGrid">
+        <Setter Property="DockPanel.Dock" Value="Top" />
+    </Style>
+    <Style Selector="TabControl /template/ Border#HeaderSeparatorBorder">
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+    <Style Selector="TabControl /template/ Border#HeaderPanelBorder">
+        <Setter Property="Margin" Value="2,2,2,0" />
+    </Style>
+    <Style Selector="TabControl /template/ UniformGrid#HeaderPanel">
+        <Setter Property="Columns" Value="0" />
+        <Setter Property="Rows" Value="1" />
+    </Style>
+    
+    <!-- For TabStripPlacement=Bottom -->
+    <Style Selector="TabControl[TabStripPlacement=Bottom] /template/ Grid#HeaderGrid">
+        <Setter Property="DockPanel.Dock" Value="Bottom" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Bottom] /template/ Border#HeaderSeparatorBorder">
+        <Setter Property="BorderThickness" Value="0,1,0,0" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Bottom] /template/ Border#HeaderPanelBorder">
+        <Setter Property="Margin" Value="2,0,2,2" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Bottom] /template/ UniformGrid#HeaderPanel">
+        <Setter Property="Columns" Value="0" />
+        <Setter Property="Rows" Value="1" />
+    </Style>
+
+    <!-- For TabStripPlacement=Left -->
+    <Style Selector="TabControl[TabStripPlacement=Left] /template/ Grid#HeaderGrid">
+        <Setter Property="DockPanel.Dock" Value="Left" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Left] /template/ Border#HeaderSeparatorBorder">
+        <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Left] /template/ Border#HeaderPanelBorder">
+        <Setter Property="Margin" Value="2,2,0,2" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Left] /template/ UniformGrid#HeaderPanel">
+        <Setter Property="Columns" Value="1" />
+        <Setter Property="Rows" Value="0" />
+    </Style>
+
+    <!-- For TabStripPlacement=Right -->
+    <Style Selector="TabControl[TabStripPlacement=Right] /template/ Grid#HeaderGrid">
+        <Setter Property="DockPanel.Dock" Value="Right" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Right] /template/ Border#HeaderSeparatorBorder">
+        <Setter Property="BorderThickness" Value="1,0,0,0" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Right] /template/ Border#HeaderPanelBorder">
+        <Setter Property="Margin" Value="0,2,2,2" />
+    </Style>
+    <Style Selector="TabControl[TabStripPlacement=Right] /template/ UniformGrid#HeaderPanel">
+        <Setter Property="Columns" Value="1" />
+        <Setter Property="Rows" Value="0" />
+    </Style>
+
+
+    <Style Selector="TabControl > TabItem">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="assists:TabControlAssist.TabHeaderForeground"
+                Value="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveBrush), RelativeSource={RelativeSource AncestorType=TabControl}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <LayoutTransformControl Name="LayoutTransform">
+                        <Grid Name="ItemContent" Background="{TemplateBinding Background}"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch" MinHeight="48" MinWidth="90">
+                            <ripple:RippleEffect
+                                RippleOpacity="0.12"
+                                RippleFill="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabControl}}">
+                                <ContentPresenter Name="headerContent"
+                                                  Margin="24,12,24,12" HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                  Content="{TemplateBinding Header}"
+                                                  TextBlock.Foreground="{Binding Path=(assists:TabControlAssist.TabHeaderForeground), RelativeSource={RelativeSource TemplatedParent}}" />
+                            </ripple:RippleEffect>
+                            <Border Name="border"
+                                    Background="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabControl}}"
+                                    Height="2" Width="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                        </Grid>
+                    </LayoutTransformControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style
+        Selector="TabControl[TabStripPlacement=Left] > TabItem /template/ LayoutTransformControl#LayoutTransform">
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <RotateTransform Angle="270" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style
+        Selector="TabControl[TabStripPlacement=Right] > TabItem /template/ LayoutTransformControl#LayoutTransform">
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <RotateTransform Angle="-270" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style Selector="TabControl > TabItem:disabled">
+        <Setter Property="Opacity" Value="0.23" />
+    </Style>
+    <Style Selector="TabControl > TabItem:selected">
+        <Setter Property="assists:TabControlAssist.TabHeaderForeground"
+                Value="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabControl}}" />
+    </Style>
+    <Style Selector="TabControl > TabItem:selected /template/ Border#border">
+        <Style.Animations>
+            <animations:ReverseAfterEndAnimation>
+                <Animation Duration="0:0:0.15" FillMode="Both" Easing="LinearEasing">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Width" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+                    </KeyFrame>
+                </Animation>
+            </animations:ReverseAfterEndAnimation>
+        </Style.Animations>
+    </Style>
+
+    <Style Selector="TabControl > TabItem:not(:selected) /template/ ContentPresenter#headerContent">
+        <Setter Property="Opacity"
+                Value="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveOpacity), RelativeSource={RelativeSource AncestorType=TabControl}}" />
+    </Style>
+</Styles>
