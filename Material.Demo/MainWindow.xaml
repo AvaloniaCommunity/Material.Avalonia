@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls1="clr-namespace:Material.Controls;assembly=Material.Styles"
+        xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         Title="Material.Demo"
         Width="800"
         Height="800"
@@ -93,6 +95,7 @@
                         <RadioButton Content="test1" />
                         <RadioButton Content="test1" />
                         <CheckBox Content="Check Me" />
+                        <styles:MaterialCheckBox Content="Material Click Me"/> 
                     </StackPanel>
                 </StackPanel>
                 <StackPanel>

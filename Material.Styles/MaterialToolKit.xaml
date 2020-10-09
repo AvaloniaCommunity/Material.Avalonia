@@ -51,4 +51,6 @@
     <StyleInclude Source="avares://Material.Styles/Window.xaml" />
     <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
     <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" />
+    <!--custom controls-->
+    <StyleInclude Source="avares://Material.Styles/MaterialCheckBox.xaml"/>
 </Styles>
