@@ -42,9 +42,9 @@
                                      StrokeThickness="1"
                                      Opacity="1"
                                      Fill="{TemplateBinding Background}">
-                                <Ellipse.Transitions>
-                                    <ThicknessTransition Property="Margin" Duration="0:0:0.1" />
-                                </Ellipse.Transitions>
+                                <!-- <Ellipse.Transitions> -->
+                                <!--     <ThicknessTransition Property="Margin" Duration="0:0:0.1" /> -->
+                                <!-- </Ellipse.Transitions> -->
                             </Ellipse>
                         </Border>
                         <Border Name="pointerover"
