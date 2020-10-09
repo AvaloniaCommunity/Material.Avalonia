@@ -1,0 +1,85 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assists="clr-namespace:Material.Styles.Assists"
+    xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+    xmlns:cc="clr-namespace:Material.Styles"
+    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+
+    <Style Selector="cc|FloatingButton">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Padding" Value="16 4 16 4" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+
+                <Grid Margin="2" MinHeight="25" MinWidth="25">
+                    <Ellipse Name="buttonBorder" ClipToBounds="False"
+                             Height="{Binding $parent.Bounds.Height}"
+                             Fill="{TemplateBinding Background}"
+                             Width="{Binding $parent.Bounds.Height}"/>
+                    <AdornerLayer>
+                        <Border x:Name="Thumb"
+                               
+                                HorizontalAlignment="Center" VerticalAlignment="Center"
+                                CornerRadius="25"
+                                Height="{Binding #buttonBorder.Bounds.Height}"
+                                Width="{Binding #buttonBorder.Bounds.Height}"
+                                Margin="0,0,0,0"
+                                ClipToBounds="False"
+                                assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
+                    </AdornerLayer>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      Padding="{TemplateBinding Padding}"
+                                      TextBlock.Foreground="{TemplateBinding Foreground}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <Ellipse Name="sign" ClipToBounds="False"
+                             Height="{Binding #buttonBorder.Bounds.Height}"
+                             Fill="White"
+                             Opacity="0"
+                             Width="{Binding #buttonBorder.Bounds.Height}"/>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="cc|FloatingButton:disabled:not(.no-material),ToggleButton:disabled:not(.no-material)">
+        <Setter Property="Opacity" Value="0.23" />
+    </Style>
+    <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#Thumb">
+        <Setter Property="assists:ShadowAssist.Darken" Value="True" />
+    </Style>
+    <Style Selector="cc|FloatingButton:focus  /template/ Ellipse#sign">
+        <Style.Animations>
+            <animations:ReverseAfterEndAnimation>
+                <Animation Duration="0:0:0.5" FillMode="Both" Easing="LinearEasing">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="50%">
+                        <Setter Property="Opacity" Value="0.3" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="0" />
+                    </KeyFrame>
+                </Animation>
+            </animations:ReverseAfterEndAnimation>
+        </Style.Animations>
+    </Style>
+</Styles>

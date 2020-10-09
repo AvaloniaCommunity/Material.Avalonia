@@ -96,6 +96,7 @@
                         <RadioButton Content="test1" />
                         <CheckBox Content="Check Me" />
                         <ToggleSwitch>I am toggleswitch</ToggleSwitch>
+                        <styles:FloatingButton Content="+" Height="50"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel>

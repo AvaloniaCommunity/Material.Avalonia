@@ -18,6 +18,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
-    <ProjectReference Include="..\Material.Controls\Material.Controls.csproj" />
   </ItemGroup>
 </Project>
