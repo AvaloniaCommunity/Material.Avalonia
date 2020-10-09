@@ -6,27 +6,17 @@
         "MergeAll": true,
         "Merge": [
           {
-            "Id": "MaterialXamlToolKit.Avalonia",
-            "IgnoreMissingFrameworkBinaries": true,
-            "DoNotMergeDependencies": true
-          },
-          {
-            "Id": "MaterialXamlToolKit.Avalonia.Dark",
+            "Id": "Material.Ripple",
             "IgnoreMissingFrameworkBinaries": true,
             "IgnoreMissingFrameworkDependencies": true
           },
           {
-            "Id": "MaterialXamlToolKit.Avalonia.DeepPurple",
+            "Id": "Material.Colors",
             "IgnoreMissingFrameworkBinaries": true,
             "IgnoreMissingFrameworkDependencies": true
           },
           {
-            "Id": "MaterialXamlToolKit.Avalonia.LightGreen",
-            "IgnoreMissingFrameworkBinaries": true,
-            "IgnoreMissingFrameworkDependencies": true
-          },
-          {
-            "Id": "Ripple",
+            "Id": "Material.Styles",
             "IgnoreMissingFrameworkBinaries": true,
             "IgnoreMissingFrameworkDependencies": true
           }
