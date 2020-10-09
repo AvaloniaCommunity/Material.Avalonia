@@ -44,7 +44,7 @@
                                   HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Ellipse x:Name="RippleThumb"
                                          Fill="{DynamicResource PrimaryHueLightBrush}"
-                                         Height="25" Width="25"
+                                         Height="18" Width="18"
                                          IsHitTestVisible="False"
                                          Opacity="0.26"
                                          Margin="-100"

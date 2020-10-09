@@ -95,7 +95,7 @@
                         <RadioButton Content="test1" />
                         <RadioButton Content="test1" />
                         <CheckBox Content="Check Me" />
-                        <styles:MaterialCheckBox Content="Material Click Me"/> 
+                        <ToggleSwitch>I am toggleswitch</ToggleSwitch>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel>
