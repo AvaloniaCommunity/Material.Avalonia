@@ -100,7 +100,7 @@
     <Style Selector="TreeViewItem:pointerover /template/ Border#MouseOverBorder">
         <Style.Animations>
             <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.3" FillMode="Both">
+                <Animation Duration="0:0:0.2" FillMode="Both">
                     <KeyFrame Cue="0%">
                         <Setter Property="Opacity" Value="0" />
                     </KeyFrame>
@@ -117,12 +117,12 @@
     <Style Selector="TreeViewItem:selected /template/ Border#SelectedBorder">
         <Style.Animations>
             <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.6" FillMode="Both">
+                <Animation Duration="0:0:0.2" FillMode="Both">
                     <KeyFrame Cue="0%">
                         <Setter Property="Opacity" Value="0" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.18" />
+                        <Setter Property="Opacity" Value="0.3" />
                     </KeyFrame>
                 </Animation>
             </animations:ReverseAfterEndAnimation>
