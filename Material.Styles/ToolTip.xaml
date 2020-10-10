@@ -1,7 +1,9 @@
-<Style xmlns="https://github.com/avaloniaui" Selector="ToolTip">
+<Style xmlns="https://github.com/avaloniaui"
+       Selector="ToolTip">
+    <!-- TODO: Replace it with Card -->
     <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+    <Setter Property="BorderThickness" Value="1" />
     <Setter Property="Padding" Value="4,2" />
     <Setter Property="Template">
         <ControlTemplate>
