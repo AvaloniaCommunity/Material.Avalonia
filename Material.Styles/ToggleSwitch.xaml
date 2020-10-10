@@ -46,7 +46,6 @@
                                          Fill="{DynamicResource PrimaryHueLightBrush}"
                                          Height="18" Width="18"
                                          IsHitTestVisible="False"
-                                         Opacity="0.26"
                                          Margin="-100"
                                          HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <Ellipse.RenderTransform>
@@ -99,23 +98,34 @@
     <Style Selector="ToggleSwitch:disabled">
         <Setter Property="Opacity" Value="0.23" />
     </Style>
-
-    <Style Selector="ToggleSwitch:pressed /template/ Ellipse#RippleThumb">
+    
+    <Style Selector="ToggleSwitch:not(:pressed) /template/ Ellipse#RippleThumb">
         <Style.Animations>
-            <animations:ReverseAfterEndAnimation WaitTillEnd="True" DelayBetweenReverse="0:0:0.2">
+            <Animation Duration="0:0:0.2" FillMode="Both">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Opacity" Value="0.28" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="0" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="ToggleSwitch:pressed /template/ Ellipse#RippleThumb">
+        <Setter Property="Opacity" Value="0.28" />
+        <Style.Animations>
+            <animations:BeginAnimation>
                 <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="1%">
-                        <Setter Property="Opacity" Value="0" />
+                    <KeyFrame Cue="0%">
                         <Setter Property="ScaleTransform.ScaleX" Value="1" />
                         <Setter Property="ScaleTransform.ScaleY" Value="1" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.26" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="2.5" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="2.5" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="3" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="3" />
                     </KeyFrame>
                 </Animation>
-            </animations:ReverseAfterEndAnimation>
+            </animations:BeginAnimation>
         </Style.Animations>
     </Style>
 
