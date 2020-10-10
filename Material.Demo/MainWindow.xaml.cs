@@ -12,7 +12,7 @@ namespace Material.Demo {
 
         public MainWindow() {
             InitializeComponent();
-            this.AttachDevTools(new KeyGesture(Key.Back));
+            this.AttachDevTools(KeyGesture.Parse("Shift+F12"));
         }
 
         private void InitializeComponent() {
