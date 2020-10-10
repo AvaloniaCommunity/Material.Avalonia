@@ -8,7 +8,7 @@ namespace Material.Styles.Additional.Animations {
     /// </summary>
     public class BeginAnimation : ControllableAnimationBase {
         internal override void OnNext(Subject<bool> match, bool previous, bool obj) {
-            if (obj) return;
+            if (!obj) return;
             // "Turning" off
             match.OnNext(false);
 
