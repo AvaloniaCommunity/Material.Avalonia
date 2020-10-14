@@ -189,11 +189,13 @@
                         <TreeViewItem Header="Green" />
                     </TreeViewItem>
                 </TreeView>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center">Light</TextBlock>
-                    <CheckBox x:Name="BaseThemeCheckBox" Checked="BaseThemeChanged" Unchecked="BaseThemeChanged" />
-                    <TextBlock VerticalAlignment="Center">Dark</TextBlock>
-                </StackPanel>
+                <styles:Card Padding="16">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center">Light</TextBlock>
+                        <CheckBox x:Name="BaseThemeCheckBox" Checked="BaseThemeChanged" Unchecked="BaseThemeChanged" />
+                        <TextBlock VerticalAlignment="Center">Dark</TextBlock>
+                    </StackPanel>
+                </styles:Card>
                 <AutoCompleteBox />
             </StackPanel>
         </Grid>
