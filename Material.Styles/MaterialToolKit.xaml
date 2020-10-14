@@ -54,4 +54,5 @@
     <!--custom controls-->
     <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/Card.xaml"/>
+    <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
 </Styles>
