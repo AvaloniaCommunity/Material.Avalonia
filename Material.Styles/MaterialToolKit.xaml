@@ -1,6 +1,14 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="Material.Styles.MaterialToolKit">
+    <Styles.Resources>
+        <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
+        <SolidColorBrush x:Key="MaterialDesignLightForeground" Color="#DD000000"/>
+        <SolidColorBrush x:Key="MaterialDesignDarkBackground" Color="#FF303030"/>
+        <SolidColorBrush x:Key="MaterialDesignDarkForeground" Color="#FFFAFAFA"/>
+        <SolidColorBrush x:Key="MaterialDesignDarkSeparatorBackground" Color="#1F000000" />
+        <SolidColorBrush x:Key="MaterialDesignLightSeparatorBackground" Color="#1FFFFFFF" />
+    </Styles.Resources>
     <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/Button.xaml" />
     <StyleInclude Source="avares://Material.Styles/ButtonSpinner.xaml" />
