@@ -31,7 +31,7 @@
         </Style>
     </Window.Styles>
 
-    <Grid RowDefinitions="Auto, *">
+    <Grid RowDefinitions="Auto, Auto, *">
         <Menu Grid.Row="0">
             <MenuItem Header="Menu #1">
                 <MenuItem Header="With Items">
@@ -48,7 +48,11 @@
                 <MenuItem Header="Not Enable" IsEnabled="False" />
             </MenuItem>
         </Menu>
-        <Grid Margin="10" Grid.Row="1">
+        <styles:ColorZone Padding="16" Mode="Accent">
+            <TextBlock>Its color zone!</TextBlock>
+        </styles:ColorZone>
+
+        <Grid Margin="10" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="15" />
@@ -98,8 +102,8 @@
                         <ToggleSwitch>I am toggleswitch</ToggleSwitch>
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Center">
-                            <styles:FloatingButton Content="+"/>
-                            <styles:FloatingButton Content="My long text"/>
+                            <styles:FloatingButton Content="+" />
+                            <styles:FloatingButton Content="My long text" />
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
