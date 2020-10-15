@@ -18,8 +18,7 @@
                     <Grid Background="Transparent">
                         <Border Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}">
-                            </Border>
+                                assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}" />
                         <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
@@ -30,11 +29,39 @@
                                               Cursor="{TemplateBinding Cursor}"
                                               Margin="{TemplateBinding Padding}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+    <Style Selector="cc|ColorZone[Mode=Inverted]">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
+    </Style>
+    <Style Selector="cc|ColorZone[Mode=PrimaryLight]">
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+    </Style>
+    <Style Selector="cc|ColorZone[Mode=PrimaryMid]">
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    </Style>
+    <Style Selector="cc|ColorZone[Mode=PrimaryDark]">
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+    </Style>
+    <Style Selector="cc|ColorZone[Mode=Accent]">
+        <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+    </Style>
+    <Style Selector="cc|ColorZone[Mode=Light]">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignLightBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignLightForeground}" />
+    </Style>
+    <Style Selector="cc|ColorZone[Mode=Dark]">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignLightBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignLightForeground}" />
     </Style>
 </Styles>
