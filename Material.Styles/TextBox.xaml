@@ -48,9 +48,9 @@
                             <DataValidationErrors>
 
                                 <Grid ColumnDefinitions="Auto,*,Auto">
-                                    <ContentPresenter Grid.Column="0" Grid.ColumnSpan="1"
+                                    <ContentPresenter Grid.Column="0"
                                                       Content="{TemplateBinding InnerLeftContent}" />
-                                    <ScrollViewer Grid.Column="1" Grid.ColumnSpan="1"
+                                    <ScrollViewer Grid.Column="1"
                                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                                         <Panel>
@@ -74,7 +74,7 @@
                                                            CaretBrush="{TemplateBinding CaretBrush}" />
                                         </Panel>
                                     </ScrollViewer>
-                                    <ContentPresenter Grid.Column="2" Grid.ColumnSpan="1"
+                                    <ContentPresenter Grid.Column="2"
                                                       Content="{TemplateBinding InnerRightContent}" />
                                 </Grid>
                             </DataValidationErrors>

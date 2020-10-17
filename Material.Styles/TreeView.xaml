@@ -49,7 +49,7 @@
                     <Grid ColumnDefinitions="Auto,Auto,*" RowDefinitions="Auto,Auto,*">
                         <Rectangle Opacity="0" Fill="Red"
                                    Grid.RowSpan="3" Grid.ColumnSpan="3" />
-                        <ToggleButton x:Name="Expander" ClickMode="Press"
+                        <ToggleButton Grid.Row="0" Grid.Column="0" x:Name="Expander" ClickMode="Press"
                                       IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
                                       Classes="MaterialDesignExpandCollapseToggleStyle"
                                       Foreground="{TemplateBinding Foreground}"
@@ -57,16 +57,16 @@
                                       VerticalAlignment="Center" />
 
                         <Border x:Name="MouseOverBorder"
-                                Grid.Column="1" Grid.ColumnSpan="2"
+                                Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
                                 IsHitTestVisible="False"
                                 Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
 
                         <Border x:Name="SelectedBorder"
-                                Grid.Column="1" Grid.ColumnSpan="2"
+                                Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
                                 IsHitTestVisible="False"
                                 Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
 
-                        <Grid Grid.Column="1" Grid.ColumnSpan="2" x:Name="ContentGrid" Background="Transparent">
+                        <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" x:Name="ContentGrid" Background="Transparent">
                             <ripple:RippleEffect
                                 RippleOpacity="0.2"
                                 RippleFill="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"

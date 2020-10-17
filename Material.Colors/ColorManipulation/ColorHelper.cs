@@ -4,16 +4,16 @@ using Avalonia.Media;
 namespace Material.Colors.ColorManipulation {
     public static class ColorHelper {
         public static Color ContrastingForegroundColor(this Color color) {
-            double rgb_srgb(double d) {
+            double RgbSrgb(double d) {
                 d = d / 255.0;
                 return d > 0.03928
                     ? d = Math.Pow((d + 0.055) / 1.055, 2.4)
                     : d = d / 12.92;
             }
 
-            var r = rgb_srgb(color.R);
-            var g = rgb_srgb(color.G);
-            var b = rgb_srgb(color.B);
+            var r = RgbSrgb(color.R);
+            var g = RgbSrgb(color.G);
+            var b = RgbSrgb(color.B);
 
             var luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
             return luminance > 0.179 ? Avalonia.Media.Colors.Black : Avalonia.Media.Colors.White;

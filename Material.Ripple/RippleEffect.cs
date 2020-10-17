@@ -12,7 +12,6 @@ namespace Material.Ripple {
         private Ellipse _circle;
         private IAnimationSetter _fromMargin;
         private bool _isRunning;
-        private Point _pointer;
         private Animation _ripple;
         private IAnimationSetter _toMargin;
         private IAnimationSetter _toWidth;
@@ -20,12 +19,12 @@ namespace Material.Ripple {
         public RippleEffect() {
             AddHandler(PointerPressedEvent, async (s, e) => {
                 if (_isRunning) return;
-                _pointer = e.GetPosition(this);
+                var pointer = e.GetPosition(this);
                 _isRunning = true;
                 var maxWidth = Math.Max(Bounds.Width, Bounds.Height) * 2.2D;
                 _toWidth.Value = maxWidth;
-                _fromMargin.Value = _circle.Margin = new Thickness(_pointer.X, _pointer.Y, 0, 0);
-                _toMargin.Value = new Thickness(_pointer.X - maxWidth / 2, _pointer.Y - maxWidth / 2, 0, 0);
+                _fromMargin.Value = _circle.Margin = new Thickness(pointer.X, pointer.Y, 0, 0);
+                _toMargin.Value = new Thickness(pointer.X - maxWidth / 2, pointer.Y - maxWidth / 2, 0, 0);
 
                 await _ripple.RunAsync(_circle);
 
@@ -33,9 +32,8 @@ namespace Material.Ripple {
             });
         }
 
-        protected override void OnTemplateApplied(TemplateAppliedEventArgs e) {
-            base.OnTemplateApplied(e);
-
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
+            base.OnApplyTemplate(e);
             _circle = e.NameScope.Find<Ellipse>("Circle");
 
             var style = _circle.Styles[0] as Style;

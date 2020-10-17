@@ -4,7 +4,7 @@ using Avalonia.Media;
 namespace Material.Colors.ColorManipulation {
     internal static class HslConverter {
         public static Color ToColor(this Hsl hsl) {
-            double hsv_rbg(double v1, double v2, double vH) {
+            double HsvRbg(double v1, double v2, double vH) {
                 if (vH < 0) vH += 1;
                 if (vH > 1) vH -= 1;
                 if (6 * vH < 1) return v1 + (v2 - v1) * 6 * vH;
@@ -24,15 +24,15 @@ namespace Material.Colors.ColorManipulation {
                 b = l * 255;
             }
             else {
-                double var_2;
-                if (l < 0.5) var_2 = l * (1 + s);
-                else var_2 = l + s - s * l;
+                double var2;
+                if (l < 0.5) var2 = l * (1 + s);
+                else var2 = l + s - s * l;
 
-                var var_1 = 2 * l - var_2;
+                var var1 = 2 * l - var2;
 
-                r = 255 * hsv_rbg(var_1, var_2, h + 1.0 / 3);
-                g = 255 * hsv_rbg(var_1, var_2, h);
-                b = 255 * hsv_rbg(var_1, var_2, h - 1.0 / 3);
+                r = 255 * HsvRbg(var1, var2, h + 1.0 / 3);
+                g = 255 * HsvRbg(var1, var2, h);
+                b = 255 * HsvRbg(var1, var2, h - 1.0 / 3);
             }
 
             return Color.FromRgb((byte) Math.Round(r), (byte) Math.Round(g), (byte) Math.Round(b));

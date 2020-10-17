@@ -188,16 +188,16 @@ namespace Material.Styles.Themes {
         }
 
         private class ThemeManager : IThemeManager {
-            private readonly IResourceDictionary _ResourceDictionary;
+            private readonly IResourceDictionary _resourceDictionary;
 
             public ThemeManager(IResourceDictionary resourceDictionary) {
-                _ResourceDictionary = resourceDictionary ?? throw new ArgumentNullException(nameof(resourceDictionary));
+                _resourceDictionary = resourceDictionary ?? throw new ArgumentNullException(nameof(resourceDictionary));
             }
 
             public event EventHandler<ThemeChangedEventArgs> ThemeChanged;
 
             public void OnThemeChange(ITheme oldTheme, ITheme newTheme) {
-                ThemeChanged?.Invoke(this, new ThemeChangedEventArgs(_ResourceDictionary, oldTheme, newTheme));
+                ThemeChanged?.Invoke(this, new ThemeChangedEventArgs(_resourceDictionary, oldTheme, newTheme));
             }
         }
     }

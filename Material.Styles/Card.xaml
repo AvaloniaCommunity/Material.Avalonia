@@ -2,15 +2,12 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:assists="clr-namespace:Material.Styles.Assists"
-    xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
-    xmlns:cc="clr-namespace:Material.Styles"
-    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-    xmlns:converters="clr-namespace:Material.Styles.Converters">
+    xmlns:cc="clr-namespace:Material.Styles">
     <Style Selector="cc|Card">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2" />
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="ClipToBounds" Value="False"></Setter>
+        <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Background="Transparent" ClipToBounds="False">

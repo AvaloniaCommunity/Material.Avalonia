@@ -22,16 +22,16 @@ namespace Material.Styles {
         /// Gets or sets the radius of the border rounded corners.
         /// </summary>
         public CornerRadius CornerRadius {
-            get { return GetValue(CornerRadiusProperty); }
-            set { SetValue(CornerRadiusProperty, value); }
+            get => GetValue(CornerRadiusProperty);
+            set => SetValue(CornerRadiusProperty, value);
         }
         
         public static readonly StyledProperty<ColorZoneMode> ModeProperty = AvaloniaProperty.Register<ColorZone, ColorZoneMode>(nameof(Mode));
 
         public ColorZoneMode Mode
         {
-            get { return (ColorZoneMode)GetValue(ModeProperty); }
-            set { SetValue(ModeProperty, value); }
+            get => GetValue(ModeProperty);
+            set => SetValue(ModeProperty, value);
         }
     }
 }

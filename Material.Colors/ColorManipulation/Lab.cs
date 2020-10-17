@@ -19,9 +19,9 @@ namespace Material.Colors.ColorManipulation {
         public const double WhitePointX = 0.95047;
         public const double WhitePointY = 1;
         public const double WhitePointZ = 1.08883;
-        public const double k = 24389 / 27.0;
-        public const double e = 216 / 24389.0;
+        public const double K = 24389 / 27.0;
+        public const double E = 216 / 24389.0;
 
-        public static double eCubedRoot = Math.Pow(e, 1.0 / 3);
+        public static double ECubedRoot = Math.Pow(E, 1.0 / 3);
     }
 }

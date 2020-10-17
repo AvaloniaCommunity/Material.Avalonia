@@ -41,15 +41,12 @@ namespace Material.Styles.Themes {
         }
 
         private void SetTheme() {
-            if (BaseTheme is BaseThemeMode baseTheme &&
-                PrimaryColor is PrimaryColor primaryColor &&
-                SecondaryColor is SecondaryColor secondaryColor) {
-                var theme = Theme.Create(baseTheme.GetBaseTheme(),
-                    SwatchHelper.Lookup[(MaterialColor) primaryColor],
-                    SwatchHelper.Lookup[(MaterialColor) secondaryColor]);
+            if (!(BaseTheme is { } baseTheme) || !(PrimaryColor is { } primaryColor) || !(SecondaryColor is { } secondaryColor)) return;
+            var theme = Theme.Create(baseTheme.GetBaseTheme(),
+                SwatchHelper.Lookup[(MaterialColor) primaryColor],
+                SwatchHelper.Lookup[(MaterialColor) secondaryColor]);
 
-                ApplyTheme(theme);
-            }
+            ApplyTheme(theme);
         }
 
         protected virtual void ApplyTheme(ITheme theme) {

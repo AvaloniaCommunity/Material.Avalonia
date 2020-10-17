@@ -36,7 +36,7 @@
                                            VerticalAlignment="Top"
                                            Height="22" />
 
-                                <Button Name="PreviousButton"
+                                <Button Grid.Row="0" Grid.Column="0" Name="PreviousButton"
                                         Classes="CalendarHeader CalendarNavigation"
                                         IsVisible="False"
                                         HorizontalAlignment="Left">
@@ -53,7 +53,7 @@
 
                                 <Button Name="HeaderButton"
                                         Classes="CalendarHeader"
-                                        Grid.Column="1"
+                                        Grid.Row="0" Grid.Column="1"
                                         FontWeight="Bold"
                                         FontSize="10.5"
                                         HorizontalAlignment="Center"
@@ -62,7 +62,7 @@
 
                                 <Button Name="NextButton"
                                         Classes="CalendarHeader CalendarNavigation"
-                                        Grid.Column="2"
+                                        Grid.Row="0" Grid.Column="2"
                                         IsVisible="False"
                                         HorizontalAlignment="Right">
 
@@ -78,7 +78,7 @@
 
                                 <Grid Name="MonthView"
                                       Grid.Row="1"
-                                      Grid.ColumnSpan="3"
+                                      Grid.ColumnSpan="3" Grid.Column="0"
                                       IsVisible="False"
                                       Margin="6,-1,6,6">
                                     <Grid.RowDefinitions>
@@ -103,7 +103,7 @@
 
                                 <Grid Name="YearView"
                                       Grid.Row="1"
-                                      Grid.ColumnSpan="3"
+                                      Grid.ColumnSpan="3" Grid.Column="0"
                                       IsVisible="False"
                                       Margin="6,-3,7,6">
                                     <Grid.RowDefinitions>

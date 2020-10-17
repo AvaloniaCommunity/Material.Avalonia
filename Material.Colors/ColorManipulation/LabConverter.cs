@@ -9,15 +9,15 @@ namespace Material.Colors.ColorManipulation {
         }
 
         public static Lab ToLab(this Xyz xyz) {
-            double xyz_lab(double v) {
-                if (v > LabConstants.e)
+            double XyzLab(double v) {
+                if (v > LabConstants.E)
                     return Math.Pow(v, 1 / 3.0);
-                return (v * LabConstants.k + 16) / 116;
+                return (v * LabConstants.K + 16) / 116;
             }
 
-            var fx = xyz_lab(xyz.X / LabConstants.WhitePointX);
-            var fy = xyz_lab(xyz.Y / LabConstants.WhitePointY);
-            var fz = xyz_lab(xyz.Z / LabConstants.WhitePointZ);
+            var fx = XyzLab(xyz.X / LabConstants.WhitePointX);
+            var fy = XyzLab(xyz.Y / LabConstants.WhitePointY);
+            var fz = XyzLab(xyz.Z / LabConstants.WhitePointZ);
 
             var l = 116 * fy - 16;
             var a = 500 * (fx - fy);

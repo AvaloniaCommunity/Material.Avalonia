@@ -10,9 +10,6 @@ namespace Material.Styles.Additional.Animations {
     ///     Tracks the progress of an animation. This class should act the same as <see cref="Animation" />
     /// </summary>
     public class ControllableAnimationBase : AvaloniaObject, IAnimation {
-        /// <summary>
-        ///     Defines the <see cref="Duration" /> property.
-        /// </summary>
         public static readonly DirectProperty<ControllableAnimationBase, Animation> AnimationProperty =
             AvaloniaProperty.RegisterDirect<ControllableAnimationBase, Animation>(
                 nameof(_animation),

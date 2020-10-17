@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls1="clr-namespace:Material.Controls;assembly=Material.Styles"
         xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         Title="Material.Demo"
         Width="800"
@@ -48,7 +47,7 @@
                 <MenuItem Header="Not Enable" IsEnabled="False" />
             </MenuItem>
         </Menu>
-        <styles:ColorZone Padding="16" Mode="Accent">
+        <styles:ColorZone Grid.Row="0" Padding="16" Mode="Accent">
             <TextBlock>Its color zone!</TextBlock>
         </styles:ColorZone>
 
@@ -113,8 +112,8 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                            <ProgressBar Value="{Binding #slider.Value}" Orientation="Horizontal" />
-                            <Slider Name="slider" Orientation="Horizontal" Value="50" />
+                            <ProgressBar Value="{Binding #Slider.Value}" Orientation="Horizontal" />
+                            <Slider Name="Slider" Orientation="Horizontal" Value="50" />
                         </StackPanel>
                     </Grid>
                 </StackPanel>
