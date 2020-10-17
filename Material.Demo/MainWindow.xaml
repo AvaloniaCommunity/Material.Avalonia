@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+        xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         Title="Material.Demo"
         Width="800"
         Height="850"
@@ -89,7 +90,10 @@
                                 <RadioButton Content="test1" />
                                 <RadioButton Content="test1" />
                             </StackPanel>
-                            <CheckBox Content="Check Me" />
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox Content="Check Me" />
+                                <CheckBox assists:CheckBoxAssist.CheckBoxSize="24" Content="Bigger checkbox" />
+                            </StackPanel>
                             <ToggleSwitch>I am toggleswitch</ToggleSwitch>
                         </StackPanel>
                     </styles:Card>
