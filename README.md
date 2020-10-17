@@ -1,6 +1,6 @@
 # material.avalonia
 
-![](Images/material_test.gif)
+![](Images/new_app_demo.gif)
 
 [![nuget](https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
 
