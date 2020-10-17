@@ -45,7 +45,7 @@ namespace Material.Styles.Themes {
             var theme = Theme.Create(baseTheme.GetBaseTheme(),
                 SwatchHelper.Lookup[(MaterialColor) primaryColor],
                 SwatchHelper.Lookup[(MaterialColor) secondaryColor]);
-
+            
             ApplyTheme(theme);
         }
 

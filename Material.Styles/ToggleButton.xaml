@@ -1,10 +1,13 @@
 <Styles
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assists="clr-namespace:Material.Styles.Assists">
     <!-- TODO: Rework ToggleButton -->
     <Style Selector="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignPaper}"></Setter>
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}"></Setter>
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -15,6 +18,7 @@
     </Style>
 
     <Style Selector="ToggleButton:checked">
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedForeground)}" />
     </Style>
 </Styles>
