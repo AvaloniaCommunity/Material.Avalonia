@@ -3,12 +3,12 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>0.10-new1prev</PackageVersion>
+        <PackageVersion>0.10.1</PackageVersion>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar&lt;f98f96&gt;</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
-        <PackageProjectUrl>https://github.com/CreateLab/material.avalonia</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/CreateLab/material.avalonia/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/AvaloniaUtils/material.avalonia/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/CreateLab/material.avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>

@@ -6,7 +6,7 @@
         xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         Title="Material.Demo"
         Width="800"
-        Height="800"
+        Height="850"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
     <Window.Styles>
@@ -30,7 +30,7 @@
         </Style>
     </Window.Styles>
 
-    <Grid RowDefinitions="Auto, Auto, *">
+    <Grid RowDefinitions="Auto, *, Auto">
         <Menu Grid.Row="0">
             <MenuItem Header="Menu #1">
                 <MenuItem Header="With Items">
@@ -47,162 +47,116 @@
                 <MenuItem Header="Not Enable" IsEnabled="False" />
             </MenuItem>
         </Menu>
-        <styles:ColorZone Grid.Row="0" Padding="16" Mode="Accent">
+        <TabControl Grid.Row="1">
+            <TabItem Header="Main tab">
+                <StackPanel Orientation="Vertical">
+                    <styles:Card Margin="5" Padding="10">
+                        <ProgressBar IsIndeterminate="True" Margin="5" />
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center">Light</TextBlock>
+                            <ToggleSwitch x:Name="BaseThemeCheckBox" Margin="5" Checked="BaseThemeChanged"
+                                          Unchecked="BaseThemeChanged" />
+                            <TextBlock VerticalAlignment="Center">Dark</TextBlock>
+                        </StackPanel>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center">Teal</TextBlock>
+                            <ToggleSwitch x:Name="BaseColorCheckBox" Margin="5" Checked="BaseThemeColorChanged"
+                                          Unchecked="BaseThemeColorChanged" />
+                            <TextBlock VerticalAlignment="Center">Purple</TextBlock>
+                        </StackPanel>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Enabled button" />
+                            <ToggleButton IsChecked="True" Content="Toggle Button" Margin="5" />
+                            <Button IsEnabled="False" Content="Disabled button" />
+                        </StackPanel>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <styles:FloatingButton Content="+" Margin="5" />
+                            <styles:FloatingButton Content="My long text" Margin="5" />
+                        </StackPanel>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton Content="test1" />
+                                <RadioButton Content="test1" />
+                                <RadioButton Content="test1" />
+                            </StackPanel>
+                            <CheckBox Content="Check Me" />
+                            <ToggleSwitch>I am toggleswitch</ToggleSwitch>
+                        </StackPanel>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Margin="10" Text="Sample Text block with tooltip" ToolTip.Tip="ToolTip" />
+                            <TextBox Text="Sample textbox" />
+                            <TextBox IsEnabled="False" Text="disabled textbox" />
+                            <TextBox AcceptsReturn="True" Height="50" Text="Sample textarea" />
+                        </StackPanel>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <StackPanel Orientation="Vertical">
+                            <ProgressBar Value="{Binding #Slider.Value}" Orientation="Horizontal" Margin="5" />
+                            <Slider Name="Slider" Orientation="Horizontal" Value="50" Margin="5" />
+                        </StackPanel>
+                    </styles:Card>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Collection Tab">
+                <StackPanel Orientation="Vertical">
+                    <styles:Card Margin="5" Padding="10">
+                        <ComboBox>
+                            <ComboBoxItem IsSelected="True" Content="Item #1" />
+                            <ComboBoxItem Content="Item #2" />
+                        </ComboBox>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <TreeViewItem Header="Fruit" Margin="5">
+                            <TreeViewItem Header="Lime" />
+                            <TreeViewItem Header="Orange" />
+                            <TreeViewItem Header="Apple" />
+                        </TreeViewItem>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <ListBox Height="100" VirtualizationMode="None" Margin="5">
+                            <ListBoxItem>
+                                <TextBlock Text="test1" />
+                            </ListBoxItem>
+                            <ListBoxItem IsSelected="True">
+                                <TextBlock Text="test2" />
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <TextBlock Text="test3" />
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <TextBlock Text="test4" />
+                            </ListBoxItem>
+                        </ListBox>
+                    </styles:Card>
+                    <styles:Card Margin="5" Padding="10">
+                        <ListBox Margin="5">
+                            <ListBoxItem>
+                                <TextBlock Text="no scrolls" />
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                <TextBlock Text="test3" />
+                            </ListBoxItem>
+                        </ListBox>
+                    </styles:Card>
+                </StackPanel>
+            </TabItem>
+            <TabItem IsEnabled="False" Header="Disabled tab item 2" />
+        </TabControl>
+        <styles:ColorZone Grid.Row="3" Padding="16" Mode="Accent">
             <TextBlock>Its color zone!</TextBlock>
         </styles:ColorZone>
-
-        <Grid Margin="10" Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="15" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Orientation="Vertical">
-                <StackPanel Orientation="Vertical">
-                    <ListBox Height="100" VirtualizationMode="None">
-                        <ListBoxItem>
-                            <TextBlock Text="test1" />
-                        </ListBoxItem>
-                        <ListBoxItem IsSelected="True">
-                            <TextBlock Text="test2" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <TextBlock Text="test3" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <TextBlock Text="test4" />
-                        </ListBoxItem>
-                    </ListBox>
-
-                    <ListBox>
-                        <ListBoxItem>
-                            <TextBlock Text="no scrolls" />
-                        </ListBoxItem>
-                        <ListBoxItem>
-                            <TextBlock Text="test3" />
-                        </ListBoxItem>
-                    </ListBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Margin="10" Text="Sample Text block with tooltip" ToolTip.Tip="ToolTip" />
-                        <TextBox Text="Sample textbox" />
-                        <TextBox IsEnabled="False" Text="disabled textbox" />
-                        <TextBox AcceptsReturn="True" Height="50" Text="Sample textarea" />
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <RadioButton Content="test1" />
-                        <RadioButton Content="test1" />
-                        <RadioButton Content="test1" />
-                        <CheckBox Content="Check Me" />
-                        <ToggleSwitch>I am toggleswitch</ToggleSwitch>
-                        <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Center">
-                            <styles:FloatingButton Content="+" />
-                            <styles:FloatingButton Content="My long text" />
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0">
-                            <ProgressBar Value="{Binding #Slider.Value}" Orientation="Horizontal" />
-                            <Slider Name="Slider" Orientation="Horizontal" Value="50" />
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-                <ButtonSpinner>
-                    <TextBlock Text="1" />
-                </ButtonSpinner>
-            </StackPanel>
-            <StackPanel Grid.Column="2" Orientation="Vertical">
-                <StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <Button Content="Enabled button" />
-                        <ToggleButton IsChecked="True" Content="Toggle Button" Margin="5" />
-                        <Button IsEnabled="False" Content="Disabled button" />
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel>
-                    <TabControl>
-                        <TabItem Header="Tab item 1">
-                            <TextBlock Margin="10" Text="something" />
-                        </TabItem>
-                        <TabItem Header="Tab item 2">
-                            <TextBlock Margin="10" Text="something else" />
-                        </TabItem>
-                        <TabItem IsEnabled="False" Header="Disabled tab item 2">
-                            <TextBlock Margin="10" Text="something else" />
-                        </TabItem>
-                    </TabControl>
-                </StackPanel>
-                <StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="5" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="5" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <ComboBox Grid.Column="0">
-                                <ComboBoxItem IsSelected="True" Content="Item #1" />
-                                <ComboBoxItem Content="Item #2" />
-                            </ComboBox>
-                            <Button Grid.Column="2" Content="Test button" />
-                            <ComboBox Grid.Column="4">
-                                <ComboBoxItem IsSelected="True" Content="Editable #1" />
-                                <ComboBoxItem Content="Editable #2" />
-                            </ComboBox>
-                        </Grid>
-                        <StackPanel Orientation="Horizontal" Height="45">
-                            <ComboBox>
-                                <ComboBoxItem IsSelected="True" Content="Editable #1" />
-                                <ComboBoxItem Content="Editable #2" />
-                            </ComboBox>
-                            <Button Content="Test button" />
-                            <ComboBox>
-                                <ComboBoxItem IsSelected="True" Content="Editable #1" />
-                                <ComboBoxItem Content="Editable #2" />
-                            </ComboBox>
-                        </StackPanel>
-                        <TextBlock Text="Text block" />
-                        <ComboBox IsEnabled="False" SelectedIndex="0">
-                            <ComboBoxItem Content="Disabled #1" />
-                        </ComboBox>
-                        <TextBox Text="Plain TextBox" />
-                    </StackPanel>
-                </StackPanel>
-                <TreeView>
-                    <TreeViewItem Header="Fruit">
-                        <TreeViewItem Header="Lime" />
-                        <TreeViewItem Header="Orange" />
-                        <TreeViewItem Header="Apple" />
-                    </TreeViewItem>
-                    <TreeViewItem Header="Colors">
-                        <TreeViewItem Header="Red" />
-                        <TreeViewItem Header="Orange" />
-                        <TreeViewItem Header="Green" />
-                    </TreeViewItem>
-                </TreeView>
-                <styles:Card Padding="16">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Center">Light</TextBlock>
-                        <CheckBox x:Name="BaseThemeCheckBox" Checked="BaseThemeChanged" Unchecked="BaseThemeChanged" />
-                        <TextBlock VerticalAlignment="Center">Dark</TextBlock>
-                    </StackPanel>
-                </styles:Card>
-                <AutoCompleteBox />
-            </StackPanel>
-        </Grid>
-
     </Grid>
 
 </Window>
