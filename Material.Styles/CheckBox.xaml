@@ -25,7 +25,8 @@
                             ClipToBounds="False">
                             <Canvas Width="24" Height="24" ClipToBounds="False">
                                 <Path x:Name="Graphic" />
-                                <Ellipse x:Name="InteractionEllipse" Fill="{TemplateBinding Foreground}" Width="0"
+                                <Ellipse x:Name="InteractionEllipse" 
+                                         Fill="{TemplateBinding Background}" Width="0"
                                          Height="0" Canvas.Top="12" Canvas.Left="12" Opacity="0"
                                          RenderTransformOrigin="0.5,0.5" ClipToBounds="False"
                                          IsHitTestVisible="False">
@@ -79,21 +80,33 @@
     <Style Selector="CheckBox:pressed /template/ Ellipse#InteractionEllipse">
         <Style.Animations>
             <animations:BeginAnimation>
-                <Animation Duration="0:0:0.3" FillMode="Both">
+                <Animation Duration="0:0:0.2" FillMode="Both">
                     <KeyFrame Cue="0%">
                         <Setter Property="Width" Value="0" />
                         <Setter Property="Height" Value="0" />
                         <Setter Property="Margin" Value="0 0 0 0" />
-                        <Setter Property="Opacity" Value="0.3" />
+                        <Setter Property="Opacity" Value="0.28" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
                         <Setter Property="Width" Value="48" />
                         <Setter Property="Height" Value="48" />
                         <Setter Property="Margin" Value="-24 -24 0 0" />
-                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="Opacity" Value="0.28" />
                     </KeyFrame>
                 </Animation>
             </animations:BeginAnimation>
+        </Style.Animations>
+    </Style>
+    <Style Selector="CheckBox:not(:pressed) /template/ Ellipse#InteractionEllipse">
+        <Style.Animations>
+            <Animation Duration="0:0:0.2" FillMode="Both">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Opacity" Value="0.28" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="0" />
+                </KeyFrame>
+            </Animation>
         </Style.Animations>
     </Style>
 </Styles>
