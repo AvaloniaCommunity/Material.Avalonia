@@ -13,7 +13,6 @@
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch" MinHeight="48" MinWidth="90">
                         <ripple:RippleEffect
-                            RippleOpacity="0.12"
                             RippleFill="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabStrip}}">
                             <ContentPresenter Name="headerContent"
                                               Margin="24,12,24,12" HorizontalAlignment="Center"

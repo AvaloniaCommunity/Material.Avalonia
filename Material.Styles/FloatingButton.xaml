@@ -42,7 +42,7 @@
                     <Border Name="ContentBorder" CornerRadius="28" ClipToBounds="True"
                             MinHeight="{TemplateBinding MinHeight}" MinWidth="{TemplateBinding MinWidth}"
                             HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <ripple:RippleEffect RippleOpacity="0.2" ClipToBounds="True"
+                        <ripple:RippleEffect ClipToBounds="True"
                                              RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
                             <ContentPresenter Name="PART_ContentPresenter"
                                               CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"

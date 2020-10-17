@@ -40,7 +40,6 @@
                         </Border>
                         <ripple:RippleEffect Name="Ripple"
                                                    RippleFill="{TemplateBinding Foreground}"
-                                                   RippleOpacity="0.2"
                                                    Focusable="False"
                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
                                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"

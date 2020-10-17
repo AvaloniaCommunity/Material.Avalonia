@@ -68,7 +68,6 @@
 
                         <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" x:Name="ContentGrid" Background="Transparent">
                             <ripple:RippleEffect
-                                RippleOpacity="0.2"
                                 RippleFill="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
                                 Focusable="False">
                                 <ContentPresenter x:Name="PART_Header" Margin="{Binding $parent[TreeViewItem].Padding}"
