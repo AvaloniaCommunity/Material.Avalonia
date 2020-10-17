@@ -1,19 +1,20 @@
 <Style xmlns="https://github.com/avaloniaui"
+       xmlns:styles="clr-namespace:Material.Styles"
        Selector="ToolTip">
-    <!-- TODO: Replace it with Card -->
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
-    <Setter Property="BorderThickness" Value="1" />
-    <Setter Property="Padding" Value="4,2" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignToolTipBackground}" />
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="Placement" Value="Pointer" />
     <Setter Property="Template">
-        <ControlTemplate>
-            <ContentPresenter Name="PART_ContentPresenter"
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}"
-                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                              Content="{TemplateBinding Content}"
-                              Padding="{TemplateBinding Padding}" />
-        </ControlTemplate>
+        <Setter.Value>
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}" CornerRadius="2" Margin="{TemplateBinding Margin}">
+                    <ContentPresenter Name="ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding ContentControl.Content}"
+                                      ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" />
+                </Border>
+            </ControlTemplate>
+        </Setter.Value>
     </Setter>
 </Style>
