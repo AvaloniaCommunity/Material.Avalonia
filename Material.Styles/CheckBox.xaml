@@ -8,7 +8,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="wpf:SelectionControlAssist.Size" Value="24" />
+        <Setter Property="wpf:SelectionControlAssist.Size" Value="20" />
         <Setter Property="Padding" Value="4,2,0,0" />
         <Setter Property="Template">
             <Setter.Value>
@@ -24,23 +24,16 @@
                             Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             ClipToBounds="False">
-                            <Canvas Width="24" Height="24" ClipToBounds="False">
-                                <Path x:Name="Graphic" />
-                                <Ellipse x:Name="InteractionEllipse" 
-                                         Fill="{TemplateBinding Background}" Width="0"
-                                         Height="0" Canvas.Top="12" Canvas.Left="12" Opacity="0"
-                                         RenderTransformOrigin="0.5,0.5" ClipToBounds="False"
+                            <Grid>
+                                <Path x:Name="Graphic" Width="20" Height="20" Margin="-2 -2 0 0"/>
+                                <Ellipse x:Name="InteractionEllipse"
+                                         Fill="{TemplateBinding Background}" 
+                                         VerticalAlignment="Center" HorizontalAlignment="Center"
+                                         Width="0" Height="0" Opacity="0" Margin="-100"
+                                         ClipToBounds="False"
                                          IsHitTestVisible="False">
-                                    <Ellipse.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform />
-                                            <SkewTransform />
-                                            <RotateTransform />
-                                            <TranslateTransform />
-                                        </TransformGroup>
-                                    </Ellipse.RenderTransform>
                                 </Ellipse>
-                            </Canvas>
+                            </Grid>
                         </Viewbox>
                         <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -85,13 +78,11 @@
                     <KeyFrame Cue="0%">
                         <Setter Property="Width" Value="0" />
                         <Setter Property="Height" Value="0" />
-                        <Setter Property="Margin" Value="0 0 0 0" />
                         <Setter Property="Opacity" Value="0.28" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
                         <Setter Property="Width" Value="48" />
                         <Setter Property="Height" Value="48" />
-                        <Setter Property="Margin" Value="-24 -24 0 0" />
                         <Setter Property="Opacity" Value="0.28" />
                     </KeyFrame>
                 </Animation>
