@@ -86,9 +86,9 @@
                     <styles:Card Margin="5" Padding="10">
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
-                                <RadioButton Content="test1" />
-                                <RadioButton Content="test1" />
-                                <RadioButton Content="test1" />
+                                <RadioButton Content="RadioButton" />
+                                <RadioButton Content="Another" />
+                                <RadioButton assists:SelectionControlAssist.Size="16" Content="Smaller RadioButton" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <CheckBox Content="Check Me" />
