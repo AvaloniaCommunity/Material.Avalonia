@@ -94,7 +94,11 @@
                                 <CheckBox Content="Check Me" />
                                 <CheckBox assists:SelectionControlAssist.Size="18" Content="Smaller checkbox" />
                             </StackPanel>
-                            <ToggleSwitch>I am toggleswitch</ToggleSwitch>
+                            <StackPanel Orientation="Horizontal">
+                                <ToggleSwitch>I am toggleswitch</ToggleSwitch>
+                                <ToggleSwitch assists:SelectionControlAssist.Size="30"
+                                              Margin="16 0 0 0">MDiX size</ToggleSwitch>
+                            </StackPanel>
                         </StackPanel>
                     </styles:Card>
                     <styles:Card Margin="5" Padding="10">
