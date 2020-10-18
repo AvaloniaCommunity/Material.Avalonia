@@ -11,8 +11,9 @@
                 Value="{DynamicResource PrimaryHueLightBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground" Value="Black" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+        <Setter Property="assists:SelectionControlAssist.Size" Value="36" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="0 1 0 0" />
+        <Setter Property="Padding" Value="8 0 0 0" />
         <Setter Property="OffContent" Value="" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -30,17 +31,18 @@
                               IsVisible="False" IsHitTestVisible="False"
                               Width="0" Height="0" />
                     </Canvas>
-                    <Viewbox Width="34" Grid.Column="0" VerticalAlignment="Bottom" ClipToBounds="False">
+                    <Viewbox Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:SelectionControlAssist.Size)}"
+                             Stretch="Uniform"
+                             ClipToBounds="False" Grid.Column="0" VerticalAlignment="Center">
                         <Grid ClipToBounds="False">
                             <Border x:Name="Track"
                                     Opacity="0.26"
                                     HorizontalAlignment="Left"
-                                    Height="15"
-                                    Margin="4.211,5,4.211,0"
-                                    VerticalAlignment="Top"
-                                    Width="40"
-                                    CornerRadius="7.5 7.5" />
-                            <Grid x:Name="ThumbHolder" ClipToBounds="False" Height="25" Width="25"
+                                    Height="14"
+                                    VerticalAlignment="Center"
+                                    Width="36"
+                                    CornerRadius="7 7" />
+                            <Grid x:Name="ThumbHolder" ClipToBounds="False" Height="20" Width="20"
                                   HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Ellipse x:Name="RippleThumb"
                                          Fill="{DynamicResource PrimaryHueLightBrush}"
@@ -55,9 +57,8 @@
                                 <AdornerLayer>
                                     <Border x:Name="Thumb"
                                             HorizontalAlignment="Center" VerticalAlignment="Center"
-                                            CornerRadius="25"
-                                            Width="25" Height="25"
-                                            Margin="0,0,0,0"
+                                            CornerRadius="20"
+                                            Width="20" Height="20"
                                             ClipToBounds="False"
                                             assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
                                 </AdornerLayer>
@@ -71,9 +72,6 @@
                                                   ContentTemplate="{TemplateBinding OffContentTemplate}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                <Grid.RenderTransform>
-                                    <TranslateTransform X="0" Y="0" />
-                                </Grid.RenderTransform>
                             </Grid>
                         </Grid>
                     </Viewbox>
@@ -98,7 +96,7 @@
     <Style Selector="ToggleSwitch:disabled">
         <Setter Property="Opacity" Value="0.23" />
     </Style>
-    
+
     <Style Selector="ToggleSwitch:not(:pressed) /template/ Ellipse#RippleThumb">
         <Style.Animations>
             <Animation Duration="0:0:0.2" FillMode="Both">
@@ -121,8 +119,8 @@
                         <Setter Property="ScaleTransform.ScaleY" Value="1" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="ScaleTransform.ScaleX" Value="3" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="3" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="2.5" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="2.5" />
                     </KeyFrame>
                 </Animation>
             </animations:BeginAnimation>
@@ -137,7 +135,7 @@
                         <Setter Property="TranslateTransform.X" Value="0" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="TranslateTransform.X" Value="23.5" />
+                        <Setter Property="TranslateTransform.X" Value="16" />
                     </KeyFrame>
                 </Animation>
             </animations:ReverseAfterEndAnimation>
