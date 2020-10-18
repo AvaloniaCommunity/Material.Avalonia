@@ -92,7 +92,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <CheckBox Content="Check Me" />
-                                <CheckBox assists:CheckBoxAssist.CheckBoxSize="24" Content="Bigger checkbox" />
+                                <CheckBox assists:SelectionControlAssist.Size="18" Content="Smaller checkbox" />
                             </StackPanel>
                             <ToggleSwitch>I am toggleswitch</ToggleSwitch>
                         </StackPanel>
