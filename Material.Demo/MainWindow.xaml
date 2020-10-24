@@ -152,33 +152,6 @@
                     </styles:Card>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Splitter tab">
-                <Grid  Margin="5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <TabControl>
-                        <TabItem Header="Headers" />
-                        <TabItem Header="Body" />
-                        <TabItem Header="Cookies" />
-                    </TabControl>
-                    <GridSplitter Grid.Row="1"   />
-                    <Grid Grid.Row="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <TextBlock Margin="5" />
-                        <TabControl Grid.Row="1">
-                            <TabItem Header="Headers" />
-                            <TabItem Header="Body" />
-                            <TabItem Header="Cookies" />
-                        </TabControl>
-                    </Grid>
-                </Grid>
-            </TabItem>
             <TabItem IsEnabled="False" Header="Disabled tab item 2" />
         </TabControl>
         <styles:ColorZone Grid.Row="3" Padding="16" Mode="Accent">
