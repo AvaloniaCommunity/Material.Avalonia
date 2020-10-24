@@ -1,50 +1,69 @@
 <Styles xmlns="https://github.com/avaloniaui">
-    <Style Selector="GridSplitter:vertical">
-        <Setter Property="Width" Value="6" />
+    <Style Selector="GridSplitter">
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="MinWidth" Value="1" />
+        <Setter Property="MinHeight" Value="1" />
         <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />
+        <Setter Property="PreviewContent">
+            <Template>
+                <Rectangle Fill="{DynamicResource HighlightBrush}" />
+            </Template>
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <StackPanel.Styles>
-                            <Style Selector="Ellipse">
-                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                <Setter Property="Width" Value="4" />
-                                <Setter Property="Height" Value="4" />
-                                <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}" />
-                                <Setter Property="Margin" Value="1" />
-                            </Style>
-                        </StackPanel.Styles>
-                        <Ellipse />
-                        <Ellipse />
-                        <Ellipse />
-                    </StackPanel>
-                </Border>
+                <Border 
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}"/>
             </ControlTemplate>
         </Setter>
     </Style>
-    <Style Selector="GridSplitter:horizontal">
-        <Setter Property="Height" Value="6" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <StackPanel.Styles>
-                            <Style Selector="Ellipse">
-                                <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="Width" Value="4" />
-                                <Setter Property="Height" Value="4" />
-                                <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}" />
-                                <Setter Property="Margin" Value="1" />
-                            </Style>
-                        </StackPanel.Styles>
-                        <Ellipse />
-                        <Ellipse />
-                        <Ellipse />
-                    </StackPanel>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-    </Style>
+    <!-- <Style Selector="GridSplitter:vertical"> -->
+    <!--     <Setter Property="Width" Value="6" /> -->
+    <!--     <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" /> -->
+    <!--     <Setter Property="Template"> -->
+    <!--         <ControlTemplate> -->
+    <!--             <Border Background="{TemplateBinding Background}"> -->
+    <!--                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"> -->
+    <!--                     <StackPanel.Styles> -->
+    <!--                         <Style Selector="Ellipse"> -->
+    <!--                             <Setter Property="HorizontalAlignment" Value="Center" /> -->
+    <!--                             <Setter Property="Width" Value="4" /> -->
+    <!--                             <Setter Property="Height" Value="4" /> -->
+    <!--                             <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}" /> -->
+    <!--                             <Setter Property="Margin" Value="1" /> -->
+    <!--                         </Style> -->
+    <!--                     </StackPanel.Styles> -->
+    <!--                     <Ellipse /> -->
+    <!--                     <Ellipse /> -->
+    <!--                     <Ellipse /> -->
+    <!--                 </StackPanel> -->
+    <!--             </Border> -->
+    <!--         </ControlTemplate> -->
+    <!--     </Setter> -->
+    <!-- </Style> -->
+    <!-- <Style Selector="GridSplitter:horizontal"> -->
+    <!--     <Setter Property="Height" Value="6" /> -->
+    <!--     <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" /> -->
+    <!--     <Setter Property="Template"> -->
+    <!--         <ControlTemplate> -->
+    <!--             <Border Background="{TemplateBinding Background}"> -->
+    <!--                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"> -->
+    <!--                     <StackPanel.Styles> -->
+    <!--                         <Style Selector="Ellipse"> -->
+    <!--                             <Setter Property="VerticalAlignment" Value="Center" /> -->
+    <!--                             <Setter Property="Width" Value="4" /> -->
+    <!--                             <Setter Property="Height" Value="4" /> -->
+    <!--                             <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}" /> -->
+    <!--                             <Setter Property="Margin" Value="1" /> -->
+    <!--                         </Style> -->
+    <!--                     </StackPanel.Styles> -->
+    <!--                     <Ellipse /> -->
+    <!--                     <Ellipse /> -->
+    <!--                     <Ellipse /> -->
+    <!--                 </StackPanel> -->
+    <!--             </Border> -->
+    <!--         </ControlTemplate> -->
+    <!--     </Setter> -->
+    <!-- </Style> -->
 </Styles>
