@@ -24,27 +24,27 @@ namespace Material.Demo {
             this.FindControl<ToggleSwitch>("BaseThemeCheckBox").IsChecked = _paletteHelper.GetTheme().GetBaseTheme() == BaseThemeMode.Dark;
         }
 
-        private void BaseThemeChanged(object sender, RoutedEventArgs args) {
-            if (sender is ToggleSwitch checkBox) {
-                var theme = _paletteHelper.GetTheme();
-                var baseThemeMode = checkBox.IsChecked!.Value switch {
-                    true  => BaseThemeMode.Dark,
-                    false => BaseThemeMode.Light
-                };
-                theme.SetBaseTheme(baseThemeMode.GetBaseTheme());
-                _paletteHelper.SetTheme(theme);
-            }
+        public void BaseThemeChanged(object sender, RoutedEventArgs args)
+        {
+            if (!(sender is ToggleSwitch checkBox)) return;
+            var theme = _paletteHelper.GetTheme();
+            var baseThemeMode = checkBox.IsChecked!.Value switch {
+                true  => BaseThemeMode.Dark,
+                false => BaseThemeMode.Light
+            };
+            theme.SetBaseTheme(baseThemeMode.GetBaseTheme());
+            _paletteHelper.SetTheme(theme);
         }
-        private void BaseThemeColorChanged(object sender, RoutedEventArgs args) {
-            if (sender is ToggleSwitch checkBox) {
-                var theme = _paletteHelper.GetTheme();
-                var color = checkBox.IsChecked!.Value switch {
-                    true  => PrimaryColor.Purple,
-                    false => PrimaryColor.Teal
-                };
-                theme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialColor) color]);
-                _paletteHelper.SetTheme(theme);
-            }
+        public void BaseThemeColorChanged(object sender, RoutedEventArgs args)
+        {
+            if (!(sender is ToggleSwitch checkBox)) return;
+            var theme = _paletteHelper.GetTheme();
+            var color = checkBox.IsChecked!.Value switch {
+                true  => PrimaryColor.Purple,
+                false => PrimaryColor.Teal
+            };
+            theme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialColor) color]);
+            _paletteHelper.SetTheme(theme);
         }
     }
 }
