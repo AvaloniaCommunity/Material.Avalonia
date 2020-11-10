@@ -41,7 +41,7 @@
                                     Height="14"
                                     VerticalAlignment="Center"
                                     Width="36"
-                                    CornerRadius="7 7" />
+                                    CornerRadius="7" />
                             <Grid x:Name="ThumbHolder" ClipToBounds="False" Height="20" Width="20"
                                   HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Ellipse x:Name="RippleThumb"
