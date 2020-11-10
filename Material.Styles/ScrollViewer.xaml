@@ -35,7 +35,6 @@
                            Visibility="{TemplateBinding VerticalScrollBarVisibility}"
                            Grid.Row="0" Grid.Column="1"
                            Focusable="False" />
-                <Panel Grid.Row="1" Grid.Column="1" Background="{DynamicResource PrimaryHueMidBrush}" />
             </Grid>
         </ControlTemplate>
     </Setter>
