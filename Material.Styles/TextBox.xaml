@@ -19,6 +19,7 @@
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Padding" Value="4" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+        <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
