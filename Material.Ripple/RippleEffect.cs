@@ -25,9 +25,9 @@ namespace Material.Ripple {
                 _toWidth.Value = maxWidth;
                 _fromMargin.Value = _circle.Margin = new Thickness(pointer.X, pointer.Y, 0, 0);
                 _toMargin.Value = new Thickness(pointer.X - maxWidth / 2, pointer.Y - maxWidth / 2, 0, 0);
-
+                _circle.Opacity = 0;
                 await _ripple.RunAsync(_circle);
-
+                _circle.Opacity = 0;
                 _isRunning = false;
             });
         }
@@ -56,7 +56,7 @@ namespace Material.Ripple {
         }
 
         public static readonly StyledProperty<double> RippleOpacityProperty =
-            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.2);
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.45);
 
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
