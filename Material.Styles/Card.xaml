@@ -15,13 +15,15 @@
                         assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                         <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"
-                                x:Name="PART_ClipBorder" />
+                                x:Name="PART_ClipBorder" 
+                                CornerRadius="{TemplateBinding CornerRadius}">
+                          <ContentPresenter
+                                  x:Name="ContentPresenter"
+                                  Margin="{TemplateBinding Padding}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </Border>
                     </Border>
-                    <ContentPresenter
-                        x:Name="ContentPresenter"
-                        Margin="{TemplateBinding Padding}"
-                        Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}" />
                 </Grid>
             </ControlTemplate>
         </Setter>
