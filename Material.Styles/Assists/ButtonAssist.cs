@@ -3,7 +3,7 @@ using Avalonia.Controls;
 
 namespace Material.Styles.Assists {
     public static class ButtonAssist {
-        private static readonly CornerRadius DefaultCornerRadius = new CornerRadius(2.0);
+        private static readonly CornerRadius DefaultCornerRadius = new CornerRadius(4.0);
 
         #region AttachedProperty : CornerRadiusProperty
 
