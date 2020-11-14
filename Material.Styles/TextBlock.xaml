@@ -1,0 +1,72 @@
+﻿<Styles xmlns="https://github.com/avaloniaui">
+  <Style Selector="TextBlock">
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="FontSize" Value="13" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Caption"> 
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Body1">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Body2"> 
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Overline"> 
+    <Setter Property="FontSize" Value="10" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Subtitle1"> 
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Subtitle2"> 
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+  </Style>
+
+  <Style Selector="TextBlock.Headline6"> 
+    <Setter Property="FontSize" Value="20" />
+    <Setter Property="FontWeight" Value="Medium" />
+  </Style>
+
+  <Style Selector="TextBlock.Headline5"> 
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Headline4"> 
+    <Setter Property="FontSize" Value="34" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Headline3"> 
+    <Setter Property="FontSize" Value="48" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </Style>
+
+  <Style Selector="TextBlock.Headline2"> 
+    <Setter Property="FontSize" Value="60" />
+    <Setter Property="FontWeight" Value="Light" />
+  </Style>
+
+  <Style Selector="TextBlock.Headline1"> 
+    <Setter Property="FontSize" Value="96" />
+    <Setter Property="FontWeight" Value="Light" />
+  </Style>
+
+  <Style Selector="Button">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+  </Style>
+</Styles>
