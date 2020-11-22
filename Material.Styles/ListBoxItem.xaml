@@ -64,7 +64,7 @@
 
     <Style Selector="ListBoxItem:selected:not(:focus) /template/ Border#SelectedBorder">
         <Style.Animations>
-            <Animation Duration="0:0:0.6" FillMode="Both">
+            <Animation Duration="0:0:0.2" FillMode="Both">
                 <KeyFrame Cue="100%">
                     <Setter Property="Opacity" Value="0.12" />
                 </KeyFrame>
@@ -73,7 +73,7 @@
     </Style>
     <Style Selector="ListBoxItem:selected:focus /template/ Border#SelectedBorder">
         <Style.Animations>
-            <Animation Duration="0:0:0.6" FillMode="Both">
+            <Animation Duration="0:0:0.2" FillMode="Both">
                 <KeyFrame Cue="100%">
                     <Setter Property="Opacity" Value="0.18" />
                 </KeyFrame>
@@ -82,7 +82,7 @@
     </Style>
     <Style Selector="ListBoxItem:not(:selected) /template/ Border#SelectedBorder">
         <Style.Animations>
-            <Animation Duration="0:0:0.6" FillMode="Both">
+            <Animation Duration="0:0:0.2" FillMode="Both">
                 <KeyFrame Cue="100%">
                     <Setter Property="Opacity" Value="0" />
                 </KeyFrame>
@@ -93,7 +93,7 @@
     <Style Selector="ListBoxItem:not(:disabled):pointerover /template/ Border#PointerOverBorder">
         <Style.Animations>
             <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.3" FillMode="Both">
+                <Animation Duration="0:0:0.1" FillMode="Both">
                     <KeyFrame Cue="0%">
                         <Setter Property="Opacity" Value="0" />
                     </KeyFrame>
