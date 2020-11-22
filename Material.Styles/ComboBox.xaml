@@ -1,56 +1,161 @@
-<Styles xmlns="https://github.com/avaloniaui">
-    <Style Selector="ComboBox">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cc="clr-namespace:Material.Styles"
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+        xmlns:assists="clr-namespace:Material.Styles.Assists">
+  <Style Selector="ToggleButton.ComboBoxToggleButton">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignPaper}"></Setter>
+    <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}"></Setter> 
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" /> 
+    <Setter Property="Padding" Value="16 4 16 4" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="ClickMode" Value="Press"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate>
+          <Grid>
+            <Border x:Name="ToggleTemplateRoot"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Padding="{TemplateBinding Padding}">
+              <Border x:Name="splitBorder"
+        Margin="0"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Center"
+        BorderBrush="Transparent"
+        BorderThickness="0">
+                <Path x:Name="arrow"
+                      Width="8" Height="8"
+                      Margin="0"
+                      Stretch="Uniform"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Center"
+                      Data="M7,10L12,15L17,10H7Z"
+                      Fill="{TemplateBinding BorderBrush}" />
+              </Border>
+            </Border>
+            <Border Name="focusedIndicator" Focusable="False" IsHitTestVisible="False"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    Background="Transparent"
+                    BorderThickness="0 0 0 1" />
+            <Border Name="activationIndicator" Width="0"
+                    Focusable="False" IsHitTestVisible="False"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                    Background="Transparent"
+                    BorderThickness="0 0 0 2" />
+          </Grid>
+          
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style Selector="ToggleButton.ComboBoxToggleButton:checked">
+    <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
+    <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedForeground)}" />
+  </Style>
+  <Style Selector="ToggleButton.ComboBoxToggleButton:unchecked">
+    <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
+    <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedForeground)}" />
+  </Style>
+  <Style Selector="ToggleButton.ComboBoxToggleButton:checked  /template/ Border#focusedIndicator">
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
+  </Style>
+ 
+  <Style Selector="ToggleButton.ComboBoxToggleButton:checked  /template/ Border#activationIndicator">
+    <Style.Animations>
+      <animations:ReverseAfterEndAnimation>
+        <Animation Duration="0:0:0.2" FillMode="Both" Easing="CircularEaseOut">
+          <KeyFrame Cue="0%">
+            <Setter Property="Width" Value="0" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+          </KeyFrame>
+        </Animation>
+      </animations:ReverseAfterEndAnimation>
+    </Style.Animations>
+  </Style>
+
+  <Style Selector="ComboBox">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
         <Setter Property="Padding" Value="4" />
+        <Setter Property="ClipToBounds" Value="False"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
-                    <Grid ColumnDefinitions="*,Auto">
-                        <ContentControl Content="{TemplateBinding SelectionBoxItem}"
+              <Grid Name="templateRoot"
+                    Background="{TemplateBinding Background}"
+                    ClipToBounds="False" >
+                <Grid ColumnDefinitions="*,Auto" ClipToBounds="False">
+                  <ToggleButton Name="toggle"
+                                Classes="ComboBoxToggleButton"
+                                BorderThickness="0"
+                                Background="Transparent"
+                                Focusable="False"
+                                IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                                Grid.ColumnSpan="2"/>
+                  <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Margin="{TemplateBinding Padding}"
+                        UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*"/>
+                      <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid x:Name="InputRoot"
+                          HorizontalAlignment="Left">
+                      <ContentPresenter x:Name="contentPresenter"
+                                        Content="{TemplateBinding SelectionBoxItem}"
                                         ContentTemplate="{TemplateBinding ItemTemplate}"
-                                        Margin="{TemplateBinding Padding}"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center" />
-                        <ToggleButton Name="toggle"
-                                      BorderThickness="0"
-                                      Background="Transparent"
-                                      ClickMode="Press"
-                                      Focusable="False"
-                                      IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                                      Grid.Column="1">
-                            <Path Name="path"
-                                  Fill="{Binding $parent[ToggleButton].Foreground}"
-                                  Width="8"
-                                  Height="4"
-                                  Stretch="Uniform"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z" />
-                        </ToggleButton>
-                        <Popup Grid.Column="0" Name="PART_Popup"
-                               IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                               MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                               MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                               PlacementTarget="{TemplateBinding}"
-                               IsLightDismissEnabled="True">
-                            <Border BorderBrush="{DynamicResource ThemeBorderMidBrush}"
-                                    BorderThickness="1">
-                                <ScrollViewer>
-                                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Items="{TemplateBinding Items}"
-                                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                    VirtualizationMode="{TemplateBinding VirtualizationMode}" />
-                                </ScrollViewer>
-                            </Border>
-                        </Popup>
+                                        Margin="{TemplateBinding Padding}"/>
                     </Grid>
-                </Border>
+                  </Grid>
+
+                  <Popup Name="PART_Popup"
+                         IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                         MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                         VerticalOffset="0"
+                         PlacementTarget="{Binding ElementName=templateRoot}"
+                         IsLightDismissEnabled="True"
+                         UseLayoutRounding="True" 
+                         ClipToBounds="False" >
+                      <cc:Card assists:ShadowAssist.ShadowDepth="Depth0"
+                               Padding="0">
+                        <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                      MinHeight="1"
+                                      Background="{Binding Background, ElementName=PART_Popup}">
+                          <ItemsPresenter Name="PART_ItemsPresenter"
+                                  Items="{TemplateBinding Items}"
+                                  ItemsPanel="{TemplateBinding ItemsPanel}"
+                                  ItemTemplate="{TemplateBinding ItemTemplate}"
+                                  VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                        </ScrollViewer>
+                      </cc:Card>
+
+                  </Popup>
+                </Grid>
+              </Grid>
             </ControlTemplate>
         </Setter>
     </Style>
+
+
+
+  <Design.PreviewWith>
+    <Border Padding="20" Width="400" Height="400">
+      <ComboBox >
+        <ComboBox.Items>
+          <ComboBoxItem Content="Item 1" />
+        </ComboBox.Items>
+      </ComboBox>
+    </Border>
+  </Design.PreviewWith>
 </Styles>
