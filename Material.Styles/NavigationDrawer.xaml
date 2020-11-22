@@ -1,0 +1,39 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:cc="clr-namespace:Material.Styles" >
+  <Style Selector="cc|NavigationDrawer">
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid Background="Transparent" ClipToBounds="False" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+          <ContentPresenter
+              x:Name="ContentPresenter"
+              Margin="{TemplateBinding Padding}"
+              Content="{TemplateBinding Content}" />
+          <Border x:Name="PART_Scrim" Background="Black" Opacity="0" 
+                  IsHitTestVisible="{TemplateBinding LeftDrawerOpened}" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"/>
+          <cc:Card x:Name="PART_LeftDrawer" HorizontalAlignment="Left" Width="256"
+                   Margin="-268, 0, 0, 0" Padding="0" CornerRadius="0">
+                      <ContentPresenter Content="{TemplateBinding LeftDrawerContent}" />
+          </cc:Card>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style> 
+
+  <Design.PreviewWith>
+    <Border Margin="40" BorderThickness="1" BorderBrush="Black">
+      <cc:NavigationDrawer Width="400" Height="200" LeftDrawerOpened="True">
+        <cc:NavigationDrawer.LeftDrawerContent>
+          <StackPanel>
+            <Button Content="Test 1"/>
+            <Button Content="Test 2"/>
+          </StackPanel>
+        </cc:NavigationDrawer.LeftDrawerContent>
+        <cc:Card Margin="8"></cc:Card>
+      </cc:NavigationDrawer>
+    </Border>
+  </Design.PreviewWith>
+</Styles>
