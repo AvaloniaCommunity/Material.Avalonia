@@ -9,24 +9,28 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid Background="Transparent">
-                        <Border Background="{TemplateBinding Background}"
+                    <Grid Background="Transparent" ClipToBounds="False">
+                        <Border ClipToBounds="False"
+                                Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}" />
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius}"
-                                ClipToBounds="True">
-                            <ContentPresenter Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              Cursor="{TemplateBinding Cursor}"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}" >
+                          <Border Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  ClipToBounds="True">
+                              <ContentPresenter Content="{TemplateBinding Content}"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                Cursor="{TemplateBinding Cursor}"
+                                                Margin="{TemplateBinding Padding}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                          </Border>
                         </Border>
                     </Grid>
                 </ControlTemplate>
@@ -61,4 +65,16 @@
         <Setter Property="Background" Value="{DynamicResource MaterialDesignDarkBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDarkForeground}" />
     </Style>
+
+
+
+  <Design.PreviewWith>
+    <Border Padding="40" BorderThickness="1">
+      <cc:ColorZone Mode="PrimaryMid">
+        <Grid Margin="16">
+          <TextBlock Text="ColorZone"/>
+        </Grid>
+      </cc:ColorZone>
+    </Border>
+  </Design.PreviewWith>
 </Styles>

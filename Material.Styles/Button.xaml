@@ -52,7 +52,7 @@
       <Setter Property="assists:ShadowAssist.Darken" Value="True" />
   </Style>
 
-  <Style Selector="Button.Tool">
+  <Style Selector="Button.Tool, ToggleButton.Tool">
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Transparent"/>
@@ -81,9 +81,13 @@
       </ControlTemplate>
     </Setter>
   </Style>
- 
 
-  <!-- Designer preview -->
+  <Style Selector="Button.DrawerItem, ToggleButton.DrawerItem"> 
+    <Setter Property="Height" Value="48"/>
+  </Style>
+
+
+    <!-- Designer preview -->
 
   <Design.PreviewWith>
     <Border Padding="20">

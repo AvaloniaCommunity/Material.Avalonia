@@ -9,9 +9,10 @@
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
         <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
         <PackageLicenseUrl>https://raw.githubusercontent.com/AvaloniaUtils/material.avalonia/master/LICENSE</PackageLicenseUrl>
-        <RepositoryUrl>https://github.com/CreateLab/material.avalonia</RepositoryUrl>
+        <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
+        <Version>0.10.4</Version>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
