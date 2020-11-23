@@ -1,4 +1,5 @@
-<Style xmlns="https://github.com/avaloniaui" Selector="ListBox">
+<Styles xmlns="https://github.com/avaloniaui"> 
+  <Style Selector="ListBox">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
@@ -6,23 +7,41 @@
     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
     <Setter Property="Template">
-        <ControlTemplate>
-            <Border BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    Background="{TemplateBinding Background}">
-                <ScrollViewer Name="PART_ScrollViewer"
-                              Focusable="False"
-                              Padding="{TemplateBinding Padding}"
-                              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                              VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                    Items="{TemplateBinding Items}"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                    Margin="{TemplateBinding Padding}"
-                                    VirtualizationMode="{TemplateBinding VirtualizationMode}" />
-                </ScrollViewer>
-            </Border>
-        </ControlTemplate>
+      <ControlTemplate>
+        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}">
+          <ScrollViewer Name="PART_ScrollViewer"
+                        Focusable="False"
+                        Padding="{TemplateBinding Padding}"
+                        HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                        VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            Items="{TemplateBinding Items}"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            ItemTemplate="{TemplateBinding ItemTemplate}"
+                            Margin="{TemplateBinding Padding}"
+                            VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+          </ScrollViewer>
+        </Border>
+      </ControlTemplate>
     </Setter>
-</Style>
+  </Style>
+
+  <Style Selector="ListBox.NoScroll">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}">
+          <ItemsPresenter Name="PART_ItemsPresenter"
+                          Items="{TemplateBinding Items}"
+                          ItemsPanel="{TemplateBinding ItemsPanel}"
+                          ItemTemplate="{TemplateBinding ItemTemplate}"
+                          Margin="{TemplateBinding Padding}"
+                          VirtualizationMode="{TemplateBinding VirtualizationMode}"/>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

@@ -108,5 +108,5 @@
     <Style Selector="ListBoxItem:disabled">
         <Setter Property="Opacity" Value="0.56" />
     </Style>
-
+     
 </Styles>
