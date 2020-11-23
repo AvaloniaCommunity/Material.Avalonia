@@ -2,6 +2,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:cc="clr-namespace:Material.Styles" >
   <Style Selector="cc|NavigationDrawer">
+    <Setter Property="LeftDrawerWidth" Value="300"/>
     <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -11,12 +12,31 @@
               x:Name="ContentPresenter"
               Margin="{TemplateBinding Padding}"
               Content="{TemplateBinding Content}" />
-          <Border x:Name="PART_Scrim" Background="Black" Opacity="0" 
+          <Border x:Name="PART_Scrim" Background="Black" Opacity="0"
                   IsHitTestVisible="{TemplateBinding LeftDrawerOpened}" HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch"/>
-          <cc:Card x:Name="PART_LeftDrawer" HorizontalAlignment="Left" Width="256"
-                   Margin="-268, 0, 0, 0" Padding="0" CornerRadius="0">
-                      <ContentPresenter Content="{TemplateBinding LeftDrawerContent}" />
+                  VerticalAlignment="Stretch">
+            <Border.Styles>
+              <Style Selector="Border#PART_Scrim">
+                <Setter Property="Transitions">
+                  <Transitions>
+                    <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="CircularEaseInOut"/>
+                  </Transitions>
+                </Setter>
+              </Style>
+            </Border.Styles>
+          </Border>
+          <cc:Card x:Name="PART_LeftDrawer" HorizontalAlignment="Left" Width="{TemplateBinding LeftDrawerWidth}"
+       Margin="-1000,0,0,0" Padding="0" CornerRadius="0">
+            <cc:Card.Styles>
+              <Style Selector="cc|Card#PART_LeftDrawer">
+                <Setter Property="Transitions">
+                  <Transitions>
+                    <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CircularEaseInOut"/>
+                  </Transitions>
+                </Setter>
+              </Style>
+            </cc:Card.Styles>
+            <ContentPresenter Content="{TemplateBinding LeftDrawerContent}" />
           </cc:Card>
         </Grid>
       </ControlTemplate>
