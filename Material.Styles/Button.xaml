@@ -52,7 +52,7 @@
       <Setter Property="assists:ShadowAssist.Darken" Value="True" />
   </Style>
 
-  <Style Selector="Button.Tool, ToggleButton.Tool">
+  <Style Selector="Button.Tool, ToggleButton.Tool, Button.Flat, ToggleButton.Flat">
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Transparent"/>
@@ -86,6 +86,27 @@
     <Setter Property="Height" Value="48"/>
   </Style>
 
+  <Style Selector="Button.Light, ToggleButton.Light">
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+  </Style>
+  <Style Selector="Button.Dark, ToggleButton.Dark">
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+  </Style>
+  <Style Selector="Button.Accent, ToggleButton.Accent">
+    <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
+  </Style>
+
+  <Style Selector="Button.Accent.Tool, Button.Accent.Flat">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}"/>
+  </Style>
 
     <!-- Designer preview -->
 
