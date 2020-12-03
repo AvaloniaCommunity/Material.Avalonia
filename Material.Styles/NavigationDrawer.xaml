@@ -45,14 +45,16 @@
 
   <Design.PreviewWith>
     <Border Margin="40" BorderThickness="1" BorderBrush="Black">
-      <cc:NavigationDrawer Width="400" Height="200" LeftDrawerOpened="True">
+      <cc:NavigationDrawer Width="400" Height="200" LeftDrawerOpened="{Binding ElementName=toggler, Path=IsChecked}">
         <cc:NavigationDrawer.LeftDrawerContent>
           <StackPanel>
             <Button Content="Test 1"/>
             <Button Content="Test 2"/>
           </StackPanel>
         </cc:NavigationDrawer.LeftDrawerContent>
-        <cc:Card Margin="8"></cc:Card>
+        <cc:Card Margin="8">
+          <ToggleSwitch x:Name="toggler" IsChecked="True"/>
+        </cc:Card>
       </cc:NavigationDrawer>
     </Border>
   </Design.PreviewWith>

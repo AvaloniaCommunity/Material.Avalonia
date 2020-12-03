@@ -10,6 +10,8 @@ using Avalonia.LogicalTree;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Metadata;
+using System;
+using System.Threading.Tasks;
 
 namespace Material.Styles
 {
@@ -67,6 +69,7 @@ namespace Material.Styles
 
         private Border PART_Scrim;
         private Card PART_LeftDrawer;
+        private Action m_LatelyEventCall;
 
         public NavigationDrawer()
         {
@@ -78,14 +81,32 @@ namespace Material.Styles
             };
         }
 
+        protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+        {
+            base.OnAttachedToVisualTree(e);
+            m_LatelyEventCall?.Invoke();
+        }
+
         private void LeftDrawerWidthChanged(AvaloniaPropertyChangedEventArgs e) => PART_LeftDrawer?.SetValue(MarginProperty, LeftDrawerOpened ? new Thickness(0) : new Thickness(-LeftDrawerWidth - 8, 0, 0, 0));
 
         private void LeftDrawerOpenedChanged(AvaloniaPropertyChangedEventArgs e)
         {
+            // Try schedule a call after control attached to visual tree. 
+            if(PART_Scrim is null && PART_LeftDrawer is null
+                && (!PART_Scrim?.IsInitialized ?? false) && (!PART_LeftDrawer?.IsInitialized ?? false))
+            {
+                var param = new AvaloniaPropertyChangedEventArgs<bool>(this, 
+                    LeftDrawerOpenedProperty, 
+                    (bool)e.OldValue, 
+                    (bool)e.NewValue, 
+                    e.Priority);
+                m_LatelyEventCall = () => LeftDrawerOpenedChanged(param);
+                return;
+            }
+
             var value = (bool)e.NewValue; 
             PART_Scrim?.SetValue(OpacityProperty, value ? 0.32 : 0);
             PART_LeftDrawer?.SetValue(MarginProperty, value ? new Thickness(0) : new Thickness(-LeftDrawerWidth - 8, 0, 0, 0));
-             
         }
 
         private void LeftDrawerContentChanged(AvaloniaPropertyChangedEventArgs e)
