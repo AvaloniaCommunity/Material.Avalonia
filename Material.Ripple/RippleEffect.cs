@@ -56,7 +56,7 @@ namespace Material.Ripple {
         }
 
         public static readonly StyledProperty<double> RippleOpacityProperty =
-            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.45);
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.75);
 
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
