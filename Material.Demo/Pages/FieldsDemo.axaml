@@ -1,0 +1,65 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             x:Class="Material.Demo.Pages.FieldsDemo">
+  <StackPanel Margin="16, 0">
+    <TextBlock Classes="Headline4 Subheadline" Text="Fields"/>
+
+    <WrapPanel>
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Common fields"/>
+        <StackPanel Orientation="Horizontal">
+          <StackPanel.Styles>
+            <Style Selector="TextBox">
+              <Setter Property="Margin" Value="8"/>
+              <Setter Property="Width" Value="180"/>
+            </Style>
+          </StackPanel.Styles>
+          <TextBox Text="The simplest field ever!"/>
+          <TextBox Watermark="Simple field with watermark"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <StackPanel.Styles>
+            <Style Selector="TextBox">
+              <Setter Property="Margin" Value="8"/>
+              <Setter Property="Width" Value="180"/>
+            </Style>
+          </StackPanel.Styles>
+          <TextBox PasswordChar="*" Watermark="Field for password"/>
+          <TextBox Watermark="Disabled field" IsEnabled="False"/>
+        </StackPanel>
+      </StackPanel>
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Multi-Line fields"/>
+        <StackPanel Orientation="Horizontal">
+          <StackPanel.Styles>
+            <Style Selector="TextBox">
+              <Setter Property="Margin" Value="8"/>
+              <Setter Property="Width" Value="360"/>
+            </Style>
+          </StackPanel.Styles>
+          <TextBox AcceptsReturn="True" 
+                   TextWrapping="Wrap"
+            Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
+ adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ et dolore magna aliqua. The quick brown fox jumps over the 
+ lazy dog. War and peace. Keep going. Go on. For how long? 
+ Not long. Lorem ipsum dolor sit amet, consectetur adipiscing 
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+ aliqua."/> 
+        </StackPanel>
+      </StackPanel>
+      <StackPanel Width="400">
+        <TextBlock Classes="Headline6 Subheadline2" Text="Rich text box"/>
+        <TextBlock TextWrapping="Wrap" Text="Unfortunately, the RichTextBox
+is not supported officially. But you can use AvaloniaEdit for support this feature."/>
+        <StackPanel Orientation="Horizontal">
+           
+        </StackPanel>
+      </StackPanel>
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

@@ -12,11 +12,34 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.0-preview5" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview5" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0-preview5" />
+    <None Remove="FavIcon.svg" />
+    <None Remove="FavIcon_200x.png" />
+    <None Remove="Material.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="FavIcon_200x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.0-preview6" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview6" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0-preview6" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Update="Material.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaXaml Update="Pages\ButtonsDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\ButtonsDemo.xaml.cs">
+      <DependentUpon>ButtonsDemo.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

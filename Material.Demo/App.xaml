@@ -7,5 +7,6 @@
     </Application.Resources>
     <Application.Styles>
         <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
+        <StyleInclude Source="avares://Material.Demo/Material.xaml" />
     </Application.Styles>
 </Application>

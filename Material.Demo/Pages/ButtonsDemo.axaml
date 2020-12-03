@@ -1,0 +1,66 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+            x:Class="Material.Demo.Pages.ButtonsDemo">
+  <StackPanel Margin="16, 0">
+    <TextBlock Classes="Headline4 Subheadline" Text="Buttons"/>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Regular buttons"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="Button">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <Button Classes="Light" Content="Light" ToolTip.Tip='Button with classes "Light"'/>
+      <Button Content="Mid (Default)" ToolTip.Tip='Regular button without any classes.'/>
+      <Button Classes="Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark"'/>
+      <Button Classes="Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent"'/>
+    </StackPanel>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon (PackIcon system not implemented)"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="styles|FloatingButton">
+          <Setter Property="Margin" Value="16,8"/>
+        </Style>
+      </StackPanel.Styles>
+      <styles:FloatingButton Classes="Light Mini"/>
+      <styles:FloatingButton Classes="Mini"/>
+      <styles:FloatingButton Classes="Dark Mini"/>
+      <styles:FloatingButton Classes="Accent Mini"/>
+      <styles:FloatingButton Classes="Light"/>
+      <styles:FloatingButton/>
+      <styles:FloatingButton Classes="Dark"/>
+      <styles:FloatingButton Classes="Accent"/>
+    </StackPanel>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Extended floating buttons"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="styles|FloatingButton">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <styles:FloatingButton Classes="Extend Light" Content="ADD ITEM"/>
+      <styles:FloatingButton Classes="Extend" Content="ADD ITEM"/>
+      <styles:FloatingButton Classes="Extend Dark" Content="ADD ITEM"/>
+      <styles:FloatingButton Classes="Extend Accent" Content="ADD ITEM"/>
+    </StackPanel>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Tool buttons (Flat)"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="Button">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <Button Classes="Tool" Content="Default" ToolTip.Tip='Regular button with class "Tool" or "Flat"'/>
+      <Button Classes="Tool Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Tool" or "Flat"'/>
+    </StackPanel>
+
+  </StackPanel>
+</UserControl>
