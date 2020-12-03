@@ -10,6 +10,14 @@
         <Style.Resources>
             <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
         </Style.Resources>
+        <Setter Property="Transitions">
+          <Setter.Value>
+            <Transitions>
+              <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:1" />
+            </Transitions>
+          </Setter.Value>
+        </Setter>
+
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -24,6 +32,8 @@
         <Setter Property="TextBlock.FontSize" Value="14" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="ScaleTransform.ScaleX" Value="0"/>
+        <Setter Property="ScaleTransform.ScaleY" Value="0"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
@@ -80,4 +90,41 @@
             </animations:ReverseAfterEndAnimation>
         </Style.Animations>
     </Style>
+
+  <Style Selector="cc|FloatingButton.Mini">
+    <Setter Property="MinHeight" Value="40" />
+    <Setter Property="MinWidth" Value="40" />
+    <Setter Property="Height" Value="40" />
+    <Setter Property="Width" Value="40" />
+    <Setter Property="Padding" Value="8" />
+  </Style>
+  <Style Selector="cc|FloatingButton.Extend"> 
+    <Setter Property="MinWidth" Value="48" />
+    <Setter Property="MinHeight" Value="48" />
+    <Setter Property="Height" Value="48" />
+    <Setter Property="Padding" Value="12" />
+  </Style>
+
+  <Style Selector="cc|FloatingButton.Light, cc|FloatingButton.Extend.Light">
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+  </Style>
+  <Style Selector="cc|FloatingButton.Dark, cc|FloatingButton.Extend.Dark">
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+  </Style>
+  <Style Selector="cc|FloatingButton.Accent, cc|FloatingButton.Extend.Accent">
+    <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
+  </Style>
+
+     
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <cc:FloatingButton/>
+    </Border>
+  </Design.PreviewWith>
 </Styles>
