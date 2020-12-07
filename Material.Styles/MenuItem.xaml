@@ -128,9 +128,14 @@
         </Setter>
     </Style>
   
-    <Style Selector="MenuItem:selected /template/ Border#root">
-        <Setter Property="Opacity" Value="0.5"/>
+    <Style Selector="MenuItem:pointerover /template/ Border#root">
+        <Setter Property="Opacity" Value="0.13"/>
     </Style>
+  
+    <Style Selector="MenuItem:disabled">
+        <Setter Property="Opacity" Value="0.56"/>
+    </Style>
+
 
     <Style Selector="MenuItem:empty /template/ Path#rightArrow">
         <Setter Property="IsVisible" Value="False" />
