@@ -1,13 +1,14 @@
 <Style xmlns="https://github.com/avaloniaui" Selector="PopupRoot">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="Background" Value="Transparent" /> 
+    <Setter Property="TransparencyLevelHint" Value="Transparent"/>
     <Setter Property="Template">
         <ControlTemplate>
             <VisualLayerManager IsPopup="True">
                 <ContentPresenter Name="PART_ContentPresenter"
+                                  Margin="0"
                                   Background="{TemplateBinding Background}"
                                   ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  Content="{TemplateBinding Content}"
-                                  Padding="{TemplateBinding Padding}" />
+                                  Content="{TemplateBinding Content}" />
             </VisualLayerManager>
         </ControlTemplate>
     </Setter>
