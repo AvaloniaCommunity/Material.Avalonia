@@ -66,11 +66,11 @@
     <Setter Property="FontWeight" Value="Light" />
   </Style>
 
-  <Style Selector="Button > TextBlock">
+  <Style Selector="Button > TextBlock, TextBlock.ButtonText">
     <Setter Property="FontSize" Value="14" />
     <Setter Property="FontWeight" Value="Medium" /> 
   </Style>
-  <Style Selector="cc|FloatingButton > TextBlock">
+  <Style Selector="cc|FloatingButton > TextBlock, TextBlock.FloatingButtonText">
     <Setter Property="FontSize" Value="15" />
     <Setter Property="FontWeight" Value="Medium" /> 
   </Style>
