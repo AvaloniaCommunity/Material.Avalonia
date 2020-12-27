@@ -63,4 +63,5 @@
     <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/Card.xaml"/>
     <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
+    <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
 </Styles>
