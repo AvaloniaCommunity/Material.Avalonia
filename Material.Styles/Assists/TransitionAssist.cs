@@ -14,7 +14,7 @@ namespace Material.Styles.Assists {
             DisableTransitionsProperty.Changed.Subscribe(args => {
                 if (args.Sender is StyledElement styledElement) {
                     styledElement.Classes.Remove("notransitions");
-                    if (args.NewValue.Value is bool newBoolValue && newBoolValue) styledElement.Classes.Add("notransitions");
+                    if (args.NewValue.Value) styledElement.Classes.Add("notransitions");
                 }
             });
         }
