@@ -7,6 +7,7 @@
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:pages="clr-namespace:Material.Demo.Pages"
         Title="Material.Demo"
+        d:DesignWidth="600"
         Width="1280"
         Height="720"
         WindowStartupLocation="CenterScreen"
@@ -20,6 +21,7 @@
     </Style>
     <Style Selector="TextBlock.Content">
       <Setter Property="Margin" Value="0, 4"/>
+      <Setter Property="HorizontalAlignment" Value="Left"/>
     </Style>
   </Window.Styles>
   
@@ -41,6 +43,7 @@
               <Setter Property="Height" Value="48"/>
               <Setter Property="Padding" Value="16,0"/>
               <Setter Property="VerticalContentAlignment" Value="Center"/>
+              <Setter Property="IsEnabled" Value="{Binding $self.Content.IsEnabled}"/>
             </Style>
           </ListBox.Styles>
           <TextBlock Classes="Body2" Text="Home" />
@@ -52,45 +55,59 @@
           <TextBlock Classes="Body2" Text="Lists" />
           <TextBlock Classes="Body2" Text="Card" />
           <TextBlock Classes="Body2" Text="Typography" />
-          <TextBlock Classes="Body2" Text="Shadows" />
+          <TextBlock Classes="Body2" Text="Shadows" IsEnabled="False"/>
         </ListBox>
       </StackPanel>
       </ScrollViewer>
     </styles:NavigationDrawer.LeftDrawerContent>
     <DockPanel LastChildFill="true">
-      <styles:ColorZone Height="56" VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top"
-                        Mode="PrimaryMid">
+      <styles:ColorZone VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top"
+                        Height="56" Mode="PrimaryMid">
         <Grid Margin="16">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="24"/>
             <ColumnDefinition Width="32"/>
             <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
-          <ToggleButton Classes="Tool" Width="24" Height="24" Padding="0" x:Name="NavDrawerSwitch">
-            <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-              <Image.Styles>
-                <Style Selector="GeometryDrawing">
-                  <Setter Property="Brush" Value="{DynamicResource MaterialDesignBody}"/>
-                </Style>
-              </Image.Styles>
+          <ToggleButton Classes="Tool" Width="32" Height="32" x:Name="NavDrawerSwitch"
+                        Padding="4">
+            <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
               <Image.Source>
                 <DrawingImage Drawing="{DynamicResource Material.Menu}"/>
               </Image.Source>
             </Image>
           </ToggleButton>
-          <TextBlock Grid.Column="2" Classes="Headline6" Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
+          <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
+                     Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
         </Grid>
       </styles:ColorZone>
-      <ScrollViewer DockPanel.Dock="Top">
-        <Carousel x:Name="PageCarousel">
+      <ScrollViewer DockPanel.Dock="Top" 
+                    HorizontalContentAlignment="Stretch" 
+                    HorizontalAlignment="Stretch"
+                    HorizontalScrollBarVisibility="Disabled">
+        <Carousel x:Name="PageCarousel" 
+                  HorizontalAlignment="Stretch" >
           <Carousel.PageTransition>
             <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut" SlideInEasing="CircularEaseOut"/>
           </Carousel.PageTransition>
-          <StackPanel Margin="16, 0"> 
-            <TextBlock Classes="Headline4 Subheadline" Text="Welcome to Material.Avalonia Demo!"/>
-            <TextBlock Classes="Content" Text="This project is still in development. Could have some issues or bugs but half-usable now."/>
-            <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!"/>
-            <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
+          <StackPanel Margin="16, 0" MaxWidth="600">
+            <Image Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    Source="avares://Material.Demo/FavIcon_200x.png" Margin="0,0,0,-8"/>
+            <TextBlock Classes="Headline4 Subheadline" 
+                       TextAlignment="Center" 
+                       Text="Welcome to Material.Avalonia Demo!"/>
+            <TextBlock Classes="Content" 
+                       TextWrapping="Wrap" 
+                       TextAlignment="Center" 
+                       Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!"/>
+            <TextBlock Classes="Content" 
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center" 
+                       Text="Press drawer button to start widgets tours!"/>
+            <TextBlock Classes="Content" 
+                       HorizontalAlignment="Center"
+                       TextAlignment="Center" 
+                       Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
           </StackPanel>
           <!-- Buttons -->
           <pages:ButtonsDemo/>
@@ -114,7 +131,7 @@
           <pages:NotReadyDemo/>
           
           <!-- Typography -->
-          <pages:NotReadyDemo/>
+          <pages:TypographyDemo/>
           
           <!-- Shadows -->
           <pages:NotReadyDemo/>

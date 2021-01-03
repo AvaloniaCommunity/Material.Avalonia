@@ -1,0 +1,54 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Material.Demo.Pages.TypographyDemo">
+  <StackPanel Margin="16,0">
+    <TextBlock Classes="Headline4 Subheadline" Text="Typography"/>
+
+    <Grid HorizontalAlignment="Left" 
+          RowDefinitions="* * * * * * * * * * * * * *"
+          ColumnDefinitions="200, *">
+      <Grid.Styles>
+        <Style Selector="TextBlock">
+          <Setter Property="HorizontalAlignment" Value="Left"/>
+          <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+      </Grid.Styles>
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="Headline1"/>
+      <TextBlock Grid.Row="0" Grid.Column="1" Classes="Headline1" Text="Light 96sp"/>
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="Headline2"/>
+      <TextBlock Grid.Row="1" Grid.Column="1" Classes="Headline2" Text="Light 60sp"/>
+      <TextBlock Grid.Row="2" Grid.Column="0" Text="Headline3"/>
+      <TextBlock Grid.Row="2" Grid.Column="1" Classes="Headline3" Text="Regular 48sp"/>
+      <TextBlock Grid.Row="3" Grid.Column="0" Text="Headline4"/>
+      <TextBlock Grid.Row="3" Grid.Column="1" Classes="Headline4" Text="Regular 34sp"/>
+      <TextBlock Grid.Row="4" Grid.Column="0" Text="Headline5"/>
+      <TextBlock Grid.Row="4" Grid.Column="1" Classes="Headline5" Text="Regular 24sp"/>
+      <TextBlock Grid.Row="5" Grid.Column="0" Text="Headline6"/>
+      <TextBlock Grid.Row="5" Grid.Column="1" Classes="Headline6" Text="Medium 20sp"/>
+
+      <TextBlock Grid.Row="6" Grid.Column="0" Text="Subtitle1"/>
+      <TextBlock Grid.Row="6" Grid.Column="1" Classes="Subtitle1" Text="Regular 16sp"/>
+      <TextBlock Grid.Row="7" Grid.Column="0" Text="Subtitle2"/>
+      <TextBlock Grid.Row="7" Grid.Column="1" Classes="Subtitle2" Text="Medium 14sp"/>
+
+      <TextBlock Grid.Row="8" Grid.Column="0" Text="Body1"/>
+      <TextBlock Grid.Row="8" Grid.Column="1" Classes="Body1" Text="Regular 16sp"/>
+      <TextBlock Grid.Row="9" Grid.Column="0" Text="Body2"/>
+      <TextBlock Grid.Row="9" Grid.Column="1" Classes="Body2" Text="Regular 14sp"/>
+
+      <TextBlock Grid.Row="10" Grid.Column="0" Text="Caption"/>
+      <TextBlock Grid.Row="10" Grid.Column="1" Classes="Caption" Text="Regular 12sp"/>
+      <TextBlock Grid.Row="11" Grid.Column="0" Text="Overline"/>
+      <TextBlock Grid.Row="11" Grid.Column="1" Classes="Overline" Text="Regular 10sp"/>
+
+      <TextBlock Grid.Row="12" Grid.Column="0" Text="ButtonText"/>
+      <TextBlock Grid.Row="12" Grid.Column="1" Classes="ButtonText" Text="Medium 14sp"/>
+      <TextBlock Grid.Row="13" Grid.Column="0" Text="FloatingButtonText"/>
+      <TextBlock Grid.Row="13" Grid.Column="1" Classes="FloatingButtonText" Text="Medium 15sp"/>
+    </Grid>
+
+  </StackPanel>
+</UserControl>
