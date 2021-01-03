@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -46,9 +47,14 @@ namespace Material.Demo {
         public void BaseThemeChanged(object sender, RoutedEventArgs args)
         {
             if (!(sender is ToggleSwitch checkBox)) return;
+            ChangeDarkMode(checkBox.IsChecked!.Value);
+        }
+        public void ChangeDarkMode(bool isEnabled)
+        {
             var theme = _paletteHelper.GetTheme();
-            var baseThemeMode = checkBox.IsChecked!.Value switch {
-                true  => BaseThemeMode.Dark,
+            var baseThemeMode = isEnabled switch
+            {
+                true => BaseThemeMode.Dark,
                 false => BaseThemeMode.Light
             };
             theme.SetBaseTheme(baseThemeMode.GetBaseTheme());
@@ -71,7 +77,7 @@ namespace Material.Demo {
         {
             var listBox = sender as ListBox;
             try
-            {
+            { 
                 PageCarousel.SelectedIndex = listBox.SelectedIndex;
             }
             catch
