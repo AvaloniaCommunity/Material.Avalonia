@@ -1,0 +1,49 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+            x:Class="Material.Demo.Pages.CardsDemo">
+  <StackPanel Margin="16, 0">
+    <StackPanel.Styles>
+      <Style Selector="styles|Card">
+        <Setter Property="Margin" Value="8"/> 
+      </Style>
+    </StackPanel.Styles>
+    <TextBlock Classes="Headline4 Subheadline" Text="Cards"/>
+
+    <WrapPanel  HorizontalAlignment="Stretch">
+      <styles:Card MinWidth="240" VerticalAlignment="Top">
+        <StackPanel Margin="0,4">
+          <TextBlock Classes="Headline6" Text="Card title"/>
+          <TextBlock Classes="Body2" Text="Secondary text"/>
+        </StackPanel>
+      </styles:Card>
+      <styles:Card Width="240" VerticalAlignment="Top">
+        <StackPanel Margin="0,4">
+          <TextBlock Classes="Headline6" Text="Card title"/>
+          <TextBlock Classes="Body2" Text="Secondary text"/>
+          <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
+            Greyhound divisively hello coldly wonderfully marginally far upon excluding.
+          </TextBlock>
+        </StackPanel>
+      </styles:Card>
+      <styles:Card Width="240" Padding="4">
+        <StackPanel>
+          <StackPanel Margin="8">
+            <TextBlock Classes="Headline6" Text="Card title"/>
+            <TextBlock Classes="Body2" Text="Secondary text"/>
+            <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
+              Greyhound divisively hello coldly wonderfully marginally far upon excluding.
+            </TextBlock>
+          </StackPanel>
+          <StackPanel Orientation="Horizontal">
+            <Button Classes="Tool" Content="BUTTON 1" Padding="8,4"/>
+            <Button Classes="Tool" Content="BUTTON 2" Padding="8,4"/>
+          </StackPanel>
+        </StackPanel>
+      </styles:Card>
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

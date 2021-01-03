@@ -8,7 +8,7 @@
         xmlns:pages="clr-namespace:Material.Demo.Pages"
         Title="Material.Demo"
         d:DesignWidth="600"
-        Width="1280"
+        Width="1280" MinWidth="720"
         Height="720"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
@@ -91,23 +91,20 @@
             <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut" SlideInEasing="CircularEaseOut"/>
           </Carousel.PageTransition>
           <StackPanel Margin="16, 0" MaxWidth="600">
+            <StackPanel.Styles>
+              <Style Selector="TextBlock.Content, TextBlock.Subheadline">
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+              </Style>
+            </StackPanel.Styles>
             <Image Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top"
                     Source="avares://Material.Demo/FavIcon_200x.png" Margin="0,0,0,-8"/>
-            <TextBlock Classes="Headline4 Subheadline" 
-                       TextAlignment="Center" 
-                       Text="Welcome to Material.Avalonia Demo!"/>
-            <TextBlock Classes="Content" 
-                       TextWrapping="Wrap" 
-                       TextAlignment="Center" 
-                       Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!"/>
-            <TextBlock Classes="Content" 
-                       HorizontalAlignment="Center"
-                       TextAlignment="Center" 
-                       Text="Press drawer button to start widgets tours!"/>
-            <TextBlock Classes="Content" 
-                       HorizontalAlignment="Center"
-                       TextAlignment="Center" 
-                       Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
+            <TextBlock Classes="Headline4 Subheadline" Text="Welcome to Material.Avalonia Demo!"/>
+            <TextBlock Classes="Content" Text="Material.Avalonia is a library that could beauty and turning your Avalonia Application from regular design to Material Design like Material Design in XAML! It easy for use to your project! Just install NuGet package, slightly change your App.xaml / App.axaml and your application are ready to go with Material Design!"/>
+            <TextBlock Classes="Content" Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!"/>
+            <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!"/>
+            <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
           </StackPanel>
           <!-- Buttons -->
           <pages:ButtonsDemo/>
@@ -128,7 +125,7 @@
           <pages:NotReadyDemo/>
           
           <!-- Card -->
-          <pages:NotReadyDemo/>
+          <pages:CardsDemo/>
           
           <!-- Typography -->
           <pages:TypographyDemo/>

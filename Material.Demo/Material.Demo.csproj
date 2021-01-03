@@ -33,6 +33,9 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaXaml Update="Pages\CardsDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\TogglesDemo.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
@@ -41,6 +44,9 @@
     </AvaloniaXaml>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\CardsDemo.axaml.cs">
+      <DependentUpon>CardsDemo.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\TogglesDemo.axaml.cs">
       <DependentUpon>TogglesDemo.axaml</DependentUpon>
     </Compile>
