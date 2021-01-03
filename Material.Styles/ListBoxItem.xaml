@@ -23,21 +23,36 @@
                         Margin="{TemplateBinding Margin}"
                         ClipToBounds="{TemplateBinding ClipToBounds}">
                     <Grid>
-                        <Border x:Name="PointerOverBorder"
-                                Opacity="0"
-                                Background="{TemplateBinding Foreground}" />
-                        <!-- The value is not updated when the converter is connected -->
-                        <!-- Background="{TemplateBinding Foreground, Converter={x:Static converters:BrushRoundConverter.Instance}}" /> -->
+                      <Border x:Name="selectedBorder"
+                              Name="selectedBorder"
+                              Background="{TemplateBinding Foreground}">
+                        <Border.Styles>
+                          <Style Selector="Border#selectedBorder">
+                            <Setter Property="Transitions">
+                              <Transitions>
+                                <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+                              </Transitions>
+                            </Setter>
+                          </Style>
+                        </Border.Styles>
+                      </Border>
+                      <Border x:Name="pointerOverBorder"
+                              Name="pointerOverBorder"
+                              Background="{TemplateBinding Foreground}">
+                        <Border.Styles>
+                          <Style Selector="Border#pointerOverBorder">
+                            <Setter Property="Transitions">
+                              <Transitions>
+                                <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+                              </Transitions>
+                            </Setter>
+                          </Style>
+                        </Border.Styles>
+                      </Border>
+                      <!-- The value is not updated when the converter is connected -->
+                      <!-- Background="{TemplateBinding Foreground, Converter={x:Static converters:BrushRoundConverter.Instance}}" /> -->
 
-                        <Border x:Name="SelectedBorder"
-                                Opacity="0"
-                                Background="{TemplateBinding Foreground}"
-                                RenderTransformOrigin="0.5,0.5">
-                            <!-- Background="{TemplateBinding Foreground, Converter={x:Static converters:BrushRoundConverter.Instance}}" -->
-                            <Border.RenderTransform>
-                                <ScaleTransform ScaleX="1" />
-                            </Border.RenderTransform>
-                        </Border>
+
                         <ripple:RippleEffect Name="Ripple"
                                                    RippleFill="{TemplateBinding Foreground}"
                                                    Focusable="False"
@@ -61,52 +76,22 @@
             </ControlTemplate>
         </Setter>
     </Style>
-
-    <Style Selector="ListBoxItem:selected:not(:focus) /template/ Border#SelectedBorder">
-        <Style.Animations>
-            <Animation Duration="0:0:0.2" FillMode="Both">
-                <KeyFrame Cue="100%">
-                    <Setter Property="Opacity" Value="0.12" />
-                </KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="ListBoxItem:selected:focus /template/ Border#SelectedBorder">
-        <Style.Animations>
-            <Animation Duration="0:0:0.2" FillMode="Both">
-                <KeyFrame Cue="100%">
-                    <Setter Property="Opacity" Value="0.18" />
-                </KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="ListBoxItem:not(:selected) /template/ Border#SelectedBorder">
-        <Style.Animations>
-            <Animation Duration="0:0:0.2" FillMode="Both">
-                <KeyFrame Cue="100%">
-                    <Setter Property="Opacity" Value="0" />
-                </KeyFrame>
-            </Animation>
-        </Style.Animations>
-    </Style>
-
-    <Style Selector="ListBoxItem:not(:disabled):pointerover /template/ Border#PointerOverBorder">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.1" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.1" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
-    </Style>
-
-    <Style Selector="ListBoxItem:disabled">
-        <Setter Property="Opacity" Value="0.56" />
-    </Style>
-     
+  <Style Selector="ListBoxItem:disabled">
+    <Setter Property="Opacity" Value="0.56" />
+  </Style>
+  <Style Selector="ListBoxItem:not(:disabled):pointerover /template/ Border#pointerOverBorder">
+    <Setter Property="Opacity" Value="0.1" />
+  </Style>
+  <Style Selector="ListBoxItem:selected:not(:focus) /template/ Border#selectedBorder">
+    <Setter Property="Opacity" Value="0.12" />
+  </Style>
+  <Style Selector="ListBoxItem:selected:focus /template/ Border#selectedBorder">
+    <Setter Property="Opacity" Value="0.18" />
+  </Style>
+  <Style Selector="ListBoxItem:not(:pointerover) /template/ Border#pointerOverBorder">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
+  <Style Selector="ListBoxItem:not(:selected) /template/ Border#selectedBorder">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
 </Styles>

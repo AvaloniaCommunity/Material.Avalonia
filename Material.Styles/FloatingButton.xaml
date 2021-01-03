@@ -45,8 +45,18 @@
                                     Background="{TemplateBinding Background}"
                                     assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
                             <Border x:Name="MouseOverBorder" CornerRadius="28"
-                                    IsHitTestVisible="False" Opacity="0"
-                                    Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
+                                    IsHitTestVisible="False"
+                                    Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" >
+                        <Border.Styles>
+                          <Style Selector="Border#MouseOverBorder">
+                            <Setter Property="Transitions">
+                              <Transitions>
+                                <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+                              </Transitions>
+                            </Setter>
+                          </Style>
+                        </Border.Styles>
+                      </Border>
                         </Grid>
                     </AdornerLayer>
                     <Border Name="ContentBorder" CornerRadius="28" ClipToBounds="True"
@@ -77,18 +87,10 @@
         <Setter Property="assists:ShadowAssist.Darken" Value="True" />
     </Style>
     <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#MouseOverBorder">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.3" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.1" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
+      <Setter Property="Opacity" Value="0.1" />
+    </Style>
+    <Style Selector="cc|FloatingButton:not(:pointerover):not(.no-material) /template/ Border#MouseOverBorder">
+      <Setter Property="Opacity" Value="0" />
     </Style>
 
   <Style Selector="cc|FloatingButton.Mini">
