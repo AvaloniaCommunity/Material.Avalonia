@@ -124,8 +124,9 @@
             </animations:ReverseAfterEndAnimation>
         </Style.Animations>
     </Style>
-    <Style Selector="TextBox /template/ Border#dborder">
+    <Style Selector="TextBox /template/ Border#border">
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+    </Style>
     <Style Selector="TextBox:focus /template/ styles|MaterialUnderline#Underline">
         <Setter Property="IsExpanded" Value="True"></Setter>
     </Style>
