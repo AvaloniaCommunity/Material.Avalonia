@@ -33,11 +33,17 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaXaml Update="Pages\TogglesDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\ButtonsDemo.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\TogglesDemo.axaml.cs">
+      <DependentUpon>TogglesDemo.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\ButtonsDemo.xaml.cs">
       <DependentUpon>ButtonsDemo.axaml</DependentUpon>
     </Compile>

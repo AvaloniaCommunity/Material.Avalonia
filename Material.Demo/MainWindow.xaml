@@ -113,7 +113,7 @@
           <pages:ButtonsDemo/>
           
           <!-- Toggles -->
-          <pages:NotReadyDemo/>
+          <pages:TogglesDemo/>
           
           <!-- Fields -->
           <pages:FieldsDemo/>
