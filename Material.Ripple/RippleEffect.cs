@@ -38,9 +38,9 @@ namespace Material.Ripple {
 
             var style = _circle.Styles[0] as Style;
             _ripple = style.Animations[0] as Animation;
-            _toWidth = _ripple.Children[1].Setters[1];
+            _toWidth = _ripple.Children[2].Setters[1];
             _fromMargin = _ripple.Children[0].Setters[0];
-            _toMargin = _ripple.Children[1].Setters[0];
+            _toMargin = _ripple.Children[2].Setters[0];
 
             style.Animations.Remove(_ripple);
         }
@@ -56,7 +56,7 @@ namespace Material.Ripple {
         }
 
         public static readonly StyledProperty<double> RippleOpacityProperty =
-            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.75);
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.4);
 
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
