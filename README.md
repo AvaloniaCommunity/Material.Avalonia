@@ -32,10 +32,4 @@ Not all controls are already styled, if some are not showing add the following l
         <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
     </Application.Styles>
 ```
-
-**Powered by**
-
-
-<a href="https://www.jetbrains.com/?from=ABC">
-<img width="400" alt="portfolio_view" src="https://github.com/CreateLab/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png" />
 </a>
