@@ -1,6 +1,10 @@
 # material.avalonia
 
-<img src="/Banner.svg" width="1280" height="720">
+<img src="/Banner.svg" width="1280" height="480">
+
+![](/Images/1.png)
+
+![](/Images/2.png)
 
 [![nuget](https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
 
