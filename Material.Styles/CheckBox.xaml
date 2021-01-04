@@ -9,7 +9,7 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="wpf:SelectionControlAssist.Size" Value="20" />
-        <Setter Property="Padding" Value="4,2,0,0" />
+        <Setter Property="Padding" Value="4,0,0,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
@@ -19,22 +19,23 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Viewbox
-                            Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
-                            Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            ClipToBounds="False">
-                            <Grid>
-                                <Path x:Name="Graphic" Width="20" Height="20" Margin="-2 -2 0 0"/>
-                                <Ellipse x:Name="InteractionEllipse"
-                                         Fill="{TemplateBinding Background}" 
-                                         VerticalAlignment="Center" HorizontalAlignment="Center"
-                                         Width="0" Height="0" Opacity="0" Margin="-100"
-                                         ClipToBounds="False"
-                                         IsHitTestVisible="False">
-                                </Ellipse>
-                            </Grid>
-                        </Viewbox>
+                        <Grid>
+                          <Path x:Name="Graphic" Width="24" Height="24" Margin="0"/>
+                          <Ellipse x:Name="InteractionEllipse"
+                                   Fill="{TemplateBinding Background}"
+                                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   Width="0" Height="0" Opacity="0" Margin="-100"
+                                   ClipToBounds="False"
+                                   IsHitTestVisible="False">
+                          </Ellipse>
+                          <Ellipse x:Name="pointerOverEllipse"
+                                   Fill="{TemplateBinding Background}"
+                                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   Width="42" Height="42" Margin="-100"
+                                   ClipToBounds="False"
+                                   IsHitTestVisible="False">
+                          </Ellipse>
+                        </Grid>
                         <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           Margin="{TemplateBinding Padding}"
@@ -81,8 +82,8 @@
                         <Setter Property="Opacity" Value="0.28" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="Width" Value="48" />
-                        <Setter Property="Height" Value="48" />
+                        <Setter Property="Width" Value="42" />
+                        <Setter Property="Height" Value="42" />
                         <Setter Property="Opacity" Value="0.28" />
                     </KeyFrame>
                 </Animation>
@@ -101,4 +102,11 @@
             </Animation>
         </Style.Animations>
     </Style>
+
+  <Style Selector="CheckBox /template/ Ellipse#pointerOverEllipse">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
+  <Style Selector="CheckBox:not(:disabled):pointerover /template/ Ellipse#pointerOverEllipse">
+    <Setter Property="Opacity" Value="0.15" />
+  </Style>
 </Styles>
