@@ -272,6 +272,11 @@
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
                   BorderThickness="{TemplateBinding BorderThickness}">
+            <Border.Styles>
+              <Style Selector="Border:disabled, TextBlock:disabled">
+                <Setter Property="Opacity" Value="0.5" />
+              </Style>
+            </Border.Styles>
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Border Name="focusBorder" 
                         CornerRadius="8,8,0,0" 
@@ -360,6 +365,7 @@
   </Style>
 
 
+
   <!-- Filled TextBox variants (with clear button or with reveal password switch) -->
 
   <Style Selector="TextBox.Filled.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
@@ -441,6 +447,8 @@
       </Template>
     </Setter>
   </Style>
+  
+  
 
 
 
@@ -449,6 +457,8 @@
       <StackPanel>
         <TextBox Classes="" Margin="8" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
         <TextBox Classes="Filled" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
+        <TextBox Classes="Filled" IsEnabled="False" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
+
       </StackPanel>
     </Border>
   </Design.PreviewWith>
