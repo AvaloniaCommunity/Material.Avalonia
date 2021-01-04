@@ -33,5 +33,18 @@
       <ToggleSwitch Classes="LeftHeader" Content="You can't switch me!" IsEnabled="False"/>
  
     </StackPanel>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Checkboxes"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="CheckBox">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <CheckBox Content="This is checkbox!"/>
+      <CheckBox Content="This is checkbox!" IsChecked="True"/>
+      <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
+
+    </StackPanel>
   </StackPanel>
 </UserControl>
