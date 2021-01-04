@@ -139,7 +139,7 @@
       <Setter Property="Opacity" Value="1"/>
     </Style>
     <Style Selector="TextBox:not(:focus):empty /template/ TextBlock#floatingWatermark">
-      <Setter Property="Opacity" Value="0"/>
+      <Setter Property="Opacity" Value="1"/>
     </Style>
     <Style Selector="TextBox:focus:empty /template/ TextBlock#watermark,
                      TextBox:focus:not(:empty) /template/ TextBlock#watermark,
@@ -210,7 +210,7 @@
                             <Setter Property="(ToolTip.Tip)" Value="Show Password" />
                         </Style>
                     </Panel.Styles>
-                    <ToggleButton Classes="Tool passwordBoxRevealButton"  
+                    <ToggleButton Classes="Tool passwordBoxRevealButton TransparentBack"  
                                   Cursor="Arrow" Width="28" Height="28"
                                   Padding="4" Margin="4, 4, 0, 4"
                                   Focusable="True"
@@ -250,5 +250,206 @@
                 </Panel>
             </Template>
         </Setter>
-    </Style>   
+    </Style>
+
+
+  <!-- Filled textbox -->
+  <Style Selector="TextBox.Filled">
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Padding" Value="0,8" />
+    <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+    <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"></Setter>
+    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel> 
+          <Border Name="border"
+                  Cursor="Ibeam"
+                  MinHeight="48" 
+                  CornerRadius="8,8,0,0" 
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Border Name="focusBorder" 
+                        CornerRadius="8,8,0,0" 
+                        Background="{TemplateBinding Background}" />
+                <TextBlock Name="floatingWatermark"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Stretch"
+                           Classes="Subtitle1" 
+                           Foreground="{DynamicResource ThemeAccentBrush}"
+                           FontSize="{DynamicResource FontSizeSmall}"
+                           Text="{TemplateBinding Watermark}" 
+                           RenderTransformOrigin="0, 0"
+                           IsVisible="{TemplateBinding UseFloatingWatermark}">
+                  <TextBlock.Styles>
+                    <Style Selector="TextBlock#floatingWatermark:not(.notransitions)">
+                      <Setter Property="Transitions">
+                        <Transitions>
+                          <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
+                          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CubicEaseOut" />
+                        </Transitions>
+                      </Setter>
+                    </Style> 
+                  </TextBlock.Styles>
+                </TextBlock>
+
+              <DataValidationErrors Name="DataValidation" >
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                  <ContentPresenter Grid.Column="0"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    Content="{TemplateBinding InnerLeftContent}" />
+                  <ScrollViewer Grid.Column="1"
+                                HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                    <TextPresenter Name="PART_TextPresenter"
+               FontSize="16"
+               Margin="12,27,12,10"
+               FontWeight="Regular"
+               Text="{TemplateBinding Text, Mode=TwoWay}"
+               CaretIndex="{TemplateBinding CaretIndex}"
+               SelectionStart="{TemplateBinding SelectionStart}"
+               SelectionEnd="{TemplateBinding SelectionEnd}"
+               TextAlignment="{TemplateBinding TextAlignment}"
+               TextWrapping="{TemplateBinding TextWrapping}"
+               PasswordChar="{TemplateBinding PasswordChar}"
+               RevealPassword="{TemplateBinding RevealPassword}"
+               SelectionBrush="{TemplateBinding SelectionBrush}"
+               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+               CaretBrush="{TemplateBinding CaretBrush}" />
+                  </ScrollViewer>
+                  <ContentPresenter Grid.Column="2"
+                                    MinHeight="32"
+                                    VerticalAlignment="Top"
+                                    Content="{TemplateBinding InnerRightContent}" />
+                </Grid>
+              </DataValidationErrors> 
+              <styles:MaterialUnderline Classes="MirrorY" 
+                                        VerticalAlignment="Bottom"   
+                                        Name="Underline"/>
+            </Grid>
+          </Border>
+          <TextBlock Classes="Caption"
+                     Margin="0,3,0,0"
+                     Text="{Binding ElementName=DataValidation, Path=Errors}"
+                     Foreground="#f44336"/>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="TextBox.Filled:focus:not(:empty) /template/ TextBlock#floatingWatermark,
+                   TextBox.Filled:focus /template/ TextBlock#floatingWatermark,
+                   TextBox.Filled:not(:empty) /template/ TextBlock#floatingWatermark">
+    <Setter Property="Margin" Value="10,10,1,1"/>
+    <Setter Property="RenderTransform">
+      <Setter.Value>
+        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+      </Setter.Value>
+    </Setter>
+  </Style> 
+  <Style Selector="TextBox.Filled:focus /template/ Border#focusBorder">  
+    <Setter Property="Opacity" Value="0.35"/>
+  </Style>
+  <Style Selector="TextBox.Filled:empty:not(:focus) /template/ TextBlock#floatingWatermark">
+    <Setter Property="Margin" Value="10,20,1,1"/> 
+  </Style>
+
+
+  <!-- Filled TextBox variants (with clear button or with reveal password switch) -->
+
+  <Style Selector="TextBox.Filled.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+    <Setter Property="InnerRightContent">
+      <Template>
+        <Panel Height="56" Margin="8,0">
+          <Button Classes="Icon textBoxClearButton"
+                  Command="{Binding $parent[TextBox].Clear}"
+                  VerticalAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Cursor="Arrow" Width="42" Height="42"
+                  Padding="12"
+                  Focusable="True"  Margin="4, 4, 0, 4">
+            <Path x:Name="PART_GlyphElement"
+                  Fill="{DynamicResource PrimaryHueMidBrush}"
+                  Data="{StaticResource TextBoxClearButtonData}"
+                  Stretch="Uniform"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center" />
+          </Button>
+        </Panel>
+      </Template>
+    </Setter>
+  </Style>
+
+  <Style Selector="TextBox.Filled.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]">
+    <Setter Property="InnerRightContent">
+      <Template>
+        <Panel Height="56" Margin="8,0">
+          <Panel.Styles>
+            <Style Selector="ToggleButton[IsChecked=True]">
+              <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
+            </Style>
+            <Style Selector="ToggleButton[IsChecked=False]">
+              <Setter Property="(ToolTip.Tip)" Value="Show Password" />
+            </Style>
+          </Panel.Styles>
+          <ToggleButton Classes="Icon passwordBoxRevealButton TransparentBack"
+                        VerticalContentAlignment="Center"
+                        Cursor="Arrow" Width="42" Height="42"
+                        VerticalAlignment="Center" 
+                        Padding="8"
+                        Margin="4, 4, 0, 4"
+                        Focusable="True"
+                        IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
+            <ToggleButton.Styles>
+              <Style Selector="ToggleButton.passwordBoxRevealButton:checked  Path#PART_GlyphElement_Hide">
+                <Setter Property="IsVisible" Value="True" />
+              </Style>
+              <Style Selector="ToggleButton.passwordBoxRevealButton:not(ToggleButton:checked)  Path#PART_GlyphElement_Reveal">
+                <Setter Property="IsVisible" Value="True" />
+              </Style>
+              <Style Selector="ToggleButton.passwordBoxRevealButton:not(ToggleButton:checked)  Path#PART_GlyphElement_Hide">
+                <Setter Property="IsVisible" Value="False" />
+              </Style>
+              <Style Selector="ToggleButton.passwordBoxRevealButton:checked  Path#PART_GlyphElement_Reveal">
+                <Setter Property="IsVisible" Value="False" />
+              </Style>
+              <Style Selector="ToggleButton.passwordBoxRevealButton">
+                <Setter Property="Focusable" Value="True" />
+              </Style>
+            </ToggleButton.Styles>
+            <Panel>
+              <Path x:Name="PART_GlyphElement_Reveal"
+                    Fill="{DynamicResource PrimaryHueMidBrush}"
+                    Data="{DynamicResource PasswordBoxRevealButtonData}"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+              <Path x:Name="PART_GlyphElement_Hide"
+                    Fill="{DynamicResource PrimaryHueMidBrush}"
+                    Data="{DynamicResource PasswordBoxHideButtonData}"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+            </Panel>
+          </ToggleButton>
+        </Panel>
+      </Template>
+    </Setter>
+  </Style>
+
+
+
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel>
+        <TextBox Classes="" Margin="8" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
+        <TextBox Classes="Filled" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
 </Styles>
