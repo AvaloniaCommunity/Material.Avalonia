@@ -17,6 +17,20 @@
         <Setter Property="Cursor" Value="Hand" />
     </Style>
 
+  <Style Selector="ToggleButton.TransparentBack">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="Transparent"></Setter>
+    <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource PrimaryHueMidBrush}"></Setter>
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="16 4 16 4" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Cursor" Value="Hand" />
+  </Style>
+
     <Style Selector="ToggleButton:checked">
         <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedForeground)}" />
