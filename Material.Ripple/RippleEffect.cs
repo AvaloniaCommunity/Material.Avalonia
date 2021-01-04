@@ -48,7 +48,7 @@ namespace Material.Ripple {
         #region Styled properties
 
         public static readonly StyledProperty<Brush> RippleFillProperty =
-            AvaloniaProperty.Register<RippleEffect, Brush>(nameof(RippleFill));
+            AvaloniaProperty.Register<RippleEffect, Brush>(nameof(RippleFill), SolidColorBrush.Parse("#FFF"));
 
         public Brush RippleFill {
             get => GetValue(RippleFillProperty);
@@ -56,7 +56,7 @@ namespace Material.Ripple {
         }
 
         public static readonly StyledProperty<double> RippleOpacityProperty =
-            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.4);
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.6);
 
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
