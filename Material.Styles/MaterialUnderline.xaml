@@ -34,7 +34,38 @@
             </ControlTemplate>
         </Setter>
     </Style>
-    <Style Selector="cc|MaterialUnderline /template/ Border#Border">
+    <Style Selector="cc|MaterialUnderline.MirrorY">
+      <Setter Property="Focusable" Value="False"></Setter>
+      <Setter Property="Height" Value="2"></Setter>
+      <Setter Property="BackgroundColor" Value="{DynamicResource MaterialDesignTextBoxBorder}"></Setter>
+      <Setter Property="ActiveColor" Value="{DynamicResource PrimaryHueMidBrush}"></Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Grid>
+            <ContentControl Content="{TemplateBinding Content}"></ContentControl>
+            <Border Name="Border"
+                    Height="1" VerticalAlignment="Bottom"
+                    Focusable="False" IsHitTestVisible="False" />
+            <Border Name="ActivationIndicator" 
+                    Height="2" VerticalAlignment="Bottom"
+                    Focusable="False" IsHitTestVisible="False"
+                    Background="{TemplateBinding ActiveColor}">
+              <Border.Styles>
+                <Style Selector="Border#ActivationIndicator">
+                  <Setter Property="Transitions">
+                    <Transitions>
+                      <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CubicEaseOut"/>
+                    </Transitions>
+                  </Setter>
+                </Style>
+              </Border.Styles>
+            </Border> 
+          </Grid>
+        </ControlTemplate>
+      </Setter>
+    </Style>
+
+  <Style Selector="cc|MaterialUnderline /template/ Border#Border">
         <Setter Property="Background" Value="{Binding $parent[cc:MaterialUnderline].BackgroundColor}" />
     </Style>
     <Style Selector="cc|MaterialUnderline[IsActive=True] /template/ Border#Border">
