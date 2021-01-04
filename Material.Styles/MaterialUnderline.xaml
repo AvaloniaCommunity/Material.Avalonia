@@ -16,10 +16,20 @@
                     <Border Name="Border" 
                             Height="1" VerticalAlignment="Bottom" Margin="0 0 0 1"
                             Focusable="False" IsHitTestVisible="False" />
-                    <Border Name="ActivationIndicator" Width="0"
+                    <Border Name="ActivationIndicator"
                             Height="2" VerticalAlignment="Bottom" 
                             Focusable="False" IsHitTestVisible="False"
-                            Background="{TemplateBinding ActiveColor}"/>
+                            Background="{TemplateBinding ActiveColor}">
+                      <Border.Styles>
+                        <Style Selector="Border#ActivationIndicator">
+                          <Setter Property="Transitions">
+                            <Transitions>
+                              <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CubicEaseOut"/>
+                            </Transitions>
+                          </Setter>
+                        </Style>
+                      </Border.Styles>
+                    </Border>
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -30,18 +40,10 @@
     <Style Selector="cc|MaterialUnderline[IsActive=True] /template/ Border#Border">
         <Setter Property="Background" Value="{Binding $parent[cc:MaterialUnderline].ActiveColor}" />
     </Style>
+  <Style Selector="cc|MaterialUnderline /template/ Border#ActivationIndicator">
+    <Setter Property="Width" Value="0" />
+  </Style>
     <Style Selector="cc|MaterialUnderline[IsExpanded=True] /template/ Border#ActivationIndicator">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.25" FillMode="Both" Easing="LinearEasing">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Width" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
+      <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
     </Style>
 </Styles>
