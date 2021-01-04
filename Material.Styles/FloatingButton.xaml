@@ -87,7 +87,7 @@
         <Setter Property="assists:ShadowAssist.Darken" Value="True" />
     </Style>
     <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#MouseOverBorder">
-      <Setter Property="Opacity" Value="0.1" />
+      <Setter Property="Opacity" Value="0.35" />
     </Style>
     <Style Selector="cc|FloatingButton:not(:pointerover):not(.no-material) /template/ Border#MouseOverBorder">
       <Setter Property="Opacity" Value="0" />

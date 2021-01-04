@@ -27,7 +27,7 @@
                               Name="selectedBorder"
                               Background="{TemplateBinding Foreground}">
                         <Border.Styles>
-                          <Style Selector="Border#selectedBorder">
+                          <Style Selector="Border#selectedBorder:not(.notransitions)">
                             <Setter Property="Transitions">
                               <Transitions>
                                 <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
@@ -40,7 +40,7 @@
                               Name="pointerOverBorder"
                               Background="{TemplateBinding Foreground}">
                         <Border.Styles>
-                          <Style Selector="Border#pointerOverBorder">
+                          <Style Selector="Border#pointerOverBorder:not(.notransitions)">
                             <Setter Property="Transitions">
                               <Transitions>
                                 <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>

@@ -16,7 +16,7 @@
                   IsHitTestVisible="{TemplateBinding LeftDrawerOpened}" HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch">
             <Border.Styles>
-              <Style Selector="Border#PART_Scrim">
+              <Style Selector="Border#PART_Scrim:not(.notransitions)">
                 <Setter Property="Transitions">
                   <Transitions>
                     <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="CircularEaseInOut"/>
@@ -28,7 +28,7 @@
           <cc:Card x:Name="PART_LeftDrawer" HorizontalAlignment="Left" Width="{TemplateBinding LeftDrawerWidth}"
        Margin="-1000,0,0,0" Padding="0" CornerRadius="0">
             <cc:Card.Styles>
-              <Style Selector="cc|Card#PART_LeftDrawer">
+              <Style Selector="cc|Card#PART_LeftDrawer:not(.notransitions)">
                 <Setter Property="Transitions">
                   <Transitions>
                     <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CircularEaseInOut"/>
