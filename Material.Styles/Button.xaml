@@ -102,7 +102,8 @@
               </Border.Styles>
             </Border>
           </Border>
-          <Border CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+          <Border BorderThickness="0"
+                  CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
                   ClipToBounds="True">
             <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
               <ContentPresenter Name="PART_ContentPresenter"
@@ -117,6 +118,57 @@
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
             </ripple:RippleEffect>
           </Border>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="Button.Icon, ToggleButton.Icon">
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+    <Setter Property="Padding" Value="16 16 16 16" />
+    <Setter Property="Height" Value="48" />
+    <Setter Property="Width" Value="48" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid>
+          <Ellipse Name="pointerOverEllipse"
+                   Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-100"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Fill="{TemplateBinding Foreground}"
+                   IsHitTestVisible="False">
+            <Ellipse.Styles>
+              <Style Selector="Ellipse#pointerOverBorder:not(.notransitions)">
+                <Setter Property="Transitions">
+                  <Transitions>
+                    <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+                  </Transitions>
+                </Setter>
+              </Style>
+            </Ellipse.Styles> 
+          </Ellipse>
+          <Border Width="{TemplateBinding Width}" 
+                  Height="{TemplateBinding Height}" 
+                  CornerRadius="10000"
+                  VerticalAlignment="Center" 
+                  HorizontalAlignment="Center"
+                  ClipToBounds="True">
+            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+              <ContentPresenter Name="PART_ContentPresenter" 
+                                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                Margin="{TemplateBinding Padding}"
+                                TextBlock.Foreground="{TemplateBinding Foreground}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ripple:RippleEffect>
+          </Border> 
         </Grid>
       </ControlTemplate>
     </Setter>
@@ -140,6 +192,14 @@
     <Setter Property="Opacity" Value="0.15" />
   </Style>
 
+  <Style Selector="Button.Icon /template/ Ellipse#pointerOverEllipse,
+                   ToggleButton.Icon /template/ Ellipse#pointerOverEllipse">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
+  <Style Selector="Button.Icon:not(:disabled):pointerover /template/ Ellipse#pointerOverEllipse,
+                   ToggleButton.Icon:not(:disabled):pointerover /template/ Ellipse#pointerOverEllipse">
+    <Setter Property="Opacity" Value="0.15" />
+  </Style>
 
   <Style Selector="Button.DrawerItem, ToggleButton.DrawerItem"> 
     <Setter Property="Height" Value="48"/>
