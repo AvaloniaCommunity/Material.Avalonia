@@ -332,7 +332,7 @@
                                 VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                     <TextPresenter Name="PART_TextPresenter"
                FontSize="16"
-               Margin="12,27,12,10"
+               Margin="10,27,12,10"
                FontWeight="Regular"
                Text="{TemplateBinding Text, Mode=TwoWay}"
                CaretIndex="{TemplateBinding CaretIndex}"
@@ -391,7 +391,7 @@
                   Command="{Binding $parent[TextBox].Clear}"
                   VerticalAlignment="Center"
                   VerticalContentAlignment="Center"
-                  Cursor="Arrow" Width="42" Height="42"
+                  Cursor="Arrow" Width="36" Height="36"
                   Padding="12"
                   Focusable="True"  Margin="4, 4, 0, 4">
             <Path x:Name="PART_GlyphElement"
@@ -420,7 +420,7 @@
           </Panel.Styles>
           <ToggleButton Classes="Icon passwordBoxRevealButton TransparentBack"
                         VerticalContentAlignment="Center"
-                        Cursor="Arrow" Width="42" Height="42"
+                        Cursor="Arrow" Width="36" Height="36"
                         VerticalAlignment="Center" 
                         Padding="8"
                         Margin="4, 4, 0, 4"
