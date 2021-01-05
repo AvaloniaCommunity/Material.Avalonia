@@ -490,9 +490,10 @@
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
               <Border Name="watermarkRoot" 
                       x:Name="watermarkRoot" 
-                      Background="{DynamicResource MaterialDesignPaper }" 
+                      Background="{DynamicResource MaterialDesignPaper}" 
                       HorizontalAlignment="Left" 
                       VerticalAlignment="Top"
+                      RenderTransformOrigin="0, 0"
                       Opacity="1"
                       IsVisible="{TemplateBinding UseFloatingWatermark}">
                 <Border.Styles>
@@ -507,6 +508,7 @@
                 </Border.Styles>
                 <TextBlock Name="floatingWatermark"
                            Classes="Subtitle1"
+                           HorizontalAlignment="Stretch"
                            Margin="4,2"
                            Foreground="{DynamicResource ThemeAccentBrush}" 
                            Text="{TemplateBinding Watermark}" />
@@ -554,7 +556,7 @@
   <Style Selector="TextBox.Outline:focus:not(:empty) /template/ Border#watermarkRoot,
                    TextBox.Outline:focus /template/ Border#watermarkRoot,
                    TextBox.Outline:not(:empty) /template/ Border#watermarkRoot">
-    <Setter Property="Margin" Value="6,-12,1,1"/>
+    <Setter Property="Margin" Value="10,-9,1,1"/>
     <Setter Property="RenderTransform" Value="scale(0.75)"/>
   </Style>
   <Style Selector="TextBox.Outline:focus /template/ Border#focusBorder">
@@ -572,7 +574,7 @@
         <TextBox Classes="" Margin="8" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
         <TextBox Classes="Filled" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
         <TextBox Classes="Filled" IsEnabled="False" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
-        <TextBox Classes="Outline" IsEnabled="True" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
+        <TextBox Classes="Outline" IsEnabled="True" Width="200" UseFloatingWatermark="True" Watermark="TextBox3248239"/>
  
       </StackPanel>
     </Border>
