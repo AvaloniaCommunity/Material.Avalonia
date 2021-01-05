@@ -166,11 +166,7 @@
   </Style>
   <Style Selector="TextBox:pointerover /template/ styles|MaterialUnderline#Underline">
     <Setter Property="IsActive" Value="True"></Setter>
-  </Style>
-
-  <Style Selector="TextBox:pointerover /template/ styles|MaterialUnderline#Underline">
-    <Setter Property="IsActive" Value="True"></Setter>
-  </Style>
+  </Style> 
 
   <Style Selector="TextBox:disabled /template/ Border#border">
     <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
