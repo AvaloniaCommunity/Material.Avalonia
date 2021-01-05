@@ -2,7 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cc="clr-namespace:Material.Styles"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
-        xmlns:assists="clr-namespace:Material.Styles.Assists">
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:styles="clr-namespace:Material.Styles">
   <Style Selector="ToggleButton.ComboBoxToggleButton">
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
     <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -16,7 +17,7 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate>
-          <Grid>
+          <Grid Margin="4,0">
             <Border x:Name="ToggleTemplateRoot"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -87,7 +88,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
-        <Setter Property="Padding" Value="4" />
+        <Setter Property="Padding" Value="8,4" />
         <Setter Property="ClipToBounds" Value="False"/>
         <Setter Property="Template">
             <ControlTemplate>
@@ -112,6 +113,12 @@
                     </Grid.ColumnDefinitions>
                     <Grid x:Name="InputRoot"
                           HorizontalAlignment="Left">
+                      <TextBlock Name="placeholderText" 
+                                 Classes="Subtitle1"
+                                 IsVisible="False"
+                                 Opacity="0.5"
+                                 Text="{TemplateBinding PlaceholderText}"
+                                 FontFamily="{TemplateBinding FontFamily}"  />
                       <ContentPresenter x:Name="contentPresenter"
                                         Content="{TemplateBinding SelectionBoxItem}"
                                         ContentTemplate="{TemplateBinding ItemTemplate}"
@@ -123,23 +130,29 @@
                          IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
                          MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                          VerticalOffset="0"
+                         Margin="-8"
+                         WindowManagerAddShadowHint="False"
                          PlacementTarget="{Binding ElementName=templateRoot}"
                          IsLightDismissEnabled="True"
                          UseLayoutRounding="True" 
                          ClipToBounds="False" >
-                      <cc:Card assists:ShadowAssist.ShadowDepth="Depth0"
+                      <cc:Card assists:ShadowAssist.ShadowDepth="Depth1"
+                               Margin="4,0,4,4" 
+                               CornerRadius="0,0,4,4"
                                Padding="0">
-                        <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                      MinHeight="1"
-                                      Background="{Binding Background, ElementName=PART_Popup}">
-                          <ItemsPresenter Name="PART_ItemsPresenter"
-                                  Items="{TemplateBinding Items}"
-                                  ItemsPanel="{TemplateBinding ItemsPanel}"
-                                  ItemTemplate="{TemplateBinding ItemTemplate}"
-                                  VirtualizationMode="{TemplateBinding VirtualizationMode}" />
-                        </ScrollViewer>
-                      </cc:Card>
-
+                        <Border ClipToBounds="True"
+                                CornerRadius="0,0,4,4">
+                            <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
+                                          MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                          MinHeight="1" >
+                              <ItemsPresenter Name="PART_ItemsPresenter"
+                                      Items="{TemplateBinding Items}"
+                                      ItemsPanel="{TemplateBinding ItemsPanel}"
+                                      ItemTemplate="{TemplateBinding ItemTemplate}"
+                                      VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                            </ScrollViewer>
+                          </Border> 
+                      </cc:Card> 
                   </Popup>
                 </Grid>
               </Grid>
@@ -147,15 +160,144 @@
         </Setter>
     </Style>
 
+  <Style Selector="ComboBox[SelectedIndex=-1] /template/ TextBlock#placeholderText">
+    <Setter Property="IsVisible" Value="True"/>
+  </Style>
 
+
+
+  <Style Selector="ComboBox.Filled">
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+    <Setter Property="Padding" Value="16,8" />
+    <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel>
+          <ToggleButton Classes="NoFeedback" 
+                        MinHeight="48"
+                        HorizontalContentAlignment="Stretch"
+                        IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                        Margin="0"
+                        Padding="0">
+            <Border Name="border"
+                    Margin="2,0"
+                    MinHeight="48"
+                    CornerRadius="8,8,0,0"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+              <Border.Styles>
+                <Style Selector="Border:disabled, TextBlock:disabled">
+                  <Setter Property="Opacity" Value="0.5" />
+                </Style>
+              </Border.Styles>
+              <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"> 
+                <TextBlock Name="floatingWatermark"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Stretch"
+                           Classes="Subtitle1"
+                           Foreground="{DynamicResource ThemeAccentBrush}"
+                           FontSize="{DynamicResource FontSizeSmall}"
+                           Text="{TemplateBinding PlaceholderText}"
+                           RenderTransformOrigin="0, 0" >
+                  <TextBlock.Styles>
+                    <Style Selector="TextBlock#floatingWatermark:not(.notransitions)">
+                      <Setter Property="Transitions">
+                        <Transitions>
+                          <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
+                          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CubicEaseOut" />
+                        </Transitions>
+                      </Setter>
+                    </Style>
+                  </TextBlock.Styles>
+                </TextBlock>
+                <Grid ColumnDefinitions="*,Auto">
+                  <ContentPresenter x:Name="contentPresenter"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding SelectionBoxItem}"
+                                    ContentTemplate="{TemplateBinding ItemTemplate}"
+                                    Margin="{TemplateBinding Padding}"/>
+                  <Border x:Name="splitBorder"
+                          Grid.Column="1"
+                          Margin="16"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Center" 
+                          BorderBrush="Transparent"
+                          BorderThickness="0">
+                    <Path x:Name="arrow"
+                          Width="8" Height="8" 
+                          Stretch="Uniform"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Center"
+                          Data="M7,10L12,15L17,10H7Z"
+                          Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                  </Border>
+                </Grid>
+                <styles:MaterialUnderline Classes="MirrorY"
+                                          VerticalAlignment="Bottom"
+                                          Name="Underline"/>
+
+              </Grid>
+            </Border>
+          </ToggleButton>
+          <Popup Name="PART_Popup"
+                 IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                 VerticalOffset="0"
+                 Margin="0"
+                 WindowManagerAddShadowHint="False"
+                 PlacementTarget="{Binding ElementName=templateRoot}"
+                 IsLightDismissEnabled="True"
+                 UseLayoutRounding="True"
+                 ClipToBounds="False" >
+            <cc:Card assists:ShadowAssist.ShadowDepth="Depth1"
+                     Margin="4,0,4,4"
+                     CornerRadius="0,0,8,8"
+                     Padding="0">
+              <Border ClipToBounds="True"
+                      CornerRadius="0,0,8,8">
+                <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                              MinHeight="1" >
+                  <ItemsPresenter Name="PART_ItemsPresenter" 
+                          Items="{TemplateBinding Items}"
+                          ItemsPanel="{TemplateBinding ItemsPanel}"
+                          ItemTemplate="{TemplateBinding ItemTemplate}"
+                          VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                </ScrollViewer>
+              </Border>
+            </cc:Card>
+          </Popup>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="ComboBox.Filled[IsDropDownOpen=true] /template/ TextBlock#floatingWatermark">
+    <Setter Property="Margin" Value="10,10,1,1"/>
+    <Setter Property="RenderTransform" Value="scale(0.75)"/>
+  </Style> 
+  <Style Selector="ComboBox.Filled[IsDropDownOpen=false] /template/ TextBlock#floatingWatermark">
+    <Setter Property="Margin" Value="10,20,1,1"/>
+  </Style>
+  
 
   <Design.PreviewWith>
-    <Border Padding="20" Width="400" Height="400">
-      <ComboBox >
-        <ComboBox.Items>
-          <ComboBoxItem Content="Item 1" />
-        </ComboBox.Items>
-      </ComboBox>
+    <Border Padding="20" Width="360" Height="400">
+      <StackPanel VerticalAlignment="Center">
+        <ComboBox PlaceholderText="Test">
+          <ComboBox.Items>
+            <ComboBoxItem Content="Item 1" />
+          </ComboBox.Items>
+        </ComboBox>
+        <ComboBox Classes="Filled" PlaceholderText="Test" >
+          <ComboBox.Items>
+            <ComboBoxItem Content="Item 1" />
+          </ComboBox.Items>
+        </ComboBox>
+      </StackPanel>
     </Border>
   </Design.PreviewWith>
 </Styles>
