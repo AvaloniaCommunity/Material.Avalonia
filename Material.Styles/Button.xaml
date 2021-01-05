@@ -102,22 +102,18 @@
               </Border.Styles>
             </Border>
           </Border>
-          <Border BorderThickness="0"
-                  CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                  ClipToBounds="True">
-            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-              <ContentPresenter Name="PART_ContentPresenter"
-                                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Content="{TemplateBinding Content}"
-                                Padding="{TemplateBinding Padding}"
-                                TextBlock.Foreground="{TemplateBinding Foreground}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-            </ripple:RippleEffect>
-          </Border>
+          <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              Padding="{TemplateBinding Padding}"
+                              TextBlock.Foreground="{TemplateBinding Foreground}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          </ripple:RippleEffect>
         </Grid>
       </ControlTemplate>
     </Setter>
