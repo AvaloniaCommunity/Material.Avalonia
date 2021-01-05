@@ -39,49 +39,27 @@
                       Fill="{TemplateBinding BorderBrush}" />
               </Border>
             </Border>
-            <Border Name="focusedIndicator" Focusable="False" IsHitTestVisible="False"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    Background="Transparent"
-                    BorderThickness="0 0 0 1" />
-            <Border Name="activationIndicator" Width="0"
-                    Focusable="False" IsHitTestVisible="False"
-                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
-                    Background="Transparent"
-                    BorderThickness="0 0 0 2" />
-          </Grid>
-          
+            <styles:MaterialUnderline Classes="MirrorY"
+                          VerticalAlignment="Bottom"
+                          Focusable="False" IsHitTestVisible="False"
+                          Name="Underline">
+              <styles:MaterialUnderline.Styles>
+                <Style Selector="ToggleButton.ComboBoxToggleButton:checked /template/ styles|MaterialUnderline#Underline">
+                  <Setter Property="IsExpanded" Value="True"></Setter>
+                </Style>
+                <Style Selector="ToggleButton.ComboBoxToggleButton:pointerover /template/ styles|MaterialUnderline#Underline">
+                  <Setter Property="IsActive" Value="True"></Setter>
+                </Style>
+              </styles:MaterialUnderline.Styles>
+            </styles:MaterialUnderline> 
+          </Grid> 
         </ControlTemplate>
       </Setter.Value>
     </Setter>
-  </Style>
-
-  <Style Selector="ToggleButton.ComboBoxToggleButton:checked">
-    <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
-    <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedForeground)}" />
-  </Style>
-  <Style Selector="ToggleButton.ComboBoxToggleButton:unchecked">
-    <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
-    <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedForeground)}" />
-  </Style>
-  <Style Selector="ToggleButton.ComboBoxToggleButton:checked  /template/ Border#focusedIndicator">
-    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
-  </Style>
- 
-  <Style Selector="ToggleButton.ComboBoxToggleButton:checked  /template/ Border#activationIndicator">
-    <Style.Animations>
-      <animations:ReverseAfterEndAnimation>
-        <Animation Duration="0:0:0.2" FillMode="Both" Easing="CircularEaseOut">
-          <KeyFrame Cue="0%">
-            <Setter Property="Width" Value="0" />
-          </KeyFrame>
-          <KeyFrame Cue="100%">
-            <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
-          </KeyFrame>
-        </Animation>
-      </animations:ReverseAfterEndAnimation>
-    </Style.Animations>
-  </Style>
-
+  </Style> 
+  
+  
+  
   <Style Selector="ComboBox">
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -237,8 +215,16 @@
                 </Grid>
                 <styles:MaterialUnderline Classes="MirrorY"
                                           VerticalAlignment="Bottom"
-                                          Name="Underline"/>
-
+                                          Name="Underline">
+                  <styles:MaterialUnderline.Styles>
+                    <Style Selector="ComboBox.Filled[IsDropDownOpen=true] /template/ styles|MaterialUnderline#Underline">
+                      <Setter Property="IsExpanded" Value="True"></Setter>
+                    </Style>
+                    <Style Selector="ComboBox.Filled:pointerover /template/ styles|MaterialUnderline#Underline">
+                      <Setter Property="IsActive" Value="True"></Setter>
+                    </Style>
+                  </styles:MaterialUnderline.Styles>
+                </styles:MaterialUnderline>
               </Grid>
             </Border>
           </ToggleButton>
