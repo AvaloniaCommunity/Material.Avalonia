@@ -33,6 +33,36 @@
         </Setter>
     </Style>
 
+  <Style Selector="cc|Card.NoClip">
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Padding" Value="8"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid Background="Transparent" ClipToBounds="False">
+          <Border assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  ClipToBounds="False">
+            <Border assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}"
+                    Background="{TemplateBinding Background}"
+                    Padding="{TemplateBinding Padding}"
+                    x:Name="PART_ClipBorder"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="False">
+              <ContentPresenter
+                      x:Name="ContentPresenter"
+                      Margin="{TemplateBinding Padding}"
+                      Content="{TemplateBinding Content}"
+                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </Border>
+          </Border>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
   <Design.PreviewWith>
     <Border Padding="40">
       <cc:Card>
