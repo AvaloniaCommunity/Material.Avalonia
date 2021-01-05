@@ -12,12 +12,15 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid Background="Transparent" ClipToBounds="False">
-                    <Border
-                        assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"
+                    <Border assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            ClipToBounds="False">
+                        <Border assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}"
+                                Background="{TemplateBinding Background}" 
+                                Padding="{TemplateBinding Padding}"
                                 x:Name="PART_ClipBorder" 
-                                CornerRadius="{TemplateBinding CornerRadius}">
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                ClipToBounds="True">
                           <ContentPresenter
                                   x:Name="ContentPresenter"
                                   Margin="{TemplateBinding Padding}"
