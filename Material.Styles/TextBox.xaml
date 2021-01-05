@@ -172,14 +172,14 @@
     <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
   </Style>
 
-  <Style Selector="TextBox:focus:not(:empty) /template/ TextBlock#floatingWatermark,
-                   TextBox:focus /template/ TextBlock#floatingWatermark,
-                   TextBox:not(:empty) /template/ TextBlock#floatingWatermark">
+  <Style Selector="TextBox:not(.Outline):focus:not(:empty) /template/ TextBlock#floatingWatermark,
+                   TextBox:not(.Outline):focus /template/ TextBlock#floatingWatermark,
+                   TextBox:not(.Outline):not(:empty) /template/ TextBlock#floatingWatermark">
     <Setter Property="Margin" Value="1,10,1,1"/>
     <Setter Property="RenderTransform" Value="scale(0.75)"/>
   </Style> 
   
-  <Style Selector="TextBox:empty:not(:focus) /template/ TextBlock#floatingWatermark">
+  <Style Selector="TextBox:not(.Outline):empty:not(:focus) /template/ TextBlock#floatingWatermark">
     <Setter Property="Margin" Value="1,32,1,1"/>
     <Setter Property="RenderTransform">
       <Setter.Value>
@@ -324,23 +324,23 @@
                                     HorizontalAlignment="Left"
                                     Content="{TemplateBinding InnerLeftContent}" />
                   <ScrollViewer Grid.Column="1"
+                                Margin="10,27,10,10"
                                 HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                 VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                     <TextPresenter Name="PART_TextPresenter"
-               FontSize="16"
-               Margin="10,27,12,10"
-               FontWeight="Regular"
-               Text="{TemplateBinding Text, Mode=TwoWay}"
-               CaretIndex="{TemplateBinding CaretIndex}"
-               SelectionStart="{TemplateBinding SelectionStart}"
-               SelectionEnd="{TemplateBinding SelectionEnd}"
-               TextAlignment="{TemplateBinding TextAlignment}"
-               TextWrapping="{TemplateBinding TextWrapping}"
-               PasswordChar="{TemplateBinding PasswordChar}"
-               RevealPassword="{TemplateBinding RevealPassword}"
-               SelectionBrush="{TemplateBinding SelectionBrush}"
-               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-               CaretBrush="{TemplateBinding CaretBrush}" />
+                                   FontSize="16" 
+                                   FontWeight="Regular"
+                                   Text="{TemplateBinding Text, Mode=TwoWay}"
+                                   CaretIndex="{TemplateBinding CaretIndex}"
+                                   SelectionStart="{TemplateBinding SelectionStart}"
+                                   SelectionEnd="{TemplateBinding SelectionEnd}"
+                                   TextAlignment="{TemplateBinding TextAlignment}"
+                                   TextWrapping="{TemplateBinding TextWrapping}"
+                                   PasswordChar="{TemplateBinding PasswordChar}"
+                                   RevealPassword="{TemplateBinding RevealPassword}"
+                                   SelectionBrush="{TemplateBinding SelectionBrush}"
+                                   SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                   CaretBrush="{TemplateBinding CaretBrush}" />
                   </ScrollViewer>
                   <ContentPresenter Grid.Column="2"
                                     MinHeight="32"
@@ -379,17 +379,18 @@
 
   <!-- Filled TextBox variants (with clear button or with reveal password switch) -->
 
-  <Style Selector="TextBox.Filled.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+  <Style Selector="TextBox.Filled.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty),
+         TextBox.Outline.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
     <Setter Property="InnerRightContent">
       <Template>
-        <Panel Height="56" Margin="8,0">
+        <Panel Height="56" Margin="0,0,8,0">
           <Button Classes="Icon textBoxClearButton"
                   Command="{Binding $parent[TextBox].Clear}"
                   VerticalAlignment="Center"
                   VerticalContentAlignment="Center"
                   Cursor="Arrow" Width="36" Height="36"
                   Padding="12"
-                  Focusable="True"  Margin="4, 4, 0, 4">
+                  Focusable="True"  Margin="0, 4">
             <Path x:Name="PART_GlyphElement"
                   Fill="{DynamicResource PrimaryHueMidBrush}"
                   Data="{StaticResource TextBoxClearButtonData}"
@@ -402,10 +403,11 @@
     </Setter>
   </Style>
 
-  <Style Selector="TextBox.Filled.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]">
+  <Style Selector="TextBox.Filled.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False],
+         TextBox.Outline.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]">
     <Setter Property="InnerRightContent">
       <Template>
-        <Panel Height="56" Margin="8,0">
+        <Panel Height="56" Margin="0,0,8,0">
           <Panel.Styles>
             <Style Selector="ToggleButton[IsChecked=True]">
               <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
@@ -419,7 +421,7 @@
                         Cursor="Arrow" Width="36" Height="36"
                         VerticalAlignment="Center" 
                         Padding="8"
-                        Margin="4, 4, 0, 4"
+                        Margin="0, 4"
                         Focusable="True"
                         IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
             <ToggleButton.Styles>
@@ -458,8 +460,109 @@
       </Template>
     </Setter>
   </Style>
-  
-  
+
+
+  <!-- Outline textbox -->
+  <Style Selector="TextBox.Outline">
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Padding" Value="0,8" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+    <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"></Setter>
+    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel>
+          <Border Name="border"
+                  Cursor="Ibeam" 
+                  CornerRadius="4"
+                  Margin="0,8"
+                  BorderThickness="1"  
+                  BorderBrush="{TemplateBinding BorderBrush}" 
+                  ClipToBounds="False"> 
+            <Border.Styles>
+              <Style Selector="Border:disabled, TextBlock:disabled">
+                <Setter Property="Opacity" Value="0.5" />
+              </Style>
+            </Border.Styles>
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+              <Border Name="watermarkRoot" 
+                      x:Name="watermarkRoot" 
+                      Background="{DynamicResource MaterialDesignPaper }" 
+                      HorizontalAlignment="Left" 
+                      VerticalAlignment="Top"
+                      Opacity="1"
+                      IsVisible="{TemplateBinding UseFloatingWatermark}">
+                <Border.Styles>
+                  <Style Selector="Border#watermarkRoot:not(.notransitions)">
+                    <Setter Property="Transitions">
+                      <Transitions>
+                        <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
+                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CubicEaseOut" />
+                      </Transitions>
+                    </Setter>
+                  </Style>
+                </Border.Styles>
+                <TextBlock Name="floatingWatermark"
+                           Classes="Subtitle1"
+                           Margin="4,2"
+                           Foreground="{DynamicResource ThemeAccentBrush}" 
+                           Text="{TemplateBinding Watermark}" />
+              </Border>
+
+              <DataValidationErrors Name="DataValidation" >
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                  <ContentPresenter Grid.Column="0"
+                                    VerticalAlignment="Top"
+                                    HorizontalAlignment="Left"
+                                    Content="{TemplateBinding InnerLeftContent}" />
+                  <ScrollViewer Grid.Column="1"
+                                Margin="14,18.5"
+                                HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                    <TextPresenter Name="PART_TextPresenter"
+               FontSize="16"
+               FontWeight="Regular"
+               ClipToBounds="True"
+               Text="{TemplateBinding Text, Mode=TwoWay}"
+               CaretIndex="{TemplateBinding CaretIndex}"
+               SelectionStart="{TemplateBinding SelectionStart}"
+               SelectionEnd="{TemplateBinding SelectionEnd}"
+               TextAlignment="{TemplateBinding TextAlignment}"
+               TextWrapping="{TemplateBinding TextWrapping}"
+               PasswordChar="{TemplateBinding PasswordChar}"
+               RevealPassword="{TemplateBinding RevealPassword}"
+               SelectionBrush="{TemplateBinding SelectionBrush}"
+               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+               CaretBrush="{TemplateBinding CaretBrush}" />
+                  </ScrollViewer>
+                  <ContentPresenter Grid.Column="2"
+                                    MinHeight="32"
+                                    VerticalAlignment="Top"
+                                    Content="{TemplateBinding InnerRightContent}" />
+                </Grid>
+              </DataValidationErrors> 
+            </Grid>
+          </Border> 
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="TextBox.Outline:focus:not(:empty) /template/ Border#watermarkRoot,
+                   TextBox.Outline:focus /template/ Border#watermarkRoot,
+                   TextBox.Outline:not(:empty) /template/ Border#watermarkRoot">
+    <Setter Property="Margin" Value="6,-12,1,1"/>
+    <Setter Property="RenderTransform" Value="scale(0.75)"/>
+  </Style>
+  <Style Selector="TextBox.Outline:focus /template/ Border#focusBorder">
+    <Setter Property="Opacity" Value="0.35"/>
+  </Style>
+  <Style Selector="TextBox.Outline:empty:not(:focus) /template/ Border#watermarkRoot">
+    <Setter Property="Margin" Value="10,18,1,1"/>
+  </Style>
 
 
 
@@ -469,7 +572,8 @@
         <TextBox Classes="" Margin="8" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
         <TextBox Classes="Filled" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
         <TextBox Classes="Filled" IsEnabled="False" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
-
+        <TextBox Classes="Outline" IsEnabled="True" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
+ 
       </StackPanel>
     </Border>
   </Design.PreviewWith>
