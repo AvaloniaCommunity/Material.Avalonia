@@ -1,4 +1,5 @@
 ﻿<Window x:Class="Material.Demo.MainWindow"
+        Name="MainWindow"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -27,7 +28,7 @@
   
   <styles:NavigationDrawer LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
     <styles:NavigationDrawer.LeftDrawerContent>
-      <ScrollViewer>
+      <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <StackPanel>
         <styles:ColorZone Mode="Accent" Height="180">
           <StackPanel>
@@ -106,6 +107,13 @@
             <TextBlock Classes="Content" Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!"/>
             <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!"/>
             <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
+
+            <WrapPanel HorizontalAlignment="Center" Margin="16" MaxWidth="600"
+                       DataContext="{Binding ElementName=MainWindow}">
+              <Button Classes="Tool" Content="PROJECT LINK" Command="{Binding OpenProjectRepoLink}"/>
+              <Button Classes="Tool" Content="USE DARK THEME" Command="{Binding UseMaterialUIDarkTheme}"/>
+              <Button Classes="Tool" Content="USE LIGHT THEME" Command="{Binding UseMaterialUILightTheme}"/>
+            </WrapPanel>
           </StackPanel>
           <!-- Buttons -->
           <pages:ButtonsDemo/>

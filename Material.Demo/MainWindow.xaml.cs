@@ -10,6 +10,7 @@ using Material.Colors;
 using Material.Styles.Assists;
 using Material.Styles.Themes;
 using Material.Styles.Themes.Base;
+using System.Diagnostics;
 using PrimaryColor = Material.Colors.PrimaryColor;
 
 namespace Material.Demo {
@@ -72,6 +73,17 @@ namespace Material.Demo {
             theme.SetBaseTheme(BaseThemeMode.Dark.GetBaseTheme());
             _paletteHelper.SetTheme(theme);
         }
+        public void UseMaterialUILightTheme()
+        {
+            var theme = _paletteHelper.GetTheme();
+            theme.SetPrimaryColor(SwatchHelper.Lookup[MaterialColor.Blue]);
+            theme.SetSecondaryColor(SwatchHelper.Lookup[MaterialColor.Pink400]);
+            theme.SetBaseTheme(BaseThemeMode.Light.GetBaseTheme());
+            _paletteHelper.SetTheme(theme);
+        }
+
+        public void OpenProjectRepoLink() => OpenBrowserForVisitSite("https://github.com/AvaloniaUtils/material.avalonia");
+
         public void BaseThemeColorChanged(object sender, RoutedEventArgs args)
         {
             if (!(sender is ToggleSwitch checkBox)) return;
@@ -96,6 +108,17 @@ namespace Material.Demo {
             {
             }
             NavDrawerSwitch.IsChecked = false;
+        }
+
+        public static void OpenBrowserForVisitSite(string link)
+        {
+            var param = new ProcessStartInfo
+            {
+                FileName = link,
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(param);
         }
     }
 }

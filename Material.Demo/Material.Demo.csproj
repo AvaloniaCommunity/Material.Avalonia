@@ -12,12 +12,16 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
     <None Remove="FavIcon.svg" />
     <None Remove="FavIcon_200x.png" />
     <None Remove="Material.xaml" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="FavIcon_200x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
