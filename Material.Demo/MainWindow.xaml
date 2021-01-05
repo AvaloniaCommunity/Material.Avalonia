@@ -50,6 +50,7 @@
           <TextBlock Classes="Body2" Text="Buttons" />
           <TextBlock Classes="Body2" Text="Toggles" />
           <TextBlock Classes="Body2" Text="Fields" />
+          <TextBlock Classes="Body2" Text="ComboBoxes" />
           <TextBlock Classes="Body2" Text="Sliders" />
           <TextBlock Classes="Body2" Text="Progress indicators" />
           <TextBlock Classes="Body2" Text="Lists" />
@@ -69,7 +70,7 @@
             <ColumnDefinition Width="32"/>
             <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
-          <ToggleButton Classes="Tool" Width="32" Height="32" x:Name="NavDrawerSwitch"
+          <ToggleButton Classes="Tool TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
                         Padding="4">
             <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
               <Image.Source>
@@ -113,11 +114,14 @@
           <pages:TogglesDemo/>
           
           <!-- Fields -->
-          <pages:FieldsDemo/>
+          <pages:FieldsDemo/> 
+
+          <!-- ComboBoxes -->
+          <pages:ComboBoxesDemo/>
           
           <!-- Sliders -->
           <pages:NotReadyDemo/>
-          
+ 
           <!-- Progress indicators -->
           <pages:NotReadyDemo/>
           

@@ -7,6 +7,7 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Material.Colors;
+using Material.Styles.Assists;
 using Material.Styles.Themes;
 using Material.Styles.Themes.Base;
 using PrimaryColor = Material.Colors.PrimaryColor;
@@ -31,6 +32,8 @@ namespace Material.Demo {
         private void InitializeComponent() {
             AvaloniaXamlLoader.Load(this);
             _paletteHelper = new PaletteHelper();
+
+            UseMaterialUIDarkTheme(); 
 
             #region Control getter and event binding
             NavDrawerSwitch = this.Get<ToggleButton>(nameof(NavDrawerSwitch));
@@ -58,6 +61,15 @@ namespace Material.Demo {
                 false => BaseThemeMode.Light
             };
             theme.SetBaseTheme(baseThemeMode.GetBaseTheme());
+            _paletteHelper.SetTheme(theme);
+        }
+
+        public void UseMaterialUIDarkTheme()
+        {
+            var theme = _paletteHelper.GetTheme();
+            theme.SetPrimaryColor(SwatchHelper.Lookup[MaterialColor.Blue200]);
+            theme.SetSecondaryColor(SwatchHelper.Lookup[MaterialColor.Pink200]);
+            theme.SetBaseTheme(BaseThemeMode.Dark.GetBaseTheme());
             _paletteHelper.SetTheme(theme);
         }
         public void BaseThemeColorChanged(object sender, RoutedEventArgs args)
