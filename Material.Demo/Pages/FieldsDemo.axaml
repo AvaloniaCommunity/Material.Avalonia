@@ -10,7 +10,7 @@
 
     <WrapPanel  HorizontalAlignment="Stretch">
       <StackPanel>
-        <TextBlock Classes="Headline6 Subheadline2" Text="Common fields"/>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
         <StackPanel Orientation="Horizontal">
           <StackPanel.Styles>
             <Style Selector="TextBox">
@@ -77,10 +77,10 @@ is not supported officially. But you can use AvaloniaEdit for support this featu
     </WrapPanel>
 
     <TextBlock Classes="Headline4 Subheadline" Text="Filled fields"/>
- 
+  
     <WrapPanel  HorizontalAlignment="Stretch">
       <StackPanel>
-        <TextBlock Classes="Headline6 Subheadline2" Text="Common fields"/>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
         <StackPanel Orientation="Vertical">
           <StackPanel.Styles>
             <Style Selector="TextBox">
@@ -118,5 +118,49 @@ is not supported officially. But you can use AvaloniaEdit for support this featu
         </StackPanel>
       </StackPanel>
     </WrapPanel>
+
+    <TextBlock Classes="Headline4 Subheadline" Text="Outline fields"/>
+
+    <WrapPanel  HorizontalAlignment="Stretch">
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
+        <StackPanel Orientation="Vertical">
+          <StackPanel.Styles>
+            <Style Selector="TextBox">
+              <Setter Property="Margin" Value="8"/>
+              <Setter Property="Width" Value="240"/>
+            </Style>
+          </StackPanel.Styles>
+          <TextBox Classes="Outline" Watermark="Filled TextBox" UseFloatingWatermark="True"/>
+          <TextBox Classes="Outline revealPasswordButton" Watermark="Password" PasswordChar="*" UseFloatingWatermark="True"/>
+          <TextBox Classes="Outline clearButton" Watermark="Text field" UseFloatingWatermark="True"/>
+          <TextBox Classes="Outline" IsEnabled="False" Watermark="Disabled Field" UseFloatingWatermark="True" Text="Hello World!"/>
+        </StackPanel>
+      </StackPanel>
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Multi-Line fields"/>
+        <StackPanel Orientation="Horizontal">
+          <StackPanel.Styles>
+            <Style Selector="TextBox">
+              <Setter Property="Margin" Value="8"/>
+              <Setter Property="Width" Value="380"/>
+            </Style>
+          </StackPanel.Styles>
+          <TextBox  UseFloatingWatermark="True"
+                    Watermark="Multiline textfield"
+                    Classes="Outline"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+            Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
+ adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ et dolore magna aliqua. The quick brown fox jumps over the 
+ lazy dog. War and peace. Keep going. Go on. For how long? 
+ Not long. Lorem ipsum dolor sit amet, consectetur adipiscing 
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+ aliqua."/>
+        </StackPanel>
+      </StackPanel>
+    </WrapPanel>
+
   </StackPanel>
 </UserControl>
