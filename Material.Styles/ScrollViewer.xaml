@@ -20,6 +20,7 @@
                     </ScrollContentPresenter.GestureRecognizers>
                 </ScrollContentPresenter>
                 <ScrollBar Name="horizontalScrollBar"
+                           Classes="Mini"
                            Orientation="Horizontal"
                            Maximum="{TemplateBinding HorizontalScrollBarMaximum}"
                            Value="{TemplateBinding HorizontalScrollBarValue, Mode=TwoWay}"
