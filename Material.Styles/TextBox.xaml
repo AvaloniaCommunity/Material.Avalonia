@@ -324,7 +324,7 @@
                                     HorizontalAlignment="Left"
                                     Content="{TemplateBinding InnerLeftContent}" />
                   <ScrollViewer Grid.Column="1"
-                                Margin="10,27,10,10"
+                                Margin="16,24,4,10" 
                                 HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                 VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                     <TextPresenter Name="PART_TextPresenter"
@@ -344,6 +344,7 @@
                   </ScrollViewer>
                   <ContentPresenter Grid.Column="2"
                                     MinHeight="32"
+                                    Margin="0,0,4,0"
                                     VerticalAlignment="Top"
                                     Content="{TemplateBinding InnerRightContent}" />
                 </Grid>
@@ -365,22 +366,21 @@
   <Style Selector="TextBox.Filled:focus:not(:empty) /template/ TextBlock#floatingWatermark,
                    TextBox.Filled:focus /template/ TextBlock#floatingWatermark,
                    TextBox.Filled:not(:empty) /template/ TextBlock#floatingWatermark">
-    <Setter Property="Margin" Value="10,10,1,1"/>
+    <Setter Property="Margin" Value="16,8,1,1"/>
     <Setter Property="RenderTransform" Value="scale(0.75)"/>
   </Style> 
   <Style Selector="TextBox.Filled:focus /template/ Border#focusBorder">  
     <Setter Property="Opacity" Value="0.35"/>
   </Style>
   <Style Selector="TextBox.Filled:empty:not(:focus) /template/ TextBlock#floatingWatermark">
-    <Setter Property="Margin" Value="10,20,1,1"/> 
+    <Setter Property="Margin" Value="16,18,1,1"/> 
   </Style>
 
 
 
   <!-- Filled TextBox variants (with clear button or with reveal password switch) -->
 
-  <Style Selector="TextBox.Filled.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty),
-         TextBox.Outline.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+  <Style Selector="TextBox.Filled.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
     <Setter Property="InnerRightContent">
       <Template>
         <Panel Height="56" Margin="0,0,8,0">
@@ -403,8 +403,7 @@
     </Setter>
   </Style>
 
-  <Style Selector="TextBox.Filled.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False],
-         TextBox.Outline.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]">
+  <Style Selector="TextBox.Filled.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]">
     <Setter Property="InnerRightContent">
       <Template>
         <Panel Height="56" Margin="0,0,8,0">
@@ -478,8 +477,8 @@
           <Border Name="border"
                   Cursor="Ibeam" 
                   CornerRadius="4"
-                  Margin="0,8"
-                  BorderThickness="1"  
+                  Margin="0,8,0,0"
+                  Background="Transparent"
                   BorderBrush="{TemplateBinding BorderBrush}" 
                   ClipToBounds="False"> 
             <Border.Styles>
@@ -510,7 +509,7 @@
                            Classes="Subtitle1"
                            HorizontalAlignment="Stretch"
                            Margin="4,2"
-                           Foreground="{DynamicResource ThemeAccentBrush}" 
+                           Foreground="{Binding ElementName=border, Path=BorderBrush}" 
                            Text="{TemplateBinding Watermark}" />
               </Border>
 
@@ -521,7 +520,7 @@
                                     HorizontalAlignment="Left"
                                     Content="{TemplateBinding InnerLeftContent}" />
                   <ScrollViewer Grid.Column="1"
-                                Margin="14,18.5"
+                                Margin="16,16,4,16"
                                 HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                 VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                     <TextPresenter Name="PART_TextPresenter"
@@ -541,7 +540,8 @@
                CaretBrush="{TemplateBinding CaretBrush}" />
                   </ScrollViewer>
                   <ContentPresenter Grid.Column="2"
-                                    MinHeight="32"
+                                    Margin="0,0,8,0"
+                                    MinHeight="32" 
                                     VerticalAlignment="Top"
                                     Content="{TemplateBinding InnerRightContent}" />
                 </Grid>
@@ -556,14 +556,101 @@
   <Style Selector="TextBox.Outline:focus:not(:empty) /template/ Border#watermarkRoot,
                    TextBox.Outline:focus /template/ Border#watermarkRoot,
                    TextBox.Outline:not(:empty) /template/ Border#watermarkRoot">
-    <Setter Property="Margin" Value="10,-9,1,1"/>
+    <Setter Property="Margin" Value="14,-9,1,1"/>
     <Setter Property="RenderTransform" Value="scale(0.75)"/>
   </Style>
-  <Style Selector="TextBox.Outline:focus /template/ Border#focusBorder">
-    <Setter Property="Opacity" Value="0.35"/>
+  <Style Selector="TextBox.Outline /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+    <Setter Property="BorderThickness" Value="1"/>
   </Style>
+  <Style Selector="TextBox.Outline:focus /template/ Border#border">
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="BorderThickness" Value="2"/> 
+  </Style> 
   <Style Selector="TextBox.Outline:empty:not(:focus) /template/ Border#watermarkRoot">
-    <Setter Property="Margin" Value="10,18,1,1"/>
+    <Setter Property="Margin" Value="10,14,1,1"/>
+  </Style>
+
+  <!-- Outline TextBox variants (with clear button or with reveal password switch) -->
+
+  <Style Selector="TextBox.Outline.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+    <Setter Property="InnerRightContent">
+      <Template>
+        <Panel Height="52" Margin="0">
+          <Button Classes="Icon textBoxClearButton"
+                  Command="{Binding $parent[TextBox].Clear}"
+                  VerticalAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Cursor="Arrow" Width="32" Height="32"
+                  Padding="8"
+                  Focusable="True"  Margin="0, 4">
+            <Path x:Name="PART_GlyphElement"
+                  Fill="{DynamicResource PrimaryHueMidBrush}"
+                  Data="{StaticResource TextBoxClearButtonData}"
+                  Stretch="Uniform"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center" />
+          </Button>
+        </Panel>
+      </Template>
+    </Setter>
+  </Style>
+
+  <Style Selector="TextBox.Outline.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]">
+    <Setter Property="InnerRightContent">
+      <Template>
+        <Panel Height="52" Margin="0">
+          <Panel.Styles>
+            <Style Selector="ToggleButton[IsChecked=True]">
+              <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
+            </Style>
+            <Style Selector="ToggleButton[IsChecked=False]">
+              <Setter Property="(ToolTip.Tip)" Value="Show Password" />
+            </Style>
+          </Panel.Styles>
+          <ToggleButton Classes="Icon passwordBoxRevealButton TransparentBack"
+                        VerticalContentAlignment="Center"
+                        Cursor="Arrow" Width="32" Height="32"
+                        VerticalAlignment="Center"
+                        Padding="6"
+                        Margin="0, 4"
+                        Focusable="True"
+                        IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
+            <ToggleButton.Styles>
+              <Style Selector="ToggleButton.passwordBoxRevealButton:checked  Path#PART_GlyphElement_Hide">
+                <Setter Property="IsVisible" Value="True" />
+              </Style>
+              <Style Selector="ToggleButton.passwordBoxRevealButton:not(ToggleButton:checked)  Path#PART_GlyphElement_Reveal">
+                <Setter Property="IsVisible" Value="True" />
+              </Style>
+              <Style Selector="ToggleButton.passwordBoxRevealButton:not(ToggleButton:checked)  Path#PART_GlyphElement_Hide">
+                <Setter Property="IsVisible" Value="False" />
+              </Style>
+              <Style Selector="ToggleButton.passwordBoxRevealButton:checked  Path#PART_GlyphElement_Reveal">
+                <Setter Property="IsVisible" Value="False" />
+              </Style>
+              <Style Selector="ToggleButton.passwordBoxRevealButton">
+                <Setter Property="Focusable" Value="True" />
+              </Style>
+            </ToggleButton.Styles>
+            <Panel>
+              <Path x:Name="PART_GlyphElement_Reveal"
+                    Fill="{DynamicResource PrimaryHueMidBrush}"
+                    Data="{DynamicResource PasswordBoxRevealButtonData}"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+              <Path x:Name="PART_GlyphElement_Hide"
+                    Fill="{DynamicResource PrimaryHueMidBrush}"
+                    Data="{DynamicResource PasswordBoxHideButtonData}"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center" />
+            </Panel>
+          </ToggleButton>
+        </Panel>
+      </Template>
+    </Setter>
   </Style>
 
 
