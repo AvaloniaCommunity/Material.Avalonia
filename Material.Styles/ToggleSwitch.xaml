@@ -45,7 +45,8 @@
                             <Grid x:Name="ThumbHolder" ClipToBounds="False" Height="20" Width="20"
                                   HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Ellipse x:Name="RippleThumb"
-                                         Fill="{DynamicResource PrimaryHueLightBrush}"
+                                         Fill="{Binding RelativeSource={RelativeSource TemplatedParent},
+                Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}"
                                          Height="18" Width="18"
                                          IsHitTestVisible="False"
                                          Margin="-100"
@@ -134,7 +135,8 @@
               <Grid x:Name="ThumbHolder" ClipToBounds="False" Height="20" Width="20"
                     HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Ellipse x:Name="RippleThumb"
-                         Fill="{DynamicResource PrimaryHueLightBrush}"
+                         Fill="{Binding RelativeSource={RelativeSource TemplatedParent},
+                Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}"
                          Height="18" Width="18"
                          IsHitTestVisible="False"
                          Margin="-100"
@@ -244,6 +246,11 @@
   </Style>
     <Style Selector="ToggleSwitch:checked /template/ Border#Track">
         <Setter Property="Background"
-                Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}" />
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},
+                Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}" />
     </Style>
+  <Style Selector="ToggleSwitch.Accent">
+    <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
+            Value="{DynamicResource SecondaryHueLightBrush}" />
+  </Style>
 </Styles>
