@@ -324,7 +324,7 @@
                                     HorizontalAlignment="Left"
                                     Content="{TemplateBinding InnerLeftContent}" />
                   <ScrollViewer Grid.Column="1"
-                                Margin="16,24,4,10" 
+                                Margin="16,24,8,10" 
                                 HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                 VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                     <TextPresenter Name="PART_TextPresenter"
@@ -520,7 +520,7 @@
                                     HorizontalAlignment="Left"
                                     Content="{TemplateBinding InnerLeftContent}" />
                   <ScrollViewer Grid.Column="1"
-                                Margin="16,16,4,16"
+                                Margin="16,16,8,16"
                                 HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                 VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                     <TextPresenter Name="PART_TextPresenter"
