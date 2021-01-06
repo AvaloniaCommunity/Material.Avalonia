@@ -37,6 +37,12 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaXaml Update="Pages\Home.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\ScrollViewerDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\CardsDemo.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
@@ -48,6 +54,12 @@
     </AvaloniaXaml>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\Home.axaml.cs">
+      <DependentUpon>Home.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ScrollViewerDemo.axaml.cs">
+      <DependentUpon>ScrollViewerDemo.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\CardsDemo.axaml.cs">
       <DependentUpon>CardsDemo.axaml</DependentUpon>
     </Compile>
