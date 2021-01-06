@@ -121,8 +121,20 @@
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
     <Setter Property="Path.Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
   </Style>
- 
-     
+
+  <Style Selector="cc|FloatingButton.Light Path, cc|FloatingButton.Extend.Light Path">
+    <Setter Property="Fill" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+  </Style>
+  <Style Selector="cc|FloatingButton.Dark Path, cc|FloatingButton.Extend.Dark Path">
+    <Setter Property="Fill" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+  </Style>
+  <Style Selector="cc|FloatingButton.Accent Path, cc|FloatingButton.Extend.Accent Path">
+    <Setter Property="Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
+  </Style> 
+  <Style Selector="cc|FloatingButton Path, cc|FloatingButton.Extend Path">
+    <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+  </Style>
+
   <Design.PreviewWith>
     <Border Padding="20">
       <cc:FloatingButton/>
