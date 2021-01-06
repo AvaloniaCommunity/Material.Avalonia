@@ -28,7 +28,7 @@
   
   <styles:NavigationDrawer LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
     <styles:NavigationDrawer.LeftDrawerContent>
-      <ScrollViewer VerticalScrollBarVisibility="Hidden">
+      <ScrollViewer >
         <StackPanel>
         <styles:ColorZone Mode="Accent" Height="180">
           <StackPanel>
