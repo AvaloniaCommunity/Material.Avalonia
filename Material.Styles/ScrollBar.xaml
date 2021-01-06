@@ -251,7 +251,7 @@
   </Style>
 
   <Style Selector="ScrollBar.Mini:not(:disabled) /template/ Border#mainBorder">
-    <Setter Property="Opacity" Value="0" />
+    <Setter Property="Opacity" Value="0.5" />
   </Style>
   <Style Selector="ScrollBar.Mini:not(:disabled):pointerover /template/ Border#mainBorder">
     <Setter Property="Opacity" Value="0.8" />
