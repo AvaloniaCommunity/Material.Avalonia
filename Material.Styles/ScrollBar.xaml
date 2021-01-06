@@ -207,7 +207,7 @@
           <ControlTemplate>
               <Border Name="mainBorder"
                       Width="4"
-                      Margin="3,4"
+                      Margin="3,8"
                       CornerRadius="2"
                       Background="{TemplateBinding Background}">
                 <Border.Transitions>
@@ -218,7 +218,6 @@
                   <Grid Name="ScrollBarGrid">
                       <Track  Minimum="{TemplateBinding Minimum}"
                               Maximum="{TemplateBinding Maximum}"
-                              
                               Value="{TemplateBinding Value, Mode=TwoWay}"
                               ViewportSize="{TemplateBinding ViewportSize}"
                               Orientation="{TemplateBinding Orientation}"
@@ -250,8 +249,8 @@
       <ControlTemplate>
         <Border Name="mainBorder"
                 Height="4"
-                Margin="4,3"
-                CornerRadius="2"
+                Margin="8,3"
+                CornerRadius="2" 
                 Background="{TemplateBinding Background}">
           <Border.Transitions>
             <Transitions>
@@ -260,11 +259,10 @@
           </Border.Transitions>
           <Grid Name="ScrollBarGrid">
             <Track  Minimum="{TemplateBinding Minimum}"
-                    Maximum="{TemplateBinding Maximum}" 
+                    Maximum="{TemplateBinding Maximum}"
                     Value="{TemplateBinding Value, Mode=TwoWay}"
                     ViewportSize="{TemplateBinding ViewportSize}"
-                    Orientation="{TemplateBinding Orientation}"
-                    IsDirectionReversed="True">
+                    Orientation="{TemplateBinding Orientation}" >
               <Track.DecreaseButton>
                 <RepeatButton Name="PART_PageUpButton"
                               Classes="repeattrack"
