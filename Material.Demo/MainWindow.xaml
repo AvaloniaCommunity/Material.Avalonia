@@ -73,11 +73,11 @@
           </Grid.ColumnDefinitions>
           <ToggleButton Classes="Tool TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
                         Padding="4">
-            <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-              <Image.Source>
-                <DrawingImage Drawing="{DynamicResource Material.Menu}"/>
-              </Image.Source>
-            </Image>
+            <Path HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch"
+                  Width="24" Height="24"
+                  Data="{StaticResource Material.Menu}" 
+                  Fill="{DynamicResource MaterialDesignBody}"/> 
           </ToggleButton>
           <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
                      Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
