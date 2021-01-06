@@ -12,11 +12,53 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
+    <None Remove="FavIcon.svg" />
+    <None Remove="FavIcon_200x.png" />
+    <None Remove="Material.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="FavIcon_200x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0-rc1" />
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0-rc1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Update="Material.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaXaml Update="Pages\CardsDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\TogglesDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\ButtonsDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\CardsDemo.axaml.cs">
+      <DependentUpon>CardsDemo.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ComboBoxesDemo.axaml.cs">
+      <DependentUpon>ComboBoxesDemo.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\TogglesDemo.axaml.cs">
+      <DependentUpon>TogglesDemo.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ButtonsDemo.xaml.cs">
+      <DependentUpon>ButtonsDemo.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

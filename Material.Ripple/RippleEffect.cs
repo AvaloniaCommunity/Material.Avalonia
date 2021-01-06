@@ -25,9 +25,9 @@ namespace Material.Ripple {
                 _toWidth.Value = maxWidth;
                 _fromMargin.Value = _circle.Margin = new Thickness(pointer.X, pointer.Y, 0, 0);
                 _toMargin.Value = new Thickness(pointer.X - maxWidth / 2, pointer.Y - maxWidth / 2, 0, 0);
-
+                _circle.Opacity = 0;
                 await _ripple.RunAsync(_circle);
-
+                _circle.Opacity = 0;
                 _isRunning = false;
             });
         }
@@ -38,9 +38,9 @@ namespace Material.Ripple {
 
             var style = _circle.Styles[0] as Style;
             _ripple = style.Animations[0] as Animation;
-            _toWidth = _ripple.Children[1].Setters[1];
+            _toWidth = _ripple.Children[2].Setters[1];
             _fromMargin = _ripple.Children[0].Setters[0];
-            _toMargin = _ripple.Children[1].Setters[0];
+            _toMargin = _ripple.Children[2].Setters[0];
 
             style.Animations.Remove(_ripple);
         }
@@ -48,7 +48,7 @@ namespace Material.Ripple {
         #region Styled properties
 
         public static readonly StyledProperty<Brush> RippleFillProperty =
-            AvaloniaProperty.Register<RippleEffect, Brush>(nameof(RippleFill));
+            AvaloniaProperty.Register<RippleEffect, Brush>(nameof(RippleFill), SolidColorBrush.Parse("#FFF"));
 
         public Brush RippleFill {
             get => GetValue(RippleFillProperty);
@@ -56,7 +56,7 @@ namespace Material.Ripple {
         }
 
         public static readonly StyledProperty<double> RippleOpacityProperty =
-            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.2);
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.6);
 
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);

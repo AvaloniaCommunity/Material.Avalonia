@@ -45,7 +45,8 @@
                             <Grid x:Name="ThumbHolder" ClipToBounds="False" Height="20" Width="20"
                                   HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <Ellipse x:Name="RippleThumb"
-                                         Fill="{DynamicResource PrimaryHueLightBrush}"
+                                         Fill="{Binding RelativeSource={RelativeSource TemplatedParent},
+                Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}"
                                          Height="18" Width="18"
                                          IsHitTestVisible="False"
                                          Margin="-100"
@@ -80,11 +81,98 @@
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       Margin="{TemplateBinding Padding}"
-                                      VerticalAlignment="Top" />
+                                      VerticalAlignment="Center" />
                 </Grid>
             </ControlTemplate>
         </Setter>
     </Style>
+  <Style Selector="ToggleSwitch.LeftHeader">
+    <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
+            Value="{DynamicResource PrimaryHueLightBrush}" />
+    <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground" Value="Black" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+    <Setter Property="assists:SelectionControlAssist.Size" Value="36" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="Padding" Value="0 0 8 0" />
+    <Setter Property="OffContent" Value="" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid ColumnDefinitions="*, Auto" ClipToBounds="False"> 
+          <Canvas x:Name="SwitchKnob"
+                  HorizontalAlignment="Left"
+                  IsVisible="False" IsHitTestVisible="False"
+                  Width="0" Height="0"
+                  Background="Yellow"
+                  Grid.Column="1">
+            <Grid x:Name="MovingKnobs"
+                  IsVisible="False" IsHitTestVisible="False"
+                  Width="0" Height="0"
+                  Grid.Column="1"/>
+          </Canvas>
+          <ContentPresenter Grid.Column="0" x:Name="PART_ContentPresenter"
+                  TextBlock.Foreground="{Binding TextBlock.Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+                  Content="{TemplateBinding Content}"
+                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                  Margin="{TemplateBinding Padding}"
+                  VerticalAlignment="Center" />
+          <Viewbox Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:SelectionControlAssist.Size)}"
+                   Stretch="Uniform"
+                   ClipToBounds="False" Grid.Column="1" VerticalAlignment="Center">
+            <Grid ClipToBounds="False">
+              <Border x:Name="Track"
+                      Opacity="0.26"
+                      HorizontalAlignment="Left"
+                      Height="14"
+                      VerticalAlignment="Center"
+                      Width="36"
+                      CornerRadius="7" />
+              <Grid x:Name="ThumbHolder" ClipToBounds="False" Height="20" Width="20"
+                    HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Ellipse x:Name="RippleThumb"
+                         Fill="{Binding RelativeSource={RelativeSource TemplatedParent},
+                Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}"
+                         Height="18" Width="18"
+                         IsHitTestVisible="False"
+                         Margin="-100"
+                         HorizontalAlignment="Center" VerticalAlignment="Center">
+                  <Ellipse.RenderTransform>
+                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                  </Ellipse.RenderTransform>
+                </Ellipse>
+                <AdornerLayer>
+                  <Border x:Name="Thumb"
+                          HorizontalAlignment="Center" VerticalAlignment="Center"
+                          CornerRadius="20"
+                          Width="20" Height="20"
+                          ClipToBounds="False"
+                          assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
+                </AdornerLayer>
+                <ContentPresenter x:Name="OnContentPresenter"
+                                  Content="{TemplateBinding OnContent}"
+                                  ContentTemplate="{TemplateBinding OnContentTemplate}"
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                <ContentPresenter x:Name="OffContentPresenter"
+                                  Content="{TemplateBinding OffContent}"
+                                  ContentTemplate="{TemplateBinding OffContentTemplate}"
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+              </Grid>
+            </Grid>
+          </Viewbox>
+
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+  
+  
     <Style Selector="ToggleSwitch /template/ Border#Thumb">
         <Setter Property="Background" Value="#FFFAFAFA" />
     </Style>
@@ -153,8 +241,16 @@
         <Setter Property="Background"
                 Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
     </Style>
+  <Style Selector="ToggleSwitch.Accent:checked /template/ Border#Thumb">
+    <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
+  </Style>
     <Style Selector="ToggleSwitch:checked /template/ Border#Track">
         <Setter Property="Background"
-                Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}" />
+                Value="{Binding RelativeSource={RelativeSource TemplatedParent},
+                Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}" />
     </Style>
+  <Style Selector="ToggleSwitch.Accent">
+    <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
+            Value="{DynamicResource SecondaryHueLightBrush}" />
+  </Style>
 </Styles>

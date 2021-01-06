@@ -11,7 +11,7 @@
         <PackageLicenseUrl>https://raw.githubusercontent.com/AvaloniaUtils/material.avalonia/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <LangVersion>8</LangVersion>
+        <LangVersion>8</LangVersion> 
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">

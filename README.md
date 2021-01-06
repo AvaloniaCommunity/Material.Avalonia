@@ -1,6 +1,18 @@
 # material.avalonia
 
-![](Images/new_app_demo.gif)
+<img src="/Banner.svg" width="1280" height="480">
+
+![](/Images/1.png)
+
+![](/Images/2.png)
+
+![](/Images/3.png)
+
+![](/Images/4.png)
+
+![](/Images/5.png)
+
+![](/Images/6.png)
 
 [![nuget](https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
 
@@ -32,10 +44,4 @@ Not all controls are already styled, if some are not showing add the following l
         <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
     </Application.Styles>
 ```
-
-**Powered by**
-
-
-<a href="https://www.jetbrains.com/?from=ABC">
-<img width="400" alt="portfolio_view" src="https://github.com/CreateLab/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png" />
 </a>

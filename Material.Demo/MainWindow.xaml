@@ -1,170 +1,198 @@
 ﻿<Window x:Class="Material.Demo.MainWindow"
+        Name="MainWindow"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+        xmlns:pages="clr-namespace:Material.Demo.Pages"
         Title="Material.Demo"
-        Width="800"
-        Height="850"
+        d:DesignWidth="600"
+        Width="1280" MinWidth="720"
+        Height="720"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
-    <Window.Styles>
-        <Style Selector="RadioButton">
-            <Setter Property="Margin" Value="5" />
-        </Style>
-        <Style Selector="TextBox">
-            <Setter Property="Margin" Value="5" />
-        </Style>
-        <Style Selector="ComboBox">
-            <Setter Property="Margin" Value="5" />
-        </Style>
-        <Style Selector="Button">
-            <Setter Property="Margin" Value="5" />
-        </Style>
-        <Style Selector="CheckBox">
-            <Setter Property="Margin" Value="5" />
-        </Style>
-        <Style Selector="ListBox">
-            <Setter Property="Margin" Value="5" />
-        </Style>
-    </Window.Styles>
-
-    <Grid RowDefinitions="Auto, *, Auto">
-        <Menu Grid.Row="0">
-            <MenuItem Header="Menu #1">
-                <MenuItem Header="With Items">
-                    <MenuItem Header="Item #1" />
-                    <MenuItem Header="Item #2" />
-                </MenuItem>
-                <MenuItem Header="Not Enable" IsEnabled="False" />
-            </MenuItem>
-            <MenuItem Header="Menu #2">
-                <MenuItem Header="With Items">
-                    <MenuItem Header="Item #1" />
-                    <MenuItem Header="Item #2" />
-                </MenuItem>
-                <MenuItem Header="Not Enable" IsEnabled="False" />
-            </MenuItem>
-        </Menu>
-        <TabControl Grid.Row="1">
-            <TabItem Header="Main tab">
-                <StackPanel Orientation="Vertical">
-                    <styles:Card Margin="5" Padding="10">
-                        <ProgressBar IsIndeterminate="True" Margin="5" />
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center">Light</TextBlock>
-                            <ToggleSwitch x:Name="BaseThemeCheckBox" Margin="5" Checked="BaseThemeChanged"
-                                          Unchecked="BaseThemeChanged" />
-                            <TextBlock VerticalAlignment="Center">Dark</TextBlock>
-                        </StackPanel>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center">Teal</TextBlock>
-                            <ToggleSwitch x:Name="BaseColorCheckBox" Margin="5" Checked="BaseThemeColorChanged"
-                                          Unchecked="BaseThemeColorChanged" />
-                            <TextBlock VerticalAlignment="Center">Purple</TextBlock>
-                        </StackPanel>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Content="Enabled button" />
-                            <ToggleButton IsChecked="True" Content="Toggle Button" Margin="5" />
-                            <Button IsEnabled="False" Content="Disabled button" />
-                        </StackPanel>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <StackPanel Orientation="Horizontal">
-                            <styles:FloatingButton Content="+" Margin="5" />
-                            <styles:FloatingButton Content="My long text" Margin="5" />
-                        </StackPanel>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <RadioButton Content="RadioButton" />
-                                <RadioButton Content="Another" />
-                                <RadioButton assists:SelectionControlAssist.Size="16" Content="Smaller RadioButton" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <CheckBox Content="Check Me" />
-                                <CheckBox assists:SelectionControlAssist.Size="14" Content="Smaller checkbox" />
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <ToggleSwitch>I am toggleswitch</ToggleSwitch>
-                                <ToggleSwitch assists:SelectionControlAssist.Size="30"
-                                              Margin="16 0 0 0">MDiX size</ToggleSwitch>
-                            </StackPanel>
-                        </StackPanel>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Margin="10" Text="Sample Text block with tooltip" ToolTip.Tip="ToolTip" />
-                            <TextBox Text="Sample textbox" />
-                            <TextBox IsEnabled="False" Text="disabled textbox" />
-                            <TextBox AcceptsReturn="True" Height="50" Text="Sample textarea" />
-                        </StackPanel>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <StackPanel Orientation="Vertical">
-                            <ProgressBar Value="{Binding #Slider.Value}" Orientation="Horizontal" Margin="5" />
-                            <Slider Name="Slider" Orientation="Horizontal" Value="50" Margin="5" />
-                        </StackPanel>
-                    </styles:Card>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Collection Tab">
-                <StackPanel Orientation="Vertical">
-                    <styles:Card Margin="5" Padding="10">
-                        <ComboBox>
-                            <ComboBoxItem IsSelected="True" Content="Item #1" />
-                            <ComboBoxItem Content="Item #2" />
-                        </ComboBox>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <TreeViewItem Header="Fruit" Margin="5">
-                            <TreeViewItem Header="Lime" />
-                            <TreeViewItem Header="Orange" />
-                            <TreeViewItem Header="Apple" />
-                        </TreeViewItem>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <ListBox Height="100" VirtualizationMode="None" Margin="5">
-                            <ListBoxItem>
-                                <TextBlock Text="test1" />
-                            </ListBoxItem>
-                            <ListBoxItem IsSelected="True">
-                                <TextBlock Text="test2" />
-                            </ListBoxItem>
-                            <ListBoxItem>
-                                <TextBlock Text="test3" />
-                            </ListBoxItem>
-                            <ListBoxItem>
-                                <TextBlock Text="test4" />
-                            </ListBoxItem>
-                        </ListBox>
-                    </styles:Card>
-                    <styles:Card Margin="5" Padding="10">
-                        <ListBox Margin="5">
-                            <ListBoxItem>
-                                <TextBlock Text="no scrolls" />
-                            </ListBoxItem>
-                            <ListBoxItem>
-                                <TextBlock Text="test3" />
-                            </ListBoxItem>
-                        </ListBox>
-                    </styles:Card>
-                </StackPanel>
-            </TabItem>
-            <TabItem IsEnabled="False" Header="Disabled tab item 2" />
-        </TabControl>
-        <styles:ColorZone Grid.Row="3" Padding="16" Mode="Accent">
-            <TextBlock>Its color zone!</TextBlock>
+  <Window.Styles>
+    <Style Selector="TextBlock.Subheadline">
+      <Setter Property="Margin" Value="0, 16"/>
+    </Style>
+    <Style Selector="TextBlock.Subheadline2">
+      <Setter Property="Margin" Value="0, 8"/>
+    </Style>
+    <Style Selector="TextBlock.Content">
+      <Setter Property="Margin" Value="0, 4"/>
+      <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+  </Window.Styles>
+  
+  <styles:NavigationDrawer LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
+    <styles:NavigationDrawer.LeftDrawerContent>
+      <ScrollViewer >
+        <StackPanel>
+        <styles:ColorZone Mode="Accent" Height="180">
+          <StackPanel>
+            <Image Width="120" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    Source="avares://Material.Demo/FavIcon_200x.png" Margin="0,0,0,-8"/>
+            <TextBlock Classes="Headline6" Text="Material Design"  HorizontalAlignment="Center"/>
+            <TextBlock Classes="Subtitle1" Text="with AvaloniaUI"  HorizontalAlignment="Center"/>
+          </StackPanel>
         </styles:ColorZone>
-    </Grid>
+        <ListBox Classes="Drawer" x:Name="DrawerList">  
+          <ListBox.Styles>
+            <Style Selector="ListBoxItem">
+              <Setter Property="Height" Value="48"/>
+              <Setter Property="Padding" Value="16,0"/>
+              <Setter Property="VerticalContentAlignment" Value="Center"/>
+              <Setter Property="IsEnabled" Value="{Binding $self.Content.IsEnabled}"/>
+            </Style>
+          </ListBox.Styles>
+          <TextBlock Classes="Body2" Text="Home" />
+          <TextBlock Classes="Body2" Text="Buttons" />
+          <TextBlock Classes="Body2" Text="Toggles" />
+          <TextBlock Classes="Body2" Text="Fields" />
+          <TextBlock Classes="Body2" Text="ComboBoxes" />
+          <TextBlock Classes="Body2" Text="Sliders" />
+          <TextBlock Classes="Body2" Text="Progress indicators" />
+          <TextBlock Classes="Body2" Text="Lists" />
+          <TextBlock Classes="Body2" Text="Card" />
+          <TextBlock Classes="Body2" Text="Typography" />
+          <TextBlock Classes="Body2" Text="Shadows" IsEnabled="False"/>
+        </ListBox>
+      </StackPanel>
+      </ScrollViewer>
+    </styles:NavigationDrawer.LeftDrawerContent>
+    <DockPanel LastChildFill="true">
+      <styles:ColorZone VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top"
+                        Height="56" Mode="PrimaryMid">
+        <Grid Margin="16">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24"/>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="24"/>
+          </Grid.ColumnDefinitions>
+          <ToggleButton Classes="Tool TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
+                        Padding="4">
+            <Path HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch"
+                  Width="24" Height="24"
+                  Data="{StaticResource Material.Menu}" 
+                  Fill="{DynamicResource MaterialDesignBody}"/> 
+          </ToggleButton>
+          <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
+                     Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
 
+          <ToggleButton Classes="Tool TransparentBack" 
+                        Width="32" Height="32" 
+                        x:Name="MenuButton"
+                        Grid.Column="4"
+              Padding="4">
+            <Path HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Width="24" Height="24"
+                  Data="{StaticResource Material.DotsVertical}"
+                  Fill="{DynamicResource MaterialDesignBody}"/>
+          </ToggleButton>
+          <Popup Grid.Column="4"
+                 PlacementTarget="{Binding ElementName=MenuButton}" 
+                 WindowManagerAddShadowHint="False"
+                 PlacementGravity="1"
+                 StaysOpen="False"
+                 PlacementConstraintAdjustment="FlipX" 
+                 PlacementMode="Bottom"
+                 IsOpen="{Binding ElementName=MenuButton, Path=IsChecked, Mode=TwoWay}">
+            <styles:Card Padding="0"
+                         Margin="6"
+                         assists:ShadowAssist.ShadowDepth="1">
+              <StackPanel>
+                <MenuItem Header="Hello!">
+                  <MenuItem.Icon>
+                    <Path Data="{StaticResource Material.Hand}"
+                          Fill="{DynamicResource MaterialDesignBody}"/> 
+                  </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Action 1"/>
+                <MenuItem Header="Action 2"/>
+                <MenuItem Header="Action 3"/>
+                <Separator/>
+                <MenuItem Header="Goodbye">
+                  <MenuItem.Icon>
+                    <Path Data="{StaticResource Material.ExitRun}"
+                          Fill="{DynamicResource MaterialDesignBody}"/>
+                  </MenuItem.Icon>
+                </MenuItem>
+              </StackPanel>
+            </styles:Card>
+          </Popup>
+        </Grid>
+      </styles:ColorZone>
+      <ScrollViewer DockPanel.Dock="Top" 
+                    HorizontalContentAlignment="Stretch" 
+                    HorizontalAlignment="Stretch"
+                    HorizontalScrollBarVisibility="Disabled">
+        <Carousel x:Name="PageCarousel" 
+                  HorizontalAlignment="Stretch" >
+          <Carousel.PageTransition>
+            <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut" SlideInEasing="CircularEaseOut"/>
+          </Carousel.PageTransition>
+          <StackPanel Margin="16, 0" MaxWidth="600">
+            <StackPanel.Styles>
+              <Style Selector="TextBlock.Content, TextBlock.Subheadline">
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+              </Style>
+            </StackPanel.Styles>
+            <Image Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top"
+                    Source="avares://Material.Demo/FavIcon_200x.png" Margin="0,0,0,-8"/>
+            <TextBlock Classes="Headline4 Subheadline" Text="Welcome to Material.Avalonia Demo!"/>
+            <TextBlock Classes="Content" Text="Material.Avalonia is a library that could beauty and turning your Avalonia Application from regular design to Material Design like Material Design in XAML! It easy for use to your project! Just install NuGet package, slightly change your App.xaml / App.axaml and your application are ready to go with Material Design!"/>
+            <TextBlock Classes="Content" Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!"/>
+            <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!"/>
+            <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
+
+            <WrapPanel HorizontalAlignment="Center" Margin="16" MaxWidth="600"
+                       DataContext="{Binding ElementName=MainWindow}">
+              <Button Classes="Tool" Content="PROJECT LINK" Command="{Binding OpenProjectRepoLink}"/>
+              <Button Classes="Tool" Content="USE DARK THEME" Command="{Binding UseMaterialUIDarkTheme}"/>
+              <Button Classes="Tool" Content="USE LIGHT THEME" Command="{Binding UseMaterialUILightTheme}"/>
+            </WrapPanel>
+          </StackPanel>
+          <!-- Buttons -->
+          <pages:ButtonsDemo/>
+          
+          <!-- Toggles -->
+          <pages:TogglesDemo/>
+          
+          <!-- Fields -->
+          <pages:FieldsDemo/> 
+
+          <!-- ComboBoxes -->
+          <pages:ComboBoxesDemo/>
+          
+          <!-- Sliders -->
+          <pages:NotReadyDemo/>
+ 
+          <!-- Progress indicators -->
+          <pages:NotReadyDemo/>
+          
+          <!-- Lists -->
+          <pages:NotReadyDemo/>
+          
+          <!-- Card -->
+          <pages:CardsDemo/>
+          
+          <!-- Typography -->
+          <pages:TypographyDemo/>
+          
+          <!-- Shadows -->
+          <pages:NotReadyDemo/>
+        </Carousel>
+      </ScrollViewer>
+
+    </DockPanel>
+  </styles:NavigationDrawer>
 </Window>
