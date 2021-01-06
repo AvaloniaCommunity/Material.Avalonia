@@ -6,6 +6,14 @@
 
 ![](/Images/2.png)
 
+![](/Images/3.png)
+
+![](/Images/4.png)
+
+![](/Images/5.png)
+
+![](/Images/6.png)
+
 [![nuget](https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
 
 This repository is a collection of styles to help you customize your [Avalonia](https://github.com/AvaloniaUI/Avalonia) application theme with Material Design.
