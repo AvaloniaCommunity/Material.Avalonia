@@ -9,17 +9,9 @@
     <Style Selector="cc|FloatingButton">
         <Style.Resources>
             <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
-        </Style.Resources>
-        <Setter Property="Transitions">
-          <Setter.Value>
-            <Transitions>
-              <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:1" />
-            </Transitions>
-          </Setter.Value>
-        </Setter>
-
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style.Resources>  
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
@@ -31,9 +23,7 @@
         <Setter Property="TextBlock.FontWeight" Value="Medium" />
         <Setter Property="TextBlock.FontSize" Value="14" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="ScaleTransform.ScaleX" Value="0"/>
-        <Setter Property="ScaleTransform.ScaleY" Value="0"/>
+        <Setter Property="ClipToBounds" Value="False" /> 
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid>
@@ -61,18 +51,18 @@
                     </AdornerLayer>
                     <Border Name="ContentBorder" CornerRadius="28" ClipToBounds="True"
                             MinHeight="{TemplateBinding MinHeight}" MinWidth="{TemplateBinding MinWidth}"
-                            HorizontalAlignment="Center" VerticalAlignment="Center">
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <ripple:RippleEffect ClipToBounds="True"
                                              RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-                            <ContentPresenter Name="PART_ContentPresenter"
-                                              CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                                              BorderThickness="{TemplateBinding BorderThickness}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              Content="{TemplateBinding Content}"
-                                              Padding="{TemplateBinding Padding}"
-                                              TextBlock.Foreground="{TemplateBinding Foreground}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                          <ContentPresenter Name="PART_ContentPresenter"
+                                            CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                            Content="{TemplateBinding Content}"
+                                            Padding="{TemplateBinding Padding}"
+                                            TextBlock.Foreground="{TemplateBinding Foreground}"
+                                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </ripple:RippleEffect>
                     </Border>
                 </Grid>
@@ -80,7 +70,11 @@
         </Setter>
     </Style>
 
-    <Style Selector="cc|FloatingButton:disabled:not(.no-material),ToggleButton:disabled:not(.no-material)">
+  <Style Selector="cc|FloatingButton, cc|FloatingButton.Extend"> 
+    <Setter Property="Path.Fill" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+  </Style> 
+
+  <Style Selector="cc|FloatingButton:disabled:not(.no-material),ToggleButton:disabled:not(.no-material)">
         <Setter Property="Opacity" Value="0.23" />
     </Style>
     <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#Thumb">
@@ -111,18 +105,23 @@
     <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
-  </Style>
+    <Setter Property="Path.Fill" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+  </Style> 
+
   <Style Selector="cc|FloatingButton.Dark, cc|FloatingButton.Extend.Dark">
     <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+    <Setter Property="Path.Fill" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
   </Style>
+ 
   <Style Selector="cc|FloatingButton.Accent, cc|FloatingButton.Extend.Accent">
     <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
+    <Setter Property="Path.Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
   </Style>
-
+ 
      
   <Design.PreviewWith>
     <Border Padding="20">
