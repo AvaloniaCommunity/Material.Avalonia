@@ -25,7 +25,7 @@
       <Button Classes="Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent"'/>
     </StackPanel>
 
-    <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon (PackIcon system not implemented)"/>
+    <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon (Icons from Material.xaml)"/>
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
         <Style Selector="styles|FloatingButton">
