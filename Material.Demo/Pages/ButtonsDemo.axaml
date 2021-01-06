@@ -58,7 +58,7 @@
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
         <Style Selector="styles|FloatingButton.Extend">
-          <Setter Property="Margin" Value="8"/>
+          <Setter Property="Margin" Value="8"/>   
           <Setter Property="Content">
             <Setter.Value>
               <Template>
@@ -78,13 +78,7 @@
       </StackPanel.Styles>
       <styles:FloatingButton Classes="Extend Light"/>
       <styles:FloatingButton Classes="Extend"/>
-      <styles:FloatingButton Classes="Extend Dark">
-        <StackPanel Orientation="Horizontal" Height="24">
-          <Path Data="{StaticResource Material.Plus}"
-                Width="24" Height="24"/>
-          <TextBlock Margin="8,0" Text="ADD ITEM" Classes="Subtitle2" VerticalAlignment="Center"/>
-        </StackPanel>
-      </styles:FloatingButton>
+      <styles:FloatingButton Classes="Extend Dark"/>
       <styles:FloatingButton Classes="Extend Accent"/>
     </StackPanel>
 
