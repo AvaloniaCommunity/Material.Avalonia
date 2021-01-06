@@ -80,7 +80,7 @@
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"
                                       Margin="{TemplateBinding Padding}"
-                                      VerticalAlignment="Top" />
+                                      VerticalAlignment="Center" />
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -119,7 +119,7 @@
                   Content="{TemplateBinding Content}"
                   ContentTemplate="{TemplateBinding ContentTemplate}"
                   Margin="{TemplateBinding Padding}"
-                  VerticalAlignment="Top" />
+                  VerticalAlignment="Center" />
           <Viewbox Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:SelectionControlAssist.Size)}"
                    Stretch="Uniform"
                    ClipToBounds="False" Grid.Column="1" VerticalAlignment="Center">
@@ -239,6 +239,9 @@
         <Setter Property="Background"
                 Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
     </Style>
+  <Style Selector="ToggleSwitch.Accent:checked /template/ Border#Thumb">
+    <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
+  </Style>
     <Style Selector="ToggleSwitch:checked /template/ Border#Track">
         <Setter Property="Background"
                 Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}" />
