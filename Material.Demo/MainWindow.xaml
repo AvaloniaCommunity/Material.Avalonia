@@ -1,5 +1,4 @@
-﻿<Window x:Class="Material.Demo.MainWindow"
-        Name="MainWindow"
+﻿<Window x:Class="Material.Demo.MainWindow" 
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -55,6 +54,7 @@
           <TextBlock Classes="Body2" Text="Sliders" />
           <TextBlock Classes="Body2" Text="Progress indicators" />
           <TextBlock Classes="Body2" Text="Lists" />
+          <TextBlock Classes="Body2" Text="ScrollViewer" />
           <TextBlock Classes="Body2" Text="Card" />
           <TextBlock Classes="Body2" Text="Typography" />
           <TextBlock Classes="Body2" Text="Shadows" IsEnabled="False"/>
@@ -138,29 +138,9 @@
           <Carousel.PageTransition>
             <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut" SlideInEasing="CircularEaseOut"/>
           </Carousel.PageTransition>
-          <StackPanel Margin="16, 0" MaxWidth="600">
-            <StackPanel.Styles>
-              <Style Selector="TextBlock.Content, TextBlock.Subheadline">
-                <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                <Setter Property="TextAlignment" Value="Center"/>
-                <Setter Property="TextWrapping" Value="Wrap"/>
-              </Style>
-            </StackPanel.Styles>
-            <Image Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top"
-                    Source="avares://Material.Demo/FavIcon_200x.png" Margin="0,0,0,-8"/>
-            <TextBlock Classes="Headline4 Subheadline" Text="Welcome to Material.Avalonia Demo!"/>
-            <TextBlock Classes="Content" Text="Material.Avalonia is a library that could beauty and turning your Avalonia Application from regular design to Material Design like Material Design in XAML! It easy for use to your project! Just install NuGet package, slightly change your App.xaml / App.axaml and your application are ready to go with Material Design!"/>
-            <TextBlock Classes="Content" Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!"/>
-            <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!"/>
-            <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
-
-            <WrapPanel HorizontalAlignment="Center" Margin="16" MaxWidth="600"
-                       DataContext="{Binding ElementName=MainWindow}">
-              <Button Classes="Tool" Content="PROJECT LINK" Command="{Binding OpenProjectRepoLink}"/>
-              <Button Classes="Tool" Content="USE DARK THEME" Command="{Binding UseMaterialUIDarkTheme}"/>
-              <Button Classes="Tool" Content="USE LIGHT THEME" Command="{Binding UseMaterialUILightTheme}"/>
-            </WrapPanel>
-          </StackPanel>
+          <!-- Main page -->
+          <pages:Home/>
+          
           <!-- Buttons -->
           <pages:ButtonsDemo/>
           
@@ -181,7 +161,10 @@
           
           <!-- Lists -->
           <pages:NotReadyDemo/>
-          
+
+          <!-- ScrollViewer -->
+          <pages:ScrollViewerDemo/>
+
           <!-- Card -->
           <pages:CardsDemo/>
           

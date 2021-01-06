@@ -1,24 +1,13 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Controls.Presenters;
+using Avalonia.Controls; 
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
-using Avalonia.Media;
-using Material.Colors;
-using Material.Styles.Assists;
-using Material.Styles.Themes;
-using Material.Styles.Themes.Base;
-using System.Diagnostics;
-using PrimaryColor = Material.Colors.PrimaryColor;
+using Avalonia.Markup.Xaml; 
 
 namespace Material.Demo {
     public class MainWindow : Window {
-
-
-        private PaletteHelper _paletteHelper;
-
+         
         #region Control fields
         private ToggleButton NavDrawerSwitch;
         private ListBox DrawerList;
@@ -32,9 +21,6 @@ namespace Material.Demo {
 
         private void InitializeComponent() {
             AvaloniaXamlLoader.Load(this);
-            _paletteHelper = new PaletteHelper();
-
-            UseMaterialUIDarkTheme(); 
 
             #region Control getter and event binding
             NavDrawerSwitch = this.Get<ToggleButton>(nameof(NavDrawerSwitch));
@@ -43,60 +29,8 @@ namespace Material.Demo {
             DrawerList.PointerReleased += DrawerSelectionChanged;
 
             PageCarousel = this.Get<Carousel>(nameof(PageCarousel));
-            #endregion
-
-            //this.FindControl<ToggleSwitch>("BaseThemeCheckBox").IsChecked = _paletteHelper.GetTheme().GetBaseTheme() == BaseThemeMode.Dark;
+            #endregion 
         }
-
-        public void BaseThemeChanged(object sender, RoutedEventArgs args)
-        {
-            if (!(sender is ToggleSwitch checkBox)) return;
-            ChangeDarkMode(checkBox.IsChecked!.Value);
-        }
-        public void ChangeDarkMode(bool isEnabled)
-        {
-            var theme = _paletteHelper.GetTheme();
-            var baseThemeMode = isEnabled switch
-            {
-                true => BaseThemeMode.Dark,
-                false => BaseThemeMode.Light
-            };
-            theme.SetBaseTheme(baseThemeMode.GetBaseTheme());
-            _paletteHelper.SetTheme(theme);
-        }
-
-        public void UseMaterialUIDarkTheme()
-        {
-            var theme = _paletteHelper.GetTheme();
-            theme.SetPrimaryColor(SwatchHelper.Lookup[MaterialColor.Blue200]);
-            theme.SetSecondaryColor(SwatchHelper.Lookup[MaterialColor.Pink200]);
-            theme.SetBaseTheme(BaseThemeMode.Dark.GetBaseTheme());
-            _paletteHelper.SetTheme(theme);
-        }
-        public void UseMaterialUILightTheme()
-        {
-            var theme = _paletteHelper.GetTheme();
-            theme.SetPrimaryColor(SwatchHelper.Lookup[MaterialColor.Blue]);
-            theme.SetSecondaryColor(SwatchHelper.Lookup[MaterialColor.Pink400]);
-            theme.SetBaseTheme(BaseThemeMode.Light.GetBaseTheme());
-            _paletteHelper.SetTheme(theme);
-        }
-
-        public void OpenProjectRepoLink() => OpenBrowserForVisitSite("https://github.com/AvaloniaUtils/material.avalonia");
-
-        public void BaseThemeColorChanged(object sender, RoutedEventArgs args)
-        {
-            if (!(sender is ToggleSwitch checkBox)) return;
-            var theme = _paletteHelper.GetTheme();
-            var color = checkBox.IsChecked!.Value switch {
-                true  => PrimaryColor.Purple,
-                false => PrimaryColor.Teal
-            };
-            theme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialColor) color]);
-            _paletteHelper.SetTheme(theme);
-        }
-
-
         public void DrawerSelectionChanged(object sender, RoutedEventArgs args)
         {
             var listBox = sender as ListBox;
@@ -108,17 +42,6 @@ namespace Material.Demo {
             {
             }
             NavDrawerSwitch.IsChecked = false;
-        }
-
-        public static void OpenBrowserForVisitSite(string link)
-        {
-            var param = new ProcessStartInfo
-            {
-                FileName = link,
-                UseShellExecute = true,
-                Verb = "open"
-            };
-            Process.Start(param);
-        }
+        } 
     }
 }
