@@ -28,6 +28,7 @@
                            Grid.Row="1" Grid.Column="0"
                            Focusable="False" />
                 <ScrollBar Name="verticalScrollBar"
+                           Classes="Mini"
                            Orientation="Vertical"
                            Maximum="{TemplateBinding VerticalScrollBarMaximum}"
                            Value="{TemplateBinding VerticalScrollBarValue, Mode=TwoWay}"
