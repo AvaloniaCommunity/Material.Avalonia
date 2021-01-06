@@ -20,21 +20,30 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid>
-                          <Path x:Name="Graphic" Width="24" Height="24" Margin="0"/>
-                          <Ellipse x:Name="InteractionEllipse"
-                                   Fill="{TemplateBinding Background}"
-                                   VerticalAlignment="Center" HorizontalAlignment="Center"
-                                   Width="0" Height="0" Opacity="0" Margin="-100"
-                                   ClipToBounds="False"
-                                   IsHitTestVisible="False">
-                          </Ellipse>
-                          <Ellipse x:Name="pointerOverEllipse"
-                                   Fill="{TemplateBinding Background}"
-                                   VerticalAlignment="Center" HorizontalAlignment="Center"
-                                   Width="42" Height="42" Margin="-100"
-                                   ClipToBounds="False"
-                                   IsHitTestVisible="False">
-                          </Ellipse>
+                          <Viewbox
+    Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
+    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
+    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+    ClipToBounds="False">
+                            <Grid>
+                              <Path x:Name="Graphic" Width="24" Height="24" Margin="0"/>
+
+                              <Ellipse x:Name="InteractionEllipse"
+                                       Fill="{TemplateBinding Background}"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       Width="0" Height="0" Opacity="0" Margin="-100"
+                                       ClipToBounds="False"
+                                       IsHitTestVisible="False">
+                              </Ellipse>
+                              <Ellipse x:Name="pointerOverEllipse"
+                                       Fill="{TemplateBinding Background}"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       Width="42" Height="42" Margin="-100"
+                                       ClipToBounds="False"
+                                       IsHitTestVisible="False">
+                              </Ellipse>
+                            </Grid>
+                          </Viewbox>  
                         </Grid>
                         <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
