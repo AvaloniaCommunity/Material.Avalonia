@@ -13,6 +13,11 @@
                 <Border Background="{TemplateBinding Background}">
                     <Grid RowDefinitions="Auto,*,Auto"
                           Name="ScrollBarGrid" Opacity="0.5">
+                      <Grid.Transitions>
+                        <Transitions>
+                          <DoubleTransition Duration="0:0:0.5" Property="Opacity" Easing="CubicEaseOut"/>
+                        </Transitions>
+                      </Grid.Transitions>
                         <RepeatButton Name="PART_LineUpButton" HorizontalAlignment="Center"
                                       Background="{DynamicResource MaterialDesignSelection}"
                                       Classes="repeat"
@@ -72,6 +77,11 @@
                 <Border Background="{TemplateBinding Background}">
                     <Grid ColumnDefinitions="Auto,*,Auto"
                           Name="ScrollBarGrid" Opacity="0.5">
+                      <Grid.Transitions>
+                        <Transitions>
+                          <DoubleTransition Duration="0:0:0.5" Property="Opacity" Easing="CubicEaseOut"/>
+                        </Transitions>
+                      </Grid.Transitions>
                         <RepeatButton Name="PART_LineUpButton" VerticalAlignment="Center"
                                       Background="{DynamicResource MaterialDesignSelection}"
                                       Classes="repeat"
@@ -125,19 +135,11 @@
         </Setter>
     </Style>
 
-    <Style Selector="ScrollBar:pointerover:not(:disabled) /template/ Grid#ScrollBarGrid">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0.5" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.8" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
+    <Style Selector="ScrollBar:not(.Mini):not(:disabled) /template/ Grid#ScrollBarGrid">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="ScrollBar:not(.Mini):not(:disabled):pointerover /template/ Grid#ScrollBarGrid">
+      <Setter Property="Opacity" Value="0.8" />
     </Style>
 
     <Style Selector="ScrollBar /template/ Thumb#thumb">
@@ -193,4 +195,74 @@
             </ControlTemplate>
         </Setter>
     </Style>
+
+  
+  
+    <Style Selector="ScrollBar.Mini"> 
+      <Setter Property="Width" Value="0"/>
+      <Setter Property="Cursor" Value="Arrow" />
+      <Setter Property="Margin" Value="-16,0,0,0"/>
+      <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialDesignTextBoxBorder}"/>
+      <Setter Property="ClipToBounds" Value="False"/>
+      <Setter Property="Template">
+          <ControlTemplate>
+              <Border Name="mainBorder"
+                      Width="4"
+                      Margin="3,4"
+                      CornerRadius="2"
+                      Background="{TemplateBinding Background}">
+                <Border.Transitions>
+                  <Transitions>
+                    <DoubleTransition Duration="0:0:0.5" Property="Opacity" Easing="CubicEaseOut"/>
+                  </Transitions>
+                </Border.Transitions>
+                  <Grid Name="ScrollBarGrid">
+                      <Track  Minimum="{TemplateBinding Minimum}"
+                              Maximum="{TemplateBinding Maximum}"
+                              
+                              Value="{TemplateBinding Value, Mode=TwoWay}"
+                              ViewportSize="{TemplateBinding ViewportSize}"
+                              Orientation="{TemplateBinding Orientation}"
+                              IsDirectionReversed="True">
+                          <Track.DecreaseButton>
+                              <RepeatButton Name="PART_PageUpButton"
+                                            Classes="repeattrack"
+                                            Focusable="False" />
+                          </Track.DecreaseButton>
+                          <Track.IncreaseButton>
+                              <RepeatButton Name="PART_PageDownButton"
+                                            Classes="repeattrack"
+                                            Focusable="False" />
+                          </Track.IncreaseButton>
+                          <Thumb Name="thumb" Width="4" 
+                                 Foreground="{TemplateBinding Foreground}">
+                            <Thumb.Styles>
+                              <Style Selector="Thumb#thumb /template/ Border">
+                                <Setter Property="CornerRadius" Value="2"/>
+                              </Style>
+                            </Thumb.Styles>
+                          </Thumb>
+                      </Track>
+                  </Grid>
+              </Border>
+          </ControlTemplate>
+      </Setter>
+  </Style>
+
+  <Style Selector="ScrollBar.Mini:not(:disabled) /template/ Border#mainBorder">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
+  <Style Selector="ScrollBar.Mini:not(:disabled):pointerover /template/ Border#mainBorder">
+    <Setter Property="Opacity" Value="0.8" />
+  </Style>
+
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Orientation="Horizontal">
+        <ScrollBar Height="150"/>
+        <ScrollBar Height="150" Classes="Mini" Margin="8,0"/>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
 </Styles>
