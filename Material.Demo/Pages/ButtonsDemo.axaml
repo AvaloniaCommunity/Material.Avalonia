@@ -5,9 +5,13 @@
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
             x:Class="Material.Demo.Pages.ButtonsDemo">
+  <UserControl.Resources>
+    <Path x:Key="AddIcon"
+          Data="{StaticResource Material.Plus}"
+          Fill="{DynamicResource MaterialDesignBody}"/>
+  </UserControl.Resources>
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Buttons"/>
-
     <TextBlock Classes="Headline6 Subheadline2" Text="Regular buttons"/>
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
@@ -25,10 +29,22 @@
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
         <Style Selector="styles|FloatingButton">
-          <Setter Property="Margin" Value="16,8"/>
+          <Setter Property="Margin" Value="16,8"/> 
+          <Setter Property="Content">
+            <Setter.Value>
+              <Template>
+                <Viewbox Stretch="Fill" 
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch">
+                  <Path Data="{StaticResource Material.Plus}"  
+                        Width="24" Height="24"/>
+                </Viewbox>
+              </Template>
+            </Setter.Value>
+          </Setter>
         </Style>
       </StackPanel.Styles>
-      <styles:FloatingButton Classes="Light Mini"/>
+      <styles:FloatingButton Classes="Light Mini"/> 
       <styles:FloatingButton Classes="Mini"/>
       <styles:FloatingButton Classes="Dark Mini"/>
       <styles:FloatingButton Classes="Accent Mini"/>
@@ -41,14 +57,35 @@
     <TextBlock Classes="Headline6 Subheadline2" Text="Extended floating buttons"/>
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
-        <Style Selector="styles|FloatingButton">
+        <Style Selector="styles|FloatingButton.Extend">
           <Setter Property="Margin" Value="8"/>
+          <Setter Property="Content">
+            <Setter.Value>
+              <Template>
+                <StackPanel Orientation="Horizontal" Height="24">
+                  <Viewbox Stretch="Fill"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch">
+                    <Path Data="{StaticResource Material.Plus}" 
+                          Width="24" Height="24"/>
+                  </Viewbox>
+                  <TextBlock Margin="8,0" Text="ADD ITEM" Classes="Subtitle2" VerticalAlignment="Center"/>
+                </StackPanel>
+              </Template>
+            </Setter.Value>
+          </Setter>
         </Style>
       </StackPanel.Styles>
-      <styles:FloatingButton Classes="Extend Light" Content="ADD ITEM"/>
-      <styles:FloatingButton Classes="Extend" Content="ADD ITEM"/>
-      <styles:FloatingButton Classes="Extend Dark" Content="ADD ITEM"/>
-      <styles:FloatingButton Classes="Extend Accent" Content="ADD ITEM"/>
+      <styles:FloatingButton Classes="Extend Light"/>
+      <styles:FloatingButton Classes="Extend"/>
+      <styles:FloatingButton Classes="Extend Dark">
+        <StackPanel Orientation="Horizontal" Height="24">
+          <Path Data="{StaticResource Material.Plus}"
+                Width="24" Height="24"/>
+          <TextBlock Margin="8,0" Text="ADD ITEM" Classes="Subtitle2" VerticalAlignment="Center"/>
+        </StackPanel>
+      </styles:FloatingButton>
+      <styles:FloatingButton Classes="Extend Accent"/>
     </StackPanel>
 
     <TextBlock Classes="Headline6 Subheadline2" Text="Tool buttons (Flat)"/>
