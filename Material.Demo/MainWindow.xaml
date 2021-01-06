@@ -70,6 +70,8 @@
             <ColumnDefinition Width="24"/>
             <ColumnDefinition Width="32"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="24"/>
           </Grid.ColumnDefinitions>
           <ToggleButton Classes="Tool TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
                         Padding="4">
@@ -81,6 +83,50 @@
           </ToggleButton>
           <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
                      Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
+
+          <ToggleButton Classes="Tool TransparentBack" 
+                        Width="32" Height="32" 
+                        x:Name="MenuButton"
+                        Grid.Column="4"
+              Padding="4">
+            <Path HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Width="24" Height="24"
+                  Data="{StaticResource Material.DotsVertical}"
+                  Fill="{DynamicResource MaterialDesignBody}"/>
+          </ToggleButton>
+          <Popup Grid.Column="4"
+                 PlacementTarget="{Binding ElementName=MenuButton}" 
+                 WindowManagerAddShadowHint="False"
+                 PlacementGravity="1"
+                 StaysOpen="False"
+                 PlacementConstraintAdjustment="FlipX" 
+                 PlacementMode="Bottom"
+                 IsOpen="{Binding ElementName=MenuButton, Path=IsChecked, Mode=TwoWay}">
+            <styles:Card Padding="0"
+                         Margin="6"
+                         assists:ShadowAssist.ShadowDepth="1">
+              <StackPanel>
+                <MenuItem Header="Hello!">
+                  <MenuItem.Icon>
+                    <Path Data="{StaticResource Material.Hand}"
+                          Fill="{DynamicResource MaterialDesignBody}"/> 
+                  </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Action 1"/>
+                <MenuItem Header="Action 2"/>
+                <MenuItem Header="Action 3"/>
+                <Separator/>
+                <MenuItem Header="Goodbye">
+                  <MenuItem.Icon>
+                    <Path Data="{StaticResource Material.ExitRun}"
+                          Fill="{DynamicResource MaterialDesignBody}"/>
+                  </MenuItem.Icon>
+                </MenuItem>
+              </StackPanel>
+            </styles:Card>
+          </Popup>
         </Grid>
       </styles:ColorZone>
       <ScrollViewer DockPanel.Dock="Top" 
