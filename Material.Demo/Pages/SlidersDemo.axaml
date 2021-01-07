@@ -61,10 +61,13 @@
           <TextBlock/>
         </StackPanel>
         <StackPanel Classes="Content" Orientation="Horizontal">
-          <Slider IsEnabled="False" Value="20"/>
+          <Slider IsEnabled="False" Value="20"
+                  IsSnapToTickEnabled="True"
+                  Classes="Discrete"
+                  TickFrequency="1"/>
           <TextBlock/>
         </StackPanel>
-      </StackPanel>
+      </StackPanel> 
     </WrapPanel>
   </StackPanel>
 </UserControl>
