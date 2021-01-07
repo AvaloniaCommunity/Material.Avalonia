@@ -67,7 +67,22 @@
                   TickFrequency="1"/>
           <TextBlock/>
         </StackPanel>
-      </StackPanel> 
+      </StackPanel>
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Sliders with bubble"/>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True" 
+                  Classes="Bubble"
+                  TickFrequency="1"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  Classes="Discrete Bubble"
+                  TickFrequency="10"/>
+          <TextBlock/>
+        </StackPanel> 
+      </StackPanel>
     </WrapPanel>
   </StackPanel>
 </UserControl>
