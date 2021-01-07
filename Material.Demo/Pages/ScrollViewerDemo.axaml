@@ -15,12 +15,25 @@
     <TextBlock Classes="Headline4 Subheadline" Text="ScrollViewer"/>
 
     <WrapPanel  HorizontalAlignment="Stretch">
-      <styles:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
-        <ScrollViewer HorizontalScrollBarVisibility="Visible"
-                      VerticalScrollBarVisibility="Visible">
-          <pages:Home/>
-        </ScrollViewer>
-      </styles:Card>
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer with classic scrollbar"/>
+        <styles:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+          <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                        VerticalScrollBarVisibility="Visible"
+                        Classes="Classic">
+            <pages:Home/>
+          </ScrollViewer>
+        </styles:Card>
+      </StackPanel>
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer with mini scrollbar"/>
+        <styles:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+          <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                        VerticalScrollBarVisibility="Visible" >
+            <pages:Home/>
+          </ScrollViewer>
+        </styles:Card>
+      </StackPanel>
     </WrapPanel>
   </StackPanel>
 </UserControl>
