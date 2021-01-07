@@ -37,6 +37,9 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaXaml Update="Pages\SlidersDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\Home.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
@@ -54,6 +57,9 @@
     </AvaloniaXaml>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\SlidersDemo.axaml.cs">
+      <DependentUpon>SlidersDemo.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\Home.axaml.cs">
       <DependentUpon>Home.axaml</DependentUpon>
     </Compile>

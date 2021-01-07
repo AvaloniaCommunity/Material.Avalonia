@@ -1,0 +1,45 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+            x:Class="Material.Demo.Pages.SlidersDemo">
+  <UserControl.Resources>
+    <Path x:Key="AddIcon"
+          Data="{StaticResource Material.Plus}"
+          Fill="{DynamicResource MaterialDesignBody}"/>
+  </UserControl.Resources>
+  <WrapPanel Margin="16, 0">
+    <StackPanel>
+      <StackPanel.Styles>
+        <Style Selector="StackPanel.Content Slider">
+          <Setter Property="Width" Value="300"/>
+          <Setter Property="Maximum" Value="100"/>
+          <Setter Property="Minimum" Value="0"/>
+        </Style>
+        <Style Selector="StackPanel.Content TextBlock">
+          <Setter Property="Margin" Value="16,0"/>
+        </Style>
+        <Style Selector="StackPanel.Content">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <TextBlock Classes="Headline4 Subheadline" Text="Sliders"/>
+      <TextBlock Classes="Headline6 Subheadline2" Text="Regular sliders"/>
+      <StackPanel Classes="Content" Orientation="Horizontal">
+        <Slider Name="slider1" />
+        <TextBlock Text="{Binding ElementName=slider1, Path=Value} "/>
+      </StackPanel>
+      <StackPanel Classes="Content" Orientation="Horizontal">
+        <Slider Name="slider2" IsSnapToTickEnabled="True"
+                TickFrequency="1"/>
+        <TextBlock Text="{Binding ElementName=slider2, Path=Value} "/>
+      </StackPanel>
+      <StackPanel Classes="Content" Orientation="Horizontal">
+        <Slider Name="slider3" IsEnabled="False" Value="20"/>
+        <TextBlock Text="{Binding ElementName=slider3, Path=Value} "/>
+      </StackPanel>
+    </StackPanel>
+  </WrapPanel>
+</UserControl>

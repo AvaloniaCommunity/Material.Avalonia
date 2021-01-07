@@ -154,7 +154,7 @@
           <pages:ComboBoxesDemo/>
           
           <!-- Sliders -->
-          <pages:NotReadyDemo/>
+          <pages:SlidersDemo/>
  
           <!-- Progress indicators -->
           <pages:NotReadyDemo/>
