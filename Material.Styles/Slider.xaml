@@ -249,13 +249,13 @@
               <Track.DecreaseButton>
                 <RepeatButton Name="PART_DecreaseButton"
                               Classes="MaterialDesignHorizontalTrackRepeatButton"
-                              Background="{Binding $parent[Slider].Foreground}" 
+                              Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" 
                               Opacity="0.75"/>
               </Track.DecreaseButton>
               <Track.IncreaseButton>
                 <RepeatButton Name="PART_IncreaseButton"
                               Classes="MaterialDesignHorizontalTrackRepeatButton"
-                              Background="{Binding ElementName=PART_SelectionRange, Path=Stroke}"
+                              Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
                               Opacity="0.25"/>
               </Track.IncreaseButton>
               <Track.Thumb>
