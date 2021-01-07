@@ -10,36 +10,61 @@
           Data="{StaticResource Material.Plus}"
           Fill="{DynamicResource MaterialDesignBody}"/>
   </UserControl.Resources>
-  <WrapPanel Margin="16, 0">
-    <StackPanel>
-      <StackPanel.Styles>
-        <Style Selector="StackPanel.Content Slider">
-          <Setter Property="Width" Value="300"/>
-          <Setter Property="Maximum" Value="100"/>
-          <Setter Property="Minimum" Value="0"/>
-        </Style>
-        <Style Selector="StackPanel.Content TextBlock">
-          <Setter Property="Margin" Value="16,0"/>
-        </Style>
-        <Style Selector="StackPanel.Content">
-          <Setter Property="Margin" Value="8"/>
-        </Style>
-      </StackPanel.Styles>
-      <TextBlock Classes="Headline4 Subheadline" Text="Sliders"/>
-      <TextBlock Classes="Headline6 Subheadline2" Text="Regular sliders"/>
-      <StackPanel Classes="Content" Orientation="Horizontal">
-        <Slider Name="slider1" />
-        <TextBlock Text="{Binding ElementName=slider1, Path=Value} "/>
+  <StackPanel  Margin="16, 0">
+    <StackPanel.Styles>
+      <Style Selector="StackPanel.Content Slider">
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Maximum" Value="100"/>
+        <Setter Property="Minimum" Value="0"/>
+      </Style>
+      <Style Selector="StackPanel.Content TextBlock"> 
+        <Setter Property="Margin" Value="16,0"/>
+        <Setter Property="Text" Value="{Binding $parent.Children[0].Value}"/>
+      </Style>
+      <Style Selector="StackPanel.Content">
+        <Setter Property="Margin" Value="8"/>
+      </Style>
+    </StackPanel.Styles>
+    <TextBlock Classes="Headline4 Subheadline"  Text="Sliders"/>
+    <WrapPanel>
+      <StackPanel> 
+        <TextBlock Classes="Headline6 Subheadline2" Text="Continuous sliders"/>
+
+        <!-- lol this one are not enabled snap to tick, 
+             when dragging thumb could contains a long numerics with decimal point. -->
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider/>
+          <TextBlock MinWidth="120"/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  TickFrequency="1"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsEnabled="False" Value="20"/>
+          <TextBlock/>
+        </StackPanel>
       </StackPanel>
-      <StackPanel Classes="Content" Orientation="Horizontal">
-        <Slider Name="slider2" IsSnapToTickEnabled="True"
-                TickFrequency="1"/>
-        <TextBlock Text="{Binding ElementName=slider2, Path=Value} "/>
+      <StackPanel> 
+        <TextBlock Classes="Headline6 Subheadline2" Text="Discrete sliders"/>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  Classes="Discrete"
+                  TickFrequency="10"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  Classes="Discrete"
+                  TickFrequency="1"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsEnabled="False" Value="20"/>
+          <TextBlock/>
+        </StackPanel>
       </StackPanel>
-      <StackPanel Classes="Content" Orientation="Horizontal">
-        <Slider Name="slider3" IsEnabled="False" Value="20"/>
-        <TextBlock Text="{Binding ElementName=slider3, Path=Value} "/>
-      </StackPanel>
-    </StackPanel>
-  </WrapPanel>
+    </WrapPanel>
+  </StackPanel>
 </UserControl>
