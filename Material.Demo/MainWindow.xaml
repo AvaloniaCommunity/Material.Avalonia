@@ -157,7 +157,7 @@
           <pages:SlidersDemo/>
  
           <!-- Progress indicators -->
-          <pages:NotReadyDemo/>
+          <pages:ProgressIndicatorDemo/>
           
           <!-- Lists -->
           <pages:NotReadyDemo/>
