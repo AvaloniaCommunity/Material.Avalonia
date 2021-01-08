@@ -300,7 +300,7 @@
               <Border Background="{TemplateBinding Foreground}"
                       Width="36" Height="36"
                       ClipToBounds="False"
-                      CornerRadius="16,16,0,16">
+                      CornerRadius="32,32,0,32">
                 <Border.RenderTransform>
                   <TransformGroup>
                     <RotateTransform Angle="45"/>
