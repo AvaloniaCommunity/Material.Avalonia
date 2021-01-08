@@ -190,69 +190,7 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
     </Style>
-
-
-  <Style Selector="ProgressBar.Circular">
-    <Style.Resources>
-      <circular:ArcEndPointConverter x:Key="ArcEndPointConverter"/>
-      <circular:StartPointConverter x:Key="StartPointConverter" />
-      <circular:ArcSizeConverter x:Key="ArcSizeConverter" />
-    </Style.Resources> 
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid  Name="PART_Grid" ClipToBounds="False">
-          <!--Path Stroke="{TemplateBinding Foreground}"
-              StrokeThickness="4"
-              StrokeDashArray="40,200">
-          <Path.Data>
-            <EllipseGeometry Center="48,48"
-                              RadiusX="40"
-                              RadiusY="40"  />
-          </Path.Data>
-        </Path-->
-          <Grid Name="FullyIndeterminateGrid" Height="1"/>
-          <Grid Name="PathGrid" Margin="2" />
-          <Border Name="PART_Indicator" ClipToBounds="False"
-        Background="Transparent" />
-          <Canvas Name="PART_Canvas"> 
-            <Ellipse Fill="{TemplateBinding Background}" 
-                     Width="{TemplateBinding Width}" 
-                     Height="{TemplateBinding Height}" />
-            <Path Name="PathRoot"  StrokeThickness="4"
-                  Stroke="{TemplateBinding Foreground}" 
-                  Canvas.Top="2" Canvas.Left="2"
-                  RenderTransformOrigin="0, 0"> 
-            </Path>
-          </Canvas>
-
-
-        </Grid>
-      </ControlTemplate>
-    </Setter>
-  </Style> 
  
-  <Style Selector="ProgressBar.Circular /template/ Canvas#PART_Canvas">
-    <Style.Animations>
-        <Animation Duration="0:0:1.4" RepeatCount="INFINITE">
-          <KeyFrame Cue="0%">
-            <Setter Property="RotateTransform.Angle" Value="0"/>
-          </KeyFrame>
-          <KeyFrame Cue="100%">
-            <Setter Property="RotateTransform.Angle" Value="360"/>
-          </KeyFrame>
-        </Animation>
-    </Style.Animations>
-  </Style>
-  <!--Style Selector="ProgressBar.Circular /template/ Path#PATH_Circular">
-    <Style.Animations>
-      <Animation Duration="0:0:1.4" RepeatCount="INFINITE" Easing="CubicEaseOut">
-        <KeyFrame Cue="0%" >  
-        </KeyFrame>
-        <KeyFrame Cue="100%"> 
-        </KeyFrame>
-      </Animation>
-    </Style.Animations>
-  </Style-->
 
   <Design.PreviewWith>
     <Border Padding="20">
