@@ -1,6 +1,10 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:cc="clr-namespace:Material.Styles" >
+    xmlns:cc="clr-namespace:Material.Styles" 
+    xmlns:converters="clr-namespace:Material.Styles.Converters">
+  <Styles.Resources>
+    <converters:MarginCreator x:Key="StartMarginCreator"/>
+  </Styles.Resources>
   <Style Selector="cc|NavigationDrawer">
     <Setter Property="LeftDrawerWidth" Value="300"/>
     <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
@@ -12,26 +16,28 @@
               x:Name="ContentPresenter"
               Margin="{TemplateBinding Padding}"
               Content="{TemplateBinding Content}" />
-          <Border x:Name="PART_Scrim" Background="Black" Opacity="0"
-                  IsHitTestVisible="{TemplateBinding LeftDrawerOpened}" HorizontalAlignment="Stretch"
+          <Border x:Name="PART_Scrim" Background="Black" 
+                  IsHitTestVisible="{TemplateBinding LeftDrawerOpened}" 
+                  HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch">
             <Border.Styles>
-              <Style Selector="Border#PART_Scrim:not(.notransitions)">
+              <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ Border#PART_Scrim">
                 <Setter Property="Transitions">
                   <Transitions>
-                    <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="CircularEaseInOut"/>
+                    <DoubleTransition Duration="0:0:0.3" Property="Opacity" Easing="CubicEaseInOut"/>
                   </Transitions>
                 </Setter>
               </Style>
             </Border.Styles>
           </Border>
-          <cc:Card x:Name="PART_LeftDrawer" HorizontalAlignment="Left" Width="{TemplateBinding LeftDrawerWidth}"
-       Margin="-1000,0,0,0" Padding="0" CornerRadius="0">
+          <cc:Card x:Name="PART_LeftDrawer" HorizontalAlignment="Left" 
+                   Width="{TemplateBinding LeftDrawerWidth}"
+                   Padding="0" CornerRadius="0"> 
             <cc:Card.Styles>
-              <Style Selector="cc|Card#PART_LeftDrawer:not(.notransitions)">
+              <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ cc|Card#PART_LeftDrawer">
                 <Setter Property="Transitions">
                   <Transitions>
-                    <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CircularEaseInOut"/>
+                    <ThicknessTransition Duration="0:0:0.3" Property="Margin" Easing="CubicEaseInOut"/>
                   </Transitions>
                 </Setter>
               </Style>
@@ -41,7 +47,25 @@
         </Grid>
       </ControlTemplate>
     </Setter>
-  </Style> 
+  </Style>
+
+  <Style Selector="cc|NavigationDrawer /template/ Border#PART_Scrim">
+    <Setter Property="Opacity" Value="0"/>
+  </Style>
+  <Style Selector="cc|NavigationDrawer /template/ cc|Card#PART_LeftDrawer">
+    <Setter Property="Margin">
+      <MultiBinding Converter="{StaticResource StartMarginCreator}">
+        <Binding Path="$self.Width"/>
+      </MultiBinding>
+    </Setter>
+  </Style>
+  <Style Selector="cc|NavigationDrawer:open /template/ Border#PART_Scrim">
+    <Setter Property="Opacity" Value="0.32"/>
+  </Style>
+  <Style Selector="cc|NavigationDrawer:open /template/ cc|Card#PART_LeftDrawer">
+    <Setter Property="Margin" Value="0"/>
+  </Style>
+  
 
   <Design.PreviewWith>
     <Border Margin="40" BorderThickness="1" BorderBrush="Black">

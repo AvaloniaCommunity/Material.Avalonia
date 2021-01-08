@@ -79,6 +79,7 @@
                                 BorderThickness="0"
                                 Background="Transparent"
                                 Focusable="False"
+                                BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
                                 IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
                                 Grid.ColumnSpan="2"/>
                   <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"

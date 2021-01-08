@@ -1,6 +1,12 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
-    <Style Selector="Slider">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+        xmlns:converters="clr-namespace:Material.Styles.Converters">
+
+
+  <!-- Standard slider -->
+  
+  <Style Selector="Slider">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -114,12 +120,22 @@
             <ControlTemplate>
                 <Grid HorizontalAlignment="Center" UseLayoutRounding="True" VerticalAlignment="Center"
                       ClipToBounds="False">
-                    <Ellipse Name="shadow"
-                             Width="24" Height="24" Margin="-12"
-                             Fill="{TemplateBinding Foreground}"
-                             UseLayoutRounding="True" ClipToBounds="False" />
-                    <Ellipse Name="grip" Width="12" Height="12" Fill="{TemplateBinding Foreground}"
-                             UseLayoutRounding="True" ClipToBounds="False" />
+                  <Grid.Styles>
+                    <Style Selector="Ellipse:not(.notransitions)">
+                      <Setter Property="Transitions">
+                        <Transitions>
+                          <DoubleTransition Property="Opacity" Duration="0:0:0.25" Easing="CubicEaseOut"/>
+                          <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
+                        </Transitions>
+                      </Setter>
+                    </Style>
+                  </Grid.Styles>
+                  <Ellipse Name="shadow"
+                            Width="24" Height="24" Margin="-12"
+                            Fill="{TemplateBinding Foreground}"
+                            UseLayoutRounding="True" ClipToBounds="False" />
+                  <Ellipse Name="grip" Width="12" Height="12" Fill="{TemplateBinding Foreground}"
+                            UseLayoutRounding="True" ClipToBounds="False" />
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -135,34 +151,13 @@
         <Setter Property="Stroke" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
     </Style>
     <Style Selector="Thumb.MaterialDesignSliderThumb:pointerover /template/ Ellipse#shadow">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.26" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
+      <Setter Property="Opacity" Value="0.26" />
+    </Style>
+    <Style Selector="Thumb.MaterialDesignSliderThumb:pressed /template/ Ellipse#shadow">
+      <Setter Property="RenderTransform" Value="scale(1.5)" />
     </Style>
     <Style Selector="Thumb.MaterialDesignSliderThumb:pressed /template/ Ellipse#grip">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="ScaleTransform.ScaleX" Value="1.5" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="1.5" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
+      <Setter Property="RenderTransform" Value="scale(1.25)" /> 
     </Style>
 
     <!-- MaterialDesignHorizontalTrackRepeatButton -->
@@ -198,4 +193,153 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+  <!-- Slider with stroke line, idea from material-ui.com  -->
+  <Style Selector="Slider.Discrete">
+    <Style.Resources>
+      <converters:DoubleToPointConverter x:Key="PointCreator" />
+      <converters:SliderTickMarkCreator x:Key="TickMarkCreator"/>
+    </Style.Resources>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="border" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+          <Grid RowDefinitions="Auto,Auto,Auto"> 
+            <TickBar Name="TopTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,0,0,2"
+                     Placement="Top" Grid.Row="0" TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                     Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Opacity="1" />
+            <TickBar Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,2,0,0"
+                     Placement="Bottom" Grid.Row="2"
+                     TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                     Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Opacity="1" />
+            <Border Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Stretch"
+                    BorderThickness="1" CornerRadius="1">
+              <Canvas Height="0" ClipToBounds="False">
+                <Line IsVisible="True" Name="PART_SelectionRange" Height="4.0" Width="{TemplateBinding Width}"
+                      StartPoint="0,0" EndPoint="{Binding Converter={StaticResource PointCreator}, Path=$self.Width}"
+                      Margin="-1,0"
+                      Stroke="{TemplateBinding Foreground}" 
+                      StrokeJoin="Bevel"
+                      StrokeThickness="2.0">
+                  <Line.StrokeDashArray>
+                    <MultiBinding Converter="{StaticResource TickMarkCreator}">
+                      <Binding Path="$self"/>
+                      <TemplateBinding Property="Minimum"/>
+                      <TemplateBinding Property="Maximum"/>
+                      <TemplateBinding Property="TickFrequency"/>
+                    </MultiBinding> 
+                  </Line.StrokeDashArray>
+                </Line>
+              </Canvas>
+            </Border>
+            <Track Name="PART_Track" Grid.Row="1" MinHeight="{TemplateBinding MinHeight}"
+                   Orientation="Horizontal" Minimum="{TemplateBinding Minimum}"
+                   Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}">
+              <Track.DecreaseButton>
+                <RepeatButton Name="PART_DecreaseButton"
+                              Classes="MaterialDesignHorizontalTrackRepeatButton"
+                              Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" 
+                              Opacity="0.75"/>
+              </Track.DecreaseButton>
+              <Track.IncreaseButton>
+                <RepeatButton Name="PART_IncreaseButton"
+                              Classes="MaterialDesignHorizontalTrackRepeatButton"
+                              Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
+                              Opacity="0.25"/>
+              </Track.IncreaseButton>
+              <Track.Thumb>
+                <Thumb Name="thumb" Focusable="False" Height="18" Width="12" Margin="-12 0"
+                       ClipToBounds="False"
+                       Classes="MaterialDesignSliderThumb" />
+              </Track.Thumb> 
+            </Track>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <!-- MaterialDesignSliderThumb --> 
+
+  <Style Selector="Slider.Bubble /template/ Thumb#thumb"> 
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid HorizontalAlignment="Center" UseLayoutRounding="True" VerticalAlignment="Center"
+              ClipToBounds="False">
+          <Grid.Styles>
+            <Style Selector="Ellipse:not(.notransitions)">
+              <Setter Property="Transitions">
+                <Transitions>
+                  <DoubleTransition Property="Opacity" Duration="0:0:0.25" Easing="CubicEaseOut"/>
+                  <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
+                </Transitions>
+              </Setter>
+            </Style>
+          </Grid.Styles>
+          <Ellipse Name="shadow"
+                    Width="24" Height="24" Margin="-12"
+                    Fill="{TemplateBinding Foreground}"
+                    UseLayoutRounding="True" ClipToBounds="False" />
+          <Ellipse Name="grip" Width="12" Height="12" Fill="{TemplateBinding Foreground}"
+                    UseLayoutRounding="True" ClipToBounds="False" />
+          <Grid Name="bubble" Width="0" Height="0"
+                IsHitTestVisible="False"
+                ClipToBounds="False"
+                RenderTransformOrigin="0.5,0.5">
+            <Grid.Styles>
+              <Style Selector="Grid#bubble:not(.notransitions)">
+                <Setter Property="Transitions">
+                  <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.25" Easing="CubicEaseOut"/>
+                    <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
+                  </Transitions>
+                </Setter>
+              </Style>
+            </Grid.Styles>
+            <Grid Margin="0" ClipToBounds="False">
+              <Border Background="{TemplateBinding Foreground}"
+                      Width="36" Height="36"
+                      ClipToBounds="False"
+                      CornerRadius="32,32,0,32">
+                <Border.RenderTransform>
+                  <TransformGroup>
+                    <RotateTransform Angle="45"/>
+                    <TranslateTransform Y="-36"/>
+                  </TransformGroup>
+                </Border.RenderTransform>
+              </Border>
+              <TextBlock Classes="Caption"
+                         RenderTransform="translate(-16px,-32px)"
+                         Width="36" Height="20" Text="{Binding $parent[Slider].Value}"
+                         TextAlignment="Center" 
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Foreground="{DynamicResource MaterialDesignBody}"/>
+
+            </Grid>
+          </Grid>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="Slider.Bubble Thumb /template/ Grid#bubble">
+    <Setter Property="Opacity" Value="0" />
+    <Setter Property="RenderTransform" Value="scale(0)"/>
+  </Style>
+  <Style Selector="Slider.Bubble Thumb:pointerover /template/ Grid#bubble">
+    <Setter Property="Opacity" Value="1" />
+    <Setter Property="RenderTransform" Value="scale(1)"/>
+  </Style>
+
+  <Design.PreviewWith>
+    <Border Padding="40">
+      <StackPanel Orientation="Vertical"> 
+        <Slider Classes="Discrete" Width="150" TickFrequency="1" Minimum="1" Maximum="9"
+                IsSnapToTickEnabled="True"/>
+        <Slider Classes="Discrete Bubble" Width="150" TickFrequency="1" Minimum="1" Maximum="9"
+                IsSnapToTickEnabled="True"/>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
 </Styles>

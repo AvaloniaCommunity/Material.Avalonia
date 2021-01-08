@@ -25,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0-rc1" />
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0-rc1" />
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0-rc1" />
   </ItemGroup>
@@ -37,6 +38,21 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaXaml Update="Pages\ListsDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\ProgressIndicatorDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\SlidersDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\Home.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\ScrollViewerDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\CardsDemo.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
@@ -48,6 +64,21 @@
     </AvaloniaXaml>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\ListsDemo.axaml.cs">
+      <DependentUpon>ListsDemo.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ProgressIndicatorDemo.axaml.cs">
+      <DependentUpon>ProgressIndicatorDemo.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\SlidersDemo.axaml.cs">
+      <DependentUpon>SlidersDemo.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Home.axaml.cs">
+      <DependentUpon>Home.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ScrollViewerDemo.axaml.cs">
+      <DependentUpon>ScrollViewerDemo.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\CardsDemo.axaml.cs">
       <DependentUpon>CardsDemo.axaml</DependentUpon>
     </Compile>

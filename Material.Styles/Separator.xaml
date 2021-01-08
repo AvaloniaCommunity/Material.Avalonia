@@ -5,7 +5,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignSelection}" />
         <Setter Property="MinHeight" Value="1" />
         <Setter Property="Height" Value="1" />
-        <Setter Property="Margin" Value="16,0"/>
+        <Setter Property="Margin" Value="0,8"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Rectangle Height="1" Fill="{TemplateBinding Background}"
@@ -13,5 +13,9 @@
             </ControlTemplate>
         </Setter>
     </Style>
+
+  <Style Selector="Separator.Middle"> 
+    <Setter Property="Margin" Value="16,8"/> 
+  </Style>
 
 </Styles>

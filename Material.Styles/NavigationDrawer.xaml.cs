@@ -3,6 +3,7 @@ using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Collections;
 using Avalonia.Controls;
+using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Templates;
 using Avalonia.Interactivity;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace Material.Styles
 {
+    [PseudoClasses(":open", ":closed")]
     public class NavigationDrawer : ContentControl
     { 
         public static readonly StyledProperty<object> LeftDrawerContentProperty =
@@ -87,7 +89,8 @@ namespace Material.Styles
             m_LatelyEventCall?.Invoke();
         }
 
-        private void LeftDrawerWidthChanged(AvaloniaPropertyChangedEventArgs e) => PART_LeftDrawer?.SetValue(MarginProperty, LeftDrawerOpened ? new Thickness(0) : new Thickness(-LeftDrawerWidth - 8, 0, 0, 0));
+        private void LeftDrawerWidthChanged(AvaloniaPropertyChangedEventArgs e) => PART_LeftDrawer?.SetValue(MarginProperty,
+            LeftDrawerOpened ? new Thickness(0) : new Thickness(-LeftDrawerWidth + Converters.MarginCreator.Offset, 0, 0, 0));
 
         private void LeftDrawerOpenedChanged(AvaloniaPropertyChangedEventArgs e)
         {
@@ -102,11 +105,10 @@ namespace Material.Styles
                     e.Priority);
                 m_LatelyEventCall = () => LeftDrawerOpenedChanged(param);
                 return;
-            }
+            } 
 
             var value = (bool)e.NewValue; 
-            PART_Scrim?.SetValue(OpacityProperty, value ? 0.32 : 0);
-            PART_LeftDrawer?.SetValue(MarginProperty, value ? new Thickness(0) : new Thickness(-LeftDrawerWidth - 8, 0, 0, 0));
+            setPseudoClassesOpenState(value); 
         }
 
         private void LeftDrawerContentChanged(AvaloniaPropertyChangedEventArgs e)
@@ -125,6 +127,12 @@ namespace Material.Styles
         private void PART_Scrim_Pressed(object sender, RoutedEventArgs e)
         {
             LeftDrawerOpened = false;
+        }
+
+        private void setPseudoClassesOpenState(bool open)
+        {
+            PseudoClasses.Add(open ? ":open" : ":closed");
+            PseudoClasses.Remove(!open ? ":open" : ":closed");
         }
     }
 }
