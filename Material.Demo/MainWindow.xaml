@@ -160,7 +160,7 @@
           <pages:ProgressIndicatorDemo/>
           
           <!-- Lists -->
-          <pages:NotReadyDemo/>
+          <pages:ListsDemo/>
 
           <!-- ScrollViewer -->
           <pages:ScrollViewerDemo/>

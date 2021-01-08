@@ -1,17 +1,20 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-            xmlns:demo="clr-namespace:Material.Demo;assembly=Material.Demo"
-            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-            x:Class="Material.Demo.Pages.Home" >
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"  
+             xmlns:demo="clr-namespace:Material.Demo;assembly=Material.Demo"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:models="clr-namespace:Material.Demo.Models"
+             xmlns:conv="clr-namespace:Material.Demo.Converters"
+             x:Class="Material.Demo.Pages.Home" >
   <UserControl.Resources>
     <Path x:Key="AddIcon"
           Data="{StaticResource Material.Plus}"
-          Fill="{DynamicResource MaterialDesignBody}"/>
+          Fill="{DynamicResource MaterialDesignBody}"/> 
+    <conv:EnumDescriptionConverter x:Key="GetDescription"/>
   </UserControl.Resources>
-    <StackPanel Margin="16, 0" MaxWidth="600" >
+    <StackPanel Margin="16, 0" MaxWidth="600">
       <StackPanel.Styles>
         <Style Selector="TextBlock.Content, TextBlock.Subheadline">
           <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -32,5 +35,24 @@
         <Button Classes="Tool" Content="USE DARK THEME" Command="{Binding Path=UseMaterialUIDarkTheme}"/>
         <Button Classes="Tool" Content="USE LIGHT THEME" Command="{Binding Path=UseMaterialUILightTheme}"/>
       </WrapPanel>
+      <StackPanel Margin="0,24">
+        <DataGrid Height="620"
+                  IsReadOnly="True"
+                  Items="{Binding Path=DataContext.Features}"
+                  VerticalAlignment="Stretch"
+                  VerticalScrollBarVisibility="Disabled">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="Features"
+                                Binding="{Binding FeatureName}"
+                                Width="20*" />
+            <DataGridTextColumn Header="Is Ready"
+                                Binding="{Binding Converter={StaticResource GetDescription}, Path=IsReady}"
+                                Width="100" />
+            <DataGridTextColumn Header="Is Animated"
+                                Binding="{Binding Converter={StaticResource GetDescription}, Path=IsAnimated}"
+                                Width="100" />
+          </DataGrid.Columns>
+        </DataGrid>
+      </StackPanel>
     </StackPanel>
 </UserControl>

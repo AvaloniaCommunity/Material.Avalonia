@@ -25,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0-rc1" />
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0-rc1" />
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0-rc1" />
   </ItemGroup>
@@ -37,6 +38,9 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaXaml Update="Pages\ListsDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\ProgressIndicatorDemo.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
@@ -60,6 +64,9 @@
     </AvaloniaXaml>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\ListsDemo.axaml.cs">
+      <DependentUpon>ListsDemo.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\ProgressIndicatorDemo.axaml.cs">
       <DependentUpon>ProgressIndicatorDemo.axaml</DependentUpon>
     </Compile>
