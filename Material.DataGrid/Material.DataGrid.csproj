@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.10.4</PackageVersion>
+        <Title>Material.DataGrid</Title>
+        <Authors>Appleneko2001</Authors>
+        <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
+        <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/AvaloniaUtils/material.avalonia/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <LangVersion>8</LangVersion> 
+    </PropertyGroup>
+    <ItemGroup>
+        <AvaloniaResource Include="**\*.xaml">
+            <SubType>Designer</SubType>
+        </AvaloniaResource>
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="DataGrid.xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
+	  <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0-rc1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaResource Update="DataGrid.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </AvaloniaResource>
+    </ItemGroup>
+
+</Project>
