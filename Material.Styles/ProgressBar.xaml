@@ -47,7 +47,7 @@
     </Style>
     <Style Selector="ProgressBar:vertical">
         <Setter Property="Width" Value="4" />
-    </Style>
+    </Style> 
 
     <Style Selector="ProgressBar /template/ Grid#TemplateRoot">
         <Setter Property="RenderTransformOrigin" Value="0,0.5" />
@@ -140,19 +140,19 @@
     <Style.Animations>
       <Animation Duration="0:0:2" IterationCount="INFINITE">
         <KeyFrame Cue="0%">
-          <Setter Property="RenderTransformOrigin" Value="50%,-50%" />
+          <Setter Property="RenderTransformOrigin" Value="50%, -50%" />
           <Setter Property="ScaleTransform.ScaleY" Value="0.25" />
         </KeyFrame>
         <KeyFrame Cue="45%">
-          <Setter Property="RenderTransformOrigin" Value="50%,120%" />
+          <Setter Property="RenderTransformOrigin" Value="50%, 120%" />
           <Setter Property="ScaleTransform.ScaleY" Value="0.6" />
         </KeyFrame>
-        <KeyFrame Cue="80%">
-          <Setter Property="RenderTransformOrigin" Value="50%,120%" />
+        <KeyFrame Cue="70%">
+          <Setter Property="RenderTransformOrigin" Value="50%, 120%" />
           <Setter Property="ScaleTransform.ScaleY" Value="0.2" />
         </KeyFrame>
         <KeyFrame Cue="100%">
-          <Setter Property="RenderTransformOrigin" Value="50%,150%" />
+          <Setter Property="RenderTransformOrigin" Value="50%, 150%" />
           <Setter Property="ScaleTransform.ScaleY" Value="0.05" />
         </KeyFrame>
       </Animation>
@@ -163,20 +163,20 @@
     <Style.Animations>
       <Animation Duration="0:0:2" IterationCount="INFINITE">
         <KeyFrame Cue="0%">
-          <Setter Property="RenderTransformOrigin" Value="50%,-200%" />
+          <Setter Property="RenderTransformOrigin" Value="50%, -200%" />
           <Setter Property="ScaleTransform.ScaleY" Value="0.65" />
         </KeyFrame>
-        <KeyFrame Cue="50%">
-          <Setter Property="RenderTransformOrigin" Value="50%,-150%" />
-          <Setter Property="ScaleTransform.ScaleY" Value="0.6" />
+        <KeyFrame Cue="40%">
+          <Setter Property="RenderTransformOrigin" Value="50%, -200%" />
+          <Setter Property="ScaleTransform.ScaleY" Value="0.65" />
         </KeyFrame>
-        <KeyFrame Cue="85%">
-          <Setter Property="RenderTransformOrigin" Value="50%,100%" />
-          <Setter Property="ScaleTransform.ScaleY" Value="0.2" />
+        <KeyFrame Cue="70%">
+          <Setter Property="RenderTransformOrigin" Value="50%, 50%" />
+          <Setter Property="ScaleTransform.ScaleY" Value="0.5" />
         </KeyFrame>
         <KeyFrame Cue="100%">
-          <Setter Property="RenderTransformOrigin" Value="50%,120%" />
-          <Setter Property="ScaleTransform.ScaleY" Value="0.01" />
+          <Setter Property="RenderTransformOrigin" Value="50%, 150%" />
+          <Setter Property="ScaleTransform.ScaleY" Value="0.2" />
         </KeyFrame>
       </Animation>
     </Style.Animations>
