@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Styles", "Material
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Avalonia", "Material.Avalonia\Material.Avalonia.csproj", "{AE7993F6-BC21-4E09-833E-49E79200A139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Material.Colors", "Material.Colors\Material.Colors.csproj", "{FBD28B04-578E-4309-ABB2-BEC809D26818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Colors", "Material.Colors\Material.Colors.csproj", "{FBD28B04-578E-4309-ABB2-BEC809D26818}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.DataGrid", "Material.DataGrid\Material.DataGrid.csproj", "{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{FBD28B04-578E-4309-ABB2-BEC809D26818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD28B04-578E-4309-ABB2-BEC809D26818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBD28B04-578E-4309-ABB2-BEC809D26818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
