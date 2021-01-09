@@ -1,7 +1,8 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
-        xmlns:converters="clr-namespace:Material.Styles.Converters">
+        xmlns:converters="clr-namespace:Material.Styles.Converters"
+        xmlns:style="clr-namespace:Material.Styles">
 
 
   <!-- Standard slider -->
@@ -195,42 +196,18 @@
     </Style>
 
   <!-- Slider with stroke line, idea from material-ui.com  -->
-  <Style Selector="Slider.Discrete">
-    <Style.Resources>
-      <converters:DoubleToPointConverter x:Key="PointCreator" />
-      <converters:SliderTickMarkCreator x:Key="TickMarkCreator"/>
-    </Style.Resources>
+  <Style Selector="Slider.Discrete"> 
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="border" BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-          <Grid RowDefinitions="Auto,Auto,Auto"> 
-            <TickBar Name="TopTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,0,0,2"
-                     Placement="Top" Grid.Row="0" TickFrequency="{Binding $parent[Slider].TickFrequency}"
-                     Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Opacity="1" />
-            <TickBar Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,2,0,0"
-                     Placement="Bottom" Grid.Row="2"
-                     TickFrequency="{Binding $parent[Slider].TickFrequency}"
-                     Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Opacity="1" />
+          <Grid RowDefinitions="Auto,Auto,Auto">
+
             <Border Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Stretch"
                     BorderThickness="1" CornerRadius="1">
-              <Canvas Height="0" ClipToBounds="False">
-                <Line IsVisible="True" Name="PART_SelectionRange" Height="4.0" Width="{TemplateBinding Width}"
-                      StartPoint="0,0" EndPoint="{Binding Converter={StaticResource PointCreator}, Path=$self.Width}"
-                      Margin="-1,0"
-                      Stroke="{TemplateBinding Foreground}" 
-                      StrokeJoin="Bevel"
-                      StrokeThickness="2.0">
-                  <Line.StrokeDashArray>
-                    <MultiBinding Converter="{StaticResource TickMarkCreator}">
-                      <Binding Path="$self"/>
-                      <TemplateBinding Property="Minimum"/>
-                      <TemplateBinding Property="Maximum"/>
-                      <TemplateBinding Property="TickFrequency"/>
-                    </MultiBinding> 
-                  </Line.StrokeDashArray>
-                </Line>
-              </Canvas>
+              <style:TickBar Name="CenterTick" Fill="{TemplateBinding Foreground}" Height="2" Margin="0"
+                       TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                       Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Opacity="1" />
             </Border>
             <Track Name="PART_Track" Grid.Row="1" MinHeight="{TemplateBinding MinHeight}"
                    Orientation="Horizontal" Minimum="{TemplateBinding Minimum}"
