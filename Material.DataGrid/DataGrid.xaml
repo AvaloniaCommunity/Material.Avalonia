@@ -40,7 +40,7 @@
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="SeparatorBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
     <Setter Property="Padding" Value="16,0" />
-    <Setter Property="Background" Value="{DynamicResource ThemeControlMidBrush}"/>
+    <Setter Property="Background" Value="Transparent"/>
 
     <Setter Property="Template">
       <ControlTemplate>
@@ -131,7 +131,7 @@
 
   <Style Selector="DataGridRow /template/ Rectangle#BackgroundRectangle">
     <Setter Property="IsVisible" Value="False"/>
-    <Setter Property="Fill" Value="{DynamicResource HighlightBrush}" />
+    <Setter Property="Fill" Value="{DynamicResource MaterialDesignSelection}" />
   </Style>
 
   <Style Selector="DataGridRow:pointerover /template/ Rectangle#BackgroundRectangle">
@@ -144,9 +144,9 @@
     <Setter Property="Opacity" Value="1"/>
   </Style>
 
-  <Style Selector="DataGridRow:selected">
-    <Setter Property="Foreground" Value="{DynamicResource HighlightForegroundBrush}" />
-  </Style>
+  <!--Style Selector="DataGridRow:selected">
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignSelection}" />
+  </Style-->
 
   <Style Selector="DataGridRowHeader">
     <Setter Property="Template">
