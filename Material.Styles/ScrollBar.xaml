@@ -195,20 +195,20 @@
         </Setter>
     </Style>
 
-  <!-- Mini scrollbars  -->
+  <!-- Modern scrollbars  -->
   
-    <Style Selector="ScrollBar.Mini"> 
+    <Style Selector="ScrollBar.Modern"> 
       <Setter Property="Width" Value="0"/>
       <Setter Property="Cursor" Value="Arrow" />
-      <Setter Property="Margin" Value="-16,0,0,0"/>
+      <Setter Property="Margin" Value="-20,0,0,0"/>
       <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
       <Setter Property="ClipToBounds" Value="False"/>
       <Setter Property="Template">
           <ControlTemplate>
               <Border Name="mainBorder"
-                      Width="4"
-                      Margin="3,8"
-                      CornerRadius="2"
+                      Width="6"
+                      Margin="3,12"
+                      CornerRadius="6"
                       Background="{TemplateBinding Background}">
                 <Border.Transitions>
                   <Transitions>
@@ -232,7 +232,7 @@
                                             Classes="repeattrack"
                                             Focusable="False" />
                           </Track.IncreaseButton>
-                          <Thumb Name="thumb" Width="4" 
+                          <Thumb Name="thumb" Width="6" 
                                  Foreground="{TemplateBinding Foreground}"/>
                       </Track>
                   </Grid>
@@ -241,16 +241,16 @@
       </Setter>
   </Style>
 
-  <Style Selector="ScrollBar.Mini:horizontal">
+  <Style Selector="ScrollBar.Modern:horizontal">
     <Setter Property="Width" Value="NaN"/>
     <Setter Property="Height" Value="0"/>
-    <Setter Property="Margin" Value="0,-16,0,0"/>
+    <Setter Property="Margin" Value="0,-20,0,0"/>
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="mainBorder"
-                Height="4"
-                Margin="8,3"
-                CornerRadius="2" 
+                Height="6"
+                Margin="12,3"
+                CornerRadius="6" 
                 Background="{TemplateBinding Background}">
           <Border.Transitions>
             <Transitions>
@@ -273,7 +273,7 @@
                               Classes="repeattrack"
                               Focusable="False" />
               </Track.IncreaseButton>
-              <Thumb Name="thumb" Height="4"
+              <Thumb Name="thumb" Height="6"
                      Foreground="{TemplateBinding Foreground}"/>
             </Track>
           </Grid>
@@ -282,7 +282,96 @@
     </Setter>
   </Style>
 
-  <Style Selector="ScrollBar.Mini /template/ Thumb#thumb">
+  <!-- Mini scrollbars  -->
+
+  <Style Selector="ScrollBar.Mini">
+    <Setter Property="Width" Value="0"/>
+    <Setter Property="Cursor" Value="Arrow" />
+    <Setter Property="Margin" Value="-16,0,0,0"/>
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+    <Setter Property="ClipToBounds" Value="False"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="mainBorder"
+                Width="4"
+                Margin="3,8"
+                CornerRadius="6"
+                Background="{TemplateBinding Background}">
+          <Border.Transitions>
+            <Transitions>
+              <DoubleTransition Duration="0:0:0.5" Property="Opacity" Easing="CubicEaseOut"/>
+            </Transitions>
+          </Border.Transitions>
+          <Grid Name="ScrollBarGrid">
+            <Track  Minimum="{TemplateBinding Minimum}"
+                    Maximum="{TemplateBinding Maximum}"
+                    Value="{TemplateBinding Value, Mode=TwoWay}"
+                    ViewportSize="{TemplateBinding ViewportSize}"
+                    Orientation="{TemplateBinding Orientation}"
+                    IsDirectionReversed="True">
+              <Track.DecreaseButton>
+                <RepeatButton Name="PART_PageUpButton"
+                              Classes="repeattrack"
+                              Focusable="False" />
+              </Track.DecreaseButton>
+              <Track.IncreaseButton>
+                <RepeatButton Name="PART_PageDownButton"
+                              Classes="repeattrack"
+                              Focusable="False" />
+              </Track.IncreaseButton>
+              <Thumb Name="thumb" Width="{Binding ElementName=mainBorder, Path=Width}"
+                     Foreground="{TemplateBinding Foreground}"/>
+            </Track>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="ScrollBar.Mini:horizontal">
+    <Setter Property="Width" Value="NaN"/>
+    <Setter Property="Height" Value="0"/>
+    <Setter Property="Margin" Value="0,-16,0,0"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="mainBorder"
+                Height="4"
+                Margin="8,3"
+                CornerRadius="6"
+                Background="{TemplateBinding Background}">
+          <Border.Transitions>
+            <Transitions>
+              <DoubleTransition Duration="0:0:0.5" Property="Opacity" Easing="CubicEaseOut"/>
+            </Transitions>
+          </Border.Transitions>
+          <Grid Name="ScrollBarGrid">
+            <Track  Minimum="{TemplateBinding Minimum}"
+                    Maximum="{TemplateBinding Maximum}"
+                    Value="{TemplateBinding Value, Mode=TwoWay}"
+                    ViewportSize="{TemplateBinding ViewportSize}"
+                    Orientation="{TemplateBinding Orientation}" >
+              <Track.DecreaseButton>
+                <RepeatButton Name="PART_PageUpButton"
+                              Classes="repeattrack"
+                              Focusable="False" />
+              </Track.DecreaseButton>
+              <Track.IncreaseButton>
+                <RepeatButton Name="PART_PageDownButton"
+                              Classes="repeattrack"
+                              Focusable="False" />
+              </Track.IncreaseButton>
+              <Thumb Name="thumb" Height="{Binding ElementName=mainBorder, Path=Height}"
+                     Foreground="{TemplateBinding Foreground}"/>
+            </Track>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+  
+
+  <Style Selector="ScrollBar.Modern /template/ Thumb#thumb,
+         ScrollBar.Mini /template/ Thumb#thumb">
     <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
     <Setter Property="Opacity" Value="0.5" />
     <Setter Property="Transitions">
@@ -296,27 +385,33 @@
       <Setter.Value>
         <ControlTemplate>
           <Border Background="{TemplateBinding Background}" 
-                  CornerRadius="2"/>
+                  CornerRadius="10"/>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
-  <Style Selector="ScrollBar.Mini /template/ Thumb#thumb">
+  <Style Selector="ScrollBar.Modern /template/ Thumb#thumb,
+         ScrollBar.Mini /template/ Thumb#thumb">
     <Setter Property="Opacity" Value="0.25" />  
   </Style>
-  <Style Selector="ScrollBar.Mini:pointerover /template/ Thumb#thumb">
+  <Style Selector="ScrollBar.Modern:pointerover /template/ Thumb#thumb,
+         ScrollBar.Mini:pointerover /template/ Thumb#thumb">
     <Setter Property="Opacity" Value="0.65" />
   </Style>
-  <Style Selector="ScrollBar.Mini /template/ Thumb#thumb:pressed">
+  <Style Selector="ScrollBar.Modern /template/ Thumb#thumb:pressed,
+         ScrollBar.Mini /template/ Thumb#thumb:pressed">
     <Setter Property="Opacity" Value="1" />
   </Style>
-  <Style Selector="ScrollBar.Mini:disabled /template/ Thumb#thumb">
+  <Style Selector="ScrollBar.Modern:disabled /template/ Thumb#thumb,
+         ScrollBar.Mini:disabled /template/ Thumb#thumb">
     <Setter Property="Opacity" Value="0.35" />
   </Style>
-  <Style Selector="ScrollBar.Mini:disabled /template/ Border#mainBorder">
+  <Style Selector="ScrollBar.Modern:disabled /template/ Border#mainBorder,
+         ScrollBar.Mini:disabled /template/ Border#mainBorder">
     <Setter Property="Opacity" Value="0.25" />
   </Style>
-  <Style Selector="ScrollBar.Mini:not(:disabled) /template/ Border#mainBorder">
+  <Style Selector="ScrollBar.Modern:not(:disabled) /template/ Border#mainBorder,
+         ScrollBar.Mini:not(:disabled) /template/ Border#mainBorder">
     <Setter Property="Opacity" Value="1" />
   </Style> 
 
@@ -330,7 +425,7 @@
             </Grid>
           </ScrollViewer>
         </Border>
-        <ScrollBar Margin="16,0" Classes="Mini" IsEnabled="False"/>
+        <ScrollBar Margin="16,0" Classes="Modern" />
       </StackPanel>
     </Border>
   </Design.PreviewWith>
