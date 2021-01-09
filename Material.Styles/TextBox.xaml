@@ -271,7 +271,7 @@
   <!-- Filled textbox -->
   <Style Selector="TextBox.Filled">
     <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
-    <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
     <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
     <Setter Property="Padding" Value="0,8" />
     <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
@@ -337,7 +337,7 @@
                                    TextAlignment="{TemplateBinding TextAlignment}"
                                    TextWrapping="{TemplateBinding TextWrapping}"
                                    PasswordChar="{TemplateBinding PasswordChar}"
-                                   RevealPassword="{TemplateBinding RevealPassword}"
+                                   RevealPassword="{TemplateBinding RevealPassword}" 
                                    SelectionBrush="{TemplateBinding SelectionBrush}"
                                    SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
                                    CaretBrush="{TemplateBinding CaretBrush}" />
