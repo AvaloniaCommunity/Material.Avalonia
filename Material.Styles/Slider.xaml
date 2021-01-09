@@ -8,14 +8,20 @@
   <!-- Standard slider -->
   
   <Style Selector="Slider">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="ClipToBounds" Value="False" />
-    </Style>
-    <Style Selector="Slider:disabled">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
-    </Style>
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="ClipToBounds" Value="False" />
+  </Style>
+  <Style Selector="Slider.Accent">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    <Setter Property="ClipToBounds" Value="False" />
+  </Style>
+  <Style Selector="Slider:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+  </Style>
 
     <Style Selector="Slider">
         <Setter Property="Template">
