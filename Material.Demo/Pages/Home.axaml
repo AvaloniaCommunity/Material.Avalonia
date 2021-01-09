@@ -38,19 +38,37 @@
       <StackPanel Margin="0,24">
         <DataGrid Height="620"
                   IsReadOnly="True"
-                  Items="{Binding Path=DataContext.Features}"
+                  Items="{Binding Path=DataContext.Features}" 
                   VerticalAlignment="Stretch"
                   VerticalScrollBarVisibility="Disabled">
           <DataGrid.Columns>
             <DataGridTextColumn Header="Features"
                                 Binding="{Binding FeatureName}"
                                 Width="20*" />
-            <DataGridTextColumn Header="Is Ready"
-                                Binding="{Binding Converter={StaticResource GetDescription}, Path=IsReady}"
-                                Width="100" />
-            <DataGridTextColumn Header="Is Animated"
-                                Binding="{Binding Converter={StaticResource GetDescription}, Path=IsAnimated}"
-                                Width="100" />
+            <DataGridTemplateColumn>
+              <DataGridTemplateColumn.Header>
+                <TextBlock TextAlignment="Right" 
+                           Text="Is Ready" 
+                           HorizontalAlignment="Stretch"/>
+              </DataGridTemplateColumn.Header>
+              <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextAlignment="Right" Text="{Binding Converter={StaticResource GetDescription}, Path=IsReady}"/>
+                </DataTemplate>
+              </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn> 
+            <DataGridTemplateColumn>
+              <DataGridTemplateColumn.Header>
+                <TextBlock TextAlignment="Right" 
+                           Text="Is Animated" 
+                           HorizontalAlignment="Stretch"/>
+              </DataGridTemplateColumn.Header>
+              <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock TextAlignment="Right" Text="{Binding Converter={StaticResource GetDescription}, Path=IsAnimated}"/>
+                </DataTemplate>
+              </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
           </DataGrid.Columns>
         </DataGrid>
       </StackPanel>

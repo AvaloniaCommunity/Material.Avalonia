@@ -31,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
+    <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Update="Material.xaml">
