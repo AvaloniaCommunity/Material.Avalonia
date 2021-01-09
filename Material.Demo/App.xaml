@@ -6,8 +6,8 @@
         <themes:BundledTheme BaseTheme="Light" PrimaryColor="Teal" SecondaryColor="Amber"/>
     </Application.Resources>
     <Application.Styles>
-      <StyleInclude Source="avares://Material.Demo/Material.xaml" />
-      <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Default.xaml"/>
+      <StyleInclude Source="avares://Material.Demo/Material.xaml" /> 
       <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
+      <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml"/>
     </Application.Styles>
 </Application>
