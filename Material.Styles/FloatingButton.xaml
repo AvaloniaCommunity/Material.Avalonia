@@ -1,11 +1,10 @@
-<Styles
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:assists="clr-namespace:Material.Styles.Assists"
-    xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
-    xmlns:cc="clr-namespace:Material.Styles"
-    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-    xmlns:converters="clr-namespace:Material.Styles.Converters">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+        xmlns:cc="clr-namespace:Material.Styles"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+        xmlns:converters="clr-namespace:Material.Styles.Converters">
     <Style Selector="cc|FloatingButton">
         <Style.Resources>
             <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
@@ -17,8 +16,6 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="16" />
-        <Setter Property="MinHeight" Value="56" />
-        <Setter Property="MinWidth" Value="56" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
         <Setter Property="TextBlock.FontWeight" Value="Medium" />
         <Setter Property="TextBlock.FontSize" Value="14" />
@@ -28,32 +25,24 @@
           <ControlTemplate>
             <Grid Name="TemplateRoot"> 
               <AdornerLayer>
-                <Grid HorizontalAlignment="Center" VerticalAlignment="Center"
-                      Height="{Binding #ContentBorder.Bounds.Height}"
-                      Width="{Binding #ContentBorder.Bounds.Width}">
+                <Grid HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch" >
                   <Border Name="Thumb" CornerRadius="28"
                           Background="{TemplateBinding Background}"
                           assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
                   <Border x:Name="MouseOverBorder" CornerRadius="28"
                           IsHitTestVisible="False"
-                          Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" >
-                    <Border.Styles>
-                      <Style Selector="Border#MouseOverBorder">
-                        <Setter Property="Transitions">
-                          <Transitions>
-                            <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
-                          </Transitions>
-                        </Setter>
-                      </Style>
-                    </Border.Styles>
-                  </Border>
+                          Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
                 </Grid>
               </AdornerLayer>
-              <Border Name="ContentBorder" CornerRadius="28" ClipToBounds="True"
-                      MinHeight="{TemplateBinding MinHeight}" MinWidth="{TemplateBinding MinWidth}"
-                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+              <Border Name="ContentBorder" CornerRadius="28" 
+                      ClipToBounds="True"
+                      MinHeight="{TemplateBinding MinHeight}" 
+                      MinWidth="{TemplateBinding MinWidth}"
+                      HorizontalAlignment="Stretch" 
+                      VerticalAlignment="Stretch">
                   <ripple:RippleEffect ClipToBounds="True"
-                                        RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+                                       RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
                     <ContentPresenter Name="PART_ContentPresenter"
                                       CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
                                       BorderThickness="{TemplateBinding BorderThickness}"
@@ -70,36 +59,48 @@
         </Setter>
     </Style>
 
-  <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true]:not(:notransitions) /template/ Grid#TemplateRoot">
+  <!-- Transitions -->
+
+  <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true]:not(.notransitions) /template/ Grid#TemplateRoot">
     <Style.Animations>
-      <animations:ReverseAfterEndAnimation>
-        <Animation Duration="0:0:0.5" FillMode="Both" Easing="QuarticEaseInOut">
-          <KeyFrame Cue="0%">
-            <Setter Property="Opacity" Value="0" />
-            <Setter Property="ScaleTransform.ScaleX" Value="0" />
-            <Setter Property="ScaleTransform.ScaleY" Value="0" />
-          </KeyFrame>
-          <KeyFrame Cue="100%">
-            <Setter Property="Opacity" Value="1" />
-            <Setter Property="ScaleTransform.ScaleX" Value="1" />
-            <Setter Property="ScaleTransform.ScaleY" Value="1" />
-          </KeyFrame>
-        </Animation>
-      </animations:ReverseAfterEndAnimation>
+      <Animation Duration="0:0:0.5" FillMode="Both" Easing="QuarticEaseInOut">
+        <KeyFrame Cue="0%">
+          <Setter Property="Opacity" Value="0" />
+          <Setter Property="ScaleTransform.ScaleX" Value="0" />
+          <Setter Property="ScaleTransform.ScaleY" Value="0" />
+        </KeyFrame>
+        <KeyFrame Cue="100%">
+          <Setter Property="Opacity" Value="1" />
+          <Setter Property="ScaleTransform.ScaleX" Value="1" />
+          <Setter Property="ScaleTransform.ScaleY" Value="1" />
+        </KeyFrame>
+      </Animation>
     </Style.Animations>
+  </Style>
+
+  <Style Selector="cc|FloatingButton:not(.notransitions) /template/ Grid#TemplateRoot,
+         cc|FloatingButton:not(.notransitions) /template/ Border#MouseOverBorder">
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/> 
+      </Transitions>
+    </Setter>
   </Style> 
 
-  <Style Selector="cc|FloatingButton, cc|FloatingButton.Extend"> 
+  <!-- Default state and appeared state -->
+
+  <Style Selector="cc|FloatingButton"> 
     <Setter Property="Opacity" Value="0"/>
     <Setter Property="ScaleTransform.ScaleX" Value="0" />
     <Setter Property="ScaleTransform.ScaleY" Value="0" />
   </Style>
-  <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true]:not(.no-material), 
-                   cc|FloatingButton.Extend[IsVisible=true][IsEnabled=true]:not(.no-material)">
+  <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true]:not(.no-material)">
     <Setter Property="Opacity" Value="1"/>
     <Setter Property="ScaleTransform.ScaleX" Value="1" />
     <Setter Property="ScaleTransform.ScaleY" Value="1" />
   </Style>
+
+  <!-- Feedbacks -->
  
   <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#Thumb">
       <Setter Property="assists:ShadowAssist.Darken" Value="True" />
@@ -111,6 +112,15 @@
     <Setter Property="Opacity" Value="0" />
   </Style>
 
+  <!-- Mini and extended style -->
+
+  <Style Selector="cc|FloatingButton">
+    <Setter Property="MinHeight" Value="56" />
+    <Setter Property="MinWidth" Value="56" />
+    <Setter Property="Height" Value="56" />
+    <Setter Property="Width" Value="56" />
+    <Setter Property="Padding" Value="16" />
+  </Style>
   <Style Selector="cc|FloatingButton.Mini">
     <Setter Property="MinHeight" Value="40" />
     <Setter Property="MinWidth" Value="40" />
@@ -118,44 +128,62 @@
     <Setter Property="Width" Value="40" />
     <Setter Property="Padding" Value="8" />
   </Style>
-  <Style Selector="cc|FloatingButton.Extend"> 
+  <Style Selector="cc|FloatingButton[IsExtended=true]"> 
     <Setter Property="MinWidth" Value="48" />
     <Setter Property="MinHeight" Value="48" />
     <Setter Property="Height" Value="48" />
+    <Setter Property="Width" Value="NaN" />
     <Setter Property="Padding" Value="12" />
   </Style>
 
-  <Style Selector="cc|FloatingButton.Light, cc|FloatingButton.Extend.Light">
+  <!-- Extended state transition (currently it doesnt works due AvaloniaUI bug)-->
+
+  <!--Style Selector="cc|FloatingButton:not(.notransitions),
+         cc|FloatingButton:not(.notransitions) /template/ Grid#TemplateRoot">
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Duration="0:0:0.5" Property="Width" Easing="CubicEaseOut"/>
+        <DoubleTransition Duration="0:0:0.5" Property="Height" Easing="CubicEaseOut"/>
+      </Transitions>
+    </Setter>
+  </Style>
+  
+  <Style Selector="cc|FloatingButton[IsExtended=true] /template/ Grid#TemplateRoot">
+    <Setter Property="Width" Value="{Binding #ContentBorder.Bounds.Width}" /> 
+    <Setter Property="Height" Value="{Binding #ContentBorder.Bounds.Height}" /> 
+  </Style-->
+
+
+  <!-- Color definitions -->
+
+  <Style Selector="cc|FloatingButton.Light">
     <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
-    <Setter Property="Path.Fill" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/> 
   </Style> 
 
-  <Style Selector="cc|FloatingButton.Dark, cc|FloatingButton.Extend.Dark">
+  <Style Selector="cc|FloatingButton.Dark">
     <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}"/>
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
-    <Setter Property="Path.Fill" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/> 
   </Style>
  
-  <Style Selector="cc|FloatingButton.Accent, cc|FloatingButton.Extend.Accent">
+  <Style Selector="cc|FloatingButton.Accent">
     <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
-    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
-    <Setter Property="Path.Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/> 
   </Style>
 
-  <Style Selector="cc|FloatingButton.Light Path, cc|FloatingButton.Extend.Light Path">
+  <Style Selector="cc|FloatingButton.Light Path">
     <Setter Property="Fill" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
   </Style>
-  <Style Selector="cc|FloatingButton.Dark Path, cc|FloatingButton.Extend.Dark Path">
+  <Style Selector="cc|FloatingButton.Dark Path">
     <Setter Property="Fill" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
   </Style>
-  <Style Selector="cc|FloatingButton.Accent Path, cc|FloatingButton.Extend.Accent Path">
+  <Style Selector="cc|FloatingButton.Accent Path">
     <Setter Property="Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
   </Style> 
-  <Style Selector="cc|FloatingButton Path, cc|FloatingButton.Extend Path">
+  <Style Selector="cc|FloatingButton Path">
     <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
   </Style>
 

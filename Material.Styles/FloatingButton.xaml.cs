@@ -1,3 +1,4 @@
+using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -8,16 +9,17 @@ using System.Threading.Tasks;
 namespace Material.Styles
 {
     public class FloatingButton : Button
-    { 
-        public FloatingButton() {
-            this.AttachedToVisualTree += FloatingButton_Initialized; 
-        } 
-        private async void FloatingButton_Initialized(object sender, System.EventArgs e)
-        { 
-            ScaleTransform t = (ScaleTransform)(this.RenderTransform = new ScaleTransform(0, 0));
+    {
+        public static readonly StyledProperty<bool> IsExtendedProperty =
+    AvaloniaProperty.Register<FloatingButton, bool>(nameof(IsExtended));
 
-            t?.SetValue(ScaleTransform.ScaleXProperty, 1);
-            t?.SetValue(ScaleTransform.ScaleYProperty, 1);
+        public bool IsExtended
+        {
+            get { return GetValue(IsExtendedProperty); }
+            set { SetValue(IsExtendedProperty, value); }
         }
+
+        public FloatingButton() { 
+        }  
     }
 }
