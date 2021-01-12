@@ -52,7 +52,22 @@
     <TextBlock Classes="Headline6 Subheadline2" Text="Extended floating buttons"/>
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
-        <Style Selector="styles|FloatingButton.Extend">
+        <Style Selector="styles|FloatingButton[IsExtended=false]">
+          <Setter Property="Margin" Value="8"/>
+          <Setter Property="Content">
+            <Setter.Value>
+              <Template>
+                <Viewbox Stretch="Fill"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch">
+                  <Path Data="{StaticResource Material.Plus}"
+                        Width="24" Height="24"/>
+                </Viewbox>
+              </Template>
+            </Setter.Value>
+          </Setter>
+        </Style>
+        <Style Selector="styles|FloatingButton[IsExtended=true]">
           <Setter Property="Margin" Value="8"/>   
           <Setter Property="Content">
             <Setter.Value>
@@ -71,10 +86,11 @@
           </Setter>
         </Style>
       </StackPanel.Styles>
-      <styles:FloatingButton Classes="Extend Light"/>
-      <styles:FloatingButton Classes="Extend"/>
-      <styles:FloatingButton Classes="Extend Dark"/>
-      <styles:FloatingButton Classes="Extend Accent"/>
+      <styles:FloatingButton Classes="Light" IsExtended="True"/>
+      <styles:FloatingButton IsExtended="True"/>
+      <styles:FloatingButton Classes="Dark" IsExtended="True"/>
+      <styles:FloatingButton Classes="Accent" IsExtended="{Binding ElementName=CheckBox1, Path=IsChecked}"/>
+      <CheckBox Name="CheckBox1" Content="IsExtended" Margin="16,8"/>
     </StackPanel>
 
     <TextBlock Classes="Headline6 Subheadline2" Text="Tool buttons (Flat)"/>

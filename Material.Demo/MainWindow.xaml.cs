@@ -12,6 +12,7 @@ namespace Material.Demo {
         private ToggleButton NavDrawerSwitch;
         private ListBox DrawerList;
         private Carousel PageCarousel;
+        private ScrollViewer mainScroller;
         #endregion
 
         public MainWindow() {
@@ -29,7 +30,9 @@ namespace Material.Demo {
             DrawerList.PointerReleased += DrawerSelectionChanged;
 
             PageCarousel = this.Get<Carousel>(nameof(PageCarousel));
-            #endregion 
+
+            mainScroller = this.Get<ScrollViewer>(nameof(mainScroller));
+            #endregion
         }
         public void DrawerSelectionChanged(object sender, RoutedEventArgs args)
         {
@@ -37,6 +40,7 @@ namespace Material.Demo {
             try
             { 
                 PageCarousel.SelectedIndex = listBox.SelectedIndex;
+                mainScroller.Offset = Vector.Zero;
             }
             catch
             {

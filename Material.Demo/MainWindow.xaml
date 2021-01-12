@@ -27,7 +27,7 @@
   
   <styles:NavigationDrawer LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
     <styles:NavigationDrawer.LeftDrawerContent>
-      <ScrollViewer >
+      <ScrollViewer>
         <StackPanel>
         <styles:ColorZone Mode="Accent" Height="180">
           <StackPanel>
@@ -129,10 +129,11 @@
           </Popup>
         </Grid>
       </styles:ColorZone>
-      <ScrollViewer DockPanel.Dock="Top" 
+      <ScrollViewer Name="mainScroller"
+                    DockPanel.Dock="Top" 
                     HorizontalContentAlignment="Stretch" 
                     HorizontalAlignment="Stretch"
-                    HorizontalScrollBarVisibility="Disabled">
+                    HorizontalScrollBarVisibility="Disabled"> 
         <Carousel x:Name="PageCarousel" 
                   HorizontalAlignment="Stretch" >
           <Carousel.PageTransition>
