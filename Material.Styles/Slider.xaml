@@ -247,8 +247,7 @@
   <Style Selector="Slider.Bubble /template/ Thumb#thumb"> 
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid HorizontalAlignment="Center" UseLayoutRounding="True" VerticalAlignment="Center"
-              ClipToBounds="False">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
           <Grid.Styles>
             <Style Selector="Ellipse:not(.notransitions)">
               <Setter Property="Transitions">
@@ -268,7 +267,7 @@
           <Grid Name="bubble" Width="0" Height="0"
                 IsHitTestVisible="False"
                 ClipToBounds="False"
-                RenderTransformOrigin="0.5,0.5">
+                RenderTransformOrigin="1,0.5">
             <Grid.Styles>
               <Style Selector="Grid#bubble:not(.notransitions)">
                 <Setter Property="Transitions">
@@ -279,10 +278,11 @@
                 </Setter>
               </Style>
             </Grid.Styles>
-            <Grid Margin="0" ClipToBounds="False">
+            <Grid HorizontalAlignment="Center"
+                  ClipToBounds="False" 
+                  Width="36">
               <Border Background="{TemplateBinding Foreground}"
-                      Width="36" Height="36"
-                      ClipToBounds="False"
+                      Width="36" Height="36" 
                       CornerRadius="32,32,0,32">
                 <Border.RenderTransform>
                   <TransformGroup>
@@ -292,7 +292,8 @@
                 </Border.RenderTransform>
               </Border>
               <TextBlock Classes="Caption"
-                         RenderTransform="translate(-16px,-32px)"
+                         ClipToBounds="False"
+                         RenderTransform="translate(0px,-32px)"
                          Width="36" Height="20" Text="{Binding $parent[Slider].Value}"
                          TextAlignment="Center" 
                          HorizontalAlignment="Center"
