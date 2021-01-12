@@ -42,6 +42,11 @@
           <TextBlock/>
         </StackPanel>
         <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True" Classes="Accent"
+                  TickFrequency="1"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
           <Slider IsEnabled="False" Value="20"/>
           <TextBlock/>
         </StackPanel>
@@ -50,7 +55,13 @@
         <TextBlock Classes="Headline6 Subheadline2" Text="Discrete sliders"/>
         <StackPanel Classes="Content" Orientation="Horizontal">
           <Slider IsSnapToTickEnabled="True"
-                  Classes="Discrete"
+                  Classes="Discrete" 
+                  TickFrequency="10"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  Classes="Discrete Accent"
                   TickFrequency="10"/>
           <TextBlock/>
         </StackPanel>
@@ -81,7 +92,13 @@
                   Classes="Discrete Bubble"
                   TickFrequency="10"/>
           <TextBlock/>
-        </StackPanel> 
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  Classes="Discrete Bubble Accent"
+                  TickFrequency="10"/>
+          <TextBlock/>
+        </StackPanel>
       </StackPanel>
     </WrapPanel>
   </StackPanel>

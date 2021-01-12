@@ -473,20 +473,22 @@
     <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto"/>
     <Setter Property="Template">
       <ControlTemplate>
-        <StackPanel>
-          <Border Name="border"
-                  Cursor="Ibeam" 
-                  CornerRadius="4"
-                  Margin="0,8,0,0"
-                  Background="Transparent"
-                  BorderBrush="{TemplateBinding BorderBrush}" 
-                  ClipToBounds="False"> 
-            <Border.Styles>
-              <Style Selector="Border:disabled, TextBlock:disabled">
-                <Setter Property="Opacity" Value="0.5" />
-              </Style>
-            </Border.Styles>
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel> 
+          <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Cursor="Ibeam"
+                MinHeight="52"
+                Background="Transparent"
+                Margin="0,8,0,0"
+                ClipToBounds="False">
+              <Border Name="border" 
+                      CornerRadius="4" 
+                      BorderBrush="{TemplateBinding BorderBrush}" >
+                <Border.Styles>
+                  <Style Selector="Border:disabled, TextBlock:disabled">
+                    <Setter Property="Opacity" Value="0.5" />
+                  </Style>
+                </Border.Styles>
+              </Border>
               <Border Name="watermarkRoot" 
                       x:Name="watermarkRoot" 
                       Background="{DynamicResource MaterialDesignPaper}" 
@@ -547,7 +549,7 @@
                 </Grid>
               </DataValidationErrors> 
             </Grid>
-          </Border> 
+
         </StackPanel>
       </ControlTemplate>
     </Setter>
