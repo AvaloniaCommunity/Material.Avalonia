@@ -64,7 +64,7 @@
     </styles:NavigationDrawer.LeftDrawerContent>
     <DockPanel LastChildFill="true">
       <styles:ColorZone VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top"
-                        Height="56" Mode="PrimaryMid">
+                        Height="56" Mode="PrimaryMid" ZIndex="1">
         <Grid Margin="16">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="24"/>
