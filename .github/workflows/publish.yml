@@ -24,7 +24,7 @@ jobs:
         mkdir artifacts
         cp Config.Numerge.json artifacts/
         mkdir -p artifacts/input/
-        cp -r /*.nupkg artifacts/input/
+        find . -name \*.nupkg -exec cp {} artifacts/input/ \;
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
