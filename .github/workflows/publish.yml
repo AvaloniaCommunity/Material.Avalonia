@@ -54,6 +54,6 @@ jobs:
           mkdir artifacts/output/
           dotnet run --project Numerge.Console artifacts/Config.Numerge.json artifacts/input/ artifacts/output/
       - name: Publish to Nuget
-        run: dotnet nuget push "artifacts/output/*.nupkg" --api-key ${{secrets.NUGET_KEY}} --source https://api.nuget.org/v3/index.json
-      - name: Publish to Nuget
-        run: dotnet nuget push "artifacts/output/*.nupkg" --api-key ${{secrets.GITHUB_TOKEN}} --source https://nuget.pkg.github.com/AvaloniaUtils/index.json
+        run: dotnet nuget push "artifacts/output/*.nupkg" --api-key ${{secrets.NUGET_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      - name: Publish to GitHub Packages
+        run: dotnet nuget push "artifacts/output/*.nupkg" --api-key ${{secrets.GITHUB_TOKEN}} --source https://nuget.pkg.github.com/AvaloniaUtils/index.json --skip-duplicate
