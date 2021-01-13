@@ -41,7 +41,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.*
+          dotnet-version: 3.1.*
       - name: Build Numerge
         run: dotnet build
       - name: Download packages
