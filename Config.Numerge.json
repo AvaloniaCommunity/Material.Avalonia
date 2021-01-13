@@ -19,8 +19,12 @@
             "Id": "Material.Styles",
             "IgnoreMissingFrameworkBinaries": true,
             "IgnoreMissingFrameworkDependencies": true
+          },
+          {
+            "Id": "Material.DataGrid",
+            "IgnoreMissingFrameworkBinaries": true,
+            "IgnoreMissingFrameworkDependencies": true
           }
-  
         ]
       }
     ]
