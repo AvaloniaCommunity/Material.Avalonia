@@ -20,7 +20,7 @@
                                 Padding="{TemplateBinding Padding}"
                                 x:Name="PART_ClipBorder" 
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                ClipToBounds="True">
+                                ClipToBounds="{TemplateBinding InsideClipping}">
                           <ContentPresenter
                                   x:Name="ContentPresenter"
                                   Margin="{TemplateBinding Padding}"
