@@ -1,7 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
-        xmlns:circular="clr-namespace:Material.Styles.Converters.CircularProgressBar">
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
     <Style Selector="ProgressBar">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
@@ -58,7 +57,7 @@
     <Style Selector="ProgressBar:vertical /template/ Grid#TemplateRoot">
         <Setter Property="RenderTransformOrigin" Value="0.5,0" />
     </Style>
-    <Style Selector="ProgressBar[IsVisible=true]:not(:notransitions) /template/ Grid#TemplateRoot">
+    <Style Selector="ProgressBar[IsVisible=true]:not(.notransitions) /template/ Grid#TemplateRoot">
         <Style.Animations>
             <animations:ReverseAfterEndAnimation>
                 <Animation Duration="0:0:1" FillMode="Both" Easing="CubicEaseOut">
@@ -76,7 +75,7 @@
             </animations:ReverseAfterEndAnimation>
         </Style.Animations>
     </Style>
-    <Style Selector="ProgressBar:notransitions /template/ Grid#TemplateRoot">
+    <Style Selector="ProgressBar.notransitions /template/ Grid#TemplateRoot">
         <Setter Property="Opacity" Value="1" />
         <Setter Property="ScaleTransform.ScaleX" Value="1" />
         <Setter Property="ScaleTransform.ScaleY" Value="1" />
