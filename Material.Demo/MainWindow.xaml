@@ -137,9 +137,13 @@
                     HorizontalScrollBarVisibility="Disabled"> 
         <Carousel x:Name="PageCarousel" 
                   HorizontalAlignment="Stretch" >
-          <Carousel.PageTransition>
-            <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut" SlideInEasing="CircularEaseOut"/>
-          </Carousel.PageTransition>
+          <Carousel.Styles>
+            <Style Selector="Carousel#PageCarousel:not(.notransitions)">
+              <Setter Property="PageTransition">
+                <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut" SlideInEasing="CircularEaseOut"/>
+              </Setter>
+            </Style>
+          </Carousel.Styles>
           <!-- Main page -->
           <pages:Home/>
           
