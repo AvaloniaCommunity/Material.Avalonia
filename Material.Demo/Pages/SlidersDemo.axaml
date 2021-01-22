@@ -28,7 +28,7 @@
     <TextBlock Classes="Headline4 Subheadline"  Text="Sliders"/>
     <WrapPanel>
       <StackPanel> 
-        <TextBlock Classes="Headline6 Subheadline2" Text="Continuous sliders"/>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Regular sliders"/>
 
         <!-- lol this one are not enabled snap to tick, 
              when dragging thumb could contains a long numerics with decimal point. -->
@@ -52,50 +52,56 @@
         </StackPanel>
       </StackPanel>
       <StackPanel> 
-        <TextBlock Classes="Headline6 Subheadline2" Text="Discrete sliders"/>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Modern slider"/>
         <StackPanel Classes="Content" Orientation="Horizontal">
           <Slider IsSnapToTickEnabled="True"
-                  Classes="Discrete" 
-                  TickFrequency="10"/>
-          <TextBlock/>
-        </StackPanel>
-        <StackPanel Classes="Content" Orientation="Horizontal">
-          <Slider IsSnapToTickEnabled="True"
-                  Classes="Discrete Accent"
-                  TickFrequency="10"/>
-          <TextBlock/>
-        </StackPanel>
-        <StackPanel Classes="Content" Orientation="Horizontal">
-          <Slider IsSnapToTickEnabled="True"
-                  Classes="Discrete"
+                  Classes="Modern"
                   TickFrequency="1"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  Classes="Modern Accent"
+                  TickFrequency="1"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  Classes="Modern Ticks"
+                  TickFrequency="10"/>
           <TextBlock/>
         </StackPanel>
         <StackPanel Classes="Content" Orientation="Horizontal">
           <Slider IsEnabled="False" Value="20"
                   IsSnapToTickEnabled="True"
-                  Classes="Discrete"
+                  Classes="Modern Ticks"
                   TickFrequency="1"/>
           <TextBlock/>
         </StackPanel>
       </StackPanel>
       <StackPanel>
-        <TextBlock Classes="Headline6 Subheadline2" Text="Sliders with bubble"/>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Sliders with bubble (Discrete)"/>
         <StackPanel Classes="Content" Orientation="Horizontal">
           <Slider IsSnapToTickEnabled="True" 
-                  Classes="Bubble"
+                  Classes="Discrete"
                   TickFrequency="1"/>
           <TextBlock/>
         </StackPanel>
         <StackPanel Classes="Content" Orientation="Horizontal">
           <Slider IsSnapToTickEnabled="True"
-                  Classes="Discrete Bubble"
+                  Classes="Modern Discrete"
                   TickFrequency="10"/>
           <TextBlock/>
         </StackPanel>
         <StackPanel Classes="Content" Orientation="Horizontal">
           <Slider IsSnapToTickEnabled="True"
-                  Classes="Discrete Bubble Accent"
+                  Classes="Modern Discrete Accent"
+                  TickFrequency="10"/>
+          <TextBlock/>
+        </StackPanel>
+        <StackPanel Classes="Content" Orientation="Horizontal">
+          <Slider IsSnapToTickEnabled="True"
+                  Classes="Modern Discrete Accent Ticks"
                   TickFrequency="10"/>
           <TextBlock/>
         </StackPanel>
