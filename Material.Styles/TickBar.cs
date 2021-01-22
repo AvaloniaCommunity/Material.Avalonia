@@ -201,7 +201,7 @@ namespace Material.Styles
                     break; 
             };
 
-            var pen = new Pen(Fill, 2.0d);
+            var pen = new Pen(Fill, 1.25d);
 
             // Is it Vertical?
             if (Orientation == Orientation.Vertical)
