@@ -54,6 +54,7 @@
           <TextBlock Classes="Body2" Text="Sliders" />
           <TextBlock Classes="Body2" Text="Progress indicators" />
           <TextBlock Classes="Body2" Text="Lists" />
+          <TextBlock Classes="Body2" Text="Dialogs" />
           <TextBlock Classes="Body2" Text="ScrollViewer" />
           <TextBlock Classes="Body2" Text="Card" />
           <TextBlock Classes="Body2" Text="Typography" />
@@ -162,6 +163,9 @@
           
           <!-- Lists -->
           <pages:ListsDemo/>
+
+          <!-- Dialogs -->
+          <pages:DialogDemo/>
 
           <!-- ScrollViewer -->
           <pages:ScrollViewerDemo/>

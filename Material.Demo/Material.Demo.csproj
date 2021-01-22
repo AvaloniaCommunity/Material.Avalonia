@@ -32,6 +32,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
+    <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Update="Material.xaml">
@@ -39,6 +40,9 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaXaml Update="Pages\DialogDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\ListsDemo.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
@@ -65,6 +69,9 @@
     </AvaloniaXaml>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\DialogDemo.axaml.cs">
+      <DependentUpon>DialogDemo.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\ListsDemo.axaml.cs">
       <DependentUpon>ListsDemo.axaml</DependentUpon>
     </Compile>
