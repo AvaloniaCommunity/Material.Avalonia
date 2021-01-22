@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Larymar,SKProCH,Appleneko2001</Authors>
+    <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Palette component of Material.Avalonia.</Description>
   </PropertyGroup>
 
   <ItemGroup>
