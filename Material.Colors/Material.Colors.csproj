@@ -7,7 +7,7 @@
     <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
     <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <Description>Palette component of Material.Avalonia.</Description>
+    <Description>Color palette component of Material.Avalonia.</Description>
   </PropertyGroup>
 
   <ItemGroup>
