@@ -1,0 +1,44 @@
+﻿using Avalonia.Controls;
+using Material.Dialog.Icons;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Text;
+
+namespace Material.Dialog.ViewModels
+{
+    public abstract class DialogWindowViewModel : INotifyPropertyChanged
+    {
+        #region Base Properties
+        private string m_WindowTitle;
+        public string WindowTitle 
+            { get => m_WindowTitle; set { m_WindowTitle = value; OnPropertyChanged(); } }
+
+        private string m_ContentHeader;
+        public string ContentHeader 
+            { get => m_ContentHeader; set { m_ContentHeader = value; OnPropertyChanged(); } }
+
+        private string m_ContentMessage;
+        public string ContentMessage 
+            { get => m_ContentMessage; set { m_ContentMessage = value; OnPropertyChanged(); } }
+
+        private bool m_Borderless;
+        public bool Borderless { get => m_Borderless; set { m_Borderless = value; OnPropertyChanged(); } }
+
+        private WindowStartupLocation m_WindowStartupLocation;
+        public WindowStartupLocation WindowStartupLocation 
+            { get => m_WindowStartupLocation; set { m_WindowStartupLocation = value; OnPropertyChanged(); } }
+
+        private DialogIconKind? m_DialogHeaderIcon;
+        public DialogIconKind? DialogHeaderIcon { get => m_DialogHeaderIcon; set { m_DialogHeaderIcon = value; OnPropertyChanged(); } }
+        #endregion
+
+        #region Property Changed region
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        #endregion
+    }
+}
