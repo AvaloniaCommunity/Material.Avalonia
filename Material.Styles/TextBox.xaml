@@ -1,5 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+        xmlns:wpf="clr-namespace:Material.Styles.Assists"
         xmlns:styles="clr-namespace:Material.Styles">
 
     <Styles.Resources>
@@ -70,6 +71,7 @@
               <Border Name="focusBorder"
                       CornerRadius="8,8,0,0"
                       Background="{TemplateBinding Background}" />
+
               <TextBlock Name="floatingWatermark"
                          VerticalAlignment="Top"
                          HorizontalAlignment="Stretch"
@@ -77,20 +79,9 @@
                          Foreground="{DynamicResource ThemeAccentBrush}"
                          FontFamily="{TemplateBinding FontFamily}"
                          FontSize="{DynamicResource FontSizeSmall}"
-                         Text="{TemplateBinding Watermark}"
+                         Text="{TemplateBinding (wpf:TextFieldAssist.Label)}"
                          RenderTransformOrigin="0, 0"
-                         IsVisible="{TemplateBinding UseFloatingWatermark}">
-                <TextBlock.Styles>
-                  <Style Selector="TextBlock#floatingWatermark:not(.notransitions)">
-                    <Setter Property="Transitions">
-                      <Transitions>
-                        <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
-                        <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
-                      </Transitions>
-                    </Setter>
-                  </Style>
-                </TextBlock.Styles> 
-              </TextBlock>
+                         IsVisible="{TemplateBinding UseFloatingWatermark}"/>
 
               <DataValidationErrors Name="DataValidation" >
                 <Grid ColumnDefinitions="Auto,*,Auto">
@@ -148,11 +139,21 @@
     </Setter>
   </Style>
 
-  <Style Selector="TextBox:focus:empty /template/ TextBlock#watermark,
+  <Style Selector="TextBox:not(.notransitions) /template/ TextBlock#floatingWatermark">
+    <Setter Property="Transitions">
+      <Transitions>
+        <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
+        <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
+      </Transitions>
+    </Setter>
+  </Style>
+  
+
+  <Style Selector="TextBox:focus-within:empty /template/ TextBlock#watermark,
                    TextBox:empty /template/ TextBlock#watermark">
     <Setter Property="IsVisible" Value="True"/>
   </Style>
-  <Style Selector="TextBox:focus:not(:empty) /template/ TextBlock#watermark,
+  <Style Selector="TextBox:focus-within:not(:empty) /template/ TextBlock#watermark,
                    TextBox:not(:empty) /template/ TextBlock#watermark">
     <Setter Property="IsVisible" Value="False"/>
   </Style>
@@ -161,7 +162,7 @@
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
   </Style>
 
-  <Style Selector="TextBox:focus /template/ styles|MaterialUnderline#Underline">
+  <Style Selector="TextBox:focus-within /template/ styles|MaterialUnderline#Underline">
     <Setter Property="IsExpanded" Value="True"></Setter>
   </Style>
   <Style Selector="TextBox:pointerover /template/ styles|MaterialUnderline#Underline">
@@ -172,8 +173,8 @@
     <Setter Property="Opacity" Value="{DynamicResource ThemeDisabledOpacity}" />
   </Style>
 
-  <Style Selector="TextBox:not(.Outline):focus:not(:empty) /template/ TextBlock#floatingWatermark,
-                   TextBox:not(.Outline):focus /template/ TextBlock#floatingWatermark,
+  <Style Selector="TextBox:not(.Outline):focus-within:not(:empty) /template/ TextBlock#floatingWatermark,
+                   TextBox:not(.Outline):focus-within /template/ TextBlock#floatingWatermark,
                    TextBox:not(.Outline):not(:empty) /template/ TextBlock#floatingWatermark">
     <Setter Property="Margin" Value="1,10,1,1"/>
     <Setter Property="RenderTransform" Value="scale(0.75)"/>
@@ -186,7 +187,7 @@
         <ScaleTransform ScaleX="1" ScaleY="1"/>
       </Setter.Value>
     </Setter>
-  </Style>
+  </Style> 
 
   <!-- Standard TextBox variants (with clear button or with reveal password switch) -->
 
@@ -302,7 +303,7 @@
                            Classes="Subtitle1" 
                            Foreground="{DynamicResource ThemeAccentBrush}"
                            FontSize="{DynamicResource FontSizeSmall}"
-                           Text="{TemplateBinding Watermark}" 
+                           Text="{TemplateBinding (wpf:TextFieldAssist.Label)}" 
                            RenderTransformOrigin="0, 0"
                            IsVisible="{TemplateBinding UseFloatingWatermark}">
                   <TextBlock.Styles>
@@ -317,7 +318,7 @@
                   </TextBlock.Styles>
                 </TextBlock>
 
-              <DataValidationErrors Name="DataValidation" >
+              <DataValidationErrors Name="DataValidation" MinHeight="56">
                 <Grid ColumnDefinitions="Auto,*,Auto">
                   <ContentPresenter Grid.Column="0"
                                     VerticalAlignment="Top"
@@ -363,16 +364,16 @@
     </Setter>
   </Style>
 
-  <Style Selector="TextBox.Filled:focus:not(:empty) /template/ TextBlock#floatingWatermark,
-                   TextBox.Filled:focus /template/ TextBlock#floatingWatermark,
+  <Style Selector="TextBox.Filled:focus-within:not(:empty) /template/ TextBlock#floatingWatermark,
+                   TextBox.Filled:focus-within /template/ TextBlock#floatingWatermark,
                    TextBox.Filled:not(:empty) /template/ TextBlock#floatingWatermark">
     <Setter Property="Margin" Value="16,8,1,1"/>
     <Setter Property="RenderTransform" Value="scale(0.75)"/>
   </Style> 
-  <Style Selector="TextBox.Filled:focus /template/ Border#focusBorder">  
+  <Style Selector="TextBox.Filled:focus-within /template/ Border#focusBorder">  
     <Setter Property="Opacity" Value="0.35"/>
   </Style>
-  <Style Selector="TextBox.Filled:empty:not(:focus) /template/ TextBlock#floatingWatermark">
+  <Style Selector="TextBox.Filled:empty:not(:focus-within) /template/ TextBlock#floatingWatermark">
     <Setter Property="Margin" Value="16,18,1,1"/> 
   </Style>
 
@@ -390,7 +391,7 @@
                   VerticalContentAlignment="Center"
                   Cursor="Arrow" Width="36" Height="36"
                   Padding="12"
-                  Focusable="True"  Margin="0, 4">
+                  Focusable="True">
             <Path x:Name="PART_GlyphElement"
                   Fill="{DynamicResource PrimaryHueMidBrush}"
                   Data="{StaticResource TextBoxClearButtonData}"
@@ -420,7 +421,6 @@
                         Cursor="Arrow" Width="36" Height="36"
                         VerticalAlignment="Center" 
                         Padding="8"
-                        Margin="0, 4"
                         Focusable="True"
                         IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
             <ToggleButton.Styles>
@@ -512,7 +512,7 @@
                            HorizontalAlignment="Stretch"
                            Margin="4,2"
                            Foreground="{Binding ElementName=border, Path=BorderBrush}" 
-                           Text="{TemplateBinding Watermark}" />
+                           Text="{TemplateBinding (wpf:TextFieldAssist.Label)}" />
               </Border>
 
               <DataValidationErrors Name="DataValidation" >
@@ -555,8 +555,8 @@
     </Setter>
   </Style>
 
-  <Style Selector="TextBox.Outline:focus:not(:empty) /template/ Border#watermarkRoot,
-                   TextBox.Outline:focus /template/ Border#watermarkRoot,
+  <Style Selector="TextBox.Outline:focus-within:not(:empty) /template/ Border#watermarkRoot,
+                   TextBox.Outline:focus-within /template/ Border#watermarkRoot,
                    TextBox.Outline:not(:empty) /template/ Border#watermarkRoot">
     <Setter Property="Margin" Value="14,-9,1,1"/>
     <Setter Property="RenderTransform" Value="scale(0.75)"/>
@@ -565,7 +565,7 @@
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
     <Setter Property="BorderThickness" Value="1"/>
   </Style>
-  <Style Selector="TextBox.Outline:focus /template/ Border#border">
+  <Style Selector="TextBox.Outline:focus-within /template/ Border#border">
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
     <Setter Property="BorderThickness" Value="2"/> 
   </Style> 
@@ -660,7 +660,7 @@
   <Design.PreviewWith>
     <Border Padding="20">
       <StackPanel>
-        <TextBox Classes="" Margin="8" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
+        <TextBox Classes="" Margin="8" Width="200" UseFloatingWatermark="True" wpf:TextFieldAssist.Label="TextBox"/>
         <TextBox Classes="Filled" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
         <TextBox Classes="Filled" IsEnabled="False" Width="200" UseFloatingWatermark="True" Watermark="TextBox"/>
         <TextBox Classes="Outline" IsEnabled="True" Width="200" UseFloatingWatermark="True" Watermark="TextBox3248239"/>
