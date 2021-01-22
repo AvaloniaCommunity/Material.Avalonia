@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Material.Demo.Models;
+using Material.Styles.Assists;
 using System.Collections.ObjectModel;
 using static Material.Demo.Models.StatusEnum;
 
@@ -55,6 +56,8 @@ namespace Material.Demo.Pages
         public void UseMaterialUILightTheme() => GlobalCommand.UseMaterialUILightTheme();
 
         public void OpenProjectRepoLink() => GlobalCommand.OpenProjectRepoLink();
+
+        public void SwitchTransition() => TransitionAssist.SetDisableTransitions(Program.MainWindow, !TransitionAssist.GetDisableTransitions(Program.MainWindow));
 
         private void InitializeComponent()
         {
