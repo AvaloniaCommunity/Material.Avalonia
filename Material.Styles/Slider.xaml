@@ -297,8 +297,7 @@
                          Width="36" Height="20" Text="{Binding $parent[Slider].Value}"
                          TextAlignment="Center" 
                          HorizontalAlignment="Center"
-                         VerticalAlignment="Center"
-                         Foreground="{DynamicResource MaterialDesignBody}"/>
+                         VerticalAlignment="Center" />
 
             </Grid>
           </Grid>
@@ -314,6 +313,13 @@
   <Style Selector="Slider.Bubble Thumb:pointerover /template/ Grid#bubble">
     <Setter Property="Opacity" Value="1" />
     <Setter Property="RenderTransform" Value="scale(1)"/>
+  </Style>
+
+  <Style Selector="Slider.Bubble Thumb /template/ TextBlock">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+  </Style>
+  <Style Selector="Slider.Accent.Bubble Thumb /template/ TextBlock">
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
   </Style>
 
   <Design.PreviewWith>
