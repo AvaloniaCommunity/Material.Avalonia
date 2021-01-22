@@ -18,6 +18,11 @@ namespace Material.Styles.Assists {
                 ShadowDepth.Depth3 => new BoxShadows(new BoxShadow {Blur = 14, OffsetX = 4.5, OffsetY = 4.5, Color = overridedColor ?? MaterialShadowColor}),
                 ShadowDepth.Depth4 => new BoxShadows(new BoxShadow {Blur = 25, OffsetX = 8, OffsetY = 8, Color = overridedColor ?? MaterialShadowColor}),
                 ShadowDepth.Depth5 => new BoxShadows(new BoxShadow {Blur = 35, OffsetX = 13, OffsetY = 13, Color = overridedColor ?? MaterialShadowColor}),
+                ShadowDepth.CenterDepth1 => new BoxShadows(new BoxShadow { Blur = 5, Color = overridedColor ?? MaterialShadowColor }),
+                ShadowDepth.CenterDepth2 => new BoxShadows(new BoxShadow { Blur = 8, Color = overridedColor ?? MaterialShadowColor }),
+                ShadowDepth.CenterDepth3 => new BoxShadows(new BoxShadow { Blur = 14, Color = overridedColor ?? MaterialShadowColor }),
+                ShadowDepth.CenterDepth4 => new BoxShadows(new BoxShadow { Blur = 25, Color = overridedColor ?? MaterialShadowColor }),
+                ShadowDepth.CenterDepth5 => new BoxShadows(new BoxShadow { Blur = 35, Color = overridedColor ?? MaterialShadowColor }),
                 _                  => throw new ArgumentOutOfRangeException()
             };
         }
@@ -29,7 +34,12 @@ namespace Material.Styles.Assists {
         Depth2,
         Depth3,
         Depth4,
-        Depth5
+        Depth5, 
+        CenterDepth1,
+        CenterDepth2,
+        CenterDepth3,
+        CenterDepth4,
+        CenterDepth5,
     }
 
     public static class ShadowAssist {
