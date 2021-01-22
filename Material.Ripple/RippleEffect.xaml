@@ -20,7 +20,7 @@
                                  VerticalAlignment="Top"
                                  Fill="{TemplateBinding RippleFill}" >
                             <Ellipse.Styles>
-                                <Style Selector="Ellipse#Circle">
+                                <Style Selector="Ellipse#Circle:not(.notransitions)">
                                     <Style.Animations>
                                         <Animation Duration="0:0:0.5" Easing="CubicEaseOut">
                                           <KeyFrame Cue="0%">

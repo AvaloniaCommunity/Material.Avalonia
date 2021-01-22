@@ -19,17 +19,7 @@
                     <Border Name="ActivationIndicator"
                             Height="2" VerticalAlignment="Bottom" 
                             Focusable="False" IsHitTestVisible="False"
-                            Background="{TemplateBinding ActiveColor}">
-                      <Border.Styles>
-                        <Style Selector="Border#ActivationIndicator">
-                          <Setter Property="Transitions">
-                            <Transitions>
-                              <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CubicEaseOut"/>
-                            </Transitions>
-                          </Setter>
-                        </Style>
-                      </Border.Styles>
-                    </Border>
+                            Background="{TemplateBinding ActiveColor}"/>
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -49,22 +39,21 @@
             <Border Name="ActivationIndicator" 
                     Height="2" VerticalAlignment="Bottom"
                     Focusable="False" IsHitTestVisible="False"
-                    Background="{TemplateBinding ActiveColor}">
-              <Border.Styles>
-                <Style Selector="Border#ActivationIndicator">
-                  <Setter Property="Transitions">
-                    <Transitions>
-                      <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CubicEaseOut"/>
-                    </Transitions>
-                  </Setter>
-                </Style>
-              </Border.Styles>
-            </Border> 
+                    Background="{TemplateBinding ActiveColor}"/>
           </Grid>
         </ControlTemplate>
       </Setter>
     </Style>
 
+  <Style Selector="cc|MaterialUnderline:not(.notransitions) /template/ Border#ActivationIndicator">
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CubicEaseOut"/>
+      </Transitions>
+    </Setter>
+  </Style>
+  
+  
   <Style Selector="cc|MaterialUnderline /template/ Border#Border">
         <Setter Property="Background" Value="{Binding $parent[cc:MaterialUnderline].BackgroundColor}" />
     </Style>

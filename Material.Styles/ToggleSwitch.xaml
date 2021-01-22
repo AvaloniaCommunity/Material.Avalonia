@@ -185,7 +185,7 @@
         <Setter Property="Opacity" Value="0.23" />
     </Style>
 
-    <Style Selector="ToggleSwitch:not(:pressed) /template/ Ellipse#RippleThumb">
+    <Style Selector="ToggleSwitch:not(:pressed):not(.notransitions) /template/ Ellipse#RippleThumb">
         <Style.Animations>
             <Animation Duration="0:0:0.2" FillMode="Both">
                 <KeyFrame Cue="0%">
@@ -197,7 +197,7 @@
             </Animation>
         </Style.Animations>
     </Style>
-    <Style Selector="ToggleSwitch:pressed /template/ Ellipse#RippleThumb">
+    <Style Selector="ToggleSwitch:pressed:not(.notransitions) /template/ Ellipse#RippleThumb">
         <Setter Property="Opacity" Value="0.28" />
         <Style.Animations>
             <animations:BeginAnimation>
@@ -215,7 +215,7 @@
         </Style.Animations>
     </Style>
 
-    <Style Selector="ToggleSwitch:checked /template/ Grid#ThumbHolder">
+    <Style Selector="ToggleSwitch:checked:not(.notransitions) /template/ Grid#ThumbHolder">
         <Style.Animations>
             <animations:ReverseAfterEndAnimation>
                 <Animation Duration="0:0:0.2" FillMode="Both">
@@ -229,6 +229,18 @@
             </animations:ReverseAfterEndAnimation>
         </Style.Animations>
     </Style>
+
+  <Style Selector="ToggleSwitch.notransitions:not(:pressed) /template/ Ellipse#RippleThumb">
+    <Setter Property="Opacity" Value="0" /> 
+  </Style>
+  <Style Selector="ToggleSwitch.notransitions:pressed /template/ Ellipse#RippleThumb">
+    <Setter Property="Opacity" Value="0.28" />
+    <Setter Property="ScaleTransform.ScaleX" Value="2.5" />
+    <Setter Property="ScaleTransform.ScaleY" Value="2.5" />
+  </Style>
+  <Style Selector="ToggleSwitch.notransitions:checked /template/ Grid#ThumbHolder">
+    <Setter Property="TranslateTransform.X" Value="16" />
+  </Style>
 
     <Style Selector="ToggleSwitch /template/ ContentPresenter#OnContentPresenter">
         <Setter Property="IsVisible" Value="False" />
