@@ -21,6 +21,8 @@ namespace Material.Demo.Pages
             new FeatureStatusModels(){ FeatureName = "Slider (Discrete)", IsReady = Yes, IsAnimated = No},
             new FeatureStatusModels(){ FeatureName = "Slider (with bubble)", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Popup", IsReady = NotFully, IsAnimated = No},
+            new FeatureStatusModels(){ FeatureName = "Dialog (DialogHost)", IsReady = No, IsAnimated = NA},
+            new FeatureStatusModels(){ FeatureName = "Dialog (External)", IsReady = NotFully, IsAnimated = No},
             new FeatureStatusModels(){ FeatureName = "DataGrid", IsReady = NotFully, IsAnimated = NA},
             new FeatureStatusModels(){ FeatureName = "Standard Fields (TextBox)", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Filled Fields (TextBox)", IsReady = Yes, IsAnimated = Yes},
