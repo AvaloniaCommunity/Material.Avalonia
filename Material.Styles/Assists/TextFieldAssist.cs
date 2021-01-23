@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Media;
 
 namespace Material.Styles.Assists {
     public static class TextFieldAssist
@@ -17,5 +18,26 @@ namespace Material.Styles.Assists {
         public static void SetLabel(AvaloniaObject element, string value) => element.SetValue(LabelProperty, value);
 
         public static string GetLabel(AvaloniaObject element) => (string)element.GetValue(LabelProperty);
+
+        public static AvaloniaProperty<bool> HasErrorProperty = AvaloniaProperty.RegisterAttached<TextBox, bool>(
+            "HasError", typeof(TextBox));
+
+        public static void SetHasError(AvaloniaObject element, bool value) => element.SetValue(HasErrorProperty, value);
+
+        public static bool GetHasError(AvaloniaObject element) => (bool)element.GetValue(HasErrorProperty);
+
+
+        public static AvaloniaProperty<SolidColorBrush> ErrorColorProperty = 
+            AvaloniaProperty.RegisterAttached<TextBox, SolidColorBrush>("ErrorColor", typeof(TextFieldAssist), SolidColorBrush.Parse("#f44336"));
+
+        public static void SetErrorColor(AvaloniaObject element, SolidColorBrush value)
+        {
+            element.SetValue(ErrorColorProperty, value);
+        }
+
+        public static SolidColorBrush GetErrorColor(AvaloniaObject element)
+        {
+            return (SolidColorBrush)element.GetValue(ErrorColorProperty);
+        }
     }
 }
