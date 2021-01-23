@@ -149,8 +149,16 @@ namespace Material.Demo.ViewModels
             }
         }
 
-        private bool ValidateAccount(string text) => text?.Length > 5;
-        private bool ValidatePassword(string text) => text?.Length >= 1;
+        private Tuple<bool,string> ValidateAccount(string text)
+        {
+            bool result = text?.Length > 5;
+            return new Tuple<bool, string>(result, result ? "" : "Too few account name.");
+        }
+        private Tuple<bool, string> ValidatePassword(string text) 
+        {
+            bool result = text?.Length >= 1;
+            return new Tuple<bool, string>(result, result ? "" : "Field should be filled.");
+        }
 
 
         public async void FolderNameDialog()
