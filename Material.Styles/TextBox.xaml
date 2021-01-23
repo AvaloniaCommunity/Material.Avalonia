@@ -130,10 +130,8 @@
                                         Name="Underline"/>
             </Grid>
           </Border>
-          <TextBlock Classes="Caption"
-                     Margin="0,3,0,0"
-                     Text="{Binding ElementName=DataValidation, Path=Errors}"
-                     Foreground="#f44336"/>
+          <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                     Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"/>
         </StackPanel>
       </ControlTemplate>
     </Setter>
@@ -188,7 +186,7 @@
       </Setter.Value>
     </Setter>
   </Style> 
-
+  
   <!-- Standard TextBox variants (with clear button or with reveal password switch) -->
 
     <Style Selector="TextBox.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
@@ -355,10 +353,8 @@
                                         Name="Underline"/>
             </Grid>
           </Border>
-          <TextBlock Classes="Caption"
-                     Margin="0,3,0,0"
-                     Text="{Binding ElementName=DataValidation, Path=Errors}"
-                     Foreground="#f44336"/>
+          <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                     Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"/>
         </StackPanel>
       </ControlTemplate>
     </Setter>
