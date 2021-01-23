@@ -3,7 +3,9 @@ using Material.Dialog.Bases;
 using Material.Dialog.Enums;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
+using Material.Dialog.ViewModels.TextField;
 using Material.Dialog.Views;
+using System.Collections.Generic;
 
 namespace Material.Dialog
 {
@@ -67,20 +69,98 @@ namespace Material.Dialog
         public static IDialogWindow<DialogResult> CreateAlertDialog(AlertDialogBuilderParams @params)
         { 
             var window = new AlertDialog();
-            window.DataContext = new AlertDialogViewModel(window)
+            var context = new AlertDialogViewModel(window)
             {
-                WindowTitle = @params.WindowTitle,
-                ContentHeader = @params.ContentHeader,
-                ContentMessage = @params.SupportingText,
-                Borderless = @params.Borderless,
-                WindowStartupLocation = @params.StartupLocation,
                 DialogButtons = @params.DialogButtons,
                 ButtonsStackOrientation = @params.ButtonsOrientation,
-                DialogHeaderIcon = @params.DialogHeaderIcon
             };
+            ApplyBaseParams(context, @params);
+            window.DataContext = context;
             window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
             window.SetNegativeResult(@params.NegativeResult);
             return new DialogWindowBase<AlertDialog, DialogResult>(window);
+        }
+
+        public static IDialogWindow<TextFieldDialogResult> CreateTextFieldDialog(TextFieldDialogBuilderParams @params)
+        {
+            var window = new TextFieldDialog();
+            var context = new TextFieldDialogViewModel(window)
+            {
+                PositiveButton = @params.PositiveButton,
+                NegativeButton = @params.NegativeButton, 
+                ButtonsStackOrientation = @params.ButtonsOrientation,
+                TextFields = TextFieldsBuilder(@params.TextFields),
+                DialogButtons = CombineButtons(@params.PositiveButton, @params.NegativeButton),
+            };
+            ApplyBaseParams(context, @params);
+            context.BindValidater();
+            window.DataContext = context;
+            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
+            window.SetNegativeResult(@params.NegativeResult);
+            return new DialogWindowBase<TextFieldDialog, TextFieldDialogResult>(window);
+        }
+
+        private static void ApplyBaseParams<T> (T input, DialogWindowBuilderParamsBase @params) where T : DialogWindowViewModel
+        {
+            input.MaxWidth = @params.MaxWidth;
+            input.WindowTitle = @params.WindowTitle;
+            input.Width = @params.Width;
+            input.ContentHeader = @params.ContentHeader;
+            input.ContentMessage = @params.SupportingText;
+            input.Borderless = @params.Borderless;
+            input.WindowStartupLocation = @params.StartupLocation;
+            input.DialogHeaderIcon = @params.DialogHeaderIcon;
+        }
+
+        private static DialogResultButton[] CombineButtons(params DialogResultButton[] buttons) 
+        {
+            List<DialogResultButton> result = new List<DialogResultButton>();
+            foreach(var button in buttons)
+            {
+                if (button is null)
+                    continue;
+                result.Add(button);
+            }
+            return result.ToArray();
+        }
+
+        private static TextFieldViewModel[] TextFieldsBuilder(TextFieldBuilderParams[] @params)
+        {
+            List<TextFieldViewModel> result = new List<TextFieldViewModel>();
+            foreach(var param in @params)
+            {
+                try
+                {
+                    TextFieldViewModel model = new TextFieldViewModel();
+
+                    // Currently AvaloniaUI are not supported to binding classes.
+                    //model.Classes = param.Classes;
+                    
+                    model.PlaceholderText = param.PlaceholderText;
+                    model.MaxCountChars = param.MaxCountChars; 
+                    model.Label = param.Label;
+                    model.Validater = param.Validater;
+                    model.Text = param.DefaultText;
+                    switch (param.FieldKind)
+                    {
+                        case TextFieldKind.Normal: 
+                            break;
+                        case TextFieldKind.Masked:
+                            model.MaskChar = param.MaskChar;
+                            model.Classes += " revealPasswordButton";
+                            break;
+                        case TextFieldKind.WithClear: 
+                            model.Classes += " clearButton";
+                            break;
+                    }
+                    result.Add(model);
+                }
+                catch
+                {
+
+                }
+            }
+            return result.ToArray();
         }
     }
 }

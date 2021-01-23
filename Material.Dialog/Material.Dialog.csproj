@@ -22,6 +22,8 @@
 
   <ItemGroup>
     <AvaloniaResource Remove="Views\AlertDialog.axaml" />
+    <AvaloniaResource Remove="Views\TextFieldDialog.axaml" />
+    <AvaloniaResource Remove="Views\TimePickerDialog.axaml" />
   </ItemGroup>
 
   <ItemGroup>

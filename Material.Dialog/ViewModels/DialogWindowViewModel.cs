@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Material.Dialog.ViewModels
 {
-    public abstract class DialogWindowViewModel : INotifyPropertyChanged
+    public abstract class DialogWindowViewModel : ViewModelBase
     {
         #region Base Properties
         private string m_WindowTitle;
@@ -26,19 +26,18 @@ namespace Material.Dialog.ViewModels
         private bool m_Borderless;
         public bool Borderless { get => m_Borderless; set { m_Borderless = value; OnPropertyChanged(); } }
 
+        private double? m_MaxWidth;
+        public double? MaxWidth { get => m_MaxWidth; set { m_MaxWidth = value; OnPropertyChanged(); } }
+
+        private double? m_Width;
+        public double? Width { get => m_Width; set { m_Width = value; OnPropertyChanged(); } }
+
         private WindowStartupLocation m_WindowStartupLocation;
         public WindowStartupLocation WindowStartupLocation 
             { get => m_WindowStartupLocation; set { m_WindowStartupLocation = value; OnPropertyChanged(); } }
 
         private DialogIconKind? m_DialogHeaderIcon;
         public DialogIconKind? DialogHeaderIcon { get => m_DialogHeaderIcon; set { m_DialogHeaderIcon = value; OnPropertyChanged(); } }
-        #endregion
-
-        #region Property Changed region
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         #endregion
     }
 }

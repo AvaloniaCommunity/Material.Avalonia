@@ -1,27 +1,30 @@
-﻿<Window xmlns="https://github.com/avaloniaui"
+<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+        xmlns:maxkatz="clr-namespace:Material.Dialog.maxkatz6"
         xmlns:main="clr-namespace:Material.Dialog"
         xmlns:icons="clr-namespace:Material.Dialog.Icons"
-        mc:Ignorable="d"  
-        x:Class="Material.Dialog.Views.AlertDialog"
+        xmlns:model="clr-namespace:Material.Dialog.ViewModels.TextField"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Material.Dialog.Views.TextFieldDialog"
         SizeToContent="WidthAndHeight"
-        Title="{Binding WindowTitle}" 
+        Title="{Binding WindowTitle}"
         CanResize="False"
         WindowStartupLocation="{Binding WindowStartupLocation}"
-        HorizontalContentAlignment="Stretch"> 
+        HorizontalContentAlignment="Stretch">
   <Window.Styles>
     <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.xaml"/>
     <Style Selector="Window[SystemDecorations=None]">
       <Setter Property="Padding" Value="16"/>
       <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="TransparencyLevelHint" Value="Transparent"/> 
-    </Style> 
+      <Setter Property="TransparencyLevelHint" Value="Transparent"/>
+    </Style>
   </Window.Styles>
-  
+
   <material:Card Name="PART_ContentRoot" Padding="0" 
                  assists:ShadowAssist.ShadowDepth="CenterDepth4"> 
     <Grid Name="PART_Root"
@@ -30,14 +33,14 @@
           HorizontalAlignment="Stretch">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="24"/>
-        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="24"/>
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
         <RowDefinition Height="24"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="14"/>
-        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/> 
         <RowDefinition Height="16"/>
         <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
@@ -47,26 +50,59 @@
           <ColumnDefinition Width="Auto"/>
           <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <icons:DialogIcon Kind="{Binding DialogHeaderIcon}" 
+        <icons:DialogIcon Kind="{Binding DialogHeaderIcon}"
                           Width="32" Height="32" Margin="0,0,8,0"
                           IsVisible="{Binding !!DialogHeaderIcon}"/>
 
         <TextBlock Name="PART_Header"
-                   Classes="Headline6" 
+                   Classes="Headline6"
                    Grid.Column="1"
                    VerticalAlignment="Center"
                    IsVisible="{Binding !!ContentHeader.Length}"
                    Text="{Binding ContentHeader, FallbackValue='Dialog header'}"/>
       </Grid>
 
-      <TextBlock Name="PART_SupportingText"
-                 Classes="Body1"
-                 Grid.Column="1" Grid.Row="3"
-                 IsVisible="{Binding !!ContentMessage.Length}"
-                 Text="{Binding ContentMessage, FallbackValue='Dialog supporting text'}"/>
+      <Grid Grid.ColumnSpan="3">
+        
+      </Grid>
 
-      <Grid Grid.Column="0" 
-            Grid.ColumnSpan="3" 
+      <StackPanel Grid.Column="1" Grid.Row="3">
+        <TextBlock Name="PART_SupportingText"
+           Classes="Body1"
+           IsVisible="{Binding !!ContentMessage.Length}"
+           Text="{Binding ContentMessage, FallbackValue='Dialog supporting text'}"/>
+        
+        <Separator HorizontalAlignment="Stretch" Background="Transparent"/>
+
+        <ItemsControl HorizontalAlignment="Stretch"
+              Items="{Binding TextFields}"
+              Margin="4">
+          <ItemsControl.Styles>
+            <Style Selector="TextBox">
+              <Setter Property="Margin" Value="4"/>
+            </Style>
+          </ItemsControl.Styles>
+          <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+              <StackPanel/>
+            </ItemsPanelTemplate>
+          </ItemsControl.ItemsPanel>
+          <ItemsControl.ItemTemplate>
+            <DataTemplate DataType="model:TextFieldViewModel">
+              <TextBox PasswordChar="{Binding MaskChar}"
+                       HorizontalAlignment="Stretch"
+                       MaxLength="{Binding MaxCountChars}"
+                       Text="{Binding Text, Mode=TwoWay}"
+                       Watermark="{Binding PlaceholderText}"
+                       UseFloatingWatermark="True"
+                       wpf:TextFieldAssist.Label="{Binding Label}"/>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+
+      <Grid Grid.Column="0"
+            Grid.ColumnSpan="3"
             Grid.Row="5">
         <ItemsControl HorizontalAlignment="Stretch"
                       Items="{Binding DialogButtons}"
@@ -84,14 +120,13 @@
           </ItemsControl.ItemsPanel>
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="main:DialogResultButton">
-              <Button Classes="Tool"
+              <Button Classes="Tool" Tag="{Binding Result}"
                       Content="{Binding Content, FallbackValue=Null}"
-                      Tag="{Binding Result}"
                       Command="{Binding ElementName=PART_Root, 
                           Path=DataContext.ButtonClick}"
-                      CommandParameter="{Binding Result}"/>
+                      CommandParameter="{Binding }"/>
             </DataTemplate>
-          </ItemsControl.ItemTemplate> 
+          </ItemsControl.ItemTemplate>
         </ItemsControl>
       </Grid>
     </Grid>

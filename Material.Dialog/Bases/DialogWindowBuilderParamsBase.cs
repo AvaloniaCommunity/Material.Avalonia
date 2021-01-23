@@ -9,6 +9,8 @@ namespace Material.Dialog.Bases
     public class DialogWindowBuilderParamsBase
     {
         public string WindowTitle = "Warning";
+        public double? MaxWidth = null;
+        public double? Width = null;
         public string ContentHeader = null;
         public string SupportingText = null;
         public bool Borderless = false;
