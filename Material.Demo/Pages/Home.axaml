@@ -35,6 +35,7 @@
         <Button Classes="Tool" Content="USE DARK THEME" Command="{Binding Path=UseMaterialUIDarkTheme}"/>
         <Button Classes="Tool" Content="USE LIGHT THEME" Command="{Binding Path=UseMaterialUILightTheme}"/>
         <Button Classes="Tool" Content="SWITCH TRANSITIONS" Command="{Binding Path=SwitchTransition}"/>
+        <Button Classes="Tool" Content="ABOUT AVALONIAUI" Command="{Binding Path=ShowAboutAvaloniaUI}"/>
       </WrapPanel>
       <StackPanel Margin="0,24">
         <DataGrid Height="620"
