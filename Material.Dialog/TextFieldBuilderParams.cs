@@ -18,7 +18,14 @@ namespace Material.Dialog
             } 
         };
 
-        public Func<string, bool> Validater;
+        /// <summary>
+        /// Define an data validate function, result using <seealso cref="Tuple{Boolean,String}"/>
+        /// <list>
+        /// <br/><seealso cref="Tuple{Boolean,String}.Item1"/> is valid, should be boolean.
+        /// <br/><seealso cref="Tuple{Boolean,String}.Item2"/> is information about invalid field, should be string.
+        /// </list>
+        /// </summary>
+        public Func<string, Tuple<bool, string>> Validater;
         public string PlaceholderText;
         public string DefaultText;
 

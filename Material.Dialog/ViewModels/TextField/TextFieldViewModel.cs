@@ -1,15 +1,16 @@
 ﻿using Avalonia.Controls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace Material.Dialog.ViewModels.TextField
 {
-    public class TextFieldViewModel : ViewModelBase
+    public class TextFieldViewModel : ViewModelBase, IDataErrorInfo
     {
         public event EventHandler<bool> OnValidateRequired;
 
-        public Func<string, bool> Validater;
+        public Func<string, Tuple<bool, string>> Validater;
 
         private string m_PlaceholderText;
         public string PlaceholderText { get => m_PlaceholderText; set { m_PlaceholderText = value; OnPropertyChanged(); } }
@@ -32,19 +33,28 @@ namespace Material.Dialog.ViewModels.TextField
         private bool m_IsValid;
         public bool IsValid { get => m_IsValid; set { m_IsValid = value; OnPropertyChanged(); } }
 
+        private string m_Error;
+        public string Error { get => m_Error; set { m_Error = value; OnPropertyChanged(); } }
+
+        public string this[string columnName] 
+        {
+            get => Error;
+        }
+
         private void OnTextChanged(string text)
         {
-            bool result = false;
+            Tuple<bool, string> result = new Tuple<bool, string>(false, null);
             try
             {
-                result = Validater?.Invoke(text) ?? true;
+                result = Validater?.Invoke(text) ?? new Tuple<bool, string>(true, null);
             }
-            catch
+            catch(Exception e)
             {
-                result = false;
+                result = new Tuple<bool, string>(false, e.Message);
             }
-            IsValid = result;
-            OnValidateRequired?.Invoke(this, result);
+            IsValid = result.Item1;
+            Error = result.Item2;
+            OnValidateRequired?.Invoke(this, true);
         }
     }
 }

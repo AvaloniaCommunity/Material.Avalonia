@@ -62,18 +62,12 @@
                    Text="{Binding ContentHeader, FallbackValue='Dialog header'}"/>
       </Grid>
 
-      <Grid Grid.ColumnSpan="3">
-        
-      </Grid>
-
       <StackPanel Grid.Column="1" Grid.Row="3">
         <TextBlock Name="PART_SupportingText"
            Classes="Body1"
            IsVisible="{Binding !!ContentMessage.Length}"
            Text="{Binding ContentMessage, FallbackValue='Dialog supporting text'}"/>
         
-        <Separator HorizontalAlignment="Stretch" Background="Transparent"/>
-
         <ItemsControl HorizontalAlignment="Stretch"
               Items="{Binding TextFields}"
               Margin="4">
@@ -95,6 +89,7 @@
                        Text="{Binding Text, Mode=TwoWay}"
                        Watermark="{Binding PlaceholderText}"
                        UseFloatingWatermark="True"
+                       wpf:TextFieldAssist.Hints="{Binding Error}"
                        wpf:TextFieldAssist.Label="{Binding Label}"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
