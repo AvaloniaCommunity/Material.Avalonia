@@ -282,6 +282,7 @@
           <Border Name="border"
                   Cursor="Ibeam"
                   MinHeight="48" 
+                  ClipToBounds="True"
                   CornerRadius="8,8,0,0" 
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
@@ -565,7 +566,7 @@
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
     <Setter Property="BorderThickness" Value="2"/> 
   </Style> 
-  <Style Selector="TextBox.Outline:empty:not(:focus) /template/ Border#watermarkRoot">
+  <Style Selector="TextBox.Outline:empty:not(:focus-within) /template/ Border#watermarkRoot">
     <Setter Property="Margin" Value="10,14,1,1"/>
   </Style>
 
