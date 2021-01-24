@@ -66,4 +66,7 @@
     <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
     <StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
+
+    <!-- Icons style -->
+    <StyleInclude Source="avares://Material.Styles/PackIconStyle.xaml"/>
 </Styles>

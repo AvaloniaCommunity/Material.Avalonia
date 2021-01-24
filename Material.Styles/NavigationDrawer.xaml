@@ -10,8 +10,9 @@
     <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid Background="Transparent" ClipToBounds="False" HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch">
+        <Grid Background="Transparent" ClipToBounds="False" 
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch" >
           <ContentPresenter
               x:Name="ContentPresenter"
               Margin="{TemplateBinding Padding}"
