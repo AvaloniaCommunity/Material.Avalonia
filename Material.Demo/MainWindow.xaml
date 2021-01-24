@@ -25,7 +25,8 @@
     </Style>
   </Window.Styles>
   
-  <styles:NavigationDrawer LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
+  <styles:NavigationDrawer Name="LeftDrawer" 
+                           LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
     <styles:NavigationDrawer.LeftDrawerContent>
       <ScrollViewer>
         <StackPanel>
@@ -37,7 +38,8 @@
             <TextBlock Classes="Subtitle1" Text="with AvaloniaUI"  HorizontalAlignment="Center"/>
           </StackPanel>
         </styles:ColorZone>
-        <ListBox Classes="Drawer" x:Name="DrawerList">  
+        <ListBox Classes="Drawer" x:Name="DrawerList"
+                 Focusable="{Binding ElementName=LeftDrawer, Path=LeftDrawerOpened}">  
           <ListBox.Styles>
             <Style Selector="ListBoxItem">
               <Setter Property="Height" Value="48"/>
@@ -66,6 +68,11 @@
     <DockPanel LastChildFill="true">
       <styles:ColorZone VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top"
                         Height="56" Mode="PrimaryMid" ZIndex="1">
+        <styles:ColorZone.Styles>
+          <Style Selector="styles|PackIcon">
+            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+          </Style>
+        </styles:ColorZone.Styles>
         <Grid Margin="16">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="24"/>
@@ -76,11 +83,7 @@
           </Grid.ColumnDefinitions>
           <ToggleButton Classes="Tool TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
                         Padding="4">
-            <Path HorizontalAlignment="Stretch" 
-                  VerticalAlignment="Stretch"
-                  Width="24" Height="24"
-                  Data="{StaticResource Material.Menu}" 
-                  Fill="{DynamicResource MaterialDesignBody}"/> 
+            <styles:PackIcon Kind="Menu" Width="24" Height="24"/>
           </ToggleButton>
           <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
                      Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
@@ -90,11 +93,7 @@
                         x:Name="MenuButton"
                         Grid.Column="4"
               Padding="4">
-            <Path HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch"
-                  Width="24" Height="24"
-                  Data="{StaticResource Material.DotsVertical}"
-                  Fill="{DynamicResource MaterialDesignBody}"/>
+            <styles:PackIcon Kind="DotsVertical" Width="24" Height="24"/>
           </ToggleButton>
           <Popup Grid.Column="4"
                  PlacementTarget="{Binding ElementName=MenuButton}" 
@@ -110,8 +109,7 @@
               <StackPanel>
                 <MenuItem Header="Hello!">
                   <MenuItem.Icon>
-                    <Path Data="{StaticResource Material.Hand}"
-                          Fill="{DynamicResource MaterialDesignBody}"/> 
+                    <styles:PackIcon Kind="Hand" Width="24" Height="24"/>
                   </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
@@ -121,8 +119,7 @@
                 <Separator/>
                 <MenuItem Header="Goodbye">
                   <MenuItem.Icon>
-                    <Path Data="{StaticResource Material.ExitRun}"
-                          Fill="{DynamicResource MaterialDesignBody}"/>
+                    <styles:PackIcon Kind="ExitRun" Width="24" Height="24"/>
                   </MenuItem.Icon>
                 </MenuItem>
               </StackPanel>

@@ -38,15 +38,14 @@ namespace Material.Demo.Pages
             new FeatureStatusModels(){ FeatureName = "Card", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Navigation Drawer", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Context Menu", IsReady = NotFully, IsAnimated = NotFully},
-            new FeatureStatusModels(){ FeatureName = "Integration Icons", IsReady = No, IsAnimated = NA},
+            new FeatureStatusModels(){ FeatureName = "Integration Icons", IsReady = NotFully, IsAnimated = NA},
             new FeatureStatusModels(){ FeatureName = "Appbar (Top)", IsReady = No, IsAnimated = NA},
             new FeatureStatusModels(){ FeatureName = "Appbar (Bottom)", IsReady = No, IsAnimated = NA},
         };
 
             this.InitializeComponent();
             DataContext = this;
-
-
+            
             UseMaterialUIDarkTheme();
         }
 

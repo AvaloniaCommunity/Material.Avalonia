@@ -15,7 +15,6 @@
     <None Remove="Assets\johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
     <None Remove="FavIcon.svg" />
     <None Remove="FavIcon_200x.png" />
-    <None Remove="Material.xaml" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="FavIcon_200x.png" />
@@ -33,11 +32,6 @@
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
     <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <AvaloniaResource Update="Material.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
     <AvaloniaXaml Update="Pages\DialogDemo.axaml">

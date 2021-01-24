@@ -28,15 +28,25 @@ namespace Material.Demo {
 
             DrawerList = this.Get<ListBox>(nameof(DrawerList));
             DrawerList.PointerReleased += DrawerSelectionChanged;
+            DrawerList.KeyUp += DrawerList_KeyUp;
 
             PageCarousel = this.Get<Carousel>(nameof(PageCarousel));
 
             mainScroller = this.Get<ScrollViewer>(nameof(mainScroller));
             #endregion
         }
+
+        private void DrawerList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space || e.Key == Key.Enter)
+                DrawerSelectionChanged(sender, null);
+        }
+
         public void DrawerSelectionChanged(object sender, RoutedEventArgs args)
         {
             var listBox = sender as ListBox;
+            if (!listBox.IsFocused && !listBox.IsKeyboardFocusWithin)
+                return;
             try
             { 
                 PageCarousel.SelectedIndex = listBox.SelectedIndex;
