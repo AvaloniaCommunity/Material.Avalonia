@@ -63,15 +63,15 @@ namespace Material.Dialog.ViewModels
 
         public bool CanPressButton(object args)
         {
-            if (args == null)
-            {
-                ButtonClick.RaiseCanExecute(); 
-            }
             if(args == PositiveButton)
             {
                 return ValidateFields();
             }
-            return true;
+            else if(args == NegativeButton)
+            {
+                return true;
+            }
+            return false;
         }
         public async void OnPressButton(object args)
         {
@@ -88,8 +88,8 @@ namespace Material.Dialog.ViewModels
                 result.fieldsResult = fields.ToArray();
                 _window.Result = result;
                 _window.Close();
+                UnbindValidater();
             });
-            UnbindValidater();
         }
 
         public RelayCommand ButtonClick { get; private set; }
