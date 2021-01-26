@@ -45,9 +45,9 @@
       <Grid Grid.Column="1" Grid.Row="1">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="Auto"/>
-          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <icons:DialogIcon Kind="{Binding DialogHeaderIcon}" 
+        <icons:DialogIcon Kind="{Binding DialogHeaderIcon, FallbackValue=Error}" 
                           Width="32" Height="32" Margin="0,0,8,0"
                           IsVisible="{Binding !!DialogHeaderIcon}"/>
 

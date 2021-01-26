@@ -47,17 +47,17 @@ namespace Material.Demo.ViewModels
                 NegativeResult = new DialogResult("cancel"),
                 DialogHeaderIcon = Dialog.Icons.DialogIconKind.Help,
                 DialogButtons = new DialogResultButton[] 
-                { 
+                {
+                    new DialogResultButton
+                    {
+                        Content = "CANCEL",
+                        Result = "cancel"
+                    },
                     new DialogResultButton
                     {
                         Content = "DELETE",
                         Result = "delete"
                     },
-                    new DialogResultButton
-                    {
-                        Content = "CANCEL",
-                        Result = "cancel"
-                    }
                 },
             }).ShowDialog(Program.MainWindow); 
             Dialog2Result = $"Result: {result.GetResult}";
@@ -77,14 +77,14 @@ namespace Material.Demo.ViewModels
                 {
                     new DialogResultButton
                     {
-                        Content = "DELETE",
-                        Result = "delete"
+                        Content = "CANCEL",
+                        Result = "cancel"
                     },
                     new DialogResultButton
                     {
-                        Content = "CANCEL",
-                        Result = "cancel"
-                    }
+                        Content = "DELETE",
+                        Result = "delete"
+                    },
                 },
             }).ShowDialog(Program.MainWindow);
             Dialog3Result = $"Result: {result.GetResult}";
@@ -131,16 +131,16 @@ namespace Material.Demo.ViewModels
                         Validater = ValidatePassword,
                     }
                 },
+                NegativeButton = new DialogResultButton
+                {
+                    Content = "CANCEL",
+                    Result = "cancel"
+                },
                 PositiveButton = new DialogResultButton
                 {
                     Content = "LOGIN",
                     Result = "login"
                 },
-                NegativeButton = new DialogResultButton
-                {
-                    Content = "CANCEL",
-                    Result = "cancel"
-                }
             }).ShowDialog(Program.MainWindow);
             LoginDialogResult = $"Result: {result.GetResult}";
             if (result.GetResult == "login")

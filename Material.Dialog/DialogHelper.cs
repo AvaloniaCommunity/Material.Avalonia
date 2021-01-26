@@ -34,34 +34,34 @@ namespace Material.Dialog
                 case DialogButtonsEnum.OkAbort:
                     return new DialogResultButton[]
                     {
+                        new DialogResultButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" },
                         new DialogResultButton { Result = DIALOG_RESULT_OK, Content = "OK" },
-                        new DialogResultButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" }
                     };
                 case DialogButtonsEnum.OkCancel:
                     return new DialogResultButton[]
                     {
+                        new DialogResultButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" },
                         new DialogResultButton { Result = DIALOG_RESULT_OK, Content = "OK" },
-                        new DialogResultButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" }
                     };
                 case DialogButtonsEnum.YesNo:
                     return new DialogResultButton[]
                     {
+                        new DialogResultButton { Result = DIALOG_RESULT_NO, Content = "NO" },
                         new DialogResultButton { Result = DIALOG_RESULT_YES, Content = "YES" },
-                        new DialogResultButton { Result = DIALOG_RESULT_NO, Content = "NO" }
                     };
                 case DialogButtonsEnum.YesNoAbort:
                     return new DialogResultButton[]
                     {
-                        new DialogResultButton { Result = DIALOG_RESULT_YES, Content = "YES" },
+                        new DialogResultButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" },
                         new DialogResultButton { Result = DIALOG_RESULT_NO, Content = "NO" },
-                        new DialogResultButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" }
+                        new DialogResultButton { Result = DIALOG_RESULT_YES, Content = "YES" },
                     };
                 case DialogButtonsEnum.YesNoCancel:
                     return new DialogResultButton[]
                     {
-                        new DialogResultButton { Result = DIALOG_RESULT_YES, Content = "YES" },
+                        new DialogResultButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" },
                         new DialogResultButton { Result = DIALOG_RESULT_NO, Content = "NO" },
-                        new DialogResultButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" }
+                        new DialogResultButton { Result = DIALOG_RESULT_YES, Content = "YES" },
                     };
             }
         }
@@ -90,7 +90,7 @@ namespace Material.Dialog
                 NegativeButton = @params.NegativeButton, 
                 ButtonsStackOrientation = @params.ButtonsOrientation,
                 TextFields = TextFieldsBuilder(@params.TextFields),
-                DialogButtons = CombineButtons(@params.PositiveButton, @params.NegativeButton),
+                DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton),
             };
             ApplyBaseParams(context, @params);
             context.BindValidater();
