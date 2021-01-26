@@ -30,7 +30,7 @@
           HorizontalAlignment="Stretch">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="24"/>
-        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="24"/>
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
@@ -63,6 +63,7 @@
                  Classes="Body1"
                  Grid.Column="1" Grid.Row="3"
                  IsVisible="{Binding !!ContentMessage.Length}"
+                 TextWrapping="Wrap"
                  Text="{Binding ContentMessage, FallbackValue='Dialog supporting text'}"/>
 
       <Grid Grid.Column="0" 

@@ -64,9 +64,10 @@
 
       <StackPanel Grid.Column="1" Grid.Row="3">
         <TextBlock Name="PART_SupportingText"
-           Classes="Body1"
-           IsVisible="{Binding !!ContentMessage.Length}"
-           Text="{Binding ContentMessage, FallbackValue='Dialog supporting text'}"/>
+                   Classes="Body1"
+                   TextWrapping="Wrap"
+                   IsVisible="{Binding !!ContentMessage.Length}"
+                   Text="{Binding ContentMessage, FallbackValue='Dialog supporting text'}"/>
         
         <ItemsControl HorizontalAlignment="Stretch"
               Items="{Binding TextFields}"
