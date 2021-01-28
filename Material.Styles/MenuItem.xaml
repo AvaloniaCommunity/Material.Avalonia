@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:conv="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
         xmlns:sys="clr-namespace:System;assembly=netstandard"
+        xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
     <Styles.Resources>
       <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter"/>
@@ -9,7 +10,7 @@
   
     <Style Selector="MenuItem">
         <Setter Property="Height" Value="48"/>
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Template">
@@ -66,16 +67,18 @@
                                     PlacementMode="Right"
                                     IsLightDismissEnabled="True"
                                     IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
-                                <Border Name="MainBorder"
-                                        BorderThickness="{TemplateBinding BorderThickness}">
-                                    <ScrollViewer>
-                                        <ItemsPresenter Name="PART_ItemsPresenter"
-                                                        Items="{TemplateBinding Items}"
-                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                        Margin="4 2" />
-                                    </ScrollViewer>
-                                </Border>
+                                <styles:Card Padding="0">
+                                    <Border Name="MainBorder"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ScrollViewer>
+                                            <ItemsPresenter Name="PART_ItemsPresenter"
+                                                            Items="{TemplateBinding Items}"
+                                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                            ItemTemplate="{TemplateBinding ItemTemplate}"
+                                                            Margin="0 8" />
+                                        </ScrollViewer>
+                                    </Border>
+                                </styles:Card>
                             </Popup>
                         </Grid>
                     </ripple:RippleEffect>
@@ -95,57 +98,78 @@
     </Style>
 
     <Style Selector="Menu > MenuItem">
-        <Setter Property="Padding" Value="6 0" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
                         BorderThickness="{TemplateBinding BorderThickness}">
-                    <Panel>
-                        <ContentPresenter Name="PART_HeaderPresenter"
-                                          Content="{TemplateBinding Header}"
-                                          Margin="{TemplateBinding Padding}">
-                            <ContentPresenter.DataTemplates>
+                    <Grid>
+                        <ToggleButton Name="PART_HeaderPresenter" Classes="Tool TransparentBack"
+                                      HorizontalContentAlignment="Center"
+                                      VerticalContentAlignment="Center"
+                                      Foreground="{DynamicResource MaterialDesignBody}"
+                                      IsChecked="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
+                                      Content="{TemplateBinding Header}"
+                                      Padding="4">
+                            <ToggleButton.Styles>
+                                <Style Selector="ToggleButton AccessText">
+                                    <Setter Property="Foreground" Value="{TemplateBinding Foreground}"/>
+                                </Style>
+                            </ToggleButton.Styles>
+                            <ToggleButton.DataTemplates>
                                 <DataTemplate DataType="sys:String">
-                                    <AccessText Text="{Binding}" />
+                                    <AccessText Text="{Binding}"/>
                                 </DataTemplate>
-                            </ContentPresenter.DataTemplates>
-                        </ContentPresenter>
+                            </ToggleButton.DataTemplates>
+                        </ToggleButton>
+
                         <Popup Name="PART_Popup"
                                IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
-                               IsLightDismissEnabled="False">
-                            <Border Name="MainBorder"
-                                    BorderThickness="{TemplateBinding BorderThickness}">
-                                <ScrollViewer>
-                                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Items="{TemplateBinding Items}"
-                                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                    Margin="2" />
-                                </ScrollViewer>
-                            </Border>
+                               IsLightDismissEnabled="False"
+                               WindowManagerAddShadowHint="False">
+                            <styles:Card Padding="0" Margin="8">
+                                <Border Name="MainBorder"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ScrollViewer>
+                                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                                        Items="{TemplateBinding Items}"
+                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                        ItemTemplate="{TemplateBinding ItemTemplate}"
+                                                        Margin="0,8" />
+                                    </ScrollViewer>
+                                </Border>
+                            </styles:Card>
                         </Popup>
-                    </Panel>
+                    </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
     </Style>
 
-    <Style Selector="MenuItem:not(:disabled):not(:pointerover) /template/ Border#root">
+    <Style Selector="MenuItem > MenuItem:not(:disabled):not(:pointerover) /template/ Border#root,
+    ContextMenu > MenuItem:not(:disabled):not(:pointerover) /template/ Border#root">
       <Setter Property="Opacity" Value="0"/>
     </Style>
   
-    <Style Selector="MenuItem:disabled:not(:pointerover) /template/ Border#root">
+    <Style Selector="MenuItem > MenuItem:disabled:not(:pointerover) /template/ Border#root,
+    ContextMenu > MenuItem:disabled:not(:pointerover) /template/ Border#root">
       <Setter Property="Opacity" Value="0"/>
     </Style>
   
-    <Style Selector="MenuItem:not(:disabled):pointerover /template/ Border#root">
+    <Style Selector="MenuItem > MenuItem:not(.Menu):not(:disabled):pointerover /template/ Border#root,
+    ContextMenu > MenuItem:not(.Menu):not(:disabled):pointerover /template/ Border#root">
         <Setter Property="Opacity" Value="0.13"/>
     </Style>
   
-    <Style Selector="MenuItem:disabled">
+    <Style Selector="MenuItem > MenuItem:not(.Menu):disabled,
+    ContextMenu > MenuItem:not(.Menu):disabled">
         <Setter Property="Opacity" Value="0.56"/>
     </Style>
 
+    <Style Selector="Menu > MenuItem">
+        <Setter Property="Focusable" Value="False"/>
+    </Style>
 
     <Style Selector="MenuItem:empty /template/ Path#rightArrow">
         <Setter Property="IsVisible" Value="False" />
