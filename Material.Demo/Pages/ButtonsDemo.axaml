@@ -19,6 +19,19 @@
       <Button Classes="Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark"'/>
       <Button Classes="Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent"'/>
     </StackPanel>
+    
+    <TextBlock Classes="Headline6 Subheadline2" Text="Outline buttons"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="Button">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <Button Classes="Outline Light" Content="Light" ToolTip.Tip='Button with classes "Light" and "Outline"'/>
+      <Button Classes="Outline" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"'/>
+      <Button Classes="Outline Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"'/>
+      <Button Classes="Outline Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Outline"'/>
+    </StackPanel>
 
     <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon"/>
     <StackPanel Orientation="Horizontal">
