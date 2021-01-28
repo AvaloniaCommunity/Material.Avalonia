@@ -282,11 +282,18 @@
   </Style>
 
   <Style Selector="Button.Outline.Accent, ToggleButton.Outline.Accent">
-    <Setter Property="Background" Value="Transparent"/>
     <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}"/>
   </Style>
-
+  
+  <Style Selector="Button.Outline.Light, ToggleButton.Outline.Light">
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}"/>
+  </Style>
+  <Style Selector="Button.Outline.Dark, ToggleButton.Outline.Dark">
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}"/>
+  </Style>
 
   <!-- Designer preview -->
 
