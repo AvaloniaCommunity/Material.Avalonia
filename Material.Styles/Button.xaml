@@ -5,72 +5,72 @@
   xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
 
   <Style Selector="Button,ToggleButton">
-      <Setter Property="HorizontalContentAlignment" Value="Center" />
-      <Setter Property="VerticalContentAlignment" Value="Center" />
-      <Setter Property="Padding" Value="4" />
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-      <Setter Property="Cursor" Value="Hand" />
-      <Setter Property="Padding" Value="16 4 16 4" />
-      <Setter Property="Height" Value="32" />
-      <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
-      <Setter Property="TextBlock.FontWeight" Value="Medium" />
-      <Setter Property="TextBlock.FontSize" Value="14" />
-      <Setter Property="BorderThickness" Value="0" />
-      <Setter Property="ClipToBounds" Value="False" />
-      <Setter Property="Template">
-          <ControlTemplate>
-            <Grid> 
-              <Border Name="buttonBorder" 
-                      ClipToBounds="False"
-                      BorderThickness="0"
-                      Background="{TemplateBinding Background}"
-                      CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                      assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
-                <Border Name="pointerOverBorder"
-        BorderThickness="0"
-        Background="Black"
-        CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
-                  <Border.Styles>
-                    <Style Selector="Border#pointerOverBorder:not(.notransitions)">
-                      <Setter Property="Transitions">
-                        <Transitions>
-                          <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
-                        </Transitions>
-                      </Setter>
-                    </Style>
-                  </Border.Styles>
-                </Border>
-              </Border>
-              <Border CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                      ClipToBounds="True">
-                <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-                  <ContentPresenter Name="PART_ContentPresenter"
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Padding" Value="4" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Padding" Value="16 4 16 4" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+    <Setter Property="TextBlock.FontWeight" Value="Medium" />
+    <Setter Property="TextBlock.FontSize" Value="14" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid>
+          <Border Name="buttonBorder"
+                  ClipToBounds="False"
+                  BorderThickness="0"
+                  Background="{TemplateBinding Background}"
                   CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                  BorderBrush="{TemplateBinding BorderBrush}"
-                  BorderThickness="{TemplateBinding BorderThickness}"
-                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                  Content="{TemplateBinding Content}"
-                  Padding="{TemplateBinding Padding}"
-                  TextBlock.Foreground="{TemplateBinding Foreground}"
-                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                </ripple:RippleEffect>
-              </Border> 
-            </Grid>
-          </ControlTemplate>
-      </Setter>
+                  assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+            <Border Name="pointerOverBorder"
+    BorderThickness="0"
+    Background="Black"
+    CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
+              <Border.Styles>
+                <Style Selector="Border#pointerOverBorder:not(.notransitions)">
+                  <Setter Property="Transitions">
+                    <Transitions>
+                      <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+                    </Transitions>
+                  </Setter>
+                </Style>
+              </Border.Styles>
+            </Border>
+          </Border>
+          <Border CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                  ClipToBounds="True">
+            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+              <ContentPresenter Name="PART_ContentPresenter"
+              CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+              BorderBrush="{TemplateBinding BorderBrush}"
+              BorderThickness="{TemplateBinding BorderThickness}"
+              ContentTemplate="{TemplateBinding ContentTemplate}"
+              Content="{TemplateBinding Content}"
+              Padding="{TemplateBinding Padding}"
+              TextBlock.Foreground="{TemplateBinding Foreground}"
+              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ripple:RippleEffect>
+          </Border>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
   </Style>
 
   <Style Selector="Button:disabled:not(.no-material),ToggleButton:disabled:not(.no-material)">
-      <Setter Property="Opacity" Value="0.23" />
+    <Setter Property="Opacity" Value="0.23" />
   </Style>
 
   <Style
       Selector="Button:pointerover:not(.no-material) /template/ Border#buttonBorder,
   ToggleButton:pointerover:not(.no-material) /template/ Border#buttonBorder">
-      <Setter Property="assists:ShadowAssist.Darken" Value="True" />
+    <Setter Property="assists:ShadowAssist.Darken" Value="True" />
   </Style>
 
   <Style Selector="Button.Tool, ToggleButton.Tool, Button.Flat, ToggleButton.Flat">
@@ -86,6 +86,7 @@
         <Grid>
           <Border Name="buttonBorder" ClipToBounds="False"
                   Background="{TemplateBinding Background}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
                   CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
             <Border Name="pointerOverBorder"
                     BorderThickness="0"
@@ -144,16 +145,16 @@
                   </Transitions>
                 </Setter>
               </Style>
-            </Ellipse.Styles> 
+            </Ellipse.Styles>
           </Ellipse>
-          <Border Width="{TemplateBinding Width}" 
-                  Height="{TemplateBinding Height}" 
+          <Border Width="{TemplateBinding Width}"
+                  Height="{TemplateBinding Height}"
                   CornerRadius="10000"
-                  VerticalAlignment="Center" 
+                  VerticalAlignment="Center"
                   HorizontalAlignment="Center"
                   ClipToBounds="True">
             <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-              <ContentPresenter Name="PART_ContentPresenter" 
+              <ContentPresenter Name="PART_ContentPresenter"
                                 CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
@@ -164,7 +165,7 @@
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
             </ripple:RippleEffect>
-          </Border> 
+          </Border>
         </Grid>
       </ControlTemplate>
     </Setter>
@@ -176,8 +177,8 @@
   </Style>
 
   <Style
-    Selector="Button:not(.disabled):pointerover /template/ Border#pointerOverBorder, 
-    ToggleButton:not(.disabled):pointerover /template/ Border#pointerOverBorder">
+    Selector="Button:not(.Outline):not(.disabled):pointerover /template/ Border#pointerOverBorder, 
+    ToggleButton:not(.Outline):not(.disabled):pointerover /template/ Border#pointerOverBorder">
     <Setter Property="Opacity" Value="0.35" />
   </Style>
   <Style
@@ -197,39 +198,104 @@
     <Setter Property="Opacity" Value="0.15" />
   </Style>
 
-  <Style Selector="Button.DrawerItem, ToggleButton.DrawerItem"> 
+  <Style Selector="Button.DrawerItem, ToggleButton.DrawerItem">
     <Setter Property="Height" Value="48"/>
   </Style>
 
-  <Style Selector="Button.Light, ToggleButton.Light">
+  <Style Selector="Button.Light:not(.Outline), ToggleButton.Light:not(.Outline)">
     <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
   </Style>
-  <Style Selector="Button.Dark, ToggleButton.Dark">
+  <Style Selector="Button.Dark:not(.Outline), ToggleButton.Dark:not(.Outline)">
     <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
   </Style>
-  <Style Selector="Button.Accent, ToggleButton.Accent">
+  <Style Selector="Button.Accent:not(.Outline), ToggleButton.Accent:not(.Outline)">
     <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
   </Style>
 
-  <Style Selector="Button.Accent.Tool, Button.Accent.Flat">
+  <Style Selector="Button.Accent.Tool:not(.Outline), Button.Accent.Flat:not(.Outline),
+         ToggleButton.Accent.Tool:not(.Outline), ToggleButton.Accent.Flat:not(.Outline)">
     <Setter Property="Background" Value="Transparent"/>
     <Setter Property="BorderBrush" Value="Transparent"/>
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}"/>
   </Style>
 
-    <!-- Designer preview -->
+
+  <!-- Outlined buttons -->
+
+  <Style Selector="Button.Outline, ToggleButton.Outline">
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+    <Setter Property="Padding" Value="16 4 16 4" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="buttonBorder" ClipToBounds="True"
+                 Background="{TemplateBinding Background}"
+                 BorderThickness="{TemplateBinding BorderThickness}"
+                 CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
+          <Grid>
+            <Border Name="pointerOverBorder"
+      BorderThickness="0"
+      Background="{TemplateBinding Foreground}"
+      CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}" >
+              <Border.Styles>
+                <Style Selector="Border#pointerOverBorder:not(.notransitions)">
+                  <Setter Property="Transitions">
+                    <Transitions>
+                      <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+                    </Transitions>
+                  </Setter>
+                </Style>
+              </Border.Styles>
+            </Border>
+            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                Padding="{TemplateBinding Padding}"
+                                TextBlock.Foreground="{TemplateBinding Foreground}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ripple:RippleEffect>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="Button:not(.disabled).Outline:pointerover /template/ Border#pointerOverBorder, 
+    ToggleButton:not(.disabled).Outline:pointerover /template/ Border#pointerOverBorder">
+    <Setter Property="Opacity" Value="0.15" />
+  </Style>
+
+  <Style Selector="Button.Outline.Accent, ToggleButton.Outline.Accent">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}"/>
+  </Style>
+
+
+  <!-- Designer preview -->
 
   <Design.PreviewWith>
     <Border Padding="20">
       <StackPanel>
         <Button Classes="default" Content="Test Control"/>
         <Button Classes="Tool" Content="Test Control"/>
+        <Button Classes="Outline Accent" Content="Test Control"/>
       </StackPanel>
     </Border>
   </Design.PreviewWith>
