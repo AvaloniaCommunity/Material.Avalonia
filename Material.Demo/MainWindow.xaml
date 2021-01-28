@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+        xmlns:markup="clr-namespace:Material.Styles.Extensions;assembly=Material.Styles"
         xmlns:pages="clr-namespace:Material.Demo.Pages"
         Title="Material.Demo"
         d:DesignWidth="600"
@@ -79,7 +80,7 @@
             <ColumnDefinition Width="32"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="32"/>
-            <ColumnDefinition Width="24"/>
+            <ColumnDefinition Width="Auto"/>
           </Grid.ColumnDefinitions>
           <ToggleButton Classes="Tool TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
                         Padding="4">
@@ -88,43 +89,27 @@
           <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
                      Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
 
-          <ToggleButton Classes="Tool TransparentBack" 
-                        Width="32" Height="32" 
-                        x:Name="MenuButton"
-                        Grid.Column="4"
-              Padding="4">
-            <styles:PackIcon Kind="DotsVertical" Width="24" Height="24"/>
-          </ToggleButton>
-          <Popup Grid.Column="4"
-                 PlacementTarget="{Binding ElementName=MenuButton}" 
-                 WindowManagerAddShadowHint="False"
-                 PlacementGravity="1"
-                 StaysOpen="False"
-                 PlacementConstraintAdjustment="FlipX" 
-                 PlacementMode="Bottom"
-                 IsOpen="{Binding ElementName=MenuButton, Path=IsChecked, Mode=TwoWay}">
-            <styles:Card Padding="0"
-                         Margin="6"
-                         assists:ShadowAssist.ShadowDepth="1">
-              <StackPanel>
-                <MenuItem Header="Hello!">
-                  <MenuItem.Icon>
-                    <styles:PackIcon Kind="Hand" Width="24" Height="24"/>
-                  </MenuItem.Icon>
-                </MenuItem>
-                <Separator/>
-                <MenuItem Header="Action 1"/>
-                <MenuItem Header="Action 2"/>
-                <MenuItem Header="Action 3"/>
-                <Separator/>
-                <MenuItem Header="Goodbye">
-                  <MenuItem.Icon>
-                    <styles:PackIcon Kind="ExitRun" Width="24" Height="24"/>
-                  </MenuItem.Icon>
-                </MenuItem>
-              </StackPanel>
-            </styles:Card>
-          </Popup>
+          
+          <Menu Grid.Column="4" Height="32" Padding="0" Margin="0">
+            <MenuItem Header="{markup:PackIcon Kind=DotsVertical, Size=24}" 
+                      Classes="Menu" >
+              <MenuItem Header="Hello!">
+                <MenuItem.Icon>
+                  <styles:PackIcon Kind="Hand" Width="24" Height="24"/>
+                </MenuItem.Icon>
+              </MenuItem>
+              <Separator/>
+              <MenuItem Header="Action 1"/>
+              <MenuItem Header="Action 2"/>
+              <MenuItem Header="Action 3"/>
+              <Separator/>
+              <MenuItem Header="Goodbye">
+                <MenuItem.Icon>
+                  <styles:PackIcon Kind="ExitRun" Width="24" Height="24"/>
+                </MenuItem.Icon>
+              </MenuItem>
+            </MenuItem>
+          </Menu>
         </Grid>
       </styles:ColorZone>
       <ScrollViewer Name="mainScroller"
