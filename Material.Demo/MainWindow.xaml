@@ -59,6 +59,7 @@
           <TextBlock Classes="Body2" Text="Lists" />
           <TextBlock Classes="Body2" Text="Dialogs" />
           <TextBlock Classes="Body2" Text="ScrollViewer" />
+          <TextBlock Classes="Body2" Text="TabControls" />
           <TextBlock Classes="Body2" Text="Card" />
           <TextBlock Classes="Body2" Text="Typography" />
           <TextBlock Classes="Body2" Text="Shadows" IsEnabled="False"/>
@@ -91,8 +92,7 @@
 
           
           <Menu Grid.Column="4" Height="32" Padding="0" Margin="0">
-            <MenuItem Header="{markup:PackIcon Kind=DotsVertical, Size=24}" 
-                      Classes="Menu" >
+            <MenuItem Header="_Menu">
               <MenuItem Header="Hello!">
                 <MenuItem.Icon>
                   <styles:PackIcon Kind="Hand" Width="24" Height="24"/>
@@ -109,6 +109,7 @@
                 </MenuItem.Icon>
               </MenuItem>
             </MenuItem>
+            <MenuItem Header="_File"/>
           </Menu>
         </Grid>
       </styles:ColorZone>
@@ -155,6 +156,9 @@
 
           <!-- ScrollViewer -->
           <pages:ScrollViewerDemo/>
+          
+          <!-- TabControls -->
+          <pages:TabsDemo/>
 
           <!-- Card -->
           <pages:CardsDemo/>
