@@ -143,6 +143,10 @@
                             UseLayoutRounding="True" ClipToBounds="False" />
                   <Ellipse Name="grip" Width="12" Height="12" Fill="{TemplateBinding Foreground}"
                             UseLayoutRounding="True" ClipToBounds="False" />
+                  <ContentPresenter Name="bubble" Width="0"
+                                    IsHitTestVisible="False"
+                                    ClipToBounds="False"
+                                    RenderTransformOrigin="0.5,0.5"/>
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -204,49 +208,56 @@
 
   <!-- In next lines we redesigned style of slider, specs of slider are from material.io
         For more information: https://material.io/components/sliders#specs -->
-  <Style Selector="RepeatButton.HorizontalTrack.Modern">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Focusable" Value="false" />
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate> 
-          <Border Background="{TemplateBinding Background}" CornerRadius="6"/>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
- 
-  <Style Selector="RepeatButton.VerticalTrack.Modern">
+  <Style Selector="RepeatButton.HorizontalTrack.Modern,
+         RepeatButton.VerticalTrack.Modern">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Focusable" Value="false" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate>
-          <Border Background="{TemplateBinding Background}" CornerRadius="6"/>
+          <Border Background="Transparent">
+            <Border Name="PART_InnerBorder" Background="{TemplateBinding Background}" CornerRadius="6"/>
+          </Border>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
 
+  <Style Selector="RepeatButton.HorizontalTrack.Modern">
+    <Setter Property="Height" Value="10"/>
+  </Style>
   <Style Selector="RepeatButton.HorizontalTrack.Modern.Inactive">
     <Setter Property="Margin" Value="0,0,-2,0"/>
-    <Setter Property="Height" Value="2.5"/>
+  </Style>
+  <Style Selector="RepeatButton.HorizontalTrack.Modern.Inactive /template/ Border#PART_InnerBorder">
+    <Setter Property="Height" Value="4"/>
     <Setter Property="Opacity" Value="0.38"/>
   </Style>
+  
   <Style Selector="RepeatButton.HorizontalTrack.Modern.Active">
     <Setter Property="Margin" Value="-4,0,0,0"/>
-    <Setter Property="Height" Value="3.75"/>
+  </Style>
+  <Style Selector="RepeatButton.HorizontalTrack.Modern.Active /template/ Border#PART_InnerBorder">
+    <Setter Property="Height" Value="6"/>
     <Setter Property="Opacity" Value="0.75"/>
   </Style>
 
+  <Style Selector="RepeatButton.VerticalTrack.Modern">
+    <Setter Property="Width" Value="10"/>
+  </Style>
   <Style Selector="RepeatButton.VerticalTrack.Modern.Inactive">
     <Setter Property="Margin" Value="0,-2,0,0"/>
-    <Setter Property="Width" Value="2.5"/>
+  </Style>
+  <Style Selector="RepeatButton.VerticalTrack.Modern.Inactive /template/ Border#PART_InnerBorder">
+    <Setter Property="Width" Value="4"/>
     <Setter Property="Opacity" Value="0.38"/>
   </Style>
+  
   <Style Selector="RepeatButton.VerticalTrack.Modern.Active">
     <Setter Property="Margin" Value="0,0,0,-4"/>
-    <Setter Property="Width" Value="3.75"/>
+  </Style> 
+  <Style Selector="RepeatButton.VerticalTrack.Modern.Active /template/ Border#PART_InnerBorder">
+    <Setter Property="Width" Value="6"/>
     <Setter Property="Opacity" Value="0.75"/>
   </Style> 
 
@@ -338,14 +349,18 @@
               UseLayoutRounding="True"
               ClipToBounds="False"> 
           <Ellipse Name="shadow"
-                   Width="28" Height="28" 
+                   Width="32" Height="32" 
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Fill="{TemplateBinding Foreground}"
                    UseLayoutRounding="True" ClipToBounds="False" />
-          <Ellipse Name="grip" Width="12.5" Height="12.5" Fill="{TemplateBinding Foreground}"
+          <Ellipse Name="grip" Width="16" Height="16" Fill="{TemplateBinding Foreground}"
                     UseLayoutRounding="True" ClipToBounds="False" HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
+          <ContentPresenter Name="bubble" Width="0"
+                            IsHitTestVisible="False"
+                            ClipToBounds="False" 
+                            RenderTransformOrigin="0.5,0.5"/>
         </Grid>
       </ControlTemplate>
     </Setter>
@@ -378,53 +393,34 @@
 
   <!-- Discrete thumb definitions and styles --> 
 
-  <Style Selector="Slider.Discrete /template/ Thumb#thumb"> 
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center"> 
-          <Ellipse Name="shadow"
-                   Width="28" Height="28"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Fill="{TemplateBinding Foreground}"
-                   UseLayoutRounding="True" ClipToBounds="False" />
-          <Ellipse Name="grip" Width="12.5" Height="12.5" Fill="{TemplateBinding Foreground}"
-                    UseLayoutRounding="True" ClipToBounds="False" HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-          <Grid Name="bubble" Width="0" Height="0"
-                IsHitTestVisible="False"
-                ClipToBounds="False"
-                RenderTransformOrigin="0.5,0.5">
-            <Grid.Styles>
-
-            </Grid.Styles>
-            <Grid Name="InnerBubble" HorizontalAlignment="Center"
-                  ClipToBounds="False" 
-                  Width="36">
-              <Border Background="{TemplateBinding Foreground}"
-                      Width="36" Height="36" 
-                      CornerRadius="32,32,0,32">
-                <Border.RenderTransform>
-                  <TransformGroup>
-                    <RotateTransform Angle="45"/>
-                    <TranslateTransform Y="-36"/>
-                  </TransformGroup>
-                </Border.RenderTransform>
-              </Border>
-              <TextBlock Classes="Caption"
-                         ClipToBounds="False"
-                         RenderTransform="translate(0px,-32px)"
-                         Width="36" Height="20" Text="{Binding $parent[Slider].Value}"
-                         TextAlignment="Center" 
-                         HorizontalAlignment="Center"
-                         VerticalAlignment="Center" /> 
-            </Grid>
-          </Grid>
+  <Style Selector="Slider.Discrete Thumb /template/ ContentPresenter#bubble">
+    <Setter Property="Content">
+      <Template>
+        <Grid Name="InnerBubble" HorizontalAlignment="Center"
+              ClipToBounds="False" 
+              Width="36">
+          <Border Background="{Binding Path=$parent[Thumb].Foreground}"
+                  Width="36" Height="36" 
+                  CornerRadius="32,32,0,32">
+            <Border.RenderTransform>
+              <TransformGroup>
+                <RotateTransform Angle="45"/>
+                <TranslateTransform Y="-36"/>
+              </TransformGroup>
+            </Border.RenderTransform>
+          </Border> 
+          <TextBlock Classes="Caption"
+                     ClipToBounds="False"
+                     RenderTransform="translate(0px,-32px)"
+                     Width="36" Height="20" 
+                     Text="{Binding $parent[Slider].Value}"
+                     TextAlignment="Center" 
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center" /> 
         </Grid>
-      </ControlTemplate>
+      </Template>
     </Setter>
   </Style>
-
 
   <Style Selector="Slider.Discrete:not(.notransitions) /template/ Thumb#thumb /template/ Ellipse">
     <Setter Property="Transitions">
@@ -433,7 +429,7 @@
       </Transitions>
     </Setter>
   </Style> 
-  <Style Selector="Slider.Discrete:not(.notransitions) /template/ Thumb#thumb /template/ Grid#bubble">
+  <Style Selector="Slider.Discrete:not(.notransitions) /template/ Thumb#thumb /template/ ContentPresenter#bubble">
     <Setter Property="Transitions">
       <Transitions>
         <DoubleTransition Property="Opacity" Duration="0:0:0.25" Easing="CubicEaseOut"/>
@@ -442,19 +438,19 @@
     </Setter>
   </Style>
 
-  <Style Selector="Slider.Discrete Thumb /template/ Grid#bubble">
+  <Style Selector="Slider.Discrete Thumb /template/ ContentPresenter#bubble">
     <Setter Property="Opacity" Value="0" />
     <Setter Property="RenderTransform" Value="scale(0)"/>
   </Style>
-  <Style Selector="Slider.Discrete Thumb:pointerover /template/ Grid#bubble">
+  <Style Selector="Slider.Discrete:pointerover Thumb /template/ ContentPresenter#bubble">
     <Setter Property="Opacity" Value="1" />
     <Setter Property="RenderTransform" Value="scale(1)"/>
   </Style>
 
-  <Style Selector="Slider.Discrete Thumb /template/ TextBlock">
+  <Style Selector="Slider.Discrete Thumb /template/ ContentPresenter#bubble TextBlock">
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
   </Style>
-  <Style Selector="Slider.Accent.Discrete Thumb /template/ TextBlock">
+  <Style Selector="Slider.Accent.Discrete Thumb /template/ ContentPresenter#bubble TextBlock">
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
   </Style>
 
