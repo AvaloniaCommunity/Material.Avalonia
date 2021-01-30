@@ -147,18 +147,18 @@
         </Setter>
     </Style>
 
-    <Style Selector="MenuItem > MenuItem:not(:disabled):not(:pointerover) /template/ Border#root,
-    ContextMenu > MenuItem:not(:disabled):not(:pointerover) /template/ Border#root">
+    <Style Selector="MenuItem > MenuItem:not(:disabled):not(:selected) /template/ Border#root,
+    ContextMenu > MenuItem:not(:disabled):not(:selected) /template/ Border#root">
       <Setter Property="Opacity" Value="0"/>
     </Style>
   
-    <Style Selector="MenuItem > MenuItem:disabled:not(:pointerover) /template/ Border#root,
-    ContextMenu > MenuItem:disabled:not(:pointerover) /template/ Border#root">
+    <Style Selector="MenuItem > MenuItem:disabled:not(:selected) /template/ Border#root,
+    ContextMenu > MenuItem:disabled:not(:selected) /template/ Border#root">
       <Setter Property="Opacity" Value="0"/>
     </Style>
   
-    <Style Selector="MenuItem > MenuItem:not(.Menu):not(:disabled):pointerover /template/ Border#root,
-    ContextMenu > MenuItem:not(.Menu):not(:disabled):pointerover /template/ Border#root">
+    <Style Selector="MenuItem > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#root,
+    ContextMenu > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#root">
         <Setter Property="Opacity" Value="0.13"/>
     </Style>
   
