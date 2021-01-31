@@ -229,6 +229,21 @@
             </animations:ReverseAfterEndAnimation>
         </Style.Animations>
     </Style>
+    
+    <Style Selector="ToggleSwitch:checked.notransitions /template/ Grid#ThumbHolder">
+        <Style.Animations>
+            <animations:ReverseAfterEndAnimation>
+                <Animation Duration="0:0:0.001"  FillMode="Both">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="TranslateTransform.X" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="TranslateTransform.X" Value="16" />
+                    </KeyFrame>
+                </Animation>
+            </animations:ReverseAfterEndAnimation>
+        </Style.Animations>
+    </Style>
 
   <Style Selector="ToggleSwitch.notransitions:not(:pressed) /template/ Ellipse#RippleThumb">
     <Setter Property="Opacity" Value="0" /> 
