@@ -10,6 +10,10 @@
     <AvaloniaResource Include="**\*.xaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
+    <Compile Update="Pages\TabsDemo.axaml.cs">
+      <DependentUpon>TabsDemo.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
@@ -59,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\ButtonsDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\TabsDemo.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
   </ItemGroup>
