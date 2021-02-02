@@ -271,7 +271,7 @@
             <Border Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Stretch"
                     BorderThickness="0" CornerRadius="1">
               <style:TickBar Name="CenterTick" Fill="{TemplateBinding Foreground}" Height="2" Margin="0"
-                       TickFrequency="{Binding $parent[Slider].TickFrequency}"
+                       TickFrequency="{Binding $parent[Slider].TickFrequency}"  VerticalAlignment="Center"
                        Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Opacity="1" />
             </Border>
             <Track Name="PART_Track" Grid.Row="1" MinHeight="{TemplateBinding MinHeight}"
