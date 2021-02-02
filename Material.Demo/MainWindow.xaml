@@ -92,7 +92,7 @@
 
           
           <Menu Grid.Column="4" Height="32" Padding="0" Margin="0">
-            <MenuItem Header="_Menu">
+            <MenuItem Header="{markup:PackIcon DotsVertical}">
               <MenuItem Header="Hello!">
                 <MenuItem.Icon>
                   <styles:PackIcon Kind="Hand" Width="24" Height="24"/>
@@ -109,7 +109,6 @@
                 </MenuItem.Icon>
               </MenuItem>
             </MenuItem>
-            <MenuItem Header="_File"/>
           </Menu>
         </Grid>
       </styles:ColorZone>
