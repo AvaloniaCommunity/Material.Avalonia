@@ -4,6 +4,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+            xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
             x:Class="Material.Demo.Pages.TogglesDemo">
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Toggles"/>
@@ -42,7 +43,7 @@
         </Style>
       </StackPanel.Styles>
       <CheckBox Content="This is checkbox!"/>
-      <CheckBox Content="This is checkbox!" IsChecked="True"/>
+      <CheckBox Content="This is checkbox!" IsChecked="True" />
       <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
@@ -52,7 +53,8 @@
         </Style>
       </StackPanel.Styles>
       <CheckBox Content="This is checkbox!" Classes="Accent"/>
-      <CheckBox Content="This is checkbox!" Classes="Accent" IsChecked="True" />
+      <CheckBox Content="This is checkbox!" Classes="Accent" IsChecked="True"
+                assist:SelectionControlAssist.Size="24"/>
       <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
     </StackPanel>
   </StackPanel>
