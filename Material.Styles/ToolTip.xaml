@@ -3,12 +3,15 @@
        Selector="ToolTip">
     <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
     <Setter Property="Background" Value="{DynamicResource MaterialDesignToolTipBackground}" />
+    <Setter Property="Margin" Value="0,8"/>
     <Setter Property="Padding" Value="8" />
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
     <Setter Property="Placement" Value="Pointer" />
     <Setter Property="Template">
         <Setter.Value>
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" CornerRadius="2" Margin="{TemplateBinding Margin}">
+                <Border Background="{TemplateBinding Background}" CornerRadius="4" Margin="{TemplateBinding Margin}">
                     <ContentPresenter Name="ContentPresenter"
                                       Margin="{TemplateBinding Padding}"
                                       Content="{TemplateBinding ContentControl.Content}"
