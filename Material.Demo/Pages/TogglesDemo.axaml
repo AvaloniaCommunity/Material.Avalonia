@@ -84,6 +84,14 @@
     
     <TextBlock Classes="Headline6 Subheadline2" Text="RadioButton (button-like)"/>
     <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="RadioButton.Button">
+          <Setter Property="ToolTip.Tip" Value='RadioButton with "Button" classes in StackPanel container with Card widget'/>
+        </Style>
+        <Style Selector="RadioButton.Button.Accent">
+          <Setter Property="ToolTip.Tip" Value='RadioButton with "Button" and "Accent" classes in StackPanel container with Card widget'/>
+        </Style>
+      </StackPanel.Styles>
       <StackPanel Orientation="Vertical">
         <styles:Card Padding="0" InsideClipping="True">
           <StackPanel Orientation="Horizontal">
