@@ -2,7 +2,7 @@
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:assists="clr-namespace:Material.Styles.Assists">
     <Style Selector="RadioButton">
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -58,8 +58,8 @@
                         <Setter Property="Opacity" Value="0.28" />
                     </KeyFrame>
                     <KeyFrame Cue="100%">
-                        <Setter Property="Width" Value="48" />
-                        <Setter Property="Height" Value="48" />
+                        <Setter Property="Width" Value="40" />
+                        <Setter Property="Height" Value="40" />
                         <!-- <Setter Property="Margin" Value="-10 -10 0 0" /> -->
                         <Setter Property="Opacity" Value="0.28" />
                     </KeyFrame>
@@ -79,8 +79,10 @@
             </Animation>
         </Style.Animations>
     </Style>
-    <Style Selector="RadioButton:disabled /template/ Ellipse#border">
-        <Setter Property="Fill"
+    <Style Selector="RadioButton:disabled">
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background"
                 Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
         <Setter Property="Opacity" Value="0.26" />
     </Style>
@@ -89,5 +91,49 @@
                 Value="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7Z" />
         <Setter Property="Fill"
                 Value="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=Background}" />
+    </Style>
+    
+    <Style Selector="RadioButton.Accent:not(.Button)">
+        <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+    </Style>
+    
+    <!-- RadioButton but looks like buttons -->
+    <Style Selector="RadioButton.Button">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Padding" Value="4 2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid Name="templateRoot">
+                        <ToggleButton Classes="Tool" assists:ButtonAssist.CornerRadius="0"
+                                      BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+                                      IsChecked="{TemplateBinding IsChecked, Mode=TwoWay}"
+                                      Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
+                                      HorizontalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ClipToBounds="False"/>
+                        <Border Name="PART_SelectedIndicator" Background="{DynamicResource MaterialDesignCheckBoxDisabled}"
+                                BorderThickness="0" IsHitTestVisible="False"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style Selector="RadioButton.Button /template/ Border#PART_SelectedIndicator">
+        <Setter Property="Opacity" Value="0"/>
+    </Style>
+    <Style Selector="RadioButton.Button:checked /template/ Border#PART_SelectedIndicator">
+        <Setter Property="Opacity" Value="0.45"/>
+    </Style>
+    <Style Selector="RadioButton.Button.Accent">
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
     </Style>
 </Styles>
