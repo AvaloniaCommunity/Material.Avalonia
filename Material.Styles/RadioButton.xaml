@@ -106,13 +106,22 @@
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
-        <Setter Property="Padding" Value="4 2" />
+        <Setter Property="Padding" Value="16 4" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
                     <Grid Name="templateRoot">
                         <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-                            <ToggleButton Classes="Tool" assists:ButtonAssist.CornerRadius="0"
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              BorderBrush="{TemplateBinding BorderBrush}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}"
+                                              Padding="{TemplateBinding Padding}"
+                                              TextBlock.Foreground="{TemplateBinding Foreground}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <!--ToggleButton Classes="Tool" assists:ButtonAssist.CornerRadius="0"
                                           IsHitTestVisible="False"
                                           BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
                                           IsChecked="{TemplateBinding IsChecked, Mode=TwoWay}"
@@ -120,7 +129,7 @@
                                           HorizontalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HorizontalContentAlignment}"
                                           VerticalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
-                                          ClipToBounds="False"/>
+                                          ClipToBounds="False"/-->
                         </ripple:RippleEffect>
 
                         <Border Name="PART_SelectedIndicator" Background="{DynamicResource MaterialDesignCheckBoxDisabled}"
