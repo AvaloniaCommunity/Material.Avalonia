@@ -84,26 +84,25 @@
     
     <TextBlock Classes="Headline6 Subheadline2" Text="RadioButton (button-like)"/>
     <StackPanel Orientation="Horizontal">
-      <styles:Card Background="{DynamicResource MaterialDesignToolBarBackground}"
-                   Padding="0" InsideClipping="True">
-        <StackPanel Orientation="Horizontal">
-          <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
-          <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
-          <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
-          <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
-        </StackPanel>
-      </styles:Card>
-    </StackPanel>
-    <StackPanel Orientation="Horizontal">
-      <styles:Card Background="{DynamicResource MaterialDesignToolBarBackground}"
-                   Padding="0" InsideClipping="True">
-        <StackPanel Orientation="Horizontal">
-          <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
-          <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
-          <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
-          <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
-        </StackPanel>
-      </styles:Card>
+      <StackPanel Orientation="Vertical">
+        <styles:Card Padding="0" InsideClipping="True">
+          <StackPanel Orientation="Horizontal">
+            <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
+            <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
+            <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
+            <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
+          </StackPanel>
+        </styles:Card>
+        
+        <styles:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
+          <StackPanel Orientation="Horizontal">
+            <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
+            <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
+            <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
+            <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
+          </StackPanel>
+        </styles:Card>
+      </StackPanel>
     </StackPanel>
   </StackPanel>
 </UserControl>
