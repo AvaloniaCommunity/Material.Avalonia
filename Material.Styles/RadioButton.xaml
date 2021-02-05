@@ -1,6 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
-        xmlns:assists="clr-namespace:Material.Styles.Assists">
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
     <Style Selector="RadioButton">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -110,14 +111,18 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid Name="templateRoot">
-                        <ToggleButton Classes="Tool" assists:ButtonAssist.CornerRadius="0"
-                                      BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
-                                      IsChecked="{TemplateBinding IsChecked, Mode=TwoWay}"
-                                      Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
-                                      HorizontalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=VerticalContentAlignment}"
-                                      Content="{TemplateBinding Content}"
-                                      ClipToBounds="False"/>
+                        <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+                            <ToggleButton Classes="Tool" assists:ButtonAssist.CornerRadius="0"
+                                          IsHitTestVisible="False"
+                                          BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+                                          IsChecked="{TemplateBinding IsChecked, Mode=TwoWay}"
+                                          Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
+                                          HorizontalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ClipToBounds="False"/>
+                        </ripple:RippleEffect>
+
                         <Border Name="PART_SelectedIndicator" Background="{DynamicResource MaterialDesignCheckBoxDisabled}"
                                 BorderThickness="0" IsHitTestVisible="False"/>
                     </Grid>
