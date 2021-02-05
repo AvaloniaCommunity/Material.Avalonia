@@ -6,7 +6,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
-          <ScrollContentPresenter Name="PART_ContentPresenter"
+          <controls:ScrollerContentPresenter Name="PART_ContentPresenter"
                                   Background="{TemplateBinding Background}"
                                   CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
                                   CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}"
@@ -15,12 +15,12 @@
                                   Margin="{TemplateBinding Padding}"
                                   Offset="{TemplateBinding Offset, Mode=TwoWay}"
                                   Viewport="{TemplateBinding Viewport, Mode=TwoWay}">
-            <ScrollContentPresenter.GestureRecognizers>
+            <controls:ScrollerContentPresenter.GestureRecognizers>
               <ScrollGestureRecognizer
                   CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
                   CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}" />
-            </ScrollContentPresenter.GestureRecognizers>
-          </ScrollContentPresenter>
+            </controls:ScrollerContentPresenter.GestureRecognizers>
+          </controls:ScrollerContentPresenter>
           <ScrollBar Name="horizontalScrollBar"
                      Classes="Modern"
                      Orientation="Horizontal"

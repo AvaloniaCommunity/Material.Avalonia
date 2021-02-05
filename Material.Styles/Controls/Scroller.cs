@@ -19,7 +19,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollContentPresenter"/> in the control's template.
+        /// <see cref="ScrollerContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, bool> CanHorizontallyScrollProperty =
             AvaloniaProperty.RegisterDirect<Scroller, bool>(
@@ -31,7 +31,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollContentPresenter"/> in the control's template.
+        /// <see cref="ScrollerContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, bool> CanVerticallyScrollProperty =
             AvaloniaProperty.RegisterDirect<Scroller, bool>(
@@ -84,7 +84,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollContentPresenter"/> in the control's template.
+        /// <see cref="ScrollerContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, double> HorizontalScrollBarMaximumProperty =
             AvaloniaProperty.RegisterDirect<Scroller, double>(
@@ -96,7 +96,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollContentPresenter"/> in the control's template.
+        /// <see cref="ScrollerContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, double> HorizontalScrollBarValueProperty =
             AvaloniaProperty.RegisterDirect<Scroller, double>(
@@ -109,7 +109,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollContentPresenter"/> in the control's template.
+        /// <see cref="ScrollerContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, double> HorizontalScrollBarViewportSizeProperty =
             AvaloniaProperty.RegisterDirect<Scroller, double>(
@@ -129,7 +129,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollContentPresenter"/> in the control's template.
+        /// <see cref="ScrollerContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, double> VerticalScrollBarMaximumProperty =
             AvaloniaProperty.RegisterDirect<Scroller, double>(
@@ -141,7 +141,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollContentPresenter"/> in the control's template.
+        /// <see cref="ScrollerContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, double> VerticalScrollBarValueProperty =
             AvaloniaProperty.RegisterDirect<Scroller, double>(
@@ -154,7 +154,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollContentPresenter"/> in the control's template.
+        /// <see cref="ScrollerContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, double> VerticalScrollBarViewportSizeProperty =
             AvaloniaProperty.RegisterDirect<Scroller, double>(
