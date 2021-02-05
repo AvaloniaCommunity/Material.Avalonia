@@ -5,6 +5,7 @@
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
             xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+            xmlns:extensions="clr-namespace:Material.Styles.Extensions;assembly=Material.Styles"
             x:Class="Material.Demo.Pages.TogglesDemo">
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Toggles"/>
@@ -56,6 +57,53 @@
       <CheckBox Content="This is checkbox!" Classes="Accent" IsChecked="True"
                 assist:SelectionControlAssist.Size="24"/>
       <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
+    </StackPanel>
+    
+    <TextBlock Classes="Headline6 Subheadline2" Text="RadioButton"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="RadioButton">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <RadioButton GroupName="1" Content="This is radiobutton!"/>
+      <RadioButton GroupName="1" Content="This is radiobutton!" IsChecked="True" />
+      <RadioButton GroupName="1" Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="RadioButton">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <RadioButton Classes="Accent" GroupName="2" Content="This is radiobutton!"/>
+      <RadioButton Classes="Accent" GroupName="2" Content="This is radiobutton!" IsChecked="True" />
+      <RadioButton Classes="Accent" GroupName="2" Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
+    </StackPanel>
+
+    
+    <TextBlock Classes="Headline6 Subheadline2" Text="RadioButton (button-like)"/>
+    <StackPanel Orientation="Horizontal">
+      <styles:Card Background="{DynamicResource MaterialDesignToolBarBackground}"
+                   Padding="0" InsideClipping="True">
+        <StackPanel Orientation="Horizontal">
+          <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
+          <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
+          <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
+          <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
+        </StackPanel>
+      </styles:Card>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <styles:Card Background="{DynamicResource MaterialDesignToolBarBackground}"
+                   Padding="0" InsideClipping="True">
+        <StackPanel Orientation="Horizontal">
+          <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
+          <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
+          <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
+          <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
+        </StackPanel>
+      </styles:Card>
     </StackPanel>
   </StackPanel>
 </UserControl>
