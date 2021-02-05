@@ -96,10 +96,10 @@
         
         <styles:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
           <StackPanel Orientation="Horizontal">
-            <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
-            <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
-            <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
-            <RadioButton Classes="Button Accent" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
           </StackPanel>
         </styles:Card>
       </StackPanel>
