@@ -17,9 +17,10 @@ namespace Material.Dialog
             this.fieldsResult = fieldsResult;
         }
 
-        internal TextFieldResult[] fieldsResult;
         internal string result;
         public string GetResult => result;
+        
+        internal TextFieldResult[] fieldsResult;
         public TextFieldResult[] GetFieldsResult() => fieldsResult;
     }
 }
