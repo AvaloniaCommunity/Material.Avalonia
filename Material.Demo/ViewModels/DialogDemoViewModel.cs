@@ -23,6 +23,9 @@ namespace Material.Demo.ViewModels
 
         private string m_FolderNameDialogResult;
         public string FolderNameDialogResult { get => m_FolderNameDialogResult; set { m_FolderNameDialogResult = value; OnPropertyChanged(); } }
+        
+        private string m_TimePickerDialogResult;
+        public string TimePickerDialogResult { get => m_TimePickerDialogResult; set { m_TimePickerDialogResult = value; OnPropertyChanged(); } }
 
 
         public async void Dialog1()
@@ -197,6 +200,28 @@ namespace Material.Demo.ViewModels
             {
                 FolderNameDialogResult = $"Result: {result.GetResult}\nFolder name: {result.GetFieldsResult()[0].Text}";
             }
+        }
+
+        public async void TimePickerDialog()
+        {
+            var result = await DialogHelper.CreateTimePicker(new DateTimePickerDialogBuilderParams()
+            {
+                Width = 300,
+                Borderless = true,
+                StartupLocation = WindowStartupLocation.CenterOwner,
+                NegativeResult = new DialogResult("cancel"),
+                PositiveButton = new DialogResultButton()
+                {
+                  Content = "CONFIRM",
+                  Result = "confirm",
+                },
+                NegativeButton = new DialogResultButton()
+                {
+                    Content = "CANCEL",
+                    Result = "cancel",
+                }
+            }).Show();
+            TimePickerDialogResult = $"Result: {result.GetResult}";
         }
     }
 }

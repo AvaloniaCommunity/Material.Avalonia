@@ -67,6 +67,12 @@
                        FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
+          <StackPanel>
+            <Button Content="TimePicker dialog" Command="{Binding TimePickerDialog}" IsEnabled="False"/>
+            <TextBlock Text="{Binding TimePickerDialogResult}" IsVisible="{Binding TimePickerDialogResult,
+                       FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
         </StackPanel>
       </StackPanel>
     </WrapPanel> 
