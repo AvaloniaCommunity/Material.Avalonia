@@ -16,7 +16,7 @@
   <Window.Styles>
     <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.xaml"/>
     <Style Selector="Window[SystemDecorations=None]">
-      <Setter Property="Padding" Value="16"/>
+      <Setter Property="Padding" Value="32"/>
       <Setter Property="Background" Value="Transparent"/>
       <Setter Property="TransparencyLevelHint" Value="Transparent"/> 
     </Style> 
