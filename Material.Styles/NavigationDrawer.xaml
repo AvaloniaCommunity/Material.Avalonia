@@ -43,7 +43,8 @@
                 </Setter>
               </Style>
             </cc:Card.Styles>
-            <ContentPresenter Content="{TemplateBinding LeftDrawerContent}" />
+            <ContentPresenter Content="{TemplateBinding LeftDrawerContent}"
+                              IsEnabled="{TemplateBinding LeftDrawerOpened}"/>
           </cc:Card>
         </Grid>
       </ControlTemplate>
