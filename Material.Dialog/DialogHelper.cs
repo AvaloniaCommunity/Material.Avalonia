@@ -1,4 +1,5 @@
-﻿using Avalonia.Controls;
+﻿using System;
+using Avalonia.Controls;
 using Material.Dialog.Bases;
 using Material.Dialog.Enums;
 using Material.Dialog.Interfaces;
@@ -98,6 +99,23 @@ namespace Material.Dialog
             window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
             window.SetNegativeResult(@params.NegativeResult);
             return new DialogWindowBase<TextFieldDialog, TextFieldDialogResult>(window);
+        }
+
+        [Obsolete("This feature is still preparing, do not use it early!")]
+        public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(DateTimePickerDialogBuilderParams @params)
+        {
+            var window = new TimePickerDialog();
+            var context = new TimePickerDialogViewModel(window)
+            {
+                PositiveButton = @params.PositiveButton,
+                NegativeButton = @params.NegativeButton,
+                DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton),
+            };
+            ApplyBaseParams(context, @params);
+            window.DataContext = context;
+            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
+            window.SetNegativeResult(@params.NegativeResult);
+            return new DialogWindowBase<TimePickerDialog, DateTimePickerDialogResult>(window);
         }
 
         private static void ApplyBaseParams<T> (T input, DialogWindowBuilderParamsBase @params) where T : DialogWindowViewModel
