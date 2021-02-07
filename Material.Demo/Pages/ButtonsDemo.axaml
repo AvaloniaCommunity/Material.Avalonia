@@ -4,6 +4,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+            xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
             x:Class="Material.Demo.Pages.ButtonsDemo"> 
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Buttons"/>
@@ -18,6 +19,8 @@
       <Button Content="Mid (Default)" ToolTip.Tip='Regular button without any classes.'/>
       <Button Classes="Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark"'/>
       <Button Classes="Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent"'/>
+      
+      <Button Content="Custom corner radius" ToolTip.Tip='Regular button with customized corner radius (16dp).' assist:ButtonAssist.CornerRadius="16"/>
     </StackPanel>
     
     <TextBlock Classes="Headline6 Subheadline2" Text="Outline buttons"/>
@@ -31,6 +34,8 @@
       <Button Classes="Outline" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"'/>
       <Button Classes="Outline Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"'/>
       <Button Classes="Outline Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Outline"'/>
+      
+      <Button Classes="Outline" Content="Custom corner radius" ToolTip.Tip='Outline button with customized corner radius (16dp).' assist:ButtonAssist.CornerRadius="16"/>
     </StackPanel>
 
     <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon"/>
