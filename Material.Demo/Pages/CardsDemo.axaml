@@ -39,9 +39,9 @@
             </TextBlock>
           </StackPanel>
           <StackPanel Orientation="Horizontal">
-            <Button Classes="Tool" Content="BUTTON 1" Padding="8,4"/>
+            <Button Classes="Flat" Content="BUTTON 1" Padding="8,4"/>
             <Border Width="4"/>
-            <Button Classes="Tool" Content="BUTTON 2" Padding="8,4"/>
+            <Button Classes="Flat" Content="BUTTON 2" Padding="8,4"/>
           </StackPanel>
         </StackPanel>
       </styles:Card>

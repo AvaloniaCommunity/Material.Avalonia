@@ -105,7 +105,7 @@
                 <Border Name="root"
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid>
-                        <ToggleButton Name="PART_HeaderPresenter" Classes="Tool TransparentBack"
+                        <ToggleButton Name="PART_HeaderPresenter" Classes="Flat TransparentBack"
                                       HorizontalContentAlignment="Center"
                                       VerticalContentAlignment="Center"
                                       Foreground="{DynamicResource MaterialDesignBody}"

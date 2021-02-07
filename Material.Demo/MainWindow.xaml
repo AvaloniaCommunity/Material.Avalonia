@@ -83,7 +83,7 @@
             <ColumnDefinition Width="32"/>
             <ColumnDefinition Width="Auto"/>
           </Grid.ColumnDefinitions>
-          <ToggleButton Classes="Tool TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
+          <ToggleButton Classes="Flat TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
                         Padding="4">
             <styles:PackIcon Kind="Menu" Width="24" Height="24"/>
           </ToggleButton>

@@ -108,15 +108,15 @@
       <CheckBox Name="CheckBox1" Content="IsExtended" Margin="16,8"/>
     </StackPanel>
 
-    <TextBlock Classes="Headline6 Subheadline2" Text="Tool buttons (Flat)"/>
+    <TextBlock Classes="Headline6 Subheadline2" Text="Flat buttons"/>
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
         <Style Selector="Button">
           <Setter Property="Margin" Value="8"/>
         </Style>
       </StackPanel.Styles>
-      <Button Classes="Tool" Content="Default" ToolTip.Tip='Regular button with class "Tool" or "Flat"'/>
-      <Button Classes="Tool Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Tool" or "Flat"'/>
+      <Button Classes="Flat" Content="Default" ToolTip.Tip='Regular button with class "Flat"'/>
+      <Button Classes="Flat Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Flat"'/>
     </StackPanel>
 
   </StackPanel>

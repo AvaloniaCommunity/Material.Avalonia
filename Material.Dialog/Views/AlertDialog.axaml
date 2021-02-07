@@ -85,7 +85,7 @@
           </ItemsControl.ItemsPanel>
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="main:DialogResultButton">
-              <Button Classes="Tool"
+              <Button Classes="Flat"
                       Content="{Binding Content, FallbackValue=Null}"
                       Tag="{Binding Result}"
                       Command="{Binding ElementName=PART_Root, 

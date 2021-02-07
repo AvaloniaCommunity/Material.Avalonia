@@ -28,11 +28,11 @@
       <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
 
       <WrapPanel HorizontalAlignment="Center" Margin="16" MaxWidth="600" >
-        <Button Classes="Tool" Content="PROJECT LINK" Command="{Binding Path=OpenProjectRepoLink}"/>
-        <Button Classes="Tool" Content="USE DARK THEME" Command="{Binding Path=UseMaterialUIDarkTheme}"/>
-        <Button Classes="Tool" Content="USE LIGHT THEME" Command="{Binding Path=UseMaterialUILightTheme}"/>
-        <Button Classes="Tool" Content="SWITCH TRANSITIONS" Command="{Binding Path=SwitchTransition}"/>
-        <Button Classes="Tool" Content="ABOUT AVALONIAUI" Command="{Binding Path=ShowAboutAvaloniaUI}"/>
+        <Button Classes="Flat" Content="PROJECT LINK" Command="{Binding Path=OpenProjectRepoLink}"/>
+        <Button Classes="Flat" Content="USE DARK THEME" Command="{Binding Path=UseMaterialUIDarkTheme}"/>
+        <Button Classes="Flat" Content="USE LIGHT THEME" Command="{Binding Path=UseMaterialUILightTheme}"/>
+        <Button Classes="Flat" Content="SWITCH TRANSITIONS" Command="{Binding Path=SwitchTransition}"/>
+        <Button Classes="Flat" Content="ABOUT AVALONIAUI" Command="{Binding Path=ShowAboutAvaloniaUI}"/>
       </WrapPanel>
       <StackPanel Margin="0,24">
         <DataGrid Height="620"

@@ -73,7 +73,7 @@
     <Setter Property="assists:ShadowAssist.Darken" Value="True" />
   </Style>
 
-  <Style Selector="Button.Tool, ToggleButton.Tool, Button.Flat, ToggleButton.Flat">
+  <Style Selector="Button.Flat, ToggleButton.Flat">
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Transparent"/>
@@ -217,8 +217,7 @@
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
   </Style>
 
-  <Style Selector="Button.Accent.Tool:not(.Outline), Button.Accent.Flat:not(.Outline),
-         ToggleButton.Accent.Tool:not(.Outline), ToggleButton.Accent.Flat:not(.Outline)">
+  <Style Selector="Button.Accent.Flat:not(.Outline), ToggleButton.Accent.Flat:not(.Outline)">
     <Setter Property="Background" Value="Transparent"/>
     <Setter Property="BorderBrush" Value="Transparent"/>
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}"/>
@@ -264,7 +263,7 @@
     <Border Padding="20">
       <StackPanel>
         <Button Classes="default" Content="Test Control"/>
-        <Button Classes="Tool" Content="Test Control"/>
+        <Button Classes="Flat" Content="Test Control"/>
         <Button Classes="Outline Accent" Content="Test Control"/>
       </StackPanel>
     </Border>
