@@ -18,6 +18,13 @@ namespace Material.Dialog
         public const string DIALOG_RESULT_NO = "no";
         public const string DIALOG_RESULT_ABORT = "abort";
 
+        private static bool disableTransitions;
+        public static bool DisableTransitions
+        {
+            get => disableTransitions;
+            set => disableTransitions = value;
+        }
+
         /// <summary>
         /// Create some dialog buttons for use.
         /// </summary>

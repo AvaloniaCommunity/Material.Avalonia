@@ -2,6 +2,8 @@
 using Material.Dialog.Interfaces;
 using System; 
 using System.Threading.Tasks;
+using Avalonia;
+using Material.Styles.Assists;
 
 namespace Material.Dialog.Bases
 {
@@ -30,6 +32,7 @@ namespace Material.Dialog.Bases
             }
 
             m_Window.Closed += OnceHandler;
+            TransitionAssist.SetDisableTransitions(m_Window as AvaloniaObject, DialogHelper.DisableTransitions);
             action();
             return tcs.Task;
         }
