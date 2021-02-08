@@ -135,23 +135,12 @@
                    Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-100"
                    VerticalAlignment="Center" HorizontalAlignment="Center"
                    Fill="{TemplateBinding Foreground}"
-                   IsHitTestVisible="False">
-            <Ellipse.Styles>
-              <Style Selector="Ellipse#pointerOverBorder:not(.notransitions)">
-                <Setter Property="Transitions">
-                  <Transitions>
-                    <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
-                  </Transitions>
-                </Setter>
-              </Style>
-            </Ellipse.Styles>
-          </Ellipse>
+                   IsHitTestVisible="False"/>
           <Border Width="{TemplateBinding Width}"
                   Height="{TemplateBinding Height}"
-                  CornerRadius="1000000"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Center"
-                  ClipToBounds="True">
+                  ClipToBounds="True" CornerRadius="1000000">
             <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
               <ContentPresenter Name="PART_ContentPresenter"
                                 CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
@@ -167,6 +156,14 @@
           </Border>
         </Grid>
       </ControlTemplate>
+    </Setter>
+  </Style>
+  
+  <Style Selector="Button.Icon:not(.notransitions) /template/ Ellipse#pointerOverBorder">
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+      </Transitions>
     </Setter>
   </Style>
 
