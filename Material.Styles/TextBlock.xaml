@@ -69,10 +69,12 @@
   </Style>
 
   <Style Selector="TextBlock.Link">
-    <Setter Property="Foreground" Value="Blue"/>
+    <Setter Property="Foreground" Value="#007BFF"/>
+    <Setter Property="TextDecorations" Value="Underline"/>
   </Style>
   <Style Selector="TextBlock.Link:pointerover, TextBlock.Link:focus">
-    <Setter Property="Foreground" Value="Purple"/>
+    <Setter Property="Foreground" Value="#FF0000"/>
+    <Setter Property="Cursor" Value="Hand"/>
   </Style>
 
   <Style Selector="Button > TextBlock, TextBlock.ButtonText">
