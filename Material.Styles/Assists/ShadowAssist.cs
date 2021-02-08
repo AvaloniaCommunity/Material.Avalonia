@@ -8,7 +8,7 @@ using Avalonia.Styling;
 
 namespace Material.Styles.Assists {
     public static class ShadowProvider {
-        public static Color MaterialShadowColor { get; set; } = Color.FromArgb(107, 0, 0, 0);
+        public static Color MaterialShadowColor { get; set; } = Color.FromArgb(76, 0, 0, 0);
 
         public static BoxShadows ToBoxShadows(this ShadowDepth shadowDepth, Color? overridedColor = null) {
             return shadowDepth switch {
