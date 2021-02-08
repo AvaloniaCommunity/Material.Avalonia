@@ -287,14 +287,8 @@
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
                   BorderThickness="{TemplateBinding BorderThickness}">
-            <Border.Styles>
-              <Style Selector="Border:disabled, TextBlock:disabled">
-                <Setter Property="Opacity" Value="0.5" />
-              </Style>
-            </Border.Styles>
             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Border Name="focusBorder" 
-                        CornerRadius="8,8,0,0" 
                         Background="{TemplateBinding Background}" />
                 <TextBlock Name="floatingWatermark"
                            VerticalAlignment="Top"
@@ -304,18 +298,7 @@
                            FontSize="{DynamicResource FontSizeSmall}"
                            Text="{TemplateBinding (wpf:TextFieldAssist.Label)}" 
                            RenderTransformOrigin="0, 0"
-                           IsVisible="{TemplateBinding UseFloatingWatermark}">
-                  <TextBlock.Styles>
-                    <Style Selector="TextBlock#floatingWatermark:not(.notransitions)">
-                      <Setter Property="Transitions">
-                        <Transitions>
-                          <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
-                          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CubicEaseOut" />
-                        </Transitions>
-                      </Setter>
-                    </Style> 
-                  </TextBlock.Styles>
-                </TextBlock>
+                           IsVisible="{TemplateBinding UseFloatingWatermark}"/>
 
               <DataValidationErrors Name="DataValidation" MinHeight="56">
                 <Grid ColumnDefinitions="Auto,*,Auto">
@@ -360,6 +343,10 @@
       </ControlTemplate>
     </Setter>
   </Style>
+  
+  <Style Selector="TextBox.Filled:disabled /template/ Border#border">
+    <Setter Property="Opacity" Value="0.34" />
+  </Style>
 
   <Style Selector="TextBox.Filled:focus-within:not(:empty) /template/ TextBlock#floatingWatermark,
                    TextBox.Filled:focus-within /template/ TextBlock#floatingWatermark,
@@ -367,13 +354,25 @@
     <Setter Property="Margin" Value="16,8,1,1"/>
     <Setter Property="RenderTransform" Value="scale(0.75)"/>
   </Style> 
+  
   <Style Selector="TextBox.Filled:focus-within /template/ Border#focusBorder">  
     <Setter Property="Opacity" Value="0.35"/>
   </Style>
+  
   <Style Selector="TextBox.Filled:empty:not(:focus-within) /template/ TextBlock#floatingWatermark">
     <Setter Property="Margin" Value="16,18,1,1"/> 
   </Style>
 
+  <!-- Transitions for filled textfields -->
+  
+  <Style Selector="TextBox.Filled /template/ TextBlock#floatingWatermark:not(.notransitions)">
+    <Setter Property="Transitions">
+      <Transitions>
+        <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
+        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CubicEaseOut" />
+      </Transitions>
+    </Setter>
+  </Style> 
 
 
   <!-- Filled TextBox variants (with clear button or with reveal password switch) -->
