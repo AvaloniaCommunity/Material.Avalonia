@@ -1,0 +1,148 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Material.Demo.ViewModels"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:models="clr-namespace:Material.Demo.Models"
+             xmlns:demo="clr-namespace:Material.Demo"
+             xmlns:converters="clr-namespace:Material.Demo.Converters"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime.Extensions"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Material.Demo.Pages.IconsDemo">
+    <UserControl.Resources>
+        <converters:StringJoinConverter x:Key="StringJoinConverter" Separator="{x:Static system:Environment.NewLine}" />
+    </UserControl.Resources>
+    <Design.DataContext>
+        <viewModels:IconsDemoViewModel />
+    </Design.DataContext>
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Margin="16 8" Classes="Headline4 Subheadline" Text="Material Icons" />
+        <TextBlock DockPanel.Dock="Top" Margin="16 8" Classes="Headline6 Subheadline"
+                   Text="Material.Avalonia includes the Material.Icons and Material.Icons.Avalonia" />
+        <styles:ColorZone Margin="0 8 0 0" DockPanel.Dock="Bottom"
+                          Mode="PrimaryLight"  CornerRadius="2" assists:ShadowAssist.ShadowDepth="Depth2">
+            <StackPanel Orientation="Horizontal" Margin="8">
+                <Border
+                    Background="White"
+                    MaxHeight="30"
+                    CornerRadius="3"
+                    ToolTip.Tip="Enter to search, ignore case">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button
+                            x:Name="SearchButton"
+                            Classes="Tool"
+                            Command="{Binding SearchCommand}"
+                            CommandParameter="{Binding ElementName=SearchBox, Path=Text}"
+                            Height="24"
+                            Width="24">
+                            <avalonia:MaterialIcon Kind="Magnify" Opacity=".56"/>
+                        </Button>
+                        
+                        <TextBox
+                            Grid.Column="1"
+                            Margin="5 0 0 0"
+                            KeyDown="Search_OnKeyDown"
+                            Watermark="Search" x:Name="SearchBox"
+                            BorderThickness="0"
+                            MinWidth="200"
+                            VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+                <TextBlock
+                    Margin="8 0 0 0"
+                    Classes="Subtitle1"
+                    VerticalAlignment="Center"
+                    Text="Usage:"/>
+                
+                <styles:ColorZone
+                    Mode="Standard"
+                    Margin="8"
+                    CornerRadius="2"
+                    Padding="6 2 6 2">
+                    <TextBox
+                        IsReadOnly="True"
+                        BorderThickness="0"
+                        FontFamily="Courier New"
+                        FontWeight="Bold"
+                        GotFocus="TextBox_OnGotFocus"
+                        Text="{Binding SelectedGroup.Kind, StringFormat='&lt;avalonia:MaterialIcon Kind=&quot;{0}&quot; \/>', FallbackValue=''}"/>
+                </styles:ColorZone>
+                
+                <avalonia:MaterialIcon
+                    Kind="{Binding SelectedGroup.KindValue}"
+                    VerticalAlignment="Center"
+                    IsVisible="{Binding SelectedGroup, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+                
+                <Button
+                    Margin="8 0"
+                    Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+                    CommandParameter="{Binding SelectedGroup.Kind}">
+                    <StackPanel Orientation="Horizontal">
+                        <avalonia:MaterialIcon Kind="ContentCopy"/>
+                        <TextBlock
+                            Text="Copy To Clipboard"
+                            Margin="8 0 0 0"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </styles:ColorZone>
+        <ScrollViewer VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Disabled">
+            <ItemsRepeater Items="{Binding Kinds}"
+                           HorizontalAlignment="Center">
+                <ItemsRepeater.Layout>
+                    <UniformGridLayout />
+                </ItemsRepeater.Layout>
+                <ItemsRepeater.ItemTemplate>
+                    <DataTemplate DataType="models:MaterialIconKindGroup">
+                        <demo:SelectionWrapper DataSource="{Binding .}"
+                                               CurrentSelected="{Binding $parent[UserControl].DataContext.SelectedGroup, Mode=TwoWay}"
+                                               ToolTip.Tip="{Binding Aliases, Converter={StaticResource StringJoinConverter}}"
+                                               Background="Transparent">
+                            <Grid>
+                                <Border Name="pointerOverBorder"
+                                        Background="{DynamicResource MaterialDesignBody}" />
+                                <Border Name="selectedBorder"
+                                        Background="{DynamicResource MaterialDesignBody}" />
+                                <Grid RowDefinitions="*, Auto" Margin="8" Height="64" Width="64">
+                                    <avalonia:MaterialIcon Grid.Row="0"
+                                                           Kind="{Binding Kind}"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                           Width="32"
+                                                           Height="32" />
+                                    <TextBlock Grid.Row="1" TextWrapping="WrapWithOverflow" MaxWidth="64"
+                                               Text="{Binding Kind}"
+                                               HorizontalAlignment="Center" />
+                                </Grid>
+                            </Grid>
+                            <demo:SelectionWrapper.Styles>
+                                <Style Selector="demo|SelectionWrapper Border#pointerOverBorder">
+                                    <Setter Property="Opacity" Value="0" />
+                                </Style>
+                                <Style Selector="demo|SelectionWrapper Border#selectedBorder">
+                                    <Setter Property="Opacity" Value="0" />
+                                </Style>
+                                <Style Selector="demo|SelectionWrapper:pointerover Border#pointerOverBorder">
+                                    <Setter Property="Opacity" Value="0.06" />
+                                </Style>
+                                <Style Selector="demo|SelectionWrapper:selectednow Border#selectedBorder">
+                                    <Setter Property="Opacity" Value="0.12" />
+                                </Style>
+                            </demo:SelectionWrapper.Styles>
+                        </demo:SelectionWrapper>
+                    </DataTemplate>
+                </ItemsRepeater.ItemTemplate>
+            </ItemsRepeater>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

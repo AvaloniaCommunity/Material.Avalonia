@@ -53,6 +53,9 @@
     <AvaloniaXaml Update="Pages\Home.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
+    <AvaloniaXaml Update="Pages\IconsDemo.axaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AvaloniaXaml>
     <AvaloniaXaml Update="Pages\ScrollViewerDemo.axaml">
       <Generator>MSBuild:Compile</Generator>
     </AvaloniaXaml>
@@ -84,6 +87,9 @@
     </Compile>
     <Compile Update="Pages\Home.axaml.cs">
       <DependentUpon>Home.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\IconsDemo.axaml.cs">
+      <DependentUpon>IconsDemo.axaml</DependentUpon>
     </Compile>
     <Compile Update="Pages\ScrollViewerDemo.axaml.cs">
       <DependentUpon>ScrollViewerDemo.axaml</DependentUpon>

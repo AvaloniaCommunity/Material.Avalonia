@@ -5,6 +5,7 @@
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
             xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+            xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
             x:Class="Material.Demo.Pages.ButtonsDemo"> 
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Buttons"/>
@@ -49,7 +50,7 @@
                 <Viewbox Stretch="Fill" 
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch">
-                  <styles:PackIcon Kind="Plus" Width="24" Height="24"/>
+                  <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
                 </Viewbox>
               </Template>
             </Setter.Value>
@@ -77,7 +78,7 @@
                 <Viewbox Stretch="Fill"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch">
-                  <styles:PackIcon Kind="Plus" Width="24" Height="24"/>
+                  <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
                 </Viewbox>
               </Template>
             </Setter.Value>
@@ -92,7 +93,7 @@
                   <Viewbox Stretch="Fill"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch">
-                    <styles:PackIcon Kind="Plus" Width="24" Height="24"/>
+                    <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
                   </Viewbox>
                   <TextBlock Margin="8,0" Text="ADD ITEM" Classes="Subtitle2" VerticalAlignment="Center"/>
                 </StackPanel>

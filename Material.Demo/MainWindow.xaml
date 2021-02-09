@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-        xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
-        xmlns:markup="clr-namespace:Material.Styles.Extensions;assembly=Material.Styles"
         xmlns:pages="clr-namespace:Material.Demo.Pages"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         Title="Material.Demo"
         d:DesignWidth="600"
         Width="1280" MinWidth="720"
@@ -54,6 +53,7 @@
           <TextBlock Classes="Body2" Text="Toggles" />
           <TextBlock Classes="Body2" Text="Fields" />
           <TextBlock Classes="Body2" Text="ComboBoxes" />
+          <TextBlock Classes="Body2" Text="Material Icons" />
           <TextBlock Classes="Body2" Text="Sliders" />
           <TextBlock Classes="Body2" Text="Progress indicators" />
           <TextBlock Classes="Body2" Text="Lists" />
@@ -71,7 +71,7 @@
       <styles:ColorZone VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top"
                         Height="56" Mode="PrimaryMid" ZIndex="1">
         <styles:ColorZone.Styles>
-          <Style Selector="styles|PackIcon">
+          <Style Selector="avalonia|MaterialIcon">
             <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
           </Style>
         </styles:ColorZone.Styles>
@@ -85,17 +85,17 @@
           </Grid.ColumnDefinitions>
           <ToggleButton Classes="Tool TransparentBack" Width="32" Height="32" x:Name="NavDrawerSwitch"
                         Padding="4">
-            <styles:PackIcon Kind="Menu" Width="24" Height="24"/>
+            <avalonia:MaterialIcon Kind="Menu" Width="24" Height="24"/>
           </ToggleButton>
           <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
                      Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
 
           
           <Menu Grid.Column="4" Height="32" Padding="0" Margin="0">
-            <MenuItem Header="{markup:PackIcon DotsVertical}">
+            <MenuItem Header="{avalonia:MaterialIconExt DotsVertical}">
               <MenuItem Header="Hello!">
                 <MenuItem.Icon>
-                  <styles:PackIcon Kind="Hand" Width="24" Height="24"/>
+                  <avalonia:MaterialIcon Kind="Hand" Width="24" Height="24"/>
                 </MenuItem.Icon>
               </MenuItem>
               <Separator/>
@@ -105,7 +105,7 @@
               <Separator/>
               <MenuItem Header="Goodbye">
                 <MenuItem.Icon>
-                  <styles:PackIcon Kind="ExitRun" Width="24" Height="24"/>
+                  <avalonia:MaterialIcon Kind="ExitRun" Width="24" Height="24"/>
                 </MenuItem.Icon>
               </MenuItem>
             </MenuItem>
@@ -140,6 +140,9 @@
 
           <!-- ComboBoxes -->
           <pages:ComboBoxesDemo/>
+          
+          <!-- Icons -->
+          <pages:IconsDemo/>
           
           <!-- Sliders -->
           <pages:SlidersDemo/>
