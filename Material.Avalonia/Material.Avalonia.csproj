@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <PackageReference Include="Avalonia" Version="0.10.0" />
+      <PackageReference Include="Material.Icons.Avalonia" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
