@@ -25,10 +25,11 @@
         <styles:ColorZone Margin="0 8 0 0" DockPanel.Dock="Bottom"
                           Mode="PrimaryLight"  CornerRadius="2" assists:ShadowAssist.ShadowDepth="Depth2">
             <StackPanel Orientation="Horizontal" Margin="8">
-                <Border
-                    Background="White"
-                    MaxHeight="30"
-                    CornerRadius="3"
+                <styles:ColorZone
+                    Mode="Standard"
+                    Margin="8"
+                    CornerRadius="2"
+                    Padding="6 2 6 2"
                     ToolTip.Tip="Enter to search, ignore case">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -36,26 +37,27 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         
-                        <Button
-                            x:Name="SearchButton"
-                            Classes="Tool"
-                            Command="{Binding SearchCommand}"
-                            CommandParameter="{Binding ElementName=SearchBox, Path=Text}"
-                            Height="24"
-                            Width="24">
+                        <Button Height="32" Width="32" Margin="0 -8"
+                                x:Name="SearchButton"
+                                Classes="Tool"
+                                Command="{Binding SearchCommand}"
+                                CommandParameter="{Binding ElementName=SearchBox, Path=Text}"
+                                Padding="0"
+                                VerticalAlignment="Center">
                             <avalonia:MaterialIcon Kind="Magnify" Opacity=".56"/>
                         </Button>
                         
                         <TextBox
                             Grid.Column="1"
-                            Margin="5 0 0 0"
+                            Margin="5 -24 0 0"
                             KeyDown="Search_OnKeyDown"
                             Watermark="Search" x:Name="SearchBox"
                             BorderThickness="0"
+                            Padding="0"
                             MinWidth="200"
                             VerticalAlignment="Center"/>
                     </Grid>
-                </Border>
+                </styles:ColorZone>
 
                 <TextBlock
                     Margin="8 0 0 0"
@@ -67,14 +69,12 @@
                     Mode="Standard"
                     Margin="8"
                     CornerRadius="2"
-                    Padding="6 2 6 2">
+                    Padding="6 -24 6 2">
                     <TextBox
                         IsReadOnly="True"
                         BorderThickness="0"
-                        FontFamily="Courier New"
-                        FontWeight="Bold"
                         GotFocus="TextBox_OnGotFocus"
-                        Text="{Binding SelectedGroup.Kind, StringFormat='&lt;avalonia:MaterialIcon Kind=&quot;{0}&quot; \/>', FallbackValue=''}"/>
+                        Text="{Binding SelectedGroup.KindToCopy, FallbackValue='&lt;avalonia:MaterialIcon Kind=&quot;&quot; \/>'}"/>
                 </styles:ColorZone>
                 
                 <avalonia:MaterialIcon
@@ -95,7 +95,8 @@
                 </Button>
             </StackPanel>
         </styles:ColorZone>
-        <ScrollViewer VerticalScrollBarVisibility="Visible"
+        <ScrollViewer MaxHeight="400"
+                      VerticalScrollBarVisibility="Visible"
                       HorizontalScrollBarVisibility="Disabled">
             <ItemsRepeater Items="{Binding Kinds}"
                            HorizontalAlignment="Center">

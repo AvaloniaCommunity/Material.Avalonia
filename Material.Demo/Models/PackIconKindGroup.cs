@@ -18,6 +18,7 @@ namespace Material.Demo.Models {
         }
 
         public string Kind { get; }
+        public string KindToCopy => $"<avalonia:MaterialIcon Kind=\"{Kind}\" />";
         public MaterialIconKind KindValue { get; }
         public string[] Aliases { get; }
     }
