@@ -1,7 +1,8 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:wpf="clr-namespace:Material.Styles.Assists"
-        xmlns:styles="clr-namespace:Material.Styles">
+        xmlns:styles="clr-namespace:Material.Styles"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
 
     <Styles.Resources>
         <StreamGeometry x:Key="TextBoxClearButtonData">M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>
@@ -412,7 +413,7 @@
                     <Button Name="PART_ClearButton" 
                             Classes="Icon" Command="{Binding $parent[TextBox].Clear}" Padding="6"
                             Cursor="Arrow" Focusable="True" Width="{Binding Path=$self.Height}">
-                        <styles:PackIcon Kind="Close" Width="NaN" Height="NaN"/>
+                        <avalonia:MaterialIcon Kind="Close" Width="NaN" Height="NaN"/>
                     </Button>
                 </Panel>
             </Template>
@@ -436,14 +437,14 @@
                                   Cursor="Arrow" Focusable="True" Padding="6"
                                   IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
                         <ToggleButton.Styles>
-                            <Style Selector="ToggleButton#PART_PasswordRevealToggle styles|PackIcon#PART_PackIconContent">
+                            <Style Selector="ToggleButton#PART_PasswordRevealToggle avalonia|MaterialIcon#PART_PackIconContent">
                                 <Setter Property="Kind" Value="EyeOutline" />
                             </Style> 
-                            <Style Selector="ToggleButton#PART_PasswordRevealToggle:checked styles|PackIcon#PART_PackIconContent">
+                            <Style Selector="ToggleButton#PART_PasswordRevealToggle:checked avalonia|MaterialIcon#PART_PackIconContent">
                                 <Setter Property="Kind" Value="EyeOffOutline" />
                             </Style> 
                         </ToggleButton.Styles>
-                        <styles:PackIcon Name="PART_PackIconContent" Width="NaN" Height="NaN"/>
+                        <avalonia:MaterialIcon Name="PART_PackIconContent" Width="NaN" Height="NaN"/>
                     </ToggleButton>
                 </Panel>
             </Template>

@@ -39,7 +39,7 @@
                         
                         <Button Height="32" Width="32" Margin="0 -8"
                                 x:Name="SearchButton"
-                                Classes="Tool"
+                                Classes="Flat Floating"
                                 Command="{Binding SearchCommand}"
                                 CommandParameter="{Binding ElementName=SearchBox, Path=Text}"
                                 Padding="0"
@@ -52,6 +52,7 @@
                             Margin="5 -24 0 0"
                             KeyDown="Search_OnKeyDown"
                             Watermark="Search" x:Name="SearchBox"
+                            Text="{Binding SearchText}"
                             BorderThickness="0"
                             Padding="0"
                             MinWidth="200"
