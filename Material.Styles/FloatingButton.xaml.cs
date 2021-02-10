@@ -6,6 +6,8 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using System.Threading.Tasks;
 using Avalonia.Layout;
+using Material.Icons;
+using Material.Icons.Avalonia;
 
 namespace Material.Styles
 {
@@ -29,9 +31,9 @@ namespace Material.Styles
         /// <param name="iconKind"></param>
         /// <param name="text"></param>
         /// <returns>Instance of new FAB. <br/>
-        /// PackIcon element name is PART_Icon and
+        /// MaterialIcon element name is PART_Icon and
         /// TextBlock name is PART_AdditionalText</returns>
-        public static FloatingButton CreateFloatingButton(PackIconKind iconKind, string text = null)
+        public static FloatingButton CreateFloatingButton(MaterialIconKind iconKind, string text = null)
         {
             FloatingButton button = new FloatingButton();
             button.Content = new StackPanel()
@@ -40,10 +42,10 @@ namespace Material.Styles
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Children =
                 {
-                    new PackIcon()
+                    new MaterialIcon()
                     {
                         Name = "PART_Icon",
-                        Kind = (PackIconKind)iconKind,
+                        Kind = (MaterialIconKind)iconKind,
                         Width = 24, Height = 24
                     },
                     new TextBlock()

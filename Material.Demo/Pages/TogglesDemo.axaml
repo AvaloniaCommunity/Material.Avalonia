@@ -5,7 +5,7 @@
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
             xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
-            xmlns:extensions="clr-namespace:Material.Styles.Extensions;assembly=Material.Styles"
+            xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
             x:Class="Material.Demo.Pages.TogglesDemo">
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Toggles"/>
@@ -95,19 +95,19 @@
       <StackPanel Orientation="Vertical">
         <styles:Card Padding="0" InsideClipping="True">
           <StackPanel Orientation="Horizontal">
-            <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
-            <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
-            <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
-            <RadioButton Classes="Button" GroupName="3" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
+            <RadioButton Classes="Button" GroupName="3" Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}"/>
+            <RadioButton Classes="Button" GroupName="3" Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}" IsChecked="True" />
+            <RadioButton Classes="Button" GroupName="3" Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}" IsEnabled="False"/>
+            <RadioButton Classes="Button" GroupName="3" Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}"/>
           </StackPanel>
         </styles:Card>
         
         <styles:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
           <StackPanel Orientation="Horizontal">
-            <RadioButton Classes="Button Accent" GroupName="4" Content="{extensions:PackIcon Kind=FormatAlignLeft}"/>
-            <RadioButton Classes="Button Accent" GroupName="4" Content="{extensions:PackIcon Kind=FormatAlignCenter}" IsChecked="True" />
-            <RadioButton Classes="Button Accent" GroupName="4" Content="{extensions:PackIcon Kind=FormatAlignRight}" IsEnabled="False"/>
-            <RadioButton Classes="Button Accent" GroupName="4" Content="{extensions:PackIcon Kind=FormatAlignJustify}"/>
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}"/>
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}" IsChecked="True" />
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}" IsEnabled="False"/>
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}"/>
           </StackPanel>
         </styles:Card>
       </StackPanel>
