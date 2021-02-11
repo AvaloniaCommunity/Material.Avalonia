@@ -49,7 +49,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-        <Setter Property="Padding" Value="0,8" />
+        <Setter Property="Margin" Value="0,8" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
         <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"></Setter>
         <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto"/>
@@ -69,20 +69,16 @@
                   </Style>
                 </Border.Styles>
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                  <Border Name="focusBorder"
-                          CornerRadius="8,8,0,0"
-                          Background="{TemplateBinding Background}" />
-
-                  <TextBlock Name="floatingWatermark"
-                             VerticalAlignment="Top"
-                             HorizontalAlignment="Stretch"
-                             Classes="Subtitle1"
-                             Foreground="{DynamicResource ThemeAccentBrush}"
-                             FontFamily="{TemplateBinding FontFamily}"
-                             FontSize="{DynamicResource FontSizeSmall}"
-                             Text="{TemplateBinding (wpf:TextFieldAssist.Label)}"
-                             RenderTransformOrigin="0, 0"
-                             IsVisible="{TemplateBinding UseFloatingWatermark}"/>
+                    <TextBlock Name="floatingWatermark"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Stretch"
+                               Classes="Subtitle1"
+                               Foreground="{DynamicResource ThemeAccentBrush}"
+                               FontFamily="{TemplateBinding FontFamily}"
+                               FontSize="{DynamicResource FontSizeSmall}"
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Label)}"
+                               RenderTransformOrigin="0, 0"
+                               IsVisible="{TemplateBinding UseFloatingWatermark}"/>
 
                   <DataValidationErrors Name="DataValidation" >
                     <Grid ColumnDefinitions="Auto,*,Auto">
@@ -93,10 +89,10 @@
                       <ScrollViewer Grid.Column="1"
                                     HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                     VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                        <Panel Margin="1,27,12,8"
+                        <Panel Margin="1,16,1,0"
                                VerticalAlignment="Bottom">
                           <TextBlock Name="watermark"
-                                     Margin="0,5,0,0"
+                                     Margin="0,6,0,7"
                                      Classes="Subtitle1"
                                      Opacity="0.5"
                                      Text="{TemplateBinding Watermark}"
@@ -105,7 +101,7 @@
                                      TextWrapping="{TemplateBinding TextWrapping}"> 
                           </TextBlock>
                           <TextPresenter Name="PART_TextPresenter" 
-                                         Margin="0,5,0,0"
+                                         Margin="0,6,0,7"
                                          FontSize="16"
                                          Text="{TemplateBinding Text, Mode=TwoWay}"
                                          CaretIndex="{TemplateBinding CaretIndex}"
@@ -132,7 +128,8 @@
                 </Grid>
               </Border>
               <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                         Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"/>
+                         Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"
+                         IsVisible="{Binding !!Text, RelativeSource={RelativeSource Self}}"/>
             </StackPanel>
           </ControlTemplate>
         </Setter>
@@ -174,12 +171,12 @@
     <Style Selector="TextBox:not(.Outline):focus-within:not(:empty) /template/ TextBlock#floatingWatermark,
                      TextBox:not(.Outline):focus-within /template/ TextBlock#floatingWatermark,
                      TextBox:not(.Outline):not(:empty) /template/ TextBlock#floatingWatermark">
-        <Setter Property="Margin" Value="1,10,1,1"/>
+        <Setter Property="Margin" Value="1,0.75,1,1"/>
         <Setter Property="RenderTransform" Value="scale(0.75)"/>
     </Style> 
     
     <Style Selector="TextBox:not(.Outline):empty:not(:focus) /template/ TextBlock#floatingWatermark">
-        <Setter Property="Margin" Value="1,32,1,1"/>
+        <Setter Property="Margin" Value="1,24,1,1"/>
         <Setter Property="RenderTransform" Value="scale(1)"/>
     </Style> 
 
@@ -409,7 +406,7 @@
     <Style Selector="TextBox.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
         <Setter Property="InnerRightContent">
             <Template>
-                <Panel Height="52" VerticalAlignment="Top">
+                <Panel Height="48" VerticalAlignment="Top">
                     <Button Name="PART_ClearButton" 
                             Classes="Icon" Command="{Binding $parent[TextBox].Clear}" Padding="6"
                             Cursor="Arrow" Focusable="True" Width="{Binding Path=$self.Height}">
@@ -423,7 +420,7 @@
     <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
         <Setter Property="InnerRightContent">
             <Template>
-                <Panel Height="52" VerticalAlignment="Top">
+                <Panel Height="48" VerticalAlignment="Top">
                     <Panel.Styles>
                         <Style Selector="ToggleButton[IsChecked=True]">
                             <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
@@ -451,7 +448,7 @@
         </Setter>
     </Style>
     <Style Selector="TextBox.clearButton Button#PART_ClearButton, TextBox.revealPasswordButton ToggleButton#PART_PasswordRevealToggle">
-        <Setter Property="Margin" Value="4, 24, 0, 4"/>
+        <Setter Property="Margin" Value="4, 14, 0, 4"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
