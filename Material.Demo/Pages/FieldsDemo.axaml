@@ -7,45 +7,24 @@
              xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.FieldsDemo">
   <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
-    <TextBlock Classes="Headline4 Subheadline" Text="Standard fields"/>
+    <TextBlock Classes="Headline4 Subheadline" Text="Classic fields"/>
 
-    <WrapPanel  HorizontalAlignment="Stretch">
-      <StackPanel>
-        <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
-        <StackPanel Orientation="Horizontal">
-          <StackPanel.Styles>
-            <Style Selector="TextBox">
-              <Setter Property="Margin" Value="8"/>
-              <Setter Property="Width" Value="180"/>
-            </Style>
-          </StackPanel.Styles>
-          <TextBox Text="The simplest field ever!"/>
-          <TextBox Watermark="Field with watermark"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-          <StackPanel.Styles>
-            <Style Selector="TextBox.Floating">
-              <Setter Property="Margin" Value="8"/>
-              <Setter Property="Width" Value="180"/>
-            </Style>
-          </StackPanel.Styles>
-          <TextBox Classes="Floating" PasswordChar="*" UseFloatingWatermark="True" wpf:TextFieldAssist.Label="Field for secrets"/>
-          <TextBox Classes="Floating clearButton" wpf:TextFieldAssist.Label="Message field" 
-                   UseFloatingWatermark="True"
-                   Text="Clear those texts!"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-          <StackPanel.Styles>
-            <Style Selector="TextBox.Floating">
-              <Setter Property="Margin" Value="8"/>
-              <Setter Property="Width" Value="240"/>
-            </Style>
-          </StackPanel.Styles>
-          <TextBox PasswordChar="*" Classes="Floating revealPasswordButton" UseFloatingWatermark="True" 
-                   wpf:TextFieldAssist.Label="Password"
-                   Text="wow! You find my password!"/>
-          <TextBox Classes="Floating" wpf:TextFieldAssist.Label="Disabled field" 
-                   Text="Hello world!" Width="120" IsEnabled="False"/>
+    <WrapPanel HorizontalAlignment="Stretch">
+      <StackPanel Orientation="Horizontal">
+        <StackPanel.Styles>
+          <Style Selector="TextBox">
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Width" Value="240"/>
+            <Setter Property="UseFloatingWatermark" Value="True"/>
+          </Style>
+        </StackPanel.Styles>
+        <StackPanel Orientation="Vertical">
+          <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
+          <TextBox wpf:TextFieldAssist.Label="Classic TextBox"/>
+          <TextBox UseFloatingWatermark="False" Watermark="No floating label"/>
+          <TextBox Classes="revealPasswordButton" wpf:TextFieldAssist.Label="Password" PasswordChar="*"/>
+          <TextBox Classes="clearButton" wpf:TextFieldAssist.Label="Text field"/>
+          <TextBox IsEnabled="False" wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!"/>
         </StackPanel>
       </StackPanel>
       <StackPanel>
@@ -72,20 +51,29 @@
     <TextBlock Classes="Headline4 Subheadline" Text="Filled fields"/>
   
     <WrapPanel  HorizontalAlignment="Stretch">
-      <StackPanel>
-        <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
+      <StackPanel Orientation="Horizontal">
+        <StackPanel.Styles>
+          <Style Selector="TextBox">
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Width" Value="240"/>
+            <Setter Property="UseFloatingWatermark" Value="True"/>
+          </Style>
+        </StackPanel.Styles>
         <StackPanel Orientation="Vertical">
-          <StackPanel.Styles>
-            <Style Selector="TextBox">
-              <Setter Property="Margin" Value="8"/>
-              <Setter Property="Width" Value="240"/>
-            </Style>
-          </StackPanel.Styles>
-          <TextBox Classes="Filled" wpf:TextFieldAssist.Label="Filled TextBox" UseFloatingWatermark="True"/>
-          <TextBox Classes="Filled Dense" wpf:TextFieldAssist.Label="Filled dense TextBox" UseFloatingWatermark="True"/>
-          <TextBox Classes="Filled revealPasswordButton" wpf:TextFieldAssist.Label="Password" PasswordChar="*" UseFloatingWatermark="True"/>
-          <TextBox Classes="Filled clearButton" wpf:TextFieldAssist.Label="Text field" UseFloatingWatermark="True"/>
-          <TextBox Classes="Filled" IsEnabled="False" wpf:TextFieldAssist.Label="Disabled Field" UseFloatingWatermark="True" Text="Hello World!"/>
+          <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
+          <TextBox Classes="Filled" wpf:TextFieldAssist.Label="Filled TextBox"/>
+          <TextBox Classes="Filled" UseFloatingWatermark="False" Watermark="No floating label"/>
+          <TextBox Classes="Filled revealPasswordButton" wpf:TextFieldAssist.Label="Password" PasswordChar="*"/>
+          <TextBox Classes="Filled clearButton" wpf:TextFieldAssist.Label="Text field"/>
+          <TextBox Classes="Filled" IsEnabled="False" wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+          <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields (dense)"/>
+          <TextBox Classes="Filled Dense" UseFloatingWatermark="False" Watermark="No floating label"/>
+          <TextBox Classes="Filled Dense" wpf:TextFieldAssist.Label="Filled dense TextBox"/>
+          <TextBox Classes="Filled Dense clearButton" wpf:TextFieldAssist.Label="Dense field with clear button"/>
+          <TextBox Classes="Filled Dense revealPasswordButton" wpf:TextFieldAssist.Label="Password" PasswordChar="*"/>
+          <TextBox Classes="Filled Dense" IsEnabled="False" wpf:TextFieldAssist.Label="Disabled Field" UseFloatingWatermark="True" Text="Hello World!"/>
         </StackPanel>
       </StackPanel>
       <StackPanel>
@@ -116,19 +104,29 @@
     <TextBlock Classes="Headline4 Subheadline" Text="Outline fields"/>
 
     <WrapPanel  HorizontalAlignment="Stretch">
-      <StackPanel>
-        <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
+      <StackPanel Orientation="Horizontal">
+        <StackPanel.Styles>
+          <Style Selector="TextBox">
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Width" Value="240"/>
+            <Setter Property="UseFloatingWatermark" Value="True"/>
+          </Style>
+        </StackPanel.Styles>
         <StackPanel Orientation="Vertical">
-          <StackPanel.Styles>
-            <Style Selector="TextBox">
-              <Setter Property="Margin" Value="8"/>
-              <Setter Property="Width" Value="240"/>
-            </Style>
-          </StackPanel.Styles>
-          <TextBox Classes="Outline" wpf:TextFieldAssist.Label="Filled TextBox" UseFloatingWatermark="True"/>
-          <TextBox Classes="Outline revealPasswordButton" wpf:TextFieldAssist.Label="Password" PasswordChar="*" UseFloatingWatermark="True"/>
-          <TextBox Classes="Outline clearButton" wpf:TextFieldAssist.Label="Text field" UseFloatingWatermark="True"/>
-          <TextBox Classes="Outline" IsEnabled="False" wpf:TextFieldAssist.Label="Disabled Field" UseFloatingWatermark="True" Text="Hello World!"/>
+          <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields"/>
+          <TextBox Classes="Outline" wpf:TextFieldAssist.Label="Outline TextBox"/>
+          <TextBox Classes="Outline" UseFloatingWatermark="False" Watermark="No floating label"/>
+          <TextBox Classes="Outline revealPasswordButton" wpf:TextFieldAssist.Label="Password" PasswordChar="*"/>
+          <TextBox Classes="Outline clearButton" wpf:TextFieldAssist.Label="Text field"/>
+          <TextBox Classes="Outline" IsEnabled="False" wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+          <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields (dense)"/>
+          <TextBox Classes="Outline Dense" UseFloatingWatermark="False" Watermark="No floating label"/>
+          <TextBox Classes="Outline Dense" wpf:TextFieldAssist.Label="Outline dense TextBox"/>
+          <TextBox Classes="Outline Dense clearButton" wpf:TextFieldAssist.Label="Dense field with clear button"/>
+          <TextBox Classes="Outline Dense revealPasswordButton" wpf:TextFieldAssist.Label="Password" PasswordChar="*"/>
+          <TextBox Classes="Outline Dense" IsEnabled="False" wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!"/>
         </StackPanel>
       </StackPanel>
       <StackPanel>
