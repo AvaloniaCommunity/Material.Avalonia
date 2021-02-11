@@ -82,7 +82,7 @@
         
         <styles:ColorZone Grid.Row="2" Padding="8"  Mode="Standard" assists:ShadowAssist.ShadowDepth="Depth2">
             <Grid Margin="8" ColumnDefinitions="*,Auto,*,Auto,Auto">
-                <styles:ColorZone Mode="Inverted" 
+                <styles:ColorZone Mode="Standard"
                                     CornerRadius="2" 
                                     ToolTip.Tip="Enter to search, ignore case">
                     <Grid>
@@ -96,7 +96,7 @@
                                  Margin="0"/> 
                         <Button Grid.Column="1" Height="32" Width="32"
                                 x:Name="SearchButton"
-                                Classes="Flat" Foreground="{DynamicResource MaterialDesignPaper}"
+                                Classes="Flat" Foreground="{DynamicResource MaterialDesignBody}"
                                 Command="{Binding SearchCommand}"
                                 CommandParameter="{Binding ElementName=SearchBox, Path=Text}"
                                 Padding="0" VerticalAlignment="Center">
@@ -111,7 +111,7 @@
                            VerticalAlignment="Center"
                            Text="Usage:"/>
                 
-                <styles:ColorZone Grid.Column="2" Mode="Inverted" CornerRadius="2" >
+                <styles:ColorZone Grid.Column="2" Mode="Standard" CornerRadius="2" >
                     <TextBox Margin="0"
                              IsReadOnly="True"
                              BorderThickness="0"
@@ -130,7 +130,7 @@
                     </StackPanel>
                 </Button>
                 
-                <avalonia:MaterialIcon Grid.Column="4"
+                <avalonia:MaterialIcon Grid.Column="4" Width="32" Height="32"
                                        Kind="{Binding SelectedGroup.KindValue}" VerticalAlignment="Center"
                                        IsVisible="{Binding SelectedGroup, Converter={x:Static ObjectConverters.IsNotNull}}"/>
             </Grid>
