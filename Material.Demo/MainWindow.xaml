@@ -117,60 +117,63 @@
                     HorizontalContentAlignment="Stretch" 
                     HorizontalAlignment="Stretch"
                     HorizontalScrollBarVisibility="Disabled"> 
-        <Carousel x:Name="PageCarousel" 
-                  HorizontalAlignment="Stretch" >
-          <Carousel.Styles>
-            <Style Selector="Carousel#PageCarousel:not(.notransitions)">
-              <Setter Property="PageTransition">
-                <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut" SlideInEasing="CircularEaseOut"/>
-              </Setter>
-            </Style>
-          </Carousel.Styles>
-          <!-- Main page -->
-          <pages:Home/>
-          
-          <!-- Buttons -->
-          <pages:ButtonsDemo/>
-          
-          <!-- Toggles -->
-          <pages:TogglesDemo/>
-          
-          <!-- Fields -->
-          <pages:FieldsDemo/> 
+        <Border HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+          <Carousel x:Name="PageCarousel" 
+                    HorizontalAlignment="Stretch">
+            <Carousel.Styles>
+              <Style Selector="Carousel#PageCarousel:not(.notransitions)">
+                <Setter Property="PageTransition">
+                  <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut" SlideInEasing="CircularEaseOut"/>
+                </Setter>
+              </Style>
+            </Carousel.Styles>
+            <!-- Main page -->
+            <pages:Home/>
+                  
+            <!-- Buttons -->
+            <pages:ButtonsDemo/>
+                  
+            <!-- Toggles -->
+            <pages:TogglesDemo/>
+                  
+            <!-- Fields -->
+            <pages:FieldsDemo/> 
 
-          <!-- ComboBoxes -->
-          <pages:ComboBoxesDemo/>
-          
-          <!-- Icons -->
-          <pages:IconsDemo/>
-          
-          <!-- Sliders -->
-          <pages:SlidersDemo/>
- 
-          <!-- Progress indicators -->
-          <pages:ProgressIndicatorDemo/>
-          
-          <!-- Lists -->
-          <pages:ListsDemo/>
+            <!-- ComboBoxes -->
+            <pages:ComboBoxesDemo/>
+                  
+            <!-- Icons -->
+            <pages:IconsDemo/>
+                  
+            <!-- Sliders -->
+            <pages:SlidersDemo/>
+         
+            <!-- Progress indicators -->
+            <pages:ProgressIndicatorDemo/>
+                  
+            <!-- Lists -->
+            <pages:ListsDemo/>
 
-          <!-- Dialogs -->
-          <pages:DialogDemo/>
+            <!-- Dialogs -->
+            <pages:DialogDemo/>
 
-          <!-- ScrollViewer -->
-          <pages:ScrollViewerDemo/>
-          
-          <!-- TabControls -->
-          <pages:TabsDemo/>
+            <!-- ScrollViewer -->
+            <pages:ScrollViewerDemo/>
+                  
+            <!-- TabControls -->
+            <pages:TabsDemo/>
 
-          <!-- Card -->
-          <pages:CardsDemo/>
-          
-          <!-- Typography -->
-          <pages:TypographyDemo/>
-          
-          <!-- Shadows -->
-          <pages:NotReadyDemo/>
-        </Carousel>
+            <!-- Card -->
+            <pages:CardsDemo/>
+                  
+            <!-- Typography -->
+            <pages:TypographyDemo/>
+                  
+            <!-- Shadows -->
+            <pages:NotReadyDemo/>
+          </Carousel>
+        </Border>
       </ScrollViewer>
 
     </DockPanel>

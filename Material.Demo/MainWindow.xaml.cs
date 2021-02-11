@@ -51,6 +51,9 @@ namespace Material.Demo {
             { 
                 PageCarousel.SelectedIndex = listBox.SelectedIndex;
                 mainScroller.Offset = Vector.Zero;
+                mainScroller.VerticalScrollBarVisibility =
+                    listBox.SelectedIndex == 5 ? ScrollBarVisibility.Disabled : ScrollBarVisibility.Auto;
+                
             }
             catch
             {
