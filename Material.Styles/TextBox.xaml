@@ -406,13 +406,19 @@
     <Style Selector="TextBox.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
         <Setter Property="InnerRightContent">
             <Template>
-                <Panel Height="48" VerticalAlignment="Top">
-                    <Button Name="PART_ClearButton" 
-                            Classes="Icon" Command="{Binding $parent[TextBox].Clear}" Padding="6"
-                            Cursor="Arrow" Focusable="True" Width="{Binding Path=$self.Height}">
-                        <avalonia:MaterialIcon Kind="Close" Width="NaN" Height="NaN"/>
-                    </Button>
-                </Panel>
+                <Border Name="PART_AssistButtonsContainer" Height="48" VerticalAlignment="Top"/>
+            </Template>
+        </Setter>
+    </Style> 
+    
+    <Style Selector="TextBox.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty) Border#PART_AssistButtonsContainer">
+        <Setter Property="Child">
+            <Template>
+                <Button Name="PART_ClearButton" 
+                        Classes="Icon" Command="{Binding $parent[TextBox].Clear}" Padding="4"
+                        Cursor="Arrow" Focusable="True" Width="{Binding Path=$self.Height}">
+                    <avalonia:MaterialIcon Kind="Close" Width="NaN" Height="NaN"/>
+                </Button>
             </Template>
         </Setter>
     </Style>  
@@ -420,30 +426,25 @@
     <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
         <Setter Property="InnerRightContent">
             <Template>
-                <Panel Height="48" VerticalAlignment="Top">
-                    <Panel.Styles>
-                        <Style Selector="ToggleButton[IsChecked=True]">
+                <ToggleButton Name="PART_PasswordRevealToggle" Classes="Icon ConstantForeground" 
+                              Width="{Binding Path=$self.Height}" Cursor="Arrow" Focusable="True" Padding="4"
+                              IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
+                    <ToggleButton.Styles>
+                        <Style Selector="ToggleButton#PART_PasswordRevealToggle avalonia|MaterialIcon#PART_PackIconContent">
+                            <Setter Property="Kind" Value="EyeOutline" />
+                        </Style> 
+                        <Style Selector="ToggleButton#PART_PasswordRevealToggle:checked avalonia|MaterialIcon#PART_PackIconContent">
+                            <Setter Property="Kind" Value="EyeOffOutline" />
+                        </Style> 
+                        <Style Selector="ToggleButton#PART_PasswordRevealToggle[IsChecked=True]">
                             <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
                         </Style>
-                        <Style Selector="ToggleButton[IsChecked=False]">
+                        <Style Selector="ToggleButton#PART_PasswordRevealToggle[IsChecked=False]">
                             <Setter Property="(ToolTip.Tip)" Value="Show Password" />
                         </Style>
-                    </Panel.Styles>
-                    <ToggleButton Name="PART_PasswordRevealToggle" 
-                                  Classes="Icon TransparentBack" Width="{Binding Path=$self.Height}"
-                                  Cursor="Arrow" Focusable="True" Padding="6"
-                                  IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
-                        <ToggleButton.Styles>
-                            <Style Selector="ToggleButton#PART_PasswordRevealToggle avalonia|MaterialIcon#PART_PackIconContent">
-                                <Setter Property="Kind" Value="EyeOutline" />
-                            </Style> 
-                            <Style Selector="ToggleButton#PART_PasswordRevealToggle:checked avalonia|MaterialIcon#PART_PackIconContent">
-                                <Setter Property="Kind" Value="EyeOffOutline" />
-                            </Style> 
-                        </ToggleButton.Styles>
-                        <avalonia:MaterialIcon Name="PART_PackIconContent" Width="NaN" Height="NaN"/>
-                    </ToggleButton>
-                </Panel>
+                    </ToggleButton.Styles>
+                    <avalonia:MaterialIcon Name="PART_PackIconContent" Width="NaN" Height="NaN"/>
+                </ToggleButton>
             </Template>
         </Setter>
     </Style>
