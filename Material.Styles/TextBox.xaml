@@ -451,8 +451,7 @@
     <!-- Additional decorations for TextFields -->
     <!-- ReSharper disable InconsistentNaming -->
     
-    <Style Selector="TextBox.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty),
-    TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+    <Style Selector="TextBox.clearButton, TextBox.revealPasswordButton">
         <Setter Property="InnerRightContent">
             <Template>
                 <Border Name="PART_AssistButtonsContainer"/>
