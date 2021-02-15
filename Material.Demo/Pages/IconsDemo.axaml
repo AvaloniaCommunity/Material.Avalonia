@@ -81,10 +81,10 @@
         </StackPanel>
         
         <styles:ColorZone Grid.Row="2" Padding="8"  Mode="Standard" assists:ShadowAssist.ShadowDepth="Depth2">
-            <Grid Margin="8" ColumnDefinitions="*,Auto,*,Auto,Auto">
-                <styles:ColorZone Mode="Standard"
-                                    CornerRadius="2" 
-                                    ToolTip.Tip="Enter to search, ignore case">
+            <Grid Margin="8" ColumnDefinitions="*,Auto,*,16,Auto">
+                <styles:ColorZone Mode="Inverted"
+                                  CornerRadius="2" 
+                                  ToolTip.Tip="Enter to search, ignore case">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -95,44 +95,46 @@
                                  Text="{Binding SearchText}"
                                  Margin="0"/> 
                         <Button Grid.Column="1" Height="32" Width="32"
-                                x:Name="SearchButton"
-                                Classes="Flat" Foreground="{DynamicResource MaterialDesignBody}"
-                                Command="{Binding SearchCommand}"
+                                x:Name="SearchButton" Foreground="{DynamicResource MaterialDesignCardBackground}"
+                                Classes="Flat" Command="{Binding SearchCommand}"
                                 CommandParameter="{Binding ElementName=SearchBox, Path=Text}"
-                                Padding="0" VerticalAlignment="Center">
-                            <avalonia:MaterialIcon Kind="Magnify" Opacity=".56"/>
+                                Padding="0" assists:ButtonAssist.CornerRadius="0">
+                            <avalonia:MaterialIcon Kind="Magnify" Width="20" Height="20"/>
                         </Button>
                     </Grid>
                 </styles:ColorZone>
 
                 <TextBlock Grid.Column="1"
-                           Margin="8 0"
+                           Margin="16 0"
                            Classes="Subtitle1"
                            VerticalAlignment="Center"
                            Text="Usage:"/>
                 
-                <styles:ColorZone Grid.Column="2" Mode="Standard" CornerRadius="2" >
-                    <TextBox Margin="0"
-                             IsReadOnly="True"
-                             BorderThickness="0"
-                             GotFocus="TextBox_OnGotFocus"
-                             Text="{Binding SelectedGroup.KindToCopy, FallbackValue='&lt;avalonia:MaterialIcon Kind=&quot;&quot; \/>'}"/>
+                <styles:ColorZone Grid.Column="2" Mode="Inverted" CornerRadius="2" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions> 
+                        <TextBox Grid.Column="0" GotFocus="TextBox_OnGotFocus" IsReadOnly="True" Margin="0" BorderThickness="0"
+                                 Text="{Binding SelectedGroup.KindToCopy, FallbackValue='&lt;avalonia:MaterialIcon Kind=&quot;&quot; \/>'}"/>
+                        <Button Grid.Column="1" Height="32" Width="32" Foreground="{DynamicResource MaterialDesignCardBackground}"
+                                Classes="Flat" Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
+                                CommandParameter="{Binding SelectedGroup.Kind}"
+                                Padding="0" assists:ButtonAssist.CornerRadius="0">
+                            <avalonia:MaterialIcon Kind="ContentCopy" Width="20" Height="20"/>
+                        </Button>
+                    </Grid>
                 </styles:ColorZone> 
                 
-                <Button Grid.Column="3"
-                        Margin="8 0"
-                        Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-                        CommandParameter="{Binding SelectedGroup.Kind}">
-                    <StackPanel Orientation="Horizontal">
-                        <avalonia:MaterialIcon Kind="ContentCopy"/>
-                        <TextBlock Text="Copy To Clipboard"
-                                   Margin="8 0 0 0"/>
-                    </StackPanel>
-                </Button>
-                
-                <avalonia:MaterialIcon Grid.Column="4" Width="32" Height="32"
-                                       Kind="{Binding SelectedGroup.KindValue}" VerticalAlignment="Center"
-                                       IsVisible="{Binding SelectedGroup, Converter={x:Static ObjectConverters.IsNotNull}}"/>
+                <Grid Grid.Column="4" ColumnDefinitions="Auto,8,Auto" IsVisible="{Binding SelectedGroup, Converter={x:Static ObjectConverters.IsNotNull}}">
+                    <TextBlock Classes="Subtitle1"
+                               VerticalAlignment="Center"
+                               Text="Preview:"/>
+                    
+                    <avalonia:MaterialIcon Grid.Column="2" Width="32" Height="32"
+                                           Kind="{Binding SelectedGroup.KindValue}" VerticalAlignment="Center" />
+                </Grid>
             </Grid>
         </styles:ColorZone>
     </Grid>
