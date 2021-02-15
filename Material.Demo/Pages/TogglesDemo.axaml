@@ -91,6 +91,10 @@
         <Style Selector="RadioButton.Button.Accent">
           <Setter Property="ToolTip.Tip" Value='RadioButton with "Button" and "Accent" classes in StackPanel container with Card widget'/>
         </Style>
+        <Style Selector="avalonia|MaterialIcon">
+          <Setter Property="Width" Value="24"/>
+          <Setter Property="Height" Value="24"/>
+        </Style>
       </StackPanel.Styles>
       <StackPanel Orientation="Vertical">
         <styles:Card Padding="0" InsideClipping="True">
