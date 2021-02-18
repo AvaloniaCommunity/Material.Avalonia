@@ -37,8 +37,8 @@ namespace Material.Styles
         [DependsOn(nameof(LeftDrawerContentTemplate))]
         public object LeftDrawerContent
         {
-            get { return GetValue(LeftDrawerContentProperty); }
-            set { SetValue(LeftDrawerContentProperty, value); }
+            get => GetValue(LeftDrawerContentProperty);
+            set => SetValue(LeftDrawerContentProperty, value);
         }
 
         /// <summary>
@@ -46,14 +46,14 @@ namespace Material.Styles
         /// </summary>
         public IDataTemplate LeftDrawerContentTemplate
         {
-            get { return GetValue(LeftDrawerContentTemplateProperty); }
-            set { SetValue(LeftDrawerContentTemplateProperty, value); }
+            get => GetValue(LeftDrawerContentTemplateProperty);
+            set => SetValue(LeftDrawerContentTemplateProperty, value);
         }
 
         public bool LeftDrawerOpened
         {
-            get { return GetValue(LeftDrawerOpenedProperty); }
-            set { SetValue(LeftDrawerOpenedProperty, value); }
+            get => GetValue(LeftDrawerOpenedProperty);
+            set => SetValue(LeftDrawerOpenedProperty, value);
         }
 
         public double LeftDrawerWidth
@@ -108,7 +108,7 @@ namespace Material.Styles
             } 
 
             var value = (bool)e.NewValue; 
-            setPseudoClassesOpenState(value); 
+            SetPseudoClassesOpenState(value); 
         }
 
         private void LeftDrawerContentChanged(AvaloniaPropertyChangedEventArgs e)
@@ -129,7 +129,7 @@ namespace Material.Styles
             LeftDrawerOpened = false;
         }
 
-        private void setPseudoClassesOpenState(bool open)
+        private void SetPseudoClassesOpenState(bool open)
         {
             PseudoClasses.Add(open ? ":open" : ":closed");
             PseudoClasses.Remove(!open ? ":open" : ":closed");
