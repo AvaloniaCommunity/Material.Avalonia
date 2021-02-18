@@ -151,7 +151,7 @@
       <ControlTemplate>
         <StackPanel>
           <ToggleButton Classes="NoFeedback TransparentBack" 
-                        MinHeight="48"
+                        MinHeight="48" BorderThickness="0"
                         HorizontalContentAlignment="Stretch"
                         IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
                         Margin="0"
