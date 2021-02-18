@@ -89,10 +89,8 @@
           </ToggleButton>
           <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
                      Text="Material.Avalonia Demo" VerticalAlignment="Center"/>
-
-          
           <Menu Grid.Column="4" Height="32" Padding="0" Margin="0">
-            <MenuItem Header="{avalonia:MaterialIconExt DotsVertical}">
+            <MenuItem Height="32" Width="32" Header="{avalonia:MaterialIconExt DotsVertical, Size=24}">
               <MenuItem Header="Hello!">
                 <MenuItem.Icon>
                   <avalonia:MaterialIcon Kind="Hand" Width="24" Height="24"/>
