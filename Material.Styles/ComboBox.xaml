@@ -150,7 +150,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <StackPanel>
-          <ToggleButton Classes="NoFeedback" 
+          <ToggleButton Classes="NoFeedback TransparentBack" 
                         MinHeight="48"
                         HorizontalContentAlignment="Stretch"
                         IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
@@ -190,6 +190,7 @@
                 </TextBlock>
                 <Grid ColumnDefinitions="*,Auto">
                   <ContentPresenter x:Name="contentPresenter"
+                                    BorderThickness="0" BorderBrush="Transparent"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding SelectionBoxItem}"
