@@ -4,12 +4,14 @@
         xmlns:main="clr-namespace:Material.Dialog"
         xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         x:Class="Material.Dialog.Views.TimePickerDialog"
         SizeToContent="WidthAndHeight"
         Title="{Binding WindowTitle}"
         CanResize="False"
         WindowStartupLocation="{Binding WindowStartupLocation}"
-        HorizontalContentAlignment="Stretch">
+        HorizontalContentAlignment="Stretch"
+        x:DataType="viewModels:TimePickerDialogViewModel">
     <Window.Styles>
         <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.xaml"/>
         <Style Selector="Window[SystemDecorations=None]">
@@ -51,13 +53,13 @@
                             <Setter Property="Margin" Value="0"/>
                         </Style>
                     </StackPanel.Styles>
-                    <RadioButton GroupName="1" Classes="Button Main" IsChecked="true">
-                        <TextBlock Text="23" Classes="Headline2" FontWeight="Regular"/>
+                    <RadioButton GroupName="1" Classes="Button Main" IsChecked="{CompiledBinding FirstFieldSelected, Mode=TwoWay}">
+                        <TextBlock Text="{CompiledBinding FirstField}" Classes="Headline2" FontWeight="Regular"/>
                     </RadioButton>
                     <TextBlock Classes="Headline3" Text=":" FontWeight="Regular" VerticalAlignment="Bottom"
                                Foreground="{DynamicResource MaterialDesignCardBackground}"/>
-                    <RadioButton GroupName="1" Classes="Button Main">
-                        <TextBlock Text="23" Classes="Headline2" FontWeight="Regular"/>
+                    <RadioButton GroupName="1" Classes="Button Main" IsChecked="{CompiledBinding SecondFieldSelected, Mode=TwoWay}">
+                        <TextBlock Text="{CompiledBinding SecondField}" Classes="Headline2" FontWeight="Regular"/>
                     </RadioButton>
                     <StackPanel VerticalAlignment="Bottom" Margin="8,4,0,4">
                         <RadioButton GroupName="2" Classes="Button Alter" IsChecked="true">
@@ -70,7 +72,7 @@
                 </StackPanel>
             </material:ColorZone>
             <Grid Grid.Row="1" Margin="24">
-                <Carousel>
+                <Carousel Name="PART_PagesRoot" SelectedIndex="{CompiledBinding CarouselIndex}">
                     <Carousel.Styles>
                         <Style Selector="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -82,17 +84,42 @@
                             <Setter Property="Width" Value="32"/>
                             <Setter Property="Height" Value="32"/>
                         </Style>
+                        <Style Selector="Border.CallerCell">
+                            <Setter Property="CornerRadius" Value="32"/>
+                            <Setter Property="ClipToBounds" Value="True"/> 
+                        </Style>
+                        
+                        <Style Selector="Border.CallerCell Border#PointerEnterFeedback">
+                            <Setter Property="Opacity" Value="0"/>
+                            <Setter Property="Background" Value="{Binding ElementName=PART_HeaderZone, 
+                                    Path=Background}"></Setter>
+                        </Style>
+                        <Style Selector="Border.CallerCell:pointerover Border#PointerEnterFeedback">
+                            <Setter Property="Opacity" Value="0.15"/> 
+                        </Style>
                     </Carousel.Styles>
                     <Viewbox HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch">
-                        <Grid>
+                        <Grid Name="CallerPanel1">
                             <Ellipse Width="256" Height="256"
                                      Fill="{DynamicResource MaterialDesignDivider}"/>
                             
                             <Ellipse Width="6" Height="6" HorizontalAlignment="Center" VerticalAlignment="Center"
                                      Fill="{Binding ElementName=PART_HeaderZone, Path=Background}"/>
                             
-                            <Grid Name="PART_Pointer" Width="0" Height="0" RenderTransform="rotate(30deg)">
+                            <Grid Name="PART_Pointer" Width="0" Height="0">
+                                <Grid.Styles>
+                                    <Style Selector="Grid#PART_Pointer:not(.notransitions)">
+                                        <Setter Property="Transitions">
+                                            <Transitions>
+                                                <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
+                                            </Transitions>
+                                        </Setter>
+                                    </Style>
+                                </Grid.Styles>
+                                <Grid.RenderTransform>
+                                    <RotateTransform Angle="{CompiledBinding FirstPanelPointerAngle}"/>
+                                </Grid.RenderTransform>
                                 <Grid Height="109" Width="4" RowDefinitions="0,109" VerticalAlignment="Bottom">
                                     <Border Grid.Row="1" Background="{Binding ElementName=PART_HeaderZone, 
                                         Path=Background}"/>
@@ -100,16 +127,38 @@
                                         Path=Background}"/>
                                 </Grid>
                             </Grid>
-                                        
-                            <Border Classes="CallerCell" RenderTransform="translate(0px,-109px)">
-                                <TextBlock Text="12"/>
-                            </Border>
-                            <Border Classes="CallerCell" RenderTransform="translate(55px,-94.4px)">
-                                <TextBlock Text="1"/>
-                            </Border>
-                            <Border Classes="CallerCell" RenderTransform="translate(94.4px,-54.5px)">
-                                <TextBlock Text="2"/>
-                            </Border>
+                        </Grid>
+                    </Viewbox>
+                    
+                    <Viewbox HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch">
+                        <Grid Name="CallerPanel2">
+                            <Ellipse Width="256" Height="256"
+                                     Fill="{DynamicResource MaterialDesignDivider}"/>
+                            
+                            <Ellipse Width="6" Height="6" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                     Fill="{Binding ElementName=PART_HeaderZone, Path=Background}"/>
+                            
+                            <Grid Name="PART_Pointer1" Width="0" Height="0">
+                                <Grid.Styles>
+                                    <Style Selector="Grid#PART_Pointer1:not(.notransitions)">
+                                        <Setter Property="Transitions">
+                                            <Transitions>
+                                                <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
+                                            </Transitions>
+                                        </Setter>
+                                    </Style>
+                                </Grid.Styles>
+                                <Grid.RenderTransform>
+                                    <RotateTransform Angle="{CompiledBinding SecondPanelPointerAngle}"/>
+                                </Grid.RenderTransform>
+                                <Grid Height="109" Width="4" RowDefinitions="0,109" VerticalAlignment="Bottom">
+                                    <Border Grid.Row="1" Background="{Binding ElementName=PART_HeaderZone, 
+                                        Path=Background}"/>
+                                    <Ellipse Classes="CallerCell" Fill="{Binding ElementName=PART_HeaderZone, 
+                                        Path=Background}"/>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Viewbox>
                 </Carousel>
