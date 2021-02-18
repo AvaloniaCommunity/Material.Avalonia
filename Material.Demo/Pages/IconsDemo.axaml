@@ -75,10 +75,12 @@
             </ScrollViewer>
         </Panel>
         
-        <StackPanel>
-            <TextBlock Margin="16 8" Classes="Headline4 Subheadline" Text="Material Icons" />
-            <TextBlock Margin="16 8" Classes="Headline6 Subheadline" Text="Material.Avalonia includes the Material.Icons and Material.Icons.Avalonia" />
-        </StackPanel>
+        <styles:ColorZone Mode="Standard" Padding="8" assists:ShadowAssist.ShadowDepth="Depth2">
+            <StackPanel Margin="16,8,16,0"> 
+                <TextBlock Classes="Headline4" Text="Material Icons" />
+                <TextBlock Classes="Subtitle1 Subheadline" TextWrapping="Wrap" Text="Material.Avalonia using Material.Icons.Avalonia and Material.Icons packages to provide icons for Material design. You can always use them freely in your application with Material.Avalonia!" />
+            </StackPanel>
+        </styles:ColorZone>
         
         <styles:ColorZone Grid.Row="2" Padding="8"  Mode="Standard" assists:ShadowAssist.ShadowDepth="Depth2">
             <Grid Margin="8" ColumnDefinitions="*,Auto,*,16,Auto">
