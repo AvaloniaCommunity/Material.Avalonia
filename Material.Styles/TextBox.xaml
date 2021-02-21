@@ -535,6 +535,59 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
     
+    <!-- Solo field -->
+
+    <Style Selector="TextBox.Solo">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0" /> 
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_RootBorder" Cursor="Ibeam"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        CornerRadius="{TemplateBinding wpf:TextFieldAssist.CornerRadius}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="{TemplateBinding Padding}">
+                        <DataValidationErrors Name="DataValidation">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <ContentPresenter Grid.Column="0"
+                                                  HorizontalAlignment="Left"
+                                                  Content="{TemplateBinding InnerLeftContent}" />
+                                <Grid Grid.Column="1" Margin="8">
+                                    <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                    <Panel Name="PART_TextRoot" VerticalAlignment="Center">
+                                        <TextBlock Name="watermark" Classes="Subtitle1" Opacity="0.5"
+                                                   Text="{TemplateBinding Watermark}"
+                                                   FontFamily="{TemplateBinding FontFamily}"
+                                                   TextAlignment="{TemplateBinding TextAlignment}"
+                                                   TextWrapping="{TemplateBinding TextWrapping}" />
+                                        <TextPresenter Name="PART_TextPresenter" FontSize="16"
+                                                       Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                       CaretIndex="{TemplateBinding CaretIndex}"
+                                                       SelectionStart="{TemplateBinding SelectionStart}"
+                                                       SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                                       TextWrapping="{TemplateBinding TextWrapping}"
+                                                       PasswordChar="{TemplateBinding PasswordChar}"
+                                                       RevealPassword="{TemplateBinding RevealPassword}"
+                                                       SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                       CaretBrush="{TemplateBinding CaretBrush}" />
+                                    </Panel>
+                                </ScrollViewer>
+                                </Grid>
+                                <ContentPresenter Grid.Column="2"
+                                                  HorizontalAlignment="Right"
+                                                  Content="{TemplateBinding InnerRightContent}" />
+                            </Grid>
+                        </DataValidationErrors>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
     <!-- ReSharper restore InconsistentNaming -->
 
     <Design.PreviewWith>
