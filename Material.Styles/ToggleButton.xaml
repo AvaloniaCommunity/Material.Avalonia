@@ -11,9 +11,8 @@
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="16 4 16 4" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="16 4 16 4" /> 
         <Setter Property="Cursor" Value="Hand" />
     </Style>
     
