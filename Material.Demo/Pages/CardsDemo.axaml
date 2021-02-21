@@ -39,13 +39,13 @@
             </TextBlock>
           </StackPanel>
           <StackPanel Orientation="Horizontal">
-            <Button Classes="Flat" Content="BUTTON 1" Padding="8,4"/>
-            <Border Width="4"/>
-            <Button Classes="Flat" Content="BUTTON 2" Padding="8,4"/>
+            <Button Classes="Flat" Content="BUTTON 1"/>
+            <Border Width="8"/>
+            <Button Classes="Flat" Content="BUTTON 2"/>
           </StackPanel>
         </StackPanel>
       </styles:Card>
-      <styles:Card Width="240" Padding="0"  VerticalAlignment="Top">
+      <styles:Card Width="240" Padding="0" VerticalAlignment="Top">
         <StackPanel>
           <Image Source="avares://Material.Demo/Assets/johannes-plenio-RwHv7LgeC7s-unsplash.jpg"/>
           <StackPanel Margin="16">

@@ -5,6 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              x:Class="Material.Demo.Pages.FieldsDemo">
   <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
     <TextBlock Classes="Headline4 Subheadline" Text="Classic fields"/>
@@ -150,6 +151,59 @@
  Not long. Lorem ipsum dolor sit amet, consectetur adipiscing 
  elit, sed do eiusmod tempor incididunt ut labore et dolore magna
  aliqua."/>
+        </StackPanel>
+      </StackPanel>
+    </WrapPanel>
+    
+    <WrapPanel  HorizontalAlignment="Stretch">
+      <StackPanel Orientation="Horizontal">
+        <StackPanel.Styles>
+          <Style Selector="TextBox">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Width" Value="300"/>
+          </Style>
+        </StackPanel.Styles>
+        <StackPanel Orientation="Vertical">
+          <TextBlock Classes="Headline6 Subheadline2" Text="Solo fields"/>
+
+          
+          <styles:Card Padding="0" Margin="8">
+            <TextBox Classes="Solo" Watermark="Solo field with Card">
+              <TextBox.InnerRightContent>
+                <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{avalonia:MaterialIconExt Search, Size=24}"/>
+              </TextBox.InnerRightContent>
+            </TextBox>
+          </styles:Card>
+          
+          <styles:ColorZone Padding="0" Margin="8">
+            <TextBox Classes="Solo" Watermark="or with ColorZone">
+              <TextBox.InnerRightContent>
+                <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{avalonia:MaterialIconExt Search, Size=24}"/>
+              </TextBox.InnerRightContent>
+            </TextBox>
+          </styles:ColorZone>
+          
+          <styles:ColorZone Padding="0" Margin="8">
+            <TextBox Watermark="Search field" Classes="Solo"
+                     Text="{Binding SearchText}" Margin="0">
+              <TextBox.InnerRightContent>
+                <Button Width="{Binding $self.Bounds.Height}" Classes="Flat"
+                        Foreground="{DynamicResource MaterialDesignCardBackground}">
+                  <avalonia:MaterialIcon Kind="Magnify" Width="20" Height="20"/>
+                </Button>
+              </TextBox.InnerRightContent>
+            </TextBox>
+          </styles:ColorZone>
+          <TextBox BorderBrush="Black" BorderThickness="1" Classes="Solo" Watermark="Search field"
+                   wpf:TextFieldAssist.CornerRadius="32" Margin="8">
+            <TextBox.InnerLeftContent>
+              <Border Height="{Binding $parent[TextBox].Height}" Width="{Binding $self.Bounds.Height}">
+                <avalonia:MaterialIcon HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Kind="Magnify" Width="20" Height="20"/>
+              </Border>
+            </TextBox.InnerLeftContent>
+          </TextBox>
+          <TextBox BorderBrush="Black" Margin="8" BorderThickness="1" Classes="Solo" Watermark="No container but use border instead"/>
         </StackPanel>
       </StackPanel>
     </WrapPanel>
