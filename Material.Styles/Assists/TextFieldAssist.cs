@@ -39,5 +39,21 @@ namespace Material.Styles.Assists {
         {
             return (SolidColorBrush)element.GetValue(ErrorColorProperty);
         }
+        
+        private static readonly CornerRadius DefaultCornerRadius = new CornerRadius(0);
+        
+        /// <summary>
+        ///     Controls the corner radius of the surrounding box.
+        /// </summary>
+        public static readonly AvaloniaProperty<CornerRadius> CornerRadiusProperty = AvaloniaProperty.RegisterAttached<TextBox, CornerRadius>(
+            "CornerRadius", typeof(TextFieldAssist), DefaultCornerRadius, true);
+
+        public static CornerRadius GetCornerRadius(AvaloniaObject element) {
+            return (CornerRadius) element.GetValue(CornerRadiusProperty);
+        }
+
+        public static void SetCornerRadius(AvaloniaObject element, CornerRadius value) {
+            element.SetValue(CornerRadiusProperty, value);
+        }
     }
 }
