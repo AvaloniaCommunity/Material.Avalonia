@@ -38,7 +38,7 @@
     <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="SeparatorBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+    <Setter Property="SeparatorBrush" Value="{DynamicResource MaterialDesignColumnHeader}" />
     <Setter Property="Padding" Value="16,0" />
     <Setter Property="Background" Value="Transparent"/>
 
@@ -214,9 +214,9 @@
     <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
     <Setter Property="SelectionMode" Value="Extended" />
     <Setter Property="GridLinesVisibility" Value="Horizontal"/>
-    <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
-    <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource ThemeBorderHighColor}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}"/>
+    <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MaterialDesignColumnHeader}" />
+    <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource MaterialDesignColumnHeader}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignColumnHeader}"/>
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="DropLocationIndicatorTemplate">
       <Template>
