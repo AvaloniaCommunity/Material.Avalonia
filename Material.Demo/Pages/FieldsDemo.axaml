@@ -194,7 +194,7 @@
               </TextBox.InnerRightContent>
             </TextBox>
           </styles:ColorZone>
-          <TextBox BorderBrush="Black" BorderThickness="1" Classes="Solo" Watermark="Search field"
+          <TextBox BorderBrush="{Binding $self.Foreground}" BorderThickness="1" Classes="Solo" Watermark="Search field"
                    wpf:TextFieldAssist.CornerRadius="32" Margin="8">
             <TextBox.InnerLeftContent>
               <Border Height="{Binding $parent[TextBox].Height}" Width="{Binding $self.Bounds.Height}">
