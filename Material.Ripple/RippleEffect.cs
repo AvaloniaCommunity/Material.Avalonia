@@ -1,71 +1,79 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Shapes;
 using Avalonia.Input;
+using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Styling;
+using Avalonia.Threading;
 
 namespace Material.Ripple {
-    public class RippleEffect : ContentControl {
-        private Ellipse _circle;
-        private IAnimationSetter _fromMargin;
-        private bool _isRunning;
-        private Animation _ripple;
-        private IAnimationSetter _toMargin;
-        private IAnimationSetter _toWidth;
+    public class RippleEffect : ContentControl
+    {
+        private Canvas PART_RippleCanvasRoot;
 
-        public RippleEffect() {
+        private Ripple last;
+        private short pointers;
+
+        public RippleEffect()
+        {
             AddHandler(PointerReleasedEvent, (s, e) => {
-                if (Classes.Contains("notransitions"))
-                    NoTransitionsReleased();
+                if (last != null)
+                {
+                    pointers--;
+                    
+                    // This way to handle pointer released is pretty tricky
+                    // could have more better way to improve
+                    OnReleaseHandler(last, e);
+                    last = null;
+                }
             });
             AddHandler(PointerPressedEvent, async (s, e) => {
-                if (_isRunning) return;
-                if (Classes.Contains("notransitions"))
+                if (pointers == 0)
                 {
-                    NoTransitionsPressed(e);
-                    return;
+                    // Only first pointer can arrive a ripple
+                    pointers++;
+                    var r = CreateRipple();
+                    last = r;
+                    r.SetupInitialValues(e, this);
+                    
+                    // Attach ripple instance to canvas
+                    PART_RippleCanvasRoot.Children.Add(r);
+                    r.RunFirstStep(e, this);
                 }
-                var pointer = e.GetPosition(this);
-                _isRunning = true;
-                var maxWidth = Math.Max(Bounds.Width, Bounds.Height) * 2.2D;
-                _toWidth.Value = maxWidth;
-                _fromMargin.Value = _circle.Margin = new Thickness(pointer.X, pointer.Y, 0, 0);
-                _toMargin.Value = new Thickness(pointer.X - maxWidth / 2, pointer.Y - maxWidth / 2, 0, 0);
-                _circle.Opacity = 0;
-                await _ripple.RunAsync(_circle);
-                _circle.Opacity = 0;
-                _isRunning = false;
             });
         }
-        
-        private void NoTransitionsReleased()
-        {
-            _circle.Opacity = 0;
-            _circle.Width = 0;
-        }
-        private void NoTransitionsPressed(PointerPressedEventArgs e)
-        {
-            var pointer = e.GetPosition(this);
-            _circle.Opacity = 1;
-            _circle.Width = Math.Max(Bounds.Width, Bounds.Height) * 2.2D;
-            _circle.Margin = new Thickness(pointer.X - _circle.Width / 2, pointer.Y - _circle.Width / 2, 0, 0);
-        }
 
+        private void OnReleaseHandler(object sender, PointerReleasedEventArgs e)
+        {
+            var r = sender as Ripple;
+            
+            // Fade out ripple
+            r.RunSecondStep(e);
+            
+            // Remove ripple from canvas to finalize ripple instance
+            Task.Delay(Ripple.Duration).ContinueWith((a, b) =>
+            {
+                Dispatcher.UIThread.InvokeAsync(() => PART_RippleCanvasRoot.Children.Remove(r));
+            }, null);
+        }
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
             base.OnApplyTemplate(e);
-            _circle = e.NameScope.Find<Ellipse>("Circle");
 
-            var style = _circle.Styles[0] as Style;
-            _ripple = style.Animations[0] as Animation;
-            _toWidth = _ripple.Children[2].Setters[1];
-            _fromMargin = _ripple.Children[0].Setters[0];
-            _toMargin = _ripple.Children[2].Setters[0];
+            // Find canvas host
+            PART_RippleCanvasRoot = e.NameScope.Find<Canvas>(nameof(PART_RippleCanvasRoot));
+        }
 
-            style.Animations.Remove(_ripple);
+        private Ripple CreateRipple()
+        {
+            return new Ripple(Bounds.Width, Bounds.Height)
+            {
+                Fill = RippleFill
+            };
         }
 
         #region Styled properties

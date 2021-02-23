@@ -5,45 +5,30 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid ClipToBounds="True">
-                    <Rectangle Fill="Red" Opacity="0"  ClipToBounds="True"/> 
+                    <Rectangle Fill="Red" Opacity="0" ClipToBounds="True"/> 
                     <ContentPresenter Name="Content"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}" />
-                    <Canvas HorizontalAlignment="Stretch"
+                    <Canvas Name="PART_RippleCanvasRoot"
+                            HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
-                            Opacity="{TemplateBinding RippleOpacity}">
-                        <Ellipse Name="Circle"
-                                 Width="0"
-                                 Height="{Binding #Circle.Width}"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Top"
-                                 Fill="{TemplateBinding RippleFill}" >
-                            <Ellipse.Styles>
-                                <Style Selector="Ellipse#Circle:not(.notransitions)">
-                                    <Style.Animations>
-                                        <Animation Duration="0:0:0.5" Easing="CubicEaseOut">
-                                          <KeyFrame Cue="0%">
-                                            <Setter Property="Margin" Value="0" />
-                                            <Setter Property="Width" Value="0" />
-                                            <Setter Property="Opacity" Value="1"/>
-                                          </KeyFrame>
-                                          <KeyFrame Cue="65%"> 
-                                            <Setter Property="Opacity" Value="1"/>
-                                          </KeyFrame>
-                                          <KeyFrame Cue="100%">
-                                            <Setter Property="Margin" Value="0" />
-                                            <Setter Property="Width" Value="0" />
-                                            <Setter Property="Opacity" Value="0"/>
-                                          </KeyFrame>
-                                        </Animation>
-                                    </Style.Animations>
-                                </Style>
-                            </Ellipse.Styles>
-                        </Ellipse>
-                    </Canvas>
+                            Opacity="{TemplateBinding RippleOpacity}"/>
                 </Grid>
             </ControlTemplate>
         </Setter>
     </Style> 
+    
+    <!-- Transitions -->
+    
+    <Style Selector="cc|RippleEffect:not(.notransitions) /template/ Canvas#PART_RippleCanvasRoot cc|Ripple">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Property="Margin" Duration="{x:Static cc:Ripple.Duration}" Easing="CircularEaseOut"/>
+                <DoubleTransition Property="Width" Duration="{x:Static cc:Ripple.Duration}" Easing="CircularEaseOut"/>
+                <DoubleTransition Property="Height" Duration="{x:Static cc:Ripple.Duration}" Easing="CircularEaseOut"/>
+                <DoubleTransition Property="Opacity" Duration="{x:Static cc:Ripple.Duration}" Easing="CircularEaseOut"/>
+            </Transitions>
+        </Setter>
+    </Style>
 </Styles>
