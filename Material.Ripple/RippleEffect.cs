@@ -18,7 +18,7 @@ namespace Material.Ripple {
         private IAnimationSetter _toWidth;
 
         public RippleEffect() {
-            AddHandler(PointerReleasedEvent, async (s, e) => {
+            AddHandler(PointerReleasedEvent, (s, e) => {
                 if (Classes.Contains("notransitions"))
                     NoTransitionsReleased();
             });
