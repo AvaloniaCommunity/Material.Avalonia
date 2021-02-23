@@ -5,59 +5,59 @@
         xmlns:cc="clr-namespace:Material.Styles"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
         xmlns:converters="clr-namespace:Material.Styles.Converters">
-    <Style Selector="cc|FloatingButton">
-        <Style.Resources>
-            <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
-        </Style.Resources>  
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Padding" Value="16" />
-        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
-        <Setter Property="TextBlock.FontWeight" Value="Medium" />
-        <Setter Property="TextBlock.FontSize" Value="14" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="ClipToBounds" Value="False" /> 
-        <Setter Property="Template">
-          <ControlTemplate>
-            <Grid Name="TemplateRoot"> 
-              <AdornerLayer>
-                <Grid HorizontalAlignment="Stretch" 
-                      VerticalAlignment="Stretch" >
-                  <Border Name="Thumb" CornerRadius="28"
-                          Background="{TemplateBinding Background}"
-                          assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
-                  <Border x:Name="MouseOverBorder" CornerRadius="28"
-                          IsHitTestVisible="False"
-                          Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
-                </Grid>
-              </AdornerLayer>
-              <Border Name="ContentBorder" CornerRadius="28" 
-                      ClipToBounds="True"
-                      MinHeight="{TemplateBinding MinHeight}" 
-                      MinWidth="{TemplateBinding MinWidth}"
-                      HorizontalAlignment="Stretch" 
-                      VerticalAlignment="Stretch">
-                  <ripple:RippleEffect ClipToBounds="True"
-                                       RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      Content="{TemplateBinding Content}"
-                                      Padding="{TemplateBinding Padding}"
-                                      TextBlock.Foreground="{TemplateBinding Foreground}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                  </ripple:RippleEffect>
-              </Border>
+  <Style Selector="cc|FloatingButton">
+    <Style.Resources>
+      <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
+    </Style.Resources>  
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Padding" Value="16" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+    <Setter Property="TextBlock.FontWeight" Value="Medium" />
+    <Setter Property="TextBlock.FontSize" Value="14" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid Name="TemplateRoot">
+          <AdornerLayer>
+            <Grid HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+              <Border Name="Thumb" CornerRadius="28"
+                      Background="{TemplateBinding Background}"
+                      assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
+              <Border Name="MouseOverBorder" CornerRadius="28"
+                      IsHitTestVisible="False"
+                      Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
             </Grid>
-          </ControlTemplate>
-        </Setter>
-    </Style>
+          </AdornerLayer>
+          <Border Name="ContentBorder" CornerRadius="28"
+                  ClipToBounds="True"
+                  MinHeight="{TemplateBinding MinHeight}"
+                  MinWidth="{TemplateBinding MinWidth}"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+            <ripple:RippleEffect ClipToBounds="True"
+                                 RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                Padding="{TemplateBinding Padding}"
+                                TextBlock.Foreground="{TemplateBinding Foreground}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ripple:RippleEffect>
+          </Border>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
 
   <!-- Transitions -->
   

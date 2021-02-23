@@ -9,10 +9,9 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Grid>
-          <Border x:Name="PointerOverBorder"
+          <Border Name="PointerOverBorder"
                   Opacity="0"
-                  Background="{TemplateBinding Foreground}" 
-                  />   
+                  Background="{TemplateBinding Foreground}" />
           <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
             <ContentPresenter Name="PART_ContentPresenter"
                               Background="{TemplateBinding Background}"

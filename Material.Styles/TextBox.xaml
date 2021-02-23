@@ -14,27 +14,27 @@
         <StreamGeometry x:Key="MaterialContentPaste" >M19 20H5V4H7V7H17V4H19M12 2A1 1 0 0 1 13 3A1 1 0 0 1 12 4A1 1 0 0 1 11 3A1 1 0 0 1 12 2M19 2H14.82C14.4 0.84 13.3 0 12 0C10.7 0 9.6 0.84 9.18 2H5A2 2 0 0 0 3 4V20A2 2 0 0 0 5 22H19A2 2 0 0 0 21 20V4A2 2 0 0 0 19 2Z</StreamGeometry>
         <StreamGeometry x:Key="MaterialSelectAll">M9 9H15V15H9M7 17H17V7H7M15 5H17V3H15M15 21H17V19H15M19 17H21V15H19M19 9H21V7H19M19 21A2 2 0 0 0 21 19H19M19 13H21V11H19M11 21H13V19H11M9 3H7V5H9M3 17H5V15H3M5 21V19H3A2 2 0 0 0 5 21M19 3V5H21A2 2 0 0 0 19 3M13 3H11V5H13M3 9H5V7H3M7 21H9V19H7M3 13H5V11H3M3 5H5V3A2 2 0 0 0 3 5Z</StreamGeometry>
         
-        <ContextMenu x:Key="DefaultTextBoxContextMenu" x:Name="TextBoxContextMenu" WindowManagerAddShadowHint="False">
-          <MenuItem x:Name="TextBoxContextMenuCutItem" Header="Cut" Command="{Binding $parent[TextBox].Cut}"
+        <ContextMenu x:Key="DefaultTextBoxContextMenu" Name="TextBoxContextMenu" WindowManagerAddShadowHint="False">
+          <MenuItem Name="TextBoxContextMenuCutItem" Header="Cut" Command="{Binding $parent[TextBox].Cut}"
                     IsEnabled="{Binding $parent[TextBox].CanCut}" InputGesture="{x:Static TextBox.CutGesture}" >
             <MenuItem.Icon>
               <Path Data="{StaticResource MaterialContentCut}" Fill="{DynamicResource MaterialDesignBody}"/>
             </MenuItem.Icon>
           </MenuItem>
-          <MenuItem x:Name="TextBoxContextMenuCopyItem" Header="Copy" Command="{Binding $parent[TextBox].Copy}"
+          <MenuItem Name="TextBoxContextMenuCopyItem" Header="Copy" Command="{Binding $parent[TextBox].Copy}"
                     IsEnabled="{Binding $parent[TextBox].CanCopy}" InputGesture="{x:Static TextBox.CopyGesture}" >
             <MenuItem.Icon>
               <Path Data="{StaticResource MaterialContentCopy}" Fill="{DynamicResource MaterialDesignBody}"/>
             </MenuItem.Icon>
           </MenuItem>
-          <MenuItem x:Name="TextBoxContextMenuPasteItem" Header="Paste" Command="{Binding $parent[TextBox].Paste}"
+          <MenuItem Name="TextBoxContextMenuPasteItem" Header="Paste" Command="{Binding $parent[TextBox].Paste}"
                     IsEnabled="{Binding $parent[TextBox].CanPaste}" InputGesture="{x:Static TextBox.PasteGesture}" >
             <MenuItem.Icon>
               <Path Data="{StaticResource MaterialContentPaste}" Fill="{DynamicResource MaterialDesignBody}"/>
             </MenuItem.Icon>
           </MenuItem>
           <Separator/>
-          <MenuItem x:Name="TextBoxContextMenuSelectAllItem" Header="Select All" Command="{Binding $parent[TextBox].SelectAll}">
+          <MenuItem Name="TextBoxContextMenuSelectAllItem" Header="Select All" Command="{Binding $parent[TextBox].SelectAll}">
             <MenuItem.Icon>
               <Path Data="{StaticResource MaterialSelectAll}" Fill="{DynamicResource MaterialDesignBody}"/>
             </MenuItem.Icon>
@@ -187,8 +187,6 @@
         </Setter>
     </Style>
 
-
-
     <!-- Filled textfield -->
     
     <Style Selector="TextBox.Filled">
@@ -208,7 +206,7 @@
                           BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Border Name="focusBorder" 
-                                Background="{TemplateBinding Background}" />
+                                Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}"/>
                         <TextBlock Name="floatingWatermark" VerticalAlignment="Top"
                                    IsVisible="{TemplateBinding UseFloatingWatermark}"
                                    HorizontalAlignment="Stretch" Classes="Subtitle1" 
@@ -281,7 +279,7 @@
     </Style>
     
     <Style Selector="TextBox.Filled:focus-within /template/ Border#focusBorder">  
-        <Setter Property="Opacity" Value="0.35"/>
+        <Setter Property="Opacity" Value="1"/>
     </Style>
     
     <!-- Default filled text field -->
@@ -299,7 +297,11 @@
     </Style>
     
     <Style Selector="TextBox.Filled:disabled /template/ Border#PART_RootBorder">
-      <Setter Property="Opacity" Value="0.34" />
+      <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxDisabledBackground}" />
+    </Style>
+    
+    <Style Selector="TextBox.Filled:focus-within /template/ Border#focusBorder">  
+        <Setter Property="Opacity" Value="0"/>
     </Style>
     
     <!-- Filled dense text field -->
@@ -445,8 +447,6 @@
         <Setter Property="Margin" Value="0, 8"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
-    
-    
   
     <!-- Additional decorations for TextFields -->
     <!-- ReSharper disable InconsistentNaming -->

@@ -13,7 +13,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid x:Name="templateRoot" Background="Transparent"
+                    <Grid Name="templateRoot" Background="Transparent"
                           ClipToBounds="False">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -26,26 +26,24 @@
     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
     ClipToBounds="False">
                             <Grid>
-                              <Path x:Name="Graphic" Width="24" Height="24" Margin="0"/>
+                              <Path Name="Graphic" Width="24" Height="24" Margin="0"/>
 
-                              <Ellipse x:Name="InteractionEllipse"
+                              <Ellipse Name="InteractionEllipse"
                                        Fill="{TemplateBinding Background}"
                                        VerticalAlignment="Center" HorizontalAlignment="Center"
                                        Width="0" Height="0" Margin="-100"
                                        ClipToBounds="False"
-                                       IsHitTestVisible="False">
-                              </Ellipse>
-                              <Ellipse x:Name="pointerOverEllipse"
+                                       IsHitTestVisible="False"/>
+                              <Ellipse Name="pointerOverEllipse"
                                        Fill="{TemplateBinding Background}"
                                        VerticalAlignment="Center" HorizontalAlignment="Center"
                                        Width="42" Height="42" Margin="-100"
                                        ClipToBounds="False"
-                                       IsHitTestVisible="False">
-                              </Ellipse>
+                                       IsHitTestVisible="False"/>
                             </Grid>
                           </Viewbox>  
                         </Grid>
-                        <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False"
+                        <ContentPresenter Name="contentPresenter" Grid.Column="1" Focusable="False"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           Margin="{TemplateBinding Padding}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"

@@ -7,9 +7,9 @@
     <Styles.Resources>
       <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter"/>
     </Styles.Resources>
-  
+
     <Style Selector="MenuItem">
-        <Setter Property="Height" Value="48"/>
+        <Setter Property="Height" Value="48" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
@@ -20,26 +20,26 @@
                             Background="{DynamicResource MaterialDesignBody}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}" />
-                        <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-                          <Grid>
+                    <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+                        <Grid>
                             <Grid.ColumnDefinitions>
-                              <ColumnDefinition Width="24"/>
-                              <ColumnDefinition Width="24"/>
-                              <ColumnDefinition Width="*"/>
-                              <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT"/>
-                              <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="24" />
+                                <ColumnDefinition Width="24" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
+                                <ColumnDefinition Width="20" />
                             </Grid.ColumnDefinitions>
                             <ContentPresenter Name="icon"
                                               Grid.Column="1"
                                               Content="{TemplateBinding Icon}"
                                               Width="24"
-                                              Height="24" 
+                                              Height="24"
                                               HorizontalAlignment="Center"
                                               VerticalAlignment="Center" />
-                            <TextBlock x:Name="PART_InputGestureText"
-                                        Grid.Column="3"
-                                        Text="{TemplateBinding InputGesture, Converter={StaticResource KeyGestureConverter}}"
-                                        VerticalAlignment="Center"/>
+                            <TextBlock Name="PART_InputGestureText"
+                                       Grid.Column="3"
+                                       Text="{TemplateBinding InputGesture, Converter={StaticResource KeyGestureConverter}}"
+                                       VerticalAlignment="Center" />
                             <Path Grid.Column="0" Name="check"
                                   Fill="{TemplateBinding Foreground}"
                                   Data="F1M10,1.2L4.7,9.1 4.5,9.1 0,5.2 1.3,3.5 4.3,6.1 8.3,0 10,1.2z"
@@ -64,9 +64,9 @@
                                   VerticalAlignment="Center"
                                   Grid.Column="4" />
                             <Popup Grid.Column="0" Name="PART_Popup"
-                                    PlacementMode="Right"
-                                    IsLightDismissEnabled="True"
-                                    IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
+                                   PlacementMode="Right"
+                                   IsLightDismissEnabled="True"
+                                   IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
                                 <styles:Card Padding="0">
                                     <Border Name="MainBorder"
                                             BorderThickness="{TemplateBinding BorderThickness}">
@@ -114,12 +114,12 @@
                                       Padding="4">
                             <ToggleButton.Styles>
                                 <Style Selector="ToggleButton AccessText">
-                                    <Setter Property="Foreground" Value="{TemplateBinding Foreground}"/>
+                                    <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />
                                 </Style>
                             </ToggleButton.Styles>
                             <ToggleButton.DataTemplates>
                                 <DataTemplate DataType="sys:String">
-                                    <AccessText Text="{Binding}"/>
+                                    <AccessText Text="{Binding}" />
                                 </DataTemplate>
                             </ToggleButton.DataTemplates>
                         </ToggleButton>
@@ -147,38 +147,40 @@
         </Setter>
     </Style>
 
-    <Style Selector="MenuItem > MenuItem:not(:disabled):not(:selected) /template/ Border#root,
+    <Style
+        Selector="MenuItem > MenuItem:not(:disabled):not(:selected) /template/ Border#root,
     ContextMenu > MenuItem:not(:disabled):not(:selected) /template/ Border#root">
-      <Setter Property="Opacity" Value="0"/>
+        <Setter Property="Opacity" Value="0" />
     </Style>
-  
-    <Style Selector="MenuItem > MenuItem:disabled:not(:selected) /template/ Border#root,
+
+    <Style
+        Selector="MenuItem > MenuItem:disabled:not(:selected) /template/ Border#root,
     ContextMenu > MenuItem:disabled:not(:selected) /template/ Border#root">
-      <Setter Property="Opacity" Value="0"/>
+        <Setter Property="Opacity" Value="0" />
     </Style>
-  
-    <Style Selector="MenuItem > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#root,
+
+    <Style
+        Selector="MenuItem > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#root,
     ContextMenu > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#root">
-        <Setter Property="Opacity" Value="0.13"/>
+        <Setter Property="Opacity" Value="0.13" />
     </Style>
-  
+
     <Style Selector="MenuItem > MenuItem:not(.Menu):disabled,
     ContextMenu > MenuItem:not(.Menu):disabled">
-        <Setter Property="Opacity" Value="0.56"/>
+        <Setter Property="Opacity" Value="0.56" />
     </Style>
 
     <Style Selector="Menu > MenuItem">
-        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Focusable" Value="False" />
     </Style>
 
     <Style Selector="MenuItem:empty /template/ Path#rightArrow">
         <Setter Property="IsVisible" Value="False" />
     </Style>
 
-
-  <Style Selector="MenuItem AccessText">
-    <Setter Property="FontSize" Value="16" />
-    <Setter Property="FontWeight" Value="Regular" />
-    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto"/>
-  </Style>
+    <Style Selector="MenuItem AccessText">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
+    </Style>
 </Styles>

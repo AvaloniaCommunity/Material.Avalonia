@@ -22,13 +22,14 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Viewbox Width="{Binding RelativeSource={RelativeSource TemplatedParent}, 
-                            Path=(assists:SelectionControlAssist.Size)}" 
-                                     Height="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                            <Viewbox
+                                Width="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                             Path=(assists:SelectionControlAssist.Size)}"
-                                     Stretch="Uniform"
-                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                     ClipToBounds="False">
+                                Height="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                            Path=(assists:SelectionControlAssist.Size)}"
+                                Stretch="Uniform"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                ClipToBounds="False">
                                 <Grid ClipToBounds="False" Height="20" Width="20">
                                     <Path Name="Graphic" ClipToBounds="False"
                                           Fill="{TemplateBinding Foreground}" Margin="-2 -2 0 0">
@@ -40,7 +41,8 @@
                                         </Path.Styles>
                                     </Path>
                                     <Ellipse Name="InteractionEllipse" Fill="{TemplateBinding Foreground}" Opacity="0"
-                                             Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                             Width="20" Height="20" HorizontalAlignment="Center"
+                                             VerticalAlignment="Center">
                                     </Ellipse>
                                 </Grid>
                             </Viewbox>
@@ -131,17 +133,7 @@
                                               TextBlock.Foreground="{TemplateBinding Foreground}"
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            <!--ToggleButton Classes="Tool" assists:ButtonAssist.CornerRadius="0"
-                                          IsHitTestVisible="False"
-                                          BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
-                                          IsChecked="{TemplateBinding IsChecked, Mode=TwoWay}"
-                                          Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}"
-                                          HorizontalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ClipToBounds="False"/-->
                         </ripple:RippleEffect>
-
                         <Border Name="PART_SelectedIndicator" Background="{DynamicResource MaterialDesignCheckBoxDisabled}"
                                 BorderThickness="0" IsHitTestVisible="False"/>
                     </Grid>

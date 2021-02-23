@@ -14,8 +14,8 @@
         </Setter>
     </Style>
 
-  <Style Selector="Separator.Middle"> 
-    <Setter Property="Margin" Value="16,8"/> 
-  </Style>
+    <Style Selector="Separator.Middle">
+        <Setter Property="Margin" Value="16,8" />
+    </Style>
 
 </Styles>

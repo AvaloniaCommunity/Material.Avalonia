@@ -1,26 +1,27 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:style="clr-namespace:Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists">
-  <Style Selector="PopupRoot">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="TransparencyLevelHint" Value="Transparent"/> 
-    <Setter Property="Template">
-      <ControlTemplate>
-        <VisualLayerManager IsPopup="True">
-          <Grid Name="PopupRootGrid">
-            <Grid.Transitions>
-              <Transitions>
-                <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.5" Easing="CubicEaseOut"/>
-              </Transitions>
-            </Grid.Transitions>
-            <ContentPresenter Name="PART_ContentPresenter"
-      Margin="0"
-      Background="{TemplateBinding Background}"
-      ContentTemplate="{TemplateBinding ContentTemplate}"
-      Content="{TemplateBinding Content}"/>
-          </Grid>
-        </VisualLayerManager>
-      </ControlTemplate>
-    </Setter>
-  </Style>
+    <Style Selector="PopupRoot">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TransparencyLevelHint" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <VisualLayerManager IsPopup="True">
+                    <Grid Name="PopupRootGrid">
+                        <Grid.Transitions>
+                            <Transitions>
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.5"
+                                                               Easing="CubicEaseOut" />
+                            </Transitions>
+                        </Grid.Transitions>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Margin="0"
+                                          Background="{TemplateBinding Background}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}" />
+                    </Grid>
+                </VisualLayerManager>
+            </ControlTemplate>
+        </Setter>
+    </Style>
 </Styles>

@@ -9,7 +9,8 @@
     <Setter Property="Template">
         <ControlTemplate>
             <Menu
-                IsVisible="{Binding $parent[TopLevel].(NativeMenu.IsNativeMenuExported), Converter={StaticResource AvaloniaThemesDefaultNativeMenuBarInverseBooleanValueConverter}}"
+                IsVisible="{Binding $parent[TopLevel].(NativeMenu.IsNativeMenuExported), 
+                    Converter={StaticResource AvaloniaThemesDefaultNativeMenuBarInverseBooleanValueConverter}}"
                 Items="{Binding $parent[TopLevel].(NativeMenu.Menu).Items}">
                 <Menu.Styles>
                     <Style Selector="MenuItem">

@@ -107,13 +107,7 @@
         </Setter>
     </Style>
     
-    <!--Style Selector="TabControl /template/ Button#PART_ScrollLeftButton,
-            TabControl /template/ Button#PART_ScrollRightButton">
-        <Setter Property="IsVisible" Value="False"/>
-    </Style-->
-    
     <!-- For Horizontal TabControl -->
-    
     
     <!-- For TabStripPlacement=Top -->
     <Style Selector="TabControl /template/ Grid#HeaderGrid">
@@ -174,7 +168,6 @@
         <Setter Property="Columns" Value="1" />
         <Setter Property="Rows" Value="0" />
     </Style>
-
 
     <Style Selector="TabControl > TabItem">
         <Setter Property="MinWidth" Value="90"/>

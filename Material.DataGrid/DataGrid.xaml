@@ -151,7 +151,7 @@
   <Style Selector="DataGridRowHeader">
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid x:Name="PART_Root"
+        <Grid Name="PART_Root"
         RowDefinitions="*,*,Auto"
         ColumnDefinitions="Auto,*">
 
