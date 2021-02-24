@@ -1,8 +1,10 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates; 
 
 namespace Material.Styles {
+    [Obsolete("Do not use DialogHost since it doesnt ready for use!")]
     public class DialogHost : ContentControl { 
 
         public static readonly StyledProperty<bool> InsideClippingProperty =
