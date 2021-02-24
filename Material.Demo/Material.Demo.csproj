@@ -4,18 +4,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="**\*.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
-    <AvaloniaResource Include="**\*.xaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <Compile Update="Pages\TabsDemo.axaml.cs">
-      <DependentUpon>TabsDemo.axaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="Assets\johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
     <None Remove="FavIcon.svg" />
     <None Remove="FavIcon_200x.png" />
@@ -36,75 +24,5 @@
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
     <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <AvaloniaXaml Update="Pages\DialogDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\ListsDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\ProgressIndicatorDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\SlidersDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\Home.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\IconsDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\ScrollViewerDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\CardsDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\TogglesDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\ButtonsDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-    <AvaloniaXaml Update="Pages\TabsDemo.axaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AvaloniaXaml>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Pages\DialogDemo.axaml.cs">
-      <DependentUpon>DialogDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ListsDemo.axaml.cs">
-      <DependentUpon>ListsDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ProgressIndicatorDemo.axaml.cs">
-      <DependentUpon>ProgressIndicatorDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\SlidersDemo.axaml.cs">
-      <DependentUpon>SlidersDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\Home.axaml.cs">
-      <DependentUpon>Home.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\IconsDemo.axaml.cs">
-      <DependentUpon>IconsDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ScrollViewerDemo.axaml.cs">
-      <DependentUpon>ScrollViewerDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\CardsDemo.axaml.cs">
-      <DependentUpon>CardsDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ComboBoxesDemo.axaml.cs">
-      <DependentUpon>ComboBoxesDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\TogglesDemo.axaml.cs">
-      <DependentUpon>TogglesDemo.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\ButtonsDemo.xaml.cs">
-      <DependentUpon>ButtonsDemo.axaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>
