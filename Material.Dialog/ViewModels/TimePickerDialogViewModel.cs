@@ -45,24 +45,24 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        private double _firstPanelPointerAngle;
-        public double FirstPanelPointerAngle
+        private string _firstPanelPointerTransform;
+        public string FirstPanelPointerTransform
         {
-            get => _firstPanelPointerAngle;
+            get => _firstPanelPointerTransform;
             set
             {
-                _firstPanelPointerAngle = value;
+                _firstPanelPointerTransform = value;
                 OnPropertyChanged();
             }
         }
         
-        private double _secondPanelPointerAngle;
-        public double SecondPanelPointerAngle
+        private string _secondPanelPointerTransform;
+        public string SecondPanelPointerTransform
         {
-            get => _secondPanelPointerAngle;
+            get => _secondPanelPointerTransform;
             set
             {
-                _secondPanelPointerAngle = value;
+                _secondPanelPointerTransform = value;
                 OnPropertyChanged();
             }
         }
@@ -113,14 +113,20 @@ namespace Material.Dialog.ViewModels
 
         public void SetFirstField(int v)
         {
+            if (v == FirstField)
+                return;
+            
             FirstField = (ushort)v;
-            FirstPanelPointerAngle = (v / (double)12) * 360;
+            FirstPanelPointerTransform = $"rotate({(v / (double)12) * 360}deg)";
         }
         
         public void SetSecondField(int v)
         {
+            if (v == SecondField)
+                return;
+            
             SecondField = (ushort)v;
-            SecondPanelPointerAngle = (v / (double)60) * 360;
+            SecondPanelPointerTransform = $"rotate({(v / (double)60) * 360}deg)";
         }
 
         public TimePickerDialogViewModel(TimePickerDialog dialog)

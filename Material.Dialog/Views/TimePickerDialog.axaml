@@ -5,6 +5,7 @@
         xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
+        xmlns:converters="clr-namespace:Material.Dialog.Converters"
         x:Class="Material.Dialog.Views.TimePickerDialog"
         SizeToContent="WidthAndHeight"
         Title="{Binding WindowTitle}"
@@ -12,6 +13,13 @@
         WindowStartupLocation="{Binding WindowStartupLocation}"
         HorizontalContentAlignment="Stretch"
         x:DataType="viewModels:TimePickerDialogViewModel">
+    <Window.Resources>
+        <ResourceDictionary>
+            <converters:PadNumbersConverter x:Key="PadNumbersConverter"/>
+            <converters:StringToTransformConverter x:Key="StringToTransformConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <Window.Styles>
         <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.xaml"/>
         <Style Selector="Window[SystemDecorations=None]">
@@ -59,7 +67,7 @@
                     <TextBlock Classes="Headline3" Text=":" FontWeight="Regular" VerticalAlignment="Bottom"
                                Foreground="{DynamicResource MaterialDesignCardBackground}"/>
                     <RadioButton GroupName="1" Classes="Button Main" IsChecked="{CompiledBinding SecondFieldSelected, Mode=TwoWay}">
-                        <TextBlock Text="{CompiledBinding SecondField}" Classes="Headline2" FontWeight="Regular"/>
+                        <TextBlock Text="{CompiledBinding SecondField, Converter={StaticResource PadNumbersConverter}}" Classes="Headline2" FontWeight="Regular"/>
                     </RadioButton>
                     <StackPanel VerticalAlignment="Bottom" Margin="8,4,0,4">
                         <RadioButton GroupName="2" Classes="Button Alter" IsChecked="true">
@@ -72,6 +80,16 @@
                 </StackPanel>
             </material:ColorZone>
             <Grid Grid.Row="1" Margin="24">
+                <Grid.Styles>
+                    <Style Selector="Grid.Pointer:not(.notransitions)">
+                        <Setter Property="Transitions">
+                            <Transitions>
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CircularEaseOut"/>
+                            </Transitions>
+                        </Setter>
+                    </Style>
+                </Grid.Styles>
+                
                 <Carousel Name="PART_PagesRoot" SelectedIndex="{CompiledBinding CarouselIndex}">
                     <Carousel.Styles>
                         <Style Selector="TextBlock">
@@ -97,29 +115,28 @@
                         <Style Selector="Border.CallerCell:pointerover Border#PointerEnterFeedback">
                             <Setter Property="Opacity" Value="0.15"/> 
                         </Style>
+                        
+                        <Style Selector="Carousel:not(.notransitions)">
+                            <Setter Property="PageTransition">
+                                <CrossFade Duration="0.5" FadeInEasing="CircularEaseOut" FadeOutEasing="CircularEaseOut"/>
+                            </Setter>
+                        </Style>
                     </Carousel.Styles>
                     <Viewbox HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch">
-                        <Grid Name="CallerPanel1">
+                        <Grid Name="CallerPanel1"
+                              PointerPressed="CallerPanel_OnPointerPressed"
+                              PointerMoved="CallerPanel_OnPointerMoved"
+                              PointerReleased="CallerPanel_OnPointerReleased">
                             <Ellipse Width="256" Height="256"
                                      Fill="{DynamicResource MaterialDesignDivider}"/>
                             
                             <Ellipse Width="6" Height="6" HorizontalAlignment="Center" VerticalAlignment="Center"
                                      Fill="{Binding ElementName=PART_HeaderZone, Path=Background}"/>
                             
-                            <Grid Name="PART_Pointer" Width="0" Height="0">
-                                <Grid.Styles>
-                                    <Style Selector="Grid#PART_Pointer:not(.notransitions)">
-                                        <Setter Property="Transitions">
-                                            <Transitions>
-                                                <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
-                                            </Transitions>
-                                        </Setter>
-                                    </Style>
-                                </Grid.Styles>
-                                <Grid.RenderTransform>
-                                    <RotateTransform Angle="{CompiledBinding FirstPanelPointerAngle}"/>
-                                </Grid.RenderTransform>
+                            <Grid Classes="Pointer" Width="0" Height="0" 
+                                  RenderTransform="{CompiledBinding FirstPanelPointerTransform,
+                                    Converter={StaticResource StringToTransformConverter}}">
                                 <Grid Height="109" Width="4" RowDefinitions="0,109" VerticalAlignment="Bottom">
                                     <Border Grid.Row="1" Background="{Binding ElementName=PART_HeaderZone, 
                                         Path=Background}"/>
@@ -132,26 +149,19 @@
                     
                     <Viewbox HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch">
-                        <Grid Name="CallerPanel2">
+                        <Grid Name="CallerPanel2"
+                              PointerPressed="CallerPanel_OnPointerPressed"
+                              PointerMoved="CallerPanel_OnPointerMoved"
+                              PointerReleased="CallerPanel_OnPointerReleased">
                             <Ellipse Width="256" Height="256"
                                      Fill="{DynamicResource MaterialDesignDivider}"/>
                             
                             <Ellipse Width="6" Height="6" HorizontalAlignment="Center" VerticalAlignment="Center"
                                      Fill="{Binding ElementName=PART_HeaderZone, Path=Background}"/>
                             
-                            <Grid Name="PART_Pointer1" Width="0" Height="0">
-                                <Grid.Styles>
-                                    <Style Selector="Grid#PART_Pointer1:not(.notransitions)">
-                                        <Setter Property="Transitions">
-                                            <Transitions>
-                                                <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
-                                            </Transitions>
-                                        </Setter>
-                                    </Style>
-                                </Grid.Styles>
-                                <Grid.RenderTransform>
-                                    <RotateTransform Angle="{CompiledBinding SecondPanelPointerAngle}"/>
-                                </Grid.RenderTransform>
+                            <Grid Classes="Pointer" Width="0" Height="0" 
+                                  RenderTransform="{CompiledBinding SecondPanelPointerTransform, 
+                                    Converter={StaticResource StringToTransformConverter}}">
                                 <Grid Height="109" Width="4" RowDefinitions="0,109" VerticalAlignment="Bottom">
                                     <Border Grid.Row="1" Background="{Binding ElementName=PART_HeaderZone, 
                                         Path=Background}"/>

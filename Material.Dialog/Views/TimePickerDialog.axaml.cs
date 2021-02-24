@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -14,36 +15,50 @@ namespace Material.Dialog.Views
     {
         //private bool PointerHoldingCell;
         private TimePickerDialogViewModel viewModel;
+        private Carousel PART_PagesRoot;
         private Grid CallerPanel1;
         private Grid CallerPanel2;
+        private Stack<IPointer> Pointers;
+        private bool HoldingPointer => Pointers.Count >= 1;
         
-        private void CreateCallerCells1() => CreateCallerCellsToPanel(CallerPanel1, 12, firstText: 12, onPointerPressing: v => viewModel.SetFirstField(v));
-        private void CreateCallerCells2() => CreateCallerCellsToPanel(CallerPanel2, 60, onPointerPressing: v => viewModel.SetSecondField(v));
+        private void CreateCallerCells1() => CreateCallerCellsToPanel(CallerPanel1, 12, firstText: 12, decreaseShows: false);
+        private void CreateCallerCells2() => CreateCallerCellsToPanel(CallerPanel2, 60,padNumbers:true);
         
-        private void CreateCallerCellsToPanel(Grid panel, int counts, float radius = 109, int firstText = 0, Action<int> onPointerPressing = null)
+        private void CreateCallerCellsToPanel(Grid panel, int counts, float radius = 109, int firstText = 0, bool padNumbers = false, bool decreaseShows = true)
         {
-            var offset = (Math.PI * 2) * 0.25; 
+            var offset = (Math.PI * 2) * 0.25;
+            var target = 0;
+            
             for (var i = 0; i < counts; i++)
             {
+                if (decreaseShows)
+                {
+                    if (target == i)
+                    {
+                        target += 5;
+                    }
+                    else 
+                        continue;
+                }
+                
                 var r = (float) i / (float) counts * (Math.PI * 2) - offset;
                 var x = radius * Math.Cos(r);
                 var y = radius * Math.Sin(r);
 
-                var v = i;
-                var text = i == 0 ? firstText.ToString() : v.ToString();
-                var cell = CreateCallerCell(x, y, text, v, i1 => onPointerPressing?.Invoke(i1));
+                var v = (i == 0 ? firstText : i);
+                var text = padNumbers ? v.ToString("D2") : v.ToString();
+                var cell = CreateCallerCell(x, y, text);
                 panel.Children.Add(cell);
             }
         }
 
-        private Control CreateCallerCell(double x, double y, string text, int value, Action<int> onPointerPressing)
+        private Control CreateCallerCell(double x, double y, string text)
         {
             var root = new Border()
             {
                 Classes = Classes.Parse("CallerCell"),
                 RenderTransform = new TranslateTransform(x, y),
                 Background = SolidColorBrush.Parse("Transparent"),
-                Tag = value,
                 Child = new Grid()
                 {
                     Children = {
@@ -57,29 +72,19 @@ namespace Material.Dialog.Views
                         }
                     }
                 }
-            }; 
-            
-            root.PointerPressed += (sender, args) =>
-            {
-                //PointerHoldingCell = true;
-                onPointerPressing((int) root.Tag);
-            };
-            root.PointerReleased += (sender, args) =>
-            {
-                var pager = this.Get<Carousel>("PART_PagesRoot");
-                pager.Next();
             };
             return root;
         }
-        
-    
+
         public DateTimePickerDialogResult Result { get; set; }
         
         public TimePickerDialog()
         {
             Result = new DateTimePickerDialogResult();
+            Pointers = new Stack<IPointer>();
             
             InitializeComponent();
+            // Create decorations
             CallerPanel1 = this.Get<Grid>(nameof(CallerPanel1));
             CallerPanel2 = this.Get<Grid>(nameof(CallerPanel2));
         }
@@ -94,6 +99,8 @@ namespace Material.Dialog.Views
         {
             base.OnApplyTemplate(e);
             
+            PART_PagesRoot = this.Get<Carousel>("PART_PagesRoot");
+            
             CreateCallerCells1();
             CreateCallerCells2();
         }
@@ -103,5 +110,48 @@ namespace Material.Dialog.Views
         public void SetNegativeResult(DialogResult result) => Result._result = result.GetResult;
         
         private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
+
+        private void CallerPanel_OnPointerPressed(object sender, PointerPressedEventArgs e)
+        {
+            Pointers.Push(e.Pointer);
+        }
+
+        private void CallerPanel_OnPointerMoved(object sender, PointerEventArgs e)
+        {
+            if (HoldingPointer)
+            {
+                var panel = sender as Control;
+                var radius = panel.Bounds.Width / 2;
+
+                var pointer = e.GetPosition(panel);
+
+                var radians = Math.Atan2(pointer.X - radius, pointer.Y - radius);
+                var degree = 360 - ((radians * 180 / Math.PI) + 180);
+                ProcessPick(degree);
+            }
+        }
+
+        private void ProcessPick(double deg)
+        {
+            var mul = PART_PagesRoot.SelectedIndex == 1 ? 60 : 12;
+
+            var v = (int)Math.Round(deg / 360 * mul);
+
+            if (v == mul)
+                v = 0;
+            
+            if(PART_PagesRoot.SelectedIndex == 1)
+                viewModel.SetSecondField(v);
+            else
+                viewModel.SetFirstField(v);
+        }
+        
+        private void CallerPanel_OnPointerReleased(object sender, PointerReleasedEventArgs e)
+        {
+            Pointers.Pop();
+            
+            if(!HoldingPointer)
+                PART_PagesRoot.Next();
+        }
     }
 }
