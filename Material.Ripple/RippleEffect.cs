@@ -32,7 +32,7 @@ namespace Material.Ripple {
                     last = null;
                 }
             });
-            AddHandler(PointerPressedEvent, async (s, e) => {
+            AddHandler(PointerPressedEvent, (s, e) => {
                 if (pointers == 0)
                 {
                     // Only first pointer can arrive a ripple
