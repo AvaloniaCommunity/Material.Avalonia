@@ -9,23 +9,23 @@ namespace Material.Demo.ViewModels
 {
     public class DialogDemoViewModel : ViewModelBase
     {
-        private string m_Dialog1Result;
-        public string Dialog1Result { get => m_Dialog1Result; set { m_Dialog1Result = value; OnPropertyChanged(); } }
+        private string _dialog1Result;
+        public string Dialog1Result { get => _dialog1Result; set { _dialog1Result = value; OnPropertyChanged(); } }
 
-        private string m_Dialog2Result;
-        public string Dialog2Result { get => m_Dialog2Result; set { m_Dialog2Result = value; OnPropertyChanged(); } }
+        private string _dialog2Result;
+        public string Dialog2Result { get => _dialog2Result; set { _dialog2Result = value; OnPropertyChanged(); } }
 
-        private string m_Dialog3Result;
-        public string Dialog3Result { get => m_Dialog3Result; set { m_Dialog3Result = value; OnPropertyChanged(); } }
+        private string _dialog3Result;
+        public string Dialog3Result { get => _dialog3Result; set { _dialog3Result = value; OnPropertyChanged(); } }
 
-        private string m_LoginDialogResult;
-        public string LoginDialogResult { get => m_LoginDialogResult; set { m_LoginDialogResult = value; OnPropertyChanged(); } }
+        private string _loginDialogResult;
+        public string LoginDialogResult { get => _loginDialogResult; set { _loginDialogResult = value; OnPropertyChanged(); } }
 
-        private string m_FolderNameDialogResult;
-        public string FolderNameDialogResult { get => m_FolderNameDialogResult; set { m_FolderNameDialogResult = value; OnPropertyChanged(); } }
+        private string _folderNameDialogResult;
+        public string FolderNameDialogResult { get => _folderNameDialogResult; set { _folderNameDialogResult = value; OnPropertyChanged(); } }
         
-        private string m_TimePickerDialogResult;
-        public string TimePickerDialogResult { get => m_TimePickerDialogResult; set { m_TimePickerDialogResult = value; OnPropertyChanged(); } }
+        private string _timePickerDialogResult;
+        public string TimePickerDialogResult { get => _timePickerDialogResult; set { _timePickerDialogResult = value; OnPropertyChanged(); } }
 
 
         public async void Dialog1()
@@ -72,10 +72,10 @@ namespace Material.Demo.ViewModels
             {
                 ContentHeader = "Confirm action",
                 SupportingText = "Are you sure to DELETE 20 FILES?",
+                DialogHeaderIcon = Dialog.Icons.DialogIconKind.Help,
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 NegativeResult = new DialogResult("cancel"),
                 Borderless = true,
-                DialogHeaderIcon = Dialog.Icons.DialogIconKind.Help,
                 DialogButtons = new DialogResultButton[]
                 {
                     new DialogResultButton
@@ -98,10 +98,8 @@ namespace Material.Demo.ViewModels
                     ContentHeader = "Result",
                     SupportingText = "20 files has deleted.",
                     StartupLocation = WindowStartupLocation.CenterOwner,
-                    NegativeResult = new DialogResult(DialogHelper.DIALOG_RESULT_OK),
-                    Borderless = true,
                     DialogHeaderIcon = Dialog.Icons.DialogIconKind.Success,
-                    DialogButtons = DialogHelper.CreateSimpleDialogButtons(DialogButtonsEnum.Ok)
+                    Borderless = true,
                 }).ShowDialog(Program.MainWindow);
             }
         }
@@ -111,13 +109,11 @@ namespace Material.Demo.ViewModels
             var result = await DialogHelper.CreateTextFieldDialog(new TextFieldDialogBuilderParams()
             {
                 ContentHeader = "Authentication required.",
-                SupportingText = "Please login before any action (this is a joke).",
+                SupportingText = "Please login before any action.",
                 StartupLocation = WindowStartupLocation.CenterOwner,
-                NegativeResult = new DialogResult("cancel"),
+                DialogHeaderIcon = Dialog.Icons.DialogIconKind.Blocked,
                 Borderless = true,
                 Width = 400,
-                MaxWidth = 400,
-                DialogHeaderIcon = Dialog.Icons.DialogIconKind.Blocked,
                 TextFields = new TextFieldBuilderParams[]
                 {
                     new TextFieldBuilderParams
@@ -134,11 +130,6 @@ namespace Material.Demo.ViewModels
                         Validater = ValidatePassword,
                     }
                 },
-                NegativeButton = new DialogResultButton
-                {
-                    Content = "CANCEL",
-                    Result = "cancel"
-                },
                 PositiveButton = new DialogResultButton
                 {
                     Content = "LOGIN",
@@ -154,12 +145,12 @@ namespace Material.Demo.ViewModels
 
         private Tuple<bool,string> ValidateAccount(string text)
         {
-            bool result = text?.Length > 5;
+            var result = text?.Length > 5;
             return new Tuple<bool, string>(result, result ? "" : "Too few account name.");
         }
         private Tuple<bool, string> ValidatePassword(string text) 
         {
-            bool result = text?.Length >= 1;
+            var result = text?.Length >= 1;
             return new Tuple<bool, string>(result, result ? "" : "Field should be filled.");
         }
 
@@ -170,9 +161,7 @@ namespace Material.Demo.ViewModels
             {
                 ContentHeader = "Rename folder",
                 StartupLocation = WindowStartupLocation.CenterOwner,
-                NegativeResult = new DialogResult("cancel"),
                 Borderless = true,
-                MaxWidth = 400,
                 Width = 400,
                 TextFields = new TextFieldBuilderParams[]
                 {
@@ -189,11 +178,6 @@ namespace Material.Demo.ViewModels
                     Content = "RENAME",
                     Result = "rename"
                 },
-                NegativeButton = new DialogResultButton
-                {
-                    Content = "CANCEL",
-                    Result = "cancel"
-                }
             }).ShowDialog(Program.MainWindow);
             FolderNameDialogResult = $"Result: {result.GetResult}";
             if (result.GetResult == "rename")
@@ -208,17 +192,11 @@ namespace Material.Demo.ViewModels
             {
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
-                NegativeResult = new DialogResult("cancel"),
-                PositiveButton = new DialogResultButton()
+                PositiveButton = new DialogResultButton
                 {
                     Content = "CONFIRM",
-                    Result = "confirm",
+                    Result = "confirm"
                 },
-                NegativeButton = new DialogResultButton()
-                {
-                    Content = "CANCEL",
-                    Result = "cancel",
-                }
             }).ShowDialog(Program.MainWindow);
             TimePickerDialogResult = $"Result: {result.GetResult}";
             if (result.GetResult == "confirm")
