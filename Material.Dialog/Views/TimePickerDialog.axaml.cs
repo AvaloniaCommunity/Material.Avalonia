@@ -107,25 +107,32 @@ namespace Material.Dialog.Views
 
         public DateTimePickerDialogResult GetResult() => Result;
         
-        public void SetNegativeResult(DialogResult result) => Result._result = result.GetResult;
+        public void SetNegativeResult(DialogResult result) => Result.Result = result.GetResult;
         
         private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
 
         private void CallerPanel_OnPointerPressed(object sender, PointerPressedEventArgs e)
         {
             Pointers.Push(e.Pointer);
+            var panel = sender as Control;
+            var pointer = e.GetPosition(panel);
+            CallerPanel_OnPointerPressOrMove(panel, pointer);
         }
 
         private void CallerPanel_OnPointerMoved(object sender, PointerEventArgs e)
         {
+            var panel = sender as Control;
+            var pointer = e.GetPosition(panel);
+            CallerPanel_OnPointerPressOrMove(panel, pointer);
+        }
+
+        private void CallerPanel_OnPointerPressOrMove(Control panel, Point p)
+        {
             if (HoldingPointer)
             {
-                var panel = sender as Control;
                 var radius = panel.Bounds.Width / 2;
-
-                var pointer = e.GetPosition(panel);
-
-                var radians = Math.Atan2(pointer.X - radius, pointer.Y - radius);
+                
+                var radians = Math.Atan2(p.X - radius, p.Y - radius);
                 var degree = 360 - ((radians * 180 / Math.PI) + 180);
                 ProcessPick(degree);
             }
