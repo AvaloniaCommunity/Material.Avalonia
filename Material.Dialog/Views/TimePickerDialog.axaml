@@ -73,7 +73,7 @@
                         <RadioButton GroupName="2" Classes="Button Alter" IsChecked="{CompiledBinding IsAm, Mode=TwoWay}">
                             <TextBlock Text="AM" Classes="Subtitle1" FontWeight="Medium"/>
                         </RadioButton>
-                        <RadioButton GroupName="2" Classes="Button Alter">
+                        <RadioButton GroupName="2" Classes="Button Alter" IsChecked="{CompiledBinding IsPm, Mode=TwoWay}">
                             <TextBlock Text="PM" Classes="Subtitle1" FontWeight="Medium"/>
                         </RadioButton>
                     </StackPanel>

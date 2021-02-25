@@ -116,6 +116,8 @@ namespace Material.Dialog
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton,
                 DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton),
+                FirstField = (ushort)@params.ImplicitValue.Hours,
+                SecondField = (ushort)@params.ImplicitValue.Minutes,
             };
             ApplyBaseParams(context, @params);
 

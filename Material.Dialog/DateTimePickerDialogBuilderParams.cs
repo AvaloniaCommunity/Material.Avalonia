@@ -29,5 +29,10 @@ namespace Material.Dialog
         /// <br/> (could be from Alt + F4 or window close button).
         /// </summary>
         public DialogResult NegativeResult = new DialogResult(DialogHelper.DIALOG_RESULT_CANCEL);
+        
+        /// <summary>
+        /// Define implicit time.
+        /// </summary>
+        public TimeSpan ImplicitValue = TimeSpan.Zero;
     }
 }

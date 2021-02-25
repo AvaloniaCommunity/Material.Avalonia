@@ -148,9 +148,9 @@ namespace Material.Dialog.Views
                 v = 0;
             
             if(PART_PagesRoot.SelectedIndex == 1)
-                viewModel.SetSecondField(v);
+                viewModel.SecondField = (ushort)v;
             else
-                viewModel.SetFirstField(v);
+                viewModel.FirstField = (ushort)v;
         }
         
         private void CallerPanel_OnPointerReleased(object sender, PointerReleasedEventArgs e)
