@@ -206,7 +206,6 @@ namespace Material.Demo.ViewModels
         {
             var result = await DialogHelper.CreateTimePicker(new DateTimePickerDialogBuilderParams()
             {
-                Width = 360,
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 NegativeResult = new DialogResult("cancel"),

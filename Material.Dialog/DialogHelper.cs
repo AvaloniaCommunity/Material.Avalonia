@@ -118,6 +118,10 @@ namespace Material.Dialog
                 DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton),
             };
             ApplyBaseParams(context, @params);
+
+            if (context.Width is null)
+                context.Width = 320;
+            
             window.AttachViewModel(context);
             window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
             window.SetNegativeResult(@params.NegativeResult);
