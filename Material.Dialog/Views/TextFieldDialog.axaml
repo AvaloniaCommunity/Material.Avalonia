@@ -1,21 +1,20 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
-        xmlns:maxkatz="clr-namespace:Material.Dialog.maxkatz6"
         xmlns:main="clr-namespace:Material.Dialog"
         xmlns:icons="clr-namespace:Material.Dialog.Icons"
         xmlns:model="clr-namespace:Material.Dialog.ViewModels.TextField"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         x:Class="Material.Dialog.Views.TextFieldDialog"
         SizeToContent="WidthAndHeight"
-        Title="{Binding WindowTitle}"
+        Title="{CompiledBinding WindowTitle}"
         CanResize="False"
-        WindowStartupLocation="{Binding WindowStartupLocation}"
-        HorizontalContentAlignment="Stretch">
+        WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
+        HorizontalContentAlignment="Stretch"
+        x:DataType="viewModels:TextFieldDialogViewModel">
   <Window.Styles>
     <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.xaml"/>
     <Style Selector="Window[SystemDecorations=None]">
@@ -28,8 +27,8 @@
   <material:Card Name="PART_ContentRoot" Padding="0" 
                  assists:ShadowAssist.ShadowDepth="CenterDepth4"> 
     <Grid Name="PART_Root"
-          Width="{Binding Width}"
-          MaxWidth="{Binding MaxWidth}"
+          Width="{CompiledBinding Width}"
+          MaxWidth="{CompiledBinding MaxWidth}"
           HorizontalAlignment="Stretch">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="24"/>
@@ -50,27 +49,27 @@
           <ColumnDefinition Width="Auto"/>
           <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <icons:DialogIcon Kind="{Binding DialogHeaderIcon}"
+        <icons:DialogIcon Kind="{CompiledBinding DialogHeaderIcon}"
                           Width="32" Height="32" Margin="0,0,8,0"
-                          IsVisible="{Binding !!DialogHeaderIcon}"/>
+                          IsVisible="{CompiledBinding !!DialogHeaderIcon}"/>
 
         <TextBlock Name="PART_Header"
                    Classes="Headline6"
                    Grid.Column="1"
                    VerticalAlignment="Center"
-                   IsVisible="{Binding !!ContentHeader.Length}"
-                   Text="{Binding ContentHeader, FallbackValue='Dialog header'}"/>
+                   IsVisible="{CompiledBinding !!ContentHeader.Length}"
+                   Text="{CompiledBinding ContentHeader, FallbackValue='Dialog header'}"/>
       </Grid>
 
       <StackPanel Grid.Column="1" Grid.Row="3">
         <TextBlock Name="PART_SupportingText"
                    Classes="Body1"
                    TextWrapping="Wrap"
-                   IsVisible="{Binding !!ContentMessage.Length}"
-                   Text="{Binding ContentMessage, FallbackValue='Dialog supporting text'}"/>
+                   IsVisible="{CompiledBinding !!ContentMessage.Length}"
+                   Text="{CompiledBinding ContentMessage, FallbackValue='Dialog supporting text'}"/>
         
         <ItemsControl HorizontalAlignment="Stretch"
-              Items="{Binding TextFields}"
+              Items="{CompiledBinding TextFields}"
               Margin="4">
           <ItemsControl.Styles>
             <Style Selector="TextBox">
@@ -84,14 +83,14 @@
           </ItemsControl.ItemsPanel>
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="model:TextFieldViewModel">
-              <TextBox PasswordChar="{Binding MaskChar}"
+              <TextBox PasswordChar="{CompiledBinding MaskChar}"
                        HorizontalAlignment="Stretch"
-                       MaxLength="{Binding MaxCountChars}"
-                       Text="{Binding Text, Mode=TwoWay}"
-                       Watermark="{Binding PlaceholderText}"
+                       MaxLength="{CompiledBinding MaxCountChars}"
+                       Text="{CompiledBinding Text, Mode=TwoWay}"
+                       Watermark="{CompiledBinding PlaceholderText}"
                        UseFloatingWatermark="True"
-                       wpf:TextFieldAssist.Hints="{Binding Error}"
-                       wpf:TextFieldAssist.Label="{Binding Label}"/>
+                       wpf:TextFieldAssist.Hints="{CompiledBinding Error}"
+                       wpf:TextFieldAssist.Label="{CompiledBinding Label}"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -101,7 +100,7 @@
             Grid.ColumnSpan="3"
             Grid.Row="5">
         <ItemsControl HorizontalAlignment="Stretch"
-                      Items="{Binding DialogButtons}"
+                      Items="{CompiledBinding DialogButtons}"
                       Margin="4">
           <ItemsControl.Styles>
             <Style Selector="Button">
@@ -110,17 +109,17 @@
           </ItemsControl.Styles>
           <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-              <StackPanel Orientation="{Binding ButtonsStackOrientation}"
+              <StackPanel Orientation="{CompiledBinding ButtonsStackOrientation}"
                           HorizontalAlignment="Right"/>
             </ItemsPanelTemplate>
           </ItemsControl.ItemsPanel>
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="main:DialogResultButton">
-              <Button Classes="Flat" Tag="{Binding Result}"
-                      Content="{Binding Content, FallbackValue=Null}"
+              <Button Classes="Flat" Tag="{CompiledBinding Result}"
+                      Content="{CompiledBinding Content, FallbackValue=Null}"
                       Command="{Binding ElementName=PART_Root, 
                           Path=DataContext.ButtonClick}"
-                      CommandParameter="{Binding }"/>
+                      CommandParameter="{CompiledBinding }"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>
         </ItemsControl>

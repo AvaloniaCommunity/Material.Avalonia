@@ -8,9 +8,9 @@
         xmlns:converters="clr-namespace:Material.Dialog.Converters"
         x:Class="Material.Dialog.Views.TimePickerDialog"
         SizeToContent="WidthAndHeight"
-        Title="{Binding WindowTitle}"
+        Title="{CompiledBinding WindowTitle}"
         CanResize="False"
-        WindowStartupLocation="{Binding WindowStartupLocation}"
+        WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
         HorizontalContentAlignment="Stretch"
         x:DataType="viewModels:TimePickerDialogViewModel">
     <Window.Resources>
@@ -32,8 +32,8 @@
                    assists:ShadowAssist.ShadowDepth="CenterDepth4">
         <Grid Name="PART_Root" 
               RowDefinitions="96,*,Auto"
-              Width="{Binding Width}"
-              MaxWidth="{Binding MaxWidth}">
+              Width="{CompiledBinding Width}"
+              MaxWidth="{CompiledBinding MaxWidth}">
             <material:ColorZone Name="PART_HeaderZone" Mode="PrimaryMid" Padding="32, 12">
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right"
@@ -70,7 +70,7 @@
                         <TextBlock Text="{CompiledBinding SecondField, Converter={StaticResource PadNumbersConverter}}" Classes="Headline2" FontWeight="Regular"/>
                     </RadioButton>
                     <StackPanel VerticalAlignment="Bottom" Margin="8,4,0,4">
-                        <RadioButton GroupName="2" Classes="Button Alter" IsChecked="true">
+                        <RadioButton GroupName="2" Classes="Button Alter" IsChecked="{CompiledBinding IsAm, Mode=TwoWay}">
                             <TextBlock Text="AM" Classes="Subtitle1" FontWeight="Medium"/>
                         </RadioButton>
                         <RadioButton GroupName="2" Classes="Button Alter">
@@ -80,15 +80,6 @@
                 </StackPanel>
             </material:ColorZone>
             <Grid Grid.Row="1" Margin="24">
-                <Grid.Styles>
-                    <Style Selector="Grid.Pointer:not(.notransitions)">
-                        <Setter Property="Transitions">
-                            <Transitions>
-                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CircularEaseOut"/>
-                            </Transitions>
-                        </Setter>
-                    </Style>
-                </Grid.Styles>
                 
                 <Carousel Name="PART_PagesRoot" SelectedIndex="{CompiledBinding CarouselIndex}">
                     <Carousel.Styles>
@@ -189,11 +180,11 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="main:DialogResultButton">
-                        <Button Classes="Flat" Tag="{Binding Result}"
-                                Content="{Binding Content, FallbackValue=Null}"
+                        <Button Classes="Flat" Tag="{CompiledBinding Result}"
+                                Content="{CompiledBinding Content, FallbackValue=Null}"
                                 Command="{Binding ElementName=PART_Root, 
                                     Path=DataContext.ButtonClick}"
-                                CommandParameter="{Binding}"/>
+                                CommandParameter="{CompiledBinding}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
