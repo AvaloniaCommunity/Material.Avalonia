@@ -27,6 +27,8 @@ namespace Material.Demo.ViewModels
         private string _timePickerDialogResult;
         public string TimePickerDialogResult { get => _timePickerDialogResult; set { _timePickerDialogResult = value; OnPropertyChanged(); } }
 
+        private TimeSpan _previousTimePickerResult;
+
 
         public async void Dialog1()
         {
@@ -192,6 +194,7 @@ namespace Material.Demo.ViewModels
             {
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
+                ImplicitValue = _previousTimePickerResult,
                 PositiveButton = new DialogResultButton
                 {
                     Content = "CONFIRM",
@@ -202,6 +205,7 @@ namespace Material.Demo.ViewModels
             if (result.GetResult == "confirm")
             {
                 TimePickerDialogResult = $"Result: {result.GetResult}\nTimeSpan: {result.GetTimeSpan()}";
+                _previousTimePickerResult = result.GetTimeSpan();
             }
         }
     }
