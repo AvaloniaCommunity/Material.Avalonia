@@ -10,17 +10,17 @@ namespace Material.Dialog
             
         }
 
-        public DateTimePickerDialogResult(string result, DateTime pickerResult)
+        public DateTimePickerDialogResult(string result, TimeSpan time)
         {
-            this._result = result;
-            this._dateTime = pickerResult;
+            this.Result = result;
+            this._timeSpan = time;
         }
         
-        internal string _result;
-        public string GetResult => _result;
+        internal string Result;
+        public string GetResult => Result;
 
         // ReSharper disable once InconsistentNaming
-        internal DateTime _dateTime;
-        public DateTime GetDateTime() => _dateTime;
+        internal TimeSpan _timeSpan;
+        public TimeSpan GetTimeSpan() => _timeSpan;
     }
 }
