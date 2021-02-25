@@ -14,7 +14,7 @@ namespace Material.Dialog
         public DialogResultButton[] DialogButtons = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel);
 
         /// <summary>
-        /// Define positive action button. This button will be freezed when any fields are invalid.
+        /// Define positive action button.
         /// </summary>
         public DialogResultButton PositiveButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.Ok)[0];
 
@@ -22,7 +22,7 @@ namespace Material.Dialog
         /// Define negative action button.
         /// <br/>You still have a way go back lmao.
         /// </summary>
-        public DialogResultButton NegativeButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[1];
+        public DialogResultButton NegativeButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[0];
 
         /// <summary>
         /// Define result after close the dialog not from buttons

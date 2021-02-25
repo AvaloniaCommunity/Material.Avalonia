@@ -27,7 +27,7 @@ namespace Material.Dialog
         /// Define negative action button.
         /// <br/>You still have a way go back lmao.
         /// </summary>
-        public DialogResultButton NegativeButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[1];
+        public DialogResultButton NegativeButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[0];
 
         /// <summary>
         /// Define buttons stack orientation.
