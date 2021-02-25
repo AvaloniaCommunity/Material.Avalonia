@@ -126,7 +126,8 @@ namespace Material.Dialog.ViewModels
                 return;
             
             SecondField = (ushort)v;
-            SecondPanelPointerTransform = $"rotate({(v / (double)60) * 360}deg)";
+            var r = Math.Round((v / (double) 60) * 360);
+            SecondPanelPointerTransform = $"rotate({r}deg)";
         }
 
         public TimePickerDialogViewModel(TimePickerDialog dialog)
@@ -149,10 +150,11 @@ namespace Material.Dialog.ViewModels
 
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                var result = new DateTimePickerDialogResult() { _result = button.Result };
+                var timespan = new TimeSpan(FirstField + (_isAm ? 0 : 12), SecondField, 00);
+                
+                var result = new DateTimePickerDialogResult(button.Result, timespan);
                 var fields = new List<TextFieldResult>();
 
-                result._dateTime = new DateTime();
                 _window.Result = result;
                 _window.Close();
             });
