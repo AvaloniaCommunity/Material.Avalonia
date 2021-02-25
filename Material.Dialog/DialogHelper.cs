@@ -108,7 +108,6 @@ namespace Material.Dialog
             return new DialogWindowBase<TextFieldDialog, TextFieldDialogResult>(window);
         }
 
-        [Obsolete("This feature is still preparing, do not use it early!")]
         public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(DateTimePickerDialogBuilderParams @params)
         {
             var window = new TimePickerDialog();
