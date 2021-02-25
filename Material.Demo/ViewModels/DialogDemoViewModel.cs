@@ -206,22 +206,26 @@ namespace Material.Demo.ViewModels
         {
             var result = await DialogHelper.CreateTimePicker(new DateTimePickerDialogBuilderParams()
             {
-                Width = 300,
+                Width = 360,
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 NegativeResult = new DialogResult("cancel"),
                 PositiveButton = new DialogResultButton()
                 {
-                  Content = "CONFIRM",
-                  Result = "confirm",
+                    Content = "CONFIRM",
+                    Result = "confirm",
                 },
                 NegativeButton = new DialogResultButton()
                 {
                     Content = "CANCEL",
                     Result = "cancel",
                 }
-            }).Show();
+            }).ShowDialog(Program.MainWindow);
             TimePickerDialogResult = $"Result: {result.GetResult}";
+            if (result.GetResult == "confirm")
+            {
+                TimePickerDialogResult = $"Result: {result.GetResult}\nTimeSpan: {result.GetTimeSpan()}";
+            }
         }
     }
 }
