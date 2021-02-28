@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using ShowMeTheXaml;
 
 namespace Material.Demo {
     internal class Program {
@@ -17,6 +18,7 @@ namespace Material.Demo {
         public static AppBuilder BuildAvaloniaApp() {
             return AppBuilder.Configure<App>()
                              .UsePlatformDetect()
+                             .UseXamlDisplay()
                              .LogToTrace();
         }
 
