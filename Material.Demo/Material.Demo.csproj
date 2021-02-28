@@ -30,4 +30,9 @@
     <AdditionalFiles Include="**\*.xaml" />
     <AdditionalFiles Include="**\*.axaml" />
   </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="MaterialXamlDisplay.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+  </ItemGroup>
 </Project>

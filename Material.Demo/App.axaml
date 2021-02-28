@@ -9,5 +9,6 @@
       <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
       <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml"/>
       <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml"/>
+      <StyleInclude Source="avares://Material.Demo/MaterialXamlDisplay.axaml"></StyleInclude>
     </Application.Styles>
 </Application>
