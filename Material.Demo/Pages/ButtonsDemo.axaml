@@ -1,124 +1,181 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-            xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
-            xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-            x:Class="Material.Demo.Pages.ButtonsDemo"> 
-  <StackPanel Margin="16, 0">
-    <TextBlock Classes="Headline4 Subheadline" Text="Buttons"/>
-    <TextBlock Classes="Headline6 Subheadline2" Text="Regular buttons"/>
-    <StackPanel Orientation="Horizontal">
-      <StackPanel.Styles>
-        <Style Selector="Button">
-          <Setter Property="Margin" Value="8"/>
-        </Style>
-      </StackPanel.Styles>
-      <Button Classes="Light" Content="Light" ToolTip.Tip='Button with classes "Light"'/>
-      <Button Content="Mid (Default)" ToolTip.Tip='Regular button without any classes.'/>
-      <Button Classes="Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark"'/>
-      <Button Classes="Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent"'/>
-      
-      <Button Content="Custom corner radius" ToolTip.Tip='Regular button with customized corner radius (16dp).' assist:ButtonAssist.CornerRadius="16"/>
-    </StackPanel>
-    
-    <TextBlock Classes="Headline6 Subheadline2" Text="Outline buttons"/>
-    <StackPanel Orientation="Horizontal">
-      <StackPanel.Styles>
-        <Style Selector="Button">
-          <Setter Property="Margin" Value="8"/>
-        </Style>
-      </StackPanel.Styles>
-      <Button Classes="Outline Light" Content="Light" ToolTip.Tip='Button with classes "Light" and "Outline"'/>
-      <Button Classes="Outline" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"'/>
-      <Button Classes="Outline Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"'/>
-      <Button Classes="Outline Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Outline"'/>
-      
-      <Button Classes="Outline" Content="Custom corner radius" ToolTip.Tip='Outline button with customized corner radius (16dp).' assist:ButtonAssist.CornerRadius="16"/>
-    </StackPanel>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             x:Class="Material.Demo.Pages.ButtonsDemo">
+    <StackPanel Margin="16, 0">
+        <TextBlock Classes="Headline4 Subheadline" Text="Buttons" />
+        <TextBlock Classes="Headline6 Subheadline2" Text="Regular buttons" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="Buttons1">
+                <Button Classes="Light" Content="Light" ToolTip.Tip='Button with classes "Light"' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Buttons2">
+                <Button Content="Mid (Default)" ToolTip.Tip='Regular button without any classes.' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Buttons3">
+                <Button Classes="Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark"' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Buttons4">
+                <Button Classes="Accent" Content="Accent" ToolTip.Tip='Button with classes "Accent"' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Buttons5">
+                <Button Content="Custom corner radius"
+                        ToolTip.Tip='Regular button with customized corner radius (16dp).'
+                        assist:ButtonAssist.CornerRadius="16" />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
 
-    <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon"/>
-    <StackPanel Orientation="Horizontal">
-      <StackPanel.Styles>
-        <Style Selector="styles|FloatingButton">
-          <Setter Property="Margin" Value="16,8"/> 
-          <Setter Property="Content">
-            <Setter.Value>
-              <Template>
-                <Viewbox Stretch="Fill" 
-                         HorizontalAlignment="Stretch"
-                         VerticalAlignment="Stretch">
-                  <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
-                </Viewbox>
-              </Template>
-            </Setter.Value>
-          </Setter>
-        </Style>
-      </StackPanel.Styles>
-      <styles:FloatingButton Classes="Light Mini"/> 
-      <styles:FloatingButton Classes="Mini"/>
-      <styles:FloatingButton Classes="Dark Mini"/>
-      <styles:FloatingButton Classes="Accent Mini"/>
-      <styles:FloatingButton Classes="Light"/>
-      <styles:FloatingButton/>
-      <styles:FloatingButton Classes="Dark"/>
-      <styles:FloatingButton Classes="Accent"/>
-    </StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Outline buttons" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons0">
+                <Button Classes="Outline Light" Content="Light" ToolTip.Tip='Button with classes "Light" and "Outline"' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons1">
+                <Button Classes="Outline" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons2">
+                <Button Classes="Outline Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons3">
+                <Button Classes="Outline Accent" Content="Accent"
+                        ToolTip.Tip='Button with classes "Accent" and "Outline"' />
+            </showMeTheXaml:XamlDisplay>
 
-    <TextBlock Classes="Headline6 Subheadline2" Text="Extended floating buttons"/>
-    <StackPanel Orientation="Horizontal">
-      <StackPanel.Styles>
-        <Style Selector="styles|FloatingButton[IsExtended=false]">
-          <Setter Property="Margin" Value="8"/>
-          <Setter Property="Content">
-            <Setter.Value>
-              <Template>
-                <Viewbox Stretch="Fill"
-                         HorizontalAlignment="Stretch"
-                         VerticalAlignment="Stretch">
-                  <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
-                </Viewbox>
-              </Template>
-            </Setter.Value>
-          </Setter>
-        </Style>
-        <Style Selector="styles|FloatingButton[IsExtended=true]">
-          <Setter Property="Margin" Value="8"/>   
-          <Setter Property="Content">
-            <Setter.Value>
-              <Template>
-                <StackPanel Orientation="Horizontal" Height="24">
-                  <Viewbox Stretch="Fill"
-                           HorizontalAlignment="Stretch"
-                           VerticalAlignment="Stretch">
-                    <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
-                  </Viewbox>
-                  <TextBlock Margin="8,0" Text="ADD ITEM" Classes="Subtitle2" VerticalAlignment="Center"/>
-                </StackPanel>
-              </Template>
-            </Setter.Value>
-          </Setter>
-        </Style>
-      </StackPanel.Styles>
-      <styles:FloatingButton Classes="Light" IsExtended="True"/>
-      <styles:FloatingButton IsExtended="True"/>
-      <styles:FloatingButton Classes="Dark" IsExtended="True"/>
-      <styles:FloatingButton Classes="Accent" IsExtended="{Binding ElementName=CheckBox1, Path=IsChecked}"/>
-      <CheckBox Name="CheckBox1" Content="IsExtended" Margin="16,8"/>
-    </StackPanel>
+            <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons4">
+                <Button Classes="Outline" Content="Custom corner radius"
+                        ToolTip.Tip='Outline button with customized corner radius (16dp).'
+                        assist:ButtonAssist.CornerRadius="16" />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
 
-    <TextBlock Classes="Headline6 Subheadline2" Text="Flat buttons"/>
-    <StackPanel Orientation="Horizontal">
-      <StackPanel.Styles>
-        <Style Selector="Button">
-          <Setter Property="Margin" Value="8"/>
-        </Style>
-      </StackPanel.Styles>
-      <Button Classes="Flat" Content="Default" ToolTip.Tip='Regular button with class "Flat"'/>
-      <Button Classes="Flat Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Flat"'/>
-    </StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="styles|FloatingButton">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Template>
+                                <Viewbox Stretch="Fill"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch">
+                                    <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24" />
+                                </Viewbox>
+                            </Template>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="16, 8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons0">
+                <styles:FloatingButton Classes="Light Mini" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons1">
+                <styles:FloatingButton Classes="Mini" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons2">
+                <styles:FloatingButton Classes="Dark Mini" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons3">
+                <styles:FloatingButton Classes="Accent Mini" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons4">
+                <styles:FloatingButton Classes="Light" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons5">
+                <styles:FloatingButton />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons6">
+                <styles:FloatingButton Classes="Dark" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons7">
+                <styles:FloatingButton Classes="Accent" />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
 
-  </StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Extended floating buttons" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+                <Style Selector="styles|FloatingButton[IsExtended=false]">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Template>
+                                <Viewbox Stretch="Fill"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch">
+                                    <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24" />
+                                </Viewbox>
+                            </Template>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style Selector="styles|FloatingButton[IsExtended=true]">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Template>
+                                <StackPanel Orientation="Horizontal" Height="24">
+                                    <Viewbox Stretch="Fill"
+                                             HorizontalAlignment="Stretch"
+                                             VerticalAlignment="Stretch">
+                                        <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24" />
+                                    </Viewbox>
+                                    <TextBlock Margin="8,0" Text="ADD ITEM" Classes="Subtitle2"
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Template>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="ExpandedFloatingButton0">
+                <styles:FloatingButton Classes="Light" IsExtended="True" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="ExpandedFloatingButton1">
+                <styles:FloatingButton IsExtended="True" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="ExpandedFloatingButton2">
+                <styles:FloatingButton Classes="Dark" IsExtended="True" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="ExpandedFloatingButton3">
+                <styles:FloatingButton Classes="Accent" IsExtended="{Binding ElementName=CheckBox1, Path=IsChecked}" />
+            </showMeTheXaml:XamlDisplay>
+            <CheckBox Name="CheckBox1" Content="IsExtended" Margin="16,8" />
+        </StackPanel>
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Flat buttons" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="FlatButtons0">
+                <Button Classes="Flat" Content="Default" ToolTip.Tip='Regular button with class "Flat"' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="FlatButtons1">
+                <Button Classes="Flat Accent" Content="Accent" ToolTip.Tip='Button with classes "Accent" and "Flat"' />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+
+    </StackPanel>
 </UserControl>
