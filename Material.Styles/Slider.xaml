@@ -432,7 +432,8 @@
                    Fill="{Binding Background, ElementName=PART_ContentContainer}"/>
           <Border Name="PART_ContentContainer" Background="{DynamicResource MaterialDesignToolTipBackground}" 
                   Padding="4, 8" CornerRadius="2">
-            <TextBlock Classes="Caption" Text="{Binding $parent[Slider].Value}"/>
+            <TextBlock Classes="Caption" Text="{Binding $parent[Slider].Value}"
+                       Foreground="{DynamicResource MaterialDesignBackground}"/>
           </Border>
         </Grid>
       </Template>
