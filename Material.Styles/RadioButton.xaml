@@ -1,13 +1,20 @@
-<Styles xmlns="https://github.com/avaloniaui"
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+        xmlns:system="clr-namespace:System;assembly=netstandard">
+    <Styles.Resources>
+        <system:Double x:Key="RadioButtonHoveredOpacity">0.12</system:Double>
+        <system:Double x:Key="RadioButtonPressedOpacity">0.26</system:Double>
+    </Styles.Resources>
+    
     <Style Selector="RadioButton">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="assists:SelectionControlAssist.Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="assists:SelectionControlAssist.InnerForeground" Value="{DynamicResource PrimaryHueMidBrush}"/>
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="20" />
         <Setter Property="Padding" Value="4 2 0 0" />
@@ -22,28 +29,27 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Viewbox
-                                Width="{Binding RelativeSource={RelativeSource TemplatedParent}, 
-                            Path=(assists:SelectionControlAssist.Size)}"
-                                Height="{Binding RelativeSource={RelativeSource TemplatedParent}, 
-                            Path=(assists:SelectionControlAssist.Size)}"
-                                Stretch="Uniform"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                ClipToBounds="False">
-                                <Grid ClipToBounds="False" Height="20" Width="20">
-                                    <Path Name="Graphic" ClipToBounds="False"
-                                          Fill="{TemplateBinding Foreground}" Margin="-2 -2 0 0">
-                                        <Path.Styles>
-                                            <Style Selector="Path">
-                                                <Setter Property="Data"
-                                                        Value="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
-                                            </Style>
-                                        </Path.Styles>
-                                    </Path>
-                                    <Ellipse Name="InteractionEllipse" Fill="{TemplateBinding Foreground}" Opacity="0"
-                                             Width="20" Height="20" HorizontalAlignment="Center"
-                                             VerticalAlignment="Center">
-                                    </Ellipse>
+                            <Viewbox Width="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                                                        Path=(assists:SelectionControlAssist.Size)}"
+                                                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                                                        Path=(assists:SelectionControlAssist.Size)}"
+                                                    Stretch="Uniform" VerticalAlignment="Center" ClipToBounds="False">
+                                <Grid>
+                                    <Path Name="Graphic" Height="24" Width="24" Fill="{TemplateBinding assists:SelectionControlAssist.Foreground}"
+                                          Data="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                    <Path Name="InnerGraphic" Height="24" Width="24" Fill="{TemplateBinding assists:SelectionControlAssist.InnerForeground}"
+                                          Data="M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7Z"/>
+                                    
+                                    <Ellipse Name="PART_HoverIndicator"
+                                             Fill="{TemplateBinding assists:SelectionControlAssist.Foreground}"
+                                             VerticalAlignment="Center" HorizontalAlignment="Center"
+                                             Width="42" Height="42" Margin="-100" ClipToBounds="False"
+                                             IsHitTestVisible="False"/>
+                                    <Border ClipToBounds="True" CornerRadius="100" Width="42" Height="42"
+                                            Margin="-100" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <ripple:RippleEffect RippleFill="{TemplateBinding assists:SelectionControlAssist.Foreground}"
+                                                             RippleOpacity="{StaticResource RadioButtonPressedOpacity}"/>
+                                    </Border>
                                 </Grid>
                             </Viewbox>
                             <Border Name="PATH_ContentContainer"
@@ -61,57 +67,45 @@
         </Setter>
     </Style>
     
-    <Style Selector="RadioButton /template/ Border#PATH_ContentContainer">
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+    <!-- Default state -->
+    
+    <Style Selector="RadioButton /template/ Ellipse#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="0" />
     </Style>
+    
+    <Style Selector="RadioButton /template/ Path#InnerGraphic">
+        <Setter Property="RenderTransform" Value="scale(0)"/>
+    </Style>
+    
     <Style Selector="RadioButton:disabled">
-        <Setter Property="Foreground"
+        <Setter Property="assists:SelectionControlAssist.Foreground"
+                Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="assists:SelectionControlAssist.InnerForeground"
                 Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
         <Setter Property="Opacity" Value="0.26" />
     </Style>
+    
+    <!-- Feedbacks -->
+    
+    <Style Selector="RadioButton:checked /template/ Path#InnerGraphic">
+        <Setter Property="RenderTransform" Value="scale(1)"/>
+    </Style>
+    
+    <Style Selector="RadioButton:not(:disabled):pointerover /template/ Ellipse#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="{StaticResource RadioButtonHoveredOpacity}" />
+    </Style>
+    
+    <!-- Accent -->
+
     <Style Selector="RadioButton.Accent:not(:disabled)">
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
-    </Style>
-    
-    <Style Selector="RadioButton:checked /template/ Path#Graphic">
-        <Setter Property="Data"
-                Value="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7Z" />
-        <Setter Property="Fill"
-                Value="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=Foreground}" />
-    </Style>
-    
-    <Style Selector="RadioButton:pressed /template/ Ellipse#InteractionEllipse">
-        <Style.Animations>
-            <animations:BeginAnimation>
-                <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="ScaleTransform.ScaleX" Value="0" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="0" />
-                        <Setter Property="Opacity" Value="0.28" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="ScaleTransform.ScaleX" Value="2" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="2" />
-                        <Setter Property="Opacity" Value="0.28" />
-                    </KeyFrame>
-                </Animation>
-            </animations:BeginAnimation>
-        </Style.Animations>
-    </Style>
-    <Style Selector="RadioButton:not(:pressed) /template/ Ellipse#InteractionEllipse">
-        <Style.Animations>
-            <Animation Duration="0:0:0.2" FillMode="Both">
-                <KeyFrame Cue="0%">
-                    <Setter Property="Opacity" Value="0.28" />
-                </KeyFrame>
-                <KeyFrame Cue="100%">
-                    <Setter Property="Opacity" Value="0" />
-                </KeyFrame>
-            </Animation>
-        </Style.Animations>
+        <Setter Property="assists:SelectionControlAssist.Foreground"
+                Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="assists:SelectionControlAssist.InnerForeground"
+                Value="{DynamicResource SecondaryHueMidBrush}" />
     </Style>
     
     <!-- RadioButton but looks like buttons -->
+    
     <Style Selector="RadioButton.Button">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderThickness" Value="0"/>
