@@ -29,6 +29,7 @@
                                                   ContentTemplate="{TemplateBinding ContentTemplate}"
                                                   Cursor="{TemplateBinding Cursor}"
                                                   Margin="{TemplateBinding Padding}"
+                                                  TextBlock.Foreground="{TemplateBinding Foreground}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </Border>
@@ -38,6 +39,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style Selector="cc|ColorZone[Mode=Inverted]">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
