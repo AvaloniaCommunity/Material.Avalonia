@@ -14,9 +14,9 @@ namespace Material.Styles.Converters
     {
         public static double DefaultOffsetY = 0;
         
-        private static double GetOffLeft(Rect bounds, double offsetX) => offsetX - bounds.Width / 2;
+        private static double GetOffLeft(Rect bounds, double offsetX) => offsetX;
 
-        private static double GetOffRight(Rect bounds, double windowW, double offsetX) => offsetX + (bounds.Width + bounds.Width / 2.0) - windowW;
+        private static double GetOffRight(Rect bounds, double windowW, double offsetX) => offsetX + (bounds.Width) - windowW;
 
         private static Vector GetTranslate(TransformedBounds bounds)
         {

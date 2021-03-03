@@ -433,9 +433,14 @@
               RenderTransform="translate(0px, -16px)">
           <Polygon Grid.Row="1" Points="0,0 4.5,5 9,0" HorizontalAlignment="Center" RenderTransform="translate(0px,-0.5px)"
                    Fill="{Binding Background, ElementName=PART_ContentContainer}"/>
+                   
+          <Border Name="PART_Positioner" Background="Transparent" Padding="{Binding Padding, ElementName=PART_ContentContainer}">
+            <TextBlock Classes="Caption" Text="{Binding Text, ElementName=InnerBubbleText}" 
+                       Margin="{Binding Margin, ElementName=InnerBubbleText}" Foreground="Transparent"/>
+          </Border>
           <Border Name="PART_ContentContainer" Background="{DynamicResource MaterialDesignToolTipBackground}" 
                   Padding="4, 8" CornerRadius="2" RenderTransform="{Binding TransformedBounds, 
-                  ElementName=PART_ContentContainer, Converter={StaticResource AutoCorrectPositionConverter}}">
+                  ElementName=PART_Positioner, Converter={StaticResource AutoCorrectPositionConverter}}">
 
             <TextBlock Name="InnerBubbleText" Classes="Caption" Text="{Binding $parent[Slider].Value}"
                        Foreground="{DynamicResource MaterialDesignBackground}"/>
