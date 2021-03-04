@@ -14,6 +14,8 @@ namespace Material.Dialog.Bases
         {
             m_Window = window;
         }
+
+        public Window GetWindow() => m_Window;
         
         public Task<TResult> Show() => Procedure(() => m_Window.Show());
 
