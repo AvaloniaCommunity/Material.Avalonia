@@ -130,6 +130,27 @@ namespace Material.Dialog
             return new DialogWindowBase<TimePickerDialog, DateTimePickerDialogResult>(window);
         }
 
+        /// <summary>
+        /// Create an dialog with custom content or dummy dialog.
+        /// </summary>
+        /// <param name="params">Parameters of building dialog</param>
+        /// <returns>Instance of dialog.</returns>
+        public static IDialogWindow<DialogResult> CreateCustomDialog(CustomDialogBuilderParams @params)
+        {
+            var window = new CustomDialog();
+            var context = new CustomDialogViewModel(window)
+            {
+                DialogButtons = @params.DialogButtons,
+                ButtonsStackOrientation = @params.ButtonsOrientation,
+                Content = @params.Content,
+            };
+            ApplyBaseParams(context, @params);
+            window.DataContext = context;
+            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
+            window.SetNegativeResult(@params.NegativeResult);
+            return new DialogWindowBase<CustomDialog, DialogResult>(window);
+        }
+
         private static void ApplyBaseParams<T> (T input, DialogWindowBuilderParamsBase @params) where T : DialogWindowViewModel
         {
             input.MaxWidth = @params.MaxWidth;
@@ -144,7 +165,7 @@ namespace Material.Dialog
 
         private static DialogResultButton[] CombineButtons(params DialogResultButton[] buttons) 
         {
-            List<DialogResultButton> result = new List<DialogResultButton>();
+            var result = new List<DialogResultButton>();
             foreach(var button in buttons)
             {
                 if (button is null)
@@ -156,12 +177,12 @@ namespace Material.Dialog
 
         private static TextFieldViewModel[] TextFieldsBuilder(TextFieldBuilderParams[] @params)
         {
-            List<TextFieldViewModel> result = new List<TextFieldViewModel>();
+            var result = new List<TextFieldViewModel>();
             foreach(var param in @params)
             {
                 try
                 {
-                    TextFieldViewModel model = new TextFieldViewModel();
+                    var model = new TextFieldViewModel();
 
                     // Currently AvaloniaUI are not supported to binding classes.
                     //model.Classes = param.Classes;
