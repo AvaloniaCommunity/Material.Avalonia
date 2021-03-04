@@ -14,7 +14,7 @@
         HorizontalContentAlignment="Stretch"
         x:DataType="viewModels:AlertDialogViewModel"> 
   <Window.Styles>
-    <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.xaml"/>
+    <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml"/>
     <Style Selector="Window[SystemDecorations=None]">
       <Setter Property="Padding" Value="32"/>
       <Setter Property="Background" Value="Transparent"/>
