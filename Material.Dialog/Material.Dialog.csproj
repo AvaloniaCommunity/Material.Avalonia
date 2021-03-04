@@ -15,24 +15,11 @@
     <AvaloniaResource Include="**\*.xaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Include="**\*.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <AvaloniaResource Remove="Views\AlertDialog.axaml" />
-    <AvaloniaResource Remove="Views\TextFieldDialog.axaml" />
-    <AvaloniaResource Remove="Views\TimePickerDialog.axaml" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Icons\DialogIconExtension.cs" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Icons\DialogIconStyle.xaml" />
-  </ItemGroup> 
 
   <ItemGroup>
     <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
