@@ -190,6 +190,8 @@
     <!-- Filled textfield -->
     
     <Style Selector="TextBox.Filled">
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
@@ -260,7 +262,8 @@
                     </Grid>
                   </Border>
                   <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                             Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"/>
+                             Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"
+                             IsVisible="{Binding !!Text, RelativeSource={RelativeSource Self}}"/>
                 </StackPanel>
             </ControlTemplate>
         </Setter>
@@ -419,6 +422,9 @@
     <Style Selector="TextBox.Outline:empty:not(:focus-within) /template/ Border#watermarkRoot">
       <Setter Property="Margin" Value="10,14,1,1"/>
     </Style>
+    <Style Selector="TextBox.Outline.Dense:empty:not(:focus-within) /template/ Border#watermarkRoot">
+        <Setter Property="Margin" Value="10,12,1,1"/>
+    </Style>
 
     
     <Style Selector="TextBox.Outline:disabled /template/ Border#PART_Border">
@@ -546,7 +552,8 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         CornerRadius="{TemplateBinding wpf:TextFieldAssist.CornerRadius}"
-                        BorderThickness="{TemplateBinding BorderThickness}">
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        ClipToBounds="{TemplateBinding ClipToBounds}">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="{TemplateBinding Padding}">
                         <DataValidationErrors Name="DataValidation">
                             <Grid ColumnDefinitions="Auto,*,Auto">
