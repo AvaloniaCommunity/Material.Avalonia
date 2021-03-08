@@ -17,6 +17,7 @@
         <ResourceDictionary>
             <converters:PadNumbersConverter x:Key="PadNumbersConverter"/>
             <converters:StringToTransformConverter x:Key="StringToTransformConverter"/>
+            <converters:HourStringConverter x:Key="HourString"/>
         </ResourceDictionary>
     </Window.Resources>
     
@@ -62,7 +63,7 @@
                         </Style>
                     </StackPanel.Styles>
                     <RadioButton GroupName="1" Classes="Button Main" IsChecked="{CompiledBinding FirstFieldSelected, Mode=TwoWay}">
-                        <TextBlock Text="{CompiledBinding FirstField}" Classes="Headline2" FontWeight="Regular"/>
+                        <TextBlock Text="{CompiledBinding FirstField, Converter={StaticResource HourString}}" Classes="Headline2" FontWeight="Regular"/>
                     </RadioButton>
                     <TextBlock Classes="Headline3" Text=":" FontWeight="Regular" VerticalAlignment="Bottom"
                                Foreground="{DynamicResource MaterialDesignCardBackground}"/>
