@@ -77,12 +77,15 @@ namespace Material.Dialog
         public static IDialogWindow<DialogResult> CreateAlertDialog(AlertDialogBuilderParams @params)
         { 
             var window = new AlertDialog();
-            var context = new AlertDialogViewModel(window)
-            {
-                DialogButtons = @params.DialogButtons,
-                ButtonsStackOrientation = @params.ButtonsOrientation,
-            };
+            var context = new AlertDialogViewModel(window) { };
+
             ApplyBaseParams(context, @params);
+            
+            if (context.DialogButtons == null)
+            {
+                context.DialogButtons = CreateSimpleDialogButtons(DialogButtonsEnum.Ok);
+            }
+            
             window.DataContext = context;
             window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
             window.SetNegativeResult(@params.NegativeResult);
@@ -96,11 +99,13 @@ namespace Material.Dialog
             {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton, 
-                ButtonsStackOrientation = @params.ButtonsOrientation,
                 TextFields = TextFieldsBuilder(@params.TextFields),
-                DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton),
             };
+            
             ApplyBaseParams(context, @params);
+            
+            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+            
             context.BindValidater();
             window.DataContext = context;
             window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
@@ -108,20 +113,26 @@ namespace Material.Dialog
             return new DialogWindowBase<TextFieldDialog, TextFieldDialogResult>(window);
         }
 
-        public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(DateTimePickerDialogBuilderParams @params)
+        /// <summary>
+        /// Create time picker dialog.
+        /// </summary>
+        /// <param name="params">Parameters of building dialog</param>
+        /// <returns>Instance of picker.</returns>
+        public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(TimePickerDialogBuilderParams @params)
         {
             var window = new TimePickerDialog();
             var context = new TimePickerDialogViewModel(window)
             {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton,
-                DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton),
                 FirstField = (ushort)@params.ImplicitValue.Hours,
                 SecondField = (ushort)@params.ImplicitValue.Minutes,
             };
             ApplyBaseParams(context, @params);
 
-            if (context.Width is null)
+            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+
+            if (context.Width is null || context.Width < 320)
                 context.Width = 320;
             
             window.AttachViewModel(context);
@@ -140,11 +151,11 @@ namespace Material.Dialog
             var window = new CustomDialog();
             var context = new CustomDialogViewModel(window)
             {
-                DialogButtons = @params.DialogButtons,
-                ButtonsStackOrientation = @params.ButtonsOrientation,
                 Content = @params.Content,
             };
+            
             ApplyBaseParams(context, @params);
+            
             window.DataContext = context;
             window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
             window.SetNegativeResult(@params.NegativeResult);
@@ -161,6 +172,9 @@ namespace Material.Dialog
             input.Borderless = @params.Borderless;
             input.WindowStartupLocation = @params.StartupLocation;
             input.DialogHeaderIcon = @params.DialogHeaderIcon;
+
+            input.DialogButtons = @params.DialogButtons;
+            input.ButtonsStackOrientation = @params.ButtonsOrientation;
         }
 
         private static DialogResultButton[] CombineButtons(params DialogResultButton[] buttons) 

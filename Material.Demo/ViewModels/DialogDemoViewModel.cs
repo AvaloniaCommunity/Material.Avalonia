@@ -190,7 +190,7 @@ namespace Material.Demo.ViewModels
 
         public async void TimePickerDialog()
         {
-            var result = await DialogHelper.CreateTimePicker(new DateTimePickerDialogBuilderParams()
+            var result = await DialogHelper.CreateTimePicker(new TimePickerDialogBuilderParams()
             {
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,

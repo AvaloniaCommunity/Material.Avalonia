@@ -14,9 +14,6 @@ namespace Material.Dialog.ViewModels
     {
         private TimePickerDialog _window;
 
-        private DialogResultButton[] m_DialogButtons;
-        public DialogResultButton[] DialogButtons { get => m_DialogButtons; internal set => m_DialogButtons = value; }
-
         private DialogResultButton m_PositiveButton;
         public DialogResultButton PositiveButton { get => m_PositiveButton; internal set => m_PositiveButton = value; }
 
@@ -31,6 +28,7 @@ namespace Material.Dialog.ViewModels
             {
                 if (_firstField == value)
                     return;
+                
                 if (value > 11)
                 {
                     value -= 12;

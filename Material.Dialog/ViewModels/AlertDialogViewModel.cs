@@ -11,11 +11,6 @@ namespace Material.Dialog.ViewModels
     {
         private AlertDialog _window;
 
-        private DialogResultButton[] m_DialogButtons;
-        public DialogResultButton[] DialogButtons { get => m_DialogButtons; internal set => m_DialogButtons = value; }
-
-        private Orientation m_ButtonsStackOrientation;
-        public Orientation ButtonsStackOrientation { get => m_ButtonsStackOrientation; internal set => m_ButtonsStackOrientation = value; }
 
         public AlertDialogViewModel(AlertDialog dialog)
         {

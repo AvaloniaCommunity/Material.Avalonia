@@ -19,12 +19,6 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        private DialogResultButton[] _dialogButtons;
-        public DialogResultButton[] DialogButtons { get => _dialogButtons; internal set => _dialogButtons = value; }
-
-        private Orientation _buttonsStackOrientation;
-        public Orientation ButtonsStackOrientation { get => _buttonsStackOrientation; internal set => _buttonsStackOrientation = value; }
-
         public CustomDialogViewModel(CustomDialog dialog)
         {
             _window = dialog;
