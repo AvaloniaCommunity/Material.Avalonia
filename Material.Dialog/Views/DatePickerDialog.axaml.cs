@@ -14,17 +14,11 @@ namespace Material.Dialog.Views
     [Obsolete("This feature is still not ready for use! Please come back later!")]
     public class DatePickerDialog : Window, IDialogWindowResult<DateTimePickerDialogResult>
     {
-        //private TimePickerDialogViewModel viewModel;
-        private Carousel PART_PagesRoot;
-        private Stack<IPointer> Pointers;
-        private bool HoldingPointer => Pointers.Count >= 1;
-
         public DateTimePickerDialogResult Result { get; set; }
         
         public DatePickerDialog()
         {
             Result = new DateTimePickerDialogResult();
-            Pointers = new Stack<IPointer>();
             
             InitializeComponent();
             // Create decorations
