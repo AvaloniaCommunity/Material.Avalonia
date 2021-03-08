@@ -21,7 +21,7 @@ namespace Material.Dialog
         /// <summary>
         /// Define an data validate function, result using <seealso cref="Tuple{Boolean,String}"/>
         /// <list>
-        /// <br/><seealso cref="Tuple{Boolean,String}.Item1"/> is valid, should be boolean.
+        /// <br/><seealso cref="Tuple{Boolean,String}.Item1"/> is validation result, should be boolean.
         /// <br/><seealso cref="Tuple{Boolean,String}.Item2"/> is information about invalid field, should be string.
         /// </list>
         /// </summary>
@@ -29,7 +29,7 @@ namespace Material.Dialog
         public string PlaceholderText;
         public string DefaultText;
 
-        [Obsolete("Currently AvaloniaUI are not supported to binding classes, do not use this before they solve this issue.")]
+        [Obsolete("Currently AvaloniaUI are not supported to binding classes, do not use this before they fixed this.")]
         public string Classes;
         public string Label;
         public TextFieldKind FieldKind;
