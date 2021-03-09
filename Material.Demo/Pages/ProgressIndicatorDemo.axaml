@@ -1,35 +1,40 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-            x:Class="Material.Demo.Pages.ProgressIndicatorDemo">
-  <StackPanel Margin="16, 0">
-    <TextBlock Classes="Headline4 Subheadline" Text="Progress Indicator"/>
-    <WrapPanel>
-      <StackPanel>
-        <StackPanel.Styles>
-          <Style Selector="ProgressBar">
-            <Setter Property="Margin" Value="8"/>
-            <Setter Property="Width" Value="300"/>
-          </Style>
-        </StackPanel.Styles> 
-        <TextBlock Classes="Headline6 Subheadline2" Text="Linear progress bars"/>
-        <ProgressBar Value="0" />
-        <ProgressBar Value="30" />
-        <ProgressBar IsIndeterminate="True" />
-        <ProgressBar Value="{Binding Progress}" />
-        <ProgressBar Value="{Binding Progress}" Classes="notransitions"/>
-      </StackPanel>
-      <StackPanel>
-        <StackPanel.Styles>
-          <Style Selector="ProgressBar">
-            <Setter Property="Margin" Value="8"/>
-            <Setter Property="Width" Value="300"/>
-          </Style>
-        </StackPanel.Styles> 
-      </StackPanel>
-    </WrapPanel>
-  </StackPanel>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             x:Class="Material.Demo.Pages.ProgressIndicatorDemo">
+    <StackPanel Margin="16, 0">
+        <TextBlock Classes="Headline4 Subheadline" Text="Progress Indicator" />
+        <WrapPanel>
+            <StackPanel>
+                <StackPanel.Styles>
+                    <Style Selector="ProgressBar">
+                        <Setter Property="Width" Value="300" />
+                    </Style>
+                    <Style Selector="showMeTheXaml|XamlDisplay">
+                        <Setter Property="Margin" Value="8" />
+                    </Style>
+                </StackPanel.Styles>
+                <TextBlock Classes="Headline6 Subheadline2" Text="Linear progress bars" />
+                <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators0">
+                    <ProgressBar Value="0" />
+                </showMeTheXaml:XamlDisplay>
+                <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators1">
+                    <ProgressBar Value="30" />
+                </showMeTheXaml:XamlDisplay>
+                <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators2">
+                    <ProgressBar IsIndeterminate="True" />
+                </showMeTheXaml:XamlDisplay>
+                <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators3">
+                    <ProgressBar Value="{Binding Progress}" />
+                </showMeTheXaml:XamlDisplay>
+                <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators4">
+                    <ProgressBar Value="{Binding Progress}" Classes="notransitions" />
+                </showMeTheXaml:XamlDisplay>
+            </StackPanel>
+        </WrapPanel>
+    </StackPanel>
 </UserControl>
