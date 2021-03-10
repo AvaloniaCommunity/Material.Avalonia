@@ -8,7 +8,7 @@ using System;
 
 namespace Material.Dialog.Views
 {
-    public class TextFieldDialog : Window, IDialogWindowResult<TextFieldDialogResult>
+    public class TextFieldDialog : Window, IDialogWindowResult<TextFieldDialogResult>, IHasNegativeResult
     {
         public TextFieldDialogResult Result { get; set; }
 

@@ -11,7 +11,7 @@ using Material.Dialog.ViewModels;
 
 namespace Material.Dialog.Views
 {
-    public class TimePickerDialog : Window, IDialogWindowResult<DateTimePickerDialogResult>
+    public class TimePickerDialog : Window, IDialogWindowResult<DateTimePickerDialogResult>, IHasNegativeResult
     {
         //private bool PointerHoldingCell;
         private TimePickerDialogViewModel viewModel;

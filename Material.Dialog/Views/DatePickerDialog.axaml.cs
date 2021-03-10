@@ -12,8 +12,10 @@ using Material.Dialog.ViewModels;
 namespace Material.Dialog.Views
 {
     [Obsolete("This feature is still not ready for use! Please come back later!")]
-    public class DatePickerDialog : Window, IDialogWindowResult<DateTimePickerDialogResult>
+    public class DatePickerDialog : Window, IDialogWindowResult<DateTimePickerDialogResult>, IHasNegativeResult
     {
+        private DatePickerDialogViewModel viewModel;
+        
         public DateTimePickerDialogResult Result { get; set; }
         
         public DatePickerDialog()
@@ -24,10 +26,10 @@ namespace Material.Dialog.Views
             // Create decorations
         }
 
-        public void AttachViewModel(TimePickerDialogViewModel vm)
+        public void AttachViewModel(DatePickerDialogViewModel vm)
         {
             this.DataContext = vm;
-            //viewModel = vm;
+            viewModel = vm;
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)

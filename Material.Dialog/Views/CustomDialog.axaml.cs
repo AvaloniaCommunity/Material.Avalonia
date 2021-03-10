@@ -5,7 +5,7 @@ using Material.Dialog.Interfaces;
 
 namespace Material.Dialog.Views
 {
-    public class CustomDialog : Window, IDialogWindowResult<DialogResult>
+    public class CustomDialog : Window, IDialogWindowResult<DialogResult>, IHasNegativeResult
     { 
         public DialogResult Result { get; set; } = DialogResult.NoResult;
 
