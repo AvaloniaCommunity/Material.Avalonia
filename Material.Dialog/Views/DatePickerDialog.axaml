@@ -12,7 +12,7 @@
         CanResize="False"
         WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
         HorizontalContentAlignment="Stretch"
-        x:DataType="viewModels:TimePickerDialogViewModel">
+        x:DataType="viewModels:DatePickerDialogViewModel">
     <Window.Resources>
         <ResourceDictionary>
             <converters:PadNumbersConverter x:Key="PadNumbersConverter"/>
