@@ -87,8 +87,7 @@ namespace Material.Dialog
             }
             
             window.DataContext = context;
-            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
-            window.SetNegativeResult(@params.NegativeResult);
+            SetupWindowParameters(window, @params);
             return new DialogWindowBase<AlertDialog, DialogResult>(window);
         }
 
@@ -108,8 +107,7 @@ namespace Material.Dialog
             
             context.BindValidater();
             window.DataContext = context;
-            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
-            window.SetNegativeResult(@params.NegativeResult);
+            SetupWindowParameters(window, @params);
             return new DialogWindowBase<TextFieldDialog, TextFieldDialogResult>(window);
         }
 
@@ -136,9 +134,34 @@ namespace Material.Dialog
                 context.Width = 320;
             
             window.AttachViewModel(context);
-            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
-            window.SetNegativeResult(@params.NegativeResult);
+            SetupWindowParameters(window, @params);
             return new DialogWindowBase<TimePickerDialog, DateTimePickerDialogResult>(window);
+        }
+        
+        /// <summary>
+        /// Create date picker dialog.
+        /// </summary>
+        /// <param name="params">Parameters of building dialog</param>
+        /// <returns>Instance of picker.</returns>
+        [Obsolete("This feature is still not ready for use! Please come back later!")]
+        public static IDialogWindow<DateTimePickerDialogResult> CreateDatePicker(DatePickerDialogBuilderParams @params)
+        {
+            var window = new DatePickerDialog();
+            var context = new DatePickerDialogViewModel(window)
+            {
+                PositiveButton = @params.PositiveButton,
+                NegativeButton = @params.NegativeButton,
+            };
+            ApplyBaseParams(context, @params);
+
+            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+
+            if (context.Width is null || context.Width < 320)
+                context.Width = 320;
+            
+            window.AttachViewModel(context);
+            SetupWindowParameters(window, @params);
+            return new DialogWindowBase<DatePickerDialog, DateTimePickerDialogResult>(window);
         }
 
         /// <summary>
@@ -157,8 +180,7 @@ namespace Material.Dialog
             ApplyBaseParams(context, @params);
             
             window.DataContext = context;
-            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
-            window.SetNegativeResult(@params.NegativeResult);
+            SetupWindowParameters(window, @params);
             return new DialogWindowBase<CustomDialog, DialogResult>(window);
         }
 
@@ -175,6 +197,12 @@ namespace Material.Dialog
 
             input.DialogButtons = @params.DialogButtons;
             input.ButtonsStackOrientation = @params.ButtonsOrientation;
+        }
+
+        private static void SetupWindowParameters(Window window, DialogWindowBuilderParamsBase @params)
+        {
+            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
+            (window as IHasNegativeResult)?.SetNegativeResult(@params.NegativeResult);
         }
 
         private static DialogResultButton[] CombineButtons(params DialogResultButton[] buttons) 
