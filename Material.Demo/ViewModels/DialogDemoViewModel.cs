@@ -208,5 +208,25 @@ namespace Material.Demo.ViewModels
                 _previousTimePickerResult = result.GetTimeSpan();
             }
         }
+        
+        public async void DatePickerDialog()
+        {
+            var result = await DialogHelper.CreateDatePicker(new DatePickerDialogBuilderParams()
+            {
+                Borderless = true,
+                StartupLocation = WindowStartupLocation.CenterOwner,
+                PositiveButton = new DialogResultButton
+                {
+                    Content = "CONFIRM",
+                    Result = "confirm"
+                },
+            }).ShowDialog(Program.MainWindow);
+            /*TimePickerDialogResult = $"Result: {result.GetResult}";
+            if (result.GetResult == "confirm")
+            {
+                TimePickerDialogResult = $"Result: {result.GetResult}\nTimeSpan: {result.GetTimeSpan()}";
+                _previousTimePickerResult = result.GetTimeSpan();
+            }*/
+        }
     }
 }

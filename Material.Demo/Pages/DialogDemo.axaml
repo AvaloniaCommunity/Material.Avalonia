@@ -73,6 +73,9 @@
                        FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
+          <StackPanel>
+            <Button Content="DatePicker dialog" Command="{Binding DatePickerDialog}"/>
+          </StackPanel>
         </StackPanel>
       </StackPanel>
     </WrapPanel> 
