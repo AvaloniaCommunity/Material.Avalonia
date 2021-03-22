@@ -1,0 +1,83 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+            x:Class="Material.Demo.Pages.DialogDemo"> 
+  <StackPanel Margin="16, 0">
+    <TextBlock Classes="Headline4 Subheadline" Text="Dialogs"/>
+
+    <WrapPanel>
+      <WrapPanel.Styles>
+        <Style Selector="WrapPanel > StackPanel,
+               WrapPanel > Grid">
+          <Setter Property="Width" Value="300"/>
+          <Setter Property="MinHeight" Value="300"/>
+        </Style>
+        <Style Selector="WrapPanel > StackPanel > StackPanel,
+               WrapPanel > Grid > StackPanel"> 
+          <Setter Property="HorizontalAlignment" Value="Center"/>
+          <Setter Property="VerticalAlignment" Value="Center"/>
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+        <Style Selector="WrapPanel > Grid > StackPanel > StackPanel,
+               WrapPanel > StackPanel > StackPanel > StackPanel"> 
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </WrapPanel.Styles>
+      <Grid>
+        <TextBlock Classes="Headline6 Subheadline2" Text="From DialogHost"/>
+        <StackPanel>
+          <Button Content="DialogHost is still preparing" IsEnabled="False"/>
+        </StackPanel>
+      </Grid>
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="In messagebox"/>
+        <StackPanel>
+          <StackPanel>
+            <Button Content="Show dialog #1" Command="{Binding Dialog1}"/>
+            <TextBlock Text="{Binding Dialog1Result}" 
+                       IsVisible="{Binding Dialog1Result, FallbackValue=False, 
+                       Converter={x:Static StringConverters.IsNotNullOrEmpty}}" 
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel>
+            <Button Content="Show dialog #2" Command="{Binding Dialog2}"/>
+            <TextBlock Text="{Binding Dialog2Result}" 
+                       IsVisible="{Binding Dialog2Result, FallbackValue=False,
+                       Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel>
+            <Button Content="Show dialog #3" Command="{Binding Dialog3}"/>
+            <TextBlock Text="{Binding Dialog3Result}" IsVisible="{Binding Dialog3Result,
+                       FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel>
+            <Button Content="Login dialog" Command="{Binding LoginDialog}"/>
+            <TextBlock Text="{Binding LoginDialogResult}" IsVisible="{Binding LoginDialogResult,
+                       FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel>
+            <Button Content="Rename file dialog" Command="{Binding FolderNameDialog}"/>
+            <TextBlock Text="{Binding FolderNameDialogResult}" IsVisible="{Binding FolderNameDialogResult,
+                       FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel>
+            <Button Content="TimePicker dialog" Command="{Binding TimePickerDialog}"/>
+            <TextBlock Text="{Binding TimePickerDialogResult}" IsVisible="{Binding TimePickerDialogResult,
+                       FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel>
+            <Button Content="DatePicker dialog" Command="{Binding DatePickerDialog}"/>
+          </StackPanel>
+        </StackPanel>
+      </StackPanel>
+    </WrapPanel> 
+  </StackPanel>
+</UserControl>

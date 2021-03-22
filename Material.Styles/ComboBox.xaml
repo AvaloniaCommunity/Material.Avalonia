@@ -18,18 +18,18 @@
       <Setter.Value>
         <ControlTemplate>
           <Grid Margin="4,0">
-            <Border x:Name="ToggleTemplateRoot"
+            <Border Name="ToggleTemplateRoot"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Padding="{TemplateBinding Padding}">
-              <Border x:Name="splitBorder"
+              <Border Name="splitBorder"
         Margin="0"
         HorizontalAlignment="Right"
         VerticalAlignment="Center"
         BorderBrush="Transparent"
         BorderThickness="0">
-                <Path x:Name="arrow"
+                <Path Name="arrow"
                       Width="8" Height="8"
                       Margin="0"
                       Stretch="Uniform"
@@ -90,7 +90,7 @@
                       <ColumnDefinition Width="*"/>
                       <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Grid x:Name="InputRoot"
+                    <Grid Name="InputRoot"
                           HorizontalAlignment="Left">
                       <TextBlock Name="placeholderText" 
                                  Classes="Subtitle1"
@@ -98,7 +98,7 @@
                                  Opacity="0.5"
                                  Text="{TemplateBinding PlaceholderText}"
                                  FontFamily="{TemplateBinding FontFamily}"  />
-                      <ContentPresenter x:Name="contentPresenter"
+                      <ContentPresenter Name="contentPresenter"
                                         Content="{TemplateBinding SelectionBoxItem}"
                                         ContentTemplate="{TemplateBinding ItemTemplate}"
                                         Margin="{TemplateBinding Padding}"/>
@@ -140,8 +140,6 @@
     <Setter Property="IsVisible" Value="True"/>
   </Style>
 
-
-
   <Style Selector="ComboBox.Filled">
     <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
     <Setter Property="Padding" Value="16,8" />
@@ -150,8 +148,8 @@
     <Setter Property="Template">
       <ControlTemplate>
         <StackPanel>
-          <ToggleButton Classes="NoFeedback" 
-                        MinHeight="48"
+          <ToggleButton Classes="NoFeedback TransparentBack" 
+                        MinHeight="48" BorderThickness="0"
                         HorizontalContentAlignment="Stretch"
                         IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
                         Margin="0"
@@ -189,20 +187,21 @@
                   </TextBlock.Styles>
                 </TextBlock>
                 <Grid ColumnDefinitions="*,Auto">
-                  <ContentPresenter x:Name="contentPresenter"
+                  <ContentPresenter Name="contentPresenter"
+                                    BorderThickness="0" BorderBrush="Transparent"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding SelectionBoxItem}"
                                     ContentTemplate="{TemplateBinding ItemTemplate}"
                                     Margin="{TemplateBinding Padding}"/>
-                  <Border x:Name="splitBorder"
+                  <Border Name="splitBorder"
                           Grid.Column="1"
                           Margin="16"
                           HorizontalAlignment="Right"
                           VerticalAlignment="Center" 
                           BorderBrush="Transparent"
                           BorderThickness="0">
-                    <Path x:Name="arrow"
+                    <Path Name="arrow"
                           Width="8" Height="8" 
                           Stretch="Uniform"
                           HorizontalAlignment="Right"

@@ -2,4 +2,5 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="Material.Avalonia.MaterialAvaloniaTemplates">
     <StyleInclude Source="avares://Material.Styles/MaterialToolKit.xaml" />
+    <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml"></StyleInclude>
 </Styles>

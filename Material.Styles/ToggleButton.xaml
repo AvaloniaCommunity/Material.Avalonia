@@ -6,30 +6,28 @@
     <Style Selector="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignPaper}"></Setter>
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}"></Setter>
+        <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignPaper}"/>
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="16 4 16 4" />
-        <Setter Property="Height" Value="32" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="16 4 16 4" /> 
         <Setter Property="Cursor" Value="Hand" />
     </Style>
-
-  <Style Selector="ToggleButton.TransparentBack">
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="Transparent"></Setter>
-    <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource PrimaryHueMidBrush}"></Setter>
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
-    <Setter Property="HorizontalContentAlignment" Value="Center" />
-    <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Padding" Value="16 4 16 4" />
-    <Setter Property="Height" Value="32" />
-    <Setter Property="Cursor" Value="Hand" />
-  </Style>
+    
+    <Style Selector="ToggleButton.ImplicitForeground">
+      <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type TemplatedControl}}, Path=Foreground}"/>
+    </Style>
+    
+    <Style Selector="ToggleButton.ConstantForeground">
+      <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
+    </Style>
+    
+    <Style Selector="ToggleButton.TransparentBack">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="Transparent"/>
+    </Style>
 
     <Style Selector="ToggleButton:checked">
         <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
@@ -38,15 +36,6 @@
 
 
   <Style Selector="ToggleButton.NoFeedback">
-    <Setter Property="HorizontalContentAlignment" Value="Center" />
-    <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignPaper}"></Setter>
-    <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}"></Setter>
-    <Setter Property="Background" Value="Transparent"/>
-    <Setter Property="BorderBrush" Value="Transparent"/>
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
-    <Setter Property="Padding" Value="16 4 16 4" />
-    <Setter Property="Height" Value="32" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border BorderThickness="0"

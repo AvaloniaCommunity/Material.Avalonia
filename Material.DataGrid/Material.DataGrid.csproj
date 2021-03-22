@@ -3,7 +3,13 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <LangVersion>8</LangVersion> 
+        <LangVersion>8</LangVersion>
+        <Authors>Larymar,SKProCH,Appleneko2001</Authors>
+        <Company>Larymar,SKProCH,Appleneko2001</Company>
+        <Description>DataGrid styles library of Material.Avalonia.</Description>
+        <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
+        <RepositoryType>git</RepositoryType> 
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
@@ -15,8 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
-	  <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0-rc1" />
+      <PackageReference Include="Avalonia" Version="0.10.0" />
+	  <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0" />
     </ItemGroup>
 
     <ItemGroup>

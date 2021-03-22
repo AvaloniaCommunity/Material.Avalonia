@@ -35,13 +35,12 @@
 
   <Style Selector="DataGridColumnHeader">
     <Setter Property="MinHeight" Value="56"/>
-    <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignColumnHeader}" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="SeparatorBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+    <Setter Property="SeparatorBrush" Value="{DynamicResource MaterialDesignDivider}" />
     <Setter Property="Padding" Value="16,0" />
     <Setter Property="Background" Value="Transparent"/>
-
     <Setter Property="Template">
       <ControlTemplate>
         <Grid ColumnDefinitions="*,Auto"
@@ -151,7 +150,7 @@
   <Style Selector="DataGridRowHeader">
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid x:Name="PART_Root"
+        <Grid Name="PART_Root"
         RowDefinitions="*,*,Auto"
         ColumnDefinitions="Auto,*">
 
@@ -206,21 +205,21 @@
   </Style>
 
   <Style Selector="DataGrid">
-    <Setter Property="RowBackground" Value="{DynamicResource ThemeAccentBrush4}" />
-    <Setter Property="AlternatingRowBackground" Value="#00FFFFFF" />
-    <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
+    <Setter Property="RowBackground" Value="Transparent" />
+    <Setter Property="AlternatingRowBackground" Value="Transparent" />
+    <Setter Property="Background" Value="Transparent" />
     <Setter Property="HeadersVisibility" Value="Column" /> 
     <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
     <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
     <Setter Property="SelectionMode" Value="Extended" />
     <Setter Property="GridLinesVisibility" Value="Horizontal"/>
-    <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
-    <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource ThemeBorderHighColor}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}"/>
+    <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MaterialDesignDivider}" />
+    <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource MaterialDesignDivider}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody}"/>
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="DropLocationIndicatorTemplate">
       <Template>
-        <Rectangle Fill="{DynamicResource ThemeBorderHighColor}" Width="2"/>
+        <Rectangle Fill="{DynamicResource MaterialDesignSelection}" Width="2"/>
       </Template>
     </Setter>
     <Setter Property="Template">
@@ -242,7 +241,7 @@
             <DataGridRowsPresenter Name="PART_RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1" />
             <Rectangle Name="PART_BottomRightCorner" Fill="{DynamicResource ThemeControlMidHighBrush}" Grid.Column="2" Grid.Row="2" />
             <Rectangle Name="BottomLeftCorner" Fill="{DynamicResource ThemeControlMidHighBrush}" Grid.Row="2" Grid.ColumnSpan="2" />
-            <ScrollBar Name="PART_VerticalScrollbar"  Classes="Modern"
+            <ScrollBar Name="PART_VerticalScrollbar" Classes="Modern"
                        Orientation="Vertical" Grid.Column="2" 
                        Grid.Row="1" Width="{DynamicResource ScrollBarThickness}"/>
 

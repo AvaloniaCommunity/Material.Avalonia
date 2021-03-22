@@ -1,9 +1,11 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+        xmlns:controls="clr-namespace:Material.Styles.Controls"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
     <Style Selector="TabControl">
-        <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
+        <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Stretch" />
         <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
                 Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
@@ -32,8 +34,8 @@
                                         <ItemsPresenter.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <UniformGrid Name="HeaderPanel" Background="Transparent"
-                                                             HorizontalAlignment="{Binding Path=(assists:TabControlAssist.TabHeaderHorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
-                                                             VerticalAlignment="{Binding Path=(assists:TabControlAssist.TabHeaderVerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                                                             HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
+                                                             VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
                                                              ZIndex="1" />
                                             </ItemsPanelTemplate>
                                         </ItemsPresenter.ItemsPanel>
@@ -43,7 +45,8 @@
 
                             <Border Name="PART_SelectedContentHostBorder">
                                 <ContentPresenter Name="PART_SelectedContentHost"
-                                                  Content="{TemplateBinding SelectedContent}" />
+                                                  Content="{TemplateBinding SelectedContent}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"/>
                             </Border>
                         </DockPanel>
                     </Grid>
@@ -51,6 +54,63 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style Selector="TabControl.Scrollable">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Name="GridRoot">
+                    <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch" />
+                    <DockPanel>
+                        <Grid Name="HeaderGrid" ColumnDefinitions="32,*,32">
+                            <Border Grid.ColumnSpan="3" 
+                                    Name="HeaderSeparatorBorder" 
+                                    Background="Transparent"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    BorderBrush="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveBrush), RelativeSource={RelativeSource AncestorType=TabControl}}"
+                                    Opacity="0.12" />
+
+                            <controls:Scroller Name="PART_ScrollerRoot" Grid.ColumnSpan="3" >
+                                <Border Name="HeaderPanelBorder" Background="Transparent" HorizontalAlignment="Stretch">
+                                    <ItemsPresenter
+                                        Name="PART_ItemsPresenter"
+                                        Items="{TemplateBinding Items}"
+                                        ItemTemplate="{TemplateBinding ItemTemplate}">
+                                        <ItemsPresenter.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <UniformGrid Name="HeaderPanel" Background="Transparent"
+                                                             HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
+                                                             VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
+                                                             ZIndex="1" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsPresenter.ItemsPanel>
+                                    </ItemsPresenter>
+                                </Border>
+                            </controls:Scroller>
+                            <Button Name="PART_ScrollLeftButton" 
+                                    Classes="Flat" Content="{avalonia:MaterialIconExt Kind=ChevronLeft}"
+                                    IsVisible="{Binding ElementName=PART_ScrollerRoot, Path=CanScrollLeft}"
+                                    Command="{Binding ElementName=PART_ScrollerRoot, Path=OneByThirdPageLeft}"/>
+                            <Button Name="PART_ScrollRightButton" Grid.Column="2" 
+                                    Classes="Flat" Content="{avalonia:MaterialIconExt Kind=ChevronRight}"
+                                    IsVisible="{Binding ElementName=PART_ScrollerRoot, Path=CanScrollRight}"
+                                    Command="{Binding ElementName=PART_ScrollerRoot, Path=OneByThirdPageRight}"/>
+                        </Grid>
+
+                        <Border Name="PART_SelectedContentHostBorder">
+                            <ContentPresenter Name="PART_SelectedContentHost"
+                                              Content="{TemplateBinding SelectedContent}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </Border>
+                    </DockPanel>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <!-- For Horizontal TabControl -->
+    
     <!-- For TabStripPlacement=Top -->
     <Style Selector="TabControl /template/ Grid#HeaderGrid">
         <Setter Property="DockPanel.Dock" Value="Top" />
@@ -111,8 +171,9 @@
         <Setter Property="Rows" Value="0" />
     </Style>
 
-
     <Style Selector="TabControl > TabItem">
+        <Setter Property="MinWidth" Value="90"/>
+        <Setter Property="MaxWidth" Value="360"/>
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="assists:TabControlAssist.TabHeaderForeground"
                 Value="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveBrush), RelativeSource={RelativeSource AncestorType=TabControl}}" />

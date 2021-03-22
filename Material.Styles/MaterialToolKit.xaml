@@ -45,6 +45,7 @@
     <StyleInclude Source="avares://Material.Styles/RepeatButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/ScrollBar.xaml" />
     <StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />
+    <StyleInclude Source="avares://Material.Styles/Scroller.xaml" />
     <StyleInclude Source="avares://Material.Styles/Separator.xaml" />
     <StyleInclude Source="avares://Material.Styles/Slider.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabControl.xaml" />

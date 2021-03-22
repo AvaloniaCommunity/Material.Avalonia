@@ -1,0 +1,194 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:main="clr-namespace:Material.Dialog"
+        xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
+        xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
+        xmlns:converters="clr-namespace:Material.Dialog.Converters"
+        x:Class="Material.Dialog.Views.TimePickerDialog"
+        SizeToContent="WidthAndHeight"
+        Title="{CompiledBinding WindowTitle}"
+        CanResize="False"
+        WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
+        HorizontalContentAlignment="Stretch"
+        x:DataType="viewModels:TimePickerDialogViewModel">
+    <Window.Resources>
+        <ResourceDictionary>
+            <converters:PadNumbersConverter x:Key="PadNumbersConverter"/>
+            <converters:StringToTransformConverter x:Key="StringToTransformConverter"/>
+            <converters:HourStringConverter x:Key="HourString"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Window.Styles>
+        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml"/>
+        <Style Selector="Window[SystemDecorations=None]">
+            <Setter Property="Padding" Value="32"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="TransparencyLevelHint" Value="Transparent"/>
+        </Style>
+    </Window.Styles>
+    <material:Card Name="PART_ContentRoot" Padding="0"
+                   assists:ShadowAssist.ShadowDepth="CenterDepth4">
+        <Grid Name="PART_Root" 
+              RowDefinitions="96,*,Auto"
+              Width="{CompiledBinding Width}"
+              MaxWidth="{CompiledBinding MaxWidth}">
+            <material:ColorZone Name="PART_HeaderZone" Mode="PrimaryMid" Padding="32, 12">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom">
+                    <StackPanel.Styles>
+                        <Style Selector="RadioButton">
+                            <Setter Property="Margin" Value="2"/>
+                        </Style>
+                        <Style Selector="RadioButton.Button:checked /template/ Border#PART_SelectedIndicator">
+                          <Setter Property="Opacity" Value="0"/>
+                        </Style>
+                        <Style Selector="RadioButton > TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Top"/>
+                            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCardBackground}"/>
+                            <Setter Property="Opacity" Value="0.56"/>
+                        </Style>
+                        <Style Selector="RadioButton:checked > TextBlock">
+                            <Setter Property="Opacity" Value="1"/>
+                        </Style>
+                        <Style Selector="RadioButton.Main">
+                            <Setter Property="Padding" Value="4,4,4,0"/>
+                        </Style>
+                        <Style Selector="RadioButton.Alter">
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </StackPanel.Styles>
+                    <RadioButton GroupName="1" Classes="Button Main" IsChecked="{CompiledBinding FirstFieldSelected, Mode=TwoWay}">
+                        <TextBlock Text="{CompiledBinding FirstField, Converter={StaticResource HourString}}" Classes="Headline2" FontWeight="Regular"/>
+                    </RadioButton>
+                    <TextBlock Classes="Headline3" Text=":" FontWeight="Regular" VerticalAlignment="Bottom"
+                               Foreground="{DynamicResource MaterialDesignCardBackground}"/>
+                    <RadioButton GroupName="1" Classes="Button Main" IsChecked="{CompiledBinding SecondFieldSelected, Mode=TwoWay}">
+                        <TextBlock Text="{CompiledBinding SecondField, Converter={StaticResource PadNumbersConverter}}" Classes="Headline2" FontWeight="Regular"/>
+                    </RadioButton>
+                    <StackPanel VerticalAlignment="Bottom" Margin="8,4,0,4">
+                        <RadioButton GroupName="2" Classes="Button Alter" IsChecked="{CompiledBinding IsAm, Mode=TwoWay}">
+                            <TextBlock Text="AM" Classes="Subtitle1" FontWeight="Medium"/>
+                        </RadioButton>
+                        <RadioButton GroupName="2" Classes="Button Alter" IsChecked="{CompiledBinding IsPm, Mode=TwoWay}">
+                            <TextBlock Text="PM" Classes="Subtitle1" FontWeight="Medium"/>
+                        </RadioButton>
+                    </StackPanel>
+                </StackPanel>
+            </material:ColorZone>
+            <Grid Grid.Row="1" Margin="24">
+                
+                <Carousel Name="PART_PagesRoot" SelectedIndex="{CompiledBinding CarouselIndex}">
+                    <Carousel.Styles>
+                        <Style Selector="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="FontWeight" Value="Medium"/>
+                        </Style>
+                        <Style Selector="Border.CallerCell, Ellipse.CallerCell">
+                            <Setter Property="Width" Value="32"/>
+                            <Setter Property="Height" Value="32"/>
+                        </Style>
+                        <Style Selector="Border.CallerCell">
+                            <Setter Property="CornerRadius" Value="32"/>
+                            <Setter Property="ClipToBounds" Value="True"/> 
+                        </Style>
+                        
+                        <Style Selector="Border.CallerCell Border#PointerEnterFeedback">
+                            <Setter Property="Opacity" Value="0"/>
+                            <Setter Property="Background" Value="{Binding ElementName=PART_HeaderZone, 
+                                    Path=Background}"></Setter>
+                        </Style>
+                        <Style Selector="Border.CallerCell:pointerover Border#PointerEnterFeedback">
+                            <Setter Property="Opacity" Value="0.15"/> 
+                        </Style>
+                        
+                        <Style Selector="Carousel:not(.notransitions)">
+                            <Setter Property="PageTransition">
+                                <CrossFade Duration="0.5" FadeInEasing="CircularEaseOut" FadeOutEasing="CircularEaseOut"/>
+                            </Setter>
+                        </Style>
+                    </Carousel.Styles>
+                    <Viewbox HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch">
+                        <Grid Name="CallerPanel1"
+                              PointerPressed="CallerPanel_OnPointerPressed"
+                              PointerMoved="CallerPanel_OnPointerMoved"
+                              PointerReleased="CallerPanel_OnPointerReleased">
+                            <Ellipse Width="256" Height="256"
+                                     Fill="{DynamicResource MaterialDesignDivider}"/>
+                            
+                            <Ellipse Width="6" Height="6" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                     Fill="{Binding ElementName=PART_HeaderZone, Path=Background}"/>
+                            
+                            <Grid Classes="Pointer" Width="0" Height="0" 
+                                  RenderTransform="{CompiledBinding FirstPanelPointerTransform,
+                                    Converter={StaticResource StringToTransformConverter}}">
+                                <Grid Height="109" Width="4" RowDefinitions="0,109" VerticalAlignment="Bottom">
+                                    <Border Grid.Row="1" Background="{Binding ElementName=PART_HeaderZone, 
+                                        Path=Background}"/>
+                                    <Ellipse Classes="CallerCell" Fill="{Binding ElementName=PART_HeaderZone, 
+                                        Path=Background}"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Viewbox>
+                    
+                    <Viewbox HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch">
+                        <Grid Name="CallerPanel2"
+                              PointerPressed="CallerPanel_OnPointerPressed"
+                              PointerMoved="CallerPanel_OnPointerMoved"
+                              PointerReleased="CallerPanel_OnPointerReleased">
+                            <Ellipse Width="256" Height="256"
+                                     Fill="{DynamicResource MaterialDesignDivider}"/>
+                            
+                            <Ellipse Width="6" Height="6" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                     Fill="{Binding ElementName=PART_HeaderZone, Path=Background}"/>
+                            
+                            <Grid Classes="Pointer" Width="0" Height="0" 
+                                  RenderTransform="{CompiledBinding SecondPanelPointerTransform, 
+                                    Converter={StaticResource StringToTransformConverter}}">
+                                <Grid Height="109" Width="4" RowDefinitions="0,109" VerticalAlignment="Bottom">
+                                    <Border Grid.Row="1" Background="{Binding ElementName=PART_HeaderZone, 
+                                        Path=Background}"/>
+                                    <Ellipse Classes="CallerCell" Fill="{Binding ElementName=PART_HeaderZone, 
+                                        Path=Background}"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Viewbox>
+                </Carousel>
+            </Grid>
+            <ItemsControl Grid.Row="2" HorizontalAlignment="Stretch"
+                Items="{Binding DialogButtons}"
+                Margin="4">
+                <ItemsControl.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="Margin" Value="4"/>
+                    </Style>
+                </ItemsControl.Styles>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Right"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="main:DialogResultButton">
+                        <Button Classes="Flat" Tag="{CompiledBinding Result}"
+                                Content="{CompiledBinding Content, FallbackValue=Null}"
+                                Command="{Binding ElementName=PART_Root, 
+                                    Path=DataContext.ButtonClick}"
+                                CommandParameter="{CompiledBinding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </material:Card>
+</Window>

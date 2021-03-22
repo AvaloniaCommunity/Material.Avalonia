@@ -4,6 +4,12 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <LangVersion>8</LangVersion>
+        <Authors>Larymar,SKProCH,Appleneko2001</Authors>
+        <Company>Larymar,SKProCH,Appleneko2001</Company>
+        <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <Description>Main styles library of Material.Avalonia.</Description>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,7 +18,7 @@
         </AvaloniaResource>
     </ItemGroup>
 
-    <ItemGroup>
+    <ItemGroup> 
       <None Remove="Fonts\Roboto\Roboto-Black.ttf" />
       <None Remove="Fonts\Roboto\Roboto-BlackItalic.ttf" />
       <None Remove="Fonts\Roboto\Roboto-Bold.ttf" />
@@ -48,7 +54,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
+      <PackageReference Include="Avalonia" Version="0.10.0" />
+      <PackageReference Include="Material.Icons" Version="1.0.8" />
+      <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
     </ItemGroup>
 
 </Project>

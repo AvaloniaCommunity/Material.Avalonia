@@ -6,43 +6,45 @@
     <converters:MarginCreator x:Key="StartMarginCreator"/>
   </Styles.Resources>
   <Style Selector="cc|NavigationDrawer">
-    <Setter Property="LeftDrawerWidth" Value="300"/>
+    <Setter Property="LeftDrawerWidth" Value="300" />
     <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid Background="Transparent" ClipToBounds="False" HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch">
+        <Grid Background="Transparent" ClipToBounds="False"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
           <ContentPresenter
-              x:Name="ContentPresenter"
-              Margin="{TemplateBinding Padding}"
-              Content="{TemplateBinding Content}" />
-          <Border x:Name="PART_Scrim" Background="Black" 
-                  IsHitTestVisible="{TemplateBinding LeftDrawerOpened}" 
+            Name="ContentPresenter"
+            Margin="{TemplateBinding Padding}"
+            Content="{TemplateBinding Content}" />
+          <Border Name="PART_Scrim" Background="Black"
+                  IsHitTestVisible="{TemplateBinding LeftDrawerOpened}"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch">
             <Border.Styles>
               <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ Border#PART_Scrim">
                 <Setter Property="Transitions">
                   <Transitions>
-                    <DoubleTransition Duration="0:0:0.3" Property="Opacity" Easing="CubicEaseInOut"/>
+                    <DoubleTransition Duration="0:0:0.3" Property="Opacity" Easing="CubicEaseInOut" />
                   </Transitions>
                 </Setter>
               </Style>
             </Border.Styles>
           </Border>
-          <cc:Card x:Name="PART_LeftDrawer" HorizontalAlignment="Left" 
+          <cc:Card Name="PART_LeftDrawer" HorizontalAlignment="Left"
                    Width="{TemplateBinding LeftDrawerWidth}"
-                   Padding="0" CornerRadius="0"> 
+                   Padding="0" CornerRadius="0">
             <cc:Card.Styles>
               <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ cc|Card#PART_LeftDrawer">
                 <Setter Property="Transitions">
                   <Transitions>
-                    <ThicknessTransition Duration="0:0:0.3" Property="Margin" Easing="CubicEaseInOut"/>
+                    <ThicknessTransition Duration="0:0:0.3" Property="Margin" Easing="CubicEaseInOut" />
                   </Transitions>
                 </Setter>
               </Style>
             </cc:Card.Styles>
-            <ContentPresenter Content="{TemplateBinding LeftDrawerContent}" />
+            <ContentPresenter Content="{TemplateBinding LeftDrawerContent}"
+                              IsEnabled="{TemplateBinding LeftDrawerOpened}" />
           </cc:Card>
         </Grid>
       </ControlTemplate>
@@ -50,20 +52,20 @@
   </Style>
 
   <Style Selector="cc|NavigationDrawer /template/ Border#PART_Scrim">
-    <Setter Property="Opacity" Value="0"/>
+    <Setter Property="Opacity" Value="0" />
   </Style>
   <Style Selector="cc|NavigationDrawer /template/ cc|Card#PART_LeftDrawer">
     <Setter Property="Margin">
       <MultiBinding Converter="{StaticResource StartMarginCreator}">
-        <Binding Path="$self.Width"/>
+        <Binding Path="$self.Width" />
       </MultiBinding>
     </Setter>
   </Style>
   <Style Selector="cc|NavigationDrawer:open /template/ Border#PART_Scrim">
-    <Setter Property="Opacity" Value="0.32"/>
+    <Setter Property="Opacity" Value="0.32" />
   </Style>
   <Style Selector="cc|NavigationDrawer:open /template/ cc|Card#PART_LeftDrawer">
-    <Setter Property="Margin" Value="0"/>
+    <Setter Property="Margin" Value="0" />
   </Style>
   
 
@@ -77,7 +79,7 @@
           </StackPanel>
         </cc:NavigationDrawer.LeftDrawerContent>
         <cc:Card Margin="8">
-          <ToggleSwitch x:Name="toggler" IsChecked="True"/>
+          <ToggleSwitch Name="toggler" IsChecked="True"/>
         </cc:Card>
       </cc:NavigationDrawer>
     </Border>

@@ -1,0 +1,37 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:cc="clr-namespace:Material.Styles">
+
+    <Style Selector="cc|DialogHost">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Background="Transparent" ClipToBounds="False">
+                    <ContentPresenter Name="ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    <Border Name="PART_Scrim" Background="Black"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <Border.Styles>
+                            <Style Selector="cc|DialogHost:not(.notransitions) /template/ Border#PART_Scrim">
+                                <Setter Property="Transitions">
+                                    <Transitions>
+                                        <DoubleTransition Duration="0:0:0.3" Property="Opacity" Easing="CubicEaseInOut" />
+                                    </Transitions>
+                                </Setter>
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ContentPresenter Name="ContentPresenter"
+                                      Content="{TemplateBinding DialogContent}"
+                                      ContentTemplate="{TemplateBinding DialogTemplateContent}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

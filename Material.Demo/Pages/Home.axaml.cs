@@ -1,8 +1,11 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Dialogs;
 using Avalonia.Markup.Xaml;
 using Material.Demo.Models;
+using Material.Styles.Assists;
 using System.Collections.ObjectModel;
+using Material.Dialog;
 using static Material.Demo.Models.StatusEnum;
 
 namespace Material.Demo.Pages
@@ -17,32 +20,34 @@ namespace Material.Demo.Pages
             new FeatureStatusModels(){ FeatureName = "Button (Tool / Flat)", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Toggler", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "CheckBox", IsReady = Yes, IsAnimated = Yes},
-            new FeatureStatusModels(){ FeatureName = "Slider (Standard)", IsReady = Yes, IsAnimated = No},
-            new FeatureStatusModels(){ FeatureName = "Slider (Discrete)", IsReady = Yes, IsAnimated = No},
-            new FeatureStatusModels(){ FeatureName = "Slider (with bubble)", IsReady = Yes, IsAnimated = Yes},
+            new FeatureStatusModels(){ FeatureName = "Slider (Classic)", IsReady = Yes, IsAnimated = Yes},
+            new FeatureStatusModels(){ FeatureName = "Slider (Modern)", IsReady = Yes, IsAnimated = Yes},
+            new FeatureStatusModels(){ FeatureName = "Slider (Discrete)", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Popup", IsReady = NotFully, IsAnimated = No},
+            new FeatureStatusModels(){ FeatureName = "Dialog (DialogHost)", IsReady = No, IsAnimated = NA},
+            new FeatureStatusModels(){ FeatureName = "Dialog (External)", IsReady = NotFully, IsAnimated = No},
             new FeatureStatusModels(){ FeatureName = "DataGrid", IsReady = NotFully, IsAnimated = NA},
             new FeatureStatusModels(){ FeatureName = "Standard Fields (TextBox)", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Filled Fields (TextBox)", IsReady = Yes, IsAnimated = Yes},
-            new FeatureStatusModels(){ FeatureName = "Outline Fields (TextBox)", IsReady = NotFully, IsAnimated = Yes},
+            new FeatureStatusModels(){ FeatureName = "Outline Fields (TextBox)", IsReady = Yes, IsAnimated = Yes},
+            new FeatureStatusModels(){ FeatureName = "Solo Fields (TextBox)", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Standard ComboBox", IsReady = NotFully, IsAnimated = No},
             new FeatureStatusModels(){ FeatureName = "Filled ComboBox", IsReady = NotFully, IsAnimated = No},
             new FeatureStatusModels(){ FeatureName = "Linear Progress Indicator", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Circular Progress Indicator", IsReady = No, IsAnimated = NA},
             new FeatureStatusModels(){ FeatureName = "Modern ScrollBar", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Mini ScrollBar", IsReady = Yes, IsAnimated = Yes},
-            new FeatureStatusModels(){ FeatureName = "Card", IsReady = Yes, IsAnimated = Yes},
+            new FeatureStatusModels(){ FeatureName = "Card", IsReady = Yes, IsAnimated = No},
             new FeatureStatusModels(){ FeatureName = "Navigation Drawer", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels(){ FeatureName = "Context Menu", IsReady = NotFully, IsAnimated = NotFully},
-            new FeatureStatusModels(){ FeatureName = "Integration Icons", IsReady = No, IsAnimated = NA},
+            new FeatureStatusModels(){ FeatureName = "Integration Icons", IsReady = NotFully, IsAnimated = NA},
             new FeatureStatusModels(){ FeatureName = "Appbar (Top)", IsReady = No, IsAnimated = NA},
             new FeatureStatusModels(){ FeatureName = "Appbar (Bottom)", IsReady = No, IsAnimated = NA},
         };
 
             this.InitializeComponent();
             DataContext = this;
-
-
+            
             UseMaterialUIDarkTheme();
         }
 
@@ -53,6 +58,15 @@ namespace Material.Demo.Pages
         public void UseMaterialUILightTheme() => GlobalCommand.UseMaterialUILightTheme();
 
         public void OpenProjectRepoLink() => GlobalCommand.OpenProjectRepoLink();
+
+        public void SwitchTransition()
+        {
+            var state = !TransitionAssist.GetDisableTransitions(Program.MainWindow);
+            TransitionAssist.SetDisableTransitions(Program.MainWindow, state);
+            DialogHelper.DisableTransitions = state;
+        }
+
+        public void ShowAboutAvaloniaUI() => new AboutAvaloniaDialog().ShowDialog(Program.MainWindow);
 
         private void InitializeComponent()
         {

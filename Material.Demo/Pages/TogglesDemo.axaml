@@ -4,6 +4,8 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+            xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+            xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
             x:Class="Material.Demo.Pages.TogglesDemo">
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Toggles"/>
@@ -42,7 +44,7 @@
         </Style>
       </StackPanel.Styles>
       <CheckBox Content="This is checkbox!"/>
-      <CheckBox Content="This is checkbox!" IsChecked="True"/>
+      <CheckBox Content="This is checkbox!" IsChecked="True" />
       <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
     </StackPanel>
     <StackPanel Orientation="Horizontal">
@@ -52,8 +54,67 @@
         </Style>
       </StackPanel.Styles>
       <CheckBox Content="This is checkbox!" Classes="Accent"/>
-      <CheckBox Content="This is checkbox!" Classes="Accent" IsChecked="True" />
+      <CheckBox Content="This is checkbox!" Classes="Accent" IsChecked="True"
+                assist:SelectionControlAssist.Size="24"/>
       <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
+    </StackPanel>
+    
+    <TextBlock Classes="Headline6 Subheadline2" Text="RadioButton"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="RadioButton">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <RadioButton GroupName="1" Content="This is radiobutton!"/>
+      <RadioButton GroupName="1" Content="This is radiobutton!" IsChecked="True" />
+      <RadioButton GroupName="1" Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
+    </StackPanel>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="RadioButton">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <RadioButton Classes="Accent" GroupName="2" Content="This is radiobutton!"/>
+      <RadioButton Classes="Accent" GroupName="2" Content="This is radiobutton!" IsChecked="True" />
+      <RadioButton Classes="Accent" GroupName="2" Content="Uncheckable" IsChecked="False" IsEnabled="False"/>
+    </StackPanel>
+
+    
+    <TextBlock Classes="Headline6 Subheadline2" Text="RadioButton (button-like)"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="RadioButton.Button">
+          <Setter Property="ToolTip.Tip" Value='RadioButton with "Button" classes in StackPanel container with Card widget'/>
+        </Style>
+        <Style Selector="RadioButton.Button.Accent">
+          <Setter Property="ToolTip.Tip" Value='RadioButton with "Button" and "Accent" classes in StackPanel container with Card widget'/>
+        </Style>
+        <Style Selector="avalonia|MaterialIcon">
+          <Setter Property="Width" Value="24"/>
+          <Setter Property="Height" Value="24"/>
+        </Style>
+      </StackPanel.Styles>
+      <StackPanel Orientation="Vertical">
+        <styles:Card Padding="0" InsideClipping="True">
+          <StackPanel Orientation="Horizontal">
+            <RadioButton Classes="Button" GroupName="3" Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}"/>
+            <RadioButton Classes="Button" GroupName="3" Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}" IsChecked="True" />
+            <RadioButton Classes="Button" GroupName="3" Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}" IsEnabled="False"/>
+            <RadioButton Classes="Button" GroupName="3" Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}"/>
+          </StackPanel>
+        </styles:Card>
+        
+        <styles:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
+          <StackPanel Orientation="Horizontal">
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}"/>
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}" IsChecked="True" />
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}" IsEnabled="False"/>
+            <RadioButton Classes="Button Accent" GroupName="4" Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}"/>
+          </StackPanel>
+        </styles:Card>
+      </StackPanel>
     </StackPanel>
   </StackPanel>
 </UserControl>

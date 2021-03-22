@@ -7,6 +7,7 @@ using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Layout;
 using Avalonia.Collections;
+using Material.Styles.Assists;
 
 namespace Material.Styles
 {
@@ -44,8 +45,8 @@ namespace Material.Styles
         /// </summary>
         public IBrush Fill
         {
-            get { return GetValue(FillProperty); }
-            set { SetValue(FillProperty, value); }
+            get => GetValue(FillProperty);
+            set => SetValue(FillProperty, value);
         }
 
         /// <summary>
@@ -59,11 +60,8 @@ namespace Material.Styles
         /// </summary>
         public double Minimum
         {
-            get { return GetValue(MinimumProperty); }
-            set
-            {
-                SetValue(MinimumProperty, value);
-            }
+            get => GetValue(MinimumProperty);
+            set => SetValue(MinimumProperty, value);
         }
 
         /// <summary>
@@ -77,8 +75,8 @@ namespace Material.Styles
         /// </summary>
         public double Maximum
         {
-            get { return GetValue(MaximumProperty); }
-            set { SetValue(MaximumProperty, value); }
+            get => GetValue(MaximumProperty);
+            set => SetValue(MaximumProperty, value);
         }
 
         /// <summary>
@@ -92,8 +90,8 @@ namespace Material.Styles
         /// </summary>
         public double TickFrequency
         {
-            get { return GetValue(TickFrequencyProperty); }
-            set { SetValue(TickFrequencyProperty, value); }
+            get => GetValue(TickFrequencyProperty);
+            set => SetValue(TickFrequencyProperty, value);
         }
 
         /// <summary>
@@ -107,8 +105,8 @@ namespace Material.Styles
         /// </summary>
         public Orientation Orientation
         {
-            get { return GetValue(OrientationProperty); }
-            set { SetValue(OrientationProperty, value); }
+            get => GetValue(OrientationProperty);
+            set => SetValue(OrientationProperty, value);
         }
 
         /// <summary>
@@ -124,8 +122,8 @@ namespace Material.Styles
         /// </summary>
         public AvaloniaList<double> Ticks
         {
-            get { return GetValue(TicksProperty); }
-            set { SetValue(TicksProperty, value); }
+            get => GetValue(TicksProperty);
+            set => SetValue(TicksProperty, value);
         }
 
         /// <summary>
@@ -142,8 +140,8 @@ namespace Material.Styles
         /// </summary>
         public Rect ReservedSpace
         {
-            get { return GetValue(ReservedSpaceProperty); }
-            set { SetValue(ReservedSpaceProperty, value); }
+            get => GetValue(ReservedSpaceProperty);
+            set => SetValue(ReservedSpaceProperty, value);
         }
 
         /// <summary>
@@ -164,15 +162,33 @@ namespace Material.Styles
         {
             var size = new Size(Bounds.Width, Bounds.Height);
             var range = Maximum - Minimum; 
-            var tickLen = 0.0d;  // Height for Secondary Tick
             var logicalToPhysical = 1.0;
             var startPoint = new Point();
             var endPoint = new Point();
             var rSpace = Orientation == Orientation.Horizontal ? ReservedSpace.Width : ReservedSpace.Height;
-
+            var s = (double)GetValue(SliderAssist.SizeTickProperty);
+            
             // Take Thumb size in to account
             double halfReservedSpace = rSpace * 0.5;
 
+            var pen = new Pen(Fill, (double)GetValue(SliderAssist.ThicknessTickProperty));
+
+            void DrawTick(double x, double y, Pen pen, double size,double scaleX = 0.5,double scaleY = 0.5)
+            {
+                double halfS = pen.Thickness * size * 0.5; 
+                double dx = x * scaleX - halfS; 
+                double dy = y * scaleY - halfS; 
+                dc.DrawGeometry(pen.Brush, pen, new EllipseGeometry(
+                    new Rect(dx, dy, size, size)));
+            }
+            
+            // Reduce tick interval if it is more than would be visible on the screen
+            double interval = TickFrequency;
+            
+            // This property is rarely set so let's try to avoid the GetValue
+            // caching of the mutable default value
+            var ticks = Ticks ?? null;
+            
             switch (Orientation)
             {
                 case Orientation.Horizontal:
@@ -181,10 +197,41 @@ namespace Material.Styles
                         return;
                     }
                     size = new Size(size.Width - rSpace, size.Height);
-                    tickLen = -size.Height;
                     startPoint = new Point(halfReservedSpace, size.Height);
                     endPoint = new Point(halfReservedSpace + size.Width, size.Height);
                     logicalToPhysical = size.Width / range;
+                    
+                    if (interval > 0.0)
+                    {
+                        double minInterval = (Maximum - Minimum) / size.Width;
+                        if (interval < minInterval)
+                        {
+                            interval = minInterval;
+                        }
+                    }
+
+                    // Draw Min & Max tick
+                    DrawTick(startPoint.X, startPoint.Y, pen, s, scaleX: 1);
+                    DrawTick(endPoint.X, startPoint.Y, pen, s, scaleX: 1);
+
+                    // Draw ticks using specified Ticks collection
+                    if (ticks?.Count > 0)
+                    {
+                        for (int i = 0; i < ticks.Count; i++)
+                        { 
+                            double x = logicalToPhysical + startPoint.X;
+                            DrawTick(x, startPoint.Y, pen, s, scaleX: 1);
+                        }
+                    }
+                    // Draw ticks using specified TickFrequency
+                    else if (interval > 0.0)
+                    {
+                        for (double i = interval; i < range; i += interval)
+                        {
+                            double x = i * logicalToPhysical + startPoint.X;
+                            DrawTick(x, startPoint.Y, pen, s, scaleX: 1);
+                        }
+                    }
                     break;
                      
                 case Orientation.Vertical:
@@ -193,107 +240,42 @@ namespace Material.Styles
                         return;
                     }
                     size = new Size(size.Width, size.Height - rSpace);
-
-                    tickLen = -size.Width;
                     startPoint = new Point(size.Width, size.Height + halfReservedSpace);
                     endPoint = new Point(size.Width, halfReservedSpace);
                     logicalToPhysical = size.Height / range * -1;
+                    
+                    if (interval > 0.0)
+                    {
+                        double minInterval = (Maximum - Minimum) / size.Height;
+                        if (interval < minInterval)
+                        {
+                            interval = minInterval;
+                        }
+                    }
+
+                    // Draw Min & Max tick
+                    DrawTick(startPoint.X, startPoint.Y, pen, s, scaleY: 1);
+                    DrawTick(startPoint.X, endPoint.Y, pen, s, scaleY: 1);
+
+                    // Draw ticks using specified Ticks collection
+                    if (ticks?.Count > 0)
+                    {
+                        for (int i = 0; i < ticks.Count; i++)
+                        { 
+                            double y = logicalToPhysical + startPoint.Y;
+                            DrawTick(startPoint.X, y, pen, s, scaleY: 1);
+                        }
+                    }
+                    // Draw ticks using specified TickFrequency
+                    else if (interval > 0.0)
+                    {
+                        for (double i = interval; i < range; i += interval)
+                        {
+                            double y = i * logicalToPhysical + startPoint.Y;
+                            DrawTick(startPoint.X, y, pen, s, scaleY: 1);
+                        }
+                    }
                     break; 
-            };
-
-            var pen = new Pen(Fill, 2.0d);
-
-            // Is it Vertical?
-            if (Orientation == Orientation.Vertical)
-            {
-                // Reduce tick interval if it is more than would be visible on the screen
-                double interval = TickFrequency;
-                if (interval > 0.0)
-                {
-                    double minInterval = (Maximum - Minimum) / size.Height;
-                    if (interval < minInterval)
-                    {
-                        interval = minInterval;
-                    }
-                }
-
-                // Draw Min & Max tick
-                dc.DrawLine(pen, startPoint, new Point(startPoint.X + tickLen, startPoint.Y));
-                dc.DrawLine(pen, new Point(startPoint.X, endPoint.Y),
-                                 new Point(startPoint.X + tickLen, endPoint.Y));
-
-                // This property is rarely set so let's try to avoid the GetValue
-                // caching of the mutable default value
-                var ticks = Ticks ?? null;
-
-                // Draw ticks using specified Ticks collection
-                if (ticks?.Count > 0)
-                {
-                    for (int i = 0; i < ticks.Count; i++)
-                    { 
-                        double y = logicalToPhysical + startPoint.Y;
-                        dc.DrawLine(pen,
-                            new Point(startPoint.X, y),
-                            new Point(startPoint.X + tickLen, y));
-                    }
-                }
-                // Draw ticks using specified TickFrequency
-                else if (interval > 0.0)
-                {
-                    for (double i = interval; i < range; i += interval)
-                    {
-                        double y = i * logicalToPhysical + startPoint.Y;
-
-                        dc.DrawLine(pen,
-                            new Point(startPoint.X, y),
-                            new Point(startPoint.X + tickLen, y));
-                    }
-                }
-            }
-            else  // Placement == Top || Placement == Bottom
-            {
-                // Reduce tick interval if it is more than would be visible on the screen
-                double interval = TickFrequency;
-                if (interval > 0.0)
-                {
-                    double minInterval = (Maximum - Minimum) / size.Width;
-                    if (interval < minInterval)
-                    {
-                        interval = minInterval;
-                    }
-                }
-
-                // Draw Min & Max tick
-                dc.DrawLine(pen, startPoint, new Point(startPoint.X, startPoint.Y + tickLen));
-                dc.DrawLine(pen, new Point(endPoint.X, startPoint.Y),
-                                 new Point(endPoint.X, startPoint.Y + tickLen));
-
-                // This property is rarely set so let's try to avoid the GetValue
-                // caching of the mutable default value
-                var ticks = Ticks ?? null;
-
-                // Draw ticks using specified Ticks collection
-                if (ticks?.Count > 0)
-                {
-                    for (int i = 0; i < ticks.Count; i++)
-                    { 
-                        double x = logicalToPhysical + startPoint.X;
-                        dc.DrawLine(pen,
-                            new Point(x, startPoint.Y),
-                            new Point(x, startPoint.Y + tickLen));
-                    }
-                }
-                // Draw ticks using specified TickFrequency
-                else if (interval > 0.0)
-                {
-                    for (double i = interval; i < range; i += interval)
-                    {
-                        double x = i * logicalToPhysical + startPoint.X;
-                        dc.DrawLine(pen,
-                            new Point(x, startPoint.Y),
-                            new Point(x, startPoint.Y + tickLen));
-                    }
-                }
             }
         }
     }

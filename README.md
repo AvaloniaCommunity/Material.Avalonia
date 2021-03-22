@@ -1,22 +1,14 @@
-# material.avalonia
+# Material.Avalonia
 
 <img src="/Banner.svg" width="1280" height="480">
 
-![](/Images/1.png)
-
-![](/Images/2.png)
-
-![](/Images/3.png)
-
-![](/Images/4.png)
-
-![](/Images/5.png)
-
-![](/Images/6.png)
+![](/wiki/images/demo-screenshots/1.png)
 
 [![nuget](https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
 
 This repository is a collection of styles to help you customize your [Avalonia](https://github.com/AvaloniaUI/Avalonia) application theme with Material Design.
+
+For more screenshots: [Screenshots-of-Demo](https://github.com/AvaloniaUtils/material.avalonia/wiki/Screenshots-of-Demo)
 
 A collection of styles can be installed via [nuget-package](https://www.nuget.org/packages/Material.Avalonia/) and then include them to the required scope. See the example of `App.xaml` file:
 
@@ -46,10 +38,8 @@ Not all controls are already styled, if some are not showing add the following l
 ```
 </a>
 
-
 **Powered by**
 
-<a href="https://www.jetbrains.com/?from=ABC">
+<a href="https://www.jetbrains.com/?from=material.avalonia">
 <img width="400" alt="portfolio_view" src="https://github.com/CreateLab/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png" />
 </a>
-

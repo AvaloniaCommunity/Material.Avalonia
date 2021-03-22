@@ -1,6 +1,12 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wpf="clr-namespace:Material.Styles.Assists"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
+        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
+        xmlns:system="clr-namespace:System;assembly=netstandard"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+    <Styles.Resources>
+        <system:Double x:Key="CheckBoxHoveredOpacity">0.12</system:Double>
+        <system:Double x:Key="CheckBoxPressedOpacity">0.26</system:Double>
+    </Styles.Resources>
     <Style Selector="CheckBox">
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -13,39 +19,34 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid x:Name="templateRoot" Background="Transparent"
+                    <Grid Name="templateRoot" Background="Transparent"
                           ClipToBounds="False">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Grid>
-                          <Viewbox
-    Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
-    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
-    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-    ClipToBounds="False">
+                        <Viewbox
+                            Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
+                            Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:SelectionControlAssist.Size)}"
+                            VerticalAlignment="Center"
+                            ClipToBounds="False">
                             <Grid>
-                              <Path x:Name="Graphic" Width="24" Height="24" Margin="0"/>
-
-                              <Ellipse x:Name="InteractionEllipse"
-                                       Fill="{TemplateBinding Background}"
-                                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                                       Width="0" Height="0" Opacity="0" Margin="-100"
-                                       ClipToBounds="False"
-                                       IsHitTestVisible="False">
-                              </Ellipse>
-                              <Ellipse x:Name="pointerOverEllipse"
-                                       Fill="{TemplateBinding Background}"
-                                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                                       Width="42" Height="42" Margin="-100"
-                                       ClipToBounds="False"
-                                       IsHitTestVisible="False">
-                              </Ellipse>
+                                <Path Name="Graphic" Width="24" Height="24" Margin="0"/>
+                                
+                                <Ellipse Name="PART_HoverIndicator"
+                                         Fill="{TemplateBinding Background}"
+                                         VerticalAlignment="Center" HorizontalAlignment="Center"
+                                         Width="42" Height="42" Margin="-100"
+                                         ClipToBounds="False"
+                                         IsHitTestVisible="False"/>
+                                <Border ClipToBounds="True" CornerRadius="100" Width="42" Height="42"
+                                        Margin="-100" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <ripple:RippleEffect RippleFill="{TemplateBinding Background}"
+                                                         RippleOpacity="{StaticResource CheckBoxPressedOpacity}"/>
+                                </Border>
                             </Grid>
-                          </Viewbox>  
-                        </Grid>
-                        <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False"
+                        </Viewbox>  
+                        <ContentPresenter Name="contentPresenter" Grid.Column="1" Focusable="False"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           Margin="{TemplateBinding Padding}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -85,42 +86,12 @@
         <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
     </Style> 
 
-    <Style Selector="CheckBox:pressed /template/ Ellipse#InteractionEllipse">
-        <Style.Animations>
-            <animations:BeginAnimation>
-                <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Width" Value="0" />
-                        <Setter Property="Height" Value="0" />
-                        <Setter Property="Opacity" Value="0.28" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Width" Value="42" />
-                        <Setter Property="Height" Value="42" />
-                        <Setter Property="Opacity" Value="0.28" />
-                    </KeyFrame>
-                </Animation>
-            </animations:BeginAnimation>
-        </Style.Animations>
+    <Style Selector="CheckBox /template/ Ellipse#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="0" />
     </Style>
-    <Style Selector="CheckBox:not(:pressed) /template/ Ellipse#InteractionEllipse">
-        <Style.Animations>
-            <Animation Duration="0:0:0.2" FillMode="Both">
-                <KeyFrame Cue="0%">
-                    <Setter Property="Opacity" Value="0.28" />
-                </KeyFrame>
-                <KeyFrame Cue="100%">
-                    <Setter Property="Opacity" Value="0" />
-                </KeyFrame>
-            </Animation>
-        </Style.Animations>
+    
+    <Style Selector="CheckBox:not(:disabled):pointerover /template/ Ellipse#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="{StaticResource CheckBoxHoveredOpacity}" />
     </Style>
-
-  <Style Selector="CheckBox /template/ Ellipse#pointerOverEllipse">
-    <Setter Property="Opacity" Value="0" />
-  </Style>
-  <Style Selector="CheckBox:not(:disabled):pointerover /template/ Ellipse#pointerOverEllipse">
-    <Setter Property="Opacity" Value="0.15" />
-  </Style>
 
 </Styles>

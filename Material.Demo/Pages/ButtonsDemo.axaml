@@ -4,6 +4,8 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+            xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+            xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
             x:Class="Material.Demo.Pages.ButtonsDemo"> 
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Buttons"/>
@@ -18,9 +20,26 @@
       <Button Content="Mid (Default)" ToolTip.Tip='Regular button without any classes.'/>
       <Button Classes="Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark"'/>
       <Button Classes="Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent"'/>
+      
+      <Button Content="Custom corner radius" ToolTip.Tip='Regular button with customized corner radius (16dp).' assist:ButtonAssist.CornerRadius="16"/>
+    </StackPanel>
+    
+    <TextBlock Classes="Headline6 Subheadline2" Text="Outline buttons"/>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="Button">
+          <Setter Property="Margin" Value="8"/>
+        </Style>
+      </StackPanel.Styles>
+      <Button Classes="Outline Light" Content="Light" ToolTip.Tip='Button with classes "Light" and "Outline"'/>
+      <Button Classes="Outline" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"'/>
+      <Button Classes="Outline Dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"'/>
+      <Button Classes="Outline Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Outline"'/>
+      
+      <Button Classes="Outline" Content="Custom corner radius" ToolTip.Tip='Outline button with customized corner radius (16dp).' assist:ButtonAssist.CornerRadius="16"/>
     </StackPanel>
 
-    <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon (Icons from Material.xaml)"/>
+    <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon"/>
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
         <Style Selector="styles|FloatingButton">
@@ -31,8 +50,7 @@
                 <Viewbox Stretch="Fill" 
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch">
-                  <Path Data="{StaticResource Material.Plus}"  
-                        Width="24" Height="24"/>
+                  <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
                 </Viewbox>
               </Template>
             </Setter.Value>
@@ -60,8 +78,7 @@
                 <Viewbox Stretch="Fill"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch">
-                  <Path Data="{StaticResource Material.Plus}"
-                        Width="24" Height="24"/>
+                  <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
                 </Viewbox>
               </Template>
             </Setter.Value>
@@ -76,8 +93,7 @@
                   <Viewbox Stretch="Fill"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch">
-                    <Path Data="{StaticResource Material.Plus}" 
-                          Width="24" Height="24"/>
+                    <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24"/>
                   </Viewbox>
                   <TextBlock Margin="8,0" Text="ADD ITEM" Classes="Subtitle2" VerticalAlignment="Center"/>
                 </StackPanel>
@@ -93,15 +109,15 @@
       <CheckBox Name="CheckBox1" Content="IsExtended" Margin="16,8"/>
     </StackPanel>
 
-    <TextBlock Classes="Headline6 Subheadline2" Text="Tool buttons (Flat)"/>
+    <TextBlock Classes="Headline6 Subheadline2" Text="Flat buttons"/>
     <StackPanel Orientation="Horizontal">
       <StackPanel.Styles>
         <Style Selector="Button">
           <Setter Property="Margin" Value="8"/>
         </Style>
       </StackPanel.Styles>
-      <Button Classes="Tool" Content="Default" ToolTip.Tip='Regular button with class "Tool" or "Flat"'/>
-      <Button Classes="Tool Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Tool" or "Flat"'/>
+      <Button Classes="Flat" Content="Default" ToolTip.Tip='Regular button with class "Flat"'/>
+      <Button Classes="Flat Accent" Content="Accent"  ToolTip.Tip='Button with classes "Accent" and "Flat"'/>
     </StackPanel>
 
   </StackPanel>

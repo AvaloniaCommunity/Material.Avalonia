@@ -4,7 +4,8 @@
     <Setter Property="Padding" Value="0" />
     <Setter Property="FontSize" Value="13" />
     <Setter Property="FontWeight" Value="Regular" />
-    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto"/>
+    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto,
+            Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Noto Sans, Arial"/>
   </Style> 
 
   <Style Selector="TextBlock.Caption"> 
@@ -68,10 +69,12 @@
   </Style>
 
   <Style Selector="TextBlock.Link">
-    <Setter Property="Foreground" Value="Blue"/>
+    <Setter Property="Foreground" Value="#007BFF"/>
+    <Setter Property="TextDecorations" Value="Underline"/>
   </Style>
   <Style Selector="TextBlock.Link:pointerover, TextBlock.Link:focus">
-    <Setter Property="Foreground" Value="Purple"/>
+    <Setter Property="Foreground" Value="#FF0000"/>
+    <Setter Property="Cursor" Value="Hand"/>
   </Style>
 
   <Style Selector="Button > TextBlock, TextBlock.ButtonText">
