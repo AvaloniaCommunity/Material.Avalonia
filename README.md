@@ -6,6 +6,9 @@
 
 [![nuget](https://img.shields.io/badge/material-nuget-%2303A9F4)](https://www.nuget.org/packages/Material.Avalonia/)
 
+[![nuget](https://img.shields.io/nuget/dt/Material.Avalonia?color=blue&label=downloads)](https://www.nuget.org/packages/Material.Avalonia/)
+
+
 This repository is a collection of styles to help you customize your [Avalonia](https://github.com/AvaloniaUI/Avalonia) application theme with Material Design.
 
 For more screenshots: [Screenshots-of-Demo](https://github.com/AvaloniaUtils/material.avalonia/wiki/Screenshots-of-Demo)
