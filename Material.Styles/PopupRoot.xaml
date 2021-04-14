@@ -6,16 +6,9 @@
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
-                <VisualLayerManager IsPopup="True">
+                <VisualLayerManager Name="VisualLayer" IsPopup="True" >
                     <Grid Name="PopupRootGrid">
-                        <Grid.Transitions>
-                            <Transitions>
-                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.5"
-                                                               Easing="CubicEaseOut" />
-                            </Transitions>
-                        </Grid.Transitions>
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Margin="0"
+                        <ContentPresenter Name="PART_ContentPresenter" Margin="0"
                                           Background="{TemplateBinding Background}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Content="{TemplateBinding Content}" />

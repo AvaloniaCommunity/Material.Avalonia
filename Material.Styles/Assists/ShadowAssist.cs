@@ -76,22 +76,29 @@ namespace Material.Styles.Assists {
                 ? GetShadowDepth((AvaloniaObject) obj.Sender).ToBoxShadows(Color.FromArgb(255, 0, 0, 0))
                 : GetShadowDepth((AvaloniaObject) obj.Sender).ToBoxShadows();
 
-            var animation = new Animation {Duration = TimeSpan.FromMilliseconds(350), FillMode = FillMode.Both};
-            animation.Children.Add(
-                new KeyFrame {
-                    Cue = Cue.Parse("0%", CultureInfo.CurrentCulture),
-                    Setters = {
-                        new Setter {Property = Border.BoxShadowProperty, Value = boxShadow}
-                    }
-                });
-            animation.Children.Add(
-                new KeyFrame {
-                    Cue = Cue.Parse("100%", CultureInfo.CurrentCulture),
-                    Setters = {
-                        new Setter {Property = Border.BoxShadowProperty, Value = targetBoxShadows}
-                    }
-                });
-            animation.RunAsync(border);
+            if (!border.Classes.Contains("notransitions"))
+            {
+                var animation = new Animation {Duration = TimeSpan.FromMilliseconds(350), FillMode = FillMode.Both};
+                animation.Children.Add(
+                    new KeyFrame {
+                        Cue = Cue.Parse("0%", CultureInfo.CurrentCulture),
+                        Setters = {
+                            new Setter {Property = Border.BoxShadowProperty, Value = boxShadow}
+                        }
+                    });
+                animation.Children.Add(
+                    new KeyFrame {
+                        Cue = Cue.Parse("100%", CultureInfo.CurrentCulture),
+                        Setters = {
+                            new Setter {Property = Border.BoxShadowProperty, Value = targetBoxShadows}
+                        }
+                    });
+                animation.RunAsync(border);
+            }
+            else
+            {
+                border.SetValue(Border.BoxShadowProperty, targetBoxShadows);
+            }
         }
 
         public static void SetDarken(AvaloniaObject element, bool value) {

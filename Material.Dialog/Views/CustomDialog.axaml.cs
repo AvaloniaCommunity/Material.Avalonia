@@ -5,11 +5,11 @@ using Material.Dialog.Interfaces;
 
 namespace Material.Dialog.Views
 {
-    public class AlertDialog : Window, IDialogWindowResult<DialogResult>, IHasNegativeResult
+    public class CustomDialog : Window, IDialogWindowResult<DialogResult>, IHasNegativeResult
     { 
         public DialogResult Result { get; set; } = DialogResult.NoResult;
 
-        public AlertDialog()
+        public CustomDialog()
         {
             this.InitializeComponent(); 
         }

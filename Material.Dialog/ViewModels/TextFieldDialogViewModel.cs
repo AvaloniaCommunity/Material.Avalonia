@@ -16,18 +16,12 @@ namespace Material.Dialog.ViewModels
         private TextFieldViewModel[] m_TextFields;
         public TextFieldViewModel[] TextFields { get => m_TextFields; internal set => m_TextFields = value; }
 
-        private DialogResultButton[] m_DialogButtons;
-        public DialogResultButton[] DialogButtons { get => m_DialogButtons; internal set => m_DialogButtons = value; }
-
         private DialogResultButton m_PositiveButton;
         public DialogResultButton PositiveButton { get => m_PositiveButton; internal set => m_PositiveButton = value; }
 
         private DialogResultButton m_NegativeButton;
         public DialogResultButton NegativeButton { get => m_NegativeButton; internal set => m_NegativeButton = value; }
-
-        private Orientation m_ButtonsStackOrientation;
-        public Orientation ButtonsStackOrientation { get => m_ButtonsStackOrientation; internal set => m_ButtonsStackOrientation = value; }
-
+        
         public TextFieldDialogViewModel(TextFieldDialog dialog)
         {
             _window = dialog;

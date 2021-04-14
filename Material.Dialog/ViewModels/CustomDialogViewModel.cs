@@ -1,18 +1,25 @@
 ﻿using Avalonia.Layout;
 using Avalonia.Threading;
 using Material.Dialog.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Material.Dialog.ViewModels
 {
-    public class AlertDialogViewModel : DialogWindowViewModel
+    public class CustomDialogViewModel : DialogWindowViewModel
     {
-        private AlertDialog _window;
+        private CustomDialog _window;
 
+        private object _content;
 
-        public AlertDialogViewModel(AlertDialog dialog)
+        public object Content {
+            get => _content;
+            set
+            {
+                _content = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public CustomDialogViewModel(CustomDialog dialog)
         {
             _window = dialog;
         }

@@ -99,19 +99,19 @@
 
     <Style Selector="Menu > MenuItem">
         <Setter Property="Padding" Value="4" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type TemplatedControl}}, Path=Foreground}"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid>
-                        <ToggleButton Name="PART_HeaderPresenter" Classes="Flat TransparentBack"
+                        <ToggleButton Name="PART_HeaderPresenter" Classes="Flat TransparentBack ConstantForeground"
                                       HorizontalContentAlignment="Center"
                                       VerticalContentAlignment="Center"
-                                      Foreground="{DynamicResource MaterialDesignBody}"
+                                      Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
                                       IsChecked="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
                                       Content="{TemplateBinding Header}"
-                                      Padding="4">
+                                      Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}}">
                             <ToggleButton.Styles>
                                 <Style Selector="ToggleButton AccessText">
                                     <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />

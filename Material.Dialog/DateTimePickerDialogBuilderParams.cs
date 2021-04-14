@@ -4,30 +4,19 @@ using System;
 
 namespace Material.Dialog
 {
-    public class DateTimePickerDialogBuilderParams : DialogWindowBuilderParamsBase
+    public class DatePickerDialogBuilderParams : TwoFeedbackDialogBuilderParamsBase
     {
         /// <summary>
-        /// Build dialog buttons stack. 
-        /// <br/>You can use <seealso cref="DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum)"/> for create buttons stack in easy way.
+        /// Define implicit date.
         /// </summary>
-        [Obsolete("Use PositiveButton and NegativeButton instead before we fix this sh**.")]
-        public DialogResultButton[] DialogButtons = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel);
-
+        public DateTime ImplicitValue = DateTime.Now;
+    }
+    
+    public class TimePickerDialogBuilderParams : TwoFeedbackDialogBuilderParamsBase
+    {
         /// <summary>
-        /// Define positive action button.
+        /// Define implicit time.
         /// </summary>
-        public DialogResultButton PositiveButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.Ok)[0];
-
-        /// <summary>
-        /// Define negative action button.
-        /// <br/>You still have a way go back lmao.
-        /// </summary>
-        public DialogResultButton NegativeButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[0];
-
-        /// <summary>
-        /// Define result after close the dialog not from buttons
-        /// <br/> (could be from Alt + F4 or window close button).
-        /// </summary>
-        public DialogResult NegativeResult = new DialogResult(DialogHelper.DIALOG_RESULT_CANCEL);
+        public TimeSpan ImplicitValue = TimeSpan.Zero;
     }
 }

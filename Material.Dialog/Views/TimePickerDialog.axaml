@@ -17,11 +17,12 @@
         <ResourceDictionary>
             <converters:PadNumbersConverter x:Key="PadNumbersConverter"/>
             <converters:StringToTransformConverter x:Key="StringToTransformConverter"/>
+            <converters:HourStringConverter x:Key="HourString"/>
         </ResourceDictionary>
     </Window.Resources>
     
     <Window.Styles>
-        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.xaml"/>
+        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml"/>
         <Style Selector="Window[SystemDecorations=None]">
             <Setter Property="Padding" Value="32"/>
             <Setter Property="Background" Value="Transparent"/>
@@ -62,7 +63,7 @@
                         </Style>
                     </StackPanel.Styles>
                     <RadioButton GroupName="1" Classes="Button Main" IsChecked="{CompiledBinding FirstFieldSelected, Mode=TwoWay}">
-                        <TextBlock Text="{CompiledBinding FirstField}" Classes="Headline2" FontWeight="Regular"/>
+                        <TextBlock Text="{CompiledBinding FirstField, Converter={StaticResource HourString}}" Classes="Headline2" FontWeight="Regular"/>
                     </RadioButton>
                     <TextBlock Classes="Headline3" Text=":" FontWeight="Regular" VerticalAlignment="Bottom"
                                Foreground="{DynamicResource MaterialDesignCardBackground}"/>
@@ -73,7 +74,7 @@
                         <RadioButton GroupName="2" Classes="Button Alter" IsChecked="{CompiledBinding IsAm, Mode=TwoWay}">
                             <TextBlock Text="AM" Classes="Subtitle1" FontWeight="Medium"/>
                         </RadioButton>
-                        <RadioButton GroupName="2" Classes="Button Alter">
+                        <RadioButton GroupName="2" Classes="Button Alter" IsChecked="{CompiledBinding IsPm, Mode=TwoWay}">
                             <TextBlock Text="PM" Classes="Subtitle1" FontWeight="Medium"/>
                         </RadioButton>
                     </StackPanel>

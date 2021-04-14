@@ -16,6 +16,10 @@
         <Setter Property="Cursor" Value="Hand" />
     </Style>
     
+    <Style Selector="ToggleButton.ImplicitForeground">
+      <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type TemplatedControl}}, Path=Foreground}"/>
+    </Style>
+    
     <Style Selector="ToggleButton.ConstantForeground">
       <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
     </Style>

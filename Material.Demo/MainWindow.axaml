@@ -65,13 +65,8 @@
       </ScrollViewer>
     </styles:NavigationDrawer.LeftDrawerContent>
     <DockPanel LastChildFill="true">
-      <styles:ColorZone VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top"
+      <styles:ColorZone Name="PART_AppBarContainer" VerticalAlignment="Top" HorizontalAlignment="Stretch" DockPanel.Dock="Top"
                         Height="56" Mode="PrimaryMid" ZIndex="1">
-        <styles:ColorZone.Styles>
-          <Style Selector="avalonia|MaterialIcon">
-            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
-          </Style>
-        </styles:ColorZone.Styles>
         <Grid Margin="16">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="24" />
@@ -80,12 +75,11 @@
             <ColumnDefinition Width="32" />
             <ColumnDefinition Width="Auto" />
           </Grid.ColumnDefinitions>
-          <ToggleButton Classes="Flat TransparentBack" Width="32" Height="32" Name="NavDrawerSwitch"
-                        Padding="4">
+          <ToggleButton Name="NavDrawerSwitch" Classes="Flat TransparentBack ConstantForeground ImplicitForeground" 
+                        Width="32" Height="32" Padding="4">
             <avalonia:MaterialIcon Kind="Menu" Width="24" Height="24" />
           </ToggleButton>
-          <TextBlock Grid.Column="2" Classes="Headline6" Foreground="{DynamicResource MaterialDesignBody}"
-                     Text="Material.Avalonia Demo" VerticalAlignment="Center" />
+          <TextBlock Grid.Column="2" Classes="Headline6" Text="Material.Avalonia Demo" VerticalAlignment="Center" />
           <Menu Grid.Column="4" Height="32" Padding="0" Margin="0">
             <MenuItem Height="32" Width="32" Header="{avalonia:MaterialIconExt DotsVertical, Size=24}">
               <MenuItem Header="Hello!">

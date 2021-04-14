@@ -14,9 +14,6 @@ namespace Material.Dialog.ViewModels
     {
         private TimePickerDialog _window;
 
-        private DialogResultButton[] m_DialogButtons;
-        public DialogResultButton[] DialogButtons { get => m_DialogButtons; internal set => m_DialogButtons = value; }
-
         private DialogResultButton m_PositiveButton;
         public DialogResultButton PositiveButton { get => m_PositiveButton; internal set => m_PositiveButton = value; }
 
@@ -29,7 +26,18 @@ namespace Material.Dialog.ViewModels
             get => _firstField;
             set
             {
+                if (_firstField == value)
+                    return;
+                
+                if (value > 11)
+                {
+                    value -= 12;
+                    IsAm = false;
+                    IsPm = true;
+                }
+                
                 _firstField = value;
+                FirstPanelPointerTransform = $"rotate({(_firstField / (double)12) * 360}deg)";
                 OnPropertyChanged();
             }
         }
@@ -40,7 +48,13 @@ namespace Material.Dialog.ViewModels
             get => _secondField;
             set
             {
+                if (_secondField == value)
+                    return;
+
                 _secondField = value;
+                
+                var r = Math.Round((_secondField / (double) 60) * 360);
+                SecondPanelPointerTransform = $"rotate({r}deg)";
                 OnPropertyChanged();
             }
         }
@@ -77,6 +91,17 @@ namespace Material.Dialog.ViewModels
                 OnPropertyChanged();
             }
         }
+        
+        private bool _isPm = false;
+        public bool IsPm
+        {
+            get => _isPm;
+            set
+            {
+                _isPm = value;
+                OnPropertyChanged();
+            }
+        }
 
         private int _carouselIndex = 0;
         public int CarouselIndex
@@ -109,25 +134,6 @@ namespace Material.Dialog.ViewModels
                 CarouselIndex = value ? 1 : 0;
                 OnPropertyChanged();
             }
-        }
-
-        public void SetFirstField(int v)
-        {
-            if (v == FirstField)
-                return;
-            
-            FirstField = (ushort)v;
-            FirstPanelPointerTransform = $"rotate({(v / (double)12) * 360}deg)";
-        }
-        
-        public void SetSecondField(int v)
-        {
-            if (v == SecondField)
-                return;
-            
-            SecondField = (ushort)v;
-            var r = Math.Round((v / (double) 60) * 360);
-            SecondPanelPointerTransform = $"rotate({r}deg)";
         }
 
         public TimePickerDialogViewModel(TimePickerDialog dialog)

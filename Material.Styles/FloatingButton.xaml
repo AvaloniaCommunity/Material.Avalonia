@@ -4,11 +4,18 @@
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:cc="clr-namespace:Material.Styles"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-        xmlns:converters="clr-namespace:Material.Styles.Converters">
-  <Style Selector="cc|FloatingButton">
-    <Style.Resources>
+        xmlns:converters="clr-namespace:Material.Styles.Converters"
+        xmlns:system="clr-namespace:System;assembly=netstandard">
+  <Styles.Resources>
+    <ResourceDictionary>
       <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
-    </Style.Resources>  
+      <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
+      <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
+      <CornerRadius x:Key="FloatingButtonRoundCorner">32</CornerRadius>
+    </ResourceDictionary>
+  </Styles.Resources>
+  
+  <Style Selector="cc|FloatingButton">
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
     <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -17,51 +24,46 @@
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+    <Setter Property="assists:ButtonAssist.HoverColor" Value="{Binding Foreground, Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}"/>
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#000000"/>
     <Setter Property="TextBlock.FontWeight" Value="Medium" />
     <Setter Property="TextBlock.FontSize" Value="14" />
-    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderThickness" Value="0" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid Name="TemplateRoot">
-          <AdornerLayer>
-            <Grid HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch">
-              <Border Name="Thumb" CornerRadius="28"
-                      Background="{TemplateBinding Background}"
-                      assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth), Mode=TwoWay}" />
-              <Border Name="MouseOverBorder" CornerRadius="28"
-                      IsHitTestVisible="False"
-                      Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
+        <Border Name="PART_ButtonRootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{StaticResource FloatingButtonRoundCorner}"
+                assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+          <Border CornerRadius="{StaticResource FloatingButtonRoundCorner}"
+                  ClipToBounds="True">
+            <Grid MinHeight="{TemplateBinding MinHeight}"
+                  MinWidth="{TemplateBinding MinWidth}">
+              <Border Name="PART_HoverIndicator"
+                      Background="{TemplateBinding assists:ButtonAssist.HoverColor}" />
+              <ripple:RippleEffect RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
+                                   RippleOpacity="{StaticResource ButtonPressedOpacity}">
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Content="{TemplateBinding Content}"
+                                  Padding="{TemplateBinding Padding}"
+                                  TextBlock.Foreground="{TemplateBinding Foreground}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+              </ripple:RippleEffect>
             </Grid>
-          </AdornerLayer>
-          <Border Name="ContentBorder" CornerRadius="28"
-                  ClipToBounds="True"
-                  MinHeight="{TemplateBinding MinHeight}"
-                  MinWidth="{TemplateBinding MinWidth}"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch">
-            <ripple:RippleEffect ClipToBounds="True"
-                                 RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-              <ContentPresenter Name="PART_ContentPresenter"
-                                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Content="{TemplateBinding Content}"
-                                Padding="{TemplateBinding Padding}"
-                                TextBlock.Foreground="{TemplateBinding Foreground}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-            </ripple:RippleEffect>
           </Border>
-        </Grid>
+        </Border>
       </ControlTemplate>
     </Setter>
   </Style>
 
   <!-- Transitions -->
   
-  <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true].notransitions /template/ Grid#TemplateRoot">
+  <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true].notransitions /template/ Border#PART_ButtonRootBorder">
     <Style.Animations>
       <Animation Duration="0:0:0.001" FillMode="Both" Easing="QuarticEaseInOut">
         <KeyFrame Cue="0%">
@@ -78,7 +80,7 @@
     </Style.Animations>
   </Style>
 
-  <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true]:not(.notransitions) /template/ Grid#TemplateRoot">
+  <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true]:not(.notransitions) /template/ Border#PART_ButtonRootBorder">
     <Style.Animations>
       <Animation Duration="0:0:0.5" FillMode="Both" Easing="QuarticEaseInOut">
         <KeyFrame Cue="0%">
@@ -95,8 +97,7 @@
     </Style.Animations>
   </Style>
 
-  <Style Selector="cc|FloatingButton:not(.notransitions) /template/ Grid#TemplateRoot,
-         cc|FloatingButton:not(.notransitions) /template/ Border#MouseOverBorder">
+  <Style Selector="cc|FloatingButton:not(.notransitions) /template/ Border#PART_HoverIndicator">
     <Setter Property="Transitions">
       <Transitions>
         <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/> 
@@ -111,23 +112,27 @@
     <Setter Property="ScaleTransform.ScaleX" Value="0" />
     <Setter Property="ScaleTransform.ScaleY" Value="0" />
   </Style>
+  
   <Style Selector="cc|FloatingButton[IsVisible=true][IsEnabled=true]:not(.no-material)">
     <Setter Property="Opacity" Value="1"/>
     <Setter Property="ScaleTransform.ScaleX" Value="1" />
     <Setter Property="ScaleTransform.ScaleY" Value="1" />
   </Style>
+  
+  <Style Selector="cc|FloatingButton:not(.no-material) /template/ Border#PART_HoverIndicator">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
 
   <!-- Feedbacks -->
  
-  <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#Thumb">
+  <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#PART_ButtonRootBorder">
       <Setter Property="assists:ShadowAssist.Darken" Value="True" />
   </Style>
-  <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#MouseOverBorder">
-    <Setter Property="Opacity" Value="0.35" />
+  
+  <Style Selector="cc|FloatingButton:pointerover:not(.no-material) /template/ Border#PART_HoverIndicator">
+    <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
   </Style>
-  <Style Selector="cc|FloatingButton:not(:pointerover):not(.no-material) /template/ Border#MouseOverBorder">
-    <Setter Property="Opacity" Value="0" />
-  </Style>
+
 
   <!-- Mini and extended style -->
 

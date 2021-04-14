@@ -2,9 +2,14 @@
   xmlns="https://github.com/avaloniaui"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:assists="clr-namespace:Material.Styles.Assists"
-  xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+  xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+  xmlns:system="clr-namespace:System;assembly=netstandard">
+  <Styles.Resources>
+    <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
+    <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
+  </Styles.Resources>
 
-  <Style Selector="Button,ToggleButton">
+  <Style Selector="Button, ToggleButton">
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -13,61 +18,81 @@
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16 8" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+    <Setter Property="assists:ButtonAssist.HoverColor" Value="{Binding Foreground,
+                      Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}"/>
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#000000"/>
     <Setter Property="TextBlock.FontWeight" Value="Medium" />
     <Setter Property="TextBlock.FontSize" Value="14" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid>
-          <Border Name="buttonBorder"
-                  ClipToBounds="False"
-                  BorderThickness="0"
-                  Background="{TemplateBinding Background}"
-                  CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                  assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
-            <Border Name="pointerOverBorder"
-    BorderThickness="0"
-    Background="Black"
-    CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
-              <Border.Styles>
-                <Style Selector="Border#pointerOverBorder:not(.notransitions)">
-                  <Setter Property="Transitions">
-                    <Transitions>
-                      <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
-                    </Transitions>
-                  </Setter>
-                </Style>
-              </Border.Styles>
-            </Border>
+        <Border Name="PART_ButtonRootBorder"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}"
+                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+          <Border ClipToBounds="True"
+                  CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
+            <Grid>
+              <Border Name="PART_HoverIndicator" BorderThickness="0"
+                      Background="{TemplateBinding assists:ButtonAssist.HoverColor}"/>
+              <ripple:RippleEffect RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
+                                   RippleOpacity="{StaticResource ButtonPressedOpacity}">
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Content="{TemplateBinding Content}"
+                                  Padding="{TemplateBinding Padding}"
+                                  TextBlock.Foreground="{TemplateBinding Foreground}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+              </ripple:RippleEffect>
+            </Grid>
           </Border>
-          <Border CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                  ClipToBounds="True">
-            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-              <ContentPresenter Name="PART_ContentPresenter"
-              CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-              BorderBrush="{TemplateBinding BorderBrush}"
-              BorderThickness="{TemplateBinding BorderThickness}"
-              ContentTemplate="{TemplateBinding ContentTemplate}"
-              Content="{TemplateBinding Content}"
-              Padding="{TemplateBinding Padding}"
-              TextBlock.Foreground="{TemplateBinding Foreground}"
-              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-            </ripple:RippleEffect>
-          </Border>
-        </Grid>
+        </Border>
       </ControlTemplate>
     </Setter>
   </Style>
-
+  
+  <!-- Transitions -->
+  
+  <Style Selector="Button:not(.notransitions) /template/ Border#PART_HoverIndicator">
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+      </Transitions>
+    </Setter>
+  </Style>
+  
+  <Style Selector="ToggleButton:not(.notransitions) /template/ Border#PART_HoverIndicator">
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+      </Transitions>
+    </Setter>
+  </Style>
+  
+  <!-- Default state -->
+  
+  <Style Selector="Button /template/ Border#PART_HoverIndicator, ToggleButton /template/ Border#PART_HoverIndicator">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
+    
   <Style Selector="Button:disabled:not(.no-material),ToggleButton:disabled:not(.no-material)">
-    <Setter Property="Opacity" Value="0.23" />
+    <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+  </Style>
+  
+  <!-- Feedbacks -->
+  
+  <Style Selector="Button:not(.disabled):pointerover /template/ Border#PART_HoverIndicator, 
+                   ToggleButton:not(.disabled):pointerover /template/ Border#PART_HoverIndicator">
+    <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
   </Style>
 
   <Style
-      Selector="Button:pointerover:not(.no-material) /template/ Border#buttonBorder,
-  ToggleButton:pointerover:not(.no-material) /template/ Border#buttonBorder">
+      Selector="Button:pointerover:not(.no-material) /template/ Border#PART_ButtonRootBorder,
+  ToggleButton:pointerover:not(.no-material) /template/ Border#PART_ButtonRootBorder">
     <Setter Property="assists:ShadowAssist.Darken" Value="True" />
   </Style>
 
@@ -78,42 +103,9 @@
     <Setter Property="BorderBrush" Value="Transparent"/>
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
     <Setter Property="Padding" Value="16 6" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border Name="buttonBorder" ClipToBounds="True"
-                Background="{TemplateBinding Background}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
-          <Grid>
-            <Border Name="pointerOverBorder"
-                    BorderThickness="0"
-                    Background="{TemplateBinding Foreground}" >
-              <Border.Styles>
-                <Style Selector="Border#pointerOverBorder:not(.notransitions)">
-                  <Setter Property="Transitions">
-                    <Transitions>
-                      <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
-                    </Transitions>
-                  </Setter>
-                </Style>
-              </Border.Styles>
-            </Border>
-            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-              <ContentPresenter Name="PART_ContentPresenter"
-                                Margin="{TemplateBinding Padding}"
-                                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Content="{TemplateBinding Content}"
-                                TextBlock.Foreground="{TemplateBinding Foreground}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-            </ripple:RippleEffect>
-          </Grid>
-        </Border>
-      </ControlTemplate>
-    </Setter>
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0"/>
+    <Setter Property="assists:ButtonAssist.HoverColor" Value="{Binding $self.Foreground}"/>
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#CCCCCC"/>
   </Style>
 
   <Style Selector="Button.Icon, ToggleButton.Icon">
@@ -128,8 +120,9 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Grid>
-          <Ellipse Name="pointerOverEllipse"
-                   Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="-100"
+          <Ellipse Name="PART_HoverIndicator"
+                   Width="{TemplateBinding Width}" 
+                   Height="{TemplateBinding Height}" Margin="-100"
                    VerticalAlignment="Center" HorizontalAlignment="Center"
                    Fill="{TemplateBinding Foreground}"
                    IsHitTestVisible="False"/>
@@ -138,7 +131,8 @@
                   VerticalAlignment="Center"
                   HorizontalAlignment="Center"
                   ClipToBounds="True" CornerRadius="1000000">
-            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
+                                 RippleOpacity="{StaticResource ButtonPressedOpacity}">
               <ContentPresenter Name="PART_ContentPresenter"
                                 CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -156,45 +150,47 @@
     </Setter>
   </Style>
   
-  <Style Selector="Button.Icon:not(.notransitions) /template/ Ellipse#pointerOverBorder">
+  <!-- Transitions -->
+  
+  <Style Selector="Button.Icon:not(.notransitions) /template/ Ellipse#PART_HoverIndicator">
     <Setter Property="Transitions">
       <Transitions>
         <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
       </Transitions>
     </Setter>
-  </Style>
-
-  <Style
-  Selector="Button /template/ Border#pointerOverBorder, ToggleButton /template/ Border#pointerOverBorder">
-    <Setter Property="Opacity" Value="0" />
-  </Style>
-
-  <Style
-    Selector="Button:not(.Outline):not(.disabled):pointerover /template/ Border#pointerOverBorder, 
-    ToggleButton:not(.Outline):not(.disabled):pointerover /template/ Border#pointerOverBorder">
-    <Setter Property="Opacity" Value="0.35" />
-  </Style>
-  <Style
-  Selector="Button:not(.disabled).Tool:pointerover /template/ Border#pointerOverBorder, 
-    ToggleButton:not(.disabled).Tool:pointerover /template/ Border#pointerOverBorder,
-    Button:not(.disabled).Flat:pointerover /template/ Border#pointerOverBorder, 
-    ToggleButton:not(.disabled).Flat:pointerover /template/ Border#pointerOverBorder">
-    <Setter Property="Opacity" Value="0.15" />
-  </Style>
-
-  <Style Selector="Button.Icon /template/ Ellipse#pointerOverEllipse,
-                   ToggleButton.Icon /template/ Ellipse#pointerOverEllipse">
-    <Setter Property="Opacity" Value="0" />
-  </Style>
-  <Style Selector="Button.Icon:not(:disabled):pointerover /template/ Ellipse#pointerOverEllipse,
-                   ToggleButton.Icon:not(:disabled):pointerover /template/ Ellipse#pointerOverEllipse">
-    <Setter Property="Opacity" Value="0.15" />
-  </Style>
-
+  </Style>  
+  
+  <Style Selector="ToggleButton.Icon:not(.notransitions) /template/ Ellipse#PART_HoverIndicator">
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing"/>
+      </Transitions>
+    </Setter>
+  </Style>  
+  
+  <!-- Default state -->
+  
   <Style Selector="Button.DrawerItem, ToggleButton.DrawerItem">
     <Setter Property="Height" Value="48"/>
   </Style>
 
+  <!-- Feedbacks -->
+
+  <Style Selector="Button.Icon /template/ Ellipse#PART_HoverIndicator,
+                   ToggleButton.Icon /template/ Ellipse#PART_HoverIndicator">
+    <Setter Property="Opacity" Value="0" />
+  </Style>
+  
+  <Style Selector="Button.Flat:not(.disabled):pointerover /template/ Border#PART_HoverIndicator, 
+                   ToggleButton.Flat:not(.disabled):pointerover /template/ Border#PART_HoverIndicator">
+    <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+  </Style>
+  
+  <Style Selector="Button.Icon:not(:disabled):pointerover /template/ Ellipse#PART_HoverIndicator,
+                   ToggleButton.Icon:not(:disabled):pointerover /template/ Ellipse#PART_HoverIndicator">
+    <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+  </Style>
+  
   <Style Selector="Button.Light:not(.Outline), ToggleButton.Light:not(.Outline)">
     <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
@@ -216,8 +212,7 @@
     <Setter Property="BorderBrush" Value="Transparent"/>
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}"/>
   </Style>
-
-
+  
   <!-- Outlined buttons -->
 
   <Style Selector="Button.Outline, ToggleButton.Outline">
@@ -227,14 +222,8 @@
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
-    <Setter Property="Padding" Value="16 4 16 4" />
-    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="16 6" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
-  </Style>
-
-  <Style Selector="Button:not(.disabled).Outline:pointerover /template/ Border#pointerOverBorder, 
-    ToggleButton:not(.disabled).Outline:pointerover /template/ Border#pointerOverBorder">
-    <Setter Property="Opacity" Value="0.15" />
   </Style>
 
   <Style Selector="Button.Outline.Accent, ToggleButton.Outline.Accent">
@@ -250,17 +239,5 @@
     <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}"/>
   </Style>
-
-  <!-- Designer preview -->
-
-  <Design.PreviewWith>
-    <Border Padding="20">
-      <StackPanel>
-        <Button Classes="default" Content="Test Control"/>
-        <Button Classes="Flat" Content="Test Control"/>
-        <Button Classes="Outline Accent" Content="Test Control"/>
-      </StackPanel>
-    </Border>
-  </Design.PreviewWith>
 </Styles>
 

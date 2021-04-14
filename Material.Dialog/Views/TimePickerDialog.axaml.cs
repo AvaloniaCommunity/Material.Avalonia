@@ -11,7 +11,7 @@ using Material.Dialog.ViewModels;
 
 namespace Material.Dialog.Views
 {
-    public class TimePickerDialog : Window, IDialogWindowResult<DateTimePickerDialogResult>
+    public class TimePickerDialog : Window, IDialogWindowResult<DateTimePickerDialogResult>, IHasNegativeResult
     {
         //private bool PointerHoldingCell;
         private TimePickerDialogViewModel viewModel;
@@ -148,9 +148,9 @@ namespace Material.Dialog.Views
                 v = 0;
             
             if(PART_PagesRoot.SelectedIndex == 1)
-                viewModel.SetSecondField(v);
+                viewModel.SecondField = (ushort)v;
             else
-                viewModel.SetFirstField(v);
+                viewModel.FirstField = (ushort)v;
         }
         
         private void CallerPanel_OnPointerReleased(object sender, PointerReleasedEventArgs e)

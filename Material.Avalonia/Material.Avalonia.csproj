@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.1</PackageVersion>
+        <Version>2.0.0</Version>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -21,7 +21,7 @@
 
     <ItemGroup>
       <PackageReference Include="Avalonia" Version="0.10.0" />
-      <PackageReference Include="Material.Icons.Avalonia" Version="1.0.1" />
+      <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
     </ItemGroup>
 
     <ItemGroup>

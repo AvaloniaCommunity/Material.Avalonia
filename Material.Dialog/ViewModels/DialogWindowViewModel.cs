@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Avalonia.Layout;
 
 namespace Material.Dialog.ViewModels
 {
@@ -39,5 +40,12 @@ namespace Material.Dialog.ViewModels
         private DialogIconKind? m_DialogHeaderIcon;
         public DialogIconKind? DialogHeaderIcon { get => m_DialogHeaderIcon; set { m_DialogHeaderIcon = value; OnPropertyChanged(); } }
         #endregion
+        
+        
+        private DialogResultButton[] m_DialogButtons;
+        public DialogResultButton[] DialogButtons { get => m_DialogButtons; internal set => m_DialogButtons = value; }
+        
+        private Orientation m_ButtonsStackOrientation;
+        public Orientation ButtonsStackOrientation { get => m_ButtonsStackOrientation; internal set => m_ButtonsStackOrientation = value; }
     }
 }

@@ -77,15 +77,17 @@ namespace Material.Dialog
         public static IDialogWindow<DialogResult> CreateAlertDialog(AlertDialogBuilderParams @params)
         { 
             var window = new AlertDialog();
-            var context = new AlertDialogViewModel(window)
-            {
-                DialogButtons = @params.DialogButtons,
-                ButtonsStackOrientation = @params.ButtonsOrientation,
-            };
+            var context = new AlertDialogViewModel(window) { };
+
             ApplyBaseParams(context, @params);
+            
+            if (context.DialogButtons == null)
+            {
+                context.DialogButtons = CreateSimpleDialogButtons(DialogButtonsEnum.Ok);
+            }
+            
             window.DataContext = context;
-            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
-            window.SetNegativeResult(@params.NegativeResult);
+            SetupWindowParameters(window, @params);
             return new DialogWindowBase<AlertDialog, DialogResult>(window);
         }
 
@@ -96,36 +98,90 @@ namespace Material.Dialog
             {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton, 
-                ButtonsStackOrientation = @params.ButtonsOrientation,
                 TextFields = TextFieldsBuilder(@params.TextFields),
-                DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton),
             };
+            
             ApplyBaseParams(context, @params);
+            
+            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+            
             context.BindValidater();
             window.DataContext = context;
-            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
-            window.SetNegativeResult(@params.NegativeResult);
+            SetupWindowParameters(window, @params);
             return new DialogWindowBase<TextFieldDialog, TextFieldDialogResult>(window);
         }
 
-        public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(DateTimePickerDialogBuilderParams @params)
+        /// <summary>
+        /// Create time picker dialog.
+        /// </summary>
+        /// <param name="params">Parameters of building dialog</param>
+        /// <returns>Instance of picker.</returns>
+        public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(TimePickerDialogBuilderParams @params)
         {
             var window = new TimePickerDialog();
             var context = new TimePickerDialogViewModel(window)
             {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton,
-                DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton),
+                FirstField = (ushort)@params.ImplicitValue.Hours,
+                SecondField = (ushort)@params.ImplicitValue.Minutes,
             };
             ApplyBaseParams(context, @params);
 
-            if (context.Width is null)
+            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+
+            if (context.Width is null || context.Width < 320)
                 context.Width = 320;
             
             window.AttachViewModel(context);
-            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
-            window.SetNegativeResult(@params.NegativeResult);
+            SetupWindowParameters(window, @params);
             return new DialogWindowBase<TimePickerDialog, DateTimePickerDialogResult>(window);
+        }
+        
+        /// <summary>
+        /// Create date picker dialog.
+        /// </summary>
+        /// <param name="params">Parameters of building dialog</param>
+        /// <returns>Instance of picker.</returns>
+        [Obsolete("This feature is still not ready for use! Please come back later!")]
+        public static IDialogWindow<DateTimePickerDialogResult> CreateDatePicker(DatePickerDialogBuilderParams @params)
+        {
+            var window = new DatePickerDialog();
+            var context = new DatePickerDialogViewModel(window)
+            {
+                PositiveButton = @params.PositiveButton,
+                NegativeButton = @params.NegativeButton,
+            };
+            ApplyBaseParams(context, @params);
+
+            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+
+            if (context.Width is null || context.Width < 320)
+                context.Width = 320;
+            
+            window.AttachViewModel(context);
+            SetupWindowParameters(window, @params);
+            return new DialogWindowBase<DatePickerDialog, DateTimePickerDialogResult>(window);
+        }
+
+        /// <summary>
+        /// Create an dialog with custom content or dummy dialog.
+        /// </summary>
+        /// <param name="params">Parameters of building dialog</param>
+        /// <returns>Instance of dialog.</returns>
+        public static IDialogWindow<DialogResult> CreateCustomDialog(CustomDialogBuilderParams @params)
+        {
+            var window = new CustomDialog();
+            var context = new CustomDialogViewModel(window)
+            {
+                Content = @params.Content,
+            };
+            
+            ApplyBaseParams(context, @params);
+            
+            window.DataContext = context;
+            SetupWindowParameters(window, @params);
+            return new DialogWindowBase<CustomDialog, DialogResult>(window);
         }
 
         private static void ApplyBaseParams<T> (T input, DialogWindowBuilderParamsBase @params) where T : DialogWindowViewModel
@@ -138,11 +194,20 @@ namespace Material.Dialog
             input.Borderless = @params.Borderless;
             input.WindowStartupLocation = @params.StartupLocation;
             input.DialogHeaderIcon = @params.DialogHeaderIcon;
+
+            input.DialogButtons = @params.DialogButtons;
+            input.ButtonsStackOrientation = @params.ButtonsOrientation;
+        }
+
+        private static void SetupWindowParameters(Window window, DialogWindowBuilderParamsBase @params)
+        {
+            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
+            (window as IHasNegativeResult)?.SetNegativeResult(@params.NegativeResult);
         }
 
         private static DialogResultButton[] CombineButtons(params DialogResultButton[] buttons) 
         {
-            List<DialogResultButton> result = new List<DialogResultButton>();
+            var result = new List<DialogResultButton>();
             foreach(var button in buttons)
             {
                 if (button is null)
@@ -154,12 +219,12 @@ namespace Material.Dialog
 
         private static TextFieldViewModel[] TextFieldsBuilder(TextFieldBuilderParams[] @params)
         {
-            List<TextFieldViewModel> result = new List<TextFieldViewModel>();
+            var result = new List<TextFieldViewModel>();
             foreach(var param in @params)
             {
                 try
                 {
-                    TextFieldViewModel model = new TextFieldViewModel();
+                    var model = new TextFieldViewModel();
 
                     // Currently AvaloniaUI are not supported to binding classes.
                     //model.Classes = param.Classes;

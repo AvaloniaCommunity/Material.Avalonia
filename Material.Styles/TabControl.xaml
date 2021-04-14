@@ -45,7 +45,8 @@
 
                             <Border Name="PART_SelectedContentHostBorder">
                                 <ContentPresenter Name="PART_SelectedContentHost"
-                                                  Content="{TemplateBinding SelectedContent}" />
+                                                  Content="{TemplateBinding SelectedContent}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"/>
                             </Border>
                         </DockPanel>
                     </Grid>
@@ -99,7 +100,8 @@
 
                         <Border Name="PART_SelectedContentHostBorder">
                             <ContentPresenter Name="PART_SelectedContentHost"
-                                              Content="{TemplateBinding SelectedContent}" />
+                                              Content="{TemplateBinding SelectedContent}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"/>
                         </Border>
                     </DockPanel>
                 </Grid>

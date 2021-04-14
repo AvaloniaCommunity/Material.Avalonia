@@ -27,6 +27,8 @@ namespace Material.Demo.ViewModels
         private string _timePickerDialogResult;
         public string TimePickerDialogResult { get => _timePickerDialogResult; set { _timePickerDialogResult = value; OnPropertyChanged(); } }
 
+        private TimeSpan _previousTimePickerResult;
+
 
         public async void Dialog1()
         {
@@ -188,10 +190,11 @@ namespace Material.Demo.ViewModels
 
         public async void TimePickerDialog()
         {
-            var result = await DialogHelper.CreateTimePicker(new DateTimePickerDialogBuilderParams()
+            var result = await DialogHelper.CreateTimePicker(new TimePickerDialogBuilderParams()
             {
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
+                ImplicitValue = _previousTimePickerResult,
                 PositiveButton = new DialogResultButton
                 {
                     Content = "CONFIRM",
@@ -202,7 +205,28 @@ namespace Material.Demo.ViewModels
             if (result.GetResult == "confirm")
             {
                 TimePickerDialogResult = $"Result: {result.GetResult}\nTimeSpan: {result.GetTimeSpan()}";
+                _previousTimePickerResult = result.GetTimeSpan();
             }
+        }
+        
+        public async void DatePickerDialog()
+        {
+            var result = await DialogHelper.CreateDatePicker(new DatePickerDialogBuilderParams()
+            {
+                Borderless = true,
+                StartupLocation = WindowStartupLocation.CenterOwner,
+                PositiveButton = new DialogResultButton
+                {
+                    Content = "CONFIRM",
+                    Result = "confirm"
+                },
+            }).ShowDialog(Program.MainWindow);
+            /*TimePickerDialogResult = $"Result: {result.GetResult}";
+            if (result.GetResult == "confirm")
+            {
+                TimePickerDialogResult = $"Result: {result.GetResult}\nTimeSpan: {result.GetTimeSpan()}";
+                _previousTimePickerResult = result.GetTimeSpan();
+            }*/
         }
     }
 }
