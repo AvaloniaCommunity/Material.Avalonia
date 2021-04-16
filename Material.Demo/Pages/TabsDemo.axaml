@@ -1,84 +1,82 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-            x:Class="Material.Demo.Pages.TabsDemo"> 
-  <StackPanel Margin="16, 0">
-    <StackPanel.Styles>
-      <Style Selector="WrapPanel#ItemsPanel > Border">
-        <Setter Property="Width" Value="400"/>
-        <Setter Property="Height" Value="400"/>
-        <Setter Property="Margin" Value="8"/>
-      </Style>
-      <Style Selector="TextBlock.Centered">
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-      </Style>
-      <Style Selector="DockPanel > TextBlock,
-      DockPanel > TabControl">
-        <Setter Property="DockPanel.Dock" Value="Top"/>
-      </Style>
-    </StackPanel.Styles>
-    
-    <TextBlock Classes="Headline4 Subheadline" Text="TabControls"/>
-    
-    <WrapPanel Name="ItemsPanel">
-      <Border BorderBrush="Black" BorderThickness="1">
-        <DockPanel>
-          <TextBlock Classes="Headline6 Subheadline2" Text="Standard tabs"/>
-          <TabControl>
-            <TabControl.Items>
-              <TabItem Header="Item 1">
-                <TextBlock Classes="Centered" Text="Page 1"/>
-              </TabItem>
-              <TabItem Header="Item 2">
-                <TextBlock Classes="Centered" Text="Page 2"/>
-              </TabItem>
-              <TabItem Header="Item 3">
-                <TextBlock Classes="Centered" Text="Page 3"/>
-              </TabItem>
-            </TabControl.Items>
-          </TabControl>
-        </DockPanel>
-      </Border>
-      
-      <Border BorderBrush="Black" BorderThickness="1">
-        <DockPanel>
-          <TextBlock Classes="Headline6 Subheadline2" Text="Standard tabs with scroll helper"/>
-          <TabControl AutoScrollToSelectedItem="True" Classes="Scrollable">
-            <TabControl.Items>
-              <TabItem Header="Item 1">
-                <TextBlock Classes="Centered" Text="Page 1"/>
-              </TabItem>
-              <TabItem Header="Item 2">
-                <TextBlock Classes="Centered" Text="Page 2"/>
-              </TabItem>
-              <TabItem Header="Item 3">
-                <TextBlock Classes="Centered" Text="Page 3"/>
-              </TabItem>
-              <TabItem Header="Item 4">
-                <TextBlock Classes="Centered" Text="Page 4"/>
-              </TabItem>
-              <TabItem Header="Item 5">
-                <TextBlock Classes="Centered" Text="Page 5"/>
-              </TabItem>
-              <TabItem Header="Item 6">
-                <TextBlock Classes="Centered" Text="Page 6"/>
-              </TabItem>
-              <TabItem Header="Item 7">
-                <TextBlock Classes="Centered" Text="Page 7"/>
-              </TabItem>
-              <TabItem Header="Item 8">
-                <TextBlock Classes="Centered" Text="Page 8"/>
-              </TabItem>
-            </TabControl.Items>
-          </TabControl>
-        </DockPanel>
-      </Border>
-    </WrapPanel>
-    
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             x:Class="Material.Demo.Pages.TabsDemo">
+    <StackPanel Margin="16, 0">
+        <StackPanel.Styles>
+            <Style Selector="WrapPanel#ItemsPanel > DockPanel">
+                <Setter Property="Width" Value="400" />
+                <Setter Property="Height" Value="400" />
+                <Setter Property="Margin" Value="8" />
+            </Style>
+            <Style Selector="TextBlock.Centered">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style Selector="DockPanel > TextBlock, DockPanel > TabControl">
+                <Setter Property="DockPanel.Dock" Value="Top" />
+            </Style>
+        </StackPanel.Styles>
 
-  </StackPanel>
+        <TextBlock Classes="Headline4 Subheadline" Text="TabControls" />
+
+        <WrapPanel Name="ItemsPanel">
+            <DockPanel>
+                <TextBlock Classes="Headline6 Subheadline2" Text="Standard tabs" />
+                <showMeTheXaml:XamlDisplay UniqueId="Tabs0">
+                    <TabControl>
+                        <TabControl.Items>
+                            <TabItem Header="Item 1">
+                                <TextBlock Classes="Centered" Text="Page 1" />
+                            </TabItem>
+                            <TabItem Header="Item 2">
+                                <TextBlock Classes="Centered" Text="Page 2" />
+                            </TabItem>
+                            <TabItem Header="Item 3">
+                                <TextBlock Classes="Centered" Text="Page 3" />
+                            </TabItem>
+                        </TabControl.Items>
+                    </TabControl>
+                </showMeTheXaml:XamlDisplay>
+            </DockPanel>
+
+            <DockPanel>
+                <TextBlock Classes="Headline6 Subheadline2" Text="Standard tabs with scroll helper" />
+                <showMeTheXaml:XamlDisplay UniqueId="Tabs1">
+                    <TabControl AutoScrollToSelectedItem="True" Classes="Scrollable">
+                        <TabControl.Items>
+                            <TabItem Header="Item 1">
+                                <TextBlock Classes="Centered" Text="Page 1" />
+                            </TabItem>
+                            <TabItem Header="Item 2">
+                                <TextBlock Classes="Centered" Text="Page 2" />
+                            </TabItem>
+                            <TabItem Header="Item 3">
+                                <TextBlock Classes="Centered" Text="Page 3" />
+                            </TabItem>
+                            <TabItem Header="Item 4">
+                                <TextBlock Classes="Centered" Text="Page 4" />
+                            </TabItem>
+                            <TabItem Header="Item 5">
+                                <TextBlock Classes="Centered" Text="Page 5" />
+                            </TabItem>
+                            <TabItem Header="Item 6">
+                                <TextBlock Classes="Centered" Text="Page 6" />
+                            </TabItem>
+                            <TabItem Header="Item 7">
+                                <TextBlock Classes="Centered" Text="Page 7" />
+                            </TabItem>
+                            <TabItem Header="Item 8">
+                                <TextBlock Classes="Centered" Text="Page 8" />
+                            </TabItem>
+                        </TabControl.Items>
+                    </TabControl>
+                </showMeTheXaml:XamlDisplay>
+            </DockPanel>
+        </WrapPanel>
+    </StackPanel>
 </UserControl>
