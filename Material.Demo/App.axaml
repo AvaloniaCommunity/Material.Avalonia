@@ -1,6 +1,7 @@
 ﻿<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              x:Class="Material.Demo.App">
     <Application.Resources>
         <themes:BundledTheme BaseTheme="Light" PrimaryColor="Teal" SecondaryColor="Amber"/>
@@ -10,5 +11,8 @@
       <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml"/>
       <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml"/>
       <StyleInclude Source="avares://Material.Demo/MaterialXamlDisplay.axaml"></StyleInclude>
+      <Style Selector="showMeTheXaml|XamlDisplay">
+          <Setter Property="ClipToBounds" Value="False"></Setter>
+      </Style>
     </Application.Styles>
 </Application>

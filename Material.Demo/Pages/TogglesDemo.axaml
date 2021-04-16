@@ -2,7 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
@@ -139,47 +139,37 @@
                 </Style>
             </StackPanel.Styles>
             <StackPanel Orientation="Vertical">
-                <styles:Card Padding="0" InsideClipping="True">
-                    <StackPanel Orientation="Horizontal">
-                        <showMeTheXaml:XamlDisplay UniqueId="RadioButtons6">
+                <showMeTheXaml:XamlDisplay UniqueId="RadioButtonsCard0">
+                    <styles:Card Padding="0" InsideClipping="True">
+                        <StackPanel Orientation="Horizontal">
                             <RadioButton Classes="Button" GroupName="3"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}" />
-                        </showMeTheXaml:XamlDisplay>
-                        <showMeTheXaml:XamlDisplay UniqueId="RadioButtons7">
                             <RadioButton Classes="Button" GroupName="3"
-                                         Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}" IsChecked="True" />
-                        </showMeTheXaml:XamlDisplay>
-                        <showMeTheXaml:XamlDisplay UniqueId="RadioButtons8">
+                                         Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}"
+                                         IsChecked="True" />
                             <RadioButton Classes="Button" GroupName="3"
-                                         Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}" IsEnabled="False" />
-                        </showMeTheXaml:XamlDisplay>
-                        <showMeTheXaml:XamlDisplay UniqueId="RadioButtons9">
+                                         Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}"
+                                         IsEnabled="False" />
                             <RadioButton Classes="Button" GroupName="3"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}" />
-                        </showMeTheXaml:XamlDisplay>
-                    </StackPanel>
-                </styles:Card>
+                        </StackPanel>
+                    </styles:Card>
+                </showMeTheXaml:XamlDisplay>
 
-                <styles:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
-                    <StackPanel Orientation="Horizontal">
-                        <showMeTheXaml:XamlDisplay UniqueId="RadioButton10">
+                <showMeTheXaml:XamlDisplay UniqueId="RadioButtonsCard1">
+                    <styles:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
+                        <StackPanel Orientation="Horizontal">
                             <RadioButton Classes="Button Accent" GroupName="4"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}" />
-                        </showMeTheXaml:XamlDisplay>
-                        <showMeTheXaml:XamlDisplay UniqueId="RadioButton11">
                             <RadioButton Classes="Button Accent" GroupName="4"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}" IsChecked="True" />
-                        </showMeTheXaml:XamlDisplay>
-                        <showMeTheXaml:XamlDisplay UniqueId="RadioButton12">
                             <RadioButton Classes="Button Accent" GroupName="4"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}" IsEnabled="False" />
-                        </showMeTheXaml:XamlDisplay>
-                        <showMeTheXaml:XamlDisplay UniqueId="RadioButton13">
                             <RadioButton Classes="Button Accent" GroupName="4"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}" />
-                        </showMeTheXaml:XamlDisplay>
-                    </StackPanel>
-                </styles:Card>
+                        </StackPanel>
+                    </styles:Card>
+                </showMeTheXaml:XamlDisplay>
             </StackPanel>
         </StackPanel>
     </StackPanel>

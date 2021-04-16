@@ -11,7 +11,7 @@
     <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
         <StackPanel.Styles>
             <Style Selector="showMeTheXaml|XamlDisplay">
-                <Setter Property="Margin" Value="8" />
+                <Setter Property="Margin" Value="8 0" />
             </Style>
         </StackPanel.Styles>
         <TextBlock Classes="Headline4 Subheadline" Text="Classic fields" />
