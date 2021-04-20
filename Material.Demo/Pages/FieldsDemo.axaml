@@ -2,7 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="2300"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
@@ -293,6 +293,23 @@
                     <showMeTheXaml:XamlDisplay UniqueId="SoloFields4">
                         <TextBox BorderBrush="Black" Margin="8" BorderThickness="1" Classes="Solo"
                                  Watermark="No container but use border instead" />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+        
+        <WrapPanel HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="NumericUpDown">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Width" Value="300" />
+                    </Style>
+                </StackPanel.Styles>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="Headline6 Subheadline2" Text="Numeric Up Down" />
+                    <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown0">
+                        <NumericUpDown></NumericUpDown>
                     </showMeTheXaml:XamlDisplay>
                 </StackPanel>
             </StackPanel>

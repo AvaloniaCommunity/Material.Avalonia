@@ -1,4 +1,14 @@
-<Styles xmlns="https://github.com/avaloniaui">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=netstandard"
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+    <Styles.Resources>
+        <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
+        <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
+    </Styles.Resources>
+
+    <!-- Default style -->
     <Style Selector="RepeatButton">
         <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
@@ -24,4 +34,215 @@
         <Setter Property="Opacity"
                 Value="0.23" />
     </Style>
+
+    <!-- Material style -->
+    <!-- Requires "Material" class in order not to break existing controls -->
+
+    <Style Selector="RepeatButton.Material">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Padding" Value="16 8" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+        <Setter Property="assists:ButtonAssist.HoverColor"
+                Value="{Binding Foreground,
+                      Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#000000" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_ButtonRootBorder"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                        assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+                    <Border ClipToBounds="True"
+                            CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
+                        <Grid>
+                            <Border Name="PART_HoverIndicator" BorderThickness="0"
+                                    Background="{TemplateBinding assists:ButtonAssist.HoverColor}" />
+                            <ripple:RippleEffect RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
+                                                 RippleOpacity="{StaticResource ButtonPressedOpacity}">
+                                <ContentPresenter Name="PART_ContentPresenter"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Content="{TemplateBinding Content}"
+                                                  Padding="{TemplateBinding Padding}"
+                                                  TextBlock.Foreground="{TemplateBinding Foreground}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </ripple:RippleEffect>
+                        </Grid>
+                    </Border>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Transitions -->
+
+    <Style Selector="RepeatButton.Material:not(.notransitions) /template/ Border#PART_HoverIndicator">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <!-- Default state -->
+
+    <Style
+        Selector="RepeatButton.Material /template/ Border#PART_HoverIndicator, ToggleButton /template/ Border#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material:disabled">
+        <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
+
+    <!-- Feedbacks -->
+
+    <Style Selector="RepeatButton.Material:not(.disabled):pointerover /template/ Border#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material.Flat">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Padding" Value="16 6" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
+        <Setter Property="assists:ButtonAssist.HoverColor" Value="{Binding $self.Foreground}" />
+        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#CCCCCC" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material.Icon">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Padding" Value="16 16 16 16" />
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Width" Value="48" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Ellipse Name="PART_HoverIndicator"
+                             Width="{TemplateBinding Width}"
+                             Height="{TemplateBinding Height}" Margin="-100"
+                             VerticalAlignment="Center" HorizontalAlignment="Center"
+                             Fill="{TemplateBinding Foreground}"
+                             IsHitTestVisible="False" />
+                    <Border Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            ClipToBounds="True" CornerRadius="1000000">
+                        <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
+                                             RippleOpacity="{StaticResource ButtonPressedOpacity}">
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                              BorderBrush="{TemplateBinding BorderBrush}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Content="{TemplateBinding Content}"
+                                              Margin="{TemplateBinding Padding}"
+                                              TextBlock.Foreground="{TemplateBinding Foreground}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </ripple:RippleEffect>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Transitions -->
+
+    <Style Selector="RepeatButton.Material.Icon:not(.notransitions) /template/ Ellipse#PART_HoverIndicator">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <!-- Default state -->
+
+    <Style Selector="RepeatButton.Material.DrawerItem">
+        <Setter Property="Height" Value="48" />
+    </Style>
+
+    <!-- Feedbacks -->
+
+    <Style Selector="RepeatButton.Material.Icon /template/ Ellipse#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material.Flat:not(.disabled):pointerover /template/ Border#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material.Icon:not(:disabled):pointerover /template/ Ellipse#PART_HoverIndicator">
+        <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material.Light:not(.Outline)">
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+    </Style>
+    <Style Selector="RepeatButton.Material.Dark:not(.Outline)">
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+    </Style>
+    <Style Selector="RepeatButton.Material.Accent:not(.Outline)">
+        <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material.Accent.Flat:not(.Outline)">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    </Style>
+
+    <!-- Outlined buttons -->
+
+    <Style Selector="RepeatButton.Material.Outline">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Padding" Value="16 6" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material.Outline.Accent">
+        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    </Style>
+
+    <Style Selector="RepeatButton.Material.Outline.Light">
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+    </Style>
+    <Style Selector="RepeatButton.Material.Outline.Dark">
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+    </Style>
+
 </Styles>

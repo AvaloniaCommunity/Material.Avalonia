@@ -1,37 +1,65 @@
-<Styles xmlns="https://github.com/avaloniaui">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:styles="clr-namespace:Material.Styles"
+        xmlns:assists="clr-namespace:Material.Styles.Assists">
     <Style Selector="NumericUpDown">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
-        <Setter Property="Padding" Value="4" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+        <Setter Property="MinHeight" Value="48"></Setter>
         <Setter Property="Template">
             <ControlTemplate>
-                <ButtonSpinner Name="PART_Spinner"
-                               Background="{TemplateBinding Background}"
-                               BorderThickness="{TemplateBinding BorderThickness}"
-                               BorderBrush="{TemplateBinding BorderBrush}"
-                               HorizontalContentAlignment="Stretch"
-                               VerticalContentAlignment="Stretch"
-                               AllowSpin="{TemplateBinding AllowSpin}"
-                               ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
-                               ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
-                    <TextBox Name="PART_TextBox"
-                             BorderThickness="0"
-                             Background="{TemplateBinding Background}"
-                             BorderBrush="{TemplateBinding BorderBrush}"
-                             Padding="{TemplateBinding Padding}"
-                             Watermark="{TemplateBinding Watermark}"
-                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                             IsReadOnly="{TemplateBinding IsReadOnly}"
-                             Text="{TemplateBinding Text}"
-                             AcceptsReturn="False"
-                             TextWrapping="NoWrap" />
-                </ButtonSpinner>
+                <Border Name="PART_RootBorder"
+                        Margin="{TemplateBinding Padding}"
+                        ClipToBounds="True" CornerRadius="4,4,0,0"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="0">
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Border Name="focusBorder"
+                                Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+                        <ButtonSpinner Name="PART_Spinner"
+                                       BorderThickness="0"
+                                       BorderBrush="Transparent"
+                                       HorizontalContentAlignment="Stretch"
+                                       VerticalContentAlignment="Stretch"
+                                       AllowSpin="{TemplateBinding AllowSpin}"
+                                       ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
+                                       ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
+                            <TextBox Name="PART_TextBox"
+                                     Margin="8 0"
+                                     BorderThickness="0"
+                                     VerticalAlignment="Center"
+                                     assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                                     Watermark="{TemplateBinding Watermark}"
+                                     DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                     IsReadOnly="{TemplateBinding IsReadOnly}"
+                                     Text="{TemplateBinding Text}"
+                                     AcceptsReturn="False"
+                                     TextWrapping="NoWrap" />
+                        </ButtonSpinner>
+                        <styles:MaterialUnderline Classes="MirrorY" 
+                                                  VerticalAlignment="Bottom"   
+                                                  Name="Underline"/>
+                    </Grid>
+                </Border>
             </ControlTemplate>
         </Setter>
     </Style>
-    <Style Selector="NumericUpDown /template/ TextBox#PART_TextBox">
-        <Setter Property="Margin" Value="4" />
-        <Setter Property="MinWidth" Value="20" />
+    
+    <Style Selector="NumericUpDown /template/ TextBox#PART_TextBox /template/ styles|MaterialUnderline#Underline">
+        <Setter Property="Opacity" Value="0"></Setter>
+    </Style>
+    
+    <Style Selector="NumericUpDown:focus-within /template/ styles|MaterialUnderline#Underline">
+        <Setter Property="IsExpanded" Value="True"></Setter>
+    </Style>
+    
+    <Style Selector="NumericUpDown:pointerover /template/ styles|MaterialUnderline#Underline">
+        <Setter Property="IsActive" Value="True"></Setter>
+    </Style> 
+    
+    <Style Selector="TextBox /template/ Border#PART_RootBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
     </Style>
 </Styles>
