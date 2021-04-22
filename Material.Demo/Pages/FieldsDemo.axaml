@@ -13,6 +13,9 @@
             <Style Selector="showMeTheXaml|XamlDisplay">
                 <Setter Property="Margin" Value="8 0" />
             </Style>
+            <Style Selector="TextBox">
+                <Setter Property="Margin" Value="0"></Setter>
+            </Style>
         </StackPanel.Styles>
         <TextBlock Classes="Headline4 Subheadline" Text="Classic fields" />
 
@@ -309,7 +312,10 @@
                 <StackPanel Orientation="Vertical">
                     <TextBlock Classes="Headline6 Subheadline2" Text="Numeric Up Down" />
                     <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown0">
-                        <NumericUpDown></NumericUpDown>
+                        <NumericUpDown/>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown1">
+                        <NumericUpDown ButtonSpinnerLocation="Left"/>
                     </showMeTheXaml:XamlDisplay>
                 </StackPanel>
             </StackPanel>
