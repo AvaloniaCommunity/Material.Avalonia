@@ -19,10 +19,20 @@
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0" />
     <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
     <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
+    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="0.2.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
     <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="**\*.xaml" />
+    <AdditionalFiles Include="**\*.axaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="MaterialXamlDisplay.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
   </ItemGroup>
 </Project>

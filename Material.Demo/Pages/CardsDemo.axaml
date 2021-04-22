@@ -1,61 +1,70 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-            xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-            x:Class="Material.Demo.Pages.CardsDemo">
-  <StackPanel Margin="16, 0">
-    <StackPanel.Styles>
-      <Style Selector="styles|Card">
-        <Setter Property="Margin" Value="8"/> 
-      </Style>
-    </StackPanel.Styles>
-    <TextBlock Classes="Headline4 Subheadline" Text="Cards"/>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             x:Class="Material.Demo.Pages.CardsDemo">
+    <StackPanel Margin="16, 0">
+        <StackPanel.Styles>
+            <Style Selector="showMeTheXaml|XamlDisplay">
+                <Setter Property="Margin" Value="8" />
+            </Style>
+        </StackPanel.Styles>
+        <TextBlock Classes="Headline4 Subheadline" Text="Cards" />
 
-    <WrapPanel  HorizontalAlignment="Stretch">
-      <styles:Card MinWidth="240" VerticalAlignment="Top">
-        <StackPanel Margin="0,4">
-          <TextBlock Classes="Headline6" Text="Card title"/>
-          <TextBlock Classes="Body2" Text="Secondary text"/>
-        </StackPanel>
-      </styles:Card>
-      <styles:Card Width="240" VerticalAlignment="Top">
-        <StackPanel Margin="0,4">
-          <TextBlock Classes="Headline6" Text="Card title"/>
-          <TextBlock Classes="Body2" Text="Secondary text"/>
-          <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
-            Greyhound divisively hello coldly wonderfully marginally far upon excluding.
-          </TextBlock>
-        </StackPanel>
-      </styles:Card>
-      <styles:Card Width="240" Padding="4"  VerticalAlignment="Top">
-        <StackPanel>
-          <StackPanel Margin="8">
-            <TextBlock Classes="Headline6" Text="Card title"/>
-            <TextBlock Classes="Body2" Text="Secondary text"/>
-            <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
-              Greyhound divisively hello coldly wonderfully marginally far upon excluding.
-            </TextBlock>
-          </StackPanel>
-          <StackPanel Orientation="Horizontal">
-            <Button Classes="Flat" Content="BUTTON 1"/>
-            <Border Width="8"/>
-            <Button Classes="Flat" Content="BUTTON 2"/>
-          </StackPanel>
-        </StackPanel>
-      </styles:Card>
-      <styles:Card Width="240" Padding="0" VerticalAlignment="Top">
-        <StackPanel>
-          <Image Source="avares://Material.Demo/Assets/johannes-plenio-RwHv7LgeC7s-unsplash.jpg"/>
-          <StackPanel Margin="16">
-            <TextBlock Classes="Headline6" Text="Autumn is come!"/>
-            <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
-              It's time to get wear some warm suit to defeat cold!
-            </TextBlock>
-          </StackPanel> 
-        </StackPanel>
-      </styles:Card>
-    </WrapPanel>
-  </StackPanel>
+        <WrapPanel HorizontalAlignment="Stretch">
+            <showMeTheXaml:XamlDisplay UniqueId="Cards0">
+                <styles:Card MinWidth="240" VerticalAlignment="Top">
+                    <StackPanel Margin="0,4">
+                        <TextBlock Classes="Headline6" Text="Card title" />
+                        <TextBlock Classes="Body2" Text="Secondary text" />
+                    </StackPanel>
+                </styles:Card>
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Cards1">
+                <styles:Card Width="240" VerticalAlignment="Top">
+                    <StackPanel Margin="0,4">
+                        <TextBlock Classes="Headline6" Text="Card title" />
+                        <TextBlock Classes="Body2" Text="Secondary text" />
+                        <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
+                            Greyhound divisively hello coldly wonderfully marginally far upon excluding.
+                        </TextBlock>
+                    </StackPanel>
+                </styles:Card>
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Cards2">
+                <styles:Card Width="240" Padding="4" VerticalAlignment="Top">
+                    <StackPanel>
+                        <StackPanel Margin="8">
+                            <TextBlock Classes="Headline6" Text="Card title" />
+                            <TextBlock Classes="Body2" Text="Secondary text" />
+                            <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
+                                Greyhound divisively hello coldly wonderfully marginally far upon excluding.
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Classes="Flat" Content="BUTTON 1" />
+                            <Border Width="8" />
+                            <Button Classes="Flat" Content="BUTTON 2" />
+                        </StackPanel>
+                    </StackPanel>
+                </styles:Card>
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Cards3">
+                <styles:Card Width="240" Padding="0" VerticalAlignment="Top">
+                    <StackPanel>
+                        <Image Source="avares://Material.Demo/Assets/johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
+                        <StackPanel Margin="16">
+                            <TextBlock Classes="Headline6" Text="Autumn is come!" />
+                            <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
+                                It's time to get wear some warm suit to defeat cold!
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </styles:Card>
+            </showMeTheXaml:XamlDisplay>
+        </WrapPanel>
+    </StackPanel>
 </UserControl>
