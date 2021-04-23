@@ -1,4 +1,5 @@
-﻿using Avalonia.Threading;
+﻿using System;
+using Avalonia.Threading;
 using Material.Dialog.Commands;
 using Material.Dialog.Views;
 
@@ -13,6 +14,9 @@ namespace Material.Dialog.ViewModels
 
         private DialogResultButton _negativeButton;
         public DialogResultButton NegativeButton { get => _negativeButton; internal set => _negativeButton = value; }
+
+        private DateTime _dateTime;
+        public DateTime DateTime { get => _dateTime; set { _dateTime = value; OnPropertyChanged(); } }
         
         public DatePickerDialogViewModel(DatePickerDialog dialog)
         {

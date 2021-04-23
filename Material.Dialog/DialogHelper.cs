@@ -151,6 +151,7 @@ namespace Material.Dialog
             {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton,
+                DateTime = @params.ImplicitValue
             };
             ApplyBaseParams(context, @params);
 
