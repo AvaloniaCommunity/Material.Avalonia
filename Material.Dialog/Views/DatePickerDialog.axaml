@@ -17,6 +17,7 @@
         <ResourceDictionary>
             <converters:PadNumbersConverter x:Key="PadNumbersConverter"/>
             <converters:StringToTransformConverter x:Key="StringToTransformConverter"/>
+            <converters:DateStringConverter x:Key="DateStringConverter"/>
         </ResourceDictionary>
     </Window.Resources>
     
@@ -34,10 +35,16 @@
               RowDefinitions="96,*,Auto"
               Width="{CompiledBinding Width}"
               MaxWidth="{CompiledBinding MaxWidth}">
-            <material:ColorZone Name="PART_HeaderZone" Mode="PrimaryMid" Padding="32, 12">
+            <material:ColorZone Name="PART_HeaderZone" Mode="PrimaryMid" Padding="24, 16" VerticalAlignment="Stretch">
                 <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Right"
+                            HorizontalAlignment="Left"
                             VerticalAlignment="Bottom">
+                    <StackPanel.Styles>
+                        <Style Selector="TextBlock">
+                            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCardBackground}"/>
+                        </Style>
+                    </StackPanel.Styles>
+                    <TextBlock Text="{CompiledBinding DateTime, Converter={StaticResource DateStringConverter}}" Classes="Headline3" FontWeight="Regular"/>
                 </StackPanel>
             </material:ColorZone>
             <Grid Grid.Row="1" Margin="24">
