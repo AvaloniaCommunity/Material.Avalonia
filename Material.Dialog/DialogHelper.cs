@@ -7,6 +7,9 @@ using Material.Dialog.ViewModels;
 using Material.Dialog.ViewModels.TextField;
 using Material.Dialog.Views;
 using System.Collections.Generic;
+using Avalonia;
+using Material.Dialog.Icons;
+using Material.Icons.Avalonia;
 
 namespace Material.Dialog
 {
@@ -194,7 +197,21 @@ namespace Material.Dialog
             input.ContentMessage = @params.SupportingText;
             input.Borderless = @params.Borderless;
             input.WindowStartupLocation = @params.StartupLocation;
-            input.DialogHeaderIcon = @params.DialogHeaderIcon;
+            input.DialogIcon = @params.DialogIcon;
+
+            // Rollback API Compatibility
+            if (@params.DialogHeaderIcon != null)
+            {
+                var icon = new DialogIcon()
+                {
+                    Kind = @params.DialogHeaderIcon.Value,
+                    Width = 32, Height = 32,
+                    Margin = Thickness.Parse("0")
+                };
+                
+                if(input.DialogIcon == null)
+                    input.DialogIcon = icon;
+            }
 
             input.DialogButtons = @params.DialogButtons;
             input.ButtonsStackOrientation = @params.ButtonsOrientation;
