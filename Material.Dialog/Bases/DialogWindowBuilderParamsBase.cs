@@ -16,7 +16,17 @@ namespace Material.Dialog.Bases
         public string SupportingText = null;
         public bool Borderless = false;
         public WindowStartupLocation StartupLocation = WindowStartupLocation.CenterScreen;
+        
+        /// <summary>
+        /// Specify kind of internal dialog icon. <br/>
+        /// This property will not applied if <see cref="DialogIcon"/> had value already.
+        /// </summary>
         public DialogIconKind? DialogHeaderIcon = null;
+
+        /// <summary>
+        /// Specify control of icon view. Size of control should be 32x32.
+        /// </summary>
+        public object DialogIcon = null;
         
         /// <summary>
         /// Build dialog buttons stack. 
