@@ -2,7 +2,8 @@
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:wpf="clr-namespace:Material.Styles.Assists"
         xmlns:styles="clr-namespace:Material.Styles"
-        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:converters="clr-namespace:Material.Styles.Converters">
 
     <Styles.Resources>
         <StreamGeometry x:Key="TextBoxClearButtonData">M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>
@@ -40,6 +41,8 @@
             </MenuItem.Icon>
           </MenuItem>
         </ContextMenu>
+        
+        <converters:RectangleHollowGeometryConverter x:Key="RectangleHollowGeometry"/>
     </Styles.Resources>
 
     <!-- Standard TextBox -->
@@ -345,9 +348,16 @@
                   ClipToBounds="False">
                 <Border Name="PART_Border" CornerRadius="4" 
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        BorderBrush="{TemplateBinding BorderBrush}"/>
-                <Border Name="watermarkRoot" 
-                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <Border.Clip>
+                        <MultiBinding Converter="{StaticResource RectangleHollowGeometry}">
+                            <Binding ElementName="PART_Border" Path="Bounds"/>
+                            <Binding ElementName="watermarkRoot" Path="Bounds"/>
+                            <Binding ElementName="watermarkRoot" Path="TransformedBounds"/>
+                        </MultiBinding>
+                    </Border.Clip>
+                </Border>
+                <Border Name="watermarkRoot"
                         HorizontalAlignment="Left" VerticalAlignment="Top"
                         RenderTransformOrigin="0, 0" Opacity="1"
                         IsVisible="{TemplateBinding UseFloatingWatermark}">
