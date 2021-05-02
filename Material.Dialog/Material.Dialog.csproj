@@ -11,6 +11,7 @@
     <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
