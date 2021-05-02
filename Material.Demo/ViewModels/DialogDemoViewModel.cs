@@ -3,6 +3,9 @@ using Avalonia.Controls;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Avalonia;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using Material.Dialog.Enums;
 
 namespace Material.Demo.ViewModels
@@ -17,6 +20,9 @@ namespace Material.Demo.ViewModels
 
         private string _dialog3Result;
         public string Dialog3Result { get => _dialog3Result; set { _dialog3Result = value; OnPropertyChanged(); } }
+        
+        private string _dialog4Result;
+        public string Dialog4Result { get => _dialog4Result; set { _dialog4Result = value; OnPropertyChanged(); } }
 
         private string _loginDialogResult;
         public string LoginDialogResult { get => _loginDialogResult; set { _loginDialogResult = value; OnPropertyChanged(); } }
@@ -103,6 +109,32 @@ namespace Material.Demo.ViewModels
                     DialogHeaderIcon = Dialog.Icons.DialogIconKind.Success,
                     Borderless = true,
                 }).ShowDialog(Program.MainWindow);
+            }
+        }
+        
+        public async void Dialog4()
+        {
+            // Get AssetLoader service
+            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
+            
+            // Open asset stream using assets.Open method.
+            using (var icon = assets.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png")))
+            {
+                var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams()
+                {
+                    ContentHeader = "Welcome to use Material.Avalonia",
+                    SupportingText = "Enjoy with Material Design in AvaloniaUI!",
+                    StartupLocation = WindowStartupLocation.CenterOwner, 
+                    Borderless = true,
+                    // Create Image control
+                    DialogIcon = new Image()
+                    {
+                        // Define bitmap source
+                        Source = new Bitmap(icon)
+                    }
+                });
+                var result = await dialog.ShowDialog(Program.MainWindow);
+                Dialog4Result = $"Result: {result.GetResult}";
             }
         }
 

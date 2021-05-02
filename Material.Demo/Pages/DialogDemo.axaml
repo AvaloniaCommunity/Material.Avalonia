@@ -56,6 +56,12 @@
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
           <StackPanel>
+            <Button Content="Show dialog #4" Command="{Binding Dialog4}"/>
+            <TextBlock Text="{Binding Dialog4Result}" IsVisible="{Binding Dialog4Result,
+                       FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel>
             <Button Content="Login dialog" Command="{Binding LoginDialog}"/>
             <TextBlock Text="{Binding LoginDialogResult}" IsVisible="{Binding LoginDialogResult,
                        FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
