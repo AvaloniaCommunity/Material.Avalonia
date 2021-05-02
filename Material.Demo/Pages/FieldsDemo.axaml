@@ -43,6 +43,11 @@
                                  wpf:TextFieldAssist.Label="Text field" />
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes4">
+                        <TextBox UseFloatingWatermark="True"
+                                 wpf:TextFieldAssist.Label="Text field with validation" 
+                                 Text="{Binding Numerics}"/>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes5">
                         <TextBox UseFloatingWatermark="True" IsEnabled="False"
                                  wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!" />
                     </showMeTheXaml:XamlDisplay>
@@ -99,6 +104,11 @@
                                  wpf:TextFieldAssist.Label="Text field" />
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields4">
+                        <TextBox UseFloatingWatermark="True" Classes="Filled"
+                                 wpf:TextFieldAssist.Label="Text field with validation" 
+                                 Text="{Binding Numerics}" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields5">
                         <TextBox UseFloatingWatermark="True" Classes="Filled" IsEnabled="False"
                                  wpf:TextFieldAssist.Label="Disabled Field"
                                  Text="Hello World!" />
@@ -184,6 +194,11 @@
                                  wpf:TextFieldAssist.Label="Text field" />
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields4">
+                        <TextBox UseFloatingWatermark="True" Classes="Outline"
+                                 wpf:TextFieldAssist.Label="Text field with validation"
+                                 Text="{Binding Numerics}"/>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields5">
                         <TextBox UseFloatingWatermark="True" Classes="Outline" IsEnabled="False"
                                  wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!" />
                     </showMeTheXaml:XamlDisplay>
@@ -270,8 +285,7 @@
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="SoloFields2">
                         <styles:ColorZone Padding="0" Margin="8">
-                            <TextBox Watermark="Search field" Classes="Solo"
-                                     Text="{Binding SearchText}" Margin="0">
+                            <TextBox Watermark="Search field" Classes="Solo" Margin="0">
                                 <TextBox.InnerRightContent>
                                     <Button Width="{Binding $self.Bounds.Height}" Classes="Flat"
                                             Foreground="{DynamicResource MaterialDesignCardBackground}">
