@@ -5,6 +5,12 @@
     <Version>1.0.1</Version>
     <AssemblyName>Material.Dialog</AssemblyName>
     <RootNamespace>Material.Dialog</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Larymar,SKProCH,Appleneko2001</Authors>
+    <Description>Material.Dialog provide some essential material dialogs for use.</Description>
+    <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
