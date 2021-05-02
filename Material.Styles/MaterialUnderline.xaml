@@ -4,10 +4,10 @@
         xmlns:cc="clr-namespace:Material.Styles"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
   <Style Selector="cc|MaterialUnderline">
-    <Setter Property="Focusable" Value="False"></Setter>
-    <Setter Property="Height" Value="2"></Setter>
-    <Setter Property="BackgroundColor" Value="{DynamicResource MaterialDesignTextBoxBorder}"></Setter>
-    <Setter Property="ActiveColor" Value="{DynamicResource PrimaryHueMidBrush}"></Setter>
+    <Setter Property="Focusable" Value="False"/>
+    <Setter Property="Height" Value="2"/>
+    <Setter Property="BackgroundColor" Value="{DynamicResource MaterialDesignTextBoxBorder}"/>
+    <Setter Property="ActiveColor" Value="{DynamicResource PrimaryHueMidBrush}"/>
     <Setter Property="Template">
       <ControlTemplate>
         <Grid>
@@ -24,10 +24,6 @@
     </Setter>
   </Style>
   <Style Selector="cc|MaterialUnderline.MirrorY">
-    <Setter Property="Focusable" Value="False"></Setter>
-    <Setter Property="Height" Value="2"></Setter>
-    <Setter Property="BackgroundColor" Value="{DynamicResource MaterialDesignTextBoxBorder}"></Setter>
-    <Setter Property="ActiveColor" Value="{DynamicResource PrimaryHueMidBrush}"></Setter>
     <Setter Property="Template">
       <ControlTemplate>
         <Grid>
