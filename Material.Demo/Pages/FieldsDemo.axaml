@@ -7,7 +7,12 @@
              xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:Class="Material.Demo.Pages.FieldsDemo">
+    <UserControl.Resources>
+        <system:String x:Key="TextFieldTip1">Only numerics in this field</system:String>
+    </UserControl.Resources>
+    
     <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
         <StackPanel.Styles>
             <Style Selector="showMeTheXaml|XamlDisplay">
@@ -45,7 +50,7 @@
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes4">
                         <TextBox UseFloatingWatermark="True"
                                  wpf:TextFieldAssist.Label="Text field with validation" 
-                                 wpf:TextFieldAssist.Hints="In this field should have only numerics, no any symbols."
+                                 wpf:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"
                                  Text="{Binding Numerics}"/>
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes5">
@@ -107,7 +112,7 @@
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields4">
                         <TextBox UseFloatingWatermark="True" Classes="Filled"
                                  wpf:TextFieldAssist.Label="Text field with validation"
-                                 wpf:TextFieldAssist.Hints="In this field should have only numerics, no any symbols."
+                                 wpf:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"
                                  Text="{Binding Numerics}" />
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields5">
@@ -198,7 +203,7 @@
                     <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields4">
                         <TextBox UseFloatingWatermark="True" Classes="Outline"
                                  wpf:TextFieldAssist.Label="Text field with validation"
-                                 wpf:TextFieldAssist.Hints="In this field should have only numerics, no any symbols."
+                                 wpf:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"
                                  Text="{Binding Numerics}"/>
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields5">
