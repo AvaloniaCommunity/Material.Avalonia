@@ -328,6 +328,7 @@
     <!-- Outline textfield -->
     <Style Selector="TextBox.Outline">
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
       <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
       <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
       <Setter Property="Padding" Value="0,8" />
@@ -346,9 +347,8 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         BorderBrush="{TemplateBinding BorderBrush}"/>
                 <Border Name="watermarkRoot" 
-                        Background="{DynamicResource MaterialDesignPaper}" 
-                        HorizontalAlignment="Left" 
-                        VerticalAlignment="Top"
+                        Background="{TemplateBinding Background}" 
+                        HorizontalAlignment="Left" VerticalAlignment="Top"
                         RenderTransformOrigin="0, 0" Opacity="1"
                         IsVisible="{TemplateBinding UseFloatingWatermark}">
                   <TextBlock Name="floatingWatermark" Classes="Subtitle1"
