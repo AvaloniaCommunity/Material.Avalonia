@@ -134,7 +134,7 @@
                         </Grid>
                     </Border>
                     <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextWrapping="Wrap" />
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
@@ -286,7 +286,7 @@
                         </Border>
                     </DataValidationErrors>
                     <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextWrapping="Wrap" />
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
@@ -433,7 +433,7 @@
                         </Grid>
                     </DataValidationErrors>
                     <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextWrapping="Wrap" />
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
