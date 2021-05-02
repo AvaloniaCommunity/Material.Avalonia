@@ -47,9 +47,9 @@
           <ColumnDefinition Width="Auto"/>
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <icons:DialogIcon Kind="{CompiledBinding DialogHeaderIcon, FallbackValue=Error}" 
-                          Width="32" Height="32" Margin="0,0,8,0"
-                          IsVisible="{CompiledBinding !!DialogHeaderIcon}"/>
+        <ContentPresenter Width="32" Height="32" Margin="0,0,8,0" 
+                          IsVisible="{CompiledBinding !!DialogIcon}"
+                          Content="{CompiledBinding DialogIcon}"/>
 
         <TextBlock Name="PART_Header"
                    Classes="Headline6" 
