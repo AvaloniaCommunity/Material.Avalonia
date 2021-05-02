@@ -10,6 +10,7 @@
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="FavIcon_200x.png" />
+    <AvaloniaResource Include="Assets\avalonia-logo.png" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
