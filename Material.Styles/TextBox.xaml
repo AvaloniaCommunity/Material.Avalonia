@@ -134,8 +134,7 @@
                         </Grid>
                     </Border>
                     <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"
-                               IsVisible="{Binding !!Text, RelativeSource={RelativeSource Self}}" />
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextWrapping="Wrap" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
@@ -205,6 +204,10 @@
     
     <Style Selector="TextBox:error /template/ TextBlock#floatingWatermark">
         <Setter Property="Foreground" Value="{DynamicResource ValidationErrorBrush}"/>
+    </Style>
+    
+    <Style Selector="TextBox:error /template/ TextBlock#HintsTextBlock">
+        <Setter Property="IsVisible" Value="False"/>
     </Style>
     
     <!-- Filled textfield -->
@@ -283,8 +286,7 @@
                         </Border>
                     </DataValidationErrors>
                     <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"
-                               IsVisible="{Binding !!Text, RelativeSource={RelativeSource Self}}" />
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextWrapping="Wrap" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
@@ -430,6 +432,8 @@
 
                         </Grid>
                     </DataValidationErrors>
+                    <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextWrapping="Wrap" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
