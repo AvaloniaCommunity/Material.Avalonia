@@ -591,8 +591,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         CornerRadius="{TemplateBinding wpf:TextFieldAssist.CornerRadius}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        ClipToBounds="True">
+                        BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="{TemplateBinding Padding}">
                         <DataValidationErrors Name="DataValidation">
                             <Grid ColumnDefinitions="Auto,*,Auto">
