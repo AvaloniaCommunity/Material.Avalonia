@@ -8,11 +8,14 @@ namespace Material.Dialog.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            var format = "ddd, MMM d";
+
+            if (parameter is string s)
+                format = s;
+            
             if (value is DateTime)
             {
                 var v = (DateTime)value;
-                var format = "ddd, MMM d";
-
                 return v.ToString(format);
             }
             return "";
