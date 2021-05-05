@@ -126,7 +126,7 @@
                                                       MinHeight="32"
                                                       VerticalAlignment="Top"
                                                       Content="{TemplateBinding InnerRightContent}" />
-                                    <styles:MaterialUnderline Grid.ColumnSpan="2" Classes="MirrorY"
+                                    <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
                                                               VerticalAlignment="Bottom"
                                                               Name="PART_Underline" />
                                 </Grid>
@@ -277,7 +277,7 @@
                                                       Margin="0,0,0,0"
                                                       VerticalAlignment="Top"
                                                       Content="{TemplateBinding InnerRightContent}" />
-                                    <styles:MaterialUnderline Grid.ColumnSpan="2" Classes="MirrorY"
+                                    <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
                                                               VerticalAlignment="Bottom"
                                                               Name="PART_Underline" />
                                 </Grid>
@@ -516,7 +516,7 @@
         </Setter>
     </Style>  
 
-    <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty) Border#PART_AssistButtonsContainer">
+    <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False] Border#PART_AssistButtonsContainer">
         <Setter Property="Child">
             <Template>
                 <ToggleButton Name="PART_PasswordRevealToggle" Classes="Icon ConstantForeground" BorderThickness="0"
