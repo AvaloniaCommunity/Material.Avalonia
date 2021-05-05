@@ -19,6 +19,11 @@ namespace Material.Styles.Assists {
 
         public static string GetLabel(AvaloniaObject element) => (string)element.GetValue(LabelProperty);
 
+        // Use throw DataValidationException in property of view model instead of those things
+        // Example can be found in dev-branch -> /Material.Demo/ViewModels/TextFieldsViewModel.cs
+        
+        /*
+        
         public static AvaloniaProperty<bool> HasErrorProperty = AvaloniaProperty.RegisterAttached<TextBox, bool>(
             "HasError", typeof(TextBox));
 
@@ -40,6 +45,7 @@ namespace Material.Styles.Assists {
             return (SolidColorBrush)element.GetValue(ErrorColorProperty);
         }
         
+        */
         private static readonly CornerRadius DefaultCornerRadius = new CornerRadius(0);
         
         /// <summary>
