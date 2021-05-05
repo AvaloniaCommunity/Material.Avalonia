@@ -7,37 +7,48 @@ namespace Material.Dialog.ViewModels
 {
     public class DatePickerDialogViewModel : DialogWindowViewModel
     {
-        private DatePickerDialog _window;
+        private readonly DatePickerDialog _window;
 
-        private DialogResultButton _positiveButton;
-        public DialogResultButton PositiveButton { get => _positiveButton; internal set => _positiveButton = value; }
+        public DialogResultButton PositiveButton { get; internal set; }
 
-        private DialogResultButton _negativeButton;
-        public DialogResultButton NegativeButton { get => _negativeButton; internal set => _negativeButton = value; }
+        public DialogResultButton NegativeButton { get; internal set; }
 
         private DateTime _dateTime;
-        public DateTime DateTime { get => _dateTime; set { _dateTime = value; OnPropertyChanged(); } }
-        
+        public DateTime DateTime
+        {
+            get => _dateTime;
+            set
+            {
+                _dateTime = value;
+                OnPropertyChanged();
+            }
+        }
+
         public DatePickerDialogViewModel(DatePickerDialog dialog)
         {
             _window = dialog;
             ButtonClick = new RelayCommand(OnPressButton, CanPressButton);
         }
-        
-        public bool CanPressButton(object args) => true;
+
+        public bool CanPressButton(object args)
+        {
+            return true;
+        }
         public async void OnPressButton(object args)
         {
             var button = args as DialogResultButton;
             if (button is null)
-                return; 
+                return;
 
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                //_window.Result = result;
+                var result = new DateTimePickerDialogResult(button.Result, DateTime);
+
+                _window.Result = result;
                 _window.Close();
             });
         }
 
-        public RelayCommand ButtonClick { get; private set; }
+        public RelayCommand ButtonClick { get; }
     }
 }
