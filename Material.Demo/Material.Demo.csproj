@@ -32,7 +32,10 @@
     <AdditionalFiles Include="**\*.axaml" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Include="MaterialXamlDisplay.axaml">
+    <Compile Update="**\*.axaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <AvaloniaResource Include="**\*.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
   </ItemGroup>
