@@ -1,0 +1,16 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dialogHost="clr-namespace:DialogHost;assembly=DialogHost.Avalonia"
+        xmlns:styles="clr-namespace:Material.Styles"
+        xmlns:assists="clr-namespace:Material.Styles.Assists">
+    <Style Selector="dialogHost|DialogHost">
+        <Setter Property="DialogContentTemplate">
+            <DataTemplate>
+                <styles:Card assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}">
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"></ContentPresenter>
+                </styles:Card>
+            </DataTemplate>
+        </Setter>
+    </Style>
+</Styles>

@@ -61,6 +61,9 @@
     <StyleInclude Source="avares://Material.Styles/Window.xaml" />
     <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
     <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" />
+    <!-- dialog host -->
+    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
+    <StyleInclude Source="avares://Material.Styles/DialogHost.axaml" />
     <!--custom controls-->
     <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/Card.xaml"/>
