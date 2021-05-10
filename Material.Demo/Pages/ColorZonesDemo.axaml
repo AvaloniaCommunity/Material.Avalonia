@@ -1,0 +1,107 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="Material.Demo.Pages.ColorZonesDemo">
+    <StackPanel Margin="16, 0,16,32">
+        <StackPanel.Styles>
+            <!-- Icons are too small, use next style to let them bigger -->
+            <Style Selector="icons|MaterialIcon">
+                <Setter Property="Width" Value="24"/>
+                <Setter Property="Height" Value="24"/>
+            </Style>
+        </StackPanel.Styles>
+        <TextBlock Classes="Headline4 Subheadline" Text="ColorZones" />
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Standard mode" />
+            <styles:ColorZone Height="56" Padding="12">
+                <Grid ColumnDefinitions="Auto,16,*">
+                    <ToggleButton Grid.Column="0" Classes="Flat" Padding="4"
+                                  Width="{Binding $self.Bounds.Height}"
+                                  Content="{icons:MaterialIconExt Menu}"/>
+                </Grid>
+            </styles:ColorZone>
+        </StackPanel>
+        
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Invent mode" />
+            <styles:ColorZone Height="56" Padding="12" Mode="Inverted">
+                <Grid ColumnDefinitions="Auto,16,*">
+                    <ToggleButton Grid.Column="0" Classes="Flat" Padding="4"
+                                  Width="{Binding $self.Bounds.Height}"
+                                  Content="{icons:MaterialIconExt Menu}"/>
+                </Grid>
+            </styles:ColorZone>
+        </StackPanel>
+        
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Dark mode" />
+            <styles:ColorZone Height="56" Padding="12" Mode="Dark">
+                <Grid ColumnDefinitions="Auto,16,*">
+                    <ToggleButton Grid.Column="0" Classes="Flat" Padding="4"
+                                  Width="{Binding $self.Bounds.Height}"
+                                  Content="{icons:MaterialIconExt Menu}"/>
+                </Grid>
+            </styles:ColorZone>
+        </StackPanel>
+        
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Light mode" />
+            <styles:ColorZone Height="56" Padding="12" Mode="Light">
+                <Grid ColumnDefinitions="Auto,16,*">
+                    <ToggleButton Grid.Column="0" Classes="Flat" Padding="4"
+                                  Width="{Binding $self.Bounds.Height}"
+                                  Content="{icons:MaterialIconExt Menu}"/>
+                </Grid>
+            </styles:ColorZone>
+        </StackPanel>
+        
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Primary light color mode" />
+            <styles:ColorZone Height="56" Padding="12" Mode="PrimaryLight">
+                <Grid ColumnDefinitions="Auto,16,*">
+                    <ToggleButton Grid.Column="0" Classes="Flat" Padding="4"
+                                  Width="{Binding $self.Bounds.Height}"
+                                  Content="{icons:MaterialIconExt Menu}"/>
+                </Grid>
+            </styles:ColorZone>
+        </StackPanel>
+        
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Primary medium color mode" />
+            <styles:ColorZone Height="56" Padding="12" Mode="PrimaryMid">
+                <Grid ColumnDefinitions="Auto,16,*">
+                    <ToggleButton Grid.Column="0" Classes="Flat" Padding="4"
+                                  Width="{Binding $self.Bounds.Height}"
+                                  Content="{icons:MaterialIconExt Menu}"/>
+                </Grid>
+            </styles:ColorZone>
+        </StackPanel>
+        
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Primary dark color mode" />
+            <styles:ColorZone Height="56" Padding="12" Mode="PrimaryDark">
+                <Grid ColumnDefinitions="Auto,16,*">
+                    <ToggleButton Grid.Column="0" Classes="Flat" Padding="4"
+                                  Width="{Binding $self.Bounds.Height}"
+                                  Content="{icons:MaterialIconExt Menu}"/>
+                </Grid>
+            </styles:ColorZone>
+        </StackPanel>
+        
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Accent mode" />
+            <styles:ColorZone Height="56" Padding="12" Mode="Accent">
+                <Grid ColumnDefinitions="Auto,16,*">
+                    <ToggleButton Grid.Column="0" Classes="Flat" Padding="4"
+                                  Width="{Binding $self.Bounds.Height}"
+                                  Content="{icons:MaterialIconExt Menu}"/>
+                </Grid>
+            </styles:ColorZone>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
