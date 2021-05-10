@@ -1,32 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <OutputType>winExe</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-    </PropertyGroup>
-    <ItemGroup>
-        <AdditionalFiles Include="**\*.xaml" />
-        <AdditionalFiles Include="**\*.axaml" />
-    </ItemGroup>
-    <ItemGroup>
-        <Compile Update="**\*.axaml.cs">
-            <DependentUpon>%(Filename)</DependentUpon>
-        </Compile>
-        <AvaloniaXaml Remove="**\*.axaml" />
-        <AvaloniaResource Include="**\*.axaml">
-            <SubType>Designer</SubType>
-        </AvaloniaResource>
-        <AvaloniaResource Include="Assets\**" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.0" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.0" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.0" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.0" />
-        <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="0.2.3" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
-        <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
-        <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj" />
-    </ItemGroup>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.3" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.3" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.3" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.3" />
+    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="0.2.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
+    <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
+    <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="**\*.xaml" />
+    <AdditionalFiles Include="**\*.axaml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Update="**\*.axaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <AvaloniaXaml Remove="**\*.axaml" />
+    <AvaloniaResource Include="**\*.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+  </ItemGroup>
 </Project>
