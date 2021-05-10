@@ -15,13 +15,37 @@ namespace Material.Dialog.Bases
             m_Window = window;
         }
 
+        /// <summary>
+        /// Get window content. It most used for show dialog from other places.
+        /// </summary>
+        /// <returns>The content of dialog window.</returns>
+        public object GetContent() => m_Window.Content;
+
+        /// <summary>
+        /// Get window itself.
+        /// </summary>
+        /// <returns>The window.</returns>
         public Window GetWindow() => m_Window;
         
-        public Task<TResult> Show() => Procedure(() => m_Window.Show());
+        /// <summary>
+        /// Shows the window.
+        /// </summary>
+        /// <returns>Result of dialog.</returns>
+        public Task<TResult> Show() => Procedure(delegate { m_Window.Show(); });
 
-        public Task<TResult> Show(Window window) => Procedure(() => m_Window.Show(window));
+        /// <summary>
+        /// Shows the window as a child of parent window.
+        /// </summary>
+        /// <param name="window">Window that will be a parent of the shown window.</param>
+        /// <returns>Result of dialog.</returns>
+        public Task<TResult> Show(Window window) => Procedure(delegate { m_Window.Show(window); });
 
-        public Task<TResult> ShowDialog(Window ownerWindow) => Procedure(() => m_Window.ShowDialog(ownerWindow));
+        /// <summary>
+        /// Shows the window as modal dialog.
+        /// </summary>
+        /// <param name="ownerWindow">The dialog's owner window.</param>
+        /// <returns>Result of dialog.</returns>
+        public Task<TResult> ShowDialog(Window ownerWindow) => Procedure(delegate { m_Window.ShowDialog(ownerWindow); });
 
         private Task<TResult> Procedure(Action action)
         {
