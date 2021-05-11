@@ -176,14 +176,13 @@ namespace Material.Dialog
         public static IDialogWindow<DialogResult> CreateCustomDialog(CustomDialogBuilderParams @params)
         {
             var window = new CustomDialog();
-            var context = new CustomDialogViewModel(window)
-            {
-                Content = @params.Content,
-            };
-            
+            var context = new CustomDialogViewModel(window);
+
             ApplyBaseParams(context, @params);
             
             window.DataContext = context;
+            window.ApplyViewModel(@params.DataContext);
+            window.ApplyContent(@params.Content);
             SetupWindowParameters(window, @params);
             return new DialogWindowBase<CustomDialog, DialogResult>(window);
         }
