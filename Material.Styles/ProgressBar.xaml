@@ -62,30 +62,26 @@
         </Setter>
     </Style>
     
-    <Style Selector="ProgressBar /template/ Grid#TemplateRoot">
-        <Setter Property="Opacity" Value="0" />
-        <Setter Property="ScaleTransform.ScaleX" Value="0" />
-        <Setter Property="ScaleTransform.ScaleY" Value="0" />
-    </Style>
-    
     <Style Selector="ProgressBar[IsVisible=true]:not(.notransitions) /template/ Grid#TemplateRoot">
         <Style.Animations>
-            <Animation Duration="0:0:1" FillMode="Both" Easing="CubicEaseOut">
-                <KeyFrame Cue="0%">
-                    <Setter Property="Opacity" Value="0" />
-                    <Setter Property="ScaleTransform.ScaleX" Value="0" />
-                    <Setter Property="ScaleTransform.ScaleY" Value="0" />
-                </KeyFrame>
-                <KeyFrame Cue="100%">
-                    <Setter Property="Opacity" Value="1" />
-                    <Setter Property="ScaleTransform.ScaleX" Value="1" />
-                    <Setter Property="ScaleTransform.ScaleY" Value="1" />
-                </KeyFrame>
-            </Animation>
+            <animations:BeginAnimation>
+                <Animation Duration="0:0:1" FillMode="Both" Easing="CubicEaseOut">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </animations:BeginAnimation>
         </Style.Animations>
     </Style>
     
-    <Style Selector="ProgressBar.notransitions /template/ Grid#TemplateRoot">
+    <Style Selector="ProgressBar /template/ Grid#TemplateRoot">
         <Setter Property="Opacity" Value="1" />
         <Setter Property="ScaleTransform.ScaleX" Value="1" />
         <Setter Property="ScaleTransform.ScaleY" Value="1" />
