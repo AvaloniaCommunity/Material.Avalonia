@@ -54,9 +54,8 @@
         <Setter Property="Margin" Value="0,8" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
         <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
-        <Setter Property="FontFamily"
-                Value="avares://Material.Styles/Fonts/Roboto#Roboto,
-            Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Noto Sans, Arial" />
+        <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto,
+            Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Noto Sans, Arial"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <StackPanel>
@@ -598,7 +597,7 @@
                                 <ContentPresenter Grid.Column="0"
                                                   HorizontalAlignment="Left"
                                                   Content="{TemplateBinding InnerLeftContent}" />
-                                <Grid Grid.Column="1" Margin="8">
+                                <Grid Name="PART_InnerRoot" Grid.Column="1">
                                     <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                                     <Panel Name="PART_TextRoot" VerticalAlignment="Center">
@@ -631,6 +630,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+    </Style>
+    
+    <Style Selector="TextBox.Solo /template/ Grid#PART_InnerRoot">
+        <Setter Property="Margin" Value="8"/>
     </Style>
     
     <!-- ReSharper restore InconsistentNaming -->
