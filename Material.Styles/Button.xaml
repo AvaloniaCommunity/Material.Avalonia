@@ -105,8 +105,8 @@
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
     <Setter Property="Padding" Value="16 6" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0"/>
-    <Setter Property="assists:ButtonAssist.HoverColor" Value="{Binding $self.Foreground}"/>
-    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#CCCCCC"/>
+    <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialDesignBody}"/>
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{Binding $self.Foreground}"/>
   </Style>
 
   <Style Selector="Button.Icon, ToggleButton.Icon">
