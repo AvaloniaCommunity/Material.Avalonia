@@ -4,10 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.3" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.3" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.3" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.3" />
+    <PackageReference Include="Avalonia" Version="0.10.4" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.4" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.4" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.4" />
     <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="0.2.3" />
   </ItemGroup>
   <ItemGroup>
