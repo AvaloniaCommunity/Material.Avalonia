@@ -132,7 +132,7 @@ namespace Material.Dialog.ViewModels
         public TimePickerDialogViewModel(TimePickerDialog dialog)
         {
             _window = dialog;
-            ButtonClick = new RelayCommand(OnPressButton, CanPressButton);
+            ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 
 
@@ -157,6 +157,6 @@ namespace Material.Dialog.ViewModels
             });
         }
 
-        public RelayCommand ButtonClick { get; }
+        public MaterialDialogRelayCommand ButtonClick { get; }
     }
 }

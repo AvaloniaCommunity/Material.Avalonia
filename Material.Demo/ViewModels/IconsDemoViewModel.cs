@@ -6,7 +6,6 @@ using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using Avalonia;
 using Material.Demo.Models;
-using Material.Dialog.Commands;
 using Material.Icons;
 
 namespace Material.Demo.ViewModels {

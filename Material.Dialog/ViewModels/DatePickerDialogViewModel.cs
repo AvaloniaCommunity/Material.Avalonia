@@ -27,7 +27,7 @@ namespace Material.Dialog.ViewModels
         public DatePickerDialogViewModel(DatePickerDialog dialog)
         {
             _window = dialog;
-            ButtonClick = new RelayCommand(OnPressButton, CanPressButton);
+            ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 
         public bool CanPressButton(object args)
@@ -49,6 +49,6 @@ namespace Material.Dialog.ViewModels
             });
         }
 
-        public RelayCommand ButtonClick { get; }
+        public MaterialDialogRelayCommand ButtonClick { get; }
     }
 }

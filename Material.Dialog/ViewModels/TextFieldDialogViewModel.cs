@@ -25,7 +25,7 @@ namespace Material.Dialog.ViewModels
         public TextFieldDialogViewModel(TextFieldDialog dialog)
         {
             _window = dialog;
-            ButtonClick = new RelayCommand(OnPressButton, CanPressButton);
+            ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 
         public void BindValidater()
@@ -86,6 +86,6 @@ namespace Material.Dialog.ViewModels
             });
         }
 
-        public RelayCommand ButtonClick { get; private set; }
+        public MaterialDialogRelayCommand ButtonClick { get; private set; }
     }
 }
