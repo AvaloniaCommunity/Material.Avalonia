@@ -67,8 +67,8 @@
                             <!-- Feedbacks -->
                             <Style
                                 Selector="TextBox:focus-within:not(:empty) /template/ TextBlock#floatingWatermark,
-                     TextBox:focus-within /template/ TextBlock#floatingWatermark,
-                     TextBox:not(:empty) /template/ TextBlock#floatingWatermark">
+                                          TextBox:focus-within /template/ TextBlock#floatingWatermark,
+                                          TextBox:not(:empty) /template/ TextBlock#floatingWatermark">
                                 <Setter Property="Margin" Value="1,0.75,1,1" />
                                 <Setter Property="RenderTransform" Value="scale(0.75)" />
                             </Style>
@@ -301,6 +301,7 @@
     
     <Style Selector="TextBox.Filled:empty:not(:focus-within) /template/ TextBlock#floatingWatermark">
         <Setter Property="Margin" Value="16,18,1,1"/> 
+        <Setter Property="RenderTransform" Value="scale(1)"/>
     </Style>
     
     <Style Selector="TextBox.Filled:focus-within /template/ Border#focusBorder">  
@@ -444,19 +445,24 @@
       <Setter Property="Margin" Value="14,-8,1,1"/>
       <Setter Property="RenderTransform" Value="scale(0.75)"/>
     </Style>
-    <Style Selector="TextBox.Outline">
-      <Setter Property="BorderThickness" Value="1"/>
-    </Style>
-    <Style Selector="TextBox.Outline:focus-within">
-      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-      <Setter Property="BorderThickness" Value="2"/> 
-    </Style> 
+    
     <Style Selector="TextBox.Outline:empty:not(:focus-within) /template/ Border#watermarkRoot">
-      <Setter Property="Margin" Value="10,14,1,1"/>
+        <Setter Property="Margin" Value="10,14,1,1"/>
+        <Setter Property="RenderTransform" Value="scale(1)"/>
     </Style>
     <Style Selector="TextBox.Outline.Dense:empty:not(:focus-within) /template/ Border#watermarkRoot">
         <Setter Property="Margin" Value="10,12,1,1"/>
     </Style>
+    
+    <Style Selector="TextBox.Outline">
+      <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    
+    <Style Selector="TextBox.Outline:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="BorderThickness" Value="2"/> 
+    </Style> 
+    
 
     
     <Style Selector="TextBox.Outline:disabled /template/ Border#PART_Border">
