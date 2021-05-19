@@ -309,7 +309,7 @@
         <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
     </Style>
     
-    <Style Selector="ProgressBar.Circle:indeterminate /template/ controls|Arc#PART_Animation">
+    <Style Selector="ProgressBar.Circle /template/ controls|Arc#PART_Animation">
         <Setter Property="IsVisible" Value="False" />
     </Style>
     
