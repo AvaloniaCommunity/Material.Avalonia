@@ -155,12 +155,14 @@ namespace Material.Demo.ViewModels
                 {
                     new TextFieldBuilderParams
                     {
+                        Classes = "Outline",
                         Label = "Account",
                         MaxCountChars = 24,
                         Validater = ValidateAccount, 
                     },
                     new TextFieldBuilderParams
                     {
+                        Classes = "Outline",
                         Label = "Password",
                         MaxCountChars = 64,
                         FieldKind = TextFieldKind.Masked,
