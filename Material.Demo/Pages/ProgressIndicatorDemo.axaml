@@ -34,18 +34,34 @@
                 <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators4">
                     <ProgressBar Value="{Binding Progress}" Classes="notransitions" />
                 </showMeTheXaml:XamlDisplay>
-                
+            </StackPanel>
+
+            <StackPanel>
                 <TextBlock Classes="Headline6 Subheadline2" Text="Circular progress bars" />
-                <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ProgressBar Classes="Circle" Value="30"/>
+                <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                             VerticalAlignment="Center">
+                    <ProgressBar Classes="Circle" Value="30" />
                 </styles:Card>
-                
-                <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ProgressBar Classes="Circle" Value="60"/>
+
+                <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                             VerticalAlignment="Center">
+                    <ProgressBar Classes="Circle" Value="60" />
                 </styles:Card>
-                
-                <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ProgressBar Classes="Circle" IsIndeterminate="True"/>
+
+                <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                             VerticalAlignment="Center" >
+                    <ProgressBar Classes="Circle" IsIndeterminate="True" />
+                </styles:Card>
+
+                <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                             VerticalAlignment="Center">
+                    <ProgressBar Classes="Circle" Value="{Binding Progress}" />
+                </styles:Card>
+
+                <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <ProgressBar Classes="Circle notransitions" Value="{Binding Progress}" />
                 </styles:Card>
             </StackPanel>
         </WrapPanel>
