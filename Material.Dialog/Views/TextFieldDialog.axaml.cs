@@ -5,6 +5,8 @@ using Avalonia.Markup.Xaml;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
 using System;
+using Avalonia.Controls.Presenters;
+using Avalonia.Threading;
 
 namespace Material.Dialog.Views
 {
@@ -34,6 +36,35 @@ namespace Material.Dialog.Views
             {
                 case TextFieldDialogViewModel vm:
                     vm.ButtonClick.RaiseCanExecute();
+
+                    var fields = this.Get<ItemsControl>("PART_Fields");
+
+                    Dispatcher.UIThread.InvokeAsync(delegate
+                    {
+                        int index = 0;
+                        foreach (var item in fields.ItemContainerGenerator.Containers)
+                        {
+                            var fieldViewModel = vm.TextFields[index];
+
+                            if (item.ContainerControl is ContentPresenter presenter)
+                            {
+                                if (presenter.Child is TextBox field)
+                                {
+                                    var classes = fieldViewModel.Classes;
+                                    if (classes != null)
+                                    {
+                                        foreach (var @class in classes.Split(' '))
+                                        {
+                                            if(@class != "")
+                                                field.Classes.Add(@class);
+                                        }
+                                    }
+                                }
+                            }
+
+                            index++;
+                        }
+                    });
                     break;
             }
         }

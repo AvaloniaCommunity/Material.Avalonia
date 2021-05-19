@@ -68,7 +68,7 @@
                    IsVisible="{CompiledBinding !!ContentMessage.Length}"
                    Text="{CompiledBinding ContentMessage, FallbackValue='Dialog supporting text'}"/>
         
-        <ItemsControl HorizontalAlignment="Stretch"
+        <ItemsControl Name="PART_Fields" HorizontalAlignment="Stretch"
               Items="{CompiledBinding TextFields}"
               Margin="4">
           <ItemsControl.Styles>
@@ -83,7 +83,7 @@
           </ItemsControl.ItemsPanel>
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="model:TextFieldViewModel">
-              <TextBox PasswordChar="{CompiledBinding MaskChar}"
+              <TextBox Name="PART_Field" PasswordChar="{CompiledBinding MaskChar}"
                        HorizontalAlignment="Stretch"
                        MaxLength="{CompiledBinding MaxCountChars}"
                        Text="{CompiledBinding Text, Mode=TwoWay}"
