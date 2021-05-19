@@ -244,7 +244,8 @@ namespace Material.Dialog
                     var model = new TextFieldViewModel();
 
                     // Currently AvaloniaUI are not supported to binding classes.
-                    //model.Classes = param.Classes;
+                    // but... I implemented an setter to TextFieldDialog for apply classes when showing dialog.
+                    model.Classes = param.Classes;
                     
                     model.PlaceholderText = param.PlaceholderText;
                     model.MaxCountChars = param.MaxCountChars; 
