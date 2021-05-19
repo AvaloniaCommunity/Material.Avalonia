@@ -29,7 +29,7 @@ namespace Material.Dialog
         public string PlaceholderText;
         public string DefaultText;
 
-        [Obsolete("Currently AvaloniaUI are not supported to binding classes, do not use this before they fixed this.")]
+        //[Obsolete("Currently AvaloniaUI are not supported to binding classes, do not use this before they fixed this.")]
         public string Classes;
         public string Label;
         public TextFieldKind FieldKind;
