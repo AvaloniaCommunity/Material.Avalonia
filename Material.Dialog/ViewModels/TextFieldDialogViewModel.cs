@@ -13,6 +13,8 @@ namespace Material.Dialog.ViewModels
     {
         private TextFieldDialog _window;
 
+        public bool IsReady;
+
         private TextFieldViewModel[] m_TextFields;
         public TextFieldViewModel[] TextFields { get => m_TextFields; internal set => m_TextFields = value; }
 

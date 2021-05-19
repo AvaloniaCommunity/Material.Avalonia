@@ -89,7 +89,7 @@
                        Text="{CompiledBinding Text, Mode=TwoWay}"
                        Watermark="{CompiledBinding PlaceholderText}"
                        UseFloatingWatermark="True"
-                       wpf:TextFieldAssist.Hints="{CompiledBinding Error}"
+                       wpf:TextFieldAssist.Hints="{CompiledBinding AssistiveText}"
                        wpf:TextFieldAssist.Label="{CompiledBinding Label}"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>

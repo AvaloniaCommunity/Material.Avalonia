@@ -100,9 +100,10 @@ namespace Material.Dialog
             var context = new TextFieldDialogViewModel(window)
             {
                 PositiveButton = @params.PositiveButton,
-                NegativeButton = @params.NegativeButton, 
-                TextFields = TextFieldsBuilder(@params.TextFields),
+                NegativeButton = @params.NegativeButton,
             };
+
+            context.TextFields = TextFieldsBuilder(@params.TextFields, context);
             
             ApplyBaseParams(context, @params);
             
@@ -234,7 +235,7 @@ namespace Material.Dialog
             return result.ToArray();
         }
 
-        private static TextFieldViewModel[] TextFieldsBuilder(TextFieldBuilderParams[] @params)
+        private static TextFieldViewModel[] TextFieldsBuilder(TextFieldBuilderParams[] @params, TextFieldDialogViewModel parent)
         {
             var result = new List<TextFieldViewModel>();
             foreach(var param in @params)
@@ -242,7 +243,8 @@ namespace Material.Dialog
                 try
                 {
                     var model = new TextFieldViewModel();
-
+                    model.Parent = parent;
+                    
                     // Currently AvaloniaUI are not supported to binding classes.
                     // but... I implemented an setter to TextFieldDialog for apply classes when showing dialog.
                     model.Classes = param.Classes;
@@ -252,6 +254,7 @@ namespace Material.Dialog
                     model.Label = param.Label;
                     model.Validater = param.Validater;
                     model.Text = param.DefaultText;
+                    model.AssistiveText = param.HelperText;
                     switch (param.FieldKind)
                     {
                         case TextFieldKind.Normal: 

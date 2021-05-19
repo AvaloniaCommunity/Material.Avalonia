@@ -155,6 +155,7 @@ namespace Material.Demo.ViewModels
                 {
                     new TextFieldBuilderParams
                     {
+                        HelperText = "* Required",
                         Classes = "Outline",
                         Label = "Account",
                         MaxCountChars = 24,
@@ -162,6 +163,7 @@ namespace Material.Demo.ViewModels
                     },
                     new TextFieldBuilderParams
                     {
+                        HelperText = "* Required",
                         Classes = "Outline",
                         Label = "Password",
                         MaxCountChars = 64,

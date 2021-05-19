@@ -65,6 +65,7 @@ namespace Material.Dialog.Views
                             index++;
                         }
                     });
+                    vm.IsReady = true;
                     break;
             }
         }
