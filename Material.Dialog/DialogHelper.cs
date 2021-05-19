@@ -147,7 +147,7 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of picker.</returns>
-        [Obsolete("This feature is still not ready for use! Please come back later!")]
+        //[Obsolete("This feature is still not ready for use! Please come back later!")]
         public static IDialogWindow<DateTimePickerDialogResult> CreateDatePicker(DatePickerDialogBuilderParams @params)
         {
             var window = new DatePickerDialog();
