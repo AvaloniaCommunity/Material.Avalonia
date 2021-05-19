@@ -17,7 +17,20 @@ namespace Material.Styles.Converters
     {
         public object Convert(IList<object> values, Type targetType, object parameter, CultureInfo culture)
         {
+            double offsetL = 4, offsetR = 4;
             Thickness t = new Thickness(4, 0);
+
+            if (parameter != null)
+            {
+                try
+                {
+                    t = Thickness.Parse(parameter.ToString());
+                }
+                catch
+                {
+                    // ignored
+                }
+            }
 
             Rect main = Rect.Empty;
             Rect hollow = Rect.Empty;
@@ -43,28 +56,24 @@ namespace Material.Styles.Converters
 
                 // Base zone
                 var m0 = main.TopLeft;
-                var m1 = main.TopRight;
-                var m2 = main.BottomRight;
-                var m3 = main.BottomLeft;
+                var m1 = main.BottomRight;
 
                 // Hollow zone
-                var h0 = hollow.TopLeft;
-                var h1 = hollow.TopRight;
-                var h2 = hollow.BottomRight;
-                var h3 = hollow.BottomLeft;
+                var h0 = hollow.TopLeft + new Point(offsetL - t.Left, 0);
+                var h1 = hollow.BottomRight + new Point(offsetR + t.Right, 0);
 
                 // Limiter
-                var lL = main.Left + t.Left;
-                var lR = main.Right - t.Left;
+                var lL = main.Left - t.Left + offsetL;
+                var lR = main.Right + t.Right + offsetR;
 
                 var str = $"M {m0.X} {m0.Y} " +
+                          $"L {m1.X} {m0.Y} " +
                           $"L {m1.X} {m1.Y} " +
-                          $"L {m2.X} {m2.Y} " +
-                          $"L {m3.X} {m3.Y} z " +
+                          $"L {m0.X} {m1.Y} z " +
                           $"M {Math.Max(h0.X * s.X, lL)} {h0.Y * s.Y} " +
-                          $"L {Math.Min(h1.X * s.X + 4, lR)} {h1.Y * s.Y} " +
-                          $"L {Math.Min(h1.X * s.X + 4, lR)} {h2.Y * s.Y} " +
-                          $"L {Math.Max(h3.X * s.X, lL)} {h3.Y * s.Y} z ";
+                          $"L {Math.Min(h1.X * s.X, lR)} {h0.Y * s.Y} " +
+                          $"L {Math.Min(h1.X * s.X, lR)} {h1.Y * s.Y} " +
+                          $"L {Math.Max(h0.X * s.X, lL)} {h1.Y * s.Y} z ";
 
                 str = str.Replace(",", ".");
                 
@@ -73,14 +82,12 @@ namespace Material.Styles.Converters
             catch(Exception e)
             {
                 var m0 = main.TopLeft;
-                var m1 = main.TopRight;
-                var m2 = main.BottomRight;
-                var m3 = main.BottomLeft;
+                var m1 = main.BottomRight;
                 
                 result = StreamGeometry.Parse($"M {m0.X} {m0.Y} " +
+                                               $"L {m1.X} {m0.Y} " +
                                                $"L {m1.X} {m1.Y} " +
-                                               $"L {m2.X} {m2.Y} " +
-                                               $"L {m3.X} {m3.Y} z ");
+                                               $"L {m0.X} {m1.Y} z ");
             }
 
             return result;
