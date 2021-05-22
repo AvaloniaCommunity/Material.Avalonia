@@ -1,10 +1,10 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-            x:Class="Material.Demo.Pages.DialogDemo"> 
+            xmlns:viewModels="clr-namespace:Material.Demo.ViewModels"
+            x:Class="Material.Demo.Pages.DialogDemo"
+            x:DataType="viewModels:DialogDemoViewModel"> 
   <StackPanel Margin="16, 0">
     <TextBlock Classes="Headline4 Subheadline" Text="Dialogs"/>
 
@@ -37,44 +37,59 @@
         <StackPanel>
           <StackPanel>
             <Button Content="Show dialog #1" Command="{Binding Dialog1}"/>
-            <TextBlock Text="{Binding Dialog1Result}" 
-                       IsVisible="{Binding Dialog1Result, FallbackValue=False, 
+            <TextBlock Text="{CompiledBinding Dialog1Result}"
+                       IsVisible="{CompiledBinding Dialog1Result, FallbackValue=False, 
                        Converter={x:Static StringConverters.IsNotNullOrEmpty}}" 
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
           <StackPanel>
             <Button Content="Show dialog #2" Command="{Binding Dialog2}"/>
-            <TextBlock Text="{Binding Dialog2Result}" 
-                       IsVisible="{Binding Dialog2Result, FallbackValue=False,
+            <TextBlock Text="{CompiledBinding Dialog2Result}"
+                       IsVisible="{CompiledBinding Dialog2Result, FallbackValue=False,
                        Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
           <StackPanel>
             <Button Content="Show dialog #3" Command="{Binding Dialog3}"/>
-            <TextBlock Text="{Binding Dialog3Result}" IsVisible="{Binding Dialog3Result,
+            <TextBlock Text="{CompiledBinding Dialog3Result}"
+                       IsVisible="{CompiledBinding Dialog3Result,
+                          FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
+          </StackPanel>
+          <StackPanel>
+            <Button Content="Show dialog #4" Command="{Binding Dialog4}"/>
+            <TextBlock Text="{CompiledBinding Dialog4Result}"
+                          IsVisible="{CompiledBinding Dialog4Result,
                        FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
           <StackPanel>
             <Button Content="Login dialog" Command="{Binding LoginDialog}"/>
-            <TextBlock Text="{Binding LoginDialogResult}" IsVisible="{Binding LoginDialogResult,
+            <TextBlock Text="{CompiledBinding LoginDialogResult}"
+                          IsVisible="{CompiledBinding LoginDialogResult,
                        FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
           <StackPanel>
             <Button Content="Rename file dialog" Command="{Binding FolderNameDialog}"/>
-            <TextBlock Text="{Binding FolderNameDialogResult}" IsVisible="{Binding FolderNameDialogResult,
+            <TextBlock Text="{CompiledBinding FolderNameDialogResult}"
+                          IsVisible="{CompiledBinding FolderNameDialogResult,
                        FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
           <StackPanel>
             <Button Content="TimePicker dialog" Command="{Binding TimePickerDialog}"/>
-            <TextBlock Text="{Binding TimePickerDialogResult}" IsVisible="{Binding TimePickerDialogResult,
+            <TextBlock Text="{CompiledBinding TimePickerDialogResult}"
+                          IsVisible="{CompiledBinding TimePickerDialogResult,
                        FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                        Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
           <StackPanel>
             <Button Content="DatePicker dialog" Command="{Binding DatePickerDialog}"/>
+            <TextBlock Text="{CompiledBinding DatePickerDialogResult}"
+                          IsVisible="{CompiledBinding DatePickerDialogResult,
+                       FallbackValue=False, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       Margin="8" HorizontalAlignment="Center"/>
           </StackPanel>
         </StackPanel>
       </StackPanel>

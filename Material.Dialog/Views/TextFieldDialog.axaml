@@ -49,9 +49,9 @@
           <ColumnDefinition Width="Auto"/>
           <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <icons:DialogIcon Kind="{CompiledBinding DialogHeaderIcon}"
-                          Width="32" Height="32" Margin="0,0,8,0"
-                          IsVisible="{CompiledBinding !!DialogHeaderIcon}"/>
+        <ContentPresenter Width="32" Height="32" Margin="0,0,8,0" 
+                          IsVisible="{CompiledBinding !!DialogIcon}"
+                          Content="{CompiledBinding DialogIcon}"/>
 
         <TextBlock Name="PART_Header"
                    Classes="Headline6"
@@ -68,7 +68,7 @@
                    IsVisible="{CompiledBinding !!ContentMessage.Length}"
                    Text="{CompiledBinding ContentMessage, FallbackValue='Dialog supporting text'}"/>
         
-        <ItemsControl HorizontalAlignment="Stretch"
+        <ItemsControl Name="PART_Fields" HorizontalAlignment="Stretch"
               Items="{CompiledBinding TextFields}"
               Margin="4">
           <ItemsControl.Styles>
@@ -83,13 +83,13 @@
           </ItemsControl.ItemsPanel>
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="model:TextFieldViewModel">
-              <TextBox PasswordChar="{CompiledBinding MaskChar}"
+              <TextBox Name="PART_Field" PasswordChar="{CompiledBinding MaskChar}"
                        HorizontalAlignment="Stretch"
                        MaxLength="{CompiledBinding MaxCountChars}"
                        Text="{CompiledBinding Text, Mode=TwoWay}"
                        Watermark="{CompiledBinding PlaceholderText}"
                        UseFloatingWatermark="True"
-                       wpf:TextFieldAssist.Hints="{CompiledBinding Error}"
+                       wpf:TextFieldAssist.Hints="{CompiledBinding AssistiveText}"
                        wpf:TextFieldAssist.Label="{CompiledBinding Label}"/>
             </DataTemplate>
           </ItemsControl.ItemTemplate>

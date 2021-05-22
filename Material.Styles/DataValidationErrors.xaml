@@ -3,7 +3,7 @@
     <Setter Property="Template">
         <ControlTemplate>
             <DockPanel LastChildFill="True">
-                <ContentControl DockPanel.Dock="Right"
+                <ContentControl DockPanel.Dock="Bottom"
                                 ContentTemplate="{TemplateBinding ErrorTemplate}"
                                 DataContext="{TemplateBinding Owner}"
                                 Content="{Binding (DataValidationErrors.Errors)}"
@@ -20,7 +20,17 @@
     </Setter>
     <Setter Property="ErrorTemplate">
         <DataTemplate>
-            <Canvas Width="14" Height="14" Margin="4 0 1 0"
+            <ItemsControl Items="{Binding }">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Classes="Caption" Margin="0,3,0,0"  TextWrapping="Wrap"
+                                   Foreground="{DynamicResource ValidationErrorBrush}"
+                                   Text="{Binding }"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            
+            <!--Canvas Width="14" Height="14" Margin="4 0 1 0"
                     Background="Transparent">
                 <Canvas.Styles>
                     <Style Selector="ToolTip">
@@ -33,7 +43,7 @@
                 </ToolTip.Tip>
                 <Path Data="M14,7 A7,7 0 0,0 0,7 M0,7 A7,7 0 1,0 14,7 M7,3l0,5 M7,9l0,2"
                       Stroke="{DynamicResource ValidationErrorBrush}" StrokeThickness="2" />
-            </Canvas>
+            </Canvas-->
         </DataTemplate>
     </Setter>
 </Style>

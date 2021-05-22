@@ -37,8 +37,8 @@ namespace Material.Dialog.ViewModels
         public WindowStartupLocation WindowStartupLocation 
             { get => m_WindowStartupLocation; set { m_WindowStartupLocation = value; OnPropertyChanged(); } }
 
-        private DialogIconKind? m_DialogHeaderIcon;
-        public DialogIconKind? DialogHeaderIcon { get => m_DialogHeaderIcon; set { m_DialogHeaderIcon = value; OnPropertyChanged(); } }
+        private object? _dialogIcon;
+        public object? DialogIcon { get => _dialogIcon; set { _dialogIcon = value; OnPropertyChanged(); } }
         #endregion
         
         

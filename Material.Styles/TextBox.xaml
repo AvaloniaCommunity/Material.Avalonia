@@ -2,7 +2,8 @@
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:wpf="clr-namespace:Material.Styles.Assists"
         xmlns:styles="clr-namespace:Material.Styles"
-        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:converters="clr-namespace:Material.Styles.Converters">
 
     <Styles.Resources>
         <StreamGeometry x:Key="TextBoxClearButtonData">M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>
@@ -40,100 +41,101 @@
             </MenuItem.Icon>
           </MenuItem>
         </ContextMenu>
+        
+        <converters:RectangleHollowGeometryConverter x:Key="RectangleHollowGeometry"/>
     </Styles.Resources>
 
     <!-- Standard TextBox -->
-    
+
     <Style Selector="TextBox">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Margin" Value="0,8" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
-        <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
+        <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
         <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto,
             Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Noto Sans, Arial"/>
         <Setter Property="Template">
-          <ControlTemplate>
-            <StackPanel>
-              <Border Name="PART_RootBorder" Cursor="Ibeam"
-                      Background="{TemplateBinding Background}"
-                      BorderBrush="{TemplateBinding BorderBrush}"
-                      BorderThickness="{TemplateBinding BorderThickness}">
-                  <Border.Styles>
-                      <!-- Feedbacks -->
-                      <Style Selector="TextBox:focus-within:not(:empty) /template/ TextBlock#floatingWatermark,
-                     TextBox:focus-within /template/ TextBlock#floatingWatermark,
-                     TextBox:not(:empty) /template/ TextBlock#floatingWatermark">
-                          <Setter Property="Margin" Value="1,0.75,1,1"/>
-                          <Setter Property="RenderTransform" Value="scale(0.75)"/>
-                      </Style> 
-    
-                      <Style Selector="TextBox:empty:not(:focus) /template/ TextBlock#floatingWatermark">
-                          <Setter Property="Margin" Value="1,24,1,1"/>
-                          <Setter Property="RenderTransform" Value="scale(1)"/>
-                      </Style> 
-                  </Border.Styles>
-                  <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Name="floatingWatermark" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                               Classes="Subtitle1" IsVisible="{TemplateBinding UseFloatingWatermark}"
-                               Foreground="{DynamicResource ThemeAccentBrush}"
-                               FontFamily="{TemplateBinding FontFamily}"
-                               FontSize="{DynamicResource FontSizeSmall}"
-                               Text="{TemplateBinding (wpf:TextFieldAssist.Label)}"
-                               RenderTransformOrigin="0, 0"/>
+            <ControlTemplate>
+                <StackPanel>
+                    <Border Name="PART_RootBorder" Cursor="Ibeam"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border.Styles>
+                            <!-- Feedbacks -->
+                            <Style
+                                Selector="TextBox:focus-within:not(:empty) /template/ TextBlock#floatingWatermark,
+                                          TextBox:focus-within /template/ TextBlock#floatingWatermark,
+                                          TextBox:not(:empty) /template/ TextBlock#floatingWatermark">
+                                <Setter Property="Margin" Value="1,0.75,1,1" />
+                                <Setter Property="RenderTransform" Value="scale(0.75)" />
+                            </Style>
 
-                  <DataValidationErrors Name="DataValidation" >
-                    <Grid ColumnDefinitions="Auto,*,Auto">
-                      <ContentPresenter Grid.Column="0"
-                                        VerticalAlignment="Top"
-                                        HorizontalAlignment="Left"
-                                        Content="{TemplateBinding InnerLeftContent}" />
-                      <ScrollViewer Grid.Column="1"
-                                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                        <Panel Name="PART_TextRoot" VerticalAlignment="Bottom">
-                          <TextBlock Name="watermark"
-                                     Margin="0,6,0,7"
-                                     Classes="Subtitle1"
-                                     Opacity="0.5"
-                                     Text="{TemplateBinding Watermark}"
-                                     FontFamily="{TemplateBinding FontFamily}"
-                                     TextAlignment="{TemplateBinding TextAlignment}"
-                                     TextWrapping="{TemplateBinding TextWrapping}"> 
-                          </TextBlock>
-                          <TextPresenter Name="PART_TextPresenter" 
-                                         Margin="0,6,0,7"
-                                         FontSize="16"
-                                         Text="{TemplateBinding Text, Mode=TwoWay}"
-                                         CaretIndex="{TemplateBinding CaretIndex}"
-                                         SelectionStart="{TemplateBinding SelectionStart}"
-                                         SelectionEnd="{TemplateBinding SelectionEnd}" 
-                                         TextAlignment="{TemplateBinding TextAlignment}"
-                                         TextWrapping="{TemplateBinding TextWrapping}"
-                                         PasswordChar="{TemplateBinding PasswordChar}"
-                                         RevealPassword="{TemplateBinding RevealPassword}"
-                                         SelectionBrush="{TemplateBinding SelectionBrush}"
-                                         SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                         CaretBrush="{TemplateBinding CaretBrush}" />
-                        </Panel> 
-                      </ScrollViewer>
-                      <ContentPresenter Grid.Column="2"
-                                        MinHeight="32"
-                                        VerticalAlignment="Top"
-                                        Content="{TemplateBinding InnerRightContent}" />
-                    </Grid>
-                  </DataValidationErrors>
-                  <styles:MaterialUnderline Classes="MirrorY"
-                                            VerticalAlignment="Bottom"
-                                            Name="Underline"/>
-                </Grid>
-              </Border>
-              <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                         Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"
-                         IsVisible="{Binding !!Text, RelativeSource={RelativeSource Self}}"/>
-            </StackPanel>
-          </ControlTemplate>
+                            <Style Selector="TextBox:empty:not(:focus) /template/ TextBlock#floatingWatermark">
+                                <Setter Property="Margin" Value="1,24,1,1" />
+                                <Setter Property="RenderTransform" Value="scale(1)" />
+                            </Style>
+                        </Border.Styles>
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock Name="floatingWatermark" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                       Classes="Subtitle1" IsVisible="{TemplateBinding UseFloatingWatermark}"
+                                       FontFamily="{TemplateBinding FontFamily}"
+                                       FontSize="{DynamicResource FontSizeSmall}"
+                                       Text="{TemplateBinding (wpf:TextFieldAssist.Label)}"
+                                       RenderTransformOrigin="0, 0" />
+
+                            <DataValidationErrors Name="DataValidation">
+                                <Grid ColumnDefinitions="Auto,*,Auto">
+                                    <ContentPresenter Grid.Column="0"
+                                                      VerticalAlignment="Top"
+                                                      HorizontalAlignment="Left"
+                                                      Content="{TemplateBinding InnerLeftContent}" />
+                                    <ScrollViewer Grid.Column="1"
+                                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                        <Panel Name="PART_TextRoot" VerticalAlignment="Bottom">
+                                            <TextBlock Name="watermark"
+                                                       Margin="0,6,0,7"
+                                                       Classes="Subtitle1"
+                                                       Opacity="0.5"
+                                                       Text="{TemplateBinding Watermark}"
+                                                       FontFamily="{TemplateBinding FontFamily}"
+                                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                                       TextWrapping="{TemplateBinding TextWrapping}">
+                                            </TextBlock>
+                                            <TextPresenter Name="PART_TextPresenter"
+                                                           Margin="0,6,0,7"
+                                                           FontSize="16"
+                                                           Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                                           SelectionStart="{TemplateBinding SelectionStart}"
+                                                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                           TextAlignment="{TemplateBinding TextAlignment}"
+                                                           TextWrapping="{TemplateBinding TextWrapping}"
+                                                           PasswordChar="{TemplateBinding PasswordChar}"
+                                                           RevealPassword="{TemplateBinding RevealPassword}"
+                                                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                           CaretBrush="{TemplateBinding CaretBrush}" />
+                                        </Panel>
+                                    </ScrollViewer>
+                                    <ContentPresenter Grid.Column="2"
+                                                      MinHeight="32"
+                                                      VerticalAlignment="Top"
+                                                      Content="{TemplateBinding InnerRightContent}" />
+                                    <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
+                                                              VerticalAlignment="Bottom"
+                                                              Name="PART_Underline" />
+                                </Grid>
+                            </DataValidationErrors>
+                        </Grid>
+                    </Border>
+                    <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+            </ControlTemplate>
         </Setter>
     </Style>
     
@@ -155,16 +157,21 @@
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
     </Style>
 
-    <Style Selector="TextBox:focus-within /template/ styles|MaterialUnderline#Underline">
-        <Setter Property="IsExpanded" Value="True"></Setter>
+    <Style Selector="TextBox:focus-within /template/ styles|MaterialUnderline#PART_Underline">
+        <Setter Property="IsExpanded" Value="True"/>
     </Style>
     
-    <Style Selector="TextBox:pointerover /template/ styles|MaterialUnderline#Underline">
-        <Setter Property="IsActive" Value="True"></Setter>
+    <Style Selector="TextBox:pointerover /template/ styles|MaterialUnderline#PART_Underline">
+        <Setter Property="IsActive" Value="True"/>
     </Style> 
+    
     <!-- Default TextBox style -->
     <Style Selector="TextBox /template/ Panel#PART_TextRoot">
         <Setter Property="Margin" Value="1, 0"/>
+    </Style>
+    
+    <Style Selector="TextBox /template/ TextBlock#floatingWatermark">
+        <Setter Property="Foreground" Value="{DynamicResource ThemeAccentBrush}"/>
     </Style>
     
     <!-- Default TextBox style -->
@@ -186,84 +193,99 @@
             </Transitions>
         </Setter>
     </Style>
-
-    <!-- Filled textfield -->
     
+    <!-- Invalid state -->
+
+    <Style Selector="TextBox:error /template/ styles|MaterialUnderline#PART_Underline">
+        <Setter Property="BackgroundColor" Value="{DynamicResource ValidationErrorBrush}"/>
+        <Setter Property="ActiveColor" Value="{DynamicResource ValidationErrorBrush}"/>
+    </Style> 
+    
+    <Style Selector="TextBox:error /template/ TextBlock#floatingWatermark">
+        <Setter Property="Foreground" Value="{DynamicResource ValidationErrorBrush}"/>
+    </Style>
+    
+    <Style Selector="TextBox:error /template/ TextBlock#HintsTextBlock">
+        <Setter Property="IsVisible" Value="False"/>
+    </Style>
+    
+    <!-- Filled textfield -->
+
     <Style Selector="TextBox.Filled">
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
         <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Padding" Value="0,8" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
-        <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
+        <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel> 
-                  <Border Name="PART_RootBorder" Cursor="Ibeam"
-                          ClipToBounds="True" CornerRadius="4,4,0,0" 
-                          Background="{TemplateBinding Background}"
-                          BorderBrush="{TemplateBinding BorderBrush}"
-                          BorderThickness="{TemplateBinding BorderThickness}">
-                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <Border Name="focusBorder" 
-                                Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}"/>
-                        <TextBlock Name="floatingWatermark" VerticalAlignment="Top"
-                                   IsVisible="{TemplateBinding UseFloatingWatermark}"
-                                   HorizontalAlignment="Stretch" Classes="Subtitle1" 
-                                   Foreground="{DynamicResource ThemeAccentBrush}"
-                                   FontSize="{DynamicResource FontSizeSmall}"
-                                   Text="{TemplateBinding (wpf:TextFieldAssist.Label)}" 
-                                   RenderTransformOrigin="0, 0"/>
-                      <DataValidationErrors Name="DataValidation">
-                        <Grid ColumnDefinitions="Auto,*,Auto">
-                          <ContentPresenter Grid.Column="0"
-                                            VerticalAlignment="Top"
-                                            HorizontalAlignment="Left"
-                                            Content="{TemplateBinding InnerLeftContent}" />
-                          <ScrollViewer Name="PART_Scroller" Grid.Column="1" Classes="Modern" Padding="16,0"
-                                        HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                        VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                              <Panel Name="PART_TextRoot">
-                                  <TextBlock Name="watermark"
-                                             Classes="Subtitle1" Opacity="0.5"
-                                             Text="{TemplateBinding Watermark}"
-                                             FontFamily="{TemplateBinding FontFamily}"
-                                             TextAlignment="{TemplateBinding TextAlignment}"
-                                             TextWrapping="{TemplateBinding TextWrapping}"> 
-                                  </TextBlock>
-                                  <TextPresenter Name="PART_TextPresenter"
-                                                 FontSize="16" 
-                                                 FontWeight="Regular"
-                                                 Text="{TemplateBinding Text, Mode=TwoWay}"
-                                                 CaretIndex="{TemplateBinding CaretIndex}"
-                                                 SelectionStart="{TemplateBinding SelectionStart}"
-                                                 SelectionEnd="{TemplateBinding SelectionEnd}"
-                                                 TextAlignment="{TemplateBinding TextAlignment}"
-                                                 TextWrapping="{TemplateBinding TextWrapping}"
-                                                 PasswordChar="{TemplateBinding PasswordChar}"
-                                                 RevealPassword="{TemplateBinding RevealPassword}" 
-                                                 SelectionBrush="{TemplateBinding SelectionBrush}"
-                                                 SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                                 CaretBrush="{TemplateBinding CaretBrush}" />
-                              </Panel> 
-                          </ScrollViewer>
-                          <ContentPresenter Grid.Column="2"
-                                            MinHeight="32"
-                                            Margin="0,0,0,0"
-                                            VerticalAlignment="Top"
-                                            Content="{TemplateBinding InnerRightContent}" />
-                        </Grid>
-                      </DataValidationErrors> 
-                      <styles:MaterialUnderline Classes="MirrorY" 
-                                                VerticalAlignment="Bottom"   
-                                                Name="Underline"/>
-                    </Grid>
-                  </Border>
-                  <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
-                             Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"
-                             IsVisible="{Binding !!Text, RelativeSource={RelativeSource Self}}"/>
+                <StackPanel>
+                    <DataValidationErrors Name="DataValidation">
+                        <Border Name="PART_RootBorder" Cursor="Ibeam"
+                                ClipToBounds="True" CornerRadius="4,4,0,0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Border Name="focusBorder"
+                                        Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+                                <TextBlock Name="floatingWatermark" VerticalAlignment="Top"
+                                           IsVisible="{TemplateBinding UseFloatingWatermark}"
+                                           HorizontalAlignment="Stretch" Classes="Subtitle1"
+                                           FontSize="{DynamicResource FontSizeSmall}"
+                                           Text="{TemplateBinding (wpf:TextFieldAssist.Label)}"
+                                           RenderTransformOrigin="0, 0" />
+
+                                <Grid ColumnDefinitions="Auto,*,Auto">
+                                    <ContentPresenter Grid.Column="0"
+                                                      VerticalAlignment="Top"
+                                                      HorizontalAlignment="Left"
+                                                      Content="{TemplateBinding InnerLeftContent}" />
+                                    <ScrollViewer Name="PART_Scroller" Grid.Column="1" Classes="Modern" Padding="16,0"
+                                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                        <Panel Name="PART_TextRoot">
+                                            <TextBlock Name="watermark"
+                                                       Classes="Subtitle1" Opacity="0.5"
+                                                       Text="{TemplateBinding Watermark}"
+                                                       FontFamily="{TemplateBinding FontFamily}"
+                                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                                       TextWrapping="{TemplateBinding TextWrapping}">
+                                            </TextBlock>
+                                            <TextPresenter Name="PART_TextPresenter"
+                                                           FontSize="16"
+                                                           FontWeight="Regular"
+                                                           Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                                           SelectionStart="{TemplateBinding SelectionStart}"
+                                                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                           TextAlignment="{TemplateBinding TextAlignment}"
+                                                           TextWrapping="{TemplateBinding TextWrapping}"
+                                                           PasswordChar="{TemplateBinding PasswordChar}"
+                                                           RevealPassword="{TemplateBinding RevealPassword}"
+                                                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                           CaretBrush="{TemplateBinding CaretBrush}" />
+                                        </Panel>
+                                    </ScrollViewer>
+                                    <ContentPresenter Grid.Column="2"
+                                                      MinHeight="32"
+                                                      Margin="0,0,0,0"
+                                                      VerticalAlignment="Top"
+                                                      Content="{TemplateBinding InnerRightContent}" />
+                                    <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
+                                                              VerticalAlignment="Bottom"
+                                                              Name="PART_Underline" />
+                                </Grid>
+
+                            </Grid>
+                        </Border>
+                    </DataValidationErrors>
+                    <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
                 </StackPanel>
             </ControlTemplate>
         </Setter>
@@ -279,6 +301,7 @@
     
     <Style Selector="TextBox.Filled:empty:not(:focus-within) /template/ TextBlock#floatingWatermark">
         <Setter Property="Margin" Value="16,18,1,1"/> 
+        <Setter Property="RenderTransform" Value="scale(1)"/>
     </Style>
     
     <Style Selector="TextBox.Filled:focus-within /template/ Border#focusBorder">  
@@ -327,83 +350,93 @@
 
     <!-- Outline textfield -->
     <Style Selector="TextBox.Outline">
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
-      <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
-      <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-      <Setter Property="Padding" Value="0,8" />
-      <Setter Property="ClipToBounds" Value="False" />
-      <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
-      <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
-      <Setter Property="Template">
-        <ControlTemplate>
-          <StackPanel> 
-            <Grid Name="PART_RootBorder" 
-                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                  Cursor="Ibeam" Background="Transparent"
-                  Margin="0,8,0,0"
-                  ClipToBounds="False">
-                <Border Name="PART_Border" CornerRadius="4" 
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        BorderBrush="{TemplateBinding BorderBrush}"/>
-                <Border Name="watermarkRoot" 
-                        Background="{DynamicResource MaterialDesignPaper}" 
-                        HorizontalAlignment="Left" 
-                        VerticalAlignment="Top"
-                        RenderTransformOrigin="0, 0" Opacity="1"
-                        IsVisible="{TemplateBinding UseFloatingWatermark}">
-                  <TextBlock Name="floatingWatermark" Classes="Subtitle1"
-                             HorizontalAlignment="Stretch" Margin="4,2"
-                             Opacity="{Binding ElementName=PART_Border, Path=Opacity}"
-                             Foreground="{Binding ElementName=PART_Border, Path=BorderBrush}" 
-                             Text="{TemplateBinding (wpf:TextFieldAssist.Label)}" />
-                </Border>
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Padding" Value="0,8" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+        <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel>
+                    <DataValidationErrors Name="DataValidation">
+                        <Grid Name="PART_RootBorder"
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                              Cursor="Ibeam" Background="Transparent"
+                              Margin="0,8,0,0"
+                              ClipToBounds="False">
+                            <Border Name="PART_Border" CornerRadius="4"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}">
+                                <Border.Clip>
+                                    <MultiBinding Converter="{StaticResource RectangleHollowGeometry}">
+                                        <Binding ElementName="PART_Border" Path="Bounds" />
+                                        <Binding ElementName="watermarkRoot" Path="Bounds" />
+                                        <Binding ElementName="watermarkRoot" Path="TransformedBounds" />
+                                    </MultiBinding>
+                                </Border.Clip>
+                            </Border>
+                            <Border Name="watermarkRoot"
+                                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                                    RenderTransformOrigin="0, 0" Opacity="1"
+                                    IsVisible="{TemplateBinding UseFloatingWatermark}">
+                                <TextBlock Name="floatingWatermark" Classes="Subtitle1"
+                                           HorizontalAlignment="Stretch" Margin="4,2" Foreground="{TemplateBinding BorderBrush}"
+                                           Opacity="{Binding ElementName=PART_Border, Path=Opacity}"
+                                           Text="{TemplateBinding (wpf:TextFieldAssist.Label)}" />
+                            </Border>
 
-                <DataValidationErrors Name="DataValidation" >
-                  <Grid ColumnDefinitions="Auto,*,Auto">
-                    <ContentPresenter Grid.Column="0"
-                                      VerticalAlignment="Top"
-                                      HorizontalAlignment="Left"
-                                      Content="{TemplateBinding InnerLeftContent}" />
-                    <ScrollViewer Name="PART_Scroller" Grid.Column="1" Classes="Modern" Padding="16, 0, 8,0"
-                                        HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                        VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                        <Panel Name="PART_TextRoot"
-                               VerticalAlignment="Center">
-                            <TextBlock Name="watermark"
-                                     Classes="Subtitle1" Opacity="0.5"
-                                     Text="{TemplateBinding Watermark}"
-                                     FontFamily="{TemplateBinding FontFamily}"
-                                     TextAlignment="{TemplateBinding TextAlignment}"
-                                     TextWrapping="{TemplateBinding TextWrapping}"> 
-                            </TextBlock>
-                            <TextPresenter Name="PART_TextPresenter"
-                                         FontSize="16" 
-                                         FontWeight="Regular" ClipToBounds="True"
-                                         Text="{TemplateBinding Text, Mode=TwoWay}"
-                                         CaretIndex="{TemplateBinding CaretIndex}"
-                                         SelectionStart="{TemplateBinding SelectionStart}"
-                                         SelectionEnd="{TemplateBinding SelectionEnd}"
-                                         TextAlignment="{TemplateBinding TextAlignment}"
-                                         TextWrapping="{TemplateBinding TextWrapping}"
-                                         PasswordChar="{TemplateBinding PasswordChar}"
-                                         RevealPassword="{TemplateBinding RevealPassword}" 
-                                         SelectionBrush="{TemplateBinding SelectionBrush}"
-                                         SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                         CaretBrush="{TemplateBinding CaretBrush}" />
-                        </Panel> 
-                    </ScrollViewer>
-                    <ContentPresenter Grid.Column="2"
-                                      Margin="0,0,0,0"
-                                      MinHeight="32" 
-                                      VerticalAlignment="Top"
-                                      Content="{TemplateBinding InnerRightContent}" />
-                  </Grid>
-                </DataValidationErrors> 
-              </Grid>
 
-          </StackPanel>
-        </ControlTemplate>
-      </Setter>
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <ContentPresenter Grid.Column="0"
+                                                  VerticalAlignment="Top"
+                                                  HorizontalAlignment="Left"
+                                                  Content="{TemplateBinding InnerLeftContent}" />
+                                <ScrollViewer Name="PART_Scroller" Grid.Column="1" Classes="Modern"
+                                              Padding="16, 0, 8,0"
+                                              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                              VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                    <Panel Name="PART_TextRoot"
+                                           VerticalAlignment="Center">
+                                        <TextBlock Name="watermark"
+                                                   Classes="Subtitle1" Opacity="0.5"
+                                                   Text="{TemplateBinding Watermark}"
+                                                   FontFamily="{TemplateBinding FontFamily}"
+                                                   TextAlignment="{TemplateBinding TextAlignment}"
+                                                   TextWrapping="{TemplateBinding TextWrapping}">
+                                        </TextBlock>
+                                        <TextPresenter Name="PART_TextPresenter"
+                                                       FontSize="16"
+                                                       FontWeight="Regular" ClipToBounds="True"
+                                                       Text="{TemplateBinding Text, Mode=TwoWay}"
+                                                       CaretIndex="{TemplateBinding CaretIndex}"
+                                                       SelectionStart="{TemplateBinding SelectionStart}"
+                                                       SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                       TextAlignment="{TemplateBinding TextAlignment}"
+                                                       TextWrapping="{TemplateBinding TextWrapping}"
+                                                       PasswordChar="{TemplateBinding PasswordChar}"
+                                                       RevealPassword="{TemplateBinding RevealPassword}"
+                                                       SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                       CaretBrush="{TemplateBinding CaretBrush}" />
+                                    </Panel>
+                                </ScrollViewer>
+                                <ContentPresenter Grid.Column="2"
+                                                  Margin="0,0,0,0"
+                                                  MinHeight="32"
+                                                  VerticalAlignment="Top"
+                                                  Content="{TemplateBinding InnerRightContent}" />
+                            </Grid>
+
+                        </Grid>
+                    </DataValidationErrors>
+                    <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                               Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
     </Style>
 
     <Style Selector="TextBox.Outline:focus-within:not(:empty) /template/ Border#watermarkRoot,
@@ -412,19 +445,24 @@
       <Setter Property="Margin" Value="14,-8,1,1"/>
       <Setter Property="RenderTransform" Value="scale(0.75)"/>
     </Style>
-    <Style Selector="TextBox.Outline">
-      <Setter Property="BorderThickness" Value="1"/>
-    </Style>
-    <Style Selector="TextBox.Outline:focus-within">
-      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-      <Setter Property="BorderThickness" Value="2"/> 
-    </Style> 
+    
     <Style Selector="TextBox.Outline:empty:not(:focus-within) /template/ Border#watermarkRoot">
-      <Setter Property="Margin" Value="10,14,1,1"/>
+        <Setter Property="Margin" Value="10,14,1,1"/>
+        <Setter Property="RenderTransform" Value="scale(1)"/>
     </Style>
     <Style Selector="TextBox.Outline.Dense:empty:not(:focus-within) /template/ Border#watermarkRoot">
         <Setter Property="Margin" Value="10,12,1,1"/>
     </Style>
+    
+    <Style Selector="TextBox.Outline">
+      <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    
+    <Style Selector="TextBox.Outline:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="BorderThickness" Value="2"/> 
+    </Style> 
+    
 
     
     <Style Selector="TextBox.Outline:disabled /template/ Border#PART_Border">
@@ -453,6 +491,12 @@
         <Setter Property="Margin" Value="0, 8"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
+    
+    <!-- Invalid state -->
+    
+    <Style Selector="TextBox.Outline:error">
+        <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+    </Style> 
   
     <!-- Additional decorations for TextFields -->
     <!-- ReSharper disable InconsistentNaming -->
@@ -477,7 +521,7 @@
         </Setter>
     </Style>  
 
-    <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty) Border#PART_AssistButtonsContainer">
+    <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False] Border#PART_AssistButtonsContainer">
         <Setter Property="Child">
             <Template>
                 <ToggleButton Name="PART_PasswordRevealToggle" Classes="Icon ConstantForeground" BorderThickness="0"
@@ -552,15 +596,14 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         CornerRadius="{TemplateBinding wpf:TextFieldAssist.CornerRadius}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        ClipToBounds="True">
+                        BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="{TemplateBinding Padding}">
                         <DataValidationErrors Name="DataValidation">
                             <Grid ColumnDefinitions="Auto,*,Auto">
                                 <ContentPresenter Grid.Column="0"
                                                   HorizontalAlignment="Left"
                                                   Content="{TemplateBinding InnerLeftContent}" />
-                                <Grid Grid.Column="1" Margin="8">
+                                <Grid Name="PART_InnerRoot" Grid.Column="1">
                                     <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                                     <Panel Name="PART_TextRoot" VerticalAlignment="Center">
@@ -593,6 +636,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+    </Style>
+    
+    <Style Selector="TextBox.Solo /template/ Grid#PART_InnerRoot">
+        <Setter Property="Margin" Value="8"/>
     </Style>
     
     <!-- ReSharper restore InconsistentNaming -->

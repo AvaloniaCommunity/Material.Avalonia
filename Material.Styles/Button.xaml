@@ -28,28 +28,29 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_ButtonRootBorder"
+                Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                Background="{TemplateBinding Background}"
                 CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
                 assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
-          <Border ClipToBounds="True"
-                  CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
-            <Grid>
-              <Border Name="PART_HoverIndicator" BorderThickness="0"
-                      Background="{TemplateBinding assists:ButtonAssist.HoverColor}"/>
+          <Panel>
+            <Border Name="PART_HoverIndicator" BorderThickness="0"
+                    Background="{TemplateBinding assists:ButtonAssist.HoverColor}"
+                    CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"/>
+            <Border CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                    ClipToBounds="True">
               <ripple:RippleEffect RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
                                    RippleOpacity="{StaticResource ButtonPressedOpacity}">
                 <ContentPresenter Name="PART_ContentPresenter"
-                                  ContentTemplate="{TemplateBinding ContentTemplate}"
                                   Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
                                   Padding="{TemplateBinding Padding}"
                                   TextBlock.Foreground="{TemplateBinding Foreground}"
                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
               </ripple:RippleEffect>
-            </Grid>
-          </Border>
+            </Border>
+          </Panel>
         </Border>
       </ControlTemplate>
     </Setter>
@@ -104,8 +105,8 @@
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
     <Setter Property="Padding" Value="16 6" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0"/>
-    <Setter Property="assists:ButtonAssist.HoverColor" Value="{Binding $self.Foreground}"/>
-    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#CCCCCC"/>
+    <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialDesignBody}"/>
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{Binding $self.Foreground}"/>
   </Style>
 
   <Style Selector="Button.Icon, ToggleButton.Icon">

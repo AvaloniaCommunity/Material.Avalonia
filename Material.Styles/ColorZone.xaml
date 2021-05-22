@@ -2,7 +2,8 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:assists="clr-namespace:Material.Styles.Assists"
-    xmlns:cc="clr-namespace:Material.Styles">
+    xmlns:cc="clr-namespace:Material.Styles"
+    xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
     <Style Selector="cc|ColorZone">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
@@ -14,12 +15,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid Background="Transparent" ClipToBounds="False">
-                        <Border ClipToBounds="False"
-                                Background="{TemplateBinding Background}"
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, 
-                                    Path=(assists:ShadowAssist.ShadowDepth)}">
+                                Path=(assists:ShadowAssist.ShadowDepth)}">
                             <Border Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -31,7 +31,7 @@
                                                   Margin="{TemplateBinding Padding}"
                                                   TextBlock.Foreground="{TemplateBinding Foreground}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             </Border>
                         </Border>
                     </Grid>
@@ -44,26 +44,48 @@
         <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
     </Style>
+    
     <Style Selector="cc|ColorZone[Mode=PrimaryLight]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
     </Style>
+    <Style Selector="cc|ColorZone[Mode=PrimaryLight] Button,
+                     cc|ColorZone[Mode=PrimaryLight] ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+    </Style>
+    
     <Style Selector="cc|ColorZone[Mode=PrimaryMid]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
     </Style>
+    <Style Selector="cc|ColorZone[Mode=PrimaryMid] Button,
+                     cc|ColorZone[Mode=PrimaryMid] ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    </Style>
+    
     <Style Selector="cc|ColorZone[Mode=PrimaryDark]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
     </Style>
+    <Style Selector="cc|ColorZone[Mode=PrimaryDark] Button,
+                     cc|ColorZone[Mode=PrimaryDark] ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+    </Style>
+    
     <Style Selector="cc|ColorZone[Mode=Accent]">
         <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
     </Style>
+    <Style Selector="cc|ColorZone[Mode=Accent] Button,
+                     cc|ColorZone[Mode=Accent] ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+    </Style>
+    
     <Style Selector="cc|ColorZone[Mode=Light]">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignLightBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignLightForeground}" />
     </Style>
+    
     <Style Selector="cc|ColorZone[Mode=Dark]">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignDarkBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDarkForeground}" />

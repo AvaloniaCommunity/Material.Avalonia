@@ -280,12 +280,12 @@
                    Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}">
               <Track.DecreaseButton>
                 <RepeatButton Name="PART_DecreaseButton"
-                              Classes="HorizontalTrack Modern Active"
+                              Classes="HorizontalTrack Modern Active" BorderThickness="0"
                               Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" />
               </Track.DecreaseButton>
               <Track.IncreaseButton>
                 <RepeatButton Name="PART_IncreaseButton"
-                              Classes="HorizontalTrack Modern Inactive"
+                              Classes="HorizontalTrack Modern Inactive" BorderThickness="0"
                               Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" />
               </Track.IncreaseButton>
               <Track.Thumb>

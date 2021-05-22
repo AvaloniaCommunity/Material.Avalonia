@@ -1,17 +1,14 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Material.Demo.ViewModels;
 
 namespace Material.Demo.Pages
 {
-    public class FieldsDemo : UserControl
+    public class ColorZonesDemo : UserControl
     {
-        public FieldsDemo()
+        public ColorZonesDemo()
         {
             this.InitializeComponent();
-
-            DataContext = new TextFieldsViewModel();
         }
 
         private void InitializeComponent()

@@ -30,7 +30,7 @@
           <styles:ColorZone Mode="Accent" Height="180">
             <StackPanel>
               <Image Width="120" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"
-                     Source="avares://Material.Demo/FavIcon_200x.png" Margin="0,0,0,-8" />
+                     Source="avares://Material.Demo/Assets/FavIcon_200x.png" Margin="0,0,0,-8" />
               <TextBlock Classes="Headline6" Text="Material Design" HorizontalAlignment="Center" />
               <TextBlock Classes="Subtitle1" Text="with AvaloniaUI" HorizontalAlignment="Center" />
             </StackPanel>
@@ -54,6 +54,7 @@
             <TextBlock Classes="Body2" Text="Sliders" />
             <TextBlock Classes="Body2" Text="Progress indicators" />
             <TextBlock Classes="Body2" Text="Lists" />
+            <TextBlock Classes="Body2" Text="ColorZones" />
             <TextBlock Classes="Body2" Text="Dialogs" />
             <TextBlock Classes="Body2" Text="ScrollViewer" />
             <TextBlock Classes="Body2" Text="TabControls" />
@@ -144,6 +145,9 @@
             <!-- Lists -->
             <pages:ListsDemo />
 
+            <!-- ColorZones -->
+            <pages:ColorZonesDemo />
+            
             <!-- Dialogs -->
             <pages:DialogDemo />
 

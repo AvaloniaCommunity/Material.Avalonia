@@ -1,60 +1,74 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:main="clr-namespace:Material.Dialog"
         xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         xmlns:converters="clr-namespace:Material.Dialog.Converters"
         x:Class="Material.Dialog.Views.DatePickerDialog"
-        SizeToContent="WidthAndHeight"
-        Title="{CompiledBinding WindowTitle}"
-        CanResize="False"
-        WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
+        SizeToContent="WidthAndHeight" CanResize="False"
         HorizontalContentAlignment="Stretch"
+        Title="{CompiledBinding WindowTitle}"
+        WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
         x:DataType="viewModels:DatePickerDialogViewModel">
     <Window.Resources>
         <ResourceDictionary>
-            <converters:PadNumbersConverter x:Key="PadNumbersConverter"/>
-            <converters:StringToTransformConverter x:Key="StringToTransformConverter"/>
+            <converters:DateStringConverter x:Key="DateStringConverter" />
         </ResourceDictionary>
     </Window.Resources>
-    
+
     <Window.Styles>
-        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml"/>
+        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
         <Style Selector="Window[SystemDecorations=None]">
-            <Setter Property="Padding" Value="32"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="TransparencyLevelHint" Value="Transparent"/>
+            <Setter Property="Padding" Value="32" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="TransparencyLevelHint" Value="Transparent" />
         </Style>
     </Window.Styles>
+
     <material:Card Name="PART_ContentRoot" Padding="0"
                    assists:ShadowAssist.ShadowDepth="CenterDepth4">
-        <Grid Name="PART_Root" 
+        <Grid Name="PART_Root"
               RowDefinitions="96,*,Auto"
               Width="{CompiledBinding Width}"
               MaxWidth="{CompiledBinding MaxWidth}">
-            <material:ColorZone Name="PART_HeaderZone" Mode="PrimaryMid" Padding="32, 12">
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Right"
+
+            <material:ColorZone Name="PART_HeaderZone"
+                                Mode="PrimaryMid" Padding="24, 16"
+                                VerticalAlignment="Stretch">
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Left"
                             VerticalAlignment="Bottom">
+                    <StackPanel.Styles>
+                        <Style Selector="TextBlock">
+                            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCardBackground}" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <TextBlock Classes="Subtitle1" FontWeight="Regular"
+                               Text="{CompiledBinding DateTime, 
+                                    Converter={StaticResource DateStringConverter}, ConverterParameter=yyyy}" />
+                    <TextBlock Classes="Headline4" FontWeight="Regular"
+                               Text="{CompiledBinding DateTime, 
+                                    Converter={StaticResource DateStringConverter}}" />
                 </StackPanel>
             </material:ColorZone>
             <Grid Grid.Row="1" Margin="24">
-                
+                <Calendar VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                          SelectedDate="{CompiledBinding DateTime, Mode=TwoWay}"
+                          SelectionMode="SingleDate" Foreground="{DynamicResource PrimaryHueMidBrush}" />
             </Grid>
             <ItemsControl Grid.Row="2" HorizontalAlignment="Stretch"
-                Items="{Binding DialogButtons}"
-                Margin="4">
+                          Items="{Binding DialogButtons}"
+                          Margin="4">
                 <ItemsControl.Styles>
                     <Style Selector="Button">
-                        <Setter Property="Margin" Value="4"/>
+                        <Setter Property="Margin" Value="4" />
                     </Style>
                 </ItemsControl.Styles>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Right"/>
+                                    HorizontalAlignment="Right" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
@@ -63,7 +77,7 @@
                                 Content="{CompiledBinding Content, FallbackValue=Null}"
                                 Command="{Binding ElementName=PART_Root, 
                                     Path=DataContext.ButtonClick}"
-                                CommandParameter="{CompiledBinding}"/>
+                                CommandParameter="{CompiledBinding}" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

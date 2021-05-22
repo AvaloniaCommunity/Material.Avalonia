@@ -26,17 +26,14 @@
                                        AllowSpin="{TemplateBinding AllowSpin}"
                                        ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
                                        ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
-                            <TextBox Name="PART_TextBox"
-                                     Margin="8 0"
-                                     BorderThickness="0"
-                                     VerticalAlignment="Center"
+                            <TextBox Name="PART_TextBox" Margin="8 0" Classes="Solo"
+                                     BorderThickness="0" VerticalAlignment="Center"
                                      assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
                                      Watermark="{TemplateBinding Watermark}"
                                      DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                                      IsReadOnly="{TemplateBinding IsReadOnly}"
                                      Text="{TemplateBinding Text}"
-                                     AcceptsReturn="False"
-                                     TextWrapping="NoWrap" />
+                                     AcceptsReturn="False" TextWrapping="NoWrap" />
                         </ButtonSpinner>
                         <styles:MaterialUnderline Classes="MirrorY" 
                                                   VerticalAlignment="Bottom"   

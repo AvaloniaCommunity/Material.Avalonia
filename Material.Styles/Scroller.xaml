@@ -30,15 +30,6 @@
                      Visibility="{TemplateBinding HorizontalScrollBarVisibility}"
                      Grid.Row="1" Grid.Column="0"
                      Focusable="False" />
-          <ScrollBar Name="verticalScrollBar"
-                     Classes="Modern"
-                     Orientation="Vertical"
-                     Maximum="{TemplateBinding VerticalScrollBarMaximum}"
-                     Value="{TemplateBinding VerticalScrollBarValue, Mode=TwoWay}"
-                     ViewportSize="{TemplateBinding VerticalScrollBarViewportSize}"
-                     Visibility="{TemplateBinding VerticalScrollBarVisibility}"
-                     Grid.Row="0" Grid.Column="1"
-                     Focusable="False" />
         </Grid>
       </ControlTemplate>
     </Setter>

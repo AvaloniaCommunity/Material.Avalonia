@@ -7,6 +7,9 @@ using Material.Dialog.ViewModels;
 using Material.Dialog.ViewModels.TextField;
 using Material.Dialog.Views;
 using System.Collections.Generic;
+using Avalonia;
+using Material.Dialog.Icons;
+using Material.Icons.Avalonia;
 
 namespace Material.Dialog
 {
@@ -97,9 +100,10 @@ namespace Material.Dialog
             var context = new TextFieldDialogViewModel(window)
             {
                 PositiveButton = @params.PositiveButton,
-                NegativeButton = @params.NegativeButton, 
-                TextFields = TextFieldsBuilder(@params.TextFields),
+                NegativeButton = @params.NegativeButton,
             };
+
+            context.TextFields = TextFieldsBuilder(@params.TextFields, context);
             
             ApplyBaseParams(context, @params);
             
@@ -143,7 +147,7 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of picker.</returns>
-        [Obsolete("This feature is still not ready for use! Please come back later!")]
+        //[Obsolete("This feature is still not ready for use! Please come back later!")]
         public static IDialogWindow<DateTimePickerDialogResult> CreateDatePicker(DatePickerDialogBuilderParams @params)
         {
             var window = new DatePickerDialog();
@@ -151,6 +155,7 @@ namespace Material.Dialog
             {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton,
+                DateTime = @params.ImplicitValue
             };
             ApplyBaseParams(context, @params);
 
@@ -172,14 +177,13 @@ namespace Material.Dialog
         public static IDialogWindow<DialogResult> CreateCustomDialog(CustomDialogBuilderParams @params)
         {
             var window = new CustomDialog();
-            var context = new CustomDialogViewModel(window)
-            {
-                Content = @params.Content,
-            };
-            
+            var context = new CustomDialogViewModel(window);
+
             ApplyBaseParams(context, @params);
             
             window.DataContext = context;
+            window.ApplyViewModel(@params.DataContext);
+            window.ApplyContent(@params.Content);
             SetupWindowParameters(window, @params);
             return new DialogWindowBase<CustomDialog, DialogResult>(window);
         }
@@ -193,7 +197,21 @@ namespace Material.Dialog
             input.ContentMessage = @params.SupportingText;
             input.Borderless = @params.Borderless;
             input.WindowStartupLocation = @params.StartupLocation;
-            input.DialogHeaderIcon = @params.DialogHeaderIcon;
+            input.DialogIcon = @params.DialogIcon;
+
+            // Rollback API Compatibility
+            if (@params.DialogHeaderIcon != null)
+            {
+                var icon = new DialogIcon()
+                {
+                    Kind = @params.DialogHeaderIcon.Value,
+                    Width = 32, Height = 32,
+                    Margin = Thickness.Parse("0")
+                };
+                
+                if(input.DialogIcon == null)
+                    input.DialogIcon = icon;
+            }
 
             input.DialogButtons = @params.DialogButtons;
             input.ButtonsStackOrientation = @params.ButtonsOrientation;
@@ -217,7 +235,7 @@ namespace Material.Dialog
             return result.ToArray();
         }
 
-        private static TextFieldViewModel[] TextFieldsBuilder(TextFieldBuilderParams[] @params)
+        private static TextFieldViewModel[] TextFieldsBuilder(TextFieldBuilderParams[] @params, TextFieldDialogViewModel parent)
         {
             var result = new List<TextFieldViewModel>();
             foreach(var param in @params)
@@ -225,15 +243,18 @@ namespace Material.Dialog
                 try
                 {
                     var model = new TextFieldViewModel();
-
+                    model.Parent = parent;
+                    
                     // Currently AvaloniaUI are not supported to binding classes.
-                    //model.Classes = param.Classes;
+                    // but... I implemented an setter to TextFieldDialog for apply classes when showing dialog.
+                    model.Classes = param.Classes;
                     
                     model.PlaceholderText = param.PlaceholderText;
                     model.MaxCountChars = param.MaxCountChars; 
                     model.Label = param.Label;
                     model.Validater = param.Validater;
                     model.Text = param.DefaultText;
+                    model.AssistiveText = param.HelperText;
                     switch (param.FieldKind)
                     {
                         case TextFieldKind.Normal: 

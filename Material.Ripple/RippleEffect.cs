@@ -21,31 +21,37 @@ namespace Material.Ripple {
 
         public RippleEffect()
         {
-            AddHandler(PointerReleasedEvent, (s, e) => {
-                if (last != null)
-                {
-                    pointers--;
+            AddHandler(PointerReleasedEvent, PointerReleasedHandler);
+            AddHandler(PointerPressedEvent, PointerPressedHandler);
+        }
+
+        private void PointerPressedHandler(object sender, PointerPressedEventArgs e)
+        {
+            if (pointers == 0)
+            {
+                // Only first pointer can arrive a ripple
+                pointers++;
+                var r = CreateRipple();
+                last = r;
+                r.SetupInitialValues(e, this);
                     
-                    // This way to handle pointer released is pretty tricky
-                    // could have more better way to improve
-                    OnReleaseHandler(last, e);
-                    last = null;
-                }
-            });
-            AddHandler(PointerPressedEvent, (s, e) => {
-                if (pointers == 0)
-                {
-                    // Only first pointer can arrive a ripple
-                    pointers++;
-                    var r = CreateRipple();
-                    last = r;
-                    r.SetupInitialValues(e, this);
+                // Attach ripple instance to canvas
+                PART_RippleCanvasRoot.Children.Add(r);
+                r.RunFirstStep(e, this);
+            }
+        }
+
+        private void PointerReleasedHandler(object sender, PointerReleasedEventArgs e)
+        {
+            if (last != null)
+            {
+                pointers--;
                     
-                    // Attach ripple instance to canvas
-                    PART_RippleCanvasRoot.Children.Add(r);
-                    r.RunFirstStep(e, this);
-                }
-            });
+                // This way to handle pointer released is pretty tricky
+                // could have more better way to improve
+                OnReleaseHandler(last, e);
+                last = null;
+            }
         }
 
         private void OnReleaseHandler(object sender, PointerReleasedEventArgs e)
@@ -55,12 +61,15 @@ namespace Material.Ripple {
             // Fade out ripple
             r.RunSecondStep(e);
             
-            // Remove ripple from canvas to finalize ripple instance
-            Task.Delay(Ripple.Duration).ContinueWith((a, b) =>
+            void RemoveRippleTask(Task arg1, object arg2)
             {
                 Dispatcher.UIThread.InvokeAsync(() => PART_RippleCanvasRoot.Children.Remove(r));
-            }, null);
+            }
+            
+            // Remove ripple from canvas to finalize ripple instance
+            Task.Delay(Ripple.Duration).ContinueWith(RemoveRippleTask, null);
         }
+        
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
             base.OnApplyTemplate(e);
 

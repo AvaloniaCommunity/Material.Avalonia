@@ -1,26 +1,19 @@
-﻿using Avalonia.Layout;
+﻿using System;
 using Avalonia.Threading;
 using Material.Dialog.Commands;
-using Material.Dialog.ViewModels.TextField;
 using Material.Dialog.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Avalonia.Media;
 
 namespace Material.Dialog.ViewModels
 {
     public class TimePickerDialogViewModel : DialogWindowViewModel
     {
-        private TimePickerDialog _window;
+        private readonly TimePickerDialog _window;
 
-        private DialogResultButton m_PositiveButton;
-        public DialogResultButton PositiveButton { get => m_PositiveButton; internal set => m_PositiveButton = value; }
+        public DialogResultButton PositiveButton { get; internal set; }
 
-        private DialogResultButton m_NegativeButton;
-        public DialogResultButton NegativeButton { get => m_NegativeButton; internal set => m_NegativeButton = value; }
+        public DialogResultButton NegativeButton { get; internal set; }
 
-        private ushort _firstField = 0;
+        private ushort _firstField;
         public ushort FirstField
         {
             get => _firstField;
@@ -28,21 +21,21 @@ namespace Material.Dialog.ViewModels
             {
                 if (_firstField == value)
                     return;
-                
+
                 if (value > 11)
                 {
                     value -= 12;
                     IsAm = false;
                     IsPm = true;
                 }
-                
+
                 _firstField = value;
-                FirstPanelPointerTransform = $"rotate({(_firstField / (double)12) * 360}deg)";
+                FirstPanelPointerTransform = $"rotate({_firstField / (double)12 * 360}deg)";
                 OnPropertyChanged();
             }
         }
-        
-        private ushort _secondField = 0;
+
+        private ushort _secondField;
         public ushort SecondField
         {
             get => _secondField;
@@ -52,8 +45,8 @@ namespace Material.Dialog.ViewModels
                     return;
 
                 _secondField = value;
-                
-                var r = Math.Round((_secondField / (double) 60) * 360);
+
+                double r = Math.Round(_secondField / (double)60 * 360);
                 SecondPanelPointerTransform = $"rotate({r}deg)";
                 OnPropertyChanged();
             }
@@ -69,7 +62,7 @@ namespace Material.Dialog.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private string _secondPanelPointerTransform;
         public string SecondPanelPointerTransform
         {
@@ -91,8 +84,8 @@ namespace Material.Dialog.ViewModels
                 OnPropertyChanged();
             }
         }
-        
-        private bool _isPm = false;
+
+        private bool _isPm;
         public bool IsPm
         {
             get => _isPm;
@@ -103,7 +96,7 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        private int _carouselIndex = 0;
+        private int _carouselIndex;
         public int CarouselIndex
         {
             get => _carouselIndex;
@@ -120,12 +113,12 @@ namespace Material.Dialog.ViewModels
         {
             get => _carouselIndex == 0;
             set
-            { 
-                CarouselIndex = value ? 0 : 1; 
+            {
+                CarouselIndex = value ? 0 : 1;
                 OnPropertyChanged();
             }
         }
-        
+
         public bool SecondFieldSelected
         {
             get => _carouselIndex == 1;
@@ -139,33 +132,31 @@ namespace Material.Dialog.ViewModels
         public TimePickerDialogViewModel(TimePickerDialog dialog)
         {
             _window = dialog;
-            ButtonClick = new RelayCommand(OnPressButton, CanPressButton);
+            ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 
-        public bool ValidateFields()
+
+        public bool CanPressButton(object args)
         {
             return true;
         }
-
-        public bool CanPressButton(object args) => true;
         public async void OnPressButton(object args)
         {
             var button = args as DialogResultButton;
             if (button is null)
-                return; 
+                return;
 
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
                 var timespan = new TimeSpan(FirstField + (_isAm ? 0 : 12), SecondField, 00);
-                
+
                 var result = new DateTimePickerDialogResult(button.Result, timespan);
-                var fields = new List<TextFieldResult>();
 
                 _window.Result = result;
                 _window.Close();
             });
         }
 
-        public RelayCommand ButtonClick { get; private set; }
+        public MaterialDialogRelayCommand ButtonClick { get; }
     }
 }

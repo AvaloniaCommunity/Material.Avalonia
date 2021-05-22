@@ -128,7 +128,7 @@
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </ripple:RippleEffect>
-                        <Border Name="PART_SelectedIndicator" Background="{DynamicResource MaterialDesignCheckBoxDisabled}"
+                        <Border Name="PART_SelectedIndicator" Background="{DynamicResource MaterialDesignFlatButtonRipple}"
                                 BorderThickness="0" IsHitTestVisible="False"/>
                     </Grid>
                 </ControlTemplate>
