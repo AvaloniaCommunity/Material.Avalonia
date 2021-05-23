@@ -3,7 +3,8 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml; 
+using Avalonia.Markup.Xaml;
+using Material.Styles;
 
 namespace Material.Demo {
     public class MainWindow : Window {
@@ -59,6 +60,21 @@ namespace Material.Demo {
             {
             }
             NavDrawerSwitch.IsChecked = false;
-        } 
+        }
+
+        private void TemplatedControl_OnTemplateApplied(object? sender, TemplateAppliedEventArgs e)
+        {
+            SnackbarHost.Post("Welcome to demo of Material.Avalonia!");
+        }
+
+        private void HelloButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
+        {
+            SnackbarHost.Post("Hello, user!");
+        }
+
+        private void GoodbyeButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
+        {
+            SnackbarHost.Post("See ya next time, user!");
+        }
     }
 }
