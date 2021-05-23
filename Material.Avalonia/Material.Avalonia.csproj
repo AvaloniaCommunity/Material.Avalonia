@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>2.1.0</Version>
+        <Version>2.2.0</Version>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -11,7 +11,18 @@
         <PackageLicenseUrl>https://raw.githubusercontent.com/AvaloniaUtils/material.avalonia/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <LangVersion>8</LangVersion> 
+        <LangVersion>8</LangVersion>
+        <PackageReleaseNotes>- Add dialogs via Material.Dialog
+- Add circular progress bar
+- Redisign calendar, datepicker
+- Implement background independended clip in outline hints
+- Change flat button style
+- Add flexible dialog icon property
+- Fix ComboBox, NumericUpDown and other controls style
+- Disable some unused properties of TextFieldAssist
+- Fix floating text not colored when focused outline field
+- Update avaloniaui dependencies to latest
+- A lot of changes in the demo project</PackageReleaseNotes> 
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
