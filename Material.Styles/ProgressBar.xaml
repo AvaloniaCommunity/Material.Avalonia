@@ -322,7 +322,13 @@
     </Style>
     
     <Style Selector="ProgressBar.Circle:not(:indeterminate) /template/ controls|Rotator#PART_Rotator">
-        <Setter Property="Rotate" Value="False" />
+        <Style.Animations>
+            <Animation Duration="0:0:0.1" IterationCount="1">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Speed" Value="0" />
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
     </Style>
     
     <Style Selector="ProgressBar.Circle:indeterminate /template/ controls|Arc#PART_Animation">
@@ -345,7 +351,6 @@
         </Style.Animations>
     </Style>
     <Style Selector="ProgressBar.Circle:indeterminate /template/ controls|Rotator#PART_Rotator">
-        <Setter Property="Rotate" Value="True" />
         <Style.Animations>
             <Animation Duration="0:0:1.5" IterationCount="INFINITE">
                 <KeyFrame Cue="0%">
