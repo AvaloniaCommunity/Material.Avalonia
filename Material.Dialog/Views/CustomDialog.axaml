@@ -59,8 +59,11 @@
                    Text="{CompiledBinding ContentHeader, FallbackValue='Dialog header'}"/>
       </Grid>
       
-      <ContentControl Name="PART_Content" Grid.Column="1" Grid.Row="3" Content="{Binding Content}"/>
-
+      <!-- Content panel -->
+      <Panel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" ClipToBounds="True">
+        <ContentControl Name="PART_Content" Content="{Binding Content}" ClipToBounds="False"/>
+      </Panel>
+      
       <Grid Grid.Column="0" 
             Grid.ColumnSpan="3" 
             Grid.Row="5">
