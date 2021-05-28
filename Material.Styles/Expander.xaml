@@ -1,5 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:styles="clr-namespace:Material.Styles">
+        xmlns:styles="clr-namespace:Material.Styles"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
 
     <Style Selector="Expander">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
@@ -13,11 +14,11 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}">
-                    <Grid RowDefinitions="*, Auto">
-                        <ToggleButton Name="PART_toggle" Grid.Row="1" Content="{TemplateBinding Header}"
+                    <Grid RowDefinitions="Auto, *">
+                        <ToggleButton Name="PART_toggle" Grid.Row="0" Content="{TemplateBinding Header}"
                                       IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
                         <ContentPresenter Name="PART_ContentPresenter"
-                                          Grid.Row="0"
+                                          Grid.Row="1"
                                           IsVisible="{TemplateBinding IsExpanded}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Content="{TemplateBinding Content}"
@@ -92,25 +93,28 @@
     <Style Selector="Expander /template/ ToggleButton#PART_toggle">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border BorderThickness="1">
-                    <Grid ColumnDefinitions="Auto,Auto">
-                        <Border Grid.Column="0" Width="20" Height="20" HorizontalAlignment="Center"
-                                VerticalAlignment="Center">
-                            <Path Fill="{DynamicResource PrimaryHueMidForegroundBrush}"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Data="M 0 2 L 4 6 L 0 10 Z" />
-                        </Border>
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Grid.Column="1"
-                                          Background="Transparent"
-                                          Content="{TemplateBinding Content}"
-                                          VerticalAlignment="Center"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Padding="{TemplateBinding Padding}" />
-                    </Grid>
-                </Border>
+                <ripple:RippleEffect Name="Ripple" Focusable="False"
+                                     RippleFill="{TemplateBinding Foreground}">
+                    <Border BorderThickness="1">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Grid.Column="1"
+                                              Background="Transparent"
+                                              Content="{TemplateBinding Content}"
+                                              VerticalAlignment="Center"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Padding="{TemplateBinding Padding}" />
+                            <Border Grid.Column="0" Width="20" Height="20" HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                <Path Fill="{DynamicResource PrimaryHueMidForegroundBrush}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Data="M 0 2 L 4 6 L 0 10 Z" />
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ripple:RippleEffect>
             </ControlTemplate>
         </Setter>
     </Style>
@@ -121,6 +125,7 @@
                 <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
             </Transitions>
         </Setter>
+        <Setter Property="Padding" Value="0"></Setter>
     </Style>
     
     <Style Selector="Expander:up:expanded /template/ styles|Card#PART_ExpanderRoot,
