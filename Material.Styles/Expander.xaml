@@ -1,6 +1,8 @@
-<Styles xmlns="https://github.com/avaloniaui">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:styles="clr-namespace:Material.Styles">
 
     <Style Selector="Expander">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
         <Setter Property="ContentTransition">
             <Setter.Value>
                 <CrossFade Duration="00:00:00.25" />
@@ -10,12 +12,12 @@
     <Style Selector="Expander[ExpandDirection=Down]">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
-                    <Grid RowDefinitions="Auto,*">
-                        <ToggleButton Name="PART_toggle" Grid.Row="0" Content="{TemplateBinding Header}"
+                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}">
+                    <Grid RowDefinitions="*, Auto">
+                        <ToggleButton Name="PART_toggle" Grid.Row="1" Content="{TemplateBinding Header}"
                                       IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
                         <ContentPresenter Name="PART_ContentPresenter"
-                                          Grid.Row="1"
+                                          Grid.Row="0"
                                           IsVisible="{TemplateBinding IsExpanded}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Content="{TemplateBinding Content}"
@@ -23,14 +25,14 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </Border>
+                </styles:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Up]">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}">
                     <Grid RowDefinitions="*,Auto">
                         <ToggleButton Name="PART_toggle" Grid.Row="1" Content="{TemplateBinding Header}"
                                       IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
@@ -43,14 +45,14 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </Border>
+                </styles:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Right]">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}">
                     <Grid ColumnDefinitions="Auto,*">
                         <ToggleButton Name="PART_toggle" Grid.Column="0" Content="{TemplateBinding Header}"
                                       IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
@@ -63,14 +65,14 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </Border>
+                </styles:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Left]">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}">
                     <Grid ColumnDefinitions="*,Auto">
                         <ToggleButton Name="PART_toggle" Grid.Column="1" Content="{TemplateBinding Header}"
                                       IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
@@ -83,7 +85,7 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </Border>
+                </styles:Card>
             </ControlTemplate>
         </Setter>
     </Style>
@@ -112,6 +114,20 @@
             </ControlTemplate>
         </Setter>
     </Style>
+    
+    <Style Selector="Expander /template/ styles|Card#PART_ExpanderRoot">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Expander:up:expanded /template/ styles|Card#PART_ExpanderRoot,
+                     Expander:down:expanded /template/ styles|Card#PART_ExpanderRoot">
+        <Setter Property="Margin" Value="0,16"/>
+    </Style>
+    
     <Style Selector="Expander:down:expanded /template/ ToggleButton#PART_toggle /template/ Path">
         <Setter Property="RenderTransform">
             <RotateTransform Angle="90" />
