@@ -55,6 +55,7 @@
                             <TextBlock Classes="Body2" Text="Sliders" />
                             <TextBlock Classes="Body2" Text="Progress indicators" />
                             <TextBlock Classes="Body2" Text="Lists" />
+                            <TextBlock Classes="Body2" Text="Expanders" />
                             <TextBlock Classes="Body2" Text="ColorZones" />
                             <TextBlock Classes="Body2" Text="Dialogs" />
                             <TextBlock Classes="Body2" Text="ScrollViewer" />
@@ -149,6 +150,9 @@
 
                             <!-- Lists -->
                             <pages:ListsDemo />
+                            
+                            <!-- Expanders -->
+                            <pages:ExpandersDemo />
 
                             <!-- ColorZones -->
                             <pages:ColorZonesDemo />
