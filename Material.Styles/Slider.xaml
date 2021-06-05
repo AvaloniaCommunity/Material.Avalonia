@@ -267,15 +267,14 @@
       <ControlTemplate>
         <Border Name="border" BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-          <Grid RowDefinitions="Auto,Auto,Auto">
-
-            <Border Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Stretch"
+          <Panel>
+            <Border HorizontalAlignment="Stretch"
                     BorderThickness="0" CornerRadius="1">
               <style:TickBar Name="CenterTick" Fill="{TemplateBinding Foreground}" Height="2" Margin="0"
                              TickFrequency="{Binding $parent[Slider].TickFrequency}" VerticalAlignment="Center"
                              Minimum="{TemplateBinding Minimum}" Maximum="{TemplateBinding Maximum}" Opacity="1" />
             </Border>
-            <Track Name="PART_Track" Grid.Row="1" MinHeight="{TemplateBinding MinHeight}"
+            <Track Name="PART_Track" MinHeight="{TemplateBinding MinHeight}"
                    Orientation="Horizontal" Minimum="{TemplateBinding Minimum}"
                    Value="{TemplateBinding Value}" Maximum="{TemplateBinding Maximum}">
               <Track.DecreaseButton>
@@ -294,7 +293,7 @@
                        Classes="SliderThumb Modern" />
               </Track.Thumb>
             </Track>
-          </Grid>
+          </Panel>
         </Border>
       </ControlTemplate>
     </Setter>
@@ -305,8 +304,7 @@
       <ControlTemplate>
         <Border Name="border" BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-          <Grid>
-
+          <Panel>
             <Border HorizontalAlignment="Stretch"
                     BorderThickness="0" CornerRadius="1">
               <style:TickBar Name="CenterTick" Fill="{TemplateBinding Foreground}" Width="2" Margin="0"
@@ -332,7 +330,7 @@
                        Classes="SliderThumb Modern" />
               </Track.Thumb>
             </Track>
-          </Grid>
+          </Panel>
         </Border>
       </ControlTemplate>
     </Setter>
