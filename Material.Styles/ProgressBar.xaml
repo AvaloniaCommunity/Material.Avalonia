@@ -321,7 +321,8 @@
         </Setter>
     </Style>
     
-    <Style Selector="ProgressBar.Circle:not(:indeterminate) /template/ controls|Rotator#PART_Rotator">
+    <Style Selector="ProgressBar.Circle:not(:indeterminate) /template/ controls|Rotator#PART_Rotator,
+                     ProgressBar.Circle[IsVisible=false] /template/ controls|Rotator#PART_Rotator">
         <Style.Animations>
             <Animation Duration="0:0:0.1" IterationCount="1">
                 <KeyFrame Cue="0%">
