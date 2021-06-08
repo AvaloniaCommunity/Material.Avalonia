@@ -1,11 +1,11 @@
-<Styles xmlns="https://github.com/avaloniaui" 
+<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:conv="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
         xmlns:sys="clr-namespace:System;assembly=netstandard"
         xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
     <Styles.Resources>
-      <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter"/>
+        <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
     </Styles.Resources>
 
     <Style Selector="MenuItem">
@@ -15,13 +15,14 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid>
-                    <Border Name="root"
-                            Background="{DynamicResource MaterialDesignBody}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}" />
-                    <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
-                        <Grid>
+                <Border Name="PART_MenuItemRootBorder" Height="{TemplateBinding Height}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <Panel>
+                        <Border Name="PART_MenuItemHighlighter"
+                                Background="{DynamicResource MaterialDesignBody}"/>
+                        <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+                        <Grid Margin="{TemplateBinding Padding}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="24" />
                                 <ColumnDefinition Width="24" />
@@ -82,7 +83,8 @@
                             </Popup>
                         </Grid>
                     </ripple:RippleEffect>
-                </Grid>
+                    </Panel>
+                </Border>
             </ControlTemplate>
         </Setter>
     </Style>
@@ -99,12 +101,13 @@
 
     <Style Selector="Menu > MenuItem">
         <Setter Property="Padding" Value="4" />
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type TemplatedControl}}, Path=Foreground}"/>
+        <Setter Property="Foreground"
+                Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type TemplatedControl}}, Path=Foreground}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="root"
                         BorderThickness="{TemplateBinding BorderThickness}">
-                    <Grid>
+                    <Panel>
                         <ToggleButton Name="PART_HeaderPresenter" Classes="Flat TransparentBack ConstantForeground"
                                       HorizontalContentAlignment="Center"
                                       VerticalContentAlignment="Center"
@@ -141,27 +144,27 @@
                                 </Border>
                             </styles:Card>
                         </Popup>
-                    </Grid>
+                    </Panel>
                 </Border>
             </ControlTemplate>
         </Setter>
     </Style>
 
     <Style
-        Selector="MenuItem > MenuItem:not(:disabled):not(:selected) /template/ Border#root,
-    ContextMenu > MenuItem:not(:disabled):not(:selected) /template/ Border#root">
+        Selector="MenuItem > MenuItem:not(:disabled):not(:selected) /template/ Border#PART_MenuItemHighlighter,
+    ContextMenu > MenuItem:not(:disabled):not(:selected) /template/ Border#PART_MenuItemHighlighter">
         <Setter Property="Opacity" Value="0" />
     </Style>
 
     <Style
-        Selector="MenuItem > MenuItem:disabled:not(:selected) /template/ Border#root,
-    ContextMenu > MenuItem:disabled:not(:selected) /template/ Border#root">
+        Selector="MenuItem > MenuItem:disabled:not(:selected) /template/ Border#PART_MenuItemHighlighter,
+    ContextMenu > MenuItem:disabled:not(:selected) /template/ Border#PART_MenuItemHighlighter">
         <Setter Property="Opacity" Value="0" />
     </Style>
 
     <Style
-        Selector="MenuItem > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#root,
-    ContextMenu > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#root">
+        Selector="MenuItem > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter,
+    ContextMenu > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter">
         <Setter Property="Opacity" Value="0.13" />
     </Style>
 
