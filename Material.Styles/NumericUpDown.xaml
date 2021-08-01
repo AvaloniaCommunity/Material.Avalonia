@@ -5,8 +5,8 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
-        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
-        <Setter Property="MinHeight" Value="48"></Setter>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="MinHeight" Value="48"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_RootBorder"
@@ -14,7 +14,7 @@
                         ClipToBounds="True" CornerRadius="4,4,0,0"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="0">
+                        BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Border Name="focusBorder"
                                 Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
@@ -45,15 +45,15 @@
     </Style>
     
     <Style Selector="NumericUpDown /template/ TextBox#PART_TextBox /template/ styles|MaterialUnderline#Underline">
-        <Setter Property="Opacity" Value="0"></Setter>
+        <Setter Property="Opacity" Value="0"/>
     </Style>
     
     <Style Selector="NumericUpDown:focus-within /template/ styles|MaterialUnderline#Underline">
-        <Setter Property="IsExpanded" Value="True"></Setter>
+        <Setter Property="IsExpanded" Value="True"/>
     </Style>
     
     <Style Selector="NumericUpDown:pointerover /template/ styles|MaterialUnderline#Underline">
-        <Setter Property="IsActive" Value="True"></Setter>
+        <Setter Property="IsActive" Value="True"/>
     </Style> 
     
     <Style Selector="TextBox /template/ Border#PART_RootBorder">

@@ -6,6 +6,7 @@
   xmlns:system="clr-namespace:System;assembly=netstandard">
   <Styles.Resources>
     <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
+    <system:Double x:Key="ButtonDisabledOpacity">0.38</system:Double>
     <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
   </Styles.Resources>
 
@@ -81,7 +82,7 @@
   </Style>
     
   <Style Selector="Button:disabled:not(.no-material),ToggleButton:disabled:not(.no-material)">
-    <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    <Setter Property="Opacity" Value="{StaticResource ButtonDisabledOpacity}" />
   </Style>
   
   <!-- Feedbacks -->

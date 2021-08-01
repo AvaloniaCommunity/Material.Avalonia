@@ -9,76 +9,93 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid>
-                        <Border Background="{TemplateBinding Background}"
-                                CornerRadius="{TemplateBinding CornerRadius}"
-                                assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                    <Border Name="PART_ColorZoneRootBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                                 Path=(assists:ShadowAssist.ShadowDepth)}">
-                            <Border Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="{TemplateBinding CornerRadius}"
-                                    ClipToBounds="True">
-                                <ContentPresenter Content="{TemplateBinding Content}"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                  Cursor="{TemplateBinding Cursor}"
-                                                  Margin="{TemplateBinding Padding}"
-                                                  TextBlock.Foreground="{TemplateBinding Foreground}"
-                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            </Border>
+                        <Border Name="PART_ColorZoneInnerBorder"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Margin="{TemplateBinding Padding}">
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Cursor="{TemplateBinding Cursor}"
+                                              TextBlock.Foreground="{TemplateBinding Foreground}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
-                    </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
     
+    <Style Selector="cc|ColorZone Button,
+                     cc|ColorZone ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}"/>
+    </Style>
+
     <Style Selector="cc|ColorZone[Mode=Inverted]">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
+    </Style>
+    
+    <Style Selector="cc|ColorZone[Mode=Inverted] Button,
+                     cc|ColorZone[Mode=Inverted] ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignPaper}"/>
     </Style>
     
     <Style Selector="cc|ColorZone[Mode=PrimaryLight]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
     </Style>
+    
     <Style Selector="cc|ColorZone[Mode=PrimaryLight] Button,
                      cc|ColorZone[Mode=PrimaryLight] ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
     </Style>
     
     <Style Selector="cc|ColorZone[Mode=PrimaryMid]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
     </Style>
+    
     <Style Selector="cc|ColorZone[Mode=PrimaryMid] Button,
                      cc|ColorZone[Mode=PrimaryMid] ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
     </Style>
     
     <Style Selector="cc|ColorZone[Mode=PrimaryDark]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
     </Style>
+    
     <Style Selector="cc|ColorZone[Mode=PrimaryDark] Button,
                      cc|ColorZone[Mode=PrimaryDark] ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
     </Style>
     
     <Style Selector="cc|ColorZone[Mode=Accent]">
         <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
     </Style>
+    
     <Style Selector="cc|ColorZone[Mode=Accent] Button,
                      cc|ColorZone[Mode=Accent] ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
     </Style>
     
     <Style Selector="cc|ColorZone[Mode=Light]">
@@ -86,9 +103,21 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignLightForeground}" />
     </Style>
     
+    <Style Selector="cc|ColorZone[Mode=Light] Button,
+                     cc|ColorZone[Mode=Light] ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignLightForeground}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignLightForeground}"/>
+    </Style>
+    
     <Style Selector="cc|ColorZone[Mode=Dark]">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignDarkBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDarkForeground}" />
+    </Style>
+    
+    <Style Selector="cc|ColorZone[Mode=Dark] Button,
+                     cc|ColorZone[Mode=Dark] ToggleButton">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDarkForeground}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignDarkForeground}"/>
     </Style>
 
     <Design.PreviewWith>

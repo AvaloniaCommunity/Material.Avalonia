@@ -67,4 +67,5 @@
     <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
     <StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
+    <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
 </Styles>

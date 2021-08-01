@@ -1,19 +1,24 @@
-<Styles xmlns="https://github.com/avaloniaui">
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:styles="clr-namespace:Material.Styles"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
 
     <Style Selector="Expander">
+        <Setter Property="ClipToBounds" Value="False"/>
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
         <Setter Property="ContentTransition">
             <Setter.Value>
-                <CrossFade Duration="00:00:00.25" />
+                <CrossFade Duration="0.25" />
             </Setter.Value>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Down]">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
-                    <Grid RowDefinitions="Auto,*">
-                        <ToggleButton Name="PART_toggle" Grid.Row="0" Content="{TemplateBinding Header}"
-                                      IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
+                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
+                    <Grid RowDefinitions="Auto, *">
+                        <ToggleButton Name="PART_toggle" Grid.Row="0" Content="{TemplateBinding Header}" Classes="ConstantForeground"
+                                      Foreground="{DynamicResource MaterialDesignBody}"
+                                      IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" HorizontalContentAlignment="Left" />
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Grid.Row="1"
                                           IsVisible="{TemplateBinding IsExpanded}"
@@ -23,17 +28,18 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </Border>
+                </styles:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Up]">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
                     <Grid RowDefinitions="*,Auto">
-                        <ToggleButton Name="PART_toggle" Grid.Row="1" Content="{TemplateBinding Header}"
-                                      IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
+                        <ToggleButton Name="PART_toggle" Grid.Row="1" Content="{TemplateBinding Header}" Classes="ConstantForeground"
+                                      Foreground="{DynamicResource MaterialDesignBody}"
+                                      IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" HorizontalContentAlignment="Left" />
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Grid.Row="0"
                                           IsVisible="{TemplateBinding IsExpanded}"
@@ -43,17 +49,18 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </Border>
+                </styles:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Right]">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
                     <Grid ColumnDefinitions="Auto,*">
                         <ToggleButton Name="PART_toggle" Grid.Column="0" Content="{TemplateBinding Header}"
-                                      IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
+                                      Foreground="{DynamicResource MaterialDesignBody}"
+                                      IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" Classes="ConstantForeground" />
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Grid.Column="1"
                                           IsVisible="{TemplateBinding IsExpanded}"
@@ -63,16 +70,17 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </Border>
+                </styles:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Left]">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
                     <Grid ColumnDefinitions="*,Auto">
-                        <ToggleButton Name="PART_toggle" Grid.Column="1" Content="{TemplateBinding Header}"
+                        <ToggleButton Name="PART_toggle" Grid.Column="1" Content="{TemplateBinding Header}" Classes="ConstantForeground"
+                                      Foreground="{DynamicResource MaterialDesignBody}"
                                       IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Grid.Column="0"
@@ -83,22 +91,15 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </Border>
+                </styles:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander /template/ ToggleButton#PART_toggle">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border BorderThickness="1">
-                    <Grid ColumnDefinitions="Auto,Auto">
-                        <Border Grid.Column="0" Width="20" Height="20" HorizontalAlignment="Center"
-                                VerticalAlignment="Center">
-                            <Path Fill="{DynamicResource PrimaryHueMidForegroundBrush}"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Data="M 0 2 L 4 6 L 0 10 Z" />
-                        </Border>
+                <Border Background="Transparent" MinHeight="48" Padding="8">
+                    <Grid ColumnDefinitions="12,*,Auto,12">
                         <ContentPresenter Name="PART_ContentPresenter"
                                           Grid.Column="1"
                                           Background="Transparent"
@@ -106,33 +107,66 @@
                                           VerticalAlignment="Center"
                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Padding="{TemplateBinding Padding}" />
+                                          Padding="0" />
+                        <Border Grid.Column="2" HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                            <Path Name="PART_ExpandIcon" Width="24" Height="24"
+                                  Fill="{TemplateBinding Foreground}"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                        </Border>
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
     </Style>
-    <Style Selector="Expander:down:expanded /template/ ToggleButton#PART_toggle /template/ Path">
-        <Setter Property="RenderTransform">
-            <RotateTransform Angle="90" />
+    
+    <Style Selector="Expander:not(.notransitions) /template/ styles|Card#PART_ExpanderRoot">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Duration="0.25" Property="Margin" Easing="CubicEaseOut"/>
+            </Transitions>
         </Setter>
     </Style>
-    <Style Selector="Expander:up:expanded /template/ ToggleButton#PART_toggle /template/ Path">
-        <Setter Property="RenderTransform">
-            <RotateTransform Angle="-90" />
+    <Style Selector="Expander:not(.notransitions) /template/ ToggleButton#PART_toggle /template/ Path">
+        <Setter Property="Transitions">
+            <Transitions>
+                <TransformOperationsTransition Property="RenderTransform" Duration="0.25" Easing="CubicEaseOut"/>
+            </Transitions>
         </Setter>
     </Style>
-    <Style Selector="Expander:left:expanded /template/ ToggleButton#PART_toggle /template/ Path">
+    
+    <Style Selector="Expander:up:expanded /template/ styles|Card#PART_ExpanderRoot,
+                     Expander:down:expanded /template/ styles|Card#PART_ExpanderRoot">
+        <Setter Property="Margin" Value="0,16"/>
+    </Style>
+    
+    <Style Selector="Expander:down /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
+        <Setter Property="RenderTransform" Value="rotate(90deg)"/>
+    </Style>
+    <Style Selector="Expander:down:expanded /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
+        <Setter Property="RenderTransform" Value="rotate(-90deg)"/>
+    </Style>
+    
+    <Style Selector="Expander:up /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
+        <Setter Property="RenderTransform" Value="rotate(-90deg)"/>
+    </Style>
+    <Style Selector="Expander:up:expanded /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
+        <Setter Property="RenderTransform" Value="rotate(90deg)"/>
+    </Style>
+    
+    <Style Selector="Expander:left:expanded /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
         <Setter Property="RenderTransform">
             <RotateTransform Angle="180" />
         </Setter>
     </Style>
-    <Style Selector="Expander:right /template/ ToggleButton#PART_toggle /template/ Path">
+    <Style Selector="Expander:right /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
         <Setter Property="RenderTransform">
             <RotateTransform Angle="180" />
         </Setter>
     </Style>
-    <Style Selector="Expander:right:expanded /template/ ToggleButton#PART_toggle /template/ Path">
+    <Style Selector="Expander:right:expanded /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
         <Setter Property="RenderTransform">
             <RotateTransform Angle="0" />
         </Setter>
