@@ -2,8 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>2.3.0</Version>
+        <VersionPrefix>2.3.0</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -23,6 +22,12 @@
 - Fix space between ScrollBar and right border of the DataGrid
 - Optimise Circular ProgressBar</PackageReleaseNotes>
     </PropertyGroup>
+
+<!--    For nightly versions-->
+    <PropertyGroup>
+        <Version Condition="'$(PatchNumber)' != ''">$(VersionPrefix).$(PatchNumber)</Version>
+    </PropertyGroup>
+    
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
             <SubType>Designer</SubType>
@@ -37,5 +42,4 @@
     <ItemGroup>
       <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
     </ItemGroup>
-
 </Project>
