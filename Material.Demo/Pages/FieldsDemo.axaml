@@ -339,6 +339,5 @@
                 </StackPanel>
             </StackPanel>
         </WrapPanel>
-        <DatePicker/>
     </StackPanel>
 </UserControl>
