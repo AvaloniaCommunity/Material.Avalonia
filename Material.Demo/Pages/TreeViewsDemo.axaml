@@ -1,0 +1,82 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="Material.Demo.Pages.TreeViewsDemo">
+    <StackPanel Margin="16, 0">
+        <StackPanel.Styles>
+            <Style Selector="styles|Card.ChildDemo">
+                <Setter Property="Width" Value="320" />
+                <Setter Property="Height" Value="320" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+        </StackPanel.Styles>
+
+        <!-- Content title -->
+        <TextBlock Classes="Headline4 Subheadline" Text="TreeViews" />
+
+        <WrapPanel>
+            <!-- Demos -->
+            <styles:Card Classes="ChildDemo">
+                <StackPanel>
+                    <TextBlock Classes="Headline6" Margin="8" Text="Operation systems: " />
+
+                    <TreeView>
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <avalonia:MaterialIcon Kind="DesktopMac" />
+                                    <TextBlock Text="Apple MacOS" Grid.Column="1" />
+                                </Grid>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <avalonia:MaterialIcon Kind="MicrosoftWindows" />
+                                    <TextBlock Text="Windows" Grid.Column="1" />
+                                </Grid>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <avalonia:MaterialIcon Kind="Linux" />
+                                    <TextBlock Text="Linux" Grid.Column="1" />
+                                </Grid>
+                            </TreeViewItem.Header>
+
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <avalonia:MaterialIcon Kind="Arch" />
+                                        <TextBlock Text="Arch Linux" Grid.Column="1" />
+                                    </Grid>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <avalonia:MaterialIcon Kind="Ubuntu" />
+                                        <TextBlock Text="Ubuntu" Grid.Column="1" />
+                                    </Grid>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <avalonia:MaterialIcon Kind="Debian" />
+                                        <TextBlock Text="Debian" Grid.Column="1" />
+                                    </Grid>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+                </StackPanel>
+            </styles:Card>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>
