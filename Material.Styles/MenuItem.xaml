@@ -150,26 +150,15 @@
         </Setter>
     </Style>
 
-    <Style
-        Selector="MenuItem > MenuItem:not(:disabled):not(:selected) /template/ Border#PART_MenuItemHighlighter,
-    ContextMenu > MenuItem:not(:disabled):not(:selected) /template/ Border#PART_MenuItemHighlighter">
+    <Style Selector="MenuItem /template/ Border#PART_MenuItemHighlighter">
         <Setter Property="Opacity" Value="0" />
     </Style>
 
-    <Style
-        Selector="MenuItem > MenuItem:disabled:not(:selected) /template/ Border#PART_MenuItemHighlighter,
-    ContextMenu > MenuItem:disabled:not(:selected) /template/ Border#PART_MenuItemHighlighter">
-        <Setter Property="Opacity" Value="0" />
-    </Style>
-
-    <Style
-        Selector="MenuItem > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter,
-    ContextMenu > MenuItem:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter">
+    <Style Selector="MenuItem:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter">
         <Setter Property="Opacity" Value="0.13" />
     </Style>
 
-    <Style Selector="MenuItem > MenuItem:not(.Menu):disabled,
-    ContextMenu > MenuItem:not(.Menu):disabled">
+    <Style Selector="MenuItem:not(.Menu):disabled">
         <Setter Property="Opacity" Value="0.56" />
     </Style>
 
