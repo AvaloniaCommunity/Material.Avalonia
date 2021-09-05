@@ -6,10 +6,17 @@
         xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         xmlns:pages="clr-namespace:Material.Demo.Pages"
         xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Width="1280" Height="720" MinWidth="720"
         Title="Material.Demo">
     <Window.Styles>
+        <Style Selector="showMeTheXaml|XamlDisplay">
+            <Setter Property="Margin" Value="8" />
+            
+            <!-- Stretch XamlDisplay horizontally -->
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
         <Style Selector="TextBlock.Subheadline">
             <Setter Property="Margin" Value="0, 16" />
         </Style>
@@ -60,6 +67,7 @@
                             <TextBlock Classes="Body2" Text="Dialogs" />
                             <TextBlock Classes="Body2" Text="ScrollViewer" />
                             <TextBlock Classes="Body2" Text="TabControls" />
+                            <TextBlock Classes="Body2" Text="TreeViews" />
                             <TextBlock Classes="Body2" Text="Card" />
                             <TextBlock Classes="Body2" Text="Typography" />
                             <TextBlock Classes="Body2" Text="Shadows" IsEnabled="False" />
@@ -165,6 +173,9 @@
 
                             <!-- TabControls -->
                             <pages:TabsDemo />
+                            
+                            <!-- TreeViews -->
+                            <pages:TreeViewsDemo />
 
                             <!-- Card -->
                             <pages:CardsDemo />

@@ -28,6 +28,7 @@
     <!-- <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" /> -->
     <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" />
     <StyleInclude Source="avares://Material.Styles/Expander.xaml" />
+    <StyleInclude Source="avares://Material.Styles/FlyoutPresenter.axaml" />
     <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
     <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
     <StyleInclude Source="avares://Material.Styles/ItemsControl.xaml" />
