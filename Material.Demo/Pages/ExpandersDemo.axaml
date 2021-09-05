@@ -7,11 +7,6 @@
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              x:Class="Material.Demo.Pages.ExpandersDemo">
     <StackPanel Margin="16, 0">
-        <StackPanel.Styles>
-            <Style Selector="showMeTheXaml|XamlDisplay">
-                <Setter Property="Margin" Value="8" />
-            </Style>
-        </StackPanel.Styles>
         <TextBlock Classes="Headline4 Subheadline" Text="Expanders" />
         
         <Expander Header="This is expander! Click me to expand the content.">

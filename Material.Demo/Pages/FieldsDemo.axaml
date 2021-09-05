@@ -15,9 +15,6 @@
     
     <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
         <StackPanel.Styles>
-            <Style Selector="showMeTheXaml|XamlDisplay">
-                <Setter Property="Margin" Value="8 0" />
-            </Style>
             <Style Selector="TextBox">
                 <Setter Property="Margin" Value="0"></Setter>
             </Style>
@@ -342,5 +339,6 @@
                 </StackPanel>
             </StackPanel>
         </WrapPanel>
+        <DatePicker/>
     </StackPanel>
 </UserControl>

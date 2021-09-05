@@ -12,11 +12,6 @@
         <TextBlock Classes="Headline4 Subheadline" Text="Buttons" />
         <TextBlock Classes="Headline6 Subheadline2" Text="Regular buttons" />
         <StackPanel Orientation="Horizontal">
-            <StackPanel.Styles>
-                <Style Selector="showMeTheXaml|XamlDisplay">
-                    <Setter Property="Margin" Value="8" />
-                </Style>
-            </StackPanel.Styles>
             <showMeTheXaml:XamlDisplay UniqueId="Buttons1">
                 <Button Classes="Light" Content="Light" ToolTip.Tip='Button with classes "Light"' />
             </showMeTheXaml:XamlDisplay>

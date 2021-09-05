@@ -14,9 +14,6 @@
                 <TextBlock Classes="Headline6 Subheadline2" Text="Standard comboboxes" />
                 <StackPanel Orientation="Horizontal">
                     <StackPanel.Styles>
-                        <Style Selector="showMeTheXaml|XamlDisplay">
-                            <Setter Property="Margin" Value="8" />
-                        </Style>
                         <Style Selector="ComboBox">
                             <Setter Property="Width" Value="180" />
                         </Style>

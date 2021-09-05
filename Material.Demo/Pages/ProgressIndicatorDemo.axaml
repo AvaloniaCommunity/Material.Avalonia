@@ -14,9 +14,6 @@
                     <Style Selector="ProgressBar">
                         <Setter Property="Width" Value="300" />
                     </Style>
-                    <Style Selector="showMeTheXaml|XamlDisplay">
-                        <Setter Property="Margin" Value="8" />
-                    </Style>
                 </StackPanel.Styles>
                 <TextBlock Classes="Headline6 Subheadline2" Text="Linear progress bars" />
                 <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators0">
