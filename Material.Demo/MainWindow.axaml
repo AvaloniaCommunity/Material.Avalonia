@@ -70,6 +70,7 @@
                             <TextBlock Classes="Body2" Text="TreeViews" />
                             <TextBlock Classes="Body2" Text="Card" />
                             <TextBlock Classes="Body2" Text="Typography" />
+                            <TextBlock Classes="Body2" Text="Pickers" />
                             <TextBlock Classes="Body2" Text="Shadows" IsEnabled="False" />
                         </ListBox>
                     </StackPanel>
@@ -183,6 +184,9 @@
                             <!-- Typography -->
                             <pages:TypographyDemo />
 
+                            <!-- Pickers -->
+                            <pages:PickersDemo />
+                            
                             <!-- Shadows -->
                             <pages:NotReadyDemo />
                         </Carousel>
