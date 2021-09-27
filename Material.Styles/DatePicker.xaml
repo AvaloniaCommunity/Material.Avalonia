@@ -48,7 +48,8 @@
             <TextBox.InnerRightContent>
               <ToggleButton Name="CalendarButton"
                             Classes="Icon NoFeedback"
-                            Margin="-8 14 0 0">
+                            VerticalAlignment="Bottom"
+                            Margin="-8 8 8 6">
                 <avalonia:MaterialIcon Kind="Calendar" Width="20" Height="20" />
               </ToggleButton>
             </TextBox.InnerRightContent>

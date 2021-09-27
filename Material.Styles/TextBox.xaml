@@ -88,10 +88,7 @@
 
                             <DataValidationErrors Name="DataValidation">
                                 <Grid ColumnDefinitions="Auto,*,Auto">
-                                    <ContentPresenter Grid.Column="0"
-                                                      VerticalAlignment="Top"
-                                                      HorizontalAlignment="Left"
-                                                      Content="{TemplateBinding InnerLeftContent}" />
+                                    <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
                                     <ScrollViewer Grid.Column="1"
                                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
@@ -121,10 +118,7 @@
                                                            CaretBrush="{TemplateBinding CaretBrush}" />
                                         </Panel>
                                     </ScrollViewer>
-                                    <ContentPresenter Grid.Column="2"
-                                                      MinHeight="32"
-                                                      VerticalAlignment="Top"
-                                                      Content="{TemplateBinding InnerRightContent}" />
+                                    <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                                     <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
                                                               VerticalAlignment="Bottom"
                                                               Name="PART_Underline" />
@@ -240,10 +234,7 @@
                                            RenderTransformOrigin="0, 0" />
 
                                 <Grid ColumnDefinitions="Auto,*,Auto">
-                                    <ContentPresenter Grid.Column="0"
-                                                      VerticalAlignment="Top"
-                                                      HorizontalAlignment="Left"
-                                                      Content="{TemplateBinding InnerLeftContent}" />
+                                    <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
                                     <ScrollViewer Name="PART_Scroller" Grid.Column="1" Classes="Modern" Padding="16,0"
                                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
@@ -271,11 +262,7 @@
                                                            CaretBrush="{TemplateBinding CaretBrush}" />
                                         </Panel>
                                     </ScrollViewer>
-                                    <ContentPresenter Grid.Column="2"
-                                                      MinHeight="32"
-                                                      Margin="0,0,0,0"
-                                                      VerticalAlignment="Top"
-                                                      Content="{TemplateBinding InnerRightContent}" />
+                                    <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                                     <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
                                                               VerticalAlignment="Bottom"
                                                               Name="PART_Underline" />
@@ -390,10 +377,7 @@
 
 
                             <Grid ColumnDefinitions="Auto,*,Auto">
-                                <ContentPresenter Grid.Column="0"
-                                                  VerticalAlignment="Top"
-                                                  HorizontalAlignment="Left"
-                                                  Content="{TemplateBinding InnerLeftContent}" />
+                                <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
                                 <ScrollViewer Name="PART_Scroller" Grid.Column="1" Classes="Modern"
                                               Padding="16, 0, 8,0"
                                               HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
@@ -423,11 +407,7 @@
                                                        CaretBrush="{TemplateBinding CaretBrush}" />
                                     </Panel>
                                 </ScrollViewer>
-                                <ContentPresenter Grid.Column="2"
-                                                  Margin="0,0,0,0"
-                                                  MinHeight="32"
-                                                  VerticalAlignment="Top"
-                                                  Content="{TemplateBinding InnerRightContent}" />
+                                <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                             </Grid>
 
                         </Grid>
@@ -600,9 +580,7 @@
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="{TemplateBinding Padding}">
                         <DataValidationErrors Name="DataValidation">
                             <Grid ColumnDefinitions="Auto,*,Auto">
-                                <ContentPresenter Grid.Column="0"
-                                                  HorizontalAlignment="Left"
-                                                  Content="{TemplateBinding InnerLeftContent}" />
+                                <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
                                 <Grid Name="PART_InnerRoot" Grid.Column="1">
                                     <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
@@ -627,9 +605,7 @@
                                     </Panel>
                                 </ScrollViewer>
                                 </Grid>
-                                <ContentPresenter Grid.Column="2"
-                                                  HorizontalAlignment="Right"
-                                                  Content="{TemplateBinding InnerRightContent}" />
+                                <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                             </Grid>
                         </DataValidationErrors>
                     </Grid>
