@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <VersionPrefix>2.3.1</VersionPrefix>
+        <VersionPrefix>2.4.0</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -12,11 +12,11 @@
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
         <PackageReleaseNotes>
-            - Add Flyouts support
-            - Fix ContextMenu background #109
-            - Upgrade Avalonia version to 0.10.1 in Material.Avalonia
-            - Fix for snackbars compiled binding error
-            - Fix for pipelines, add nightly builds
+            - Update AvaloniaUI package dependencies to latest (0.10.7). Fix #112
+            - Improve ToggleButton.NoFeedback style, add ToggleButton.NoFeedback.Icon style
+            - Add DatePicker styles. Fix #104
+            - Remove TextBox's InnerLeftContent and InnerRightContent alignment
+            - Add publishing nightly builds on official nuget feed. Fix #110
         </PackageReleaseNotes>
     </PropertyGroup>
 
@@ -32,7 +32,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.1" />
+      <PackageReference Include="Avalonia" Version="0.10.7" />
       <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
     </ItemGroup>
 
