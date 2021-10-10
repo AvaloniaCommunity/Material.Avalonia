@@ -65,7 +65,7 @@
                         </Style>
                     </StackPanel.Styles>
                     <showMeTheXaml:XamlDisplay UniqueId="MultilineFields0">
-                        <TextBox Classes="Floating" AcceptsReturn="True" TextWrapping="Wrap"
+                        <TextBox Classes="Floating" AcceptsReturn="True" MaxHeight="100" TextWrapping="Wrap" wpf:TextFieldAssist.Label="Multiline Test" UseFloatingWatermark="True"
                                  Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
  adipiscing elit, sed do eiusmod tempor incididunt ut labore
  et dolore magna aliqua. The quick brown fox jumps over the 
@@ -159,6 +159,7 @@
                                  Classes="Filled"
                                  AcceptsReturn="True"
                                  TextWrapping="Wrap"
+                                 MaxHeight="100"
                                  Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
  adipiscing elit, sed do eiusmod tempor incididunt ut labore
  et dolore magna aliqua. The quick brown fox jumps over the 
@@ -244,6 +245,7 @@
                         <TextBox UseFloatingWatermark="True"
                                  wpf:TextFieldAssist.Label="Multiline textfield"
                                  Classes="Outline"
+                                 MaxHeight="100"
                                  AcceptsReturn="True"
                                  TextWrapping="Wrap"
                                  Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
