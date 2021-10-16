@@ -3,13 +3,14 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <LangVersion>8</LangVersion>
+        <LangVersion>9</LangVersion>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Company>Larymar,SKProCH,Appleneko2001</Company>
         <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
         <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <Description>Main styles library of Material.Avalonia.</Description>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>

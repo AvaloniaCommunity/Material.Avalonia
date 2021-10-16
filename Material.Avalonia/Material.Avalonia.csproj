@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <VersionPrefix>2.3.1</VersionPrefix>
+        <VersionPrefix>2.4.1</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -12,11 +12,7 @@
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
         <PackageReleaseNotes>
-            - Add Flyouts support
-            - Fix ContextMenu background #109
-            - Upgrade Avalonia version to 0.10.1 in Material.Avalonia
-            - Fix for snackbars compiled binding error
-            - Fix for pipelines, add nightly builds
+            - Add support for vertically scrolling textboxes
         </PackageReleaseNotes>
     </PropertyGroup>
 

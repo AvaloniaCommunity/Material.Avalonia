@@ -172,5 +172,38 @@
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
         </StackPanel>
+        
+        <TextBlock Classes="Headline6 Subheadline2" Text="ToggleButtons" />
+        <StackPanel Orientation="Horizontal">
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons0">
+                <ToggleButton>ToggleButton</ToggleButton>
+            </showMeTheXaml:XamlDisplay>
+
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons1">
+                <ToggleButton Classes="NoFeedback">NoFeedback</ToggleButton>
+            </showMeTheXaml:XamlDisplay>
+            
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons2">
+                <ToggleButton IsEnabled="False">Disabled</ToggleButton>
+            </showMeTheXaml:XamlDisplay>
+            
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons3">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 8 0">Icon:</TextBlock>
+                    <ToggleButton Classes="Icon">
+                        <avalonia:MaterialIcon Kind="Globe"></avalonia:MaterialIcon>
+                    </ToggleButton>
+                </StackPanel>
+            </showMeTheXaml:XamlDisplay>
+            
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons4">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 8 0">Icon NoFeedback:</TextBlock>
+                    <ToggleButton Classes="Icon NoFeedback">
+                        <avalonia:MaterialIcon Kind="Globe"></avalonia:MaterialIcon>
+                    </ToggleButton>
+                </StackPanel>
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
     </StackPanel>
 </UserControl>
