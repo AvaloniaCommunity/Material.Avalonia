@@ -9,6 +9,8 @@ namespace Material.Dialog.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null)
+                return TransformOperation.Identity;
             var r = TransformOperations.Parse(value.ToString());
             return r;
         }
