@@ -8,6 +8,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.LogicalTree;
 using Avalonia.Controls.Primitives;
+using Avalonia.Layout;
 using Avalonia.Threading;
 using Material.Styles.Models;
 
@@ -37,6 +38,24 @@ namespace Material.Styles
 
         public static readonly StyledProperty<string> HostNameProperty =
             AvaloniaProperty.Register<SnackbarHost, string>(nameof(HostName));
+
+        public HorizontalAlignment SnackbarHorizontalAlignment
+        {
+            get => GetValue(SnackbarHorizontalAlignmentProperty);
+            set => SetValue(SnackbarHorizontalAlignmentProperty, value);
+        }
+
+        public static readonly StyledProperty<HorizontalAlignment> SnackbarHorizontalAlignmentProperty =
+            AvaloniaProperty.Register<SnackbarHost, HorizontalAlignment>(nameof(SnackbarHorizontalAlignment), HorizontalAlignment.Left);
+
+        public VerticalAlignment SnackbarVerticalAlignment
+        {
+            get => GetValue(SnackbarVerticalAlignmentProperty);
+            set => SetValue(SnackbarVerticalAlignmentProperty, value);
+        }
+
+        public static readonly StyledProperty<VerticalAlignment> SnackbarVerticalAlignmentProperty =
+            AvaloniaProperty.Register<SnackbarHost, VerticalAlignment>(nameof(SnackbarVerticalAlignment), VerticalAlignment.Bottom);
 
         static SnackbarHost()
         {
