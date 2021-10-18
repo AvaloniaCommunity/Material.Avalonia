@@ -15,7 +15,7 @@
         <Panel>
           <ContentPresenter Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}" />
-          <ItemsControl HorizontalAlignment="Left" VerticalAlignment="Bottom"
+          <ItemsControl HorizontalAlignment="{TemplateBinding SnackbarHorizontalAlignment}" VerticalAlignment="{TemplateBinding SnackbarVerticalAlignment}"
                         Items="{CompiledBinding $parent[cc:SnackbarHost].SnackbarModels}">
             <ItemsControl.ItemsPanel>
               <ItemsPanelTemplate>
