@@ -4,13 +4,13 @@
         xmlns:styles="clr-namespace:Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists">
     <Style Selector="dialogHost|DialogHost">
-        <Setter Property="DialogContentTemplate">
-            <DataTemplate>
+        <Setter Property="PopupTemplate">
+            <ControlTemplate>
                 <styles:Card assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}">
                     <ContentPresenter Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"></ContentPresenter>
                 </styles:Card>
-            </DataTemplate>
+            </ControlTemplate>
         </Setter>
     </Style>
 </Styles>
