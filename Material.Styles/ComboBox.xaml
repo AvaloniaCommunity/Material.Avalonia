@@ -154,12 +154,11 @@
                         MinHeight="48" BorderThickness="0"
                         HorizontalContentAlignment="Stretch"
                         IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                        Margin="0"
+                        Margin="4,0"
+                        CornerRadius="4,4,0,0"
                         Padding="0">
             <Border Name="border"
-                    Margin="4,0"
                     MinHeight="48"
-                    CornerRadius="4,4,0,0"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}">
@@ -264,6 +263,133 @@
   <Style Selector="ComboBox.Filled[IsDropDownOpen=false] /template/ TextBlock#floatingWatermark">
     <Setter Property="Margin" Value="10,20,1,1"/>
   </Style>
+  
+  <Style Selector="ComboBox.Outline">
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody }"/>
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto"/>
+    <Setter Property="Padding" Value="16,8" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel>
+          <Grid RowDefinitions="*, Auto">
+              <Grid Name="PART_RootBorder"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent"
+                    Margin="0,8,0,0"
+                    ClipToBounds="False">
+                  <Border Name="PART_Border" CornerRadius="4"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          BorderBrush="{TemplateBinding BorderBrush}">
+                      <Border.Clip>
+                          <MultiBinding Converter="{StaticResource RectangleHollowGeometry}">
+                              <Binding ElementName="PART_Border" Path="Bounds" />
+                              <Binding ElementName="watermarkRoot" Path="Bounds" />
+                              <Binding ElementName="watermarkRoot" Path="TransformedBounds" />
+                          </MultiBinding>
+                      </Border.Clip>
+                  </Border>
+                  <Border Name="watermarkRoot"
+                          HorizontalAlignment="Left" VerticalAlignment="Top"
+                          RenderTransformOrigin="0, 0" Opacity="1">
+                      <TextBlock Name="floatingWatermark" Classes="Subtitle1"
+                                 HorizontalAlignment="Stretch" Margin="4,2" Foreground="{TemplateBinding BorderBrush}"
+                                 Opacity="{Binding ElementName=PART_Border, Path=Opacity}"
+                                 Text="{TemplateBinding (assists:ComboBoxAssist.Label)}" />
+                  </Border>
+                  <Grid ColumnDefinitions="*,Auto">
+                    <ContentPresenter Name="contentPresenter"
+                                      BorderThickness="0" BorderBrush="Transparent"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Content="{TemplateBinding SelectionBoxItem}"
+                                      ContentTemplate="{TemplateBinding ItemTemplate}"
+                                      Margin="{TemplateBinding Padding}"/>
+                    <Border Name="splitBorder"
+                            Grid.Column="1"
+                            Margin="16"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center" 
+                            BorderBrush="Transparent"
+                            BorderThickness="0">
+                      <Path Name="arrow"
+                            Width="8" Height="8" 
+                            Stretch="Uniform"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Data="M7,10L12,15L17,10H7Z"
+                            Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                    </Border>
+                  </Grid>
+              </Grid>
+          </Grid>
+          <Popup Name="PART_Popup"
+                 IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                 VerticalOffset="0"
+                 Margin="0"
+                 WindowManagerAddShadowHint="False"
+                 PlacementTarget="{Binding ElementName=templateRoot}"
+                 IsLightDismissEnabled="True"
+                 UseLayoutRounding="True"
+                 ClipToBounds="False" >
+            <cc:Card assists:ShadowAssist.ShadowDepth="Depth1"
+                     Margin="4,0,4,4"
+                     CornerRadius="8"
+                     Padding="0">
+              <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
+                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                            MinHeight="1" >
+                <ItemsPresenter Name="PART_ItemsPresenter"
+                        Items="{TemplateBinding Items}"
+                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                        ItemTemplate="{TemplateBinding ItemTemplate}"
+                        VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+              </ScrollViewer>
+            </cc:Card>
+          </Popup>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+  
+  <!-- Transitions -->
+  <Style Selector="ComboBox.Outline:not(.notransitions) /template/ TextBlock#floatingWatermark,
+                     ComboBox.Outline:not(.notransitions) /template/ Border#watermarkRoot">
+    <Setter Property="Transitions">
+      <Transitions>
+        <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut"/>
+        <TransformOperationsTransition Property="RenderTransform"  Duration="0:0:0.25" Easing="CubicEaseOut"/>
+      </Transitions>
+    </Setter>
+  </Style>
+  
+  <Style Selector="ComboBox.Outline /template/ Grid#PART_RootBorder">
+    <Setter Property="MinHeight" Value="52"/>
+  </Style>
+  
+  <Style Selector="ComboBox.Outline:focus-within:not(ComboBox.Outline[SelectedIndex=-1]) /template/ Border#watermarkRoot,
+                     ComboBox.Outline:focus-within /template/ Border#watermarkRoot,
+                     ComboBox.Outline:not(ComboBox.Outline[SelectedIndex=-1]) /template/ Border#watermarkRoot">
+    <Setter Property="Margin" Value="14,-8,1,1"/>
+    <Setter Property="RenderTransform" Value="scale(0.75)"/>
+  </Style>
+    
+  <Style Selector="ComboBox.Outline[SelectedIndex=-1]:not(:focus-within) /template/ Border#watermarkRoot">
+    <Setter Property="Margin" Value="10,14,1,1"/>
+    <Setter Property="RenderTransform" Value="scale(1)"/>
+  </Style>
+    
+  <Style Selector="ComboBox.Outline">
+    <Setter Property="BorderThickness" Value="1"/>
+  </Style>
+    
+  <Style Selector="ComboBox.Outline:focus-within">
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="BorderThickness" Value="2"/> 
+  </Style> 
   
 
   <Design.PreviewWith>

@@ -1,58 +1,109 @@
 <Styles
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:assists="clr-namespace:Material.Styles.Assists">
-    <!-- TODO: Rework ToggleButton -->
-    <Style Selector="ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignPaper}"/>
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="16 4 16 4" /> 
-        <Setter Property="Cursor" Value="Hand" />
-    </Style>
-    
-    <Style Selector="ToggleButton.ImplicitForeground">
-      <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type TemplatedControl}}, Path=Foreground}"/>
-    </Style>
-    
-    <Style Selector="ToggleButton.ConstantForeground">
-      <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
-    </Style>
-    
-    <Style Selector="ToggleButton.TransparentBack">
-      <Setter Property="Background" Value="Transparent" />
-      <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="Transparent"/>
-    </Style>
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:assists="clr-namespace:Material.Styles.Assists"
+  xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+  
+  <Design.PreviewWith>
+    <StackPanel Margin="20">
+      <ToggleButton>Text</ToggleButton>
+      <ToggleButton Classes="NoFeedback">Text</ToggleButton>
+      <ToggleButton Classes="Icon">
+        <avalonia:MaterialIcon Kind="Abacus" />
+      </ToggleButton>
+      <ToggleButton Classes="Icon NoFeedback">
+        <avalonia:MaterialIcon Kind="Abacus" />
+      </ToggleButton>
+    </StackPanel>
+  </Design.PreviewWith>
+  
+  <Style Selector="ToggleButton">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="16 4 16 4" />
+    <Setter Property="Cursor" Value="Hand" />
+  </Style>
 
-    <Style Selector="ToggleButton:checked">
-        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedForeground)}" />
-    </Style>
+  <Style Selector="ToggleButton.ImplicitForeground">
+    <Setter Property="Foreground" Value="{Binding Path=$parent.Foreground}" />
+  </Style>
 
+  <Style Selector="ToggleButton.ConstantForeground">
+    <Setter Property="assists:ToggleButtonAssist.UncheckedForeground"
+            Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
+  </Style>
+
+  <Style Selector="ToggleButton.TransparentBack">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="Transparent" />
+  </Style>
+
+  <Style Selector="ToggleButton:not(:checked)">
+    <Setter Property="Background"
+            Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedBackground)}" />
+    <Setter Property="Foreground"
+            Value="{Binding RelativeSource={RelativeSource Self}, Path=(assists:ToggleButtonAssist.UncheckedForeground)}" />
+  </Style>
 
   <Style Selector="ToggleButton.NoFeedback">
     <Setter Property="Template">
       <ControlTemplate>
-        <Border BorderThickness="0"
+        <Border Name="PART_ButtonRootBorder"
                 Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                ClipToBounds="True">
-          <ContentPresenter Name="PART_ContentPresenter"
-                            CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Content="{TemplateBinding Content}"
-                            Padding="{TemplateBinding Padding}"
-                            TextBlock.Foreground="{TemplateBinding Foreground}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+          <Panel>
+            <Border Name="PART_HoverIndicator" BorderThickness="0"
+                    Background="{TemplateBinding assists:ButtonAssist.HoverColor}"
+                    CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}" />
+            <Border CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                    ClipToBounds="True">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Padding="{TemplateBinding Padding}"
+                                TextBlock.Foreground="{TemplateBinding Foreground}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </Border>
+          </Panel>
         </Border>
+      </ControlTemplate>
+    </Setter>
+    <Setter Property="Transitions">
+      <Transitions>
+        <BrushTransition Property="Foreground" Duration="0:0:0.1" />
+        <BrushTransition Property="Background" Duration="0:0:0.1" />
+      </Transitions>
+    </Setter>
+  </Style>
+
+  <Style Selector="ToggleButton.NoFeedback.Icon">
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="Height" Value="NaN" />
+    <Setter Property="Width" Value="NaN" />
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                          Background="Transparent"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Content="{TemplateBinding Content}"
+                          Padding="{TemplateBinding Padding}"
+                          TextBlock.Foreground="{TemplateBinding Foreground}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
       </ControlTemplate>
     </Setter>
   </Style>

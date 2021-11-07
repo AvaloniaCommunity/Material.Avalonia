@@ -1,120 +1,76 @@
-<!--
-// (c) Copyright Microsoft Corporation.
-// This source is subject to the Microsoft Public License (Ms-PL).
-// Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
-// All other rights reserved.
--->
-
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:sys="clr-namespace:System;assembly=netstandard">
-    <Style Selector="DatePicker">
+        xmlns:sys="clr-namespace:System;assembly=netstandard"
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:converters="clr-namespace:Material.Styles.Converters"
+        xmlns:styles="clr-namespace:Material.Styles">
+  <Design.PreviewWith>
+    <StackPanel Margin="20 20 200 200">
+      <DatePicker />
+      <Button>Test</Button>
+    </StackPanel>
+  </Design.PreviewWith>
+  
+  <Style Selector="DatePicker">
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
+    <Setter Property="Padding" Value="4" />
+    <Setter Property="assists:TextFieldAssist.Label" Value="Date" />
 
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
-        <Setter Property="Padding" Value="4" />
+    <Setter Property="MonthFormat" Value="MMMM" />
+    <Setter Property="DayFormat" Value=" dd" />
+    <Setter Property="YearFormat" Value=", yyyy" />
+    <Setter Property="assists:DatePickerAssist.DateTimeFormat" Value="dd MMMM yyyy" />
 
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Grid ColumnDefinitions="*,Auto">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid>
+          <!-- This controls required by avalonia code behind -->
+          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Classes="Unused" Name="DayText" />
+          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Classes="Unused" Name="MonthText" />
+          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Classes="Unused" Name="YearText" />
 
-                    <Grid.Styles>
+          <!-- TODO: Make TextBox writeable -->
+          <TextBox Name="DisplayTextBox"
+                   Margin="0"
+                   Classes="Filled"
+                   UseFloatingWatermark="True"
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                   IsReadOnly="True">
+            <TextBox.Text>
+              <MultiBinding Converter="{x:Static converters:DatePickerTextConverter.Instance}">
+                <TemplateBinding Property="SelectedDate" />
+                <TemplateBinding Property="assists:DatePickerAssist.DateTimeFormat" />
+              </MultiBinding>
+            </TextBox.Text>
+            <TextBox.InnerRightContent>
+              <ToggleButton Name="CalendarButton"
+                            Classes="Icon NoFeedback"
+                            VerticalAlignment="Bottom"
+                            Margin="-8 8 8 6">
+                <avalonia:MaterialIcon Kind="Calendar" Width="20" Height="20" />
+              </ToggleButton>
+            </TextBox.InnerRightContent>
+          </TextBox>
+          <Popup Name="CalendarPopup" 
+                 IsOpen="{Binding #CalendarButton.IsChecked, Mode=TwoWay}"
+                 PlacementTarget="DisplayTextBox"
+                 PlacementAnchor="BottomLeft"
+                 IsLightDismissEnabled="True">
+            <styles:Card Padding="0">
+              <Calendar
+                SelectedDate="{TemplateBinding SelectedDate, Mode=TwoWay, Converter={x:Static converters:DateTimeToOffsetConverter.Instance}}"
+                SelectionMode="SingleDate" />
+            </styles:Card>
+          </Popup>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
 
-                        <Style Selector="Button.CalendarDropDown">
-                            <Setter Property="Template">
-                                <ControlTemplate>
-                                    <Grid Height="18"
-                                          Width="19"
-                                          HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"
-                                          Margin="0"
-                                          Background="{DynamicResource MaterialDesignDivider}"
-                                          ColumnDefinitions="*,*,*,*"
-                                          RowDefinitions="23*,19*,19*,19*"
-                                          ClipToBounds="False">
-
-                                        <Border Name="Highlight"
-                                                Margin="-1"
-                                                Grid.ColumnSpan="4"
-                                                Grid.Row="0"
-                                                Grid.RowSpan="4"
-                                                BorderThickness="1"
-                                                BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
-                                        <Border Name="Background"
-                                                Margin="0,-1,0,0"
-                                                Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3"
-                                                BorderThickness="1"
-                                                BorderBrush="{DynamicResource MaterialDesignTextAreaBorder}"
-                                                CornerRadius=".5" />
-                                        <Rectangle Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="0"
-                                                   StrokeThickness="1"
-                                                   Stroke="{DynamicResource MaterialDesignTextAreaBorder}"
-                                                   Fill="{DynamicResource SecondaryHueMidBrush}" />
-                                        <TextBlock Margin="0,-1,0,0"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"
-                                                   Grid.Column="0"
-                                                   Grid.Row="1"
-                                                   Grid.ColumnSpan="4"
-                                                   Grid.RowSpan="3"
-                                                   FontSize="14"
-                                                   Foreground="{DynamicResource MaterialDesignTextAreaBorder}"
-                                                   Text="{Binding Source={x:Static sys:DateTime.Today}, Path=Day}" />
-
-                                        <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                 Fill="{DynamicResource MaterialDesignDivider}" StrokeThickness="0"
-                                                 Grid.Row="0" Grid.ColumnSpan="4" Grid.Column="0" Width="3" Height="3" />
-                                    </Grid>
-                                </ControlTemplate>
-                            </Setter>
-                        </Style>
-
-                        <Style Selector="Button.CalendarDropDown /template/ Border#Highlight">
-                            <Setter Property="IsVisible" Value="False" />
-                        </Style>
-                        <Style Selector="Button.CalendarDropDown:pressed /template/ Border#Highlight">
-                            <Setter Property="IsVisible" Value="True" />
-                        </Style>
-
-                        <Style Selector="Button.CalendarDropDown:pointerover /template/ Border#Background">
-                            <Setter Property="Background" Value="{DynamicResource SecondaryHueDarkBrush}" />
-                        </Style>
-
-                    </Grid.Styles>
-
-                    <TextBox Name="PART_TextBox"
-                             Background="{TemplateBinding Background}"
-                             BorderBrush="{TemplateBinding BorderBrush}"
-                             BorderThickness="{TemplateBinding BorderThickness}"
-                             Padding="{TemplateBinding Padding}"
-                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                             Grid.Column="0" />
-
-                    <Button Name="PART_Button"
-                            Grid.Column="1"
-                            Width="20"
-                            Classes="CalendarDropDown"
-                            Foreground="{TemplateBinding Foreground}"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Margin="2,0,2,0"
-                            Padding="0"
-                            ClipToBounds="False"
-                            Focusable="False" />
-
-                    <Popup Grid.Column="0" Name="PART_Popup"
-                           PlacementTarget="{TemplateBinding}"
-                           IsLightDismissEnabled="False">
-                        <Calendar Name="PART_Calendar" />
-                    </Popup>
-                </Grid>
-            </ControlTemplate>
-        </Setter>
-    </Style>
-
-    <Style Selector="DatePicker:focus /template/ TextBox#PART_TextBox">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
-    </Style>
-
+  <Style Selector="DatePicker:hasnodate:focus-within /template/ Popup#CalendarPopup">
+    <Setter Property="IsOpen" Value="True" />
+  </Style>
 </Styles>

@@ -3,20 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using Avalonia.Data;
 
 namespace Material.Dialog.ViewModels.TextField
 {
-    public class TextFieldViewModel : ViewModelBase, IDataErrorInfo
+    public class TextFieldViewModel : ViewModelBase
     {
         public event EventHandler<bool> OnValidateRequired;
 
         public Func<string, Tuple<bool, string>> Validater;
 
+        public TextFieldDialogViewModel Parent;
+        
         private string m_PlaceholderText;
         public string PlaceholderText { get => m_PlaceholderText; set { m_PlaceholderText = value; OnPropertyChanged(); } }
 
         private string m_Text;
-        public string Text { get => m_Text; set { m_Text = value; OnTextChanged(value); OnPropertyChanged(); } }
+        public string Text { get => m_Text; set { m_Text = value; OnPropertyChanged(); OnTextChanged(value); } }
 
         private string m_Classes;
         public string Classes { get => m_Classes; set { m_Classes = value; OnPropertyChanged(); } }
@@ -33,13 +36,8 @@ namespace Material.Dialog.ViewModels.TextField
         private bool m_IsValid;
         public bool IsValid { get => m_IsValid; set { m_IsValid = value; OnPropertyChanged(); } }
 
-        private string m_Error;
-        public string Error { get => m_Error; set { m_Error = value; OnPropertyChanged(); } }
-
-        public string this[string columnName] 
-        {
-            get => Error;
-        }
+        private string _assistiveText;
+        public string AssistiveText { get => _assistiveText; set { _assistiveText = value; OnPropertyChanged(); } }
 
         private void OnTextChanged(string text)
         {
@@ -53,8 +51,12 @@ namespace Material.Dialog.ViewModels.TextField
                 result = new Tuple<bool, string>(false, e.Message);
             }
             IsValid = result.Item1;
-            Error = result.Item2;
+            //Error = result.Item2;
             OnValidateRequired?.Invoke(this, true);
+
+            if(Parent.IsReady)
+                if (!IsValid)
+                    throw new DataValidationException(result.Item2);
         }
     }
 }

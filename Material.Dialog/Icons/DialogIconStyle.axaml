@@ -7,10 +7,10 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate>
-          <Viewbox  Stretch="Fill"
+          <Viewbox Stretch="Fill"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch">
-            <Path Data="{TemplateBinding Data}"
+            <Path Name="PATH_DialogIconVectorPath" Data="{TemplateBinding Data}" Width="{Binding ElementName=PATH_DialogIconVectorPath, Path=Bounds.Height}"
                   Fill="{TemplateBinding Foreground}" />
           </Viewbox>
         </ControlTemplate>

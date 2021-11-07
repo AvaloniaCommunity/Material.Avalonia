@@ -8,7 +8,7 @@
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
-        <Setter Property="Padding" Value="1" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="Template">
@@ -93,39 +93,53 @@
     <Style Selector="TreeViewItem[ItemCount=0] /template/ ToggleButton#Expander">
         <Setter Property="Opacity" Value="0" />
     </Style>
+    
+    <!-- Statements for transition elements -->
+    <!-- Default statement - hover border and selected border should have invisible (full-transparent) -->
     <Style Selector="TreeViewItem /template/ Border#MouseOverBorder">
         <Setter Property="Opacity" Value="0" />
-    </Style>
-    <Style Selector="TreeViewItem:pointerover /template/ Border#MouseOverBorder">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.1" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
     </Style>
     <Style Selector="TreeViewItem /template/ Border#SelectedBorder">
         <Setter Property="Opacity" Value="0" />
     </Style>
+    
+    <Style Selector="ToggleButton.MaterialDesignExpandCollapseToggleStyle /template/ Path#ExpandPath">
+        <Setter Property="RenderTransform" Value="rotate(0deg)" />
+    </Style>
+    
+    
+    <!-- Set hover highlight to semi-transparent barely visible when cursor hovering TreeViewItem -->
+    <Style Selector="TreeViewItem:pointerover /template/ Border#MouseOverBorder">
+        <Setter Property="Opacity" Value="0.1" />
+    </Style>
+    
+    <!-- Set selected highlight to semi-transparent visible when user selected TreeViewItem -->
     <Style Selector="TreeViewItem:selected /template/ Border#SelectedBorder">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="0.3" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
+        <Setter Property="Opacity" Value="0.3" />
+    </Style>
+    
+    <!-- Rotate the arrow to 45 degrees when TreeViewItem expanded -->
+    <Style Selector="ToggleButton.MaterialDesignExpandCollapseToggleStyle:checked /template/ Path#ExpandPath">
+        <Setter Property="RenderTransform" Value="rotate(45deg)" />
+    </Style>
+    
+    
+    <!-- Transitions -->
+    <Style Selector="TreeViewItem:not(.notransitions) /template/ Border#SelectedBorder,
+                   TreeViewItem:not(.notransitions) /template/ Border#MouseOverBorder">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="ToggleButton.MaterialDesignExpandCollapseToggleStyle:not(.notransitions) /template/ Path#ExpandPath">
+        <Setter Property="Transitions">
+            <Transitions>
+                <TransformOperationsTransition Duration="0:0:0.25" Property="RenderTransform" Easing="CircularEaseOut" />
+            </Transitions>
+        </Setter>
     </Style>
 
     <Style Selector="ToggleButton.MaterialDesignExpandCollapseToggleStyle">
@@ -149,19 +163,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-    <Style Selector="ToggleButton.MaterialDesignExpandCollapseToggleStyle:checked /template/ Path#ExpandPath">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.2" FillMode="Both">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="RotateTransform.Angle" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="RotateTransform.Angle" Value="45" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
     </Style>
 </Styles>

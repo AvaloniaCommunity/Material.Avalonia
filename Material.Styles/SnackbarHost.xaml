@@ -1,0 +1,48 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cc="clr-namespace:Material.Styles"
+        xmlns:converters="clr-namespace:Material.Styles.Converters"
+        xmlns:models="clr-namespace:Material.Styles.Models"
+        x:DataType="cc:SnackbarHost">
+  <Styles.Resources>
+    <converters:MarginCreator x:Key="StartMarginCreator" />
+  </Styles.Resources>
+
+  <Style Selector="cc|SnackbarHost">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+          <ItemsControl HorizontalAlignment="{TemplateBinding SnackbarHorizontalAlignment}" VerticalAlignment="{TemplateBinding SnackbarVerticalAlignment}"
+                        Items="{CompiledBinding $parent[cc:SnackbarHost].SnackbarModels}">
+            <ItemsControl.ItemsPanel>
+              <ItemsPanelTemplate>
+                <ReversibleStackPanel />
+              </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+              <DataTemplate DataType="models:SnackbarModel">
+                <cc:Card Padding="0" Margin="8" Width="344">
+                  <Grid ColumnDefinitions="16,*,8,Auto,8" RowDefinitions="6,Auto,6" Margin="0, 8">
+                    <ContentPresenter Grid.Column="1" Grid.Row="1"
+                                      Content="{CompiledBinding Content, Converter={x:Static converters:WrapContentIntoContentPresenterConverter.Instance}}">
+                      <ContentPresenter.Styles>
+                        <Style Selector="TextBlock">
+                          <Setter Property="TextAlignment" Value="Left" />
+                        </Style>
+                      </ContentPresenter.Styles>
+                    </ContentPresenter>
+                    <ContentPresenter Grid.Column="3" Grid.Row="1" Content="{CompiledBinding Button}"
+                                      IsVisible="{CompiledBinding !!Button}" />
+                  </Grid>
+                </cc:Card>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

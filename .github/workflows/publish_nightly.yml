@@ -1,8 +1,8 @@
-name: Deploy
+name: Publish nightly builds 
 
 on:
   push:
-    branches: [ master ]
+    branches: [ dev ]
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release
     - name: Pack
-      run: dotnet pack --configuration Release
+      run: dotnet pack --configuration Release /p:PatchNumber=$GITHUB_RUN_NUMBER-nightly
     - name: Collect packages
       run: |
         mkdir artifacts
@@ -56,4 +56,4 @@ jobs:
       - name: Publish to Nuget
         run: dotnet nuget push "artifacts/output/Material.Avalonia.*.nupkg" --api-key ${{secrets.NUGET_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
       - name: Publish to GitHub Packages
-        run: dotnet nuget push "artifacts/output/Material.Avalonia.*.nupkg" --api-key ${{secrets.GITHUB_TOKEN}} --source https://nuget.pkg.github.com/AvaloniaUtils/index.json --skip-duplicate
+        run: dotnet nuget push "artifacts/output/Material.Avalonia.*.nupkg" --api-key ${{secrets.GITHUB_TOKEN}} --source https://nuget.pkg.github.com/AvaloniaCommunity/index.json --skip-duplicate

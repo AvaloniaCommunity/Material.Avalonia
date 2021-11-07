@@ -7,72 +7,74 @@
 
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="CalendarButton">
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="ClickMode" Value="Release" />
+        <Setter Property="MinWidth" Value="40" />
+        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinWidth" Value="37" />
-        <Setter Property="MinHeight" Value="38" />
-        <Setter Property="Focusable" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid>
+                <Panel>
+                    <Border Name="PART_InnerBorder" CornerRadius="2" 
+                            Background="{TemplateBinding BorderBrush}"/>
+                    
+                    <Border Name="Root" Background="{TemplateBinding Background}"
+                            BorderThickness="0" ClipToBounds="True">
+                        <ContentControl Name="Content"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Content="{TemplateBinding Content}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Margin="{TemplateBinding Padding}" />
+                    </Border>
 
-                    <Rectangle Name="SelectedBackground"
-                               Opacity="0.75"
-                               Fill="{TemplateBinding Background}" />
-
-                    <Rectangle Name="Background"
-                               Opacity="0.5"
-                               Fill="{TemplateBinding Background}" />
-
-                    <!--Focusable="False"-->
-                    <ContentControl Name="Content"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    Content="{TemplateBinding Content}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    FontSize="{TemplateBinding FontSize}"
-                                    Margin="1,0,1,1" />
-
-                    <Rectangle Name="FocusVisual"
-                               StrokeThickness="1"
-                               IsHitTestVisible="False" />
-
-                </Grid>
+                    <Border Name="PART_Border" CornerRadius="2" 
+                            BorderBrush="{TemplateBinding BorderBrush}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
     </Style>
-
-    <Style Selector="CalendarButton /template/ Rectangle#Background">
-        <Setter Property="IsVisible" Value="False" />
-    </Style>
-    <Style Selector="CalendarButton:pointerover /template/ Rectangle#Background">
-        <Setter Property="IsVisible" Value="True" />
-    </Style>
-    <Style Selector="CalendarButton:pressed /template/ Rectangle#Background">
-        <Setter Property="IsVisible" Value="True" />
+    
+    
+    <Style Selector="CalendarButton TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
     </Style>
 
-    <Style Selector="CalendarButton /template/ Rectangle#SelectedBackground">
-        <Setter Property="IsVisible" Value="False" />
+    <Style Selector="CalendarButton /template/ Border#PART_Border">
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="BorderThickness" Value="0" />
     </Style>
-    <Style Selector="CalendarButton:selected /template/ Rectangle#SelectedBackground">
-        <Setter Property="IsVisible" Value="True" />
+    
+    <Style Selector="CalendarButton /template/ Border#PART_InnerBorder">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+    
+    <Style Selector="CalendarButton:pointerover /template/ Border#PART_InnerBorder">
+        <Setter Property="Opacity" Value="0.32" />
+    </Style>
+    <Style Selector="CalendarButton:pressed /template/ Border#PART_InnerBorder">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="CalendarButton:selected /template/ Border#PART_InnerBorder">
+        <Setter Property="Opacity" Value="1" />
     </Style>
 
-    <Style Selector="CalendarButton /template/ ContentControl#Content">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Style Selector="CalendarButton:inactive /template/ Border#Root">
+        <Setter Property="Opacity" Value="0.32" />
     </Style>
-    <Style Selector="CalendarButton:inactive /template/ ContentControl#Content">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-    </Style>
-
-
-    <Style Selector="CalendarButton /template/ Rectangle#FocusVisual">
-        <Setter Property="IsVisible" Value="False" />
-    </Style>
-    <Style Selector="CalendarButton:btnfocused /template/ Rectangle#FocusVisual">
-        <Setter Property="IsVisible" Value="True" />
+    
+    <Style Selector="CalendarButton:disabled /template/ ContentControl#Content">
+        <Setter Property="Opacity" Value="0.32" />
     </Style>
 </Styles>

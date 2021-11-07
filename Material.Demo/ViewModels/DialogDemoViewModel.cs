@@ -32,9 +32,12 @@ namespace Material.Demo.ViewModels
         
         private string _timePickerDialogResult;
         public string TimePickerDialogResult { get => _timePickerDialogResult; set { _timePickerDialogResult = value; OnPropertyChanged(); } }
+        
+        private string _datePickerDialogResult;
+        public string DatePickerDialogResult { get => _datePickerDialogResult; set { _datePickerDialogResult = value; OnPropertyChanged(); } }
 
         private TimeSpan _previousTimePickerResult;
-
+        private DateTime _previousDatePickerResult = DateTime.Now;
 
         public async void Dialog1()
         {
@@ -152,12 +155,16 @@ namespace Material.Demo.ViewModels
                 {
                     new TextFieldBuilderParams
                     {
+                        HelperText = "* Required",
+                        Classes = "Outline",
                         Label = "Account",
                         MaxCountChars = 24,
                         Validater = ValidateAccount, 
                     },
                     new TextFieldBuilderParams
                     {
+                        HelperText = "* Required",
+                        Classes = "Outline",
                         Label = "Password",
                         MaxCountChars = 64,
                         FieldKind = TextFieldKind.Masked,
@@ -236,8 +243,9 @@ namespace Material.Demo.ViewModels
             TimePickerDialogResult = $"Result: {result.GetResult}";
             if (result.GetResult == "confirm")
             {
-                TimePickerDialogResult = $"Result: {result.GetResult}\nTimeSpan: {result.GetTimeSpan()}";
-                _previousTimePickerResult = result.GetTimeSpan();
+                var r = result.GetTimeSpan();
+                TimePickerDialogResult = $"Result: {result.GetResult}\nTimeSpan: {r}";
+                _previousTimePickerResult = r;
             }
         }
         
@@ -247,18 +255,20 @@ namespace Material.Demo.ViewModels
             {
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
+                ImplicitValue = _previousDatePickerResult,
                 PositiveButton = new DialogResultButton
                 {
                     Content = "CONFIRM",
                     Result = "confirm"
                 },
             }).ShowDialog(Program.MainWindow);
-            /*TimePickerDialogResult = $"Result: {result.GetResult}";
+            DatePickerDialogResult = $"Result: {result.GetResult}";
             if (result.GetResult == "confirm")
             {
-                TimePickerDialogResult = $"Result: {result.GetResult}\nTimeSpan: {result.GetTimeSpan()}";
-                _previousTimePickerResult = result.GetTimeSpan();
-            }*/
+                var r = result.GetDate();
+                DatePickerDialogResult = $"Result: {result.GetResult}\nDate: {r.ToString("d")}";
+                _previousDatePickerResult = r;
+            }
         }
     }
 }

@@ -1,0 +1,43 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:styles="clr-namespace:Material.Styles">
+  <Styles.Resources>
+    <x:Double x:Key="FlyoutThemeMaxWidth">456</x:Double>
+    <x:Double x:Key="FlyoutThemeMaxHeight">758</x:Double>
+  </Styles.Resources>
+  <Style Selector="FlyoutPresenter">
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignToolTipBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="MaxWidth" Value="{DynamicResource FlyoutThemeMaxWidth}" />
+    <Setter Property="MaxHeight" Value="{DynamicResource FlyoutThemeMaxHeight}" />
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Margin" Value="0 0 8 8" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <styles:Card Name="LayoutRoot"
+                     Background="{TemplateBinding Background}"
+                     CornerRadius="{TemplateBinding CornerRadius}"
+                     Padding="0">
+          <!-- TODO Fix ScrollViewer visibility when dark theme enabled -->
+          <ScrollViewer Margin="0" Padding="0"
+                        HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                        VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+            <ContentPresenter Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalContentAlignment="Stretch" />
+          </ScrollViewer>
+        </styles:Card>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

@@ -5,6 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ComboBoxesDemo">
     <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
         <TextBlock Classes="Headline4 Subheadline" Text="ComboBoxes" />
@@ -14,9 +15,6 @@
                 <TextBlock Classes="Headline6 Subheadline2" Text="Standard comboboxes" />
                 <StackPanel Orientation="Horizontal">
                     <StackPanel.Styles>
-                        <Style Selector="showMeTheXaml|XamlDisplay">
-                            <Setter Property="Margin" Value="8" />
-                        </Style>
                         <Style Selector="ComboBox">
                             <Setter Property="Width" Value="180" />
                         </Style>
@@ -39,6 +37,14 @@
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes2">
                         <ComboBox Classes="Filled">
+                            <TextBlock Text="Item 1" />
+                            <TextBlock Text="Item 2" />
+                            <TextBlock Text="Item 3" />
+                            <TextBlock Text="Item 4" />
+                        </ComboBox>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes3">
+                        <ComboBox Classes="Outline" assist:ComboBoxAssist.Label="ComboBox">
                             <TextBlock Text="Item 1" />
                             <TextBlock Text="Item 2" />
                             <TextBlock Text="Item 3" />

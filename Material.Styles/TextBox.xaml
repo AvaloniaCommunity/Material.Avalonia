@@ -54,13 +54,13 @@
         <Setter Property="Margin" Value="0,8" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
         <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
-        <Setter Property="FontFamily"
-                Value="avares://Material.Styles/Fonts/Roboto#Roboto,
-            Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Noto Sans, Arial" />
+        <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto,
+            Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Noto Sans, Arial"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel>
+                <Grid RowDefinitions="*, Auto">
                     <Border Name="PART_RootBorder" Cursor="Ibeam"
+                            Grid.Row="0"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
@@ -68,8 +68,8 @@
                             <!-- Feedbacks -->
                             <Style
                                 Selector="TextBox:focus-within:not(:empty) /template/ TextBlock#floatingWatermark,
-                     TextBox:focus-within /template/ TextBlock#floatingWatermark,
-                     TextBox:not(:empty) /template/ TextBlock#floatingWatermark">
+                                          TextBox:focus-within /template/ TextBlock#floatingWatermark,
+                                          TextBox:not(:empty) /template/ TextBlock#floatingWatermark">
                                 <Setter Property="Margin" Value="1,0.75,1,1" />
                                 <Setter Property="RenderTransform" Value="scale(0.75)" />
                             </Style>
@@ -89,14 +89,12 @@
 
                             <DataValidationErrors Name="DataValidation">
                                 <Grid ColumnDefinitions="Auto,*,Auto">
-                                    <ContentPresenter Grid.Column="0"
-                                                      VerticalAlignment="Top"
-                                                      HorizontalAlignment="Left"
-                                                      Content="{TemplateBinding InnerLeftContent}" />
-                                    <ScrollViewer Grid.Column="1"
+                                    <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
+                                    <Panel Grid.Column="1" Name="PART_TextRoot">
+                                        <ScrollViewer Name="PART_Scroller"
                                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                                        <Panel Name="PART_TextRoot" VerticalAlignment="Bottom">
+                                        <Panel>
                                             <TextBlock Name="watermark"
                                                        Margin="0,6,0,7"
                                                        Classes="Subtitle1"
@@ -120,22 +118,20 @@
                                                            SelectionBrush="{TemplateBinding SelectionBrush}"
                                                            SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
                                                            CaretBrush="{TemplateBinding CaretBrush}" />
-                                        </Panel>
+                                       </Panel>
                                     </ScrollViewer>
-                                    <ContentPresenter Grid.Column="2"
-                                                      MinHeight="32"
-                                                      VerticalAlignment="Top"
-                                                      Content="{TemplateBinding InnerRightContent}" />
-                                    <styles:MaterialUnderline Grid.ColumnSpan="2" Classes="MirrorY"
+                                    </Panel>
+                                    <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
+                                    <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
                                                               VerticalAlignment="Bottom"
                                                               Name="PART_Underline" />
                                 </Grid>
                             </DataValidationErrors>
                         </Grid>
                     </Border>
-                    <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                    <TextBlock Grid.Row="1" Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
                                Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
-                </StackPanel>
+                </Grid>
             </ControlTemplate>
         </Setter>
     </Style>
@@ -173,6 +169,11 @@
     
     <Style Selector="TextBox /template/ TextBlock#floatingWatermark">
         <Setter Property="Foreground" Value="{DynamicResource ThemeAccentBrush}"/>
+    </Style>
+
+    <Style Selector="TextBox /template/ #PART_Scroller /template/ ScrollBar.Modern /template/ Grid#rootGrid">
+        <Setter Property="Margin"
+                Value="0 8 0 4"/>
     </Style>
     
     <!-- Default TextBox style -->
@@ -223,8 +224,8 @@
         <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel>
-                    <DataValidationErrors Name="DataValidation">
+                <Grid RowDefinitions="*, Auto">
+                    <DataValidationErrors Grid.Row="0" Name="DataValidation">
                         <Border Name="PART_RootBorder" Cursor="Ibeam"
                                 ClipToBounds="True" CornerRadius="4,4,0,0"
                                 Background="{TemplateBinding Background}"
@@ -241,14 +242,12 @@
                                            RenderTransformOrigin="0, 0" />
 
                                 <Grid ColumnDefinitions="Auto,*,Auto">
-                                    <ContentPresenter Grid.Column="0"
-                                                      VerticalAlignment="Top"
-                                                      HorizontalAlignment="Left"
-                                                      Content="{TemplateBinding InnerLeftContent}" />
-                                    <ScrollViewer Name="PART_Scroller" Grid.Column="1" Classes="Modern" Padding="16,0"
-                                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                                        <Panel Name="PART_TextRoot">
+                                    <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
+                                    <Panel Name="PART_TextRoot" Grid.Column="1">
+                                        <ScrollViewer Name="PART_Scroller" Classes="Modern" Padding="16,0"
+                                                      HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                                      VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                        <Panel>
                                             <TextBlock Name="watermark"
                                                        Classes="Subtitle1" Opacity="0.5"
                                                        Text="{TemplateBinding Watermark}"
@@ -272,12 +271,9 @@
                                                            CaretBrush="{TemplateBinding CaretBrush}" />
                                         </Panel>
                                     </ScrollViewer>
-                                    <ContentPresenter Grid.Column="2"
-                                                      MinHeight="32"
-                                                      Margin="0,0,0,0"
-                                                      VerticalAlignment="Top"
-                                                      Content="{TemplateBinding InnerRightContent}" />
-                                    <styles:MaterialUnderline Grid.ColumnSpan="2" Classes="MirrorY"
+                                    </Panel>
+                                    <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
+                                    <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
                                                               VerticalAlignment="Bottom"
                                                               Name="PART_Underline" />
                                 </Grid>
@@ -285,9 +281,9 @@
                             </Grid>
                         </Border>
                     </DataValidationErrors>
-                    <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                    <TextBlock Grid.Row="1" Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
                                Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
-                </StackPanel>
+                </Grid>
             </ControlTemplate>
         </Setter>
     </Style>
@@ -302,6 +298,7 @@
     
     <Style Selector="TextBox.Filled:empty:not(:focus-within) /template/ TextBlock#floatingWatermark">
         <Setter Property="Margin" Value="16,18,1,1"/> 
+        <Setter Property="RenderTransform" Value="scale(1)"/>
     </Style>
     
     <Style Selector="TextBox.Filled:focus-within /template/ Border#focusBorder">  
@@ -315,6 +312,11 @@
     
     <Style Selector="TextBox.Filled /template/ Panel#PART_TextRoot">
         <Setter Property="Margin" Value="0,24,0,6"/>
+    </Style>
+
+    <Style Selector="TextBox.Filled /template/ #PART_Scroller /template/ ScrollBar.Modern /template/ Grid#rootGrid">
+        <Setter Property="Margin"
+                Value="0"/>
     </Style>
     
     <Style Selector="TextBox.Filled[UseFloatingWatermark=False] /template/ Panel#PART_TextRoot">
@@ -360,8 +362,8 @@
         <Setter Property="CaretBrush" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel>
-                    <DataValidationErrors Name="DataValidation">
+                <Grid RowDefinitions="*, Auto">
+                    <DataValidationErrors Grid.Row="0" Name="DataValidation">
                         <Grid Name="PART_RootBorder"
                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                               Cursor="Ibeam" Background="Transparent"
@@ -390,16 +392,13 @@
 
 
                             <Grid ColumnDefinitions="Auto,*,Auto">
-                                <ContentPresenter Grid.Column="0"
-                                                  VerticalAlignment="Top"
-                                                  HorizontalAlignment="Left"
-                                                  Content="{TemplateBinding InnerLeftContent}" />
-                                <ScrollViewer Name="PART_Scroller" Grid.Column="1" Classes="Modern"
-                                              Padding="16, 0, 8,0"
-                                              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                              VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                                    <Panel Name="PART_TextRoot"
-                                           VerticalAlignment="Center">
+                                <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
+                                <Panel Grid.Column="1" Name="PART_TextRoot">
+                                    <ScrollViewer Name="PART_Scroller"  Classes="Modern"
+                                                  Padding="16, 0, 8,0"
+                                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                    <Panel VerticalAlignment="Center">
                                         <TextBlock Name="watermark"
                                                    Classes="Subtitle1" Opacity="0.5"
                                                    Text="{TemplateBinding Watermark}"
@@ -423,18 +422,15 @@
                                                        CaretBrush="{TemplateBinding CaretBrush}" />
                                     </Panel>
                                 </ScrollViewer>
-                                <ContentPresenter Grid.Column="2"
-                                                  Margin="0,0,0,0"
-                                                  MinHeight="32"
-                                                  VerticalAlignment="Top"
-                                                  Content="{TemplateBinding InnerRightContent}" />
+                                </Panel>
+                                <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                             </Grid>
 
                         </Grid>
                     </DataValidationErrors>
-                    <TextBlock Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
+                    <TextBlock Grid.Row="1" Name="HintsTextBlock" Classes="Caption" Margin="0,3,0,0"
                                Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}" TextTrimming="CharacterEllipsis" />
-                </StackPanel>
+                </Grid>
             </ControlTemplate>
         </Setter>
     </Style>
@@ -445,19 +441,24 @@
       <Setter Property="Margin" Value="14,-8,1,1"/>
       <Setter Property="RenderTransform" Value="scale(0.75)"/>
     </Style>
-    <Style Selector="TextBox.Outline">
-      <Setter Property="BorderThickness" Value="1"/>
-    </Style>
-    <Style Selector="TextBox.Outline:focus-within">
-      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-      <Setter Property="BorderThickness" Value="2"/> 
-    </Style> 
+    
     <Style Selector="TextBox.Outline:empty:not(:focus-within) /template/ Border#watermarkRoot">
-      <Setter Property="Margin" Value="10,14,1,1"/>
+        <Setter Property="Margin" Value="10,14,1,1"/>
+        <Setter Property="RenderTransform" Value="scale(1)"/>
     </Style>
     <Style Selector="TextBox.Outline.Dense:empty:not(:focus-within) /template/ Border#watermarkRoot">
         <Setter Property="Margin" Value="10,12,1,1"/>
     </Style>
+    
+    <Style Selector="TextBox.Outline">
+      <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    
+    <Style Selector="TextBox.Outline:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="BorderThickness" Value="2"/> 
+    </Style> 
+    
 
     
     <Style Selector="TextBox.Outline:disabled /template/ Border#PART_Border">
@@ -465,7 +466,7 @@
     </Style>
     
     <Style Selector="TextBox.Outline /template/ Panel#PART_TextRoot">
-        <Setter Property="Margin" Value="0,14"/>
+        <Setter Property="Margin" Value="0,14 0 6"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     
@@ -516,7 +517,7 @@
         </Setter>
     </Style>  
 
-    <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty) Border#PART_AssistButtonsContainer">
+    <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False] Border#PART_AssistButtonsContainer">
         <Setter Property="Child">
             <Template>
                 <ToggleButton Name="PART_PasswordRevealToggle" Classes="Icon ConstantForeground" BorderThickness="0"
@@ -595,11 +596,9 @@
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="{TemplateBinding Padding}">
                         <DataValidationErrors Name="DataValidation">
                             <Grid ColumnDefinitions="Auto,*,Auto">
-                                <ContentPresenter Grid.Column="0"
-                                                  HorizontalAlignment="Left"
-                                                  Content="{TemplateBinding InnerLeftContent}" />
-                                <Grid Grid.Column="1" Margin="8">
-                                    <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                <ContentPresenter Grid.Column="0" Content="{TemplateBinding InnerLeftContent}" />
+                                <Grid Name="PART_InnerRoot" Grid.Column="1">
+                                    <ScrollViewer Name="PART_Scroller" HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                                     <Panel Name="PART_TextRoot" VerticalAlignment="Center">
                                         <TextBlock Name="watermark" Classes="Subtitle1" Opacity="0.5"
@@ -622,15 +621,17 @@
                                     </Panel>
                                 </ScrollViewer>
                                 </Grid>
-                                <ContentPresenter Grid.Column="2"
-                                                  HorizontalAlignment="Right"
-                                                  Content="{TemplateBinding InnerRightContent}" />
+                                <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
                             </Grid>
                         </DataValidationErrors>
                     </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
+    </Style>
+    
+    <Style Selector="TextBox.Solo /template/ Grid#PART_InnerRoot">
+        <Setter Property="Margin" Value="8"/>
     </Style>
     
     <!-- ReSharper restore InconsistentNaming -->

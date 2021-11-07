@@ -48,7 +48,7 @@
                                                                    HorizontalAlignment="Center"
                                                                    Width="32"
                                                                    Height="32" />
-                                            <TextBlock Grid.Row="1" TextWrapping="WrapWithOverflow" MaxWidth="64"
+                                            <TextBlock Grid.Row="1" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" MaxWidth="64"
                                                        Text="{Binding Kind}"
                                                        HorizontalAlignment="Center" />
                                         </Grid>

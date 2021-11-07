@@ -23,11 +23,10 @@
     <StyleInclude Source="avares://Material.Styles/ContentControl.xaml" />
     <StyleInclude Source="avares://Material.Styles/ContextMenu.xaml" />
     <StyleInclude Source="avares://Material.Styles/DataValidationErrors.xaml" />
-
-    <!-- BUG Crash while try to use DatePicker. Need full style rework. -->
-    <!-- <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" /> -->
+    <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" />
     <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" />
     <StyleInclude Source="avares://Material.Styles/Expander.xaml" />
+    <StyleInclude Source="avares://Material.Styles/FlyoutPresenter.axaml" />
     <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
     <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
     <StyleInclude Source="avares://Material.Styles/ItemsControl.xaml" />
@@ -70,4 +69,5 @@
     <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
     <StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
+    <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
 </Styles>

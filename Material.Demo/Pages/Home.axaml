@@ -20,7 +20,7 @@
         </Style>
       </StackPanel.Styles>
       <Image Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top"
-              Source="avares://Material.Demo/FavIcon_200x.png" Margin="0,0,0,-8"/>
+              Source="avares://Material.Demo/Assets/FavIcon_200x.png" Margin="0,0,0,-8"/>
       <TextBlock Classes="Headline4 Subheadline" Text="👋 Welcome to Material.Avalonia Demo!"/>
       <TextBlock Classes="Content" Text="Material.Avalonia is a library that could beauty and turning your Avalonia Application from regular design to Material Design like Material Design in XAML! It easy for use to your project! Just install NuGet package, slightly change your App.xaml / App.axaml and your application are ready to go with Material Design!"/>
       <TextBlock Classes="Content" Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!"/>

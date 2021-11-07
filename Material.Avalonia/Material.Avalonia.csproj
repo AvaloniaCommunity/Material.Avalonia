@@ -2,17 +2,25 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>2.1.0</Version>
+        <VersionPrefix>2.4.1</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
-        <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
-        <PackageLicenseUrl>https://raw.githubusercontent.com/AvaloniaUtils/material.avalonia/master/LICENSE</PackageLicenseUrl>
-        <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</PackageProjectUrl>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <LangVersion>8</LangVersion> 
+        <LangVersion>8</LangVersion>
+        <PackageReleaseNotes>
+            - Add support for vertically scrolling textboxes
+        </PackageReleaseNotes>
     </PropertyGroup>
+
+<!--    For nightly versions-->
+    <PropertyGroup>
+        <Version Condition="'$(PatchNumber)' != ''">$(VersionPrefix).$(PatchNumber)</Version>
+    </PropertyGroup>
+    
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
             <SubType>Designer</SubType>
@@ -20,12 +28,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.0" />
+      <PackageReference Include="Avalonia" Version="0.10.7" />
       <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
     </ItemGroup>
-
 </Project>

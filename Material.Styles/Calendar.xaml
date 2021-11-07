@@ -8,32 +8,19 @@
 <!-- TODO Full calendar redesign -->
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="Calendar">
-        <!--<Setter Property="Focusable" Value="False" />-->
-        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HeaderBackground" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
-                <StackPanel Name="Root"
-                            HorizontalAlignment="Center"
-                            ClipToBounds="True">
-
+                <StackPanel Name="Root" ClipToBounds="True">
                     <CalendarItem Name="CalendarItem"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
                                   HeaderBackground="{TemplateBinding HeaderBackground}" />
-
                 </StackPanel>
             </ControlTemplate>
         </Setter>
-    </Style>
-    <Style Selector="Calendar">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
-    </Style>
-    <Style Selector="Calendar">
-        <Setter Property="Background" Value="Transparent" />
-    </Style>
-    <Style Selector="Calendar">
-        <Setter Property="HeaderBackground" Value="Transparent" />
     </Style>
 </Styles>

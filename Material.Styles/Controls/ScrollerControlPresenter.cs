@@ -23,7 +23,7 @@ namespace Material.Styles.Controls
         {
             // Scroll Horizontally default when content width greater than viewport width
             // and the height of content is less equal than viewport height
-            if (Extent.Width > Viewport.Width && Extent.Height <= Viewport.Height)
+            if (Extent.Width > Viewport.Width)
             {
                 var scrollable = Child as ILogicalScrollable;
                 bool isLogical = scrollable?.IsLogicalScrollEnabled == true;

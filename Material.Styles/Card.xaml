@@ -10,11 +10,11 @@
         <Setter Property="Padding" Value="8" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid Background="Transparent" ClipToBounds="False">
+                <Panel Background="Transparent" ClipToBounds="False">
                     <Border assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                                 Path=(assists:ShadowAssist.ShadowDepth)}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            ClipToBounds="False">
+                            ClipToBounds="False" >
                         <Border assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                                     Path=(assists:ShadowAssist.ShadowDepth)}"
                                 Background="{TemplateBinding Background}"
@@ -28,7 +28,7 @@
                                               ContentTemplate="{TemplateBinding ContentTemplate}" />
                         </Border>
                     </Border>
-                </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </Style>
