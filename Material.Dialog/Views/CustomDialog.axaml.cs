@@ -1,5 +1,5 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
 using Avalonia.Markup.Xaml;
 using Material.Dialog.Interfaces;
 
@@ -7,7 +7,7 @@ namespace Material.Dialog.Views
 {
     public class CustomDialog : Window, IDialogWindowResult<DialogResult>, IHasNegativeResult
     {
-        private ContentControl PART_Content;
+        private ContentPresenter PART_Content;
         
         public DialogResult Result { get; set; } = DialogResult.NoResult;
 
@@ -15,7 +15,7 @@ namespace Material.Dialog.Views
         {
             this.InitializeComponent(); 
             
-            PART_Content = this.Get<ContentControl>(nameof(PART_Content));
+            PART_Content = this.Get<ContentPresenter>(nameof(PART_Content));
         }
 
         public void ApplyViewModel(object vm) => PART_Content.DataContext = vm;
