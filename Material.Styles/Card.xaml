@@ -18,7 +18,6 @@
                         <Border assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                                     Path=(assists:ShadowAssist.ShadowDepth)}"
                                 Background="{TemplateBinding Background}"
-                                Padding="{TemplateBinding Padding}"
                                 Name="PART_ClipBorder"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 ClipToBounds="{TemplateBinding InsideClipping}">
