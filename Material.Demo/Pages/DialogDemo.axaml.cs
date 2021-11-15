@@ -36,7 +36,7 @@ namespace Material.Demo.Pages
         }
 
         private void OpenMoreDialogHostExamples(object? sender, RoutedEventArgs e) {
-            Process.Start("https://github.com/AvaloniaUtils/DialogHost.Avalonia");
+            Process.Start(new ProcessStartInfo(){FileName = "https://github.com/AvaloniaUtils/DialogHost.Avalonia", UseShellExecute = true});
         }
     }
 }
