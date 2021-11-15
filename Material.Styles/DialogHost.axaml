@@ -6,10 +6,11 @@
     <Style Selector="dialogHost|DialogHost">
         <Setter Property="PopupTemplate">
             <ControlTemplate>
-                <styles:Card assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}">
-                    <ContentPresenter Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"></ContentPresenter>
-                </styles:Card>
+                <styles:Card assists:ShadowAssist.ShadowDepth="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(assists:ShadowAssist.ShadowDepth)}"
+                             CornerRadius="{Binding Path=(dialogHost:DialogHostStyle.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}}"
+                             Padding="{TemplateBinding Padding}"
+                             Content="{TemplateBinding Content}"
+                             ContentTemplate="{TemplateBinding ContentTemplate}" />
             </ControlTemplate>
         </Setter>
     </Style>
