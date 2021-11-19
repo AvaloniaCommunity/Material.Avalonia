@@ -30,6 +30,7 @@
     <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
     <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
     <StyleInclude Source="avares://Material.Styles/ItemsControl.xaml" />
+    <StyleInclude Source="avares://Material.Styles/Label.axaml" />
     <StyleInclude Source="avares://Material.Styles/ListBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ListBoxItem.xaml" />
     <StyleInclude Source="avares://Material.Styles/Menu.xaml" />
