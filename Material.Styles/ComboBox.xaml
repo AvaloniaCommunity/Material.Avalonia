@@ -1,7 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cc="clr-namespace:Material.Styles"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:styles="clr-namespace:Material.Styles">
   <Style Selector="ToggleButton.ComboBoxToggleButton">
