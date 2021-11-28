@@ -1,28 +1,42 @@
 ﻿using System;
+using System.Linq;
 using Avalonia;
+using Avalonia.Controls;
 
 namespace Material.Styles.Themes {
     public class PaletteHelper {
-        public virtual ITheme GetTheme() {
+        public virtual BundledTheme? LocateBundledTheme() {
             if (Application.Current == null)
-                throw new InvalidOperationException(
-                    "Cannot get theme outside of a WPF application. Use ResourceDictionaryExtensions.GetTheme on the appropriate resource dictionary instead.");
-            return Application.Current.Resources.GetTheme();
+                throw new InvalidOperationException("Cannot locate BundledTheme outside of a Avalonia application. Use ResourceDictionaryExtensions.GetTheme on the appropriate resource dictionary instead.");
+            return LocateBundledThemeInternal(Application.Current.Resources);
+        }
+
+        private BundledTheme? LocateBundledThemeInternal(IResourceDictionary dictionary) {
+            if (dictionary is BundledTheme bundledTheme) {
+                return bundledTheme;
+            }
+            return dictionary.MergedDictionaries
+                .Select(provider => provider as IResourceDictionary)
+                .Where(resourceDictionary => resourceDictionary != null)
+                .Select(LocateBundledThemeInternal!)
+                .FirstOrDefault();
+        }
+
+        private IResourceDictionary GetBundledThemeOrRoot() {
+            return LocateBundledTheme() ?? Application.Current.Resources;
+        }
+
+        public virtual ITheme GetTheme() {
+            return GetBundledThemeOrRoot().GetTheme();
         }
 
         public virtual void SetTheme(ITheme theme) {
             if (theme == null) throw new ArgumentNullException(nameof(theme));
-            if (Application.Current == null)
-                throw new InvalidOperationException(
-                    "Cannot set theme outside of a WPF application. Use ResourceDictionaryExtensions.SetTheme on the appropriate resource dictionary instead.");
-            Application.Current.Resources.SetTheme(theme);
+            GetBundledThemeOrRoot().SetTheme(theme);
         }
 
         public virtual IThemeManager GetThemeManager() {
-            if (Application.Current == null)
-                throw new InvalidOperationException(
-                    "Cannot get ThemeManager. Use ResourceDictionaryExtensions.GetThemeManager on the appropriate resource dictionary instead.");
-            return Application.Current.Resources.GetThemeManager();
+            return GetBundledThemeOrRoot().GetThemeManager();
         }
     }
 }
