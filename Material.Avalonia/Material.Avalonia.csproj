@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <VersionPrefix>2.4.1</VersionPrefix>
+        <VersionPrefix>2.5.0</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -12,7 +12,16 @@
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
         <PackageReleaseNotes>
-            - Add support for vertically scrolling textboxes
+            - Allow the alignment of the snackbar to be configured #116
+            - Prevent ArgumentNullException in StringToTransformConverter
+            - Replacing IBrush instead of Brush class  in RippleEffect #114
+            - Deprecate and replace Transitions instead of Animations in TreeView #117
+            - Update DialogHost package, coerce styles, add examples #94
+            - Replace ContentControl in CustomDialog with ContentPresenter for Content #121
+            - Add recursive BundledTheme finding in resources for theming #120
+            - Fix doubling the padding of the Card
+            - Add Label style #123
+            - Fix show password button is not visible until clicked #124
         </PackageReleaseNotes>
     </PropertyGroup>
 

@@ -30,6 +30,7 @@
     <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
     <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
     <StyleInclude Source="avares://Material.Styles/ItemsControl.xaml" />
+    <StyleInclude Source="avares://Material.Styles/Label.axaml" />
     <StyleInclude Source="avares://Material.Styles/ListBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ListBoxItem.xaml" />
     <StyleInclude Source="avares://Material.Styles/Menu.xaml" />
@@ -60,6 +61,9 @@
     <StyleInclude Source="avares://Material.Styles/Window.xaml" />
     <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
     <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" />
+    <!-- dialog host -->
+    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
+    <StyleInclude Source="avares://Material.Styles/DialogHost.axaml" />
     <!--custom controls-->
     <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/Card.xaml"/>
