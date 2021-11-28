@@ -121,7 +121,10 @@
                                        </Panel>
                                     </ScrollViewer>
                                     </Panel>
-                                    <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                        <ContentPresenter Content="{TemplateBinding InnerRightContent}" />
+                                        <Border Name="PART_AssistButtonsContainer"/>
+                                    </StackPanel>
                                     <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
                                                               VerticalAlignment="Bottom"
                                                               Name="PART_Underline" />
@@ -272,7 +275,10 @@
                                         </Panel>
                                     </ScrollViewer>
                                     </Panel>
-                                    <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                        <ContentPresenter Content="{TemplateBinding InnerRightContent}" />
+                                        <Border Name="PART_AssistButtonsContainer"/>
+                                    </StackPanel>
                                     <styles:MaterialUnderline Grid.ColumnSpan="3" Classes="MirrorY"
                                                               VerticalAlignment="Bottom"
                                                               Name="PART_Underline" />
@@ -423,7 +429,10 @@
                                     </Panel>
                                 </ScrollViewer>
                                 </Panel>
-                                <ContentPresenter Grid.Column="2" Content="{TemplateBinding InnerRightContent}" />
+                                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                    <ContentPresenter Content="{TemplateBinding InnerRightContent}" />
+                                    <Border Name="PART_AssistButtonsContainer"/>
+                                </StackPanel>
                             </Grid>
 
                         </Grid>
@@ -497,13 +506,13 @@
     <!-- Additional decorations for TextFields -->
     <!-- ReSharper disable InconsistentNaming -->
     
-    <Style Selector="TextBox.clearButton, TextBox.revealPasswordButton">
+    <!--Style Selector="TextBox.clearButton, TextBox.revealPasswordButton">
         <Setter Property="InnerRightContent">
             <Template>
                 <Border Name="PART_AssistButtonsContainer"/>
             </Template>
         </Setter>
-    </Style> 
+    </Style--> 
     
     <Style Selector="TextBox.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty) Border#PART_AssistButtonsContainer">
         <Setter Property="Child">
@@ -520,7 +529,8 @@
     <Style Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False] Border#PART_AssistButtonsContainer">
         <Setter Property="Child">
             <Template>
-                <ToggleButton Name="PART_PasswordRevealToggle" Classes="Icon ConstantForeground" BorderThickness="0"
+                <ToggleButton Name="PART_PasswordRevealToggle" Classes="Icon ImplicitForeground ConstantForeground" BorderThickness="0"
+                              wpf:ToggleButtonAssist.UncheckedForeground="{DynamicResource PrimaryHueMidBrush}"
                               Width="{Binding Path=$self.Height}" Cursor="Arrow" Focusable="True" Padding="4"
                               IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
                     <ToggleButton.Styles>
