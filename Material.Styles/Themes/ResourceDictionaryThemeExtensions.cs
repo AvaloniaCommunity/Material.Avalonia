@@ -1,4 +1,6 @@
 ﻿using System;
+using Avalonia.Animation;
+using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Media;
 using JetBrains.Annotations;
@@ -178,6 +180,20 @@ namespace Material.Styles.Themes {
                 //     Duration = new Duration(TimeSpan.FromMilliseconds(300))
                 // };
                 // brush.BeginAnimation(SolidColorBrush.ColorProperty, animation);
+                
+                // Color transitions (no transitions is unsupported on current state)
+                if (brush.Transitions == null || brush.Transitions.Count == 0)
+                {
+                    brush.Transitions = new Transitions
+                    {
+                        new ColorTransition
+                        {
+                            Duration = TimeSpan.FromSeconds(0.5), Easing = new SineEaseOut(),
+                            Property = SolidColorBrush.ColorProperty
+                        }
+                    };
+                }
+                
                 brush.Color = value;
 
                 return;
