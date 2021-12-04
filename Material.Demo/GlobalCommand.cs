@@ -1,10 +1,8 @@
 ﻿using Material.Colors;
 using Material.Styles.Themes;
 using Material.Styles.Themes.Base;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Material.Demo
 {
