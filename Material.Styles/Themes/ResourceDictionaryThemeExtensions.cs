@@ -3,6 +3,7 @@ using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Media;
+using Avalonia.Threading;
 using JetBrains.Annotations;
 using Material.Colors;
 using Material.Colors.ColorManipulation;
@@ -171,31 +172,26 @@ namespace Material.Styles.Themes {
             sourceDictionary[name + "Color"] = value;
 
             if (sourceDictionary.ContainsKey(name) && sourceDictionary[name] is SolidColorBrush brush) {
-                if (brush.Color == value) return;
-
-                // TODO Color change animation.
-                // var animation = new ColorAnimation {
-                //     From = brush.Color,
-                //     To = value,
-                //     Duration = new Duration(TimeSpan.FromMilliseconds(300))
-                // };
-                // brush.BeginAnimation(SolidColorBrush.ColorProperty, animation);
-                
-                // Color transitions (no transitions is unsupported on current state)
-                if (brush.Transitions == null || brush.Transitions.Count == 0)
+                Dispatcher.UIThread.Post(delegate
                 {
-                    brush.Transitions = new Transitions
+                    if (brush.Color == value)
+                        return;
+                    
+                    if (brush.Transitions == null || brush.Transitions.Count == 0)
                     {
-                        new ColorTransition
+                        brush.Transitions = new Transitions
                         {
-                            Duration = TimeSpan.FromSeconds(0.5), Easing = new SineEaseOut(),
-                            Property = SolidColorBrush.ColorProperty
-                        }
-                    };
-                }
+                            new ColorTransition
+                            {
+                                Duration = TimeSpan.FromSeconds(0.35), Easing = new SineEaseOut(),
+                                Property = SolidColorBrush.ColorProperty
+                            }
+                        };
+                    }
                 
-                brush.Color = value;
-
+                    brush.Color = value;
+                });
+                
                 return;
             }
 
