@@ -24,18 +24,26 @@ namespace Material.Demo
         public static void UseMaterialUIDarkTheme()
         {
             var theme = PaletteHelper.GetTheme();
-            theme.SetPrimaryColor(SwatchHelper.Lookup[MaterialColor.Blue200]);
-            theme.SetSecondaryColor(SwatchHelper.Lookup[MaterialColor.Pink200]);
-            theme.SetBaseTheme(BaseThemeMode.Dark.GetBaseTheme());
-            PaletteHelper.SetTheme(theme);
+            
+            Task.Run(delegate
+            {
+                theme.SetPrimaryColor(SwatchHelper.Lookup[MaterialColor.Blue200]);
+                theme.SetSecondaryColor(SwatchHelper.Lookup[MaterialColor.Pink200]);
+                theme.SetBaseTheme(BaseThemeMode.Dark.GetBaseTheme());
+                PaletteHelper.SetTheme(theme);
+            });
         }
         public static void UseMaterialUILightTheme()
         {
             var theme = PaletteHelper.GetTheme();
-            theme.SetPrimaryColor(SwatchHelper.Lookup[MaterialColor.Blue]);
-            theme.SetSecondaryColor(SwatchHelper.Lookup[MaterialColor.Pink400]);
-            theme.SetBaseTheme(BaseThemeMode.Light.GetBaseTheme());
-            PaletteHelper.SetTheme(theme);
+            
+            Task.Run(delegate
+            {
+                theme.SetPrimaryColor(SwatchHelper.Lookup[MaterialColor.Blue]);
+                theme.SetSecondaryColor(SwatchHelper.Lookup[MaterialColor.Pink400]);
+                theme.SetBaseTheme(BaseThemeMode.Light.GetBaseTheme());
+                PaletteHelper.SetTheme(theme);
+            });
         }
 
         public static void OpenProjectRepoLink() => OpenBrowserForVisitSite("https://github.com/AvaloniaUtils/material.avalonia");
