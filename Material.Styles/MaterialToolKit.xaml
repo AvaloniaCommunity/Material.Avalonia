@@ -48,6 +48,7 @@
     <StyleInclude Source="avares://Material.Styles/Scroller.xaml" />
     <StyleInclude Source="avares://Material.Styles/Separator.xaml" />
     <StyleInclude Source="avares://Material.Styles/Slider.xaml" />
+    <StyleInclude Source="avares://Material.Styles/SplitView.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabControl.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabStrip.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabStripItem.xaml" />
