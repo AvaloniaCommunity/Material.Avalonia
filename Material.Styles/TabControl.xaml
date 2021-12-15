@@ -2,8 +2,7 @@
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-        xmlns:controls="clr-namespace:Material.Styles.Controls"
-        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Style Selector="TabControl">
         <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Stretch" />
         <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
@@ -89,13 +88,15 @@
                                 </Border>
                             </controls:Scroller>
                             <Button Name="PART_ScrollLeftButton" 
-                                    Classes="Flat" Content="{avalonia:MaterialIconExt Kind=ChevronLeft}"
-                                    IsVisible="{Binding ElementName=PART_ScrollerRoot, Path=CanScrollLeft}"
-                                    Command="{Binding ElementName=PART_ScrollerRoot, Path=OneByThirdPageLeft}"/>
+                                    Classes="Flat" IsVisible="{Binding ElementName=PART_ScrollerRoot, Path=CanScrollLeft}"
+                                    Command="{Binding ElementName=PART_ScrollerRoot, Path=OneByThirdPageLeft}">
+                                <controls:MaterialInternalIcon Kind="ChevronLeft"/>
+                            </Button>
                             <Button Name="PART_ScrollRightButton" Grid.Column="2" 
-                                    Classes="Flat" Content="{avalonia:MaterialIconExt Kind=ChevronRight}"
-                                    IsVisible="{Binding ElementName=PART_ScrollerRoot, Path=CanScrollRight}"
-                                    Command="{Binding ElementName=PART_ScrollerRoot, Path=OneByThirdPageRight}"/>
+                                    Classes="Flat" IsVisible="{Binding ElementName=PART_ScrollerRoot, Path=CanScrollRight}"
+                                    Command="{Binding ElementName=PART_ScrollerRoot, Path=OneByThirdPageRight}">
+                                <controls:MaterialInternalIcon Kind="ChevronRight"/>
+                            </Button>
                         </Grid>
 
                         <Border Name="PART_SelectedContentHostBorder">

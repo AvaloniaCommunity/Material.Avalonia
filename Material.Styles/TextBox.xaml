@@ -1,9 +1,8 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:wpf="clr-namespace:Material.Styles.Assists"
         xmlns:styles="clr-namespace:Material.Styles"
-        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-        xmlns:converters="clr-namespace:Material.Styles.Converters">
+        xmlns:converters="clr-namespace:Material.Styles.Converters"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
 
     <Styles.Resources>
         <StreamGeometry x:Key="TextBoxClearButtonData">M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>
@@ -520,7 +519,7 @@
                 <Button Name="PART_ClearButton" 
                         Classes="Icon" Command="{Binding $parent[TextBox].Clear}" Padding="4"
                         Cursor="Arrow" Focusable="True" Width="{Binding Path=$self.Height}">
-                    <avalonia:MaterialIcon Kind="Close" Width="NaN" Height="NaN"/>
+                    <controls:MaterialInternalIcon Kind="Close" Width="NaN" Height="NaN"/>
                 </Button>
             </Template>
         </Setter>
@@ -534,10 +533,10 @@
                               Width="{Binding Path=$self.Height}" Cursor="Arrow" Focusable="True" Padding="4"
                               IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
                     <ToggleButton.Styles>
-                        <Style Selector="ToggleButton#PART_PasswordRevealToggle avalonia|MaterialIcon#PART_PackIconContent">
+                        <Style Selector="ToggleButton#PART_PasswordRevealToggle controls|MaterialInternalIcon#PART_PackIconContent">
                             <Setter Property="Kind" Value="EyeOutline" />
                         </Style> 
-                        <Style Selector="ToggleButton#PART_PasswordRevealToggle:checked avalonia|MaterialIcon#PART_PackIconContent">
+                        <Style Selector="ToggleButton#PART_PasswordRevealToggle:checked controls|MaterialInternalIcon#PART_PackIconContent">
                             <Setter Property="Kind" Value="EyeOffOutline" />
                         </Style> 
                         <Style Selector="ToggleButton#PART_PasswordRevealToggle[IsChecked=True]">
@@ -547,7 +546,7 @@
                             <Setter Property="(ToolTip.Tip)" Value="Show Password" />
                         </Style>
                     </ToggleButton.Styles>
-                    <avalonia:MaterialIcon Name="PART_PackIconContent" Width="NaN" Height="NaN"/>
+                    <controls:MaterialInternalIcon Name="PART_PackIconContent" Width="NaN" Height="NaN"/>
                 </ToggleButton>
             </Template>
         </Setter>

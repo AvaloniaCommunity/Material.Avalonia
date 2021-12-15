@@ -1,10 +1,9 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:sys="clr-namespace:System;assembly=netstandard"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
-        xmlns:styles="clr-namespace:Material.Styles">
+        xmlns:styles="clr-namespace:Material.Styles"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
   <Design.PreviewWith>
     <StackPanel Margin="20 20 200 200">
       <DatePicker />
@@ -50,7 +49,7 @@
                             Classes="Icon NoFeedback"
                             VerticalAlignment="Bottom"
                             Margin="-8 8 8 6">
-                <avalonia:MaterialIcon Kind="Calendar" Width="20" Height="20" />
+                <controls:MaterialInternalIcon Kind="Calendar" Width="20" Height="20" />
               </ToggleButton>
             </TextBox.InnerRightContent>
           </TextBox>
