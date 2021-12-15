@@ -172,7 +172,7 @@ namespace Material.Styles.Themes {
             sourceDictionary[name + "Color"] = value;
 
             if (sourceDictionary.ContainsKey(name) && sourceDictionary[name] is SolidColorBrush brush) {
-                Dispatcher.UIThread.Post(delegate
+                Dispatcher.UIThread.InvokeAsync(delegate
                 {
                     if (brush.Color == value)
                         return;
