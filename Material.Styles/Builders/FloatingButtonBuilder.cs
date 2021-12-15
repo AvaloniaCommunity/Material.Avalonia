@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Layout;
+using Avalonia.Media;
 
 namespace Material.Styles.Builders
 {
@@ -61,15 +60,22 @@ namespace Material.Styles.Builders
             
             if (icon != null)
             {
-                panel = new Grid
+                panel = new StackPanel
                 {
-                    ColumnDefinitions = new ColumnDefinitions($"Auto, {spacing.ToString()}, *")
+                    Orientation = Orientation.Horizontal
                 };
                 
-                icon.SetValue(Grid.ColumnProperty, 0);
                 panel.Children.Add(icon);
+
+                var separator = new Separator
+                {
+                    Name = "PART_Spacing",
+                    Width = spacing,
+                    Background = Brushes.Transparent,
+                    Foreground = Brushes.Transparent
+                };
                 
-                text?.SetValue(Grid.ColumnProperty, 2);
+                panel.Children.Add(separator);
             }
             else
             {
