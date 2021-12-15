@@ -2,17 +2,17 @@
   xmlns="https://github.com/avaloniaui"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:assists="clr-namespace:Material.Styles.Assists"
-  xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
-  
+  xmlns:controls="clr-namespace:Material.Styles.Controls">
+
   <Design.PreviewWith>
     <StackPanel Margin="20">
       <ToggleButton>Text</ToggleButton>
       <ToggleButton Classes="NoFeedback">Text</ToggleButton>
       <ToggleButton Classes="Icon">
-        <avalonia:MaterialIcon Kind="Abacus" />
+        <controls:MaterialInternalIcon Kind="" />
       </ToggleButton>
       <ToggleButton Classes="Icon NoFeedback">
-        <avalonia:MaterialIcon Kind="Abacus" />
+        <controls:MaterialInternalIcon Kind="" />
       </ToggleButton>
     </StackPanel>
   </Design.PreviewWith>
