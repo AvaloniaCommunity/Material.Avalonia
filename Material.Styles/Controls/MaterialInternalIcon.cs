@@ -57,7 +57,7 @@ namespace Material.Styles.Controls
             if (Kind is null)
                 return;
 
-            string data;
+            string data = null;
             
             if (_dataSetInstance.Value?.TryGetValue(Kind, out data) ?? false)
                 Data = Geometry.Parse(data);
