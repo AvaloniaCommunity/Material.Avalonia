@@ -1,10 +1,13 @@
-﻿using Avalonia;
+﻿using System;
+using System.Collections.Generic;
+using Avalonia;
 using Avalonia.Controls; 
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Material.Styles;
+using Material.Styles.Models;
 
 namespace Material.Demo {
     public class MainWindow : Window {
@@ -67,13 +70,22 @@ namespace Material.Demo {
             SnackbarHost.Post("Welcome to demo of Material.Avalonia!");
         }
 
+        private List<SnackbarModel> helloSnackBars = new List<SnackbarModel>();
+
         private void HelloButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
         {
-            SnackbarHost.Post("Hello, user!");
+            var helloSnackBar = new SnackbarModel("Hello, user!", TimeSpan.Zero);
+            SnackbarHost.Post(helloSnackBar);
+            helloSnackBars.Add(helloSnackBar);
         }
 
         private void GoodbyeButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
         {
+            foreach (var snackbarModel in helloSnackBars)
+            {
+                SnackbarHost.Remove(snackbarModel);
+            }
+            
             SnackbarHost.Post("See ya next time, user!");
         }
     }
