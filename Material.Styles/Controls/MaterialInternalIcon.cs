@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
-using Material.Icons.Avalonia;
 using Material.Styles.Internal;
 
 namespace Material.Styles.Controls
@@ -16,7 +15,7 @@ namespace Material.Styles.Controls
             KindProperty.Changed.Subscribe(args => (args.Sender as MaterialInternalIcon)?.UpdateData());
         }
 
-        public static readonly AvaloniaProperty<string> KindProperty = AvaloniaProperty.Register<MaterialIcon, string>(nameof(Kind));
+        public static readonly AvaloniaProperty<string> KindProperty = AvaloniaProperty.Register<MaterialInternalIcon, string>(nameof(Kind));
 
         /// <summary>
         /// Gets or sets the icon to display.

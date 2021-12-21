@@ -1,16 +1,12 @@
-using System;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Layout;
-using Material.Icons;
-using Material.Icons.Avalonia;
 
 namespace Material.Styles
 {
     public class FloatingButton : Button
     {
         public static readonly StyledProperty<bool> IsExtendedProperty =
-    AvaloniaProperty.Register<FloatingButton, bool>(nameof(IsExtended));
+            AvaloniaProperty.Register<FloatingButton, bool>(nameof(IsExtended));
 
         public bool IsExtended
         {
@@ -18,18 +14,7 @@ namespace Material.Styles
             set => SetValue(IsExtendedProperty, value);
         }
 
-        public FloatingButton() { 
-        }  
-        
-        /// <summary>
-        /// [Deprecated] Create FAB by easy way.
-        /// </summary>
-        /// <param name="iconKind"></param>
-        /// <param name="text"></param>
-        /// <returns>Instance of new FAB. <br/>
-        /// MaterialIcon element name is PART_Icon and
-        /// TextBlock name is PART_AdditionalText</returns>
-        [Obsolete("This function will be removed in next update. Use Material.Styles.Builders.FloatingButtonBuilder instead!")]
+        /*[Obsolete("This function will be removed in next update. Use Material.Styles.Builders.FloatingButtonBuilder instead!")]
         public static FloatingButton CreateFloatingButton(MaterialIconKind iconKind, string text = null)
         {
             FloatingButton button = new FloatingButton();
@@ -56,6 +41,6 @@ namespace Material.Styles
                 }
             };
             return button;
-        }
+        }*/
     }
 }

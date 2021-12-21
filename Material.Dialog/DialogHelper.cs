@@ -9,7 +9,6 @@ using Material.Dialog.Views;
 using System.Collections.Generic;
 using Avalonia;
 using Material.Dialog.Icons;
-using Material.Icons.Avalonia;
 
 namespace Material.Dialog
 {
