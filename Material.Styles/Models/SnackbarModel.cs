@@ -12,6 +12,12 @@ namespace Material.Styles.Models
             //_button = button;
         }
         
+        public SnackbarModel(object content, TimeSpan duration, Orientation orientation = Orientation.Horizontal) : this(content, orientation)
+        {
+            _duration = duration;
+        }
+        
+        
         private object _content;
         public object Content => _content;
 
@@ -24,6 +30,7 @@ namespace Material.Styles.Models
         private object _button;
         public object Button => _button;
 
+        // Setting duration to TimeSpan.Zero, will make it stay forever/til you manually delete it 
         private TimeSpan _duration = TimeSpan.FromSeconds(5);
         public TimeSpan Duration => _duration;
     }

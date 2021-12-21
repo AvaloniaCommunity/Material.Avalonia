@@ -127,27 +127,52 @@ namespace Material.Styles
             if (host is null)
                 throw new ArgumentNullException(nameof(targetHost), $"The target host named \"{targetHost}\" is not exist.");
 
-            ElapsedEventHandler onExpired = null;
-            onExpired = delegate(object sender, ElapsedEventArgs args)
+            // If duration is TimeSpan.Zero, dont expire it.
+            if (model.Duration != TimeSpan.Zero)
             {
-                if (sender is Timer timer)
+                ElapsedEventHandler onExpired = null;
+                onExpired = delegate(object sender, ElapsedEventArgs args)
                 {
-                    // Remove timer.
-                    timer.Stop();
-                    timer.Elapsed -= onExpired;
-                    timer.Dispose();
+                    if (sender is Timer timer)
+                    {
+                        // Remove timer.
+                        timer.Stop();
+                        timer.Elapsed -= onExpired;
+                        timer.Dispose();
                     
-                    OnSnackbarDurationExpired(host, model);
-                }
-            };
+                        OnSnackbarDurationExpired(host, model);
+                    }
+                };
             
-            var timer = new Timer(model.Duration.TotalMilliseconds);
-            timer.Elapsed += onExpired;
-            timer.Start();
-            
+                var timer = new Timer(model.Duration.TotalMilliseconds);
+                timer.Elapsed += onExpired;
+                timer.Start();
+            }
+
             Dispatcher.UIThread.Post(delegate
             {
                 host.SnackbarModels.Add(model);
+            });
+        }
+
+        /// <summary>
+        /// Removes a snackbar manually
+        /// </summary>
+        /// <param name="model">snackbar data model.</param>
+        /// <param name="targetHost">the snackbar host that you wanted to use.</param>
+        public static void Remove(SnackbarModel model, string targetHost = null)
+        {
+            if (targetHost is null)
+                targetHost = GetFirstHostName();
+            
+            var host = GetHost(targetHost);
+
+            if (host is null)
+                throw new ArgumentNullException(nameof(targetHost), $"The target host named \"{targetHost}\" is not exist.");
+
+            Dispatcher.UIThread.Post(delegate
+            {
+                host.SnackbarModels.Remove(model);
             });
         }
 
