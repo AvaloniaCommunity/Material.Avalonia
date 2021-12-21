@@ -25,7 +25,7 @@
       <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
   </Style>
 
-  <Style Selector="Slider">
+  <Style Selector="Slider:horizontal">
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="border" BorderBrush="{TemplateBinding BorderBrush}"
@@ -478,6 +478,15 @@
   </Style>
   <Style Selector="Slider.Accent.Discrete Thumb /template/ ContentPresenter#bubble TextBlock">
     <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+  </Style>
+  
+  <Style Selector="Slider:horizontal">
+    <Setter Property="MinWidth" Value="0"/>
+    <Setter Property="MinHeight" Value="0"/>
+  </Style>
+  <Style Selector="Slider:vertical">
+    <Setter Property="MinWidth" Value="0"/>
+    <Setter Property="MinHeight" Value="0"/>
   </Style>
 
   <Design.PreviewWith>
