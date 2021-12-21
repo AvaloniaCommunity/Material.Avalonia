@@ -251,4 +251,12 @@
     <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
             Value="{DynamicResource SecondaryHueLightBrush}" />
   </Style>
+    
+    <!-- Override Avalonia.Themes.Default parameter -->
+    <!-- Issue: https://github.com/AvaloniaCommunity/Material.Avalonia/issues/132 -->
+    
+    <Style Selector="ToggleSwitch:disabled">
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    </Style>
 </Styles>
