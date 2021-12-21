@@ -370,6 +370,20 @@
         </Style.Animations>
     </Style>
     
+    <!-- Override Avalonia.Themes.Default parameter -->
+    <!-- Issue: https://github.com/AvaloniaCommunity/Material.Avalonia/issues/125 -->
+    
+    <Style Selector="ProgressBar:horizontal">
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="MinHeight" Value="0"/>
+    </Style>
+    <Style Selector="ProgressBar:vertical">
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="MinHeight" Value="0"/>
+    </Style>
+    
+    
+    
     <Design.PreviewWith>
         <Border Padding="20">
             <StackPanel>
