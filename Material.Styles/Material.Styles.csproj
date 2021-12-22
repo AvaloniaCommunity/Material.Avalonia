@@ -55,7 +55,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.7" />
+      <PackageReference Include="Avalonia" Version="0.10.11" />
       <PackageReference Include="DialogHost.Avalonia" Version="0.3.1" />
       <PackageReference Include="Material.Icons" Version="1.0.8" />
       <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />

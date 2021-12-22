@@ -37,8 +37,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.7" />
-      <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
+      <PackageReference Include="Avalonia" Version="0.10.11" />
     </ItemGroup>
 
     <ItemGroup>
