@@ -23,8 +23,9 @@ namespace Material.Ripple {
         {
             AddHandler(PointerReleasedEvent, PointerReleasedHandler);
             AddHandler(PointerPressedEvent, PointerPressedHandler);
+            AddHandler(PointerCaptureLostEvent, PointerCaptureLostHandler);
         }
-
+        
         private void PointerPressedHandler(object sender, PointerPressedEventArgs e)
         {
             if (pointers == 0)
@@ -37,33 +38,44 @@ namespace Material.Ripple {
                     
                 // Attach ripple instance to canvas
                 PART_RippleCanvasRoot.Children.Add(r);
-                r.RunFirstStep(e, this);
+                r.RunFirstStep();
             }
         }
 
         private void PointerReleasedHandler(object sender, PointerReleasedEventArgs e)
         {
-            if (last != null)
-            {
-                pointers--;
-                    
-                // This way to handle pointer released is pretty tricky
-                // could have more better way to improve
-                OnReleaseHandler(last, e);
-                last = null;
-            }
+            RemoveLastRipple();
+        }
+        
+        private void PointerCaptureLostHandler(object sender, PointerCaptureLostEventArgs e)
+        {
+            RemoveLastRipple();
         }
 
-        private void OnReleaseHandler(object sender, PointerReleasedEventArgs e)
+        private void RemoveLastRipple()
         {
-            var r = sender as Ripple;
+            if (last == null) 
+                return;
             
+            pointers--;
+                    
+            // This way to handle pointer released is pretty tricky
+            // could have more better way to improve
+            OnReleaseHandler(last);
+            last = null;
+        }
+
+        private void OnReleaseHandler(Ripple r)
+        {
             // Fade out ripple
-            r.RunSecondStep(e);
+            r.RunSecondStep();
             
             void RemoveRippleTask(Task arg1, object arg2)
             {
-                Dispatcher.UIThread.InvokeAsync(() => PART_RippleCanvasRoot.Children.Remove(r));
+                Dispatcher.UIThread.InvokeAsync(delegate
+                {
+                    PART_RippleCanvasRoot.Children.Remove(r);
+                });
             }
             
             // Remove ripple from canvas to finalize ripple instance
