@@ -38,15 +38,14 @@ namespace Material.Ripple
             Margin = new Thickness(pointer.X, pointer.Y, 0, 0);
         }
 
-        public void RunFirstStep(PointerPressedEventArgs e, Control parent)
+        public void RunFirstStep()
         {
             Width = maxDiam;
             Height = maxDiam;
-            var pointer = e.GetPosition(parent);
             Margin = new Thickness(-endX / 2, -endY / 2, 0, 0);
         }
 
-        public void RunSecondStep(PointerReleasedEventArgs e)
+        public void RunSecondStep()
         {
             Opacity = 0;
         }
