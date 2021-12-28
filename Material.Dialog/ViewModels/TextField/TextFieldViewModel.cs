@@ -7,7 +7,7 @@ using Avalonia.Data;
 
 namespace Material.Dialog.ViewModels.TextField
 {
-    public class TextFieldViewModel : ViewModelBase
+    public class TextFieldViewModel : DialogViewModelBase
     {
         public event EventHandler<bool> OnValidateRequired;
 

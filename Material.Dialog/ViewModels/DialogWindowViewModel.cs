@@ -9,7 +9,7 @@ using Avalonia.Layout;
 
 namespace Material.Dialog.ViewModels
 {
-    public abstract class DialogWindowViewModel : ViewModelBase
+    public abstract class DialogWindowViewModel : DialogViewModelBase
     {
         #region Base Properties
         private string m_WindowTitle;
