@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
-using System.Runtime.CompilerServices; 
+using System.Runtime.CompilerServices;
 
-namespace Material.Dialog
+namespace Material.Dialog.ViewModels
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public class DialogViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
