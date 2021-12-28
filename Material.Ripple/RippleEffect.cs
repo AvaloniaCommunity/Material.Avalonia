@@ -1,23 +1,19 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Shapes;
 using Avalonia.Input;
-using Avalonia.Layout;
 using Avalonia.Media;
-using Avalonia.Styling;
 using Avalonia.Threading;
 
 namespace Material.Ripple {
     public class RippleEffect : ContentControl
     {
+        // ReSharper disable once InconsistentNaming
         private Canvas PART_RippleCanvasRoot;
 
-        private Ripple last;
-        private short pointers;
+        private Ripple _last;
+        private byte _pointers;
 
         public RippleEffect()
         {
@@ -28,12 +24,12 @@ namespace Material.Ripple {
         
         private void PointerPressedHandler(object sender, PointerPressedEventArgs e)
         {
-            if (pointers == 0)
+            if (_pointers == 0)
             {
                 // Only first pointer can arrive a ripple
-                pointers++;
+                _pointers++;
                 var r = CreateRipple();
-                last = r;
+                _last = r;
                 r.SetupInitialValues(e, this);
                     
                 // Attach ripple instance to canvas
@@ -54,15 +50,15 @@ namespace Material.Ripple {
 
         private void RemoveLastRipple()
         {
-            if (last == null) 
+            if (_last == null) 
                 return;
             
-            pointers--;
+            _pointers--;
                     
             // This way to handle pointer released is pretty tricky
             // could have more better way to improve
-            OnReleaseHandler(last);
-            last = null;
+            OnReleaseHandler(_last);
+            _last = null;
         }
 
         private void OnReleaseHandler(Ripple r)
