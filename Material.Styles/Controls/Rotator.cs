@@ -11,6 +11,10 @@ namespace Material.Styles.Controls
 {
     public class Rotator : ContentControl
     {
+        private static IRenderLoop? _loopInstance;
+
+        private static IRenderLoop LoopInstance => _loopInstance ??= new RenderLoop();
+
         // Minimum speed
         private double minimumSpeed = 0.0025;
         private bool _running;
@@ -19,16 +23,13 @@ namespace Material.Styles.Controls
 
         private double _rotateDegree = 0;
 
-        private RenderLoop _loop;
+        private IRenderLoop? _loop;
         private RenderLoopClock _loopTask;
         private TimeSpan _prev;
 
         public Rotator()
         {
-            // Idk how it does making any sense
-            // It works without any hooking / registering / attaching or etc.
-            // I just BLOW MY ****ING MIND
-            _loop = new RenderLoop();
+            _loop = AvaloniaLocator.Current.GetService<IRenderLoop>() ?? LoopInstance;
 
             // Prepare render loop task for use.
             _loopTask = new RenderLoopClock();
