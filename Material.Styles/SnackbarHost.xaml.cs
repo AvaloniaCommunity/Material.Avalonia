@@ -110,16 +110,16 @@ namespace Material.Styles
         /// </summary>
         /// <param name="text">message text.</param>
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
-        public static void Post(string text, string targetHost = null) => Post(new SnackbarModel(text), targetHost);
+        public static void Post(string text, string targetHost = null, DispatcherPriority priority = DispatcherPriority.Normal) => Post(new SnackbarModel(text), targetHost, priority);
         
         /// <summary>
         /// Post an snackbar with custom content and button (only one).
         /// </summary>
         /// <param name="model">snackbar data model.</param>
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
-        public static void Post(SnackbarModel model, string targetHost = null)
+        public static void Post(SnackbarModel model, string targetHost = null, DispatcherPriority priority = DispatcherPriority.Normal)
         {
-            if (targetHost is null)
+            if (string.IsNullOrEmpty(targetHost))
                 targetHost = GetFirstHostName();
             
             var host = GetHost(targetHost);
@@ -152,7 +152,7 @@ namespace Material.Styles
             Dispatcher.UIThread.Post(delegate
             {
                 host.SnackbarModels.Add(model);
-            });
+            }, priority);
         }
 
         /// <summary>
@@ -160,9 +160,9 @@ namespace Material.Styles
         /// </summary>
         /// <param name="model">snackbar data model.</param>
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
-        public static void Remove(SnackbarModel model, string targetHost = null)
+        public static void Remove(SnackbarModel model, string targetHost = null, DispatcherPriority priority = DispatcherPriority.Normal)
         {
-            if (targetHost is null)
+            if (string.IsNullOrEmpty(targetHost))
                 targetHost = GetFirstHostName();
             
             var host = GetHost(targetHost);
@@ -173,7 +173,7 @@ namespace Material.Styles
             Dispatcher.UIThread.Post(delegate
             {
                 host.SnackbarModels.Remove(model);
-            });
+            }, priority);
         }
 
         private static void OnSnackbarDurationExpired(SnackbarHost host, SnackbarModel model)
