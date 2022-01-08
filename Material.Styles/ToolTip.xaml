@@ -1,5 +1,4 @@
-<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:styles="clr-namespace:Material.Styles">
+<Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="ToolTip">
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
         <Setter Property="Background" Value="{DynamicResource MaterialDesignToolTipBackground}" />
