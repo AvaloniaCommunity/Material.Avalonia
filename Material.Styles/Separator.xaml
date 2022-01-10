@@ -1,25 +1,25 @@
 <Styles xmlns="https://github.com/avaloniaui">
 
-	<Style Selector="Separator">
-		<Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}" />
-		<Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignSelection}" />
-		<Setter Property="MinHeight" Value="1" />
-		<Setter Property="Height" Value="1" />
-		<Setter Property="HorizontalAlignment" Value="Stretch"/>
-		<Setter Property="Margin" Value="0,8"/>
-		<Setter Property="VerticalAlignment" Value="Center"/>
-		<Setter Property="Template">
-			<ControlTemplate>
-				<Rectangle Height="{TemplateBinding Height}"
-						   Fill="{TemplateBinding Background}"
+    <Style Selector="Separator">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="MinHeight" Value="1" />
+        <Setter Property="Height" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="0,8"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Rectangle Height="{TemplateBinding Height}"
+                           Fill="{TemplateBinding Background}"
                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-						   VerticalAlignment="{TemplateBinding VerticalAlignment}" />
-			</ControlTemplate>
-		</Setter>
-	</Style>
+                           VerticalAlignment="{TemplateBinding VerticalAlignment}" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
 
-	<Style Selector="Separator.Middle">
-		<Setter Property="Margin" Value="16,8" />
-	</Style>
+    <Style Selector="Separator.Middle">
+        <Setter Property="Margin" Value="16,8" />
+    </Style>
 
 </Styles>
