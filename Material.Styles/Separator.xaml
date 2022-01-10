@@ -5,11 +5,15 @@
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignSelection}" />
         <Setter Property="MinHeight" Value="1" />
         <Setter Property="Height" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="Margin" Value="0,8"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Rectangle Height="1" Fill="{TemplateBinding Background}"
-                           HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                <Rectangle Height="{TemplateBinding Height}"
+                           Fill="{TemplateBinding Background}"
+                           HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                           VerticalAlignment="{TemplateBinding VerticalAlignment}" />
             </ControlTemplate>
         </Setter>
     </Style>
