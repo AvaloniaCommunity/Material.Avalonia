@@ -1,15 +1,17 @@
 <Styles xmlns="https://github.com/avaloniaui">
 
     <Style Selector="Separator">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}" />
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignSelection}" />
         <Setter Property="MinHeight" Value="1" />
         <Setter Property="Height" Value="1" />
         <Setter Property="Margin" Value="0,8"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Rectangle Height="1" Fill="{TemplateBinding Background}"
-                           HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                    <Rectangle Height="1" Fill="{TemplateBinding BorderBrush}"
+                               HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                </Border>
             </ControlTemplate>
         </Setter>
     </Style>
