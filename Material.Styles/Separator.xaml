@@ -8,7 +8,7 @@
         <Setter Property="Margin" Value="0,8"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}">
+                <Border Background="{TemplateBinding Background}" BorderThickness="0">
                     <Rectangle Height="1" Fill="{TemplateBinding BorderBrush}"
                                HorizontalAlignment="Stretch" VerticalAlignment="Center" />
                 </Border>
