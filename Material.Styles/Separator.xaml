@@ -20,4 +20,20 @@
         <Setter Property="Margin" Value="16,8" />
     </Style>
 
+    <Style Selector="Separator.Vertical">
+        <Setter Property="Height" Value="NaN"/>
+        <Setter Property="Margin" Value="8,0"/>
+        <Setter Property="MinHeight" Value="0"/>
+        <Setter Property="MinWidth" Value="1"/>
+        <Setter Property="Width" Value="1"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                    <Rectangle Width="1" Fill="{TemplateBinding BorderBrush}"
+                               HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
 </Styles>
