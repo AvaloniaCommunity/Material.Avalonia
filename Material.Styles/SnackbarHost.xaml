@@ -31,6 +31,9 @@
                       <ContentPresenter.Styles>
                         <Style Selector="TextBlock">
                           <Setter Property="TextAlignment" Value="Left" />
+                          <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                          <Setter Property="TextWrapping" Value="Wrap" />
+                          <Setter Property="MaxLines" Value="2"/>
                         </Style>
                       </ContentPresenter.Styles>
                     </ContentPresenter>
