@@ -2,7 +2,7 @@
        xmlns:cc="clr-namespace:Material.Styles"
        Selector="ContextMenu">
     <Setter Property="WindowManagerAddShadowHint" Value="False" />
-    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Padding" Value="0 8" />
@@ -10,19 +10,18 @@
     <Setter Property="TextBlock.FontWeight" Value="Normal" />
     <Setter Property="Template">
         <ControlTemplate>
-            <cc:Card Padding="0" Margin="6">
-                <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        Padding="{TemplateBinding Padding}">
-                    <ScrollViewer>
-                        <ItemsPresenter Name="PART_ItemsPresenter"
-                                        Items="{TemplateBinding Items}"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                                        KeyboardNavigation.TabNavigation="Continue" />
-                    </ScrollViewer>
-                </Border>
+            <cc:Card Margin="6"
+                     Padding="{TemplateBinding Padding}"
+                     Background="{TemplateBinding Background}"
+                     BorderBrush="{TemplateBinding BorderBrush}"
+                     BorderThickness="{TemplateBinding BorderThickness}">
+                <ScrollViewer>
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    Items="{TemplateBinding Items}"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    ItemTemplate="{TemplateBinding ItemTemplate}"
+                                    KeyboardNavigation.TabNavigation="Continue" />
+                </ScrollViewer>
             </cc:Card>
         </ControlTemplate>
     </Setter>
