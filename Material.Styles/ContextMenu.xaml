@@ -15,7 +15,8 @@
                      Background="{TemplateBinding Background}"
                      BorderBrush="{TemplateBinding BorderBrush}"
                      BorderThickness="{TemplateBinding BorderThickness}">
-                <ScrollViewer>
+                <ScrollViewer HorizontalAlignment="Stretch"
+                              HorizontalContentAlignment="Stretch">
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     Items="{TemplateBinding Items}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}"
