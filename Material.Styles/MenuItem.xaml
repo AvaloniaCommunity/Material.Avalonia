@@ -117,10 +117,6 @@
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="1" Orientation="Horizontal">
                                     <ContentPresenter Name="PART_Icon"
-                                                      Width="24"
-                                                      Height="24"
-                                                      Margin="0, 0, 24, 0"
-
                                                       HorizontalAlignment="Center"
                                                       VerticalAlignment="Center"
                                                       Content="{TemplateBinding Icon}" />
@@ -179,6 +175,13 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+    </Style>
+    
+    <!-- Default style: MenuItem icon -->
+    <Style Selector="MenuItem /template/ ContentPresenter#PART_Icon">
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Margin" Value="0, 0, 24, 0"/>
     </Style>
 
     <Style Selector="MenuItem:separator">
