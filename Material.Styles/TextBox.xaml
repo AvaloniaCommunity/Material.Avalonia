@@ -66,6 +66,8 @@
         <Setter Property="FontFamily"
                 Value="avares://Material.Styles/Fonts/Roboto#Roboto,
             Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Noto Sans, Arial" />
+        <Setter Property="FontSize" Value="16.0"/>
+        <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid RowDefinitions="*, Auto">
@@ -116,7 +118,6 @@
                                                 </TextBlock>
                                                 <TextPresenter Name="PART_TextPresenter"
                                                                Margin="0,6,0,7"
-                                                               FontSize="16"
                                                                Text="{TemplateBinding Text, Mode=TwoWay}"
                                                                CaretIndex="{TemplateBinding CaretIndex}"
                                                                SelectionStart="{TemplateBinding SelectionStart}"
@@ -272,8 +273,6 @@
                                                            TextWrapping="{TemplateBinding TextWrapping}">
                                                 </TextBlock>
                                                 <TextPresenter Name="PART_TextPresenter"
-                                                               FontSize="16"
-                                                               FontWeight="Regular"
                                                                Text="{TemplateBinding Text, Mode=TwoWay}"
                                                                CaretIndex="{TemplateBinding CaretIndex}"
                                                                SelectionStart="{TemplateBinding SelectionStart}"
@@ -428,8 +427,6 @@
                                                        TextWrapping="{TemplateBinding TextWrapping}">
                                             </TextBlock>
                                             <TextPresenter Name="PART_TextPresenter"
-                                                           FontSize="16"
-                                                           FontWeight="Regular" ClipToBounds="True"
                                                            Text="{TemplateBinding Text, Mode=TwoWay}"
                                                            CaretIndex="{TemplateBinding CaretIndex}"
                                                            SelectionStart="{TemplateBinding SelectionStart}"
@@ -639,7 +636,7 @@
                                                        FontFamily="{TemplateBinding FontFamily}"
                                                        TextAlignment="{TemplateBinding TextAlignment}"
                                                        TextWrapping="{TemplateBinding TextWrapping}" />
-                                            <TextPresenter Name="PART_TextPresenter" FontSize="16"
+                                            <TextPresenter Name="PART_TextPresenter"
                                                            Text="{TemplateBinding Text, Mode=TwoWay}"
                                                            CaretIndex="{TemplateBinding CaretIndex}"
                                                            SelectionStart="{TemplateBinding SelectionStart}"
