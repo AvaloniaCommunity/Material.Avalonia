@@ -112,6 +112,7 @@
                                     <ColumnDefinition Width="20" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGT" />
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="20" />
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Column="1" Orientation="Horizontal">
