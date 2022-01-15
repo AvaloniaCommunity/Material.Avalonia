@@ -184,7 +184,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Separator Background="{DynamicResource PrimaryHueMidBrush}"
-                           Margin="20,1,0,1"
+                           Margin="0, 8"
                            Height="1" />
             </ControlTemplate>
         </Setter>
