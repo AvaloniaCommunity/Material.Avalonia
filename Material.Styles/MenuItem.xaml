@@ -90,8 +90,8 @@
             </ControlTemplate>
         </Setter>
     </Style>-->
-    
-        <Style Selector="MenuItem">
+
+    <Style Selector="MenuItem">
         <Setter Property="Height" Value="48" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="BorderThickness" Value="0" />
