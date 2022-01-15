@@ -128,7 +128,7 @@
                                                       Content="{TemplateBinding Header}">
                                         <ContentPresenter.DataTemplates>
                                             <DataTemplate DataType="sys:String">
-                                                <AccessText Text="{Binding}" />
+                                                <AccessText Text="{CompiledBinding }" />
                                             </DataTemplate>
                                         </ContentPresenter.DataTemplates>
                                     </ContentPresenter>
