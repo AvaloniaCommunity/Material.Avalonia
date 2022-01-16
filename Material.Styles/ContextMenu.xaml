@@ -1,29 +1,39 @@
-<Style xmlns="https://github.com/avaloniaui"
-       xmlns:cc="clr-namespace:Material.Styles"
-       Selector="ContextMenu">
-    <Setter Property="WindowManagerAddShadowHint" Value="False" />
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Padding" Value="0 8" />
-    <Setter Property="TextBlock.FontSize" Value="14" />
-    <Setter Property="TextBlock.FontWeight" Value="Normal" />
-    <Setter Property="Template">
-        <ControlTemplate>
-            <cc:Card Margin="6"
-                     Padding="{TemplateBinding Padding}"
-                     Background="{TemplateBinding Background}"
-                     BorderBrush="{TemplateBinding BorderBrush}"
-                     BorderThickness="{TemplateBinding BorderThickness}">
-                <ScrollViewer HorizontalAlignment="Stretch"
-                              HorizontalContentAlignment="Stretch">
-                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                    Items="{TemplateBinding Items}"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                    KeyboardNavigation.TabNavigation="Continue" />
-                </ScrollViewer>
-            </cc:Card>
-        </ControlTemplate>
-    </Setter>
-</Style>
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:cc="clr-namespace:Material.Styles"
+        xmlns:assists="clr-namespace:Material.Styles.Assists">
+    <Style Selector="ContextMenu">
+        <Setter Property="WindowManagerAddShadowHint" Value="False" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0 8" />
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="TextBlock.FontWeight" Value="Normal" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <cc:Card Name="PART_ContextMenuCardRoot"
+                         Padding="{TemplateBinding Padding}"
+                         Background="{TemplateBinding Background}"
+                         BorderBrush="{TemplateBinding BorderBrush}"
+                         BorderThickness="{TemplateBinding BorderThickness}">
+                    <ScrollViewer HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Stretch">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Items="{TemplateBinding Items}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        ItemTemplate="{TemplateBinding ItemTemplate}"
+                                        KeyboardNavigation.TabNavigation="Continue" />
+                    </ScrollViewer>
+                </cc:Card>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="ContextMenu">
+        <Setter Property="RenderTransform" Value="translate(-8px,-8px)"/>
+    </Style>
+    <Style Selector="ContextMenu /template/ cc|Card#PART_ContextMenuCardRoot">
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth3"/>
+    </Style>
+</Styles>
