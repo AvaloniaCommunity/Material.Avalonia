@@ -9,7 +9,24 @@
         <SolidColorBrush x:Key="MaterialDesignDarkSeparatorBackground" Color="#1F000000" />
         <SolidColorBrush x:Key="MaterialDesignLightSeparatorBackground" Color="#1FFFFFFF" />
     </Styles.Resources>
+    
+    <!--custom controls-->
+    
+    <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" />
+    <StyleInclude Source="avares://Material.Styles/Card.xaml"/>
+    <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
+    <StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>
+    <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
+    <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml"/>
+    
+    <!-- dialog host -->
+    
+    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
+    <StyleInclude Source="avares://Material.Styles/DialogHost.axaml" />
+    
+    <!-- Basic controls -->
+    
     <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/Button.xaml" />
     <StyleInclude Source="avares://Material.Styles/ButtonSpinner.xaml" />
@@ -63,14 +80,5 @@
     <StyleInclude Source="avares://Material.Styles/Window.xaml" />
     <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
     <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" />
-    <!-- dialog host -->
-    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
-    <StyleInclude Source="avares://Material.Styles/DialogHost.axaml" />
-    <!--custom controls-->
-    <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" />
-    <StyleInclude Source="avares://Material.Styles/Card.xaml"/>
-    <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
-    <StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>
-    <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
-    <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
+
 </Styles>
