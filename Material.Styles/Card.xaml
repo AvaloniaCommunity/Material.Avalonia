@@ -3,6 +3,8 @@
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:cc="clr-namespace:Material.Styles">
     <Style Selector="cc|Card">
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2"/>
+        
         <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Focusable" Value="False" />
