@@ -29,11 +29,11 @@
         </Setter>
     </Style>
     
-    <Style Selector="ContextMenu">
-        <Setter Property="RenderTransform" Value="translate(-8px,-8px)"/>
-    </Style>
     <Style Selector="ContextMenu /template/ cc|Card#PART_ContextMenuCardRoot">
-        <Setter Property="Margin" Value="8"/>
-        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth3"/>
+        <Setter Property="Margin" Value="6"/>
+    </Style>
+    
+    <Style Selector="ContextMenu /template/ cc|Card#PART_ContextMenuCardRoot /template/ Border#PART_BackgroundBorder">
+        <Setter Property="IsHitTestVisible" Value="False"/>
     </Style>
 </Styles>
