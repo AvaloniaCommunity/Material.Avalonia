@@ -14,7 +14,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Grid Name="GridRoot">
+                    <Panel Name="PART_RootPanel">
                         <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch" />
                         <DockPanel>
@@ -48,7 +48,7 @@
                                                   ContentTemplate="{TemplateBinding ContentTemplate}"/>
                             </Border>
                         </DockPanel>
-                    </Grid>
+                    </Panel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -57,7 +57,7 @@
     <Style Selector="TabControl.Scrollable">
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid Name="GridRoot">
+                <Panel Name="PART_RootPanel">
                     <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch" />
                     <DockPanel>
@@ -105,7 +105,7 @@
                                               ContentTemplate="{TemplateBinding ContentTemplate}"/>
                         </Border>
                     </DockPanel>
-                </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </Style>
