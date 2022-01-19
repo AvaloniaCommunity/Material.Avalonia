@@ -21,14 +21,14 @@ namespace Material.Styles.Assists {
 
         #region Main selection widget foreground
 
-        public static readonly AvaloniaProperty<Brush> ForegroundProperty
-            = AvaloniaProperty.RegisterAttached<Button, Brush>("Foreground", typeof(SelectionControlAssist));
+        public static readonly AvaloniaProperty<IBrush> ForegroundProperty
+            = AvaloniaProperty.RegisterAttached<Button, IBrush>("Foreground", typeof(SelectionControlAssist));
 
-        public static Brush GetForeground(Button element) {
-            return (Brush) element.GetValue(ForegroundProperty);
+        public static IBrush GetForeground(Button element) {
+            return (IBrush) element.GetValue(ForegroundProperty);
         }
 
-        public static void SetForeground(Button element, Brush brush) {
+        public static void SetForeground(Button element, IBrush brush) {
             element.SetValue(ForegroundProperty, brush);
         }
 
@@ -36,14 +36,14 @@ namespace Material.Styles.Assists {
 
         #region Inner widget foreground color of selection widget
 
-        public static readonly AvaloniaProperty<Brush> InnerForegroundProperty
-            = AvaloniaProperty.RegisterAttached<Button, Brush>("InnerForeground", typeof(SelectionControlAssist));
+        public static readonly AvaloniaProperty<IBrush> InnerForegroundProperty
+            = AvaloniaProperty.RegisterAttached<Button, IBrush>("InnerForeground", typeof(SelectionControlAssist));
 
-        public static Brush GetInnerForeground(Button element) {
-            return (Brush) element.GetValue(InnerForegroundProperty);
+        public static IBrush GetInnerForeground(Button element) {
+            return (IBrush) element.GetValue(InnerForegroundProperty);
         }
 
-        public static void SetInnerForeground(Button element, Brush brush) {
+        public static void SetInnerForeground(Button element, IBrush brush) {
             element.SetValue(InnerForegroundProperty, brush);
         }
 
