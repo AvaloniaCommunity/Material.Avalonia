@@ -23,9 +23,9 @@
                 <DataTemplate DataType="models:SideSheetData">
                     <Panel Margin="20">
                         <StackPanel>
-                            <TextBlock Classes="Headline4" Text="{CompiledBinding Header}"/>
+                            <TextBlock Classes="Headline5" Text="{CompiledBinding Header}"/>
                         </StackPanel>
-                        <Button Classes="Icon" Width="36" Height="36"
+                        <Button Classes="Icon" Width="36" Height="36" Margin="-8"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Top"
                                 Content="{avalonia:MaterialIconExt Close, Size=20}"

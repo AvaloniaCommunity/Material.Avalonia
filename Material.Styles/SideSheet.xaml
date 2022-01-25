@@ -1,8 +1,7 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cc="clr-namespace:Material.Styles"
-        xmlns:converters="clr-namespace:Material.Styles.Converters"
-        xmlns:assists="clr-namespace:Material.Styles.Assists">
+        xmlns:converters="clr-namespace:Material.Styles.Converters">
     <Styles.Resources>
         <converters:MarginCreator x:Key="StartMarginCreator" />
     </Styles.Resources>
@@ -13,15 +12,15 @@
         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border ClipToBounds="False"
+                <Border Name="PART_RootBorder" ClipToBounds="False"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <DockPanel HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch">
-                        <Border Name="PART_SideSheet" DockPanel.Dock="Right"
-                                Width="{TemplateBinding SideSheetWidth}"
-                                assists:ShadowAssist.ShadowDepth="CenterDepth3">
+                        <Border Name="PART_SideSheet"
+                                DockPanel.Dock="Right"
+                                Width="{TemplateBinding SideSheetWidth}">
                             <ContentPresenter Content="{TemplateBinding SideSheetContent}"
                                               ContentTemplate="{TemplateBinding SideSheetContentTemplate}"
                                               IsEnabled="{TemplateBinding SideSheetOpened}" />
@@ -70,6 +69,8 @@
     </Style>
     
     <Style Selector="cc|SideSheet /template/ Border#PART_SideSheet">
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}"/>
+        <Setter Property="BorderThickness" Value="1,0,0,0"/>
         <Setter Property="Margin">
             <MultiBinding Converter="{StaticResource StartMarginCreator}">
                 <Binding Path="{x:Null}"/>
