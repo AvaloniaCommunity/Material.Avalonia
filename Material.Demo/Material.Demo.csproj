@@ -29,5 +29,9 @@
     <AvaloniaResource Include="**\*.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
+    <Compile Update="Pages\SideSheetDemo.axaml.cs">
+      <DependentUpon>SideSheetDemo.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

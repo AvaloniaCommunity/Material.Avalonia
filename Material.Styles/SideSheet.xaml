@@ -1,0 +1,106 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cc="clr-namespace:Material.Styles"
+        xmlns:converters="clr-namespace:Material.Styles.Converters"
+        xmlns:assists="clr-namespace:Material.Styles.Assists">
+    <Styles.Resources>
+        <converters:MarginCreator x:Key="StartMarginCreator" />
+    </Styles.Resources>
+
+    <!-- SideSheet (desktop variant) -->
+    <Style Selector="cc|SideSheet">
+        <Setter Property="SideSheetWidth" Value="320" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border ClipToBounds="False"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <DockPanel HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch">
+                        <Border Name="PART_SideSheet" DockPanel.Dock="Right"
+                                Width="{TemplateBinding SideSheetWidth}"
+                                assists:ShadowAssist.ShadowDepth="CenterDepth3">
+                            <ContentPresenter Content="{TemplateBinding SideSheetContent}"
+                                              ContentTemplate="{TemplateBinding SideSheetContentTemplate}"
+                                              IsEnabled="{TemplateBinding SideSheetOpened}" />
+                        </Border>
+                        <Panel DockPanel.Dock="Right">
+                            <ContentPresenter Name="ContentPresenter"
+                                              Margin="{TemplateBinding Padding}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                            <Border Name="PART_Scrim"
+                                    Background="Black"
+                                    IsHitTestVisible="{TemplateBinding SideSheetOpened}"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"/>
+                        </Panel>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="cc|SideSheet:not(.notransitions) /template/ Border#PART_Scrim">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Duration="0:0:0.3" Property="Opacity" Easing="CubicEaseInOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="cc|SideSheet:not(.notransitions) /template/ Border#PART_SideSheet">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Duration="0:0:0.3" Property="Margin" Easing="CubicEaseInOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+    <Style Selector="cc|SideSheet /template/ Border#PART_Scrim">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+    
+    <!-- Desktop mode should disable the scrim part -->
+    <Style Selector="cc|SideSheet:not(:mobile) /template/ Border#PART_Scrim">
+        <Setter Property="IsEnabled" Value="False"/>
+        <Setter Property="IsVisible" Value="False"/>
+    </Style>
+    
+    <Style Selector="cc|SideSheet /template/ Border#PART_SideSheet">
+        <Setter Property="Margin">
+            <MultiBinding Converter="{StaticResource StartMarginCreator}">
+                <Binding Path="{x:Null}"/>
+                <Binding Path="{x:Null}"/>
+                <Binding Path="$self.Width" />
+            </MultiBinding>
+        </Setter>
+    </Style>
+    
+    <Style Selector="cc|SideSheet:open /template/ Border#PART_Scrim">
+        <Setter Property="Opacity" Value="0.32" />
+    </Style>
+    
+    <Style Selector="cc|SideSheet:open /template/ Border#PART_SideSheet">
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    
+    <Design.PreviewWith>
+        <Border Margin="40" BorderThickness="1" BorderBrush="Black">
+            <cc:SideSheet Width="400" Height="200"
+                          SideSheetOpened="{Binding ElementName=toggler, Path=IsChecked}">
+                <cc:SideSheet.SideSheetContent>
+                    <StackPanel>
+                        <Button Content="Test 1" />
+                        <Button Content="Test 2" />
+                    </StackPanel>
+                </cc:SideSheet.SideSheetContent>
+                <cc:Card Margin="8">
+                    <ToggleSwitch Name="toggler" IsChecked="True" />
+                </cc:Card>
+            </cc:SideSheet>
+        </Border>
+    </Design.PreviewWith>
+</Styles>
