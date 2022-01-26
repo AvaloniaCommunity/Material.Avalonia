@@ -172,6 +172,9 @@
                     <Style Selector="Button">
                         <Setter Property="Margin" Value="4"/>
                     </Style>
+                    <Style Selector="ItemsPresenter">
+                        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+                    </Style>
                 </ItemsControl.Styles>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
