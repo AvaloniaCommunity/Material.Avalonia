@@ -67,11 +67,11 @@ namespace Material.Styles.Controls
             var paint = new Pen(ArcBrush, Stroke);
             
             // Push generated clip geometry for clipping circle figure
-            context.PlatformImpl.PushGeometryClip(GetClip().PlatformImpl);
-            context.PlatformImpl.DrawGeometry(SolidColorBrush.Parse("Transparent"), paint, mainCircle.PlatformImpl);
-            context.PlatformImpl.PopGeometryClip();
-            // Pop clip geometry
-            
+            using (context.PushGeometryClip(GetClip()))
+            {
+                context.DrawGeometry(SolidColorBrush.Parse("Transparent"), paint, mainCircle);
+            }
+
             Dispatcher.UIThread.InvokeAsync(InvalidateVisual, DispatcherPriority.Background);
         }
 
