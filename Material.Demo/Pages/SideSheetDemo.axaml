@@ -17,6 +17,7 @@
         <TextBlock Classes="Headline4 Subheadline" Text="Side sheets" />
         
         <styles:SideSheet Width="800" Height="560" BorderBrush="Black" BorderThickness="1"
+                          SideSheetDirection="Right"
                           SideSheetOpened="{CompiledBinding SideInfoOpened}"
                           SideSheetContent="{CompiledBinding Information}">
             <styles:SideSheet.SideSheetContentTemplate>

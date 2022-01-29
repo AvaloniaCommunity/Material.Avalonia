@@ -3,15 +3,14 @@ using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Templates;
 using Avalonia.Interactivity;
-using Avalonia.LogicalTree;
 using Avalonia.Metadata;
-using System;
 using Avalonia.Controls.Primitives;
+using Material.Styles.Enums;
 
 namespace Material.Styles
 {
     // TODO: mobile variant
-    [PseudoClasses(":open", ":closed", ":mobile")]
+    [PseudoClasses(":open", ":closed", ":left", ":right", ":mobile")]
     public class SideSheet : ContentControl
     { 
         // Avalonia properties
@@ -27,6 +26,9 @@ namespace Material.Styles
 
         public static readonly StyledProperty<double> SideSheetWidthProperty =
             AvaloniaProperty.Register<SideSheet, double>(nameof(SideSheetWidth));
+
+        public static readonly StyledProperty<HorizontalDirection> SideSheetDirectionProperty =
+            AvaloniaProperty.Register<SideSheet, HorizontalDirection>(nameof(SideSheetDirection));
 
         // CLR properties
         
@@ -60,81 +62,75 @@ namespace Material.Styles
             get => GetValue(SideSheetWidthProperty);
             set => SetValue(SideSheetWidthProperty, value);
         }
+        
+        public HorizontalDirection SideSheetDirection
+        {
+            get => GetValue(SideSheetDirectionProperty);
+            set => SetValue(SideSheetDirectionProperty, value);
+        }
 
         static SideSheet()
         {
-            SideSheetWidthProperty.Changed.AddClassHandler<SideSheet>((x, e) => x.SideSheetWidthChanged(e));
-            SideSheetContentProperty.Changed.AddClassHandler<SideSheet>((x, e) => x.SideSheetContentChanged(e));
-            SideSheetOpenedProperty.Changed.AddClassHandler<SideSheet>((x, e) => x.SideSheetOpenedChanged(e));
+            SideSheetOpenedProperty.Changed.AddClassHandler<SideSheet>(OnSideSheetStateChanged);
+            SideSheetDirectionProperty.Changed.AddClassHandler<SideSheet>(OnSideSheetStateChanged);
+        }
+
+        private static void OnSideSheetStateChanged(SideSheet control, AvaloniaPropertyChangedEventArgs args)
+        {
+            control.UpdatePseudoClasses();
+        }
+
+        public SideSheet()
+        {
+            UpdatePseudoClasses();
         }
 
         // Controls
         
         private Border? PART_Scrim;
-        private Border? PART_SideSheet;
-        
-        // Fields
-        private Action? m_LatelyEventCall;
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
+            if (e.NameScope.Find("PART_Scrim") is Border border)
+            {
+                PART_Scrim = border;
+                
+                PART_Scrim.PointerPressed += PART_Scrim_Pressed;
+            }
+            
             base.OnApplyTemplate(e);
-            
-            PART_Scrim = e.NameScope.Find<Border>("PART_Scrim");
-            PART_Scrim.PointerPressed += PART_Scrim_Pressed;
-            
-            PART_SideSheet = e.NameScope.Find<Border>("PART_SideSheet");
         }
-
+        
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
+            if(PART_Scrim != null)
+                PART_Scrim.PointerPressed += PART_Scrim_Pressed;
+            
             base.OnAttachedToVisualTree(e);
-            m_LatelyEventCall?.Invoke();
         }
 
-        private void SideSheetWidthChanged(AvaloniaPropertyChangedEventArgs e) => PART_SideSheet?.SetValue(MarginProperty,
-            SideSheetOpened ? new Thickness(0) : new Thickness(0, 0, -SideSheetWidth + Converters.MarginCreator.Offset, 0));
-
-        private void SideSheetOpenedChanged(AvaloniaPropertyChangedEventArgs e)
+        protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
-            // Try schedule a call after control attached to visual tree. 
-            if((!PART_Scrim?.IsInitialized ?? false) && (!PART_SideSheet?.IsInitialized ?? false))
-            {
-                var param = new AvaloniaPropertyChangedEventArgs<bool>(this, 
-                    SideSheetOpenedProperty, 
-                    (bool)e.OldValue, 
-                    (bool)e.NewValue, 
-                    e.Priority);
-                m_LatelyEventCall = () => SideSheetOpenedChanged(param);
-                return;
-            } 
-
-            var value = (bool)e.NewValue; 
-            SetPseudoClassesOpenState(value); 
+            if(PART_Scrim != null)
+                PART_Scrim.PointerPressed -= PART_Scrim_Pressed;
+            
+            base.OnDetachedFromVisualTree(e);
         }
-
-        private void SideSheetContentChanged(AvaloniaPropertyChangedEventArgs e)
-        {
-            if (e.OldValue is ILogical oldChild)
-            {
-                LogicalChildren.Remove(oldChild);
-            }
-
-            if (e.NewValue is ILogical newChild)
-            {
-                LogicalChildren.Add(newChild);
-            }
-        } 
          
         private void PART_Scrim_Pressed(object sender, RoutedEventArgs e)
         {
             SideSheetOpened = false;
         }
 
-        private void SetPseudoClassesOpenState(bool open)
+        private void UpdatePseudoClasses()
         {
+            var open = SideSheetOpened;
             PseudoClasses.Add(open ? ":open" : ":closed");
             PseudoClasses.Remove(!open ? ":open" : ":closed");
+
+            var direction = SideSheetDirection;
+            PseudoClasses.Set(":left", direction == HorizontalDirection.Left);
+            PseudoClasses.Set(":right", direction == HorizontalDirection.Right);
         }
     }
 }
