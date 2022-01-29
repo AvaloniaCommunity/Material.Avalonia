@@ -31,10 +31,10 @@
                             </Style>
                         </Border.Styles>
                     </Border>
-                    <cc:Card Name="PART_LeftDrawer" HorizontalAlignment="Left"
-                             Width="{TemplateBinding LeftDrawerWidth}"
-                             Padding="0" CornerRadius="0">
-                        <cc:Card.Styles>
+                    <Border Name="PART_LeftDrawerBorder" HorizontalAlignment="Left"
+                            Width="{TemplateBinding LeftDrawerWidth}"
+                            Padding="0" CornerRadius="0">
+                        <Border.Styles>
                             <Style
                                 Selector="cc|NavigationDrawer:not(.notransitions) /template/ cc|Card#PART_LeftDrawer">
                                 <Setter Property="Transitions">
@@ -44,10 +44,10 @@
                                     </Transitions>
                                 </Setter>
                             </Style>
-                        </cc:Card.Styles>
+                        </Border.Styles>
                         <ContentPresenter Content="{TemplateBinding LeftDrawerContent}"
                                           IsEnabled="{TemplateBinding LeftDrawerOpened}" />
-                    </cc:Card>
+                    </Border>
                 </Grid>
             </ControlTemplate>
         </Setter>
@@ -56,17 +56,20 @@
     <Style Selector="cc|NavigationDrawer /template/ Border#PART_Scrim">
         <Setter Property="Opacity" Value="0" />
     </Style>
-    <Style Selector="cc|NavigationDrawer /template/ cc|Card#PART_LeftDrawer">
+    
+    <Style Selector="cc|NavigationDrawer /template/ Border#PART_LeftDrawerBorder">
         <Setter Property="Margin">
             <MultiBinding Converter="{StaticResource StartMarginCreator}">
                 <Binding Path="$self.Width" />
             </MultiBinding>
         </Setter>
     </Style>
+    
     <Style Selector="cc|NavigationDrawer:open /template/ Border#PART_Scrim">
         <Setter Property="Opacity" Value="0.32" />
     </Style>
-    <Style Selector="cc|NavigationDrawer:open /template/ cc|Card#PART_LeftDrawer">
+    
+    <Style Selector="cc|NavigationDrawer:open /template/ Border#PART_LeftDrawerBorder">
         <Setter Property="Margin" Value="0" />
     </Style>
 

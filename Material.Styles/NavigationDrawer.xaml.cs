@@ -70,7 +70,7 @@ namespace Material.Styles
         }
 
         private Border PART_Scrim;
-        private Card PART_LeftDrawer;
+        private Border PART_LeftDrawerBorder;
         private Action m_LatelyEventCall;
 
         public NavigationDrawer()
@@ -79,7 +79,7 @@ namespace Material.Styles
                 PART_Scrim = e.NameScope.Find("PART_Scrim") as Border;
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
 
-                PART_LeftDrawer = e.NameScope.Find("PART_LeftDrawer") as Card;
+                PART_LeftDrawerBorder = e.NameScope.Find("PART_LeftDrawerBorder") as Border;
             };
         }
 
@@ -89,14 +89,14 @@ namespace Material.Styles
             m_LatelyEventCall?.Invoke();
         }
 
-        private void LeftDrawerWidthChanged(AvaloniaPropertyChangedEventArgs e) => PART_LeftDrawer?.SetValue(MarginProperty,
+        private void LeftDrawerWidthChanged(AvaloniaPropertyChangedEventArgs e) => PART_LeftDrawerBorder?.SetValue(MarginProperty,
             LeftDrawerOpened ? new Thickness(0) : new Thickness(-LeftDrawerWidth + Converters.MarginCreator.Offset, 0, 0, 0));
 
         private void LeftDrawerOpenedChanged(AvaloniaPropertyChangedEventArgs e)
         {
             // Try schedule a call after control attached to visual tree. 
-            if(PART_Scrim is null && PART_LeftDrawer is null
-                && (!PART_Scrim?.IsInitialized ?? false) && (!PART_LeftDrawer?.IsInitialized ?? false))
+            if(PART_Scrim is null && PART_LeftDrawerBorder is null
+                && (!PART_Scrim?.IsInitialized ?? false) && (!PART_LeftDrawerBorder?.IsInitialized ?? false))
             {
                 var param = new AvaloniaPropertyChangedEventArgs<bool>(this, 
                     LeftDrawerOpenedProperty, 
