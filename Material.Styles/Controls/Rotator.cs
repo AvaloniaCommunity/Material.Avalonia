@@ -62,6 +62,9 @@ namespace Material.Styles.Controls
                 delegate(Rotator rotator) { return rotator._speed; },
                 delegate(Rotator rotator, double v)
                 {
+                    if (rotator.IsEffectivelyVisible == false || rotator.IsEffectivelyEnabled == false)
+                        return;
+                    
                     rotator._speed = v;
                     OnSpeedChanged(rotator, v);
                 });
@@ -69,6 +72,9 @@ namespace Material.Styles.Controls
         // Loop dispatcher / simple loop controller
         private void OnLoopUpdate(TimeSpan renderTime)
         {
+            if (IsEffectivelyVisible == false || IsEffectivelyEnabled == false)
+                return;
+            
             var delta = renderTime - _prev;
             _rotateDegree += _speed * delta.TotalMilliseconds;
             _prev = renderTime;
