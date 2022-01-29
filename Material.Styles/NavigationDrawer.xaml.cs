@@ -110,8 +110,6 @@ namespace Material.Styles
         }
 
         private Border? PART_Scrim;
-        private Border? PART_LeftDrawerBorder;
-        private Border? PART_RightDrawerBorder;
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
@@ -121,9 +119,6 @@ namespace Material.Styles
                 
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
             }
-
-            PART_LeftDrawerBorder = e.NameScope.Find(nameof(PART_LeftDrawerBorder)) as Border;
-            PART_RightDrawerBorder = e.NameScope.Find(nameof(PART_RightDrawerBorder)) as Border;
 
             base.OnApplyTemplate(e);
         }
