@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Text;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Data;
 using Avalonia.Media;
 using Avalonia.Threading;
 
@@ -75,6 +74,7 @@ namespace Material.Styles.Controls
             Dispatcher.UIThread.InvokeAsync(InvalidateVisual, DispatcherPriority.Background);
         }
 
+        // TODO: Optimal clip geometry generator
         // Clip geometry generator
         private StreamGeometry GetClip()
         {
