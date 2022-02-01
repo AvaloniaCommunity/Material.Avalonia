@@ -8,94 +8,94 @@
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         x:Class="Material.Dialog.Views.CustomDialog"
         SizeToContent="WidthAndHeight"
-        Title="{CompiledBinding WindowTitle}" 
+        Title="{CompiledBinding WindowTitle}"
         CanResize="False"
         WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
         HorizontalContentAlignment="Stretch"
-        x:DataType="viewModels:CustomDialogViewModel"> 
-  <Window.Styles>
-    <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml"/>
-    <Style Selector="Window[SystemDecorations=None]">
-      <Setter Property="Padding" Value="32"/>
-      <Setter Property="Background" Value="Transparent"/>
-      <Setter Property="TransparencyLevelHint" Value="Transparent"/> 
-    </Style> 
-  </Window.Styles>
-  
-  <material:Card Name="PART_ContentRoot" Padding="0" 
-                 assists:ShadowAssist.ShadowDepth="CenterDepth4"> 
-    <Grid Name="PART_Root"
-          Width="{CompiledBinding Width}"
-          MaxWidth="{CompiledBinding MaxWidth}"
-          HorizontalAlignment="Stretch">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="24"/>
-        <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="24"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="24"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="14"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="16"/>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
+        x:DataType="viewModels:CustomDialogViewModel">
+    <Window.Styles>
+        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
+        <Style Selector="Window[SystemDecorations=None]">
+            <Setter Property="Padding" Value="32" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="TransparencyLevelHint" Value="Transparent" />
+        </Style>
+    </Window.Styles>
 
-      <Grid Grid.Column="1" Grid.Row="1">
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto"/>
-          <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <ContentPresenter Width="32" Height="32" Margin="0,0,8,0" 
-                          IsVisible="{CompiledBinding !!DialogIcon}"
-                          Content="{CompiledBinding DialogIcon}"/>
+    <material:Card Name="PART_ContentRoot" Padding="0"
+                   assists:ShadowAssist.ShadowDepth="CenterDepth4">
+        <Grid Name="PART_Root"
+              Width="{CompiledBinding Width}"
+              MaxWidth="{CompiledBinding MaxWidth}"
+              HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="24" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="14" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="16" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <TextBlock Name="PART_Header"
-                   Classes="Headline6" 
-                   Grid.Column="1"
-                   VerticalAlignment="Center"
-                   IsVisible="{CompiledBinding !!ContentHeader.Length}"
-                   Text="{CompiledBinding ContentHeader, FallbackValue='Dialog header'}"/>
-      </Grid>
-      
-      <!-- Content panel -->
-      <Panel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" ClipToBounds="True">
-        <ContentPresenter Name="PART_Content" Content="{Binding Content}" ClipToBounds="False"/>
-      </Panel>
-      
-      <Grid Grid.Column="0" 
-            Grid.ColumnSpan="3" 
-            Grid.Row="5">
-        <ItemsControl HorizontalAlignment="Stretch"
-                      Items="{CompiledBinding DialogButtons}"
-                      Margin="4">
-          <ItemsControl.Styles>
-            <Style Selector="Button">
-              <Setter Property="Margin" Value="4"/>
-            </Style>
-            <Style Selector="ItemsPresenter">
-              <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
-            </Style>
-          </ItemsControl.Styles>
-          <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-              <StackPanel Orientation="{CompiledBinding ButtonsStackOrientation}"
-                          HorizontalAlignment="Right"/>
-            </ItemsPanelTemplate>
-          </ItemsControl.ItemsPanel>
-          <ItemsControl.ItemTemplate>
-            <DataTemplate DataType="main:DialogResultButton">
-              <Button Classes="Flat"
-                      Content="{CompiledBinding Content, FallbackValue=Null}"
-                      Tag="{CompiledBinding Result}"
-                      Command="{Binding ElementName=PART_Root, 
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentPresenter Width="32" Height="32" Margin="0,0,8,0"
+                                  IsVisible="{CompiledBinding !!DialogIcon}"
+                                  Content="{CompiledBinding DialogIcon}" />
+
+                <TextBlock Name="PART_Header"
+                           Classes="Headline6"
+                           Grid.Column="1"
+                           VerticalAlignment="Center"
+                           IsVisible="{CompiledBinding !!ContentHeader.Length}"
+                           Text="{CompiledBinding ContentHeader, FallbackValue='Dialog header'}" />
+            </Grid>
+
+            <!-- Content panel -->
+            <Panel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" ClipToBounds="True">
+                <ContentPresenter Name="PART_Content" Content="{Binding Content}" ClipToBounds="False" />
+            </Panel>
+
+            <Grid Grid.Column="0"
+                  Grid.ColumnSpan="3"
+                  Grid.Row="5">
+                <ItemsControl HorizontalAlignment="Stretch"
+                              Items="{CompiledBinding DialogButtons}"
+                              Margin="4">
+                    <ItemsControl.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Margin" Value="4" />
+                        </Style>
+                        <Style Selector="ItemsPresenter">
+                            <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+                        </Style>
+                    </ItemsControl.Styles>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="{CompiledBinding ButtonsStackOrientation}"
+                                        HorizontalAlignment="Right" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="main:DialogResultButton">
+                            <Button Classes="Flat"
+                                    Content="{CompiledBinding Content, FallbackValue=Null}"
+                                    Tag="{CompiledBinding Result}"
+                                    Command="{Binding ElementName=PART_Root, 
                           Path=DataContext.ButtonClick}"
-                      CommandParameter="{CompiledBinding Result}"/>
-            </DataTemplate>
-          </ItemsControl.ItemTemplate> 
-        </ItemsControl>
-      </Grid>
-    </Grid>
-  </material:Card>
+                                    CommandParameter="{CompiledBinding Result}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </Grid>
+    </material:Card>
 </Window>
