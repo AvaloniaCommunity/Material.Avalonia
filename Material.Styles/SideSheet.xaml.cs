@@ -29,8 +29,57 @@ namespace Material.Styles
 
         public static readonly StyledProperty<HorizontalDirection> SideSheetDirectionProperty =
             AvaloniaProperty.Register<SideSheet, HorizontalDirection>(nameof(SideSheetDirection));
+        
+        public static readonly StyledProperty<object> SideSheetHeaderProperty =
+            AvaloniaProperty.Register<SideSheet, object>(nameof(SideSheetHeader));
+        
+        public static readonly StyledProperty<IDataTemplate> SideSheetHeaderTemplateProperty =
+            AvaloniaProperty.Register<SideSheet, IDataTemplate>(nameof(SideSheetHeaderTemplate));
+        
+        public static readonly StyledProperty<Thickness> SideSheetPaddingProperty =
+            AvaloniaProperty.Register<SideSheet, Thickness>(nameof(SideSheetPadding));
+        
+        public static readonly StyledProperty<bool> SideSheetCanCloseProperty =
+            AvaloniaProperty.Register<SideSheet, bool>(nameof(SideSheetCanClose), true);
 
         // CLR properties
+        
+        /// <summary>
+        /// Hide or show the default close button
+        /// </summary>
+        public bool SideSheetCanClose
+        {
+            get => GetValue(SideSheetCanCloseProperty);
+            set => SetValue(SideSheetCanCloseProperty, value);
+        }
+        
+        /// <summary>
+        /// Gets or sets the padding in the around the <see cref="SideSheetContent"/>
+        /// </summary>
+        public Thickness SideSheetPadding
+        {
+            get { return GetValue(SideSheetPaddingProperty); }
+            set { SetValue(SideSheetPaddingProperty, value); }
+        }
+        
+        /// <summary>
+        /// Gets or sets the content of the header to display.
+        /// </summary> 
+        [DependsOn(nameof(SideSheetHeaderTemplate))]
+        public object SideSheetHeader
+        {
+            get => GetValue(SideSheetHeaderProperty);
+            set => SetValue(SideSheetHeaderProperty, value);
+        }
+        
+        /// <summary>
+        /// Gets or sets the data template used to display the header of the control.
+        /// </summary> 
+        public IDataTemplate SideSheetHeaderTemplate
+        {
+            get => GetValue(SideSheetHeaderTemplateProperty);
+            set => SetValue(SideSheetHeaderTemplateProperty, value);
+        }
         
         /// <summary>
         /// Gets or sets the content to display.
@@ -96,6 +145,11 @@ namespace Material.Styles
                 PART_Scrim = border;
                 
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
+            }
+
+            if (e.NameScope.Find("PART_CloseButton") is Button button)
+            {
+                button.Click += (sender, args) => SideSheetOpened = false;
             }
             
             base.OnApplyTemplate(e);
