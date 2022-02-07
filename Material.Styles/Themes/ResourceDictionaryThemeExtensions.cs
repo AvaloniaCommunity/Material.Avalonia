@@ -169,6 +169,7 @@ namespace Material.Styles.Themes {
             if (sourceDictionary == null) throw new ArgumentNullException(nameof(sourceDictionary));
             if (name == null) throw new ArgumentNullException(nameof(name));
 
+            if (sourceDictionary.TryGetValue(name + "Color", out var currentValue) && currentValue as Color? == value) return;
             sourceDictionary[name + "Color"] = value;
 
             if (sourceDictionary.ContainsKey(name) && sourceDictionary[name] is SolidColorBrush brush) {
