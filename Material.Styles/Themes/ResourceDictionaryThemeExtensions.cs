@@ -14,6 +14,18 @@ namespace Material.Styles.Themes {
         private static Guid ThemeManagerKey { get; } = Guid.NewGuid();
 
         public static void SetTheme(this IResourceDictionary resourceDictionary, ITheme theme) {
+            SetMaterialTheme(resourceDictionary, theme);
+
+            if (!(resourceDictionary.GetThemeManager() is ThemeManager themeManager))
+                resourceDictionary[ThemeManagerKey] = themeManager = new ThemeManager(resourceDictionary);
+
+            var oldTheme = resourceDictionary.GetTheme();
+            resourceDictionary[CurrentThemeKey] = theme;
+
+            themeManager.OnThemeChange(oldTheme, theme);
+        }
+
+        internal static void SetMaterialTheme(this IResourceDictionary resourceDictionary, ITheme theme) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
 
             SetSolidColorBrush(resourceDictionary, "PrimaryHueLightBrush", theme.PrimaryLight.Color);
@@ -72,14 +84,6 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialDesignTextAreaBorder", theme.TextAreaBorder);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignTextAreaInactiveBorder", theme.TextAreaInactiveBorder);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignDataGridRowHoverBackground", theme.DataGridRowHoverBackground);
-
-            if (!(resourceDictionary.GetThemeManager() is ThemeManager themeManager))
-                resourceDictionary[ThemeManagerKey] = themeManager = new ThemeManager(resourceDictionary);
-
-            var oldTheme = resourceDictionary.GetTheme();
-            resourceDictionary[CurrentThemeKey] = theme;
-
-            themeManager.OnThemeChange(oldTheme, theme);
         }
 
         public static ITheme GetTheme(this IResourceDictionary resourceDictionary) {
@@ -196,8 +200,11 @@ namespace Material.Styles.Themes {
                 return;
             }
 
-            var newBrush = new SolidColorBrush(value);
-            sourceDictionary[name] = newBrush;
+            Dispatcher.UIThread.InvokeAsync(delegate
+            {
+                var newBrush = new SolidColorBrush(value);
+                sourceDictionary[name] = newBrush;
+            });
         }
 
         private class ThemeManager : IThemeManager {

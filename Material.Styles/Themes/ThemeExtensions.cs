@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using Avalonia;
 using Avalonia.Media;
 using Material.Colors;
 using Material.Colors.ColorManipulation;
@@ -8,6 +10,14 @@ namespace Material.Styles.Themes {
     public static class ThemeExtensions {
         internal static ColorPair ToPairedColor(this Hue hue) {
             return new ColorPair(hue.Color, hue.Foreground);
+        }
+
+        public static T LocateMaterialTheme<T>(this Application application) where T : MaterialThemeBase {
+            var materialTheme = application.Styles.FirstOrDefault(style => style is T);
+            if (materialTheme == null) {
+                throw new InvalidOperationException($"Cannot locate {nameof(T)} in Avalonia application styles. Be sure that you include MaterialTheme in your App.xaml in Application.Styles section");
+            }
+            return (T)materialTheme;
         }
 
         public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode) {
