@@ -2,16 +2,11 @@
 using System.Linq;
 using Avalonia;
 using Avalonia.Media;
-using Material.Colors;
 using Material.Colors.ColorManipulation;
 using Material.Styles.Themes.Base;
 
 namespace Material.Styles.Themes {
     public static class ThemeExtensions {
-        internal static ColorPair ToPairedColor(this Hue hue) {
-            return new ColorPair(hue.Color, hue.Foreground);
-        }
-
         public static T LocateMaterialTheme<T>(this Application application) where T : MaterialThemeBase {
             var materialTheme = application.Styles.FirstOrDefault(style => style is T);
             if (materialTheme == null) {
