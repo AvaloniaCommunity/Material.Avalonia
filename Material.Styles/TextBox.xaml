@@ -487,7 +487,7 @@
     </Style>
 
     <Style Selector="TextBox.Outline /template/ Panel#PART_TextRoot">
-        <Setter Property="Margin" Value="0,14 0 6" />
+        <Setter Property="Margin" Value="0,6,0,6" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
