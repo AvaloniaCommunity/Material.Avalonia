@@ -98,8 +98,8 @@ namespace Material.Demo.ViewModels
                     {
                         Content = "DELETE",
                         Result = "delete"
-                    },
-                },
+                    }
+                }
             }).ShowDialog(Program.MainWindow);
             Dialog3Result = $"Result: {result.GetResult}";
             if(result.GetResult == "delete")
@@ -130,10 +130,14 @@ namespace Material.Demo.ViewModels
                     StartupLocation = WindowStartupLocation.CenterOwner, 
                     Borderless = true,
                     // Create Image control
-                    DialogIcon = new Image()
+                    DialogIcon = new Bitmap(icon),
+                    NeutralDialogButtons = new []
                     {
-                        // Define bitmap source
-                        Source = new Bitmap(icon)
+                        new DialogResultButton
+                        {
+                            Content = "READ MORE...",
+                            Result = "read_more"
+                        }
                     }
                 });
                 var result = await dialog.ShowDialog(Program.MainWindow);
