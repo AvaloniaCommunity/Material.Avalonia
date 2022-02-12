@@ -4,11 +4,15 @@ using Material.Dialog.Bases;
 using Material.Dialog.Enums;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
-using Material.Dialog.ViewModels.TextField;
 using Material.Dialog.Views;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Avalonia;
+using Avalonia.Media.Imaging;
 using Material.Dialog.Icons;
+using Material.Dialog.ViewModels.Elements;
+using Material.Dialog.ViewModels.Elements.Header.Icons;
+using Material.Dialog.ViewModels.Elements.TextField;
 
 namespace Material.Dialog
 {
@@ -79,14 +83,12 @@ namespace Material.Dialog
         public static IDialogWindow<DialogResult> CreateAlertDialog(AlertDialogBuilderParams @params)
         { 
             var window = new AlertDialog();
-            var context = new AlertDialogViewModel(window) { };
+            var context = new AlertDialogViewModel(window);
 
             ApplyBaseParams(context, @params);
             
-            if (context.DialogButtons == null)
-            {
-                context.DialogButtons = CreateSimpleDialogButtons(DialogButtonsEnum.Ok);
-            }
+            context.DialogButtons ??= new ObservableCollection<DialogButtonViewModel>(
+                CreateObsoleteButtonArray(context, CreateSimpleDialogButtons(DialogButtonsEnum.Ok)));
             
             window.DataContext = context;
             SetupWindowParameters(window, @params);
@@ -102,11 +104,14 @@ namespace Material.Dialog
                 NegativeButton = @params.NegativeButton,
             };
 
-            context.TextFields = TextFieldsBuilder(@params.TextFields, context);
+            context.TextFields =
+                new ObservableCollection<TextFieldViewModel>(TextFieldsBuilder(@params.TextFields, context));
             
             ApplyBaseParams(context, @params);
-            
-            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+
+            context.DialogButtons =
+                new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(context, @params.NegativeButton,
+                    @params.PositiveButton));
             
             context.BindValidater();
             window.DataContext = context;
@@ -131,7 +136,9 @@ namespace Material.Dialog
             };
             ApplyBaseParams(context, @params);
 
-            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+            context.DialogButtons =
+                new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(context, @params.NegativeButton,
+                    @params.PositiveButton));
 
             if (context.Width is null || context.Width < 320)
                 context.Width = 320;
@@ -158,7 +165,9 @@ namespace Material.Dialog
             };
             ApplyBaseParams(context, @params);
 
-            context.DialogButtons = CombineButtons(@params.NegativeButton, @params.PositiveButton);
+            context.DialogButtons =
+                new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(context, @params.NegativeButton,
+                    @params.PositiveButton));
 
             if (context.Width is null || context.Width < 320)
                 context.Width = 320;
@@ -196,23 +205,56 @@ namespace Material.Dialog
             input.ContentMessage = @params.SupportingText;
             input.Borderless = @params.Borderless;
             input.WindowStartupLocation = @params.StartupLocation;
-            input.DialogIcon = @params.DialogIcon;
+
+            switch (@params.DialogIcon)
+            {
+                case Bitmap bitmap:
+                {
+                    input.DialogIcon = new ImageIconViewModel
+                    {
+                        Bitmap = bitmap
+                    };
+                } break;
+                
+                case Image _:
+                    throw new ArgumentException("Do not wrap Bitmap object with Image control for now.");
+                
+                case Control _:
+                    throw new ArgumentException("Custom view icon feature is currently unavailable.");
+
+                case DialogIconKind kind:
+                {
+                    input.DialogIcon = new DialogIconViewModel
+                    {
+                        Kind = @params.DialogHeaderIcon.Value
+                    };
+                } break;
+                
+                case null:
+                    break;
+                
+                default:
+                    throw new ArgumentException($"{@params.DialogIcon.GetType()} is a unknown or unsupported type.");
+            }
 
             // Rollback API Compatibility
             if (@params.DialogHeaderIcon != null)
             {
-                var icon = new DialogIcon()
+                if (input.DialogIcon == null && @params.DialogHeaderIcon != null)
                 {
-                    Kind = @params.DialogHeaderIcon.Value,
-                    Width = 32, Height = 32,
-                    Margin = Thickness.Parse("0")
-                };
-                
-                if(input.DialogIcon == null)
-                    input.DialogIcon = icon;
+                    input.DialogIcon = new DialogIconViewModel
+                    {
+                        Kind = @params.DialogHeaderIcon.Value
+                    };
+                }
             }
 
-            input.DialogButtons = @params.DialogButtons;
+            if (@params.DialogButtons != null)
+                input.DialogButtons = new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(input, @params.DialogButtons));
+            
+            if (@params.NeutralDialogButtons != null)
+                input.NeutralDialogButton = new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(input, @params.NeutralDialogButtons));
+            
             input.ButtonsStackOrientation = @params.ButtonsOrientation;
         }
 
@@ -222,16 +264,22 @@ namespace Material.Dialog
             (window as IHasNegativeResult)?.SetNegativeResult(@params.NegativeResult);
         }
 
-        private static DialogResultButton[] CombineButtons(params DialogResultButton[] buttons) 
+        private static DialogButtonViewModel[] CreateObsoleteButtonArray(DialogWindowViewModel parent, params DialogResultButton[] buttons)
         {
-            var result = new List<DialogResultButton>();
-            foreach(var button in buttons)
+            var len = buttons.Length;
+            var result = new DialogButtonViewModel[buttons.Length];
+
+            for (var i = 0; i < len; i++)
             {
+                var button = buttons[i];
+                
                 if (button is null)
                     continue;
-                result.Add(button);
+
+                result[i] = new ObsoleteDialogButtonViewModel(parent, button.Content, button.Result);
             }
-            return result.ToArray();
+            
+            return result;
         }
 
         private static TextFieldViewModel[] TextFieldsBuilder(TextFieldBuilderParams[] @params, TextFieldDialogViewModel parent)
