@@ -1,21 +1,25 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
+        
         x:Class="Material.Dialog.Views.CustomDialog"
-        SizeToContent="WidthAndHeight"
-        Title="{CompiledBinding WindowTitle}"
-        CanResize="False"
-        WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
-        HorizontalContentAlignment="Stretch"
         x:DataType="viewModels:CustomDialogViewModel">
     <Window.Styles>
+        <StyleInclude Source="avares://Material.Dialog/Styles/DialogWindow.axaml"/>
+        <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml"/>
         <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
-        <Style Selector="Window[SystemDecorations=None]">
-            <Setter Property="Padding" Value="32" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="TransparencyLevelHint" Value="Transparent" />
-        </Style>
     </Window.Styles>
 
-
+    <ScrollViewer Name="PART_ScrollView">
+        <StackPanel Name="PART_ContentPanel">
+            <TextBlock Name="PART_SupportingText"
+                       Classes="Body1"
+                       IsVisible="{CompiledBinding !!ContentMessage.Length}"
+                       Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}"/>
+            
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Content="{CompiledBinding Content}"
+                              ContentTemplate="{CompiledBinding ContentTemplate}"/>
+        </StackPanel>
+    </ScrollViewer>
 </Window>
