@@ -540,7 +540,7 @@
     </Style>
 
     <Style
-        Selector="TextBox.revealPasswordButton[AcceptsReturn=False][IsReadOnly=False] Border#PART_AssistButtonsContainer">
+        Selector="TextBox.revealPasswordButton Border#PART_AssistButtonsContainer">
         <Setter Property="Child">
             <Template>
                 <ToggleButton Name="PART_PasswordRevealToggle" Classes="Icon ImplicitForeground ConstantForeground"

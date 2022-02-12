@@ -6,41 +6,39 @@
              xmlns:pages="clr-namespace:Material.Demo.Pages"
              xmlns:models="clr-namespace:Material.Demo.Models"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
              x:Class="Material.Demo.Pages.SideSheetDemo"
              x:DataType="models:SideSheetDemoViewModel">
     <UserControl.DataContext>
-        <models:SideSheetDemoViewModel/>
+        <models:SideSheetDemoViewModel />
     </UserControl.DataContext>
-    
+
     <StackPanel Margin="16, 0">
         <TextBlock Classes="Headline4 Subheadline" Text="Side sheets" />
-        
-        <styles:SideSheet Width="800" Height="560" BorderBrush="Black" BorderThickness="1"
-                          SideSheetDirection="Right"
-                          SideSheetOpened="{CompiledBinding SideInfoOpened}"
-                          SideSheetContent="{CompiledBinding Information}">
+
+        <styles:SideSheet
+            Name="SideSheet"
+            Width="500" Height="560" BorderBrush="Black" BorderThickness="1"
+            SideSheetDirection="Right"
+            SideSheetOpened="{CompiledBinding SideInfoOpened}"
+            SideSheetContent="{CompiledBinding Information}"
+            SideSheetHeader="{CompiledBinding Information.Header}">
             <styles:SideSheet.SideSheetContentTemplate>
                 <DataTemplate DataType="models:SideSheetData">
-                    <Panel Margin="20">
-                        <StackPanel>
-                            <TextBlock Classes="Headline5" Text="{CompiledBinding Header}"/>
-                        </StackPanel>
-                        <Button Classes="Icon" Width="36" Height="36" Margin="-8"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Content="{avalonia:MaterialIconExt Close, Size=20}"
-                                Click="CloseSideInfoButton_OnClick"/>
-                    </Panel>
+                    <StackPanel>
+                        <TextBlock Classes="Headline6" Text="{CompiledBinding ContentHeader}"/>
+                        <TextBlock Text="{CompiledBinding ImportantInfos}" TextWrapping="Wrap"></TextBlock>
+                    </StackPanel>
                 </DataTemplate>
             </styles:SideSheet.SideSheetContentTemplate>
             <Panel>
-                <pages:Home/>
+                <pages:Home />
                 <Button Classes="Icon" Width="36" Height="36"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Content="{avalonia:MaterialIconExt MenuOpen, Size=20}"
-                        Click="OpenSideInfoButton_OnClick"/>
+                        IsVisible="{Binding !#SideSheet.SideSheetOpened}"
+                        Click="OpenSideInfoButton_OnClick" />
             </Panel>
         </styles:SideSheet>
     </StackPanel>
