@@ -41,7 +41,8 @@
                                          IsHitTestVisible="False"/>
                                 <Border ClipToBounds="True" CornerRadius="100" Width="42" Height="42"
                                         Margin="-100" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <ripple:RippleEffect RippleFill="{TemplateBinding Background}"
+                                    <ripple:RippleEffect RaiseRippleCenter="True"
+                                                         RippleFill="{TemplateBinding Background}"
                                                          RippleOpacity="{StaticResource CheckBoxPressedOpacity}"/>
                                 </Border>
                             </Grid>

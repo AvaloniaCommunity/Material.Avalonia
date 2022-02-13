@@ -1,5 +1,4 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
         xmlns:system="clr-namespace:System;assembly=netstandard">
@@ -47,7 +46,8 @@
                                              IsHitTestVisible="False"/>
                                     <Border ClipToBounds="True" CornerRadius="100" Width="42" Height="42"
                                             Margin="-100" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <ripple:RippleEffect RippleFill="{TemplateBinding assists:SelectionControlAssist.Foreground}"
+                                        <ripple:RippleEffect RaiseRippleCenter="True"
+                                                             RippleFill="{TemplateBinding assists:SelectionControlAssist.Foreground}"
                                                              RippleOpacity="{StaticResource RadioButtonPressedOpacity}"/>
                                     </Border>
                                 </Grid>
