@@ -14,6 +14,13 @@ namespace Material.Ripple
 {
     public class Ripple : Ellipse
     {
+        private static Easing _easing = new CircularEaseOut();
+        public static Easing Easing
+        {
+            get => _easing;
+            set => _easing = value;
+        }
+        
         public static readonly TimeSpan Duration = new TimeSpan(0,0,0,0,500);
 
         private double maxDiam;
