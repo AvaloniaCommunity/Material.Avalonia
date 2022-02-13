@@ -135,6 +135,21 @@
     <Style Selector="cc|SideSheet:open /template/ Border#PART_Scrim">
         <Setter Property="Opacity" Value="0.32" />
     </Style>
+    
+    <Style Selector="cc|SideSheet /template/ StackPanel#PART_SideSheetPanel > DockPanel#PART_HeaderPanel > Button#PART_CloseButton.Icon" >
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="Width" Value="36"/>
+        <Setter Property="Margin" Value="-6"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+    </Style>
+    
+    <Style Selector="cc|SideSheet /template/ StackPanel#PART_SideSheetPanel > DockPanel#PART_HeaderPanel > Button#PART_CloseButton > controls|MaterialInternalIcon#PART_Icon">
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Width" Value="24"/>
+    </Style>
+    <Style Selector="cc|SideSheet /template/ StackPanel#PART_SideSheetPanel > ContentPresenter#PART_SideContentPresenter">
+        <Setter Property="Margin" Value="0,5,0,0"/>
+    </Style>
 
     <Design.PreviewWith>
         <Border Margin="40" BorderThickness="1" BorderBrush="Black">
