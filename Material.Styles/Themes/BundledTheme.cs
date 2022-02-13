@@ -1,8 +1,10 @@
-﻿using Avalonia.Controls;
+﻿using System;
+using Avalonia.Controls;
 using Material.Colors;
 using Material.Styles.Themes.Base;
 
 namespace Material.Styles.Themes {
+    [Obsolete($"Obsolete styling system. Use {nameof(MaterialTheme)}. Details in our wiki: https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming")]
     public class BundledTheme : ResourceDictionary {
         private BaseThemeMode? _baseTheme;
 
