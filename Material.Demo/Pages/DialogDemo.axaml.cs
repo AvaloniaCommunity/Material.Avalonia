@@ -10,11 +10,9 @@ namespace Material.Demo.Pages
 {
     public class DialogDemo : UserControl
     {
-
-
         public DialogDemo()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             DataContext = new DialogDemoViewModel();
         } 
