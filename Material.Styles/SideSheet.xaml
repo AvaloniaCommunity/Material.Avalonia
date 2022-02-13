@@ -36,28 +36,25 @@
                         <Border Name="PART_SideSheet"
                                 Width="{TemplateBinding SideSheetWidth}"
                                 Padding="{TemplateBinding SideSheetPadding}">
-                            <Grid RowDefinitions="auto,5,*">
-                                <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
-                                    <ContentPresenter
-                                        Grid.Column="0"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"
-                                        Content="{TemplateBinding SideSheetHeader, Mode=OneWay}"
-                                        ContentTemplate="{TemplateBinding SideSheetHeaderTemplate}"
-                                        TextBlock.Foreground="{DynamicResource ThemeForegroundBrush}"/>
-                                    <Button Grid.Column="1" Classes="Icon" Name="PART_CloseButton" IsVisible="{TemplateBinding SideSheetCanClose}">
-                                        <controls:MaterialInternalIcon Kind="Close"/>
+                            <StackPanel Name="PART_SideSheetPanel">
+                                <DockPanel Name="PART_HeaderPanel">
+                                    <Button Name="PART_CloseButton" DockPanel.Dock="Right" Classes="Icon"
+                                            IsVisible="{TemplateBinding SideSheetCanClose}">
+                                        <controls:MaterialInternalIcon Name="PART_Icon" Kind="Close"/>
                                     </Button>
-                                </Grid>
-                                <ContentPresenter
-                                    Grid.Row="2"
-                                    Content="{TemplateBinding SideSheetContent}"
-                                    ContentTemplate="{TemplateBinding SideSheetContentTemplate}"
-                                    IsEnabled="{TemplateBinding SideSheetOpened}" />
-                            </Grid>
+                                    <ContentPresenter Name="PART_HeaderContentPresenter" DockPanel.Dock="Left"
+                                                      Content="{TemplateBinding SideSheetHeader, Mode=OneWay}"
+                                                      ContentTemplate="{TemplateBinding SideSheetHeaderTemplate}"
+                                                      TextBlock.Foreground="{DynamicResource ThemeForegroundBrush}"/>
+                                </DockPanel>
+                                <ContentPresenter Name="PART_SideContentPresenter"
+                                                  Content="{TemplateBinding SideSheetContent}"
+                                                  ContentTemplate="{TemplateBinding SideSheetContentTemplate}"
+                                                  IsEnabled="{TemplateBinding SideSheetOpened}" />
+                            </StackPanel>
                         </Border>
                         <Panel Name="PART_ContentPanel">
-                            <ContentPresenter Name="ContentPresenter"
+                            <ContentPresenter Name="PART_ContentPresenter"
                                               Margin="{TemplateBinding Padding}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}" />
