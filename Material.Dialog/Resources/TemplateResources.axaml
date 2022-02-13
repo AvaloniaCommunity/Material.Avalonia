@@ -6,7 +6,7 @@
 
                     x:Class="Material.Dialog.Resources.TemplateResources">
     <ItemsPanelTemplate x:Key="DialogButtonPlacementPanel">
-        <WrapPanel/>
+        <WrapPanel Orientation="Horizontal"/>
     </ItemsPanelTemplate>
     
     <RecyclingElementFactory x:Key="DialogHeaderIconTemplate" SelectTemplateKey="DialogHeaderIconTemplate_OnSelectTemplateKey">
@@ -21,22 +21,11 @@
         </RecyclingElementFactory.Templates>
     </RecyclingElementFactory>
     
-    <RecyclingElementFactory x:Key="DialogButtonTemplate" SelectTemplateKey="DialogButtonTemplate_OnSelectTemplateKey">
-        <RecyclingElementFactory.Templates>
-            <DataTemplate DataType="elements:DialogButtonViewModel" x:Key="StandardButton">
-                <!-- ReSharper disable once Xaml.StyleClassNotFound -->
-                <Button Classes="Flat"
-                        Content="{CompiledBinding Content, FallbackValue='NULL'}"
-                        Command="{CompiledBinding Command}"
-                        CommandParameter="{CompiledBinding }"/>
-            </DataTemplate>
-            <DataTemplate DataType="elements:ObsoleteDialogButtonViewModel" x:Key="ObsoleteButton">
-                <!-- ReSharper disable once Xaml.StyleClassNotFound -->
-                <Button Classes="Flat"
-                        Content="{CompiledBinding Content, FallbackValue='NULL'}"
-                        Command="{CompiledBinding Command}"
-                        CommandParameter="{CompiledBinding }"/>
-            </DataTemplate>
-        </RecyclingElementFactory.Templates>
-    </RecyclingElementFactory>
+    <DataTemplate x:Key="DialogButtonTemplate" DataType="elements:DialogButtonViewModel">
+        <!-- ReSharper disable once Xaml.StyleClassNotFound -->
+        <Button Classes="Flat"
+                Content="{CompiledBinding Content, FallbackValue='NULL'}"
+                Command="{CompiledBinding Command}"
+                CommandParameter="{CompiledBinding }"/>
+    </DataTemplate>
 </ResourceDictionary>
