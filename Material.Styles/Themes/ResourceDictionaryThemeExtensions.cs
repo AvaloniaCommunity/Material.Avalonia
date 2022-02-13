@@ -20,7 +20,7 @@ namespace Material.Styles.Themes {
             if (!(resourceDictionary.GetThemeManager() is ThemeManager themeManager))
                 resourceDictionary[ThemeManagerKey] = themeManager = new ThemeManager(resourceDictionary);
 
-            var oldTheme = resourceDictionary.GetTheme();
+            var oldTheme = resourceDictionary.TryGetResource(CurrentThemeKey, out var oldThemeTemp) ? oldThemeTemp as ITheme : null;
             resourceDictionary[CurrentThemeKey] = theme;
 
             themeManager.OnThemeChange(oldTheme, theme);
@@ -220,7 +220,7 @@ namespace Material.Styles.Themes {
 
             public event EventHandler<ThemeChangedEventArgs>? ThemeChanged;
 
-            public void OnThemeChange(ITheme oldTheme, ITheme newTheme) {
+            public void OnThemeChange(ITheme? oldTheme, ITheme newTheme) {
                 ThemeChanged?.Invoke(this, new ThemeChangedEventArgs(_resourceDictionary, oldTheme, newTheme));
             }
         }
