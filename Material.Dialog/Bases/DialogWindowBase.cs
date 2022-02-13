@@ -2,7 +2,6 @@
 using Material.Dialog.Interfaces;
 using System; 
 using System.Threading.Tasks;
-using Avalonia;
 using Material.Styles.Assists;
 
 namespace Material.Dialog.Bases

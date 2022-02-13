@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Material.Demo.Models;
 using Material.Demo.ViewModels;
-using Material.Dialog;
 
 namespace Material.Demo.Pages
 {

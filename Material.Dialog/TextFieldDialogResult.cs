@@ -1,6 +1,4 @@
-﻿using Material.Dialog.Interfaces;
-
-namespace Material.Dialog
+﻿namespace Material.Dialog
 { 
     public class TextFieldDialogResult : IDialogResult
     {
