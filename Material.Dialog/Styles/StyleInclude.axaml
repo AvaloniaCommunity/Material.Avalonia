@@ -54,4 +54,10 @@
         <Setter Property="Margin" Value="24,0"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
+    
+    <!-- For TextField dialog -->
+    <Style Selector="Window > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > ItemsControl#PART_Fields">
+        <Setter Property="Margin" Value="24,4"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
 </Styles>

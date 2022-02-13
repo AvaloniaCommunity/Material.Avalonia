@@ -18,14 +18,14 @@ namespace Material.Dialog.Views
 
             InitializeComponent();
 
-            this.Closed += TextFieldDialog_Closed;
-            this.Opened += TextFieldDialog_Opened;
+            Closed += TextFieldDialog_Closed;
+            Opened += TextFieldDialog_Opened;
         }
 
         private void TextFieldDialog_Closed(object sender, EventArgs e)
         {
-            this.Opened -= TextFieldDialog_Opened;
-            this.Closed -= TextFieldDialog_Closed;
+            Opened -= TextFieldDialog_Opened;
+            Closed -= TextFieldDialog_Closed;
         }
 
         private void TextFieldDialog_Opened(object sender, EventArgs e)
@@ -66,10 +66,22 @@ namespace Material.Dialog.Views
                     index++;
                 }
             });
-            vm.IsReady = true;
         }
 
-        public TextFieldDialogResult GetResult() => Result;
+        public TextFieldDialogResult GetResult()
+        {
+            if (!(DataContext is TextFieldDialogViewModel viewModel))
+                return null;
+            
+            return viewModel.DialogResult switch
+            {
+                TextFieldDialogResult vm => vm,
+                // ReSharper disable once ConvertTypeCheckPatternToNullCheck
+                DialogResult basicViewModel => new TextFieldDialogResult(basicViewModel.GetResult,
+                    Array.Empty<TextFieldResult>()),
+                _ => null
+            };
+        }
 
         public void SetNegativeResult(DialogResult result) => Result.result = result.GetResult;
 

@@ -3,14 +3,13 @@ using Material.Dialog.Commands;
 using Material.Dialog.Views;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Material.Dialog.ViewModels.Elements;
 using Material.Dialog.ViewModels.Elements.TextField;
 
 namespace Material.Dialog.ViewModels
 {
     public class TextFieldDialogViewModel : DialogWindowViewModel
     {
-        public bool IsReady;
-
         private ObservableCollection<TextFieldViewModel> _textFields;
 
         public ObservableCollection<TextFieldViewModel> TextFields
@@ -23,7 +22,7 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        private DialogResultButton _positiveButton;
+        /*private DialogResultButton _positiveButton;
 
         public DialogResultButton PositiveButton
         {
@@ -37,29 +36,30 @@ namespace Material.Dialog.ViewModels
         {
             get => _negativeButton;
             internal set => _negativeButton = value;
-        }
+        }*/
 
         public TextFieldDialogViewModel(TextFieldDialog dialog)
         {
             _window = dialog;
-            //ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
+            SubmitCommand = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 
-        public void BindValidater()
+        public void BindValidateHandler()
         {
             foreach (var item in TextFields)
-                item.OnValidateRequired += Field_OnValidateRequired;
+            {
+                if(item != null)
+                    item.OnValidateRequired += Field_OnValidateRequired;
+            }
         }
 
-        private void Field_OnValidateRequired(object sender, bool e)
-        {
-            //ButtonClick.RaiseCanExecute();
-        }
-
-        public void UnbindValidater()
+        public void UnbindValidateHandler()
         {
             foreach (var item in TextFields)
-                item.OnValidateRequired -= Field_OnValidateRequired;
+            {
+                if(item != null)
+                    item.OnValidateRequired -= Field_OnValidateRequired;
+            }
         }
 
         public bool ValidateFields()
@@ -72,37 +72,45 @@ namespace Material.Dialog.ViewModels
 
             return true;
         }
-
-        public bool CanPressButton(object args)
+        
+        private void Field_OnValidateRequired(object sender, bool e)
         {
-            if (args == PositiveButton)
-            {
-                return ValidateFields();
-            }
-            else if (args == NegativeButton)
-            {
-                return true;
-            }
+            SubmitCommand.RaiseCanExecute();
+        }
+        
+        public MaterialDialogRelayCommand SubmitCommand { get; }
 
-            return false;
+        private bool CanPressButton(object args)
+        {
+            return ValidateFields();
         }
 
-        public async void OnPressButton(object args)
+        private async void OnPressButton(object args)
         {
-            var button = args as DialogResultButton;
-            if (button is null)
+            if (!(args is DialogButtonViewModel button))
                 return;
 
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                var result = new TextFieldDialogResult() {result = button.Result};
+                var resultButtonId = "submit";
+                if (args is ObsoleteDialogButtonViewModel vm)
+                    resultButtonId = vm.Result;
+                
+                var result = new TextFieldDialogResult
+                {
+                    result = resultButtonId
+                };
+                
                 var fields = new List<TextFieldResult>();
+                
                 foreach (var item in TextFields)
                     fields.Add(new TextFieldResult {Text = item.Text});
+                
                 result.fieldsResult = fields.ToArray();
-                //Result = result;
+                button.Parent.DialogResult = result;
+                
                 _window.Close();
-                UnbindValidater();
+                UnbindValidateHandler();
             });
         }
     }

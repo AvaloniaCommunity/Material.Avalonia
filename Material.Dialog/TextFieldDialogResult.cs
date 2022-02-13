@@ -1,6 +1,6 @@
 ﻿namespace Material.Dialog
 { 
-    public class TextFieldDialogResult : IDialogResult
+    public class TextFieldDialogResult : DialogResult
     {
         public TextFieldDialogResult()
         {

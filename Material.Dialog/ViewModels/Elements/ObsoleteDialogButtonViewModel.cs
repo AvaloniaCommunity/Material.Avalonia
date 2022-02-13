@@ -20,7 +20,11 @@ namespace Material.Dialog.ViewModels.Elements
             if (Parent is null)
                 return;
 
-            Parent.DialogResult = new DialogResult(obj.ToString());
+            if (obj is ObsoleteDialogButtonViewModel vm)
+            {
+                Parent.DialogResult = new DialogResult(vm.Result);
+            }
+
             Parent.CloseWindow();
         }
 

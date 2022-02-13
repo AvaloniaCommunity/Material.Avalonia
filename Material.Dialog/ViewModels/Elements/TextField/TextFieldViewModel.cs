@@ -5,12 +5,25 @@ namespace Material.Dialog.ViewModels.Elements.TextField
 {
     public class TextFieldViewModel : DialogViewModelBase
     {
+        private readonly TextFieldDialogViewModel _parent;
+
+        public TextFieldDialogViewModel Parent => _parent;
+        
+        public TextFieldViewModel(TextFieldDialogViewModel parent, string defaultText = default, Func<string, Tuple<bool, string>> validateHandler = null)
+        {
+            _parent = parent;
+            _text = defaultText;
+
+            ValidateHandler = validateHandler;
+            
+            var result = DoValidate(defaultText);
+            IsValid = result.Item1;
+        }
+        
         public event EventHandler<bool> OnValidateRequired;
 
-        public Func<string, Tuple<bool, string>> Validater;
+        public Func<string, Tuple<bool, string>> ValidateHandler;
 
-        public TextFieldDialogViewModel Parent;
-        
         private string _placeholderText;
         public string PlaceholderText { get => _placeholderText; set { _placeholderText = value; OnPropertyChanged(); } }
 
@@ -37,23 +50,27 @@ namespace Material.Dialog.ViewModels.Elements.TextField
 
         private void OnTextChanged(string text)
         {
-            var result = new Tuple<bool, string>(false, null);
+            var result = DoValidate(text);
+
+            var isSuccessful = result.Item1;
+            
+            IsValid = isSuccessful;
+            OnValidateRequired?.Invoke(this, true);
+
+            if (!isSuccessful)
+                throw new DataValidationException(result.Item2);
+        }
+
+        private Tuple<bool, string> DoValidate(string text)
+        {
             try
             {
-                result = Validater?.Invoke(text) ?? new Tuple<bool, string>(true, null);
+                return ValidateHandler?.Invoke(text) ?? new Tuple<bool, string>(true, null);
             }
             catch(Exception e)
             {
-                result = new Tuple<bool, string>(false, e.Message);
+                return new Tuple<bool, string>(false, e.Message);
             }
-            IsValid = result.Item1;
-            OnValidateRequired?.Invoke(this, true);
-
-            if (!Parent.IsReady) 
-                return;
-            
-            if (!IsValid)
-                throw new DataValidationException(result.Item2);
         }
     }
 }

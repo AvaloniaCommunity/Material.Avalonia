@@ -21,6 +21,19 @@ namespace Material.Dialog.ViewModels.Elements
 
         public DialogWindowViewModel Parent => _parent;
         
+
+        private bool _isPositiveButton;
+        
+        public bool IsPositiveButton
+        {
+            get => _isPositiveButton;
+            set
+            {
+                _isPositiveButton = value; 
+                OnPropertyChanged();
+            }
+        }
+
         private object _content;
 
         public object Content

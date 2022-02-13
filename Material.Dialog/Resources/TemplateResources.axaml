@@ -28,14 +28,14 @@
                 <Button Classes="Flat"
                         Content="{CompiledBinding Content, FallbackValue='NULL'}"
                         Command="{CompiledBinding Command}"
-                        CommandParameter="{CompiledBinding Parent}"/>
+                        CommandParameter="{CompiledBinding }"/>
             </DataTemplate>
             <DataTemplate DataType="elements:ObsoleteDialogButtonViewModel" x:Key="ObsoleteButton">
                 <!-- ReSharper disable once Xaml.StyleClassNotFound -->
                 <Button Classes="Flat"
                         Content="{CompiledBinding Content, FallbackValue='NULL'}"
                         Command="{CompiledBinding Command}"
-                        CommandParameter="{CompiledBinding Result}"/>
+                        CommandParameter="{CompiledBinding }"/>
             </DataTemplate>
         </RecyclingElementFactory.Templates>
     </RecyclingElementFactory>

@@ -1,6 +1,5 @@
 ﻿using Avalonia.Controls;
 using Material.Dialog.Icons;
-using System;
 using Avalonia.Layout;
 
 namespace Material.Dialog.Bases
@@ -31,13 +30,13 @@ namespace Material.Dialog.Bases
         /// Build dialog buttons stack (left side). 
         /// <br/>You can use <seealso cref="DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum)"/> for create buttons stack in easy way.
         /// </summary>
-        public DialogResultButton[] NeutralDialogButtons;
+        public DialogButton[] NeutralDialogButtons;
         
         /// <summary>
         /// Build dialog buttons stack. 
         /// <br/>You can use <seealso cref="DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum)"/> for create buttons stack in easy way.
         /// </summary>
-        public DialogResultButton[] DialogButtons;
+        public DialogButton[] DialogButtons;
         
         /// <summary>
         /// Define result after close the dialog not from buttons
