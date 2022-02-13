@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Input;
 using Avalonia.Layout;
-using Avalonia.Styling;
-using Avalonia.Threading;
 
 namespace Material.Ripple
 {
@@ -29,6 +25,9 @@ namespace Material.Ripple
         
         public Ripple(double outerWidth, double outerHeight)
         {
+            Width = 0;
+            Height = 0;
+            
             maxDiam = Math.Sqrt(Math.Pow(outerWidth, 2) + Math.Pow(outerHeight, 2));
             endY = maxDiam - outerHeight;
             endX = maxDiam - outerWidth;
@@ -39,8 +38,6 @@ namespace Material.Ripple
 
         public void SetupInitialValues(PointerPressedEventArgs e, Control parent)
         {
-            Width = 0;
-            Height = 0;
             var pointer = e.GetPosition(parent);
             Margin = new Thickness(pointer.X, pointer.Y, 0, 0);
         }

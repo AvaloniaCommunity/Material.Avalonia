@@ -28,10 +28,9 @@ namespace Material.Ripple {
             {
                 // Only first pointer can arrive a ripple
                 _pointers++;
-                var r = CreateRipple();
+                var r = CreateRipple(e, RaiseRippleCenter);
                 _last = r;
-                r.SetupInitialValues(e, this);
-                    
+
                 // Attach ripple instance to canvas
                 PART_RippleCanvasRoot.Children.Add(r);
                 r.RunFirstStep();
@@ -85,12 +84,20 @@ namespace Material.Ripple {
             PART_RippleCanvasRoot = e.NameScope.Find<Canvas>(nameof(PART_RippleCanvasRoot));
         }
 
-        private Ripple CreateRipple()
+        private Ripple CreateRipple(PointerPressedEventArgs e, bool center)
         {
-            return new Ripple(Bounds.Width, Bounds.Height)
+            var w = Bounds.Width;
+            var h = Bounds.Height;
+            
+            var r = new Ripple(w, h)
             {
                 Fill = RippleFill
             };
+
+            if (center) r. Margin = new Thickness(w / 2, h / 2,0,0);
+            else r.SetupInitialValues(e, this);
+            
+            return r;
         }
 
         #region Styled properties
@@ -109,6 +116,14 @@ namespace Material.Ripple {
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
             set => SetValue(RippleOpacityProperty, value);
+        }
+        
+        public static readonly StyledProperty<bool> RaiseRippleCenterProperty =
+            AvaloniaProperty.Register<RippleEffect, bool>(nameof(RaiseRippleCenter));
+
+        public bool RaiseRippleCenter {
+            get => GetValue(RaiseRippleCenterProperty);
+            set => SetValue(RaiseRippleCenterProperty, value);
         }
 
         #endregion Styled properties
