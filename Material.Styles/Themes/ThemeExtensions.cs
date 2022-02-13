@@ -34,7 +34,7 @@ namespace Material.Styles.Themes {
             return foreground == Avalonia.Media.Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
         }
 
-        public static void SetBaseTheme(this ITheme theme, IBaseTheme baseTheme) {
+        public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.ValidationError = baseTheme.ValidationErrorColor;
@@ -65,21 +65,27 @@ namespace Material.Styles.Themes {
             theme.TextAreaBorder = baseTheme.MaterialDesignTextAreaBorder;
             theme.TextAreaInactiveBorder = baseTheme.MaterialDesignTextAreaInactiveBorder;
             theme.DataGridRowHoverBackground = baseTheme.MaterialDesignDataGridRowHoverBackground;
+
+            return theme;
         }
 
-        public static void SetPrimaryColor(this ITheme theme, Color primaryColor) {
+        public static ITheme SetPrimaryColor(this ITheme theme, Color primaryColor) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.PrimaryLight = primaryColor.Lighten();
             theme.PrimaryMid = primaryColor;
             theme.PrimaryDark = primaryColor.Darken();
+
+            return theme;
         }
 
-        public static void SetSecondaryColor(this ITheme theme, Color accentColor) {
+        public static ITheme SetSecondaryColor(this ITheme theme, Color accentColor) {
             if (theme == null) throw new ArgumentNullException(nameof(theme));
             theme.SecondaryLight = accentColor.Lighten();
             theme.SecondaryMid = accentColor;
             theme.SecondaryDark = accentColor.Darken();
+
+            return theme;
         }
     }
 }

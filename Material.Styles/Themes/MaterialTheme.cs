@@ -8,6 +8,9 @@ namespace Material.Styles.Themes {
     /// <summary>
     /// Applies the material theme styles and resources
     /// </summary>
+    /// <remarks>
+    /// You need to setup all these properties: <see cref="BaseTheme"/>, <see cref="PrimaryColor"/>, <see cref="SecondaryColor"/>
+    /// </remarks>
     public class MaterialTheme : MaterialThemeBase {
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentTheme"/> class.
@@ -45,19 +48,32 @@ namespace Material.Styles.Themes {
             set => SetValue(SecondaryColorProperty, value);
         }
 
+        private bool _isBaseThemePropertyApplied;
+        private bool _isPrimaryColorPropertyApplied;
+        private bool _isSecondaryColorPropertyApplied;
+        private ITheme _theme = new ThemeStruct();
         protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change) {
             base.OnPropertyChanged(change);
             if (change.Property == BaseThemeProperty) {
-                CurrentTheme.SetBaseTheme(BaseTheme.GetBaseTheme());
-                _ = ApplyCurrentThemeAsync();
+                _theme = _theme.SetBaseTheme(BaseTheme.GetBaseTheme());
+                _isBaseThemePropertyApplied = true;
+                TryApplyTheme();
             }
             if (change.Property == PrimaryColorProperty) {
-                CurrentTheme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialColor)PrimaryColor]);
-                _ = ApplyCurrentThemeAsync();
+                _theme = _theme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialColor)PrimaryColor]);
+                _isPrimaryColorPropertyApplied = true;
+                TryApplyTheme();
             }
             if (change.Property == SecondaryColorProperty) {
-                CurrentTheme.SetSecondaryColor(SwatchHelper.Lookup[(MaterialColor)SecondaryColor]);
-                _ = ApplyCurrentThemeAsync();
+                _theme = _theme.SetSecondaryColor(SwatchHelper.Lookup[(MaterialColor)SecondaryColor]);
+                _isSecondaryColorPropertyApplied = true;
+                TryApplyTheme();
+            }
+
+            void TryApplyTheme() {
+                if (_isBaseThemePropertyApplied && _isPrimaryColorPropertyApplied && _isSecondaryColorPropertyApplied) {
+                    this.CurrentTheme = _theme;
+                }
             }
         }
     }

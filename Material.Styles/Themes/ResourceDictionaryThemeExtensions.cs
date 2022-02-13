@@ -14,7 +14,7 @@ namespace Material.Styles.Themes {
         private static Guid ThemeManagerKey { get; } = Guid.NewGuid();
 
         public static void SetTheme(this IResourceDictionary resourceDictionary, ITheme theme) {
-            SetMaterialTheme(resourceDictionary, theme);
+            SetThemeInternal(resourceDictionary, theme);
 
             if (!(resourceDictionary.GetThemeManager() is ThemeManager themeManager))
                 resourceDictionary[ThemeManagerKey] = themeManager = new ThemeManager(resourceDictionary);
@@ -25,7 +25,7 @@ namespace Material.Styles.Themes {
             themeManager.OnThemeChange(oldTheme, theme);
         }
 
-        internal static void SetMaterialTheme(this IResourceDictionary resourceDictionary, ITheme theme) {
+        internal static void SetThemeInternal(this IResourceDictionary resourceDictionary, ITheme theme) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
 
             SetSolidColorBrush(resourceDictionary, "PrimaryHueLightBrush", theme.PrimaryLight.Color);
