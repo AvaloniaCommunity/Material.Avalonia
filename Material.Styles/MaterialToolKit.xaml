@@ -19,7 +19,6 @@
     <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
     <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml"/>
-    <StyleInclude Source="avares://Material.Styles/SideSheet.xaml"/>
     
     <!-- dialog host -->
     
@@ -82,4 +81,7 @@
     <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
     <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" />
 
+    <!-- Custom controls (High-priority) -->
+    <StyleInclude Source="avares://Material.Styles/SideSheet.xaml"/>
+    
 </Styles>
