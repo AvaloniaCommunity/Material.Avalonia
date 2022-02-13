@@ -45,6 +45,10 @@
         <Setter Property="Margin" Value="4"/>
     </Style>
     
+    <Style Selector="Window /template/ ItemsControl#PART_NeutralButtonPlacement ItemsPresenter">
+        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+    </Style>
+    
     <Style Selector="Window /template/ ItemsControl#PART_ButtonPlacement ItemsPresenter">
         <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
     </Style>
@@ -59,5 +63,9 @@
     <Style Selector="Window > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > ItemsControl#PART_Fields">
         <Setter Property="Margin" Value="24,4"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+    
+    <Style Selector="Window > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > ItemsControl#PART_Fields ItemsPresenter">
+        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
     </Style>
 </Styles>
