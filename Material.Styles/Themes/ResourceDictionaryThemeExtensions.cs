@@ -13,19 +13,20 @@ namespace Material.Styles.Themes {
         private static Guid CurrentThemeKey { get; } = Guid.NewGuid();
         private static Guid ThemeManagerKey { get; } = Guid.NewGuid();
 
+        [Obsolete($"Obsolete styling system. Use {nameof(MaterialTheme)}. Details in our wiki: https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming")]
         public static void SetTheme(this IResourceDictionary resourceDictionary, ITheme theme) {
-            SetMaterialTheme(resourceDictionary, theme);
+            SetThemeInternal(resourceDictionary, theme);
 
             if (!(resourceDictionary.GetThemeManager() is ThemeManager themeManager))
                 resourceDictionary[ThemeManagerKey] = themeManager = new ThemeManager(resourceDictionary);
 
-            var oldTheme = resourceDictionary.GetTheme();
+            var oldTheme = resourceDictionary.TryGetResource(CurrentThemeKey, out var oldThemeTemp) ? oldThemeTemp as ITheme : null;
             resourceDictionary[CurrentThemeKey] = theme;
 
             themeManager.OnThemeChange(oldTheme, theme);
         }
 
-        internal static void SetMaterialTheme(this IResourceDictionary resourceDictionary, ITheme theme) {
+        internal static void SetThemeInternal(this IResourceDictionary resourceDictionary, ITheme theme) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
 
             SetSolidColorBrush(resourceDictionary, "PrimaryHueLightBrush", theme.PrimaryLight.Color);
@@ -86,6 +87,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialDesignDataGridRowHoverBackground", theme.DataGridRowHoverBackground);
         }
 
+        [Obsolete($"Obsolete styling system. Use {nameof(MaterialTheme)}. Details in our wiki: https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming")]
         public static ITheme GetTheme(this IResourceDictionary resourceDictionary) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
             if (resourceDictionary.TryGetResource(CurrentThemeKey, out var theme) && theme is ITheme) return (ITheme) theme;
@@ -93,12 +95,14 @@ namespace Material.Styles.Themes {
             var secondaryMid = GetColor("SecondaryHueMidBrush");
             var secondaryMidForeground = GetColor("SecondaryHueMidForegroundBrush");
 
-            if (!TryGetColor("SecondaryHueLightBrush", out var secondaryLight)) secondaryLight = secondaryMid.Lighten();
+            if (!TryGetColor("SecondaryHueLightBrush", out var secondaryLight)) 
+                secondaryLight = secondaryMid.Lighten();
 
             if (!TryGetColor("SecondaryHueLightForegroundBrush", out var secondaryLightForeground))
                 secondaryLightForeground = secondaryLight.ContrastingForegroundColor();
 
-            if (!TryGetColor("SecondaryHueDarkBrush", out var secondaryDark)) secondaryDark = secondaryMid.Darken();
+            if (!TryGetColor("SecondaryHueDarkBrush", out var secondaryDark)) 
+                secondaryDark = secondaryMid.Darken();
 
             if (!TryGetColor("SecondaryHueDarkForegroundBrush", out var secondaryDarkForeground))
                 secondaryDarkForeground = secondaryDark.ContrastingForegroundColor();
@@ -143,12 +147,11 @@ namespace Material.Styles.Themes {
                 ValidationError = GetColor("ValidationErrorBrush")
             };
 
-            Color GetColor(params string[] keys) {
-                foreach (var key in keys)
-                    if (TryGetColor(key, out var color))
-                        return color;
+            Color GetColor(string key) {
+                if (TryGetColor(key, out var color))
+                    return color;
 
-                throw new InvalidOperationException($"Could not locate required resource with key(s) '{string.Join(", ", keys)}'");
+                throw new InvalidOperationException($"Could not locate required resource with key '{key}'");
             }
 
             bool TryGetColor(string key, out Color color) {
@@ -162,8 +165,8 @@ namespace Material.Styles.Themes {
             }
         }
 
-        [CanBeNull]
-        public static IThemeManager GetThemeManager(this IResourceDictionary resourceDictionary) {
+        [Obsolete($"Obsolete styling system. Use {nameof(MaterialTheme)}. Details in our wiki: https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming")]
+        public static IThemeManager? GetThemeManager(this IResourceDictionary resourceDictionary) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
 
             return resourceDictionary.TryGetResource(ThemeManagerKey, out var manager) ? manager as IThemeManager : null;
@@ -207,6 +210,7 @@ namespace Material.Styles.Themes {
             });
         }
 
+        [Obsolete($"Obsolete styling system. Use {nameof(MaterialTheme)}. Details in our wiki: https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming")]
         private class ThemeManager : IThemeManager {
             private readonly IResourceDictionary _resourceDictionary;
 
@@ -214,9 +218,9 @@ namespace Material.Styles.Themes {
                 _resourceDictionary = resourceDictionary ?? throw new ArgumentNullException(nameof(resourceDictionary));
             }
 
-            public event EventHandler<ThemeChangedEventArgs> ThemeChanged;
+            public event EventHandler<ThemeChangedEventArgs>? ThemeChanged;
 
-            public void OnThemeChange(ITheme oldTheme, ITheme newTheme) {
+            public void OnThemeChange(ITheme? oldTheme, ITheme newTheme) {
                 ThemeChanged?.Invoke(this, new ThemeChangedEventArgs(_resourceDictionary, oldTheme, newTheme));
             }
         }

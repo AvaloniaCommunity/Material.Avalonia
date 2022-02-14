@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
@@ -16,8 +14,6 @@ namespace Material.Styles.Themes {
         private bool _isLoading;
         private IStyle? _loaded;
         
-        private ITheme _currentTheme = new Theme();
-        private readonly Subject<ITheme> _currentThemeChanged = new();
         /// <summary>
         /// Initializes a new instance of the <see cref="FluentTheme"/> class.
         /// </summary>
@@ -35,21 +31,35 @@ namespace Material.Styles.Themes {
         public MaterialThemeBase(IServiceProvider serviceProvider)
             : this(((IUriContext)serviceProvider.GetService(typeof(IUriContext))).BaseUri) { }
 
+        private IResourceDictionary LoadedResourceDictionary => (Loaded as Avalonia.Styling.Styles)!.Resources;
+
+        public static readonly DirectProperty<MaterialThemeBase, ITheme> CurrentThemeProperty =
+            AvaloniaProperty.RegisterDirect<MaterialThemeBase, ITheme>(
+                nameof(CurrentTheme),
+                o => o.CurrentTheme,
+                (o, v) => o.CurrentTheme = v);
+
+        private ITheme _currentTheme = new ThemeStruct();
+
+        /// <summary>
+        /// Get or set current applied theme
+        /// </summary>
+        /// <returns>
+        /// Returns a STRUCT implementing ITheme interface 
+        /// </returns>
+        /// <remarks>
+        /// To avoid application freeze when applying theme call <see cref="ApplyCurrentThemeAsync"/>
+        /// </remarks>
         public ITheme CurrentTheme {
             get => _currentTheme;
             set {
-                (Loaded as Avalonia.Styling.Styles)!.Resources.SetMaterialTheme(CurrentTheme);
-                _currentTheme = value;
-                _currentThemeChanged.OnNext(value);
+                if (SetAndRaise(CurrentThemeProperty, ref _currentTheme, new ThemeStruct(value))) {
+                    Task.Run(() => LoadedResourceDictionary.SetThemeInternal(CurrentTheme));
+                }
             }
         }
 
-        public Task ApplyCurrentThemeAsync(ITheme? newTheme = null) {
-            return Task.Run(() => 
-                CurrentTheme = newTheme ?? _currentTheme);
-        }
-
-        public IObservable<ITheme> CurrentThemeChanged => _currentThemeChanged.AsObservable();
+        public IObservable<ITheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
 
         public IResourceHost? Owner => (Loaded as IResourceProvider)?.Owner;
 

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <LangVersion>9</LangVersion>
+        <LangVersion>10</LangVersion>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Company>Larymar,SKProCH,Appleneko2001</Company>
         <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
