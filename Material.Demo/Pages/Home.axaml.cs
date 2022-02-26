@@ -48,8 +48,6 @@ namespace Material.Demo.Pages
 
             InitializeComponent();
             DataContext = this;
-            
-            UseMaterialUIDarkTheme();
         }
 
         public ObservableCollection<FeatureStatusModels> Features { get; private set; }

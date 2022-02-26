@@ -1,13 +1,18 @@
 ﻿using System;
+using System.Linq;
+using Avalonia;
 using Avalonia.Media;
-using Material.Colors;
 using Material.Colors.ColorManipulation;
 using Material.Styles.Themes.Base;
 
 namespace Material.Styles.Themes {
     public static class ThemeExtensions {
-        internal static ColorPair ToPairedColor(this Hue hue) {
-            return new ColorPair(hue.Color, hue.Foreground);
+        public static T LocateMaterialTheme<T>(this Application application) where T : MaterialThemeBase {
+            var materialTheme = application.Styles.FirstOrDefault(style => style is T);
+            if (materialTheme == null) {
+                throw new InvalidOperationException($"Cannot locate {nameof(T)} in Avalonia application styles. Be sure that you include MaterialTheme in your App.xaml in Application.Styles section");
+            }
+            return (T)materialTheme;
         }
 
         public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode) {
@@ -29,7 +34,7 @@ namespace Material.Styles.Themes {
             return foreground == Avalonia.Media.Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
         }
 
-        public static void SetBaseTheme(this ITheme theme, IBaseTheme baseTheme) {
+        public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.ValidationError = baseTheme.ValidationErrorColor;
@@ -60,21 +65,27 @@ namespace Material.Styles.Themes {
             theme.TextAreaBorder = baseTheme.MaterialDesignTextAreaBorder;
             theme.TextAreaInactiveBorder = baseTheme.MaterialDesignTextAreaInactiveBorder;
             theme.DataGridRowHoverBackground = baseTheme.MaterialDesignDataGridRowHoverBackground;
+
+            return theme;
         }
 
-        public static void SetPrimaryColor(this ITheme theme, Color primaryColor) {
+        public static ITheme SetPrimaryColor(this ITheme theme, Color primaryColor) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.PrimaryLight = primaryColor.Lighten();
             theme.PrimaryMid = primaryColor;
             theme.PrimaryDark = primaryColor.Darken();
+
+            return theme;
         }
 
-        public static void SetSecondaryColor(this ITheme theme, Color accentColor) {
+        public static ITheme SetSecondaryColor(this ITheme theme, Color accentColor) {
             if (theme == null) throw new ArgumentNullException(nameof(theme));
             theme.SecondaryLight = accentColor.Lighten();
             theme.SecondaryMid = accentColor;
             theme.SecondaryDark = accentColor.Darken();
+
+            return theme;
         }
     }
 }

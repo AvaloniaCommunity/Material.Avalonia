@@ -4,7 +4,7 @@
         xmlns:cc="clr-namespace:Material.Styles">
     <Style Selector="cc|Card">
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2"/>
-        
+        <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Focusable" Value="False" />
