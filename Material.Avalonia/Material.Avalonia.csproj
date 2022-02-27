@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <VersionPrefix>2.5.0</VersionPrefix>
+        <VersionPrefix>3.0.0-rc0</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -12,16 +12,20 @@
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
         <PackageReleaseNotes>
-            - Allow the alignment of the snackbar to be configured #116
-            - Prevent ArgumentNullException in StringToTransformConverter
-            - Replacing IBrush instead of Brush class  in RippleEffect #114
-            - Deprecate and replace Transitions instead of Animations in TreeView #117
-            - Update DialogHost package, coerce styles, add examples #94
-            - Replace ContentControl in CustomDialog with ContentPresenter for Content #121
-            - Add recursive BundledTheme finding in resources for theming #120
-            - Fix doubling the padding of the Card
-            - Add Label style #123
-            - Fix show password button is not visible until clicked #124
+- Removed Material.Icons dependency (must be installed separately from https://github.com/AvaloniaUtils/Material.Icons.Avalonia) #127
+- Rework styles (details https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming#migrating-25---30)
+- Fix neverest version of Avalonia support #133
+- Add SideSheet control #145
+- Add opening navigation drawer from right side #131
+- Fix context menu item submenu appearing and disappearing in infinite loop #142
+- Fix binding on LeftDrawerWidth hides all content/behavior of NavigationDrawer #151
+- Fix custom dialog view datacontext binding #152
+- Fix ProgressBar styles inheritance #125
+- Fix show password button is not visible until clicked #124
+- Fix CustomDialogs content #121
+- Set KeyboardNavigation.TabNavigation property to Continue on ItemsPresenter #146
+- Stop Spinner from rotating when hidden.
+- Other fixes and improvements
         </PackageReleaseNotes>
     </PropertyGroup>
 
