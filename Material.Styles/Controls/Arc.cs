@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Text;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Data;
 using Avalonia.Media;
 using Avalonia.Threading;
 
@@ -26,7 +25,7 @@ namespace Material.Styles.Controls
         }
 
         public readonly static StyledProperty<IBrush> ArcBrushProperty =
-            AvaloniaProperty.Register<Arc, IBrush>(nameof(ArcBrush), new SolidColorBrush(Avalonia.Media.Colors.White), inherits: true, defaultBindingMode: BindingMode.TwoWay);
+            AvaloniaProperty.Register<Arc, IBrush>(nameof(ArcBrush), new SolidColorBrush(Avalonia.Media.Colors.White));
 
         public double Stroke
         {
@@ -35,7 +34,7 @@ namespace Material.Styles.Controls
         }
 
         public readonly static StyledProperty<double> StrokeProperty =
-            AvaloniaProperty.Register<Arc, double>(nameof(Stroke), 10, inherits: true, defaultBindingMode: BindingMode.TwoWay);
+            AvaloniaProperty.Register<Arc, double>(nameof(Stroke));
 
         public double StartAngle
         {
@@ -44,7 +43,7 @@ namespace Material.Styles.Controls
         }
 
         public readonly static StyledProperty<double> StartAngleProperty =
-            AvaloniaProperty.Register<Arc, double>(nameof(StartAngle), 0, inherits: true, defaultBindingMode: BindingMode.TwoWay);
+            AvaloniaProperty.Register<Arc, double>(nameof(StartAngle));
 
         public double SweepAngle
         {
@@ -53,7 +52,7 @@ namespace Material.Styles.Controls
         }
 
         public static readonly StyledProperty<double> SweepAngleProperty =
-            AvaloniaProperty.Register<Arc, double>(nameof(SweepAngle), 90, inherits: true, defaultBindingMode: BindingMode.TwoWay);
+            AvaloniaProperty.Register<Arc, double>(nameof(SweepAngle), 90);
 
         public override void Render(DrawingContext context)
         {
@@ -67,14 +66,15 @@ namespace Material.Styles.Controls
             var paint = new Pen(ArcBrush, Stroke);
             
             // Push generated clip geometry for clipping circle figure
-            context.PlatformImpl.PushGeometryClip(GetClip().PlatformImpl);
-            context.PlatformImpl.DrawGeometry(SolidColorBrush.Parse("Transparent"), paint, mainCircle.PlatformImpl);
-            context.PlatformImpl.PopGeometryClip();
-            // Pop clip geometry
-            
+            using (context.PushGeometryClip(GetClip()))
+            {
+                context.DrawGeometry(SolidColorBrush.Parse("Transparent"), paint, mainCircle);
+            }
+
             Dispatcher.UIThread.InvokeAsync(InvalidateVisual, DispatcherPriority.Background);
         }
 
+        // TODO: Optimal clip geometry generator
         // Clip geometry generator
         private StreamGeometry GetClip()
         {

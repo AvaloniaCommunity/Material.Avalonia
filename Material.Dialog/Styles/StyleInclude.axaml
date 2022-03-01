@@ -1,0 +1,71 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles">
+    <Style Selector="Window">
+        <Setter Property="CanResize" Value="False"/>
+        <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+    
+    <Style Selector="Window[SystemDecorations=None]">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TransparencyLevelHint" Value="Transparent" />
+    </Style>
+    
+    <Style Selector="Window[SystemDecorations=None] /template/ Border#PART_RootBorder">
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3"/>
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="Margin" Value="32"/>
+    </Style>
+    
+    <Style Selector="Window /template/ DockPanel#PART_HeaderPanel">
+        <Setter Property="Margin" Value="24,24,24,14"/>
+    </Style>
+    
+    <Style Selector="Window /template/ ContentPresenter#PART_HeaderIcon">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Margin" Value="0,0,8,0"/>
+    </Style>
+    
+    <Style Selector="Window /template/ TextBlock#PART_HeaderText">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style Selector="Window /template/ DockPanel#PART_ButtonsPanel">
+        <Setter Property="Margin" Value="4,16,4,4"/>
+    </Style>
+    
+    <Style Selector="Window /template/ ItemsControl#PART_ButtonPlacement">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+    
+    <Style Selector="Window /template/ ItemsControl#PART_ButtonPlacement Button,
+                     Window /template/ ItemsControl#PART_NeutralButtonPlacement Button">
+        <Setter Property="Margin" Value="4"/>
+    </Style>
+    
+    <Style Selector="Window /template/ ItemsControl#PART_NeutralButtonPlacement ItemsPresenter">
+        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+    </Style>
+    
+    <Style Selector="Window /template/ ItemsControl#PART_ButtonPlacement ItemsPresenter">
+        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+    </Style>
+    
+    
+    <Style Selector="Window > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > TextBlock#PART_SupportingText">
+        <Setter Property="Margin" Value="24,0"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+    
+    <!-- For TextField dialog -->
+    <Style Selector="Window > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > ItemsControl#PART_Fields">
+        <Setter Property="Margin" Value="24,4"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+    
+    <Style Selector="Window > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > ItemsControl#PART_Fields ItemsPresenter">
+        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+    </Style>
+</Styles>

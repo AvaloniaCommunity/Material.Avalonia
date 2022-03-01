@@ -66,6 +66,7 @@
                             <TextBlock Classes="Body2" Text="ColorZones" />
                             <TextBlock Classes="Body2" Text="Dialogs" />
                             <TextBlock Classes="Body2" Text="ScrollViewer" />
+                            <TextBlock Classes="Body2" Text="SideSheet" />
                             <TextBlock Classes="Body2" Text="TabControls" />
                             <TextBlock Classes="Body2" Text="TreeViews" />
                             <TextBlock Classes="Body2" Text="Card" />
@@ -89,7 +90,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <ToggleButton Name="NavDrawerSwitch"
-                                      Classes="Flat TransparentBack ConstantForeground ImplicitForeground"
+                                      Classes="Flat TransparentBack"
                                       Width="32" Height="32" Padding="4">
                             <avalonia:MaterialIcon Kind="Menu" Width="24" Height="24" />
                         </ToggleButton>
@@ -171,6 +172,9 @@
 
                             <!-- ScrollViewer -->
                             <pages:ScrollViewerDemo />
+                            
+                            <!-- SideSheet -->
+                            <pages:SideSheetDemo />
 
                             <!-- TabControls -->
                             <pages:TabsDemo />

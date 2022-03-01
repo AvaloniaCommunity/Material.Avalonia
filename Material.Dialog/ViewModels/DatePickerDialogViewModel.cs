@@ -9,9 +9,9 @@ namespace Material.Dialog.ViewModels
     {
         private readonly DatePickerDialog _window;
 
-        public DialogResultButton PositiveButton { get; internal set; }
+        public DialogButton PositiveButton { get; internal set; }
 
-        public DialogResultButton NegativeButton { get; internal set; }
+        public DialogButton NegativeButton { get; internal set; }
 
         private DateTime _dateTime;
         public DateTime DateTime
@@ -36,7 +36,7 @@ namespace Material.Dialog.ViewModels
         }
         public async void OnPressButton(object args)
         {
-            var button = args as DialogResultButton;
+            var button = args as DialogButton;
             if (button is null)
                 return;
 

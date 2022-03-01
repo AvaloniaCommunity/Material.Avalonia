@@ -2,12 +2,15 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.7" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.7" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.7" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.7" />
+    <PackageReference Include="Avalonia" Version="0.10.11" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.11" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.11" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.11" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
     <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="0.3.0" />
   </ItemGroup>
   <ItemGroup>
@@ -28,5 +31,9 @@
     <AvaloniaResource Include="**\*.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
+    <Compile Update="Pages\SideSheetDemo.axaml.cs">
+      <DependentUpon>SideSheetDemo.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

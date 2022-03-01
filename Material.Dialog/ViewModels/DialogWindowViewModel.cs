@@ -1,51 +1,171 @@
-﻿using Avalonia.Controls;
-using Material.Dialog.Icons;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Collections.ObjectModel;
+using Avalonia.Controls;
 using Avalonia.Layout;
+using Avalonia.Threading;
+using Material.Dialog.ViewModels.Elements;
+using Material.Dialog.ViewModels.Elements.Header.Icons;
 
 namespace Material.Dialog.ViewModels
 {
-    public abstract class DialogWindowViewModel : ViewModelBase
+    public abstract class DialogWindowViewModel : DialogViewModelBase
     {
+        protected Window _window;
+        
         #region Base Properties
-        private string m_WindowTitle;
-        public string WindowTitle 
-            { get => m_WindowTitle; set { m_WindowTitle = value; OnPropertyChanged(); } }
 
-        private string m_ContentHeader;
-        public string ContentHeader 
-            { get => m_ContentHeader; set { m_ContentHeader = value; OnPropertyChanged(); } }
+        private string _windowTitle;
 
-        private string m_ContentMessage;
-        public string ContentMessage 
-            { get => m_ContentMessage; set { m_ContentMessage = value; OnPropertyChanged(); } }
+        public string WindowTitle
+        {
+            get => _windowTitle;
+            set
+            {
+                _windowTitle = value;
+                OnPropertyChanged();
+            }
+        }
 
-        private bool m_Borderless;
-        public bool Borderless { get => m_Borderless; set { m_Borderless = value; OnPropertyChanged(); } }
+        private string _contentHeader;
 
-        private double? m_MaxWidth;
-        public double? MaxWidth { get => m_MaxWidth; set { m_MaxWidth = value; OnPropertyChanged(); } }
+        public string ContentHeader
+        {
+            get => _contentHeader;
+            set
+            {
+                _contentHeader = value;
+                OnPropertyChanged();
+            }
+        }
 
-        private double? m_Width;
-        public double? Width { get => m_Width; set { m_Width = value; OnPropertyChanged(); } }
+        private string _contentMessage;
 
-        private WindowStartupLocation m_WindowStartupLocation;
-        public WindowStartupLocation WindowStartupLocation 
-            { get => m_WindowStartupLocation; set { m_WindowStartupLocation = value; OnPropertyChanged(); } }
+        public string ContentMessage
+        {
+            get => _contentMessage;
+            set
+            {
+                _contentMessage = value;
+                OnPropertyChanged();
+            }
+        }
 
-        private object? _dialogIcon;
-        public object? DialogIcon { get => _dialogIcon; set { _dialogIcon = value; OnPropertyChanged(); } }
+        private bool _borderless;
+
+        public bool Borderless
+        {
+            get => _borderless;
+            set
+            {
+                _borderless = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double? _maxWidth;
+
+        public double? MaxWidth
+        {
+            get => _maxWidth;
+            set
+            {
+                _maxWidth = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double? _width;
+
+        public double? Width
+        {
+            get => _width;
+            set
+            {
+                _width = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private WindowStartupLocation _windowStartupLocation;
+
+        public WindowStartupLocation WindowStartupLocation
+        {
+            get => _windowStartupLocation;
+            set
+            {
+                _windowStartupLocation = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private IconViewModelBase? _dialogIcon;
+
+        public IconViewModelBase? DialogIcon
+        {
+            get => _dialogIcon;
+            set
+            {
+                _dialogIcon = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
         
+        private ObservableCollection<DialogButtonViewModel> _neutralDialogButton;
+
+        public ObservableCollection<DialogButtonViewModel> NeutralDialogButton
+        {
+            get => _neutralDialogButton;
+            internal set
+            {
+                _neutralDialogButton = value;
+                OnPropertyChanged();
+            }
+        }
         
-        private DialogResultButton[] m_DialogButtons;
-        public DialogResultButton[] DialogButtons { get => m_DialogButtons; internal set => m_DialogButtons = value; }
         
-        private Orientation m_ButtonsStackOrientation;
-        public Orientation ButtonsStackOrientation { get => m_ButtonsStackOrientation; internal set => m_ButtonsStackOrientation = value; }
+        private ObservableCollection<DialogButtonViewModel> _dialogButtons;
+
+        public ObservableCollection<DialogButtonViewModel> DialogButtons
+        {
+            get => _dialogButtons;
+            internal set
+            {
+                _dialogButtons = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Orientation _buttonsStackOrientation;
+
+        public Orientation ButtonsStackOrientation
+        {
+            get => _buttonsStackOrientation;
+            internal set
+            {
+                _buttonsStackOrientation = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private DialogResult _dialogResult;
+
+        public DialogResult DialogResult
+        {
+            get => _dialogResult;
+            internal set
+            {
+                _dialogResult = value;
+                OnPropertyChanged();
+            }
+        }
+        
+        public async void CloseWindow ()
+        {
+            await Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                _window.Close();
+            });
+        }
     }
 }

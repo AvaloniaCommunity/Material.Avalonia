@@ -1,11 +1,6 @@
-﻿using Material.Dialog.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Material.Dialog
+﻿namespace Material.Dialog
 { 
-    public class TextFieldDialogResult : IDialogResult
+    public class TextFieldDialogResult : DialogResult
     {
         public TextFieldDialogResult()
         {

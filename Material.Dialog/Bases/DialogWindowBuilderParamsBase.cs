@@ -1,8 +1,5 @@
 ﻿using Avalonia.Controls;
 using Material.Dialog.Icons;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Avalonia.Layout;
 
 namespace Material.Dialog.Bases
@@ -23,22 +20,29 @@ namespace Material.Dialog.Bases
         /// </summary>
         public DialogIconKind? DialogHeaderIcon = null;
 
+        // TODO: Support custom control
         /// <summary>
-        /// Specify control of icon view. Size of control should be 32x32.
+        /// Specify <see cref="Avalonia.Media.Imaging.Bitmap"/>, <see cref="Avalonia.Controls.Control"/> or <see cref="DialogIconKind"/> for dialog header icon.
         /// </summary>
         public object DialogIcon = null;
+        
+        /// <summary>
+        /// Build dialog buttons stack (left side). 
+        /// <br/>You can use <seealso cref="DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum)"/> for create buttons stack in easy way.
+        /// </summary>
+        public DialogButton[] NeutralDialogButtons;
         
         /// <summary>
         /// Build dialog buttons stack. 
         /// <br/>You can use <seealso cref="DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum)"/> for create buttons stack in easy way.
         /// </summary>
-        public DialogResultButton[] DialogButtons;
+        public DialogButton[] DialogButtons;
         
         /// <summary>
         /// Define result after close the dialog not from buttons
         /// <br/> (could be from Alt + F4 or window close button).
         /// </summary>
-        public DialogResult NegativeResult = DialogResult.NoResult;// = new DialogResult(DialogHelper.DIALOG_RESULT_CANCEL);
+        public DialogResult NegativeResult = DialogResult.NoResult;
 
         /// <summary>
         /// Define buttons stack orientation.

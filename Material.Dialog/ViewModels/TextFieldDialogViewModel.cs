@@ -1,50 +1,65 @@
-﻿using Avalonia.Layout;
-using Avalonia.Threading;
+﻿using Avalonia.Threading;
 using Material.Dialog.Commands;
-using Material.Dialog.ViewModels.TextField;
 using Material.Dialog.Views;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
+using Material.Dialog.ViewModels.Elements;
+using Material.Dialog.ViewModels.Elements.TextField;
 
 namespace Material.Dialog.ViewModels
 {
     public class TextFieldDialogViewModel : DialogWindowViewModel
     {
-        private TextFieldDialog _window;
+        private ObservableCollection<TextFieldViewModel> _textFields;
 
-        public bool IsReady;
+        public ObservableCollection<TextFieldViewModel> TextFields
+        {
+            get => _textFields;
+            internal set
+            {
+                _textFields = value;
+                OnPropertyChanged();
+            }
+        }
 
-        private TextFieldViewModel[] m_TextFields;
-        public TextFieldViewModel[] TextFields { get => m_TextFields; internal set => m_TextFields = value; }
+        /*private DialogResultButton _positiveButton;
 
-        private DialogResultButton m_PositiveButton;
-        public DialogResultButton PositiveButton { get => m_PositiveButton; internal set => m_PositiveButton = value; }
+        public DialogResultButton PositiveButton
+        {
+            get => _positiveButton;
+            internal set => _positiveButton = value;
+        }
 
-        private DialogResultButton m_NegativeButton;
-        public DialogResultButton NegativeButton { get => m_NegativeButton; internal set => m_NegativeButton = value; }
-        
+        private DialogResultButton _negativeButton;
+
+        public DialogResultButton NegativeButton
+        {
+            get => _negativeButton;
+            internal set => _negativeButton = value;
+        }*/
+
         public TextFieldDialogViewModel(TextFieldDialog dialog)
         {
             _window = dialog;
-            ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
+            SubmitCommand = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 
-        public void BindValidater()
+        public void BindValidateHandler()
         {
             foreach (var item in TextFields)
-                item.OnValidateRequired += Field_OnValidateRequired;
+            {
+                if(item != null)
+                    item.OnValidateRequired += Field_OnValidateRequired;
+            }
         }
 
-        private void Field_OnValidateRequired(object sender, bool e)
-        {
-            ButtonClick.RaiseCanExecute();
-        }
-
-        public void UnbindValidater()
+        public void UnbindValidateHandler()
         {
             foreach (var item in TextFields)
-                item.OnValidateRequired -= Field_OnValidateRequired;
+            {
+                if(item != null)
+                    item.OnValidateRequired -= Field_OnValidateRequired;
+            }
         }
 
         public bool ValidateFields()
@@ -54,40 +69,49 @@ namespace Material.Dialog.ViewModels
                 if (!field.IsValid)
                     return false;
             }
+
             return true;
         }
-
-        public bool CanPressButton(object args)
+        
+        private void Field_OnValidateRequired(object sender, bool e)
         {
-            if(args == PositiveButton)
-            {
-                return ValidateFields();
-            }
-            else if(args == NegativeButton)
-            {
-                return true;
-            }
-            return false;
+            SubmitCommand.RaiseCanExecute();
         }
-        public async void OnPressButton(object args)
+        
+        public MaterialDialogRelayCommand SubmitCommand { get; }
+
+        private bool CanPressButton(object args)
         {
-            var button = args as DialogResultButton;
-            if (button is null)
-                return; 
+            return ValidateFields();
+        }
+
+        private async void OnPressButton(object args)
+        {
+            if (!(args is DialogButtonViewModel button))
+                return;
 
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                var result = new TextFieldDialogResult() { result = button.Result };
+                var resultButtonId = "submit";
+                if (args is ObsoleteDialogButtonViewModel vm)
+                    resultButtonId = vm.Result;
+                
+                var result = new TextFieldDialogResult
+                {
+                    result = resultButtonId
+                };
+                
                 var fields = new List<TextFieldResult>();
+                
                 foreach (var item in TextFields)
-                    fields.Add(new TextFieldResult { Text = item.Text });
+                    fields.Add(new TextFieldResult {Text = item.Text});
+                
                 result.fieldsResult = fields.ToArray();
-                _window.Result = result;
+                button.Parent.DialogResult = result;
+                
                 _window.Close();
-                UnbindValidater();
+                UnbindValidateHandler();
             });
         }
-
-        public MaterialDialogRelayCommand ButtonClick { get; private set; }
     }
 }

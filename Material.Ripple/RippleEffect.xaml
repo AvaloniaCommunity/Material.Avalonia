@@ -4,8 +4,8 @@
     <Style Selector="cc|RippleEffect">
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid ClipToBounds="True">
-                    <Rectangle Fill="Red" Opacity="0" ClipToBounds="True"/> 
+                <Panel ClipToBounds="True">
+                    <Rectangle Fill="Transparent" Opacity="0" ClipToBounds="True"/> 
                     <ContentPresenter Name="Content"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}" />
@@ -14,20 +14,20 @@
                             VerticalAlignment="Stretch"
                             IsHitTestVisible="False"
                             Opacity="{TemplateBinding RippleOpacity}"/>
-                </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </Style> 
     
     <!-- Transitions -->
     
-    <Style Selector="cc|RippleEffect:not(.notransitions) /template/ Canvas#PART_RippleCanvasRoot cc|Ripple">
+    <Style Selector="cc|RippleEffect:not(.notransitions) /template/ Canvas#PART_RippleCanvasRoot > cc|Ripple">
         <Setter Property="Transitions">
             <Transitions>
-                <ThicknessTransition Property="Margin" Duration="{x:Static cc:Ripple.Duration}" Easing="CircularEaseOut"/>
-                <DoubleTransition Property="Width" Duration="{x:Static cc:Ripple.Duration}" Easing="CircularEaseOut"/>
-                <DoubleTransition Property="Height" Duration="{x:Static cc:Ripple.Duration}" Easing="CircularEaseOut"/>
-                <DoubleTransition Property="Opacity" Duration="{x:Static cc:Ripple.Duration}" Easing="CircularEaseOut"/>
+                <ThicknessTransition Property="Margin" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>
+                <DoubleTransition Property="Width" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>
+                <DoubleTransition Property="Height" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>
+                <DoubleTransition Property="Opacity" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>
             </Transitions>
         </Setter>
     </Style>

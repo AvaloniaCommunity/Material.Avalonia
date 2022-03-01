@@ -1,69 +1,76 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Shapes;
 using Avalonia.Input;
-using Avalonia.Layout;
 using Avalonia.Media;
-using Avalonia.Styling;
 using Avalonia.Threading;
 
 namespace Material.Ripple {
     public class RippleEffect : ContentControl
     {
+        // ReSharper disable once InconsistentNaming
         private Canvas PART_RippleCanvasRoot;
 
-        private Ripple last;
-        private short pointers;
+        private Ripple _last;
+        private byte _pointers;
 
         public RippleEffect()
         {
             AddHandler(PointerReleasedEvent, PointerReleasedHandler);
             AddHandler(PointerPressedEvent, PointerPressedHandler);
+            AddHandler(PointerCaptureLostEvent, PointerCaptureLostHandler);
         }
-
+        
         private void PointerPressedHandler(object sender, PointerPressedEventArgs e)
         {
-            if (pointers == 0)
+            if (_pointers == 0)
             {
                 // Only first pointer can arrive a ripple
-                pointers++;
-                var r = CreateRipple();
-                last = r;
-                r.SetupInitialValues(e, this);
-                    
+                _pointers++;
+                var r = CreateRipple(e, RaiseRippleCenter);
+                _last = r;
+
                 // Attach ripple instance to canvas
                 PART_RippleCanvasRoot.Children.Add(r);
-                r.RunFirstStep(e, this);
+                r.RunFirstStep();
             }
         }
 
         private void PointerReleasedHandler(object sender, PointerReleasedEventArgs e)
         {
-            if (last != null)
-            {
-                pointers--;
-                    
-                // This way to handle pointer released is pretty tricky
-                // could have more better way to improve
-                OnReleaseHandler(last, e);
-                last = null;
-            }
+            RemoveLastRipple();
+        }
+        
+        private void PointerCaptureLostHandler(object sender, PointerCaptureLostEventArgs e)
+        {
+            RemoveLastRipple();
         }
 
-        private void OnReleaseHandler(object sender, PointerReleasedEventArgs e)
+        private void RemoveLastRipple()
         {
-            var r = sender as Ripple;
+            if (_last == null) 
+                return;
             
+            _pointers--;
+                    
+            // This way to handle pointer released is pretty tricky
+            // could have more better way to improve
+            OnReleaseHandler(_last);
+            _last = null;
+        }
+
+        private void OnReleaseHandler(Ripple r)
+        {
             // Fade out ripple
-            r.RunSecondStep(e);
+            r.RunSecondStep();
             
             void RemoveRippleTask(Task arg1, object arg2)
             {
-                Dispatcher.UIThread.InvokeAsync(() => PART_RippleCanvasRoot.Children.Remove(r));
+                Dispatcher.UIThread.InvokeAsync(delegate
+                {
+                    PART_RippleCanvasRoot.Children.Remove(r);
+                });
             }
             
             // Remove ripple from canvas to finalize ripple instance
@@ -77,12 +84,20 @@ namespace Material.Ripple {
             PART_RippleCanvasRoot = e.NameScope.Find<Canvas>(nameof(PART_RippleCanvasRoot));
         }
 
-        private Ripple CreateRipple()
+        private Ripple CreateRipple(PointerPressedEventArgs e, bool center)
         {
-            return new Ripple(Bounds.Width, Bounds.Height)
+            var w = Bounds.Width;
+            var h = Bounds.Height;
+            
+            var r = new Ripple(w, h)
             {
                 Fill = RippleFill
             };
+
+            if (center) r. Margin = new Thickness(w / 2, h / 2,0,0);
+            else r.SetupInitialValues(e, this);
+            
+            return r;
         }
 
         #region Styled properties
@@ -101,6 +116,14 @@ namespace Material.Ripple {
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
             set => SetValue(RippleOpacityProperty, value);
+        }
+        
+        public static readonly StyledProperty<bool> RaiseRippleCenterProperty =
+            AvaloniaProperty.Register<RippleEffect, bool>(nameof(RaiseRippleCenter));
+
+        public bool RaiseRippleCenter {
+            get => GetValue(RaiseRippleCenterProperty);
+            set => SetValue(RaiseRippleCenterProperty, value);
         }
 
         #endregion Styled properties

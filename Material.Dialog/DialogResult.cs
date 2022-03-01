@@ -1,7 +1,4 @@
 ﻿using Material.Dialog.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Material.Dialog
 { 
@@ -10,7 +7,7 @@ namespace Material.Dialog
         /// <summary>
         /// Constant none result.
         /// </summary>
-        public static DialogResult NoResult { get; private set; } = new DialogResult() { result = "none" };
+        public static DialogResult NoResult { get; private set; } = new DialogResult { result = "none" };
 
         
         public DialogResult()
@@ -24,6 +21,6 @@ namespace Material.Dialog
 
 
         private string result;
-        public string GetResult => result;
+        public virtual string GetResult => result;
     }
 }

@@ -1,19 +1,22 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Input;
 using Avalonia.Layout;
-using Avalonia.Styling;
-using Avalonia.Threading;
 
 namespace Material.Ripple
 {
     public class Ripple : Ellipse
     {
+        private static Easing _easing = new CircularEaseOut();
+        public static Easing Easing
+        {
+            get => _easing;
+            set => _easing = value;
+        }
+        
         public static readonly TimeSpan Duration = new TimeSpan(0,0,0,0,500);
 
         private double maxDiam;
@@ -22,6 +25,9 @@ namespace Material.Ripple
         
         public Ripple(double outerWidth, double outerHeight)
         {
+            Width = 0;
+            Height = 0;
+            
             maxDiam = Math.Sqrt(Math.Pow(outerWidth, 2) + Math.Pow(outerHeight, 2));
             endY = maxDiam - outerHeight;
             endX = maxDiam - outerWidth;
@@ -32,21 +38,18 @@ namespace Material.Ripple
 
         public void SetupInitialValues(PointerPressedEventArgs e, Control parent)
         {
-            Width = 0;
-            Height = 0;
             var pointer = e.GetPosition(parent);
             Margin = new Thickness(pointer.X, pointer.Y, 0, 0);
         }
 
-        public void RunFirstStep(PointerPressedEventArgs e, Control parent)
+        public void RunFirstStep()
         {
             Width = maxDiam;
             Height = maxDiam;
-            var pointer = e.GetPosition(parent);
             Margin = new Thickness(-endX / 2, -endY / 2, 0, 0);
         }
 
-        public void RunSecondStep(PointerReleasedEventArgs e)
+        public void RunSecondStep()
         {
             Opacity = 0;
         }

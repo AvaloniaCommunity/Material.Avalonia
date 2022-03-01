@@ -1,19 +1,20 @@
 ﻿using System;
-using Material.Dialog.Interfaces;
 
 namespace Material.Dialog.Bases
 {
+    [Obsolete("Deprecated builder params.")]
     public class TwoFeedbackDialogBuilderParamsBase : DialogWindowBuilderParamsBase
     {
         /// <summary>
-        /// Define positive action button.
+        /// Define a positive action button.
         /// </summary>
-        public DialogResultButton PositiveButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.Ok)[0];
+        [Obsolete("Please use DialogButton.IsPositive instead. This API will be deprecated and removed on future updates.")]
+        public DialogButton PositiveButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.Ok)[0];
 
         /// <summary>
-        /// Define negative action button.
-        /// <br/>You still have a way go back lmao.
+        /// Define a negative action button.
         /// </summary>
-        public DialogResultButton NegativeButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[0];
+        [Obsolete("Please use DialogButton.IsPositive instead. This API will be deprecated and removed on future updates.")]
+        public DialogButton NegativeButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[0];
     }
 }

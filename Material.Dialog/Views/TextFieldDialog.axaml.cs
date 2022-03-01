@@ -1,6 +1,4 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
@@ -20,57 +18,70 @@ namespace Material.Dialog.Views
 
             InitializeComponent();
 
-            this.Closed += TextFieldDialog_Closed;
-            this.Opened += TextFieldDialog_Opened;
+            Closed += TextFieldDialog_Closed;
+            Opened += TextFieldDialog_Opened;
         }
 
         private void TextFieldDialog_Closed(object sender, EventArgs e)
         {
-            this.Opened -= TextFieldDialog_Opened;
-            this.Closed -= TextFieldDialog_Closed;
+            Opened -= TextFieldDialog_Opened;
+            Closed -= TextFieldDialog_Closed;
         }
 
         private void TextFieldDialog_Opened(object sender, EventArgs e)
         {
-            switch (DataContext)
+            if (!(DataContext is TextFieldDialogViewModel vm))
+                return;
+            
+            //vm.ButtonClick.RaiseCanExecute();
+
+            var fields = this.Find<ItemsControl>("PART_Fields");
+
+            Dispatcher.UIThread.InvokeAsync(delegate
             {
-                case TextFieldDialogViewModel vm:
-                    vm.ButtonClick.RaiseCanExecute();
+                if (fields is null)
+                    return;
+                        
+                int index = 0;
+                foreach (var item in fields.ItemContainerGenerator.Containers)
+                {
+                    var fieldViewModel = vm.TextFields[index];
 
-                    var fields = this.Get<ItemsControl>("PART_Fields");
-
-                    Dispatcher.UIThread.InvokeAsync(delegate
+                    if (item.ContainerControl is ContentPresenter presenter)
                     {
-                        int index = 0;
-                        foreach (var item in fields.ItemContainerGenerator.Containers)
+                        if (presenter.Child is TextBox field)
                         {
-                            var fieldViewModel = vm.TextFields[index];
-
-                            if (item.ContainerControl is ContentPresenter presenter)
+                            var classes = fieldViewModel.Classes;
+                            if (classes != null)
                             {
-                                if (presenter.Child is TextBox field)
+                                foreach (var @class in classes.Split(' '))
                                 {
-                                    var classes = fieldViewModel.Classes;
-                                    if (classes != null)
-                                    {
-                                        foreach (var @class in classes.Split(' '))
-                                        {
-                                            if(@class != "")
-                                                field.Classes.Add(@class);
-                                        }
-                                    }
+                                    if (@class != "")
+                                        field.Classes.Add(@class);
                                 }
                             }
-
-                            index++;
                         }
-                    });
-                    vm.IsReady = true;
-                    break;
-            }
+                    }
+
+                    index++;
+                }
+            });
         }
 
-        public TextFieldDialogResult GetResult() => Result;
+        public TextFieldDialogResult GetResult()
+        {
+            if (!(DataContext is TextFieldDialogViewModel viewModel))
+                return null;
+            
+            return viewModel.DialogResult switch
+            {
+                TextFieldDialogResult vm => vm,
+                // ReSharper disable once ConvertTypeCheckPatternToNullCheck
+                DialogResult basicViewModel => new TextFieldDialogResult(basicViewModel.GetResult,
+                    Array.Empty<TextFieldResult>()),
+                _ => null
+            };
+        }
 
         public void SetNegativeResult(DialogResult result) => Result.result = result.GetResult;
 

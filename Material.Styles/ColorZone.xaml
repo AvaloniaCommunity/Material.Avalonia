@@ -2,8 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:assists="clr-namespace:Material.Styles.Assists"
-    xmlns:cc="clr-namespace:Material.Styles"
-    xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+    xmlns:cc="clr-namespace:Material.Styles">
     <Style Selector="cc|ColorZone">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
@@ -28,6 +27,7 @@
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Cursor="{TemplateBinding Cursor}"
                                               TextBlock.Foreground="{TemplateBinding Foreground}"
+                                              ContentControl.Foreground="{TemplateBinding Foreground}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>

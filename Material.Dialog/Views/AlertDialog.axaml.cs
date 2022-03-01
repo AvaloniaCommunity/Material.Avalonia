@@ -2,21 +2,24 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Material.Dialog.Interfaces;
+using Material.Dialog.ViewModels;
 
 namespace Material.Dialog.Views
 {
     public class AlertDialog : Window, IDialogWindowResult<DialogResult>, IHasNegativeResult
-    { 
-        public DialogResult Result { get; set; } = DialogResult.NoResult;
-
+    {
         public AlertDialog()
         {
-            this.InitializeComponent(); 
+            InitializeComponent(); 
         }
         
-        public DialogResult GetResult() => Result;
+        public DialogResult GetResult() => (DataContext as AlertDialogViewModel)?.DialogResult;
 
-        public void SetNegativeResult(DialogResult result) => Result = result;
+        public void SetNegativeResult(DialogResult result)
+        {
+            if (DataContext is AlertDialogViewModel viewModel)
+                viewModel.DialogResult = result;
+        }
 
         private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
     }

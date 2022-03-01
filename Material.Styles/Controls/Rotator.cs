@@ -9,41 +9,46 @@ using Avalonia.Rendering;
 
 namespace Material.Styles.Controls
 {
-    public class Rotator : ContentControl
+    public class Rotator : Panel
     {
+        private static IRenderLoop? _loopInstance;
+
+        private static IRenderLoop LoopInstance => _loopInstance ??= new RenderLoop();
+
         // Minimum speed
-        private double minimumSpeed = 0.0025;
+        // Rotator will stop if speed less than this constant value.
+        // It is able to change in code-behind if this value is not satisfied.
+        private static double _minimumSpeed = 0.0025;
+
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static double MinimumSpeed
+        {
+            get => _minimumSpeed;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(value), "MinimumSpeed should not less than zero. You can set it as zero, if you wish your rotator keep running.");
+
+                _minimumSpeed = value;
+            }
+        }
+        
         private bool _running;
 
         private double _speed = 0.4;
 
-        private double _rotateDegree = 0;
-
-        private RenderLoop _loop;
-        private RenderLoopClock _loopTask;
+        private double _rotateDegree;
+        
+        private readonly RenderLoopClock _loopTask;
         private TimeSpan _prev;
 
         public Rotator()
         {
-            // Idk how it does making any sense
-            // It works without any hooking / registering / attaching or etc.
-            // I just BLOW MY ****ING MIND
-            _loop = new RenderLoop();
+            _loopInstance ??= AvaloniaLocator.Current.GetService<IRenderLoop>() ?? LoopInstance;
 
             // Prepare render loop task for use.
             _loopTask = new RenderLoopClock();
-            _loopTask.Subscribe(
-                delegate(TimeSpan renderTime)
-                {
-                    var delta = renderTime - _prev;
-                    _rotateDegree += _speed * delta.TotalMilliseconds;
-                    _prev = renderTime;
-
-                    while (_rotateDegree > 360)
-                        _rotateDegree -= 360;
-
-                    RenderTransform = new RotateTransform(_rotateDegree);
-                });
+            _loopTask.Subscribe(OnLoopUpdate);
         }
 
         public double Speed
@@ -57,17 +62,35 @@ namespace Material.Styles.Controls
                 delegate(Rotator rotator) { return rotator._speed; },
                 delegate(Rotator rotator, double v)
                 {
+                    if (rotator.IsEffectivelyVisible == false || rotator.IsEffectivelyEnabled == false)
+                        return;
+                    
                     rotator._speed = v;
                     OnSpeedChanged(rotator, v);
                 });
 
         // Loop dispatcher / simple loop controller
+        private void OnLoopUpdate(TimeSpan renderTime)
+        {
+            if (IsEffectivelyVisible == false || IsEffectivelyEnabled == false)
+                return;
+            
+            var delta = renderTime - _prev;
+            _rotateDegree += _speed * delta.TotalMilliseconds;
+            _prev = renderTime;
+
+            while (_rotateDegree > 360)
+                _rotateDegree -= 360;
+
+            RenderTransform = new RotateTransform(_rotateDegree);
+        }
+        
         private static void OnSpeedChanged(Rotator rotator, double d)
         {
             // We should stop rotator if speed is lower than minimum speed
-            if (Math.Abs(d) < rotator.minimumSpeed)
+            if (Math.Abs(d) < _minimumSpeed)
             {
-                // Stop render loop to avoid resources waste.
+                // Stop render loop to avoid leak of performances.
                 if (!rotator._running)
                     return;
 
@@ -76,7 +99,7 @@ namespace Material.Styles.Controls
                 rotator._rotateDegree = 0;
 
                 // Detach loop task from RenderLoop
-                rotator._loop.Remove(rotator._loopTask);
+                LoopInstance.Remove(rotator._loopTask);
 
                 return;
             }
@@ -84,9 +107,9 @@ namespace Material.Styles.Controls
             if (rotator._running)
                 return;
 
+            // Attach loop task to RenderLoop if not running.
             rotator._running = true;
-            // Attach loop task to RenderLoop
-            rotator._loop.Add(rotator._loopTask);
+            LoopInstance.Add(rotator._loopTask);
         }
     }
 }

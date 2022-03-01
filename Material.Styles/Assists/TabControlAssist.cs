@@ -27,7 +27,7 @@ namespace Material.Styles.Assists {
         /// <summary>
         ///     The brush for not selected tab headers.
         /// </summary>
-        public static readonly AvaloniaProperty<Brush> TabHeaderInactiveBrushProperty = AvaloniaProperty.RegisterAttached<TabControl, Brush>(
+        public static readonly AvaloniaProperty<IBrush> TabHeaderInactiveBrushProperty = AvaloniaProperty.RegisterAttached<TabControl, IBrush>(
             "TabHeaderInactiveBrush", typeof(TabControlAssist), null, true
         );
 
@@ -41,14 +41,14 @@ namespace Material.Styles.Assists {
         /// <summary>
         ///     The highlight color of the selected tab item header.
         /// </summary>
-        public static readonly AvaloniaProperty<Brush> TabHeaderHighlightBrushProperty = AvaloniaProperty.RegisterAttached<TabControl, Brush>(
+        public static readonly AvaloniaProperty<IBrush> TabHeaderHighlightBrushProperty = AvaloniaProperty.RegisterAttached<TabControl, IBrush>(
             "TabHeaderHighlightBrush", typeof(TabControlAssist), null, true
         );
 
         /// <summary>
         ///     The current color of the tab item header. Intended to be read-only.
         /// </summary>
-        public static readonly AvaloniaProperty<Brush> TabHeaderForegroundProperty = AvaloniaProperty.RegisterAttached<TabItem, Brush>(
+        public static readonly AvaloniaProperty<IBrush> TabHeaderForegroundProperty = AvaloniaProperty.RegisterAttached<TabItem, IBrush>(
             "TabHeaderForeground", typeof(TabControlAssist), null, true
         );
 
@@ -93,8 +93,8 @@ namespace Material.Styles.Assists {
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public static Brush GetTabHeaderInactiveBrush(AvaloniaObject element) {
-            return (Brush) element.GetValue(TabHeaderInactiveBrushProperty);
+        public static IBrush GetTabHeaderInactiveBrush(AvaloniaObject element) {
+            return (IBrush) element.GetValue(TabHeaderInactiveBrushProperty);
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Material.Styles.Assists {
         /// </summary>
         /// <param name="element"></param>
         /// <param name="value"></param>
-        public static void SetTabHeaderInactiveBrush(AvaloniaObject element, Brush value) {
+        public static void SetTabHeaderInactiveBrush(AvaloniaObject element, IBrush value) {
             element.SetValue(TabHeaderInactiveBrushProperty, value);
         }
 
@@ -129,8 +129,8 @@ namespace Material.Styles.Assists {
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public static Brush GetTabHeaderHighlightBrush(AvaloniaObject element) {
-            return (Brush) element.GetValue(TabHeaderHighlightBrushProperty);
+        public static IBrush GetTabHeaderHighlightBrush(AvaloniaObject element) {
+            return (IBrush) element.GetValue(TabHeaderHighlightBrushProperty);
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace Material.Styles.Assists {
         /// </summary>
         /// <param name="element"></param>
         /// <param name="value"></param>
-        public static void SetTabHeaderHighlightBrush(AvaloniaObject element, Brush value) {
+        public static void SetTabHeaderHighlightBrush(AvaloniaObject element, IBrush value) {
             element.SetValue(TabHeaderHighlightBrushProperty, value);
         }
 
@@ -147,8 +147,8 @@ namespace Material.Styles.Assists {
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public static Brush GetTabHeaderForeground(AvaloniaObject element) {
-            return (Brush) element.GetValue(TabHeaderForegroundProperty);
+        public static IBrush GetTabHeaderForeground(AvaloniaObject element) {
+            return (IBrush) element.GetValue(TabHeaderForegroundProperty);
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace Material.Styles.Assists {
         /// </summary>
         /// <param name="element"></param>
         /// <param name="value"></param>
-        public static void SetTabHeaderForeground(AvaloniaObject element, Brush value) {
+        public static void SetTabHeaderForeground(AvaloniaObject element, IBrush value) {
             element.SetValue(TabHeaderForegroundProperty, value);
         }
     }

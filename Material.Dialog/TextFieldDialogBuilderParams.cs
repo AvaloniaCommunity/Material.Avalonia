@@ -1,6 +1,4 @@
-﻿using Avalonia.Layout;
-using Material.Dialog.Bases;
-using System;
+﻿using Material.Dialog.Bases;
 
 namespace Material.Dialog
 {

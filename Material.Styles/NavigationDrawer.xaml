@@ -1,87 +1,153 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:cc="clr-namespace:Material.Styles" 
-    xmlns:converters="clr-namespace:Material.Styles.Converters">
-  <Styles.Resources>
-    <converters:MarginCreator x:Key="StartMarginCreator"/>
-  </Styles.Resources>
-  <Style Selector="cc|NavigationDrawer">
-    <Setter Property="LeftDrawerWidth" Value="300" />
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid Background="Transparent" ClipToBounds="False"
-              HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch">
-          <ContentPresenter
-            Name="ContentPresenter"
-            Margin="{TemplateBinding Padding}"
-            Content="{TemplateBinding Content}" />
-          <Border Name="PART_Scrim" Background="Black"
-                  IsHitTestVisible="{TemplateBinding LeftDrawerOpened}"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch">
-            <Border.Styles>
-              <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ Border#PART_Scrim">
-                <Setter Property="Transitions">
-                  <Transitions>
-                    <DoubleTransition Duration="0:0:0.3" Property="Opacity" Easing="CubicEaseInOut" />
-                  </Transitions>
-                </Setter>
-              </Style>
-            </Border.Styles>
-          </Border>
-          <cc:Card Name="PART_LeftDrawer" HorizontalAlignment="Left"
-                   Width="{TemplateBinding LeftDrawerWidth}"
-                   Padding="0" CornerRadius="0">
-            <cc:Card.Styles>
-              <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ cc|Card#PART_LeftDrawer">
-                <Setter Property="Transitions">
-                  <Transitions>
-                    <ThicknessTransition Duration="0:0:0.3" Property="Margin" Easing="CubicEaseInOut" />
-                  </Transitions>
-                </Setter>
-              </Style>
-            </cc:Card.Styles>
-            <ContentPresenter Content="{TemplateBinding LeftDrawerContent}"
-                              IsEnabled="{TemplateBinding LeftDrawerOpened}" />
-          </cc:Card>
-        </Grid>
-      </ControlTemplate>
-    </Setter>
-  </Style>
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cc="clr-namespace:Material.Styles"
+        xmlns:converters="clr-namespace:Material.Styles.Converters"
+        xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
+        xmlns:assists="clr-namespace:Material.Styles.Assists">
+    <Styles.Resources>
+        <SineEaseInOut x:Key="EasingConstant"/>
+        
+        <parameters:MarginMultiplyParameter x:Key="LeftMarginCreatorParam" LeftMultiplier="-1"/>
+        <parameters:MarginMultiplyParameter x:Key="RightMarginCreatorParam" RightMultiplier="-1"/>
+        
+        <converters:MarginMultiplyConverter x:Key="MarginCreator" />
+    </Styles.Resources>
+    
+    <Style Selector="cc|NavigationDrawer">
+        <Setter Property="LeftDrawerWidth" Value="320" />
+        <Setter Property="RightDrawerWidth" Value="320" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Name="PART_RootPanel"
+                       Background="Transparent"
+                       ClipToBounds="False"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch">
+                    <ContentPresenter Name="ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    
+                    <Border Name="PART_Scrim"
+                            Background="Black"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"/>
+                    
+                    <Border Name="PART_LeftDrawerBorder"
+                            HorizontalAlignment="Left"
+                            Width="{TemplateBinding LeftDrawerWidth}">
+                        <Border.Styles>
+                            <Style Selector="cc|NavigationDrawer /template/ Border#PART_LeftDrawerBorder">
+                                <Setter Property="Margin" 
+                                        Value="{Binding $self.Width, 
+                                        Converter={StaticResource MarginCreator}, 
+                                        ConverterParameter={StaticResource LeftMarginCreatorParam}}" />
+                            </Style>
+                        </Border.Styles>
+                        
+                        <ContentPresenter Content="{TemplateBinding LeftDrawerContent}"
+                                          ContentTemplate="{TemplateBinding LeftDrawerContentTemplate}"
+                                          
+                                          IsEnabled="{TemplateBinding LeftDrawerOpened}" />
+                    </Border>
+                    
+                    <Border Name="PART_RightDrawerBorder"
+                            HorizontalAlignment="Right"
+                            Width="{TemplateBinding RightDrawerWidth}">
+                        <Border.Styles>
+                            <Style Selector="cc|NavigationDrawer /template/ Border#PART_RightDrawerBorder">
+                                <Setter Property="Margin" 
+                                        Value="{Binding $self.Width, 
+                                        Converter={StaticResource MarginCreator}, 
+                                        ConverterParameter={StaticResource RightMarginCreatorParam}}" />
+                            </Style>
+                        </Border.Styles>
+                        
+                        <ContentPresenter Content="{TemplateBinding RightDrawerContent}"
+                                          ContentTemplate="{TemplateBinding RightDrawerContentTemplate}"
+                                          
+                                          IsEnabled="{TemplateBinding RightDrawerOpened}" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <!-- Transitions -->
+    <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ Border#PART_Scrim">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Duration="0:0:0.3"
+                                  Property="Opacity"
+                                  Easing="{StaticResource EasingConstant}" />
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ Border#PART_LeftDrawerBorder">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Duration="0:0:0.3"
+                                     Property="Margin"
+                                     Easing="{StaticResource EasingConstant}" />
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="cc|NavigationDrawer:not(.notransitions) /template/ Border#PART_RightDrawerBorder">
+        <Setter Property="Transitions">
+            <Transitions>
+                <ThicknessTransition Duration="0:0:0.3"
+                                     Property="Margin"
+                                     Easing="{StaticResource EasingConstant}" />
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="cc|NavigationDrawer /template/ Border#PART_LeftDrawerBorder">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
+    </Style>
+    
+    <Style Selector="cc|NavigationDrawer /template/ Border#PART_RightDrawerBorder">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
+    </Style>
 
-  <Style Selector="cc|NavigationDrawer /template/ Border#PART_Scrim">
-    <Setter Property="Opacity" Value="0" />
-  </Style>
-  <Style Selector="cc|NavigationDrawer /template/ cc|Card#PART_LeftDrawer">
-    <Setter Property="Margin">
-      <MultiBinding Converter="{StaticResource StartMarginCreator}">
-        <Binding Path="$self.Width" />
-      </MultiBinding>
-    </Setter>
-  </Style>
-  <Style Selector="cc|NavigationDrawer:open /template/ Border#PART_Scrim">
-    <Setter Property="Opacity" Value="0.32" />
-  </Style>
-  <Style Selector="cc|NavigationDrawer:open /template/ cc|Card#PART_LeftDrawer">
-    <Setter Property="Margin" Value="0" />
-  </Style>
-  
+    <Style Selector="cc|NavigationDrawer /template/ Border#PART_Scrim">
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="IsHitTestVisible" Value="False"/>
+    </Style>
+    
+    <Style Selector="cc|NavigationDrawer:open /template/ Border#PART_Scrim">
+        <Setter Property="Opacity" Value="0.32" />
+        <Setter Property="IsHitTestVisible" Value="True"/>
+    </Style>
+    
+    <Style Selector="cc|NavigationDrawer:left /template/ Border#PART_LeftDrawerBorder">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3"/>
+    </Style>
+    
+    <Style Selector="cc|NavigationDrawer:right /template/ Border#PART_RightDrawerBorder">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3"/>
+    </Style>
 
-  <Design.PreviewWith>
-    <Border Margin="40" BorderThickness="1" BorderBrush="Black">
-      <cc:NavigationDrawer Width="400" Height="200" LeftDrawerOpened="{Binding ElementName=toggler, Path=IsChecked}">
-        <cc:NavigationDrawer.LeftDrawerContent>
-          <StackPanel>
-            <Button Content="Test 1"/>
-            <Button Content="Test 2"/>
-          </StackPanel>
-        </cc:NavigationDrawer.LeftDrawerContent>
-        <cc:Card Margin="8">
-          <ToggleSwitch Name="toggler" IsChecked="True"/>
-        </cc:Card>
-      </cc:NavigationDrawer>
-    </Border>
-  </Design.PreviewWith>
+
+    <Design.PreviewWith>
+        <Border Margin="40" BorderThickness="1" BorderBrush="Black">
+            <cc:NavigationDrawer Width="400" Height="200"
+                                 LeftDrawerOpened="{Binding ElementName=toggler, Path=IsChecked}">
+                <cc:NavigationDrawer.LeftDrawerContent>
+                    <StackPanel>
+                        <Button Content="Test 1" />
+                        <Button Content="Test 2" />
+                    </StackPanel>
+                </cc:NavigationDrawer.LeftDrawerContent>
+                <cc:Card Margin="8">
+                    <ToggleSwitch Name="toggler" IsChecked="True" />
+                </cc:Card>
+            </cc:NavigationDrawer>
+        </Border>
+    </Design.PreviewWith>
 </Styles>

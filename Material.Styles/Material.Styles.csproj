@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <LangVersion>9</LangVersion>
+        <LangVersion>10</LangVersion>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Company>Larymar,SKProCH,Appleneko2001</Company>
         <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
@@ -55,10 +55,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.7" />
+      <PackageReference Include="Avalonia" Version="0.10.11" />
       <PackageReference Include="DialogHost.Avalonia" Version="0.3.1" />
-      <PackageReference Include="Material.Icons" Version="1.0.8" />
-      <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
     </ItemGroup>
 
 </Project>

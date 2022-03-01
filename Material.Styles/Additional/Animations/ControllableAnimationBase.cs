@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reactive.Subjects;
+using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Animation;
@@ -34,8 +35,8 @@ namespace Material.Styles.Additional.Animations {
             return Animation.Apply(control, clock, observable, onComplete);
         }
 
-        public virtual Task RunAsync(Animatable control, IClock clock) {
-            return Animation.RunAsync(control, clock);
+        public virtual Task RunAsync(Animatable control, IClock clock, CancellationToken cancellationToken = new CancellationToken()) {
+            return Animation.RunAsync(control, clock, cancellationToken);
         }
 
         internal virtual void OnNext(Subject<bool> match, bool previous, bool obj) {

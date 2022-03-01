@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Threading;
 using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
@@ -93,7 +94,7 @@ namespace Material.Styles.Assists {
                             new Setter {Property = Border.BoxShadowProperty, Value = targetBoxShadows}
                         }
                     });
-                animation.RunAsync(border);
+                animation.RunAsync(border, null, CancellationToken.None);
             }
             else
             {

@@ -1,22 +1,14 @@
 ﻿using Avalonia;
-using Avalonia.Animation;
-using Avalonia.Animation.Easings;
-using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
-using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Templates;
 using Avalonia.Interactivity;
-using Avalonia.LogicalTree;
-using Avalonia.Markup.Xaml;
-using Avalonia.Media;
 using Avalonia.Metadata;
-using System;
-using System.Threading.Tasks;
+using Avalonia.Controls.Primitives;
 
 namespace Material.Styles
 {
-    [PseudoClasses(":open", ":closed")]
+    [PseudoClasses(":open", ":closed", ":left", ":right")]
     public class NavigationDrawer : ContentControl
     { 
         public static readonly StyledProperty<object> LeftDrawerContentProperty =
@@ -30,6 +22,19 @@ namespace Material.Styles
 
         public static readonly StyledProperty<double> LeftDrawerWidthProperty =
             AvaloniaProperty.Register<NavigationDrawer, double>(nameof(LeftDrawerWidth));
+        
+        
+        public static readonly StyledProperty<object> RightDrawerContentProperty =
+            AvaloniaProperty.Register<NavigationDrawer, object>(nameof(RightDrawerContent));
+         
+        public static readonly StyledProperty<IDataTemplate> RightDrawerContentTemplateProperty =
+            AvaloniaProperty.Register<NavigationDrawer, IDataTemplate>(nameof(RightDrawerContentTemplate));
+
+        public static readonly StyledProperty<bool> RightDrawerOpenedProperty =
+            AvaloniaProperty.Register<NavigationDrawer, bool>(nameof(RightDrawerOpened));
+
+        public static readonly StyledProperty<double> RightDrawerWidthProperty =
+            AvaloniaProperty.Register<NavigationDrawer, double>(nameof(RightDrawerWidth));
 
         /// <summary>
         /// Gets or sets the content to display.
@@ -61,78 +66,93 @@ namespace Material.Styles
             get => GetValue(LeftDrawerWidthProperty);
             set => SetValue(LeftDrawerWidthProperty, value);
         }
+        
+        /// <summary>
+        /// Gets or sets the content to display.
+        /// </summary> 
+        [DependsOn(nameof(RightDrawerContentTemplate))]
+        public object RightDrawerContent
+        {
+            get => GetValue(RightDrawerContentProperty);
+            set => SetValue(RightDrawerContentProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets the data template used to display the content of the control.
+        /// </summary>
+        public IDataTemplate RightDrawerContentTemplate
+        {
+            get => GetValue(RightDrawerContentTemplateProperty);
+            set => SetValue(RightDrawerContentTemplateProperty, value);
+        }
+
+        public bool RightDrawerOpened
+        {
+            get => GetValue(RightDrawerOpenedProperty);
+            set => SetValue(RightDrawerOpenedProperty, value);
+        }
+
+        public double RightDrawerWidth
+        {
+            get => GetValue(RightDrawerWidthProperty);
+            set => SetValue(RightDrawerWidthProperty, value);
+        }
 
         static NavigationDrawer()
         {
-            LeftDrawerWidthProperty.Changed.AddClassHandler<NavigationDrawer>((x, e) => x.LeftDrawerWidthChanged(e));
-            LeftDrawerContentProperty.Changed.AddClassHandler<NavigationDrawer>((x, e) => x.LeftDrawerContentChanged(e));
-            LeftDrawerOpenedProperty.Changed.AddClassHandler<NavigationDrawer>((x, e) => x.LeftDrawerOpenedChanged(e));
+            LeftDrawerOpenedProperty.Changed.AddClassHandler<NavigationDrawer>(OnDrawerOpenedChanged);
+            RightDrawerOpenedProperty.Changed.AddClassHandler<NavigationDrawer>(OnDrawerOpenedChanged);
         }
 
-        private Border PART_Scrim;
-        private Card PART_LeftDrawer;
-        private Action m_LatelyEventCall;
-
-        public NavigationDrawer()
+        private static void OnDrawerOpenedChanged(NavigationDrawer drawer, AvaloniaPropertyChangedEventArgs args)
         {
-            this.TemplateApplied += (o, e) => {
-                PART_Scrim = e.NameScope.Find("PART_Scrim") as Border;
-                PART_Scrim.PointerPressed += PART_Scrim_Pressed;
+            drawer.UpdatePseudoClasses();
+        }
 
-                PART_LeftDrawer = e.NameScope.Find("PART_LeftDrawer") as Card;
-            };
+        private Border? PART_Scrim;
+
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        {
+            if (e.NameScope.Find("PART_Scrim") is Border border)
+            {
+                PART_Scrim = border;
+                
+                PART_Scrim.PointerPressed += PART_Scrim_Pressed;
+            }
+
+            base.OnApplyTemplate(e);
         }
 
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
+            if(PART_Scrim != null)
+                PART_Scrim.PointerPressed += PART_Scrim_Pressed;
+            
             base.OnAttachedToVisualTree(e);
-            m_LatelyEventCall?.Invoke();
         }
 
-        private void LeftDrawerWidthChanged(AvaloniaPropertyChangedEventArgs e) => PART_LeftDrawer?.SetValue(MarginProperty,
-            LeftDrawerOpened ? new Thickness(0) : new Thickness(-LeftDrawerWidth + Converters.MarginCreator.Offset, 0, 0, 0));
-
-        private void LeftDrawerOpenedChanged(AvaloniaPropertyChangedEventArgs e)
+        protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
-            // Try schedule a call after control attached to visual tree. 
-            if(PART_Scrim is null && PART_LeftDrawer is null
-                && (!PART_Scrim?.IsInitialized ?? false) && (!PART_LeftDrawer?.IsInitialized ?? false))
-            {
-                var param = new AvaloniaPropertyChangedEventArgs<bool>(this, 
-                    LeftDrawerOpenedProperty, 
-                    (bool)e.OldValue, 
-                    (bool)e.NewValue, 
-                    e.Priority);
-                m_LatelyEventCall = () => LeftDrawerOpenedChanged(param);
-                return;
-            } 
-
-            var value = (bool)e.NewValue; 
-            SetPseudoClassesOpenState(value); 
+            if(PART_Scrim != null)
+                PART_Scrim.PointerPressed -= PART_Scrim_Pressed;
+            
+            base.OnDetachedFromVisualTree(e);
         }
 
-        private void LeftDrawerContentChanged(AvaloniaPropertyChangedEventArgs e)
-        {
-            if (e.OldValue is ILogical oldChild)
-            {
-                LogicalChildren.Remove(oldChild);
-            }
-
-            if (e.NewValue is ILogical newChild)
-            {
-                LogicalChildren.Add(newChild);
-            }
-        } 
-         
         private void PART_Scrim_Pressed(object sender, RoutedEventArgs e)
         {
             LeftDrawerOpened = false;
+            RightDrawerOpened = false;
         }
 
-        private void SetPseudoClassesOpenState(bool open)
+        private void UpdatePseudoClasses()
         {
+            var open = LeftDrawerOpened || RightDrawerOpened;
             PseudoClasses.Add(open ? ":open" : ":closed");
             PseudoClasses.Remove(!open ? ":open" : ":closed");
+
+            PseudoClasses.Set(":left", LeftDrawerOpened);
+            PseudoClasses.Set(":right", RightDrawerOpened);
         }
     }
 }

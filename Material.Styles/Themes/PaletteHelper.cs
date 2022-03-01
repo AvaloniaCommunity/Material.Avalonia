@@ -4,6 +4,7 @@ using Avalonia;
 using Avalonia.Controls;
 
 namespace Material.Styles.Themes {
+    [Obsolete($"Obsolete styling system. Use {nameof(MaterialTheme)}. Details in our wiki: https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming")]
     public class PaletteHelper {
         public virtual BundledTheme? LocateBundledTheme() {
             if (Application.Current == null)
