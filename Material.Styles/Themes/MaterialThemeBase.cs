@@ -45,7 +45,7 @@ namespace Material.Styles.Themes {
                 o => o.CurrentTheme,
                 (o, v) => o.CurrentTheme = v);
 
-        private ITheme _currentTheme = new ThemeStruct();
+        private ThemeStruct _currentTheme = new();
 
         /// <summary>
         /// Get or set current applied theme
@@ -54,13 +54,15 @@ namespace Material.Styles.Themes {
         /// Returns a STRUCT implementing ITheme interface 
         /// </returns>
         public ITheme CurrentTheme {
-            get => _currentTheme;
+            get => new ThemeStruct(_currentTheme);
             set {
                 var oldTheme = _currentTheme;
                 var newTheme = new ThemeStruct(value);
-                if (SetAndRaise(CurrentThemeProperty, ref _currentTheme, newTheme)) {
-                    StartUpdatingTheme(oldTheme, newTheme);
-                }
+
+                if (EqualityComparer<ITheme>.Default.Equals(oldTheme, newTheme)) return;
+                _currentTheme = newTheme;
+                RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
+                StartUpdatingTheme(oldTheme, newTheme);
             }
         }
 
