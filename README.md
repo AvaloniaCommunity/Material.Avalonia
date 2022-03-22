@@ -29,15 +29,15 @@ Check out the [getting started](https://github.com/AvaloniaCommunity/Material.Av
 
 2. Edit `App.xaml` file:
 
-```xml
-       <Application ...
-           xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
-           ...>
-           <Application.Styles>
-               <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
-           </Application.Styles>
-       </Application>
-```
+      ```xaml
+      <Application ...
+          xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+          ...>
+          <Application.Styles>
+              <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
+          </Application.Styles>
+      </Application>
+      ```
 - [Advanced theming](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming) wiki page
 - [Nightly packages](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Using-nightly-build-feed) wiki page
 - [Material Design Icons](https://github.com/AvaloniaUtils/Material.Icons.Avalonia) icon pack support
