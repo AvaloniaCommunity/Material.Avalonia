@@ -43,7 +43,7 @@
                                 <TextBlock Classes="Subtitle1" Text="with AvaloniaUI" HorizontalAlignment="Center" />
                             </StackPanel>
                         </styles:ColorZone>
-                        <ListBox Classes="Drawer" Name="DrawerList"
+                        <ListBox Classes="NoScroll" Name="DrawerList"
                                  Focusable="{Binding ElementName=LeftDrawer, Path=LeftDrawerOpened}">
                             <ListBox.Styles>
                                 <Style Selector="ListBoxItem">
