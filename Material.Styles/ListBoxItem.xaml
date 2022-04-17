@@ -1,72 +1,76 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:converters="clr-namespace:Material.Styles.Converters"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
 
-  <Style Selector="ListBoxItem">
-    <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Padding" Value="8" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                Margin="{TemplateBinding Margin}"
-                ClipToBounds="{TemplateBinding ClipToBounds}">
-          <Grid>
-            <Border Name="selectedBorder"
-                    Background="{TemplateBinding Foreground}"/>
-            <Border Name="pointerOverBorder"
-                    Background="{TemplateBinding Foreground}"/>
-            <ripple:RippleEffect Name="Ripple"
-                                 RippleFill="{TemplateBinding Foreground}"
-                                 Focusable="False"
-                                 ContentTemplate="{TemplateBinding ContentTemplate}"
-                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                 Padding="{TemplateBinding Padding}">
-              <ContentPresenter Name="PART_ContentPresenter"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Content="{TemplateBinding Content}"
-                                Padding="{TemplateBinding Padding}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
-            </ripple:RippleEffect>
-          </Grid>
-        </Border>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-  
-  <!-- Transitions -->
-  <Style Selector="ListBoxItem:not(.notransitions) /template/ Border#selectedBorder,
+    <Style Selector="ListBoxItem">
+        <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_RootBorder"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <Panel Name="PART_RootPanel">
+                        <Border Name="selectedBorder"
+                                Background="{TemplateBinding Foreground}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        <Border Name="pointerOverBorder"
+                                Background="{TemplateBinding Foreground}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        <Border CornerRadius="{TemplateBinding CornerRadius}"
+                                ClipToBounds="True">
+                            <ripple:RippleEffect Name="Ripple"
+                                                 RippleFill="{TemplateBinding Foreground}"
+                                                 Focusable="False"
+                                                 ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                 Padding="{TemplateBinding Padding}">
+                                <ContentPresenter Name="PART_ContentPresenter"
+                                                  Background="{TemplateBinding Background}"
+                                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Content="{TemplateBinding Content}"
+                                                  Padding="{TemplateBinding Padding}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                            </ripple:RippleEffect>
+                        </Border>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <!-- Transitions -->
+    <Style
+        Selector="ListBoxItem:not(.notransitions) /template/ Border#selectedBorder,
                    ListBoxItem:not(.notransitions) /template/ Border#pointerOverBorder">
-    <Setter Property="Transitions">
-      <Transitions>
-        <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
-      </Transitions>
-    </Setter>
-  </Style>
-  
-  
-  <Style Selector="ListBoxItem:disabled">
-    <Setter Property="Opacity" Value="0.56" />
-  </Style>
-  <Style Selector="ListBoxItem:not(:disabled):pointerover /template/ Border#pointerOverBorder">
-    <Setter Property="Opacity" Value="0.06" />
-  </Style>
-  <Style Selector="ListBoxItem:selected /template/ Border#selectedBorder">
-    <Setter Property="Opacity" Value="0.12" />
-  </Style>
-  <Style
-    Selector="ListBoxItem:not(:pointerover) /template/ Border#pointerOverBorder,
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+            </Transitions>
+        </Setter>
+    </Style>
+
+
+    <Style Selector="ListBoxItem:disabled">
+        <Setter Property="Opacity" Value="0.56" />
+    </Style>
+    <Style Selector="ListBoxItem:not(:disabled):pointerover /template/ Border#pointerOverBorder">
+        <Setter Property="Opacity" Value="0.06" />
+    </Style>
+    <Style Selector="ListBoxItem:selected /template/ Border#selectedBorder">
+        <Setter Property="Opacity" Value="0.12" />
+    </Style>
+    <Style
+        Selector="ListBoxItem:not(:pointerover) /template/ Border#pointerOverBorder,
           ListBoxItem:not(:selected) /template/ Border#selectedBorder">
-    <Setter Property="Opacity" Value="0" />
-  </Style>
+        <Setter Property="Opacity" Value="0" />
+    </Style>
 </Styles>
