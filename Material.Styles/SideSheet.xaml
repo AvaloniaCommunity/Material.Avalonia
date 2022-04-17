@@ -44,8 +44,7 @@
                                     </Button>
                                     <ContentPresenter Name="PART_HeaderContentPresenter" DockPanel.Dock="Left"
                                                       Content="{TemplateBinding SideSheetHeader, Mode=OneWay}"
-                                                      ContentTemplate="{TemplateBinding SideSheetHeaderTemplate}"
-                                                      TextBlock.Foreground="{DynamicResource ThemeForegroundBrush}"/>
+                                                      ContentTemplate="{TemplateBinding SideSheetHeaderTemplate}"/>
                                 </DockPanel>
                                 <ContentPresenter Name="PART_SideContentPresenter"
                                                   Content="{TemplateBinding SideSheetContent}"
