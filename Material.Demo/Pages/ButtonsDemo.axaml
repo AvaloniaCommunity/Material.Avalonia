@@ -27,7 +27,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="Buttons5">
                 <Button Content="Custom corner radius"
                         ToolTip.Tip='Regular button with customized corner radius (16dp).'
-                        assist:ButtonAssist.CornerRadius="16" />
+                        CornerRadius="16" />
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
@@ -55,7 +55,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons4">
                 <Button Classes="Outline" Content="Custom corner radius"
                         ToolTip.Tip='Outline button with customized corner radius (16dp).'
-                        assist:ButtonAssist.CornerRadius="16" />
+                        CornerRadius="16" />
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 

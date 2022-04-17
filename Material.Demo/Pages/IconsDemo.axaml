@@ -92,7 +92,7 @@
                             <Button Width="{Binding $self.Bounds.Height}"
                                     Name="SearchButton" Foreground="{DynamicResource MaterialDesignCardBackground}"
                                     Classes="Flat" Command="{Binding SearchCommand}"
-                                    CommandParameter="{Binding ElementName=SearchBox, Path=Text}" assists:ButtonAssist.CornerRadius="0">
+                                    CommandParameter="{Binding ElementName=SearchBox, Path=Text}" CornerRadius="0">
                                 <avalonia:MaterialIcon Kind="Magnify" Width="20" Height="20"/>
                             </Button>
                         </TextBox.InnerRightContent>
@@ -108,7 +108,7 @@
                         <TextBox.InnerRightContent>
                             <Button Width="{Binding $self.Bounds.Height}" Foreground="{DynamicResource MaterialDesignCardBackground}"
                                     Classes="Flat" Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-                                    CommandParameter="{Binding SelectedGroup.Kind}" assists:ButtonAssist.CornerRadius="0">
+                                    CommandParameter="{Binding SelectedGroup.Kind}" CornerRadius="0">
                                 <avalonia:MaterialIcon Kind="ContentCopy" Width="20" Height="20"/>
                             </Button>
                         </TextBox.InnerRightContent>

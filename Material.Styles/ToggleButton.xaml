@@ -58,13 +58,13 @@
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                CornerRadius="{TemplateBinding CornerRadius}"
                 assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
           <Panel>
             <Border Name="PART_HoverIndicator" BorderThickness="0"
                     Background="{TemplateBinding assists:ButtonAssist.HoverColor}"
-                    CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}" />
-            <Border CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                    CornerRadius="{TemplateBinding CornerRadius}" />
+            <Border CornerRadius="{TemplateBinding CornerRadius}"
                     ClipToBounds="True">
               <ContentPresenter Name="PART_ContentPresenter"
                                 Content="{TemplateBinding Content}"
@@ -94,7 +94,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <ContentPresenter Name="PART_ContentPresenter"
-                          CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
                           Background="Transparent"
                           BorderBrush="{TemplateBinding BorderBrush}"
                           BorderThickness="{TemplateBinding BorderThickness}"

@@ -11,6 +11,7 @@
   </Styles.Resources>
 
   <Style Selector="Button, ToggleButton">
+    <Setter Property="CornerRadius" Value="4"/>
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
@@ -32,13 +33,13 @@
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                CornerRadius="{TemplateBinding CornerRadius}"
                 assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
           <Panel>
             <Border Name="PART_HoverIndicator" BorderThickness="0"
                     Background="{TemplateBinding assists:ButtonAssist.HoverColor}"
-                    CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"/>
-            <Border CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                    CornerRadius="{TemplateBinding CornerRadius}"/>
+            <Border CornerRadius="{TemplateBinding CornerRadius}"
                     ClipToBounds="True">
               <ripple:RippleEffect RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
                                    RippleOpacity="{StaticResource ButtonPressedOpacity}">
@@ -136,7 +137,7 @@
             <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
                                  RippleOpacity="{StaticResource ButtonPressedOpacity}">
               <ContentPresenter Name="PART_ContentPresenter"
-                                CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
