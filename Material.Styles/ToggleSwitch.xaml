@@ -103,7 +103,7 @@
     <Style Selector="ToggleSwitch:not(.notransitions):not(:dragging) /template/ Panel#MovingKnobs">
         <Setter Property="Transitions">
             <Transitions>
-                <DoubleTransition Property="Canvas.Left" Duration="0:0:0.25" Easing="LinearEasing" />
+                <DoubleTransition Property="Canvas.Left" Duration="0:0:0.25" Easing="CircularEaseOut" />
             </Transitions>
         </Setter>
     </Style>
