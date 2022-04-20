@@ -12,15 +12,15 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
                 Value="{DynamicResource PrimaryHueLightBrush}" />
-        <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground" Value="Black" />
+        <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground"
+                Value="Black" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
                 Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOffBackground" Value="Black" />
+        <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOffBackground"
+                Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="36" />
-        <Setter Property="Padding" Value="8 0 0 0" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="ClipToBounds" Value="False" />
 
         <Setter Property="OffContent" Value="{x:Null}" />
@@ -52,36 +52,37 @@
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Width="20" Height="20">
-                                        <Ellipse Name="RippleThumb" ClipToBounds="True" Width="42" Height="42"
+                                        <Ellipse Name="RippleThumb"
+                                                 Width="42" Height="42"
                                                  Margin="-100" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                         <AdornerLayer>
                                             <Border Name="Thumb"
                                                     CornerRadius="10"
-                                                    Width="20" Height="20" ClipToBounds="False"
-                                                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                    assists:ShadowAssist.ShadowDepth="{TemplateBinding (assists:ShadowAssist.ShadowDepth)}" />
+                                                    Width="20" Height="20"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    assists:ShadowAssist.ShadowDepth="{TemplateBinding (assists:ShadowAssist.ShadowDepth)}" >
+                                                <Panel Name="PART_ThumbContentContainer">
+                                                    <ContentPresenter Name="OnContentPresenter"
+                                                                      Content="{TemplateBinding OnContent}"
+                                                                      ContentTemplate="{TemplateBinding OnContentTemplate}" />
+                                                    <ContentPresenter Name="OffContentPresenter"
+                                                                      Content="{TemplateBinding OffContent}"
+                                                                      ContentTemplate="{TemplateBinding OffContentTemplate}" />
+                                                </Panel>
+                                            </Border>
                                         </AdornerLayer>
-                                        <ContentPresenter Name="OnContentPresenter"
-                                                          Content="{TemplateBinding OnContent}"
-                                                          ContentTemplate="{TemplateBinding OnContentTemplate}"
-                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                        <ContentPresenter Name="OffContentPresenter"
-                                                          Content="{TemplateBinding OffContent}"
-                                                          ContentTemplate="{TemplateBinding OffContentTemplate}"
-                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                     </Panel>
                                 </Canvas>
                             </Panel>
                         </Viewbox>
 
                         <ContentPresenter Name="PART_ContentPresenter"
-                                          TextBlock.Foreground="{Binding TextBlock.Foreground, RelativeSource={RelativeSource TemplatedParent}}"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          Margin="{TemplateBinding Padding}"
-                                          VerticalAlignment="Center" />
+                                          
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </DockPanel>
                 </Border>
             </ControlTemplate>
@@ -99,16 +100,23 @@
     </Style>
 
     <!-- Transitions -->
-
-    <Style Selector="ToggleSwitch:not(.notransitions):not(:dragging) /template/ Panel#MovingKnobs">
+    
+    <Style Selector="ToggleSwitch:not(.notransitions) /template/ Border#PART_TrackSwitch,
+                     ToggleSwitch:not(.notransitions) /template/ Border#Thumb">
         <Setter Property="Transitions">
             <Transitions>
-                <DoubleTransition Property="Canvas.Left" Duration="0:0:0.25" Easing="CircularEaseOut" />
+                <BrushTransition Property="Background" Duration="0.25" Easing="CircularEaseOut"/>
             </Transitions>
         </Setter>
     </Style>
 
-    <!-- Transitions -->
+    <Style Selector="ToggleSwitch:not(.notransitions):not(:dragging) /template/ Panel#MovingKnobs">
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Canvas.Left" Duration="0.25" Easing="CircularEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
 
     <!-- Default state -->
 
@@ -151,15 +159,13 @@
     <Style Selector="ToggleSwitch.Accent">
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
                 Value="{DynamicResource SecondaryHueLightBrush}" />
-    </Style>
-
-    <Style Selector="ToggleSwitch.Accent:checked /template/ Border#Thumb">
-        <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
+                Value="{DynamicResource SecondaryHueMidBrush}" />
     </Style>
 
     <!-- On disabled state -->
 
-    <Style Selector="ToggleSwitch:disabled">
+    <Style Selector="ToggleSwitch:disabled /template/ Border#PART_RootBorder">
         <Setter Property="Opacity" Value="0.23" />
     </Style>
 
@@ -169,6 +175,12 @@
     <Style Selector="ToggleSwitch:disabled">
         <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    </Style>
+    
+    <!-- Another fix -->
+    
+    <Style Selector="ToggleSwitch /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Margin" Value="0"/>
     </Style>
 
     <!-- Ripple effect -->
