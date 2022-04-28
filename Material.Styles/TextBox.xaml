@@ -119,7 +119,11 @@
                                                 <TextPresenter Name="PART_TextPresenter"
                                                                Margin="0,6,0,7"
                                                                Text="{TemplateBinding Text, Mode=TwoWay}"
-                                                               CaretIndex="{TemplateBinding CaretIndex}"
+                                                               TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                                               TextBlock.FontSize="{TemplateBinding FontSize}"
+                                                               TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                                                               TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                                               TextBlock.Foreground="{TemplateBinding Foreground}"
                                                                SelectionStart="{TemplateBinding SelectionStart}"
                                                                SelectionEnd="{TemplateBinding SelectionEnd}"
                                                                TextAlignment="{TemplateBinding TextAlignment}"
@@ -128,7 +132,8 @@
                                                                RevealPassword="{TemplateBinding RevealPassword}"
                                                                SelectionBrush="{TemplateBinding SelectionBrush}"
                                                                SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                                               CaretBrush="{TemplateBinding CaretBrush}" />
+                                                               CaretBrush="{TemplateBinding CaretBrush}"
+                                                               CaretIndex="{TemplateBinding CaretIndex}"/>
                                             </Panel>
                                         </ScrollViewer>
                                     </Panel>
@@ -274,7 +279,11 @@
                                                 </TextBlock>
                                                 <TextPresenter Name="PART_TextPresenter"
                                                                Text="{TemplateBinding Text, Mode=TwoWay}"
-                                                               CaretIndex="{TemplateBinding CaretIndex}"
+                                                               TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                                               TextBlock.FontSize="{TemplateBinding FontSize}"
+                                                               TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                                                               TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                                               TextBlock.Foreground="{TemplateBinding Foreground}"
                                                                SelectionStart="{TemplateBinding SelectionStart}"
                                                                SelectionEnd="{TemplateBinding SelectionEnd}"
                                                                TextAlignment="{TemplateBinding TextAlignment}"
@@ -283,7 +292,8 @@
                                                                RevealPassword="{TemplateBinding RevealPassword}"
                                                                SelectionBrush="{TemplateBinding SelectionBrush}"
                                                                SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                                               CaretBrush="{TemplateBinding CaretBrush}" />
+                                                               CaretBrush="{TemplateBinding CaretBrush}"
+                                                               CaretIndex="{TemplateBinding CaretIndex}"/>
                                             </Panel>
                                         </ScrollViewer>
                                     </Panel>
@@ -428,7 +438,11 @@
                                             </TextBlock>
                                             <TextPresenter Name="PART_TextPresenter"
                                                            Text="{TemplateBinding Text, Mode=TwoWay}"
-                                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                                           TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                                           TextBlock.FontSize="{TemplateBinding FontSize}"
+                                                           TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                                                           TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                                           TextBlock.Foreground="{TemplateBinding Foreground}"
                                                            SelectionStart="{TemplateBinding SelectionStart}"
                                                            SelectionEnd="{TemplateBinding SelectionEnd}"
                                                            TextAlignment="{TemplateBinding TextAlignment}"
@@ -437,7 +451,8 @@
                                                            RevealPassword="{TemplateBinding RevealPassword}"
                                                            SelectionBrush="{TemplateBinding SelectionBrush}"
                                                            SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                                           CaretBrush="{TemplateBinding CaretBrush}" />
+                                                           CaretBrush="{TemplateBinding CaretBrush}"
+                                                           CaretIndex="{TemplateBinding CaretIndex}"/>
                                         </Panel>
                                     </ScrollViewer>
                                 </Panel>
@@ -638,7 +653,11 @@
                                                        TextWrapping="{TemplateBinding TextWrapping}" />
                                             <TextPresenter Name="PART_TextPresenter"
                                                            Text="{TemplateBinding Text, Mode=TwoWay}"
-                                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                                           TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                                           TextBlock.FontSize="{TemplateBinding FontSize}"
+                                                           TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                                                           TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                                           TextBlock.Foreground="{TemplateBinding Foreground}"
                                                            SelectionStart="{TemplateBinding SelectionStart}"
                                                            SelectionEnd="{TemplateBinding SelectionEnd}"
                                                            TextAlignment="{TemplateBinding TextAlignment}"
@@ -647,7 +666,8 @@
                                                            RevealPassword="{TemplateBinding RevealPassword}"
                                                            SelectionBrush="{TemplateBinding SelectionBrush}"
                                                            SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                                           CaretBrush="{TemplateBinding CaretBrush}" />
+                                                           CaretBrush="{TemplateBinding CaretBrush}"
+                                                           CaretIndex="{TemplateBinding CaretIndex}"/>
                                         </Panel>
                                     </ScrollViewer>
                                 </Grid>
