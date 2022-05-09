@@ -20,11 +20,6 @@
     <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml"/>
     
-    <!-- dialog host -->
-    
-    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
-    <StyleInclude Source="avares://Material.Styles/DialogHost.axaml" />
-    
     <!-- Basic controls -->
     
     <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" />
