@@ -3,7 +3,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:viewModels="clr-namespace:Material.Demo.ViewModels"
-             xmlns:dialogHost="clr-namespace:DialogHost;assembly=DialogHost.Avalonia"
+             xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              xmlns:models="clr-namespace:Material.Demo.Models"
              x:Class="Material.Demo.Pages.DialogDemo"
              x:DataType="viewModels:DialogDemoViewModel">
