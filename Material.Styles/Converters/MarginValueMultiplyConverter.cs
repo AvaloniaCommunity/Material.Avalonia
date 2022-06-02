@@ -20,11 +20,21 @@ namespace Material.Styles.Converters
                 _ => MarginMultiplyParameter.Default
             };
 
-            if (value is double v && !double.IsNaN(v))
-                return new Thickness(v * param.LeftMultiplier, v * param.TopMultiplier, v * param.RightMultiplier,
-                    v * param.BottomMultiplier);
+            var result = value switch
+            {
+                // If value is double primitive type
+                double v when !double.IsNaN(v) => new Thickness(v * param.LeftMultiplier, v * param.TopMultiplier,
+                    v * param.RightMultiplier, v * param.BottomMultiplier),
+                
+                // or value is 32-bit integer primitive type
+                int i => new Thickness(i * param.LeftMultiplier, i * param.TopMultiplier, i * param.RightMultiplier,
+                    i * param.BottomMultiplier),
+                
+                // or its unsupported type
+                _ => Thickness.Parse("0")
+            };
 
-            return Thickness.Parse("0");
+            return result;
         }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)

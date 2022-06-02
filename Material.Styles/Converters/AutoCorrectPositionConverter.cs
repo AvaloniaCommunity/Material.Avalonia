@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
-using Avalonia.Media.Transformation;
 using Avalonia.VisualTree;
 
 namespace Material.Styles.Converters
@@ -16,28 +14,27 @@ namespace Material.Styles.Converters
         
         private static double GetOffLeft(Rect bounds, double offsetX) => offsetX;
 
-        private static double GetOffRight(Rect bounds, double windowW, double offsetX) => offsetX + (bounds.Width) - windowW;
+        private static double GetOffRight(Rect bounds, double windowW, double offsetX) => offsetX + bounds.Width - windowW;
 
-        private static Vector GetTranslate(TransformedBounds bounds)
+        private static Vector GetTranslate(Matrix m)
         {
-            return new Vector(bounds.Transform.M31, bounds.Transform.M32);
+            return Matrix.TryDecomposeTransform(m, out var decomposed) ?
+                decomposed.Translate : Vector.Zero;
         }
-
-        private Vector _prevCorrect = Vector.One;
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var transformedBounds = value as TransformedBounds?;
-            
             double offsetX = 0;
-            if (transformedBounds.HasValue)
+            if(value is TransformedBounds postTransformations)
             {
-                var bounds = transformedBounds.Value;
+                var t = postTransformations.Transform;
+                var b = postTransformations.Bounds;
+                var c = postTransformations.Clip;
                 
-                var translate = GetTranslate(bounds);
+                var translate = GetTranslate(t);
 
-                var left = GetOffLeft(bounds.Bounds, translate.X - _prevCorrect.X);
-                var right = GetOffRight(bounds.Bounds, bounds.Clip.Width, translate.X- _prevCorrect.X);
+                var left = GetOffLeft(b, translate.X);
+                var right = GetOffRight(b, c.Width, translate.X);
 
                 if (left < 0)
                 {
