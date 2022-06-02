@@ -4,9 +4,9 @@ namespace Material.Dialog.ViewModels
 {
     public class AlertDialogViewModel : DialogWindowViewModel
     {
-        public AlertDialogViewModel(AlertDialog dialog)
+        public AlertDialogViewModel(AlertDialog dialog) : base(dialog)
         {
-            _window = dialog;
+            
         }
     }
 }

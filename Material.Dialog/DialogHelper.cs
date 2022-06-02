@@ -22,11 +22,11 @@ namespace Material.Dialog
         public const string DIALOG_RESULT_NO = "no";
         public const string DIALOG_RESULT_ABORT = "abort";
 
-        private static bool disableTransitions;
+        private static bool _disableTransitions;
         public static bool DisableTransitions
         {
-            get => disableTransitions;
-            set => disableTransitions = value;
+            get => _disableTransitions;
+            set => _disableTransitions = value;
         }
 
         /// <summary>
@@ -39,41 +39,41 @@ namespace Material.Dialog
             {
                 default:
                 case DialogButtonsEnum.Ok:
-                    return new DialogButton[]
+                    return new[]
                     {
                         new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" }
                     };
                 case DialogButtonsEnum.OkAbort:
-                    return new DialogButton[]
+                    return new[]
                     {
                         new DialogButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" },
-                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" },
+                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" }
                     };
                 case DialogButtonsEnum.OkCancel:
-                    return new DialogButton[]
+                    return new[]
                     {
                         new DialogButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" },
-                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" },
+                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" }
                     };
                 case DialogButtonsEnum.YesNo:
-                    return new DialogButton[]
+                    return new[]
                     {
                         new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
-                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" },
+                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" }
                     };
                 case DialogButtonsEnum.YesNoAbort:
-                    return new DialogButton[]
+                    return new[]
                     {
                         new DialogButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" },
                         new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
-                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" },
+                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" }
                     };
                 case DialogButtonsEnum.YesNoCancel:
-                    return new DialogButton[]
+                    return new[]
                     {
                         new DialogButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" },
                         new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
-                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" },
+                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" }
                     };
             }
         }

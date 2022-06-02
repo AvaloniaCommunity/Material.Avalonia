@@ -46,7 +46,7 @@ namespace Material.Dialog.ViewModels.Elements
             }
         }
 
-        internal ICommand _command;
+        private ICommand _command;
 
         public ICommand Command
         {

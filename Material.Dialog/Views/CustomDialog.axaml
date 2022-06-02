@@ -1,7 +1,8 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
-        
+        xmlns:controls="clr-namespace:Material.Dialog.Controls"
+
         x:Class="Material.Dialog.Views.CustomDialog"
         x:DataType="viewModels:CustomDialogViewModel">
     <Window.Styles>
@@ -9,17 +10,19 @@
         <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml"/>
         <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
     </Window.Styles>
-
-    <ScrollViewer Name="PART_ScrollView">
-        <StackPanel Name="PART_ContentPanel">
-            <TextBlock Name="PART_SupportingText"
-                       Classes="Body1"
-                       IsVisible="{CompiledBinding !!ContentMessage.Length}"
-                       Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}"/>
+    
+    <controls:EmbeddedDialogControl>
+        <ScrollViewer Name="PART_ScrollView">
+            <StackPanel Name="PART_ContentPanel">
+                <TextBlock Name="PART_SupportingText"
+                           Classes="Body1"
+                           IsVisible="{CompiledBinding !!ContentMessage.Length}"
+                           Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}"/>
             
-            <ContentPresenter Name="PART_ContentPresenter"
-                              Content="{CompiledBinding Content}"
-                              ContentTemplate="{CompiledBinding ContentTemplate}"/>
-        </StackPanel>
-    </ScrollViewer>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Content="{CompiledBinding Content}"
+                                  ContentTemplate="{CompiledBinding ContentTemplate}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </controls:EmbeddedDialogControl>
 </Window>

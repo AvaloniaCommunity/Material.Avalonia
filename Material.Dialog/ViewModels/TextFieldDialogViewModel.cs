@@ -38,9 +38,8 @@ namespace Material.Dialog.ViewModels
             internal set => _negativeButton = value;
         }*/
 
-        public TextFieldDialogViewModel(TextFieldDialog dialog)
+        public TextFieldDialogViewModel(TextFieldDialog dialog) : base(dialog)
         {
-            _window = dialog;
             SubmitCommand = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 
@@ -109,7 +108,7 @@ namespace Material.Dialog.ViewModels
                 result.fieldsResult = fields.ToArray();
                 button.Parent.DialogResult = result;
                 
-                _window.Close();
+                Window.Close();
                 UnbindValidateHandler();
             });
         }

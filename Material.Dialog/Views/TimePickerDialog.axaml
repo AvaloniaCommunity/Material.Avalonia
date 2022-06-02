@@ -6,6 +6,7 @@
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         xmlns:converters="clr-namespace:Material.Dialog.Converters"
+        xmlns:controls="clr-namespace:Material.Dialog.Controls"
         x:Class="Material.Dialog.Views.TimePickerDialog"
         SizeToContent="WidthAndHeight"
         Title="{CompiledBinding WindowTitle}"
@@ -22,12 +23,18 @@
     </Window.Resources>
     
     <Window.Styles>
-        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml"/>
-        <Style Selector="Window[SystemDecorations=None]">
-            <Setter Property="Padding" Value="32"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="TransparencyLevelHint" Value="Transparent"/>
-        </Style>
+        <StyleInclude Source="avares://Material.Dialog/Styles/DialogWindow.axaml" />
+        <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml" />
+        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
     </Window.Styles>
     
+    <controls:EmbeddedDialogControl>
+        <ScrollViewer Name="PART_ScrollView">
+            <StackPanel Name="PART_ContentPanel">
+                <StackPanel Margin="0,24,0,0" >
+                    <Border></Border>
+                </StackPanel>            
+            </StackPanel>
+        </ScrollViewer>
+    </controls:EmbeddedDialogControl>
 </Window>

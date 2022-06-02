@@ -24,9 +24,8 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        public DatePickerDialogViewModel(DatePickerDialog dialog)
+        public DatePickerDialogViewModel(DatePickerDialog dialog) : base(dialog)
         {
-            _window = dialog;
             ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 

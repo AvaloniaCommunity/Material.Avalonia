@@ -129,9 +129,8 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        public TimePickerDialogViewModel(TimePickerDialog dialog)
+        public TimePickerDialogViewModel(TimePickerDialog dialog) : base(dialog)
         {
-            _window = dialog;
             ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 

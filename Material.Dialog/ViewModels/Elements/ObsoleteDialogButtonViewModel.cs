@@ -7,7 +7,7 @@ namespace Material.Dialog.ViewModels.Elements
         public ObsoleteDialogButtonViewModel(DialogWindowViewModel parent, object content, string result) : base(parent, content)
         {
             _result = result;
-            _command = new MaterialDialogRelayCommand(OnExecuteCommandHandler, CanExecuteCommandHandler);
+            Command = new MaterialDialogRelayCommand(OnExecuteCommandHandler, CanExecuteCommandHandler);
         }
 
         private bool CanExecuteCommandHandler(object arg)

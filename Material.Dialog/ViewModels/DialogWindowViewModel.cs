@@ -9,7 +9,18 @@ namespace Material.Dialog.ViewModels
 {
     public abstract class DialogWindowViewModel : DialogViewModelBase
     {
-        protected Window _window;
+        public DialogWindowViewModel(Window window)
+        {
+            Window = window;
+        }
+        
+        private Window _window;
+
+        protected Window Window
+        {
+            get => _window;
+            private set => _window = value;
+        }
         
         #region Base Properties
 
