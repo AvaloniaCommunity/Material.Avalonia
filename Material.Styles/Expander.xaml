@@ -135,8 +135,8 @@
         </Setter>
     </Style>
     
-    <Style Selector="Expander:up:expanded /template/ styles|Card#PART_ExpanderRoot,
-                     Expander:down:expanded /template/ styles|Card#PART_ExpanderRoot">
+    <Style Selector="Expander:up:expanded /template/ controls|Card#PART_ExpanderRoot,
+                     Expander:down:expanded /template/ controls|Card#PART_ExpanderRoot">
         <Setter Property="Margin" Value="0,16"/>
     </Style>
     

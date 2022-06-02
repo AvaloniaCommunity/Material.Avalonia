@@ -208,7 +208,7 @@
         <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
     </Style>
         
-    <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ style|TickBar#CenterTick">
+    <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ controls|TickBar#CenterTick">
         <Setter Property="InactiveBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
         <Setter Property="ActiveBrush" Value="{DynamicResource SecondaryHueLightBrush}"/>
     </Style>
@@ -324,7 +324,7 @@
     </Style>
 
     <Style Selector="Slider:not(.ticks,.Ticks) /template/ 
-                     style|TickBar#CenterTick" >
+                     controls|TickBar#CenterTick" >
         <Setter Property="IsVisible" Value="False" />
     </Style>
         

@@ -156,8 +156,8 @@
         <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
     
-    <Style Selector="ComboBox:focus-within /template/ styles|MaterialUnderline#PART_Underline,
-                     ComboBox[IsDropDownOpen=True] /template/ styles|MaterialUnderline#PART_Underline" >
+    <Style Selector="ComboBox:focus-within /template/ controls|MaterialUnderline#PART_Underline,
+                     ComboBox[IsDropDownOpen=True] /template/ controls|MaterialUnderline#PART_Underline" >
         <Setter Property="IsActive" Value="True"/>
     </Style>
         
@@ -228,8 +228,8 @@
                                                   Name="Underline">
                             <controls:MaterialUnderline.Styles>
                                 <Style
-                                    Selector="ToggleButton.ComboBoxToggleButton:pointerover /template/ styles|MaterialUnderline#Underline,
-                                   ToggleButton.ComboBoxToggleButton:checked /template/ styles|MaterialUnderline#Underline">
+                                    Selector="ToggleButton.ComboBoxToggleButton:pointerover /template/ controls|MaterialUnderline#Underline,
+                                   ToggleButton.ComboBoxToggleButton:checked /template/ controls|MaterialUnderline#Underline">
                                     <Setter Property="IsActive" Value="True" />
                                 </Style>
                             </controls:MaterialUnderline.Styles>
@@ -322,8 +322,8 @@
                                                           Name="Underline">
                                     <controls:MaterialUnderline.Styles>
                                         <Style
-                                            Selector="ComboBox.Filled[IsDropDownOpen=true] /template/ styles|MaterialUnderline#Underline,
-                                     ComboBox.Filled:pointerover /template/ styles|MaterialUnderline#Underline">
+                                            Selector="ComboBox.Filled[IsDropDownOpen=true] /template/ controls|MaterialUnderline#Underline,
+                                     ComboBox.Filled:pointerover /template/ controls|MaterialUnderline#Underline">
                                             <Setter Property="IsActive" Value="True" />
                                         </Style>
                                     </controls:MaterialUnderline.Styles>

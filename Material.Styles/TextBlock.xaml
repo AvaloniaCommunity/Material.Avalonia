@@ -1,4 +1,5 @@
-﻿<Styles xmlns="https://github.com/avaloniaui">
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Style Selector="TextBlock">
         <Setter Property="Padding" Value="0" />
         <Setter Property="FontSize" Value="13" />
@@ -82,7 +83,7 @@
         <Setter Property="FontWeight" Value="Medium" />
     </Style>
 
-    <Style Selector="cc|FloatingButton > TextBlock, TextBlock.FloatingButtonText">
+    <Style Selector="controls|FloatingButton > TextBlock">
         <Setter Property="FontSize" Value="15" />
         <Setter Property="FontWeight" Value="Medium" />
     </Style>
