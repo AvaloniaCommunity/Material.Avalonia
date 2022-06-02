@@ -1,13 +1,13 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
+using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
 using Avalonia.Interactivity;
 using Avalonia.Metadata;
-using Avalonia.Controls.Primitives;
 using Material.Styles.Enums;
 
-namespace Material.Styles
+namespace Material.Styles.Controls
 {
     // TODO: mobile variant
     [PseudoClasses(":open", ":closed", ":left", ":right", ":mobile")]
@@ -58,8 +58,8 @@ namespace Material.Styles
         /// </summary>
         public Thickness SideSheetPadding
         {
-            get { return GetValue(SideSheetPaddingProperty); }
-            set { SetValue(SideSheetPaddingProperty, value); }
+            get => GetValue(SideSheetPaddingProperty);
+            set => SetValue(SideSheetPaddingProperty, value);
         }
         
         /// <summary>
@@ -136,6 +136,7 @@ namespace Material.Styles
 
         // Controls
         
+        // ReSharper disable once InconsistentNaming
         private Border? PART_Scrim;
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -149,7 +150,7 @@ namespace Material.Styles
 
             if (e.NameScope.Find("PART_CloseButton") is Button button)
             {
-                button.Click += (sender, args) => SideSheetOpened = false;
+                button.Click += (_, _) => SideSheetOpened = false;
             }
             
             base.OnApplyTemplate(e);

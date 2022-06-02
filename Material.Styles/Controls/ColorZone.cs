@@ -1,7 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 
-namespace Material.Styles {
+namespace Material.Styles.Controls {
     public enum ColorZoneMode
     {
         Standard,
@@ -15,16 +15,6 @@ namespace Material.Styles {
         Custom
     }
     public class ColorZone : ContentControl {
-        public static readonly StyledProperty<CornerRadius> CornerRadiusProperty =
-            AvaloniaProperty.Register<ColorZone, CornerRadius>(nameof(CornerRadius));
-
-        /// <summary>
-        /// Gets or sets the radius of the border rounded corners.
-        /// </summary>
-        public CornerRadius CornerRadius {
-            get => GetValue(CornerRadiusProperty);
-            set => SetValue(CornerRadiusProperty, value);
-        }
         
         public static readonly StyledProperty<ColorZoneMode> ModeProperty = AvaloniaProperty.Register<ColorZone, ColorZoneMode>(nameof(Mode));
 

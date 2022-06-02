@@ -1,12 +1,12 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
+using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
 using Avalonia.Interactivity;
 using Avalonia.Metadata;
-using Avalonia.Controls.Primitives;
 
-namespace Material.Styles
+namespace Material.Styles.Controls
 {
     [PseudoClasses(":open", ":closed", ":left", ":right")]
     public class NavigationDrawer : ContentControl
@@ -109,6 +109,7 @@ namespace Material.Styles
             drawer.UpdatePseudoClasses();
         }
 
+        // ReSharper disable once InconsistentNaming
         private Border? PART_Scrim;
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
