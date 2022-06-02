@@ -6,6 +6,7 @@
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ColorZonesDemo">
     <StackPanel Margin="16, 0,16,32">
         <StackPanel.Styles>
@@ -19,96 +20,96 @@
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Standard mode" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo1">
-                <styles:ColorZone Height="56" Padding="12">
+                <controls:ColorZone Height="56" Padding="12">
                     <Grid ColumnDefinitions="Auto,24,*">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Invent mode" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo2">
-                <styles:ColorZone Height="56" Padding="12" Mode="Inverted">
+                <controls:ColorZone Height="56" Padding="12" Mode="Inverted">
                     <Grid ColumnDefinitions="Auto,24,*">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Dark mode" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo3">
-                <styles:ColorZone Height="56" Padding="12" Mode="Dark">
+                <controls:ColorZone Height="56" Padding="12" Mode="Dark">
                     <Grid ColumnDefinitions="Auto,24,*">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Light mode" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo4">
-                <styles:ColorZone Height="56" Padding="12" Mode="Light">
+                <controls:ColorZone Height="56" Padding="12" Mode="Light">
                     <Grid ColumnDefinitions="Auto,24,*">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Primary light color mode" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo5">
-                <styles:ColorZone Height="56" Padding="12" Mode="PrimaryLight">
+                <controls:ColorZone Height="56" Padding="12" Mode="PrimaryLight">
                     <Grid ColumnDefinitions="Auto,24,*">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Primary medium color mode" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo6">
-                <styles:ColorZone Height="56" Padding="12" Mode="PrimaryMid">
+                <controls:ColorZone Height="56" Padding="12" Mode="PrimaryMid">
                     <Grid ColumnDefinitions="Auto,24,*">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Primary dark color mode" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo7">
-                <styles:ColorZone Height="56" Padding="12" Mode="PrimaryDark">
+                <controls:ColorZone Height="56" Padding="12" Mode="PrimaryDark">
                     <Grid ColumnDefinitions="Auto,24,*">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Accent mode" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo8">
-                <styles:ColorZone Height="56" Padding="12" Mode="Accent">
+                <controls:ColorZone Height="56" Padding="12" Mode="Accent">
                     <Grid ColumnDefinitions="Auto,24,*">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
         
@@ -116,7 +117,7 @@
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="With menus" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneAdvDemo1">
-                <styles:ColorZone Height="56" Padding="12">
+                <controls:ColorZone Height="56" Padding="12">
                     <Grid ColumnDefinitions="Auto,24,*,24,Auto">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
@@ -125,20 +126,20 @@
                             <Button Classes="Flat" Padding="4" Content="{icons:MaterialIconExt DotsVertical}"/>
                         </ReversibleStackPanel>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
         
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="With search bar" />
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneAdvDemo2">
-                <styles:ColorZone Height="56" Padding="12">
+                <controls:ColorZone Height="56" Padding="12">
                     <Grid ColumnDefinitions="Auto,24,*,*,24,Auto">
                         <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                         
                         <Panel Grid.Column="3" VerticalAlignment="Center">
-                            <styles:Card VerticalAlignment="Center" Padding="0">
+                            <controls:Card VerticalAlignment="Center" Padding="0">
                                 <TextBox Margin="0" Classes="Solo" Watermark="Search bar">
                                     <TextBox.Styles>
                                         <Style Selector="TextBox.Solo /template/ Grid#PART_InnerRoot">
@@ -149,14 +150,14 @@
                                         <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Search, Size=24}" />
                                     </TextBox.InnerRightContent>
                                 </TextBox>
-                            </styles:Card>
+                            </controls:Card>
                         </Panel>
                         
                         <ReversibleStackPanel Grid.Column="5" Margin="0" Orientation="Horizontal">
                             <Button Classes="Flat" Padding="4" Content="{icons:MaterialIconExt DotsVertical}"/>
                         </ReversibleStackPanel>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
     </StackPanel>

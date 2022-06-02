@@ -7,6 +7,7 @@
         xmlns:pages="clr-namespace:Material.Demo.Pages"
         xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+        xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Width="1280" Height="720" MinWidth="720"
         Title="Material.Demo">
@@ -29,20 +30,20 @@
         </Style>
     </Window.Styles>
 
-    <styles:SnackbarHost HostName="Root" TemplateApplied="TemplatedControl_OnTemplateApplied">
-        <styles:NavigationDrawer Name="LeftDrawer"
+    <controls:SnackbarHost HostName="Root" TemplateApplied="TemplatedControl_OnTemplateApplied">
+        <controls:NavigationDrawer Name="LeftDrawer" Classes="permanent"
                                  LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
-            <styles:NavigationDrawer.LeftDrawerContent>
+            <controls:NavigationDrawer.LeftDrawerContent>
                 <ScrollViewer>
                     <StackPanel>
-                        <styles:ColorZone Mode="Accent" Height="180">
+                        <controls:ColorZone Mode="Accent" Height="180">
                             <StackPanel>
                                 <Image Width="120" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"
                                        Source="avares://Material.Demo/Assets/FavIcon_200x.png" Margin="0,0,0,-8" />
                                 <TextBlock Classes="Headline6" Text="Material Design" HorizontalAlignment="Center" />
                                 <TextBlock Classes="Subtitle1" Text="with AvaloniaUI" HorizontalAlignment="Center" />
                             </StackPanel>
-                        </styles:ColorZone>
+                        </controls:ColorZone>
                         <ListBox Classes="NoScroll" Name="DrawerList"
                                  Focusable="{Binding ElementName=LeftDrawer, Path=LeftDrawerOpened}">
                             <ListBox.Styles>
@@ -76,9 +77,9 @@
                         </ListBox>
                     </StackPanel>
                 </ScrollViewer>
-            </styles:NavigationDrawer.LeftDrawerContent>
+            </controls:NavigationDrawer.LeftDrawerContent>
             <DockPanel LastChildFill="true">
-                <styles:ColorZone Name="PART_AppBarContainer" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                <controls:ColorZone Name="PART_AppBarContainer" VerticalAlignment="Top" HorizontalAlignment="Stretch"
                                   DockPanel.Dock="Top"
                                   Height="56" Mode="PrimaryMid" ZIndex="1">
                     <Grid Margin="16">
@@ -90,7 +91,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <ToggleButton Name="NavDrawerSwitch"
-                                      Classes="Flat TransparentBack"
+                                      Foreground="{DynamicResource MaterialDesignBody}"
                                       Width="32" Height="32" Padding="4">
                             <avalonia:MaterialIcon Kind="Menu" Width="24" Height="24" />
                         </ToggleButton>
@@ -116,7 +117,7 @@
                             </MenuItem>
                         </Menu>
                     </Grid>
-                </styles:ColorZone>
+                </controls:ColorZone>
                 <ScrollViewer Name="mainScroller"
                               DockPanel.Dock="Top"
                               HorizontalContentAlignment="Stretch"
@@ -127,7 +128,7 @@
                         <Carousel Name="PageCarousel"
                                   HorizontalAlignment="Stretch">
                             <Carousel.Styles>
-                                <Style Selector="Carousel#PageCarousel:not(.notransitions)">
+                                <Style Selector="Carousel#PageCarousel:not(.no-transitions)">
                                     <Setter Property="PageTransition">
                                         <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut"
                                                    SlideInEasing="CircularEaseOut" />
@@ -197,6 +198,6 @@
                     </Border>
                 </ScrollViewer>
             </DockPanel>
-        </styles:NavigationDrawer>
-    </styles:SnackbarHost>
+        </controls:NavigationDrawer>
+    </controls:SnackbarHost>
 </Window>

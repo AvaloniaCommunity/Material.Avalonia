@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using ShowMeTheXaml;
 
@@ -10,7 +11,9 @@ namespace Material.Demo {
         // Initialization code. Don't use any Avalonia, third-party APIs or any
         // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
         // yet and stuff might break.
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
+            Ripple.Ripple.Easing = new LinearEasing();
             BuildAvaloniaApp().Start(AppMain, args);
         }
 

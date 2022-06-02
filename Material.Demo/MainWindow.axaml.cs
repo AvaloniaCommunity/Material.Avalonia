@@ -7,6 +7,7 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Material.Styles;
+using Material.Styles.Controls;
 using Material.Styles.Models;
 
 namespace Material.Demo {
@@ -46,9 +47,11 @@ namespace Material.Demo {
                 DrawerSelectionChanged(sender, null);
         }
 
-        public void DrawerSelectionChanged(object sender, RoutedEventArgs args)
+        public void DrawerSelectionChanged(object sender, RoutedEventArgs? args)
         {
-            var listBox = sender as ListBox;
+            if (sender is not ListBox listBox)
+                return;
+
             if (!listBox.IsFocused && !listBox.IsKeyboardFocusWithin)
                 return;
             try
@@ -57,11 +60,12 @@ namespace Material.Demo {
                 mainScroller.Offset = Vector.Zero;
                 mainScroller.VerticalScrollBarVisibility =
                     listBox.SelectedIndex == 5 ? ScrollBarVisibility.Disabled : ScrollBarVisibility.Auto;
-                
             }
             catch
             {
+                // ignored
             }
+
             NavDrawerSwitch.IsChecked = false;
         }
 
@@ -70,7 +74,7 @@ namespace Material.Demo {
             SnackbarHost.Post("Welcome to demo of Material.Avalonia!");
         }
 
-        private List<SnackbarModel> helloSnackBars = new List<SnackbarModel>();
+        private readonly List<SnackbarModel> helloSnackBars = new();
 
         private void HelloButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
         {

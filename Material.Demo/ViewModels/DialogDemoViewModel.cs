@@ -11,19 +11,10 @@ namespace Material.Demo.ViewModels
 {
     public class DialogDemoViewModel : ViewModelBase
     {
-        private DialogDemoItemViewModel[] _standaloneDialogItems;
         private TimeSpan _previousTimePickerResult = TimeSpan.Zero;
         private DateTime _previousDatePickerResult = DateTime.Now;
 
-        public DialogDemoItemViewModel[] StandaloneDialogItems
-        {
-            get => _standaloneDialogItems;
-            private set
-            {
-                _standaloneDialogItems = value;
-                OnPropertyChanged();
-            }
-        }
+        public DialogDemoItemViewModel[] StandaloneDialogItems { get; }
 
         public DialogDemoViewModel()
         {
@@ -163,7 +154,7 @@ namespace Material.Demo.ViewModels
                     new TextFieldBuilderParams
                     {
                         HelperText = "* Required",
-                        Classes = "Outline",
+                        Classes = "outline",
                         Label = "Account",
                         MaxCountChars = 24,
                         Validater = ValidateAccount, 
@@ -171,7 +162,7 @@ namespace Material.Demo.ViewModels
                     new TextFieldBuilderParams
                     {
                         HelperText = "* Required",
-                        Classes = "Outline",
+                        Classes = "outline",
                         Label = "Password",
                         MaxCountChars = 64,
                         FieldKind = TextFieldKind.Masked,
@@ -206,12 +197,12 @@ namespace Material.Demo.ViewModels
 
         private Tuple<bool,string> ValidateAccount(string text)
         {
-            var result = text?.Length > 5;
+            var result = text.Length > 5;
             return new Tuple<bool, string>(result, result ? "" : "Too few account name.");
         }
         private Tuple<bool, string> ValidatePassword(string text) 
         {
-            var result = text?.Length >= 1;
+            var result = text.Length >= 1;
             return new Tuple<bool, string>(result, result ? "" : "Field should be filled.");
         }
 
@@ -226,13 +217,14 @@ namespace Material.Demo.ViewModels
                 Width = 400,
                 TextFields = new TextFieldBuilderParams[]
                 {
-                    new TextFieldBuilderParams
+                    new ()
                     {
                         Label = "Folder name",
                         MaxCountChars = 256,
                         Validater = ValidatePassword,
-                        DefaultText = "Folder1"
-                    },
+                        DefaultText = "Folder1",
+                        HelperText = "* Required"
+                    }
                 },
                 DialogButtons = new []
                 {
@@ -266,11 +258,15 @@ namespace Material.Demo.ViewModels
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 ImplicitValue = _previousTimePickerResult,
-                PositiveButton = new DialogButton
+                DialogButtons = new[]
                 {
-                    Content = "CONFIRM",
-                    Result = "confirm"
-                },
+                    new DialogButton
+                    {
+                        Content = "CONFIRM",
+                        Result = "confirm",
+                        IsPositive = true
+                    }
+                }
             }).ShowDialog(Program.MainWindow);
             
             yield return $"Result: {result.GetResult}";
@@ -290,11 +286,15 @@ namespace Material.Demo.ViewModels
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 ImplicitValue = _previousDatePickerResult,
-                PositiveButton = new DialogButton
+                DialogButtons = new[]
                 {
-                    Content = "CONFIRM",
-                    Result = "confirm"
-                },
+                    new DialogButton
+                    {
+                        Content = "CONFIRM",
+                        Result = "confirm",
+                        IsPositive = true
+                    }
+                }
             }).ShowDialog(Program.MainWindow);
             
             yield return $"Result: {result.GetResult}";

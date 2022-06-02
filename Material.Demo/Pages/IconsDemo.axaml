@@ -10,6 +10,7 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime.Extensions"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Material.Demo.Pages.IconsDemo">
     <UserControl.Resources>
@@ -75,16 +76,16 @@
             </ScrollViewer>
         </Panel>
         
-        <styles:ColorZone Mode="Standard" Padding="8" assists:ShadowAssist.ShadowDepth="Depth2">
+        <controls:ColorZone Mode="Standard" Padding="8" assists:ShadowAssist.ShadowDepth="Depth2">
             <StackPanel Margin="16,8,16,0"> 
                 <TextBlock Classes="Headline4" Text="Material Icons" />
                 <TextBlock Classes="Subtitle1 Subheadline" TextWrapping="Wrap" Text="Material.Avalonia using Material.Icons.Avalonia and Material.Icons packages to provide icons for Material design. You can always use them freely in your application with Material.Avalonia!" />
             </StackPanel>
-        </styles:ColorZone>
+        </controls:ColorZone>
         
-        <styles:ColorZone Grid.Row="2" Padding="8"  Mode="Standard" assists:ShadowAssist.ShadowDepth="Depth2">
+        <controls:ColorZone Grid.Row="2" Padding="8"  Mode="Standard" assists:ShadowAssist.ShadowDepth="Depth2">
             <Grid Margin="8" ColumnDefinitions="*,Auto,*,16,Auto">
-                <styles:ColorZone Mode="Inverted" CornerRadius="32" BorderBrush="Transparent"
+                <controls:ColorZone Mode="Inverted" CornerRadius="32" BorderBrush="Transparent"
                                   ToolTip.Tip="Enter to search, ignore case">
                     <TextBox KeyDown="Search_OnKeyDown" Watermark="Search" Name="SearchBox" Classes="Solo"
                              Text="{Binding SearchText}" Margin="0">
@@ -97,12 +98,12 @@
                             </Button>
                         </TextBox.InnerRightContent>
                     </TextBox>
-                </styles:ColorZone>
+                </controls:ColorZone>
 
                 <TextBlock Grid.Column="1" Margin="16 0" Classes="Subtitle1"
                            VerticalAlignment="Center" Text="Usage:"/>
                 
-                <styles:ColorZone Grid.Column="2" Mode="Inverted" CornerRadius="32" BorderBrush="Transparent" >
+                <controls:ColorZone Grid.Column="2" Mode="Inverted" CornerRadius="32" BorderBrush="Transparent" >
                     <TextBox GotFocus="TextBox_OnGotFocus" IsReadOnly="True" Classes="Solo" Margin="0"
                              Text="{Binding SelectedGroup.KindToCopy, FallbackValue='&lt;avalonia:MaterialIcon Kind=&quot;&quot; \/>'}">
                         <TextBox.InnerRightContent>
@@ -113,7 +114,7 @@
                             </Button>
                         </TextBox.InnerRightContent>
                     </TextBox>
-                </styles:ColorZone> 
+                </controls:ColorZone> 
                 
                 <Grid Grid.Column="4" ColumnDefinitions="Auto,8,Auto" IsVisible="{Binding SelectedGroup, Converter={x:Static ObjectConverters.IsNotNull}}">
                     <TextBlock Classes="Subtitle1"
@@ -124,6 +125,6 @@
                                            Kind="{Binding SelectedGroup.KindValue}" VerticalAlignment="Center" />
                 </Grid>
             </Grid>
-        </styles:ColorZone>
+        </controls:ColorZone>
     </Grid>
 </UserControl>

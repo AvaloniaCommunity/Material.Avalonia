@@ -13,6 +13,10 @@ namespace Material.Demo.Pages
     { 
         public Home()
         {
+            // Sadly I don't have much time to update this listing
+            // and doesn't get updated after any changes
+            // I'm gonna disable this listing
+            /*
             Features = new ObservableCollection<FeatureStatusModels> {
             new FeatureStatusModels{ FeatureName = "Button (Standard)", IsReady = Yes, IsAnimated = Yes},
             new FeatureStatusModels{ FeatureName = "Button (Floating)", IsReady = Yes, IsAnimated = NotFully},
@@ -44,13 +48,13 @@ namespace Material.Demo.Pages
             new FeatureStatusModels{ FeatureName = "Icons (Excluded, via Material.Icons.Avalonia)", IsReady = Yes, IsAnimated = NA},
             new FeatureStatusModels{ FeatureName = "Appbar (Top)", IsReady = No, IsAnimated = NA},
             new FeatureStatusModels{ FeatureName = "Appbar (Bottom)", IsReady = No, IsAnimated = NA},
-        };
+        };*/
 
             InitializeComponent();
             DataContext = this;
         }
 
-        public ObservableCollection<FeatureStatusModels> Features { get; private set; }
+        //public ObservableCollection<FeatureStatusModels> Features { get; private set; }
 
         public void UseMaterialUIDarkTheme() => GlobalCommand.UseMaterialUIDarkTheme();
 

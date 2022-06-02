@@ -1,7 +1,5 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:viewModels="clr-namespace:Material.Demo.ViewModels"
              xmlns:dialogHost="clr-namespace:DialogHost;assembly=DialogHost.Avalonia"
              xmlns:models="clr-namespace:Material.Demo.Models"
@@ -16,7 +14,7 @@
             </Button>
         </StackPanel>
     </UserControl.Resources>
-    <dialogHost:DialogHost Identifier="MainDialogHost">
+    <!--dialogHost:DialogHost Identifier="MainDialogHost">
         <dialogHost:DialogHost.DialogContentTemplate>
             <DataTemplate DataType="models:Sample2Model">
                 <StackPanel>
@@ -36,34 +34,31 @@
 
             <WrapPanel>
                 <WrapPanel.Styles>
-                    <Style Selector="WrapPanel > StackPanel,
-                WrapPanel > Grid">
+                    <Style Selector="WrapPanel > StackPanel">
                         <Setter Property="Width" Value="300" />
                         <Setter Property="MinHeight" Value="300" />
                     </Style>
-                    <Style Selector="WrapPanel > StackPanel > StackPanel,
-                WrapPanel > Grid > StackPanel">
+                    <Style Selector="WrapPanel > StackPanel > StackPanel">
                         <Setter Property="HorizontalAlignment" Value="Center" />
                         <Setter Property="VerticalAlignment" Value="Center" />
                         <Setter Property="Margin" Value="8" />
                     </Style>
-                    <Style
-                        Selector="WrapPanel > Grid > StackPanel > StackPanel,
-                WrapPanel > StackPanel > StackPanel > StackPanel">
+                    <Style Selector="WrapPanel > StackPanel > StackPanel > StackPanel">
                         <Setter Property="Margin" Value="8" />
                     </Style>
                 </WrapPanel.Styles>
-                <Grid>
+                <StackPanel>
                     <TextBlock Classes="Headline6 Subheadline2" Text="From DialogHost" />
                     <StackPanel>
-                        <TextBlock TextWrapping="Wrap">Top level dialog with custom corner radius, using OpenDialog, passing content via the Parameter. You can pass a view model, provided a corresponding DataTemplate can be found in the scope of the root DialogHost.</TextBlock>
+                        <TextBlock TextWrapping="Wrap"
+                                   Text="Top level dialog with custom corner radius, using OpenDialog, passing content via the Parameter. You can pass a view model, provided a corresponding DataTemplate can be found in the scope of the root DialogHost."/>
                         <StackPanel Margin="8 8 8 0">
-                            <Button Margin="8" Click="OpenDialogWithView">PASS VIEW</Button>
-                            <Button Margin="8" Click="OpenDialogWithModel">PASS MODEL</Button>
-                            <Button Margin="8" Click="OpenMoreDialogHostExamples">MORE EXAMPLES</Button>
+                            <Button Click="OpenDialogWithView">PASS VIEW</Button>
+                            <Button Click="OpenDialogWithModel">PASS MODEL</Button>
+                            <Button Click="OpenMoreDialogHostExamples">MORE EXAMPLES</Button>
                         </StackPanel>
                     </StackPanel>
-                </Grid>
+                </StackPanel>
                 <StackPanel>
                     <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
 
@@ -91,5 +86,34 @@
                 </StackPanel>
             </WrapPanel>
         </StackPanel>
-    </dialogHost:DialogHost>
+    </dialogHost:DialogHost -->
+    
+    <StackPanel>
+        <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
+
+            <ItemsControl Items="{CompiledBinding StandaloneDialogItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="viewModels:DialogDemoItemViewModel">
+                        <DockPanel Margin="8">
+                            <Button DockPanel.Dock="Top"
+                                    Classes="flat"
+                                    Content="{CompiledBinding Header}"
+                                    Command="{CompiledBinding Command}" />
+                            <TextBlock Margin="8"
+                                       HorizontalAlignment="Center"
+                                       TextWrapping="Wrap"
+
+                                       DockPanel.Dock="Bottom"
+
+                                       Text="{CompiledBinding Result}"
+                                       IsVisible="{CompiledBinding Result,
+                                                 Converter={x:Static StringConverters.IsNotNullOrEmpty},
+                                                 FallbackValue=False}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </StackPanel>
 </UserControl>
