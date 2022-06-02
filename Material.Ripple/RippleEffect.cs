@@ -24,17 +24,20 @@ namespace Material.Ripple {
         
         private void PointerPressedHandler(object sender, PointerPressedEventArgs e)
         {
-            if (_pointers == 0)
-            {
-                // Only first pointer can arrive a ripple
-                _pointers++;
-                var r = CreateRipple(e, RaiseRippleCenter);
-                _last = r;
+            if(!IsAllowedRaiseRipple)
+                return;
 
-                // Attach ripple instance to canvas
-                PART_RippleCanvasRoot.Children.Add(r);
-                r.RunFirstStep();
-            }
+            if (_pointers != 0)
+                return;
+            
+            // Only first pointer can arrive a ripple
+            _pointers++;
+            var r = CreateRipple(e, RaiseRippleCenter);
+            _last = r;
+
+            // Attach ripple instance to canvas
+            PART_RippleCanvasRoot.Children.Add(r);
+            r.RunFirstStep();
         }
 
         private void PointerReleasedHandler(object sender, PointerReleasedEventArgs e)
@@ -103,7 +106,7 @@ namespace Material.Ripple {
         #region Styled properties
 
         public static readonly StyledProperty<IBrush> RippleFillProperty =
-            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), SolidColorBrush.Parse("#FFF"));
+            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), inherits: true);
 
         public IBrush RippleFill {
             get => GetValue(RippleFillProperty);
@@ -111,7 +114,7 @@ namespace Material.Ripple {
         }
 
         public static readonly StyledProperty<double> RippleOpacityProperty =
-            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), 0.6);
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), inherits: true);
 
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
@@ -124,6 +127,14 @@ namespace Material.Ripple {
         public bool RaiseRippleCenter {
             get => GetValue(RaiseRippleCenterProperty);
             set => SetValue(RaiseRippleCenterProperty, value);
+        }
+        
+        public static readonly StyledProperty<bool> IsAllowedRaiseRippleProperty =
+            AvaloniaProperty.Register<RippleEffect, bool>(nameof(IsAllowedRaiseRipple));
+
+        public bool IsAllowedRaiseRipple {
+            get => GetValue(IsAllowedRaiseRippleProperty);
+            set => SetValue(IsAllowedRaiseRippleProperty, value);
         }
 
         #endregion Styled properties
