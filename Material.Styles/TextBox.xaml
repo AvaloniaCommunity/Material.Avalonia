@@ -62,12 +62,11 @@
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
         <Setter Property="CaretBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="FontFamily"
-                Value="avares://Material.Styles/Fonts/Roboto#Roboto,
-            Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Noto Sans, Arial" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Watermark" Value="{x:Static system:String.Empty}"/>
+        <!-- Enable IME system by default -->
+        <Setter Property="InputMethod.IsInputMethodEnabled" Value="True"/>
         <Setter Property="Template" >
             <ControlTemplate>
                 <Border Name="{x:Static naming:PartNames.PartRootBorder}"
@@ -79,7 +78,7 @@
                         <TextBlock Name="{x:Static naming:PartNames.PartHintsText}"
                                    DockPanel.Dock="Bottom"
                                    IsVisible="{TemplateBinding (wpf:TextFieldAssist.Hints),
-                                     Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                       Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                    Text="{TemplateBinding (wpf:TextFieldAssist.Hints)}"
                                    TextTrimming="CharacterEllipsis" />
                         
@@ -130,6 +129,8 @@
                                                            TextBlock.FontStyle="{TemplateBinding FontStyle}"
                                                            TextBlock.FontWeight="{TemplateBinding FontWeight}"
                                                            TextBlock.Foreground="{TemplateBinding Foreground}"
+                                                           InputMethod.IsInputMethodEnabled="{TemplateBinding 
+                                                               InputMethod.IsInputMethodEnabled}"
                                                            PasswordChar="{TemplateBinding PasswordChar}"
                                                            RevealPassword="{TemplateBinding RevealPassword}"
                                                            SelectionBrush="{TemplateBinding SelectionBrush}"
