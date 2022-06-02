@@ -11,11 +11,14 @@ namespace Material.Styles.Assists {
             "DisableTransitions", typeof(TransitionAssist), false, true, BindingMode.TwoWay);
 
         static TransitionAssist() {
-            DisableTransitionsProperty.Changed.Subscribe(args => {
-                if (args.Sender is StyledElement styledElement) {
-                    styledElement.Classes.Remove("notransitions");
-                    if (args.NewValue.Value) styledElement.Classes.Add("notransitions");
-                }
+            DisableTransitionsProperty.Changed.Subscribe(args =>
+            {
+                if (args.Sender is not StyledElement styledElement) return;
+                styledElement.Classes.Set("no-transitions", args.NewValue.Value);
+                    
+                // Compatibility with old Material.Styles.TransitionAssist
+                // ReSharper disable once StringLiteralTypo
+                styledElement.Classes.Set("notransitions", args.NewValue.Value);
             });
         }
 
@@ -30,7 +33,7 @@ namespace Material.Styles.Assists {
         ///     Allows transitions to be disabled where supported.  Note this is an inheritable property.
         /// </summary>
         public static bool GetDisableTransitions(AvaloniaObject element) {
-            return (bool) element.GetValue(DisableTransitionsProperty);
+            return (bool) (element.GetValue(DisableTransitionsProperty) ?? false);
         }
     }
 }
