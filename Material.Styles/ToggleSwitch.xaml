@@ -101,8 +101,8 @@
 
     <!-- Transitions -->
     
-    <Style Selector="ToggleSwitch:not(.notransitions) /template/ Border#PART_TrackSwitch,
-                     ToggleSwitch:not(.notransitions) /template/ Border#Thumb">
+    <Style Selector="ToggleSwitch:not(.no-transitions) /template/ Border#PART_TrackSwitch,
+                     ToggleSwitch:not(.no-transitions) /template/ Border#Thumb">
         <Setter Property="Transitions">
             <Transitions>
                 <BrushTransition Property="Background" Duration="0.25" Easing="CircularEaseOut"/>
@@ -110,7 +110,7 @@
         </Setter>
     </Style>
 
-    <Style Selector="ToggleSwitch:not(.notransitions):not(:dragging) /template/ Panel#MovingKnobs">
+    <Style Selector="ToggleSwitch:not(.no-transitions):not(:dragging) /template/ Panel#MovingKnobs">
         <Setter Property="Transitions">
             <Transitions>
                 <DoubleTransition Property="Canvas.Left" Duration="0.25" Easing="CircularEaseOut" />

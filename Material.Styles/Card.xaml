@@ -1,8 +1,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:cc="clr-namespace:Material.Styles">
-    <Style Selector="cc|Card">
+        xmlns:cc="clr-namespace:Material.Styles"
+        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
+    <Style Selector="controls|Card">
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2"/>
         <Setter Property="CornerRadius" Value="4"/>
         <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
@@ -11,18 +13,18 @@
         <Setter Property="Padding" Value="8" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
+                <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
                     <Border Name="PART_BackgroundBorder"
                             Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
                     </Border>
-                    <Border Name="PART_ContentBorder"
+                    <Border Name="{x:Static naming:PartNames.PartInnerBorder}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            ClipToBounds="{TemplateBinding InsideClipping}"
-                            UseLayoutRounding="True">
+                            ClipToBounds="{TemplateBinding InsideClipping}">
                         <ContentPresenter Name="ContentPresenter"
-                                          Margin="{TemplateBinding Padding}"
+                                          Padding="{TemplateBinding Padding}"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}" />
                     </Border>
@@ -33,9 +35,9 @@
 
     <Design.PreviewWith>
         <Border Padding="40">
-            <cc:Card>
+            <controls:Card>
                 <TextBlock Text="Hello World!" />
-            </cc:Card>
+            </controls:Card>
         </Border>
     </Design.PreviewWith>
 </Styles>

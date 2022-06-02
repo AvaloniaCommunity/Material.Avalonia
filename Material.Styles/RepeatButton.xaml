@@ -87,7 +87,7 @@
 
     <!-- Transitions -->
 
-    <Style Selector="RepeatButton.Material:not(.notransitions) /template/ Border#PART_HoverIndicator">
+    <Style Selector="RepeatButton.Material:not(.no-transitions) /template/ Border#PART_HoverIndicator">
         <Setter Property="Transitions">
             <Transitions>
                 <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
@@ -168,7 +168,7 @@
 
     <!-- Transitions -->
 
-    <Style Selector="RepeatButton.Material.Icon:not(.notransitions) /template/ Ellipse#PART_HoverIndicator">
+    <Style Selector="RepeatButton.Material.Icon:not(.no-transitions) /template/ Ellipse#PART_HoverIndicator">
         <Setter Property="Transitions">
             <Transitions>
                 <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />

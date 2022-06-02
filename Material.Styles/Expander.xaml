@@ -1,6 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:styles="clr-namespace:Material.Styles"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
 
     <Style Selector="Expander">
         <Setter Property="ClipToBounds" Value="False"/>
@@ -14,7 +15,7 @@
     <Style Selector="Expander[ExpandDirection=Down]">
         <Setter Property="Template">
             <ControlTemplate>
-                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
+                <controls:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
                     <Grid RowDefinitions="Auto, *">
                         <ToggleButton Name="PART_toggle" Grid.Row="0" Content="{TemplateBinding Header}" Classes="ConstantForeground"
                                       Foreground="{DynamicResource MaterialDesignBody}"
@@ -28,14 +29,14 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </styles:Card>
+                </controls:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Up]">
         <Setter Property="Template">
             <ControlTemplate>
-                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
+                <controls:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
                     <Grid RowDefinitions="*,Auto">
                         <ToggleButton Name="PART_toggle" Grid.Row="1" Content="{TemplateBinding Header}" Classes="ConstantForeground"
                                       Foreground="{DynamicResource MaterialDesignBody}"
@@ -49,14 +50,14 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </styles:Card>
+                </controls:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Right]">
         <Setter Property="Template">
             <ControlTemplate>
-                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
+                <controls:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
                     <Grid ColumnDefinitions="Auto,*">
                         <ToggleButton Name="PART_toggle" Grid.Column="0" Content="{TemplateBinding Header}"
                                       Foreground="{DynamicResource MaterialDesignBody}"
@@ -70,14 +71,14 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </styles:Card>
+                </controls:Card>
             </ControlTemplate>
         </Setter>
     </Style>
     <Style Selector="Expander[ExpandDirection=Left]">
         <Setter Property="Template">
             <ControlTemplate>
-                <styles:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
+                <controls:Card Name="PART_ExpanderRoot" Background="{TemplateBinding Background}" Padding="0">
                     <Grid ColumnDefinitions="*,Auto">
                         <ToggleButton Name="PART_toggle" Grid.Column="1" Content="{TemplateBinding Header}" Classes="ConstantForeground"
                                       Foreground="{DynamicResource MaterialDesignBody}"
@@ -91,7 +92,7 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                     </Grid>
-                </styles:Card>
+                </controls:Card>
             </ControlTemplate>
         </Setter>
     </Style>
@@ -122,14 +123,14 @@
         </Setter>
     </Style>
     
-    <Style Selector="Expander:not(.notransitions) /template/ styles|Card#PART_ExpanderRoot">
+    <Style Selector="Expander:not(.no-transitions) /template/ controls|Card#PART_ExpanderRoot">
         <Setter Property="Transitions">
             <Transitions>
                 <ThicknessTransition Duration="0.25" Property="Margin" Easing="CubicEaseOut"/>
             </Transitions>
         </Setter>
     </Style>
-    <Style Selector="Expander:not(.notransitions) /template/ ToggleButton#PART_toggle /template/ Path">
+    <Style Selector="Expander:not(.no-transitions) /template/ ToggleButton#PART_toggle /template/ Path">
         <Setter Property="Transitions">
             <Transitions>
                 <TransformOperationsTransition Property="RenderTransform" Duration="0.25" Easing="CubicEaseOut"/>

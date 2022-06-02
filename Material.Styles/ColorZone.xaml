@@ -2,8 +2,9 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:assists="clr-namespace:Material.Styles.Assists"
-    xmlns:cc="clr-namespace:Material.Styles">
-    <Style Selector="cc|ColorZone">
+    xmlns:cc="clr-namespace:Material.Styles"
+    xmlns:controls="clr-namespace:Material.Styles.Controls">
+    <Style Selector="controls|ColorZone">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -36,97 +37,49 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <Style Selector="cc|ColorZone Button,
-                     cc|ColorZone ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}"/>
-    </Style>
 
-    <Style Selector="cc|ColorZone[Mode=Inverted]">
+    <Style Selector="controls|ColorZone[Mode=Inverted]">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
     </Style>
     
-    <Style Selector="cc|ColorZone[Mode=Inverted] Button,
-                     cc|ColorZone[Mode=Inverted] ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignPaper}"/>
-    </Style>
-    
-    <Style Selector="cc|ColorZone[Mode=PrimaryLight]">
+    <Style Selector="controls|ColorZone[Mode=PrimaryLight]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
     </Style>
     
-    <Style Selector="cc|ColorZone[Mode=PrimaryLight] Button,
-                     cc|ColorZone[Mode=PrimaryLight] ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
-    </Style>
-    
-    <Style Selector="cc|ColorZone[Mode=PrimaryMid]">
+    <Style Selector="controls|ColorZone[Mode=PrimaryMid]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
     </Style>
     
-    <Style Selector="cc|ColorZone[Mode=PrimaryMid] Button,
-                     cc|ColorZone[Mode=PrimaryMid] ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
-    </Style>
-    
-    <Style Selector="cc|ColorZone[Mode=PrimaryDark]">
+    <Style Selector="controls|ColorZone[Mode=PrimaryDark]">
         <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
     </Style>
     
-    <Style Selector="cc|ColorZone[Mode=PrimaryDark] Button,
-                     cc|ColorZone[Mode=PrimaryDark] ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
-    </Style>
-    
-    <Style Selector="cc|ColorZone[Mode=Accent]">
+    <Style Selector="controls|ColorZone[Mode=Accent]">
         <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
     </Style>
     
-    <Style Selector="cc|ColorZone[Mode=Accent] Button,
-                     cc|ColorZone[Mode=Accent] ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
-    </Style>
-    
-    <Style Selector="cc|ColorZone[Mode=Light]">
+    <Style Selector="controls|ColorZone[Mode=Light]">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignLightBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignLightForeground}" />
     </Style>
     
-    <Style Selector="cc|ColorZone[Mode=Light] Button,
-                     cc|ColorZone[Mode=Light] ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignLightForeground}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignLightForeground}"/>
-    </Style>
-    
-    <Style Selector="cc|ColorZone[Mode=Dark]">
+    <Style Selector="controls|ColorZone[Mode=Dark]">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignDarkBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDarkForeground}" />
-    </Style>
-    
-    <Style Selector="cc|ColorZone[Mode=Dark] Button,
-                     cc|ColorZone[Mode=Dark] ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDarkForeground}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignDarkForeground}"/>
     </Style>
 
     <Design.PreviewWith>
         <Border Padding="40" BorderThickness="1">
-            <cc:ColorZone Mode="PrimaryMid">
+            <controls:ColorZone Mode="PrimaryMid">
                 <Grid Margin="16">
                     <TextBlock Text="ColorZone" />
                 </Grid>
-            </cc:ColorZone>
+            </controls:ColorZone>
         </Border>
     </Design.PreviewWith>
 </Styles>
