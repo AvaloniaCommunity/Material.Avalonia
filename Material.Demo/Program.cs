@@ -17,7 +17,6 @@ namespace Material.Demo {
         [STAThread]
         public static void Main(string[] args)
         {
-            Ripple.Ripple.Easing = new LinearEasing();
             BuildAvaloniaApp().Start(AppMain, args);
         }
 

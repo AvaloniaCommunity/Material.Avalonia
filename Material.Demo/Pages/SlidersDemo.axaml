@@ -24,11 +24,7 @@
             </Style>
         </StackPanel.Styles>
         <TextBlock Classes="Headline4 Subheadline" Text="Sliders" />
-        <Slider Classes="Discrete"
-                TickFrequency="1"
-                Value="100" />
         <WrapPanel>
-
             <StackPanel>
                 <TextBlock Classes="Headline6 Subheadline2" Text="Slider (Material v1, legacy)" />
 
