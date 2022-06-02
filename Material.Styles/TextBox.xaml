@@ -1,7 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wpf="clr-namespace:Material.Styles.Assists"
-        xmlns:styles="clr-namespace:Material.Styles"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
         xmlns:controls="clr-namespace:Material.Styles.Controls"
         xmlns:extensions="clr-namespace:Material.Styles.Controls.Extensions"

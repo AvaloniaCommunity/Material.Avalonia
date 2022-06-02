@@ -1,5 +1,4 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:styles="clr-namespace:Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Style Selector="NumericUpDown">

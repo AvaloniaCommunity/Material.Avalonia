@@ -1,8 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:cc="clr-namespace:Material.Styles"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:styles="clr-namespace:Material.Styles"
         xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
         xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
@@ -224,7 +222,7 @@
                                       Fill="{TemplateBinding BorderBrush}" />
                             </Border>
                         </Border>
-                        <controls:MaterialUnderline Classes="MirrorY"
+                        <controls:MaterialUnderline Classes="material-mirror-y"
                                                   VerticalAlignment="Bottom"
                                                   Focusable="False" IsHitTestVisible="False"
                                                   Name="Underline">

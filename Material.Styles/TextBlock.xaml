@@ -1,5 +1,4 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:cc="clr-namespace:Material.Styles">
+﻿<Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="TextBlock">
         <Setter Property="Padding" Value="0" />
         <Setter Property="FontSize" Value="13" />

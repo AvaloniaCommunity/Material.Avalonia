@@ -1,8 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:styles="clr-namespace:Material.Styles"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
-
     <Style Selector="Expander">
         <Setter Property="ClipToBounds" Value="False"/>
         <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>

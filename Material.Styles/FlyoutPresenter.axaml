@@ -1,6 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:styles="clr-namespace:Material.Styles"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
   <Styles.Resources>
     <x:Double x:Key="FlyoutThemeMaxWidth">456</x:Double>
