@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using ShowMeTheXaml;
@@ -11,6 +12,9 @@ namespace Material.Demo {
         // Initialization code. Don't use any Avalonia, third-party APIs or any
         // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
         // yet and stuff might break.
+        
+        // STA thread is required for IME system.
+        [STAThread]
         public static void Main(string[] args)
         {
             Ripple.Ripple.Easing = new LinearEasing();
@@ -21,6 +25,16 @@ namespace Material.Demo {
         public static AppBuilder BuildAvaloniaApp() {
             return AppBuilder.Configure<App>()
                              .UsePlatformDetect()
+                             .With(new X11PlatformOptions
+                             {
+                                 EnableMultiTouch = true,
+                                 UseDBusMenu = true,
+                                 EnableIme = true
+                             })
+                             .With(new Win32PlatformOptions
+                             {
+                                 EnableMultitouch = true
+                             })
                              .UseXamlDisplay()
                              .LogToTrace();
         }
