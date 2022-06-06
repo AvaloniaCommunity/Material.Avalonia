@@ -45,7 +45,7 @@ namespace Material.Styles.Themes {
                 o => o.CurrentTheme,
                 (o, v) => o.CurrentTheme = v);
 
-        private ThemeStruct _currentTheme = new();
+        private ThemeStruct _currentTheme;
 
         /// <summary>
         /// Get or set current applied theme
@@ -75,13 +75,14 @@ namespace Material.Styles.Themes {
         /// </summary>
         public IStyle Loaded {
             get {
-                if (_loaded == null) {
-                    _isLoading = true;
+                if (_loaded != null)
+                    return _loaded!;
+                
+                _isLoading = true;
 
-                    _loaded = new Avalonia.Styling.Styles() { _controlsStyles };
+                _loaded = new Avalonia.Styling.Styles { _controlsStyles };
 
-                    _isLoading = false;
-                }
+                _isLoading = false;
 
                 return _loaded!;
             }
@@ -130,19 +131,20 @@ namespace Material.Styles.Themes {
             }
         });
 
-        private Task UpdateThemeAsync(ITheme? oldTheme, ITheme newTheme) {
+        private Task UpdateThemeAsync(ITheme? oldTheme, ITheme newTheme)
+        {
             return Task.WhenAll(
                 // Primary
-                UpdateSolidColorBrush("PrimaryHueLightForegroundBrush", oldTheme?.PrimaryLight.ForegroundColor ?? oldTheme?.PrimaryLight.Color.ContrastingForegroundColor(), newTheme.PrimaryLight.ForegroundColor ?? newTheme.PrimaryLight.Color.ContrastingForegroundColor()),
-                UpdateSolidColorBrush("PrimaryHueMidForegroundBrush", oldTheme?.PrimaryMid.ForegroundColor ?? oldTheme?.PrimaryMid.Color.ContrastingForegroundColor(), newTheme.PrimaryMid.ForegroundColor ?? newTheme.PrimaryMid.Color.ContrastingForegroundColor()),
-                UpdateSolidColorBrush("PrimaryHueDarkForegroundBrush", oldTheme?.PrimaryDark.ForegroundColor ?? oldTheme?.PrimaryDark.Color.ContrastingForegroundColor(), newTheme.PrimaryDark.ForegroundColor ?? newTheme.PrimaryDark.Color.ContrastingForegroundColor()),
+                UpdateSolidColorBrush("PrimaryHueLightForegroundBrush", oldTheme?.PrimaryLight.ForegroundColor, newTheme.PrimaryLight.ForegroundColor),
+                UpdateSolidColorBrush("PrimaryHueMidForegroundBrush", oldTheme?.PrimaryMid.ForegroundColor, newTheme.PrimaryMid.ForegroundColor),
+                UpdateSolidColorBrush("PrimaryHueDarkForegroundBrush", oldTheme?.PrimaryDark.ForegroundColor, newTheme.PrimaryDark.ForegroundColor),
                 UpdateSolidColorBrush("PrimaryHueLightBrush", oldTheme?.PrimaryLight.Color, newTheme.PrimaryLight.Color),
                 UpdateSolidColorBrush("PrimaryHueMidBrush", oldTheme?.PrimaryMid.Color, newTheme.PrimaryMid.Color),
                 UpdateSolidColorBrush("PrimaryHueDarkBrush", oldTheme?.PrimaryDark.Color, newTheme.PrimaryDark.Color),
                 // Secondary
-                UpdateSolidColorBrush("SecondaryHueLightForegroundBrush?", oldTheme?.SecondaryLight.ForegroundColor ?? oldTheme?.SecondaryLight.Color.ContrastingForegroundColor(), newTheme.SecondaryLight.ForegroundColor ?? newTheme.SecondaryLight.Color.ContrastingForegroundColor()),
-                UpdateSolidColorBrush("SecondaryHueMidForegroundBrush", oldTheme?.SecondaryMid.ForegroundColor ?? oldTheme?.SecondaryMid.Color.ContrastingForegroundColor(), newTheme.SecondaryMid.ForegroundColor ?? newTheme.SecondaryMid.Color.ContrastingForegroundColor()),
-                UpdateSolidColorBrush("SecondaryHueDarkForegroundBrush", oldTheme?.SecondaryDark.ForegroundColor ?? oldTheme?.SecondaryDark.Color.ContrastingForegroundColor(), newTheme.SecondaryDark.ForegroundColor ?? newTheme.SecondaryDark.Color.ContrastingForegroundColor()),
+                UpdateSolidColorBrush("SecondaryHueLightForegroundBrush?", oldTheme?.SecondaryLight.ForegroundColor, newTheme.SecondaryLight.ForegroundColor),
+                UpdateSolidColorBrush("SecondaryHueMidForegroundBrush", oldTheme?.SecondaryMid.ForegroundColor, newTheme.SecondaryMid.ForegroundColor),
+                UpdateSolidColorBrush("SecondaryHueDarkForegroundBrush", oldTheme?.SecondaryDark.ForegroundColor, newTheme.SecondaryDark.ForegroundColor),
                 UpdateSolidColorBrush("SecondaryHueLightBrush", oldTheme?.SecondaryLight.Color, newTheme.SecondaryLight.Color),
                 UpdateSolidColorBrush("SecondaryHueMidBrush", oldTheme?.SecondaryMid.Color, newTheme.SecondaryMid.Color),
                 UpdateSolidColorBrush("SecondaryHueDarkBrush", oldTheme?.SecondaryDark.Color, newTheme.SecondaryDark.Color),
