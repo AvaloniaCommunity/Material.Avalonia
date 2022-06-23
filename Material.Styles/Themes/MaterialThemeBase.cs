@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
@@ -12,7 +13,6 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.Themes.Fluent;
 using Avalonia.Threading;
-using Material.Colors.ColorManipulation;
 
 namespace Material.Styles.Themes {
     public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
@@ -39,13 +39,13 @@ namespace Material.Styles.Themes {
 
         private IResourceDictionary LoadedResourceDictionary => (Loaded as Avalonia.Styling.Styles)!.Resources;
 
-        public static readonly DirectProperty<MaterialThemeBase, ITheme> CurrentThemeProperty =
-            AvaloniaProperty.RegisterDirect<MaterialThemeBase, ITheme>(
+        public static readonly DirectProperty<MaterialThemeBase, ITheme?> CurrentThemeProperty =
+            AvaloniaProperty.RegisterDirect<MaterialThemeBase, ITheme?>(
                 nameof(CurrentTheme),
                 o => o.CurrentTheme,
                 (o, v) => o.CurrentTheme = v);
 
-        private ThemeStruct _currentTheme;
+        private ThemeStruct? _currentTheme;
 
         /// <summary>
         /// Get or set current applied theme
@@ -53,20 +53,57 @@ namespace Material.Styles.Themes {
         /// <returns>
         /// Returns a STRUCT implementing ITheme interface 
         /// </returns>
-        public ITheme CurrentTheme {
-            get => new ThemeStruct(_currentTheme);
+        public ITheme? CurrentTheme {
+            get
+            {
+                if (!_currentTheme.HasValue)
+                    return null;
+                
+                return new ThemeStruct(_currentTheme.Value);
+            }
             set {
+                if (!_currentTheme.HasValue && value == null)
+                    return;
+                
                 var oldTheme = _currentTheme;
-                var newTheme = new ThemeStruct(value);
 
-                if (EqualityComparer<ITheme>.Default.Equals(oldTheme, newTheme)) return;
-                _currentTheme = newTheme;
-                RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
-                StartUpdatingTheme(oldTheme, newTheme);
+                if (value != null)
+                {
+                    var newTheme = new ThemeStruct(value);
+
+                    if (oldTheme.HasValue && EqualityComparer<ITheme>.Default.Equals(oldTheme, newTheme))
+                        return;
+                
+                    _currentTheme = newTheme;
+                    RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
+                    StartUpdatingTheme(oldTheme, newTheme);
+                }
+                else
+                {
+                    _currentTheme = null;
+                    RaisePropertyChanged(CurrentThemeProperty, oldTheme, null);
+                    StartUpdatingTheme(oldTheme, null);
+                }
             }
         }
 
-        public IObservable<ITheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
+        public IObservable<ITheme?> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
+        
+        /// <summary>
+        /// This event is raised when all brushes is changed.
+        /// </summary>
+        public event EventHandler? ThemeChanged;
+        
+        public IObservable<MaterialThemeBase> ThemeChangedObservable => Observable.FromEvent<EventHandler, MaterialThemeBase>(
+            conversion => delegate(object sender, EventArgs _)
+            {
+                if(sender is not MaterialThemeBase theme)
+                    return;
+                
+                conversion(theme);
+            }, 
+            h => ThemeChanged += h,
+            h => ThemeChanged -= h);
 
         public IResourceHost? Owner => (Loaded as IResourceProvider)?.Owner;
 
@@ -118,7 +155,7 @@ namespace Material.Styles.Themes {
 
         private CancellationTokenSource? _currentCancellationTokenSource;
         private Task? _currentThemeUpdateTask;
-        private void StartUpdatingTheme(ITheme oldTheme, ITheme newTheme) => Task.Run(async () => {
+        private void StartUpdatingTheme(ITheme? oldTheme, ITheme newTheme) => Task.Run(async () => {
             _currentCancellationTokenSource?.Cancel();
             _currentCancellationTokenSource?.Dispose();
 
@@ -133,7 +170,7 @@ namespace Material.Styles.Themes {
 
         private Task UpdateThemeAsync(ITheme? oldTheme, ITheme newTheme)
         {
-            return Task.WhenAll(
+            var task = Task.WhenAll(
                 // Primary
                 UpdateSolidColorBrush("PrimaryHueLightForegroundBrush", oldTheme?.PrimaryLight.ForegroundColor, newTheme.PrimaryLight.ForegroundColor),
                 UpdateSolidColorBrush("PrimaryHueMidForegroundBrush", oldTheme?.PrimaryMid.ForegroundColor, newTheme.PrimaryMid.ForegroundColor),
@@ -178,6 +215,11 @@ namespace Material.Styles.Themes {
                 UpdateSolidColorBrush("MaterialDesignTextAreaInactiveBorder", oldTheme?.TextAreaInactiveBorder, newTheme.TextAreaInactiveBorder),
                 UpdateSolidColorBrush("MaterialDesignDataGridRowHoverBackground", oldTheme?.DataGridRowHoverBackground, newTheme.DataGridRowHoverBackground)
             );
+            task.ContinueWith(delegate
+            {
+                ThemeChanged?.Invoke(this, EventArgs.Empty);
+            });
+            return task;
         }
 
         private Task UpdateSolidColorBrush(string brushName, Color? oldColor, Color newColor) {
