@@ -6,7 +6,9 @@ on:
 
 jobs:
   build:
+    name: Build and pack
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'no nightly')"
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -31,6 +33,7 @@ jobs:
         name: artifacts
         path: artifacts/
   numerge:
+    name: Merge packages and publish nightly
     runs-on: ubuntu-latest
     needs: [build]
     steps:
