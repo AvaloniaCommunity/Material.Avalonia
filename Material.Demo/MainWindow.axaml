@@ -7,6 +7,8 @@
         xmlns:pages="clr-namespace:Material.Demo.Pages"
         xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+        xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+        xmlns:models="clr-namespace:Material.Demo.Models"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Width="1280" Height="720" MinWidth="720"
         Title="Material.Demo">
@@ -29,6 +31,21 @@
         </Style>
     </Window.Styles>
 
+    <dialogHost:DialogHost Identifier="MainDialogHost">
+        <dialogHost:DialogHost.DialogContentTemplate>
+            <DataTemplate DataType="models:Sample2Model">
+                <StackPanel>
+                    <TextBlock TextAlignment="Center">Your lucky number:</TextBlock>
+                    <TextBlock Classes="Body1"
+                               TextAlignment="Center"
+                               Text="{Binding Number}" />
+                    <Button Margin="0 8 0 0"
+                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=CloseDialogCommand}">
+                        THANKS, CLOSE
+                    </Button>
+                </StackPanel>
+            </DataTemplate>
+        </dialogHost:DialogHost.DialogContentTemplate>
     <styles:SnackbarHost HostName="Root" TemplateApplied="TemplatedControl_OnTemplateApplied">
         <styles:NavigationDrawer Name="LeftDrawer"
                                  LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
@@ -199,4 +216,5 @@
             </DockPanel>
         </styles:NavigationDrawer>
     </styles:SnackbarHost>
+    </dialogHost:DialogHost>
 </Window>
