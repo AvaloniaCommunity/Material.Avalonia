@@ -13,7 +13,7 @@
                 <Setter Property="Maximum" Value="100" />
                 <Setter Property="Minimum" Value="0" />
             </Style>
-            <Style Selector="StackPanel.Content TextBlock">
+            <Style Selector="StackPanel.Content > TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Margin" Value="16,0" />
                 <Setter Property="Text" Value="{Binding $parent.Children[0].Content.Value}" />
@@ -32,7 +32,7 @@
              when dragging thumb could contains a long numerics with decimal point. -->
                 <StackPanel Classes="Content" Orientation="Horizontal">
                     <showMeTheXaml:XamlDisplay UniqueId="RegularSlider0">
-                        <Slider />
+                        <Slider ToolTip.Tip="Just show me my tooltip!" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock MinWidth="120" />
                 </StackPanel>
