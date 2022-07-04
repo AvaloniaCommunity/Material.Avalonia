@@ -15,6 +15,8 @@
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Minimum" Value="0"/>
+        <Setter Property="Maximum" Value="0"/>
     </Style>
     
     <!-- force override avaloniaUI standard themes styles -->
@@ -103,6 +105,7 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
         <!-- Disable transitions for this control -->
         <Setter Property="Transitions" Value="{x:Null}"/>
+        <Setter Property="UseLayoutRounding" Value="False"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <!-- Breaking animations -->
