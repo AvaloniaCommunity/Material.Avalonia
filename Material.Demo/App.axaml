@@ -10,6 +10,7 @@
     <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
     <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" />
     <StyleInclude Source="avares://Material.Demo/MaterialXamlDisplay.axaml" />
+    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
 
     <Style Selector="showMeTheXaml|XamlDisplay">
       <Setter Property="ClipToBounds" Value="False"></Setter>
