@@ -419,10 +419,13 @@
                             Name="PART_Positioner" >
                         <Border Name="PART_ContentContainer"
                                 Background="{DynamicResource MaterialDesignToolTipBackground}"
-                                Padding="4, 8" CornerRadius="2"
-                                RenderTransform="{Binding TransformedBounds, 
-                                  ElementName=PART_Positioner,
-                                  Converter={StaticResource AutoCorrectPositionConverter}}" >
+                                Padding="4, 8" CornerRadius="2">
+                            <Border.RenderTransform>
+                                <MultiBinding Converter="{StaticResource AutoCorrectPositionConverter}">
+                                    <Binding ElementName="PART_Positioner" Path="TransformedBounds"/>
+                                    <Binding Path="$parent[TopLevel].Bounds"/>
+                                </MultiBinding>
+                            </Border.RenderTransform>
 
                             <TextBlock Name="InnerBubbleText"
                                        Classes="Caption"
