@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Reactive.Linq;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
@@ -189,12 +189,13 @@ namespace Material.Styles.Themes
             {
                 var task = UpdateSolidColorBrush(oldTheme, newTheme, LoadedResourceDictionary,
                     Dispatcher.UIThread.InvokeAsync);
-                task.ContinueWith(delegate
+                
+                _currentThemeUpdateTask = task;
+                
+                await task.ContinueWith(delegate
                 {
                     ThemeChanged?.Invoke(this, EventArgs.Empty);
                 }, CancellationToken.None);
-
-                _currentThemeUpdateTask = task;
             }
         });
 
