@@ -14,12 +14,12 @@
             <Style Selector="StackPanel.Content Slider:horizontal" >
                 <Setter Property="Width" Value="300" />
             </Style>
-            <Style Selector="StackPanel.Content TextBlock" >
+            <Style Selector="StackPanel.Content > TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Margin" Value="16,0" />
                 <Setter Property="Text" Value="{Binding $parent.Children[0].Content.Value}" />
             </Style>
-            <Style Selector="StackPanel.Content" >
+            <Style Selector="StackPanel.Content">
                 <Setter Property="Margin" Value="4 2" />
             </Style>
         </StackPanel.Styles>
@@ -29,10 +29,10 @@
                 <TextBlock Classes="Headline6 Subheadline2" Text="Slider (Material v1, legacy)" />
 
                 <!-- lol this one are not enabled snap to tick, 
-                when dragging thumb could contains a long numerics with decimal point. -->
-                <StackPanel Classes="Content" Orientation="Horizontal" >
-                    <showMeTheXaml:XamlDisplay UniqueId="RegularSlider0" >
-                        <Slider Classes="material-v1" />
+             when dragging thumb could contains a long numerics with decimal point. -->
+                <StackPanel Classes="Content" Orientation="Horizontal">
+                    <showMeTheXaml:XamlDisplay UniqueId="RegularSlider0">
+                        <Slider Classes="material-v1" ToolTip.Tip="Just show me my tooltip!" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock MinWidth="120" />
                 </StackPanel>

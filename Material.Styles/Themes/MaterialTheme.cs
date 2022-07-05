@@ -49,9 +49,16 @@ namespace Material.Styles.Themes
             _themeUpdaterDisposable = baseThemeObservable
                 .Merge(primaryColorObservable)
                 .Merge(secondaryColorObservable)
+                .Where(_ => _isLoaded)
                 .Throttle(TimeSpan.FromMilliseconds(100))
                 .ObserveOn(new AvaloniaSynchronizationContext())
                 .Subscribe(_ => CurrentTheme = _theme);
+        }
+
+        private bool _isLoaded;
+        protected override ITheme? ProvideInitialTheme() {
+            _isLoaded = true;
+            return _theme;
         }
 
         public static readonly StyledProperty<BaseThemeMode> BaseThemeProperty

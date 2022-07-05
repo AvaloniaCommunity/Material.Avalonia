@@ -23,11 +23,6 @@
     <StyleInclude Source="avares://Material.Styles/CircleClockPickerCell.axaml"/>
     <StyleInclude Source="avares://Material.Styles/CircleClockPicker.axaml"/>
     
-    <!-- dialog host -->
-    
-    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
-    <StyleInclude Source="avares://Material.Styles/DialogHost.axaml" />
-    
     <!-- Basic controls -->
     
     <!-- Buttons -->
@@ -100,4 +95,7 @@
     <!-- Custom controls (High-priority) -->
     <StyleInclude Source="avares://Material.Styles/SideSheet.xaml"/>
     
+    <!-- DialogHost.Avalonia -->
+    <!-- dialog host style have been removed for avoid unnecessary package linking -->
+    <!-- you can still add it manually https://github.com/AvaloniaUtils/DialogHost.Avalonia -->
 </Styles>

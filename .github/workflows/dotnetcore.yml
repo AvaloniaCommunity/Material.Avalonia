@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build solution
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core

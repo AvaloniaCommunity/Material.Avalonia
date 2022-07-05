@@ -38,9 +38,12 @@ Check out the [getting started](https://github.com/AvaloniaCommunity/Material.Av
           </Application.Styles>
       </Application>
       ```
+
+# <img src="/FavIcon.svg" width="32" height="32"> Useful links
 - [Advanced theming](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming) wiki page
 - [Nightly packages](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Using-nightly-build-feed) wiki page
 - [Material Design Icons](https://github.com/AvaloniaUtils/Material.Icons.Avalonia) icon pack support
+- [DialogHost.Avalonia](https://github.com/AvaloniaUtils/DialogHost.Avalonia) that provides a simple way to display a dialog 
 
 ### Powered by
 
