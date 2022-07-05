@@ -11,7 +11,7 @@
     </Window.Styles>
     
     <controls:EmbeddedDialogControl>
-        <ScrollViewer Name="PART_ScrollView">
+        <ScrollViewer Name="PART_ScrollView" Padding="24, 0">
             <StackPanel Name="PART_ContentPanel">
                 <TextBlock Name="PART_SupportingText"
                            Classes="Body1"
