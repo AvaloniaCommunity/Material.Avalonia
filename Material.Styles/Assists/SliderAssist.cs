@@ -8,18 +8,16 @@ namespace Material.Styles.Assists
         private static readonly double DefaultThicknessTick = 1.0;
 
         #region AttachedProperty
-        
-        public static readonly AvaloniaProperty<double?> ThicknessTickProperty = 
+
+        public static readonly AvaloniaProperty<double?> ThicknessTickProperty =
             AvaloniaProperty.RegisterAttached<Slider, double?>(
-            "ThicknessTick", typeof(SliderAssist), DefaultThicknessTick, true);
+                "ThicknessTick", typeof(SliderAssist), DefaultThicknessTick, true);
 
-        public static double? GetThicknessTick(AvaloniaObject element) {
-            return element.GetValue(ThicknessTickProperty) as double?;
-        }
+        public static double? GetThicknessTick(AvaloniaObject element) =>
+            element.GetValue<double?>(ThicknessTickProperty);
 
-        public static void SetThicknessTick(AvaloniaObject element, double? value) {
+        public static void SetThicknessTick(AvaloniaObject element, double? value) =>
             element.SetValue(ThicknessTickProperty, value);
-        }
 
         #endregion
     }

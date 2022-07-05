@@ -1,32 +1,33 @@
 using Avalonia;
 using Avalonia.Controls;
 
-namespace Material.Styles.Assists {
+namespace Material.Styles.Assists
+{
     public static class TextFieldAssist
     {
-        public static readonly AvaloniaProperty<string?> HintsProperty = 
+        public static readonly AvaloniaProperty<string?> HintsProperty =
             AvaloniaProperty.RegisterAttached<TextBox, string?>(
-            "Hints", typeof(TextBox));
-        
-        public static void SetHints(AvaloniaObject element, string? value) => 
+                "Hints", typeof(TextBox));
+
+        public static void SetHints(AvaloniaObject element, string? value) =>
             element.SetValue(HintsProperty, value);
 
-        public static string? GetHints(AvaloniaObject element) => 
-            (string?)element.GetValue(HintsProperty);
+        public static string? GetHints(AvaloniaObject element) =>
+            element.GetValue<string?>(HintsProperty);
 
-        public static readonly AvaloniaProperty<string?> LabelProperty = 
+        public static readonly AvaloniaProperty<string?> LabelProperty =
             AvaloniaProperty.RegisterAttached<TextBox, string?>(
-            "Label", typeof(TextBox));
+                "Label", typeof(TextBox));
 
-        public static void SetLabel(AvaloniaObject element, string? value) => 
+        public static void SetLabel(AvaloniaObject element, string? value) =>
             element.SetValue(LabelProperty, value);
 
-        public static string? GetLabel(AvaloniaObject element) => 
-            (string?)element.GetValue(LabelProperty);
+        public static string? GetLabel(AvaloniaObject element) =>
+            element.GetValue<string?>(LabelProperty);
 
         // Use throw DataValidationException in property of view model instead of those things
         // Example can be found in dev-branch -> /Material.Demo/ViewModels/TextFieldsViewModel.cs
-        
+
         /*
         
         public static AvaloniaProperty<bool> HasErrorProperty = AvaloniaProperty.RegisterAttached<TextBox, bool>(
