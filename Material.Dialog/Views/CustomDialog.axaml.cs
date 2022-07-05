@@ -9,7 +9,7 @@ namespace Material.Dialog.Views
     {
         public CustomDialog()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
         public DialogResult GetResult() => (DataContext as CustomDialogViewModel)?.DialogResult;

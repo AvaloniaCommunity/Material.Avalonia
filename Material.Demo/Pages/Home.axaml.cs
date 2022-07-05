@@ -1,16 +1,13 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Dialogs;
 using Avalonia.Markup.Xaml;
-using Material.Demo.Models;
-using Material.Styles.Assists;
-using System.Collections.ObjectModel;
 using Material.Dialog;
-using static Material.Demo.Models.StatusEnum;
+using Material.Styles.Assists;
 
 namespace Material.Demo.Pages
 {
     public class Home : UserControl
-    { 
+    {
         public Home()
         {
             // Sadly I don't have much time to update this listing

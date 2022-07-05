@@ -1,7 +1,8 @@
 ﻿using System;
 using Avalonia.Media;
 
-namespace Material.Colors.ColorManipulation {
+namespace Material.Colors.ColorManipulation
+{
     public static class ColorHelper
     {
         [Obsolete("Please use PickContrastColor method instead.")]
@@ -18,7 +19,7 @@ namespace Material.Colors.ColorManipulation {
         {
             return AlgorithmContrastColor(color, Avalonia.Media.Colors.Black, Avalonia.Media.Colors.White, ratio);
         }
-        
+
         /// <summary>
         /// Choose most accessible color by algorithm.
         /// </summary>
@@ -32,17 +33,20 @@ namespace Material.Colors.ColorManipulation {
             return AlgorithmContrastColor(color, a, b, ratio);
         }
 
-        public static Color ShiftLightness(this Color color, int amount = 1) {
+        public static Color ShiftLightness(this Color color, int amount = 1)
+        {
             var lab = color.ToLab();
             var shifted = new Lab(lab.L - LabConstants.Kn * amount, lab.A, lab.B);
             return shifted.ToColor();
         }
 
-        public static Color Darken(this Color color, int amount = 1) {
+        public static Color Darken(this Color color, int amount = 1)
+        {
             return color.ShiftLightness(amount);
         }
 
-        public static Color Lighten(this Color color, int amount = 1) {
+        public static Color Lighten(this Color color, int amount = 1)
+        {
             return color.ShiftLightness(-amount);
         }
 
@@ -54,20 +58,20 @@ namespace Material.Colors.ColorManipulation {
         /// <returns>The magnitude of relative luminance of color</returns>
         public static double RelativeLuminance(this Color c)
         {
-            double Process(double s) => 
+            double Process(double s) =>
                 s < 0.03928 ? s / 12.92 : Math.Pow((s + 0.055) / 1.055, 2.4);
 
-            double dR = (double)c.R / 255,
-                dG = (double)c.G / 255,
-                dB = (double)c.B / 255;
+            double dR = (double) c.R / 255,
+                dG = (double) c.G / 255,
+                dB = (double) c.B / 255;
 
             var r = Process(dR);
             var g = Process(dG);
             var b = Process(dB);
-            
+
             return 0.2126 * r + 0.7152 * g + 0.0722 * b;
         }
-        
+
         /// <summary>
         /// Get color contrast between two colors
         /// </summary>
@@ -93,7 +97,8 @@ namespace Material.Colors.ColorManipulation {
         /// <param name="color"></param>
         /// <param name="other"></param>
         /// <returns></returns>
-        public static double Difference(this Color color, Color other) {
+        public static double Difference(this Color color, Color other)
+        {
             var lab1 = color.ToLab();
             var lab2 = other.ToLab();
 

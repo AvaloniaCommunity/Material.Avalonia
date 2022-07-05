@@ -1,6 +1,5 @@
-﻿using Avalonia.Layout;
+﻿using System;
 using Material.Dialog.Bases;
-using System;
 
 namespace Material.Dialog
 {
@@ -11,7 +10,7 @@ namespace Material.Dialog
         /// </summary>
         public DateTime ImplicitValue = DateTime.Now;
     }
-    
+
     public class TimePickerDialogBuilderParams : TwoFeedbackDialogBuilderParamsBase
     {
         /// <summary>

@@ -20,7 +20,7 @@ namespace Material.Styles.Controls
 
         public static readonly StyledProperty<object> LeftDrawerContentProperty =
             AvaloniaProperty.Register<NavigationDrawer, object>(nameof(LeftDrawerContent));
-         
+
         public static readonly StyledProperty<IDataTemplate> LeftDrawerContentTemplateProperty =
             AvaloniaProperty.Register<NavigationDrawer, IDataTemplate>(nameof(LeftDrawerContentTemplate));
 
@@ -36,7 +36,7 @@ namespace Material.Styles.Controls
 
         public static readonly StyledProperty<object> RightDrawerContentProperty =
             AvaloniaProperty.Register<NavigationDrawer, object>(nameof(RightDrawerContent));
-         
+
         public static readonly StyledProperty<IDataTemplate> RightDrawerContentTemplateProperty =
             AvaloniaProperty.Register<NavigationDrawer, IDataTemplate>(nameof(RightDrawerContentTemplate));
 
@@ -45,7 +45,7 @@ namespace Material.Styles.Controls
 
         public static readonly StyledProperty<double> RightDrawerWidthProperty =
             AvaloniaProperty.Register<NavigationDrawer, double>(nameof(RightDrawerWidth));
-        
+
         public static readonly StyledProperty<double?> RightDrawerExpandThresholdWidthProperty =
             AvaloniaProperty.Register<NavigationDrawer, double?>(nameof(RightDrawerExpandThresholdWidth));
 
@@ -100,7 +100,7 @@ namespace Material.Styles.Controls
             get => GetValue(LeftDrawerExpandThresholdWidthProperty);
             set => SetValue(LeftDrawerExpandThresholdWidthProperty, value);
         }
-        
+
         /// <summary>
         /// Gets or sets the content to display.
         /// </summary> 
@@ -131,7 +131,7 @@ namespace Material.Styles.Controls
             get => GetValue(RightDrawerWidthProperty);
             set => SetValue(RightDrawerWidthProperty, value);
         }
-        
+
         /// <summary>
         /// <p>Get or sets the width threshold of the NavigationDrawer for expand right drawer automatically. Most used on desktop application.</p>
         /// <p>For more information, please visit <a href="https://material.io/components/navigation-drawer#standard-drawer">material.io - Standard navigation drawer, Permanently visible</a> page.</p>
@@ -181,7 +181,7 @@ namespace Material.Styles.Controls
 
             RightDrawerOpened = false;
         }
-        
+
         /// <summary>
         /// Switch visibility of the left drawer.
         /// </summary>
@@ -204,10 +204,10 @@ namespace Material.Styles.Controls
         static NavigationDrawer()
         {
             BoundsProperty.Changed.AddClassHandler<NavigationDrawer>(OnDrawerResized);
-            
+
             LeftDrawerWidthProperty.Changed.AddClassHandler<NavigationDrawer>(OnDrawerWidthChanged);
             RightDrawerWidthProperty.Changed.AddClassHandler<NavigationDrawer>(OnDrawerWidthChanged);
-            
+
             LeftDrawerOpenedProperty.Changed.AddClassHandler<NavigationDrawer>(OnDrawerOpenedChanged);
             RightDrawerOpenedProperty.Changed.AddClassHandler<NavigationDrawer>(OnDrawerOpenedChanged);
 
@@ -227,7 +227,7 @@ namespace Material.Styles.Controls
         {
             if (drawer.Classes.Contains(":closed"))
                 return;
-            
+
             drawer.UpdateContentMargin();
         }
 
@@ -237,7 +237,7 @@ namespace Material.Styles.Controls
             drawer.UpdateDesktopExpand(drawer.Bounds.Width);
         }
 
-        private static void OnDrawerOpenedChanged(NavigationDrawer drawer, 
+        private static void OnDrawerOpenedChanged(NavigationDrawer drawer,
             AvaloniaPropertyChangedEventArgs args)
         {
             drawer.UpdatePseudoClasses();
@@ -252,7 +252,7 @@ namespace Material.Styles.Controls
             if (e.NameScope.Find("PART_Scrim") is Border border)
             {
                 PART_Scrim = border;
-                
+
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
             }
 
@@ -261,17 +261,17 @@ namespace Material.Styles.Controls
 
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
-            if(PART_Scrim != null)
+            if (PART_Scrim != null)
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
-            
+
             base.OnAttachedToVisualTree(e);
         }
 
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
-            if(PART_Scrim != null)
+            if (PART_Scrim != null)
                 PART_Scrim.PointerPressed -= PART_Scrim_Pressed;
-            
+
             base.OnDetachedFromVisualTree(e);
         }
 
@@ -293,17 +293,17 @@ namespace Material.Styles.Controls
             {
                 _isLeftDrawerDesktopExpanded = false;
             }
-            
+
             if (RightDrawerExpandThresholdWidth.HasValue)
             {
                 var status = w > RightDrawerExpandThresholdWidth.Value;
                 _isRightDrawerDesktopExpanded = status;
-                
+
                 if (Classes.Contains(":right-expand") != status)
                 {
                     RightDrawerOpened = status;
                 }
-                
+
                 PseudoClasses.Set(":right-expand", status);
             }
             else
@@ -316,7 +316,7 @@ namespace Material.Styles.Controls
         {
             var left = _isLeftDrawerDesktopExpanded && LeftDrawerOpened ? LeftDrawerWidth : 0;
             var right = _isRightDrawerDesktopExpanded && RightDrawerOpened ? RightDrawerWidth : 0;
-            
+
             ContentMargin = new Thickness(left, 0, right, 0);
         }
 

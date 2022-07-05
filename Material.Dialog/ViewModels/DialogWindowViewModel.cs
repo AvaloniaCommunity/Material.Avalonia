@@ -13,7 +13,7 @@ namespace Material.Dialog.ViewModels
         {
             Window = window;
         }
-        
+
         private Window _window;
 
         protected Window Window
@@ -21,7 +21,7 @@ namespace Material.Dialog.ViewModels
             get => _window;
             private set => _window = value;
         }
-        
+
         #region Base Properties
 
         private string _windowTitle;
@@ -121,7 +121,7 @@ namespace Material.Dialog.ViewModels
         }
 
         #endregion
-        
+
         private ObservableCollection<DialogButtonViewModel> _neutralDialogButton;
 
         public ObservableCollection<DialogButtonViewModel> NeutralDialogButton
@@ -133,8 +133,8 @@ namespace Material.Dialog.ViewModels
                 OnPropertyChanged();
             }
         }
-        
-        
+
+
         private ObservableCollection<DialogButtonViewModel> _dialogButtons;
 
         public ObservableCollection<DialogButtonViewModel> DialogButtons
@@ -170,13 +170,10 @@ namespace Material.Dialog.ViewModels
                 OnPropertyChanged();
             }
         }
-        
-        public async void CloseWindow ()
+
+        public async void CloseWindow()
         {
-            await Dispatcher.UIThread.InvokeAsync(() =>
-            {
-                _window.Close();
-            });
+            await Dispatcher.UIThread.InvokeAsync(() => { _window.Close(); });
         }
     }
 }

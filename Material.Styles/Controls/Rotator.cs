@@ -27,18 +27,19 @@ namespace Material.Styles.Controls
             set
             {
                 if (value < 0)
-                    throw new ArgumentOutOfRangeException(nameof(value), "MinimumSpeed should not less than zero. You can set it as zero, if you wish your rotator keep running.");
+                    throw new ArgumentOutOfRangeException(nameof(value),
+                        "MinimumSpeed should not less than zero. You can set it as zero, if you wish your rotator keep running.");
 
                 _minimumSpeed = value;
             }
         }
-        
+
         private bool _running;
 
         private double _speed = 0.4;
 
         private double _rotateDegree;
-        
+
         private readonly RenderLoopClock _loopTask;
         private TimeSpan _prev;
 
@@ -64,7 +65,7 @@ namespace Material.Styles.Controls
                 {
                     if (rotator.IsEffectivelyVisible == false || rotator.IsEffectivelyEnabled == false)
                         return;
-                    
+
                     rotator._speed = v;
                     OnSpeedChanged(rotator, v);
                 });
@@ -74,7 +75,7 @@ namespace Material.Styles.Controls
         {
             if (IsEffectivelyVisible == false || IsEffectivelyEnabled == false)
                 return;
-            
+
             var delta = renderTime - _prev;
             _rotateDegree += _speed * delta.TotalMilliseconds;
             _prev = renderTime;
@@ -84,7 +85,7 @@ namespace Material.Styles.Controls
 
             RenderTransform = new RotateTransform(_rotateDegree);
         }
-        
+
         private static void OnSpeedChanged(Rotator rotator, double d)
         {
             // We should stop rotator if speed is lower than minimum speed

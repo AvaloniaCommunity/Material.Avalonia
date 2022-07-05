@@ -8,27 +8,27 @@
         #region Common use, including effects
 
         public static string PartRootBorder => "PART_RootBorder";
-        
+
         public static string PartRootPanel => "PART_RootPanel";
-        
+
         public static string PartContentPresenter => "PART_ContentPresenter";
-        
+
         public static string PartIconPresenter => "PART_IconPresenter";
-        
+
         public static string PartHeaderPresenter => "PART_HeaderPresenter";
 
         public static string PartItemsPresenter => "PART_ItemsPresenter";
 
         public static string PartInnerPanel => "PART_InnerPanel";
-        
+
         public static string PartContentPanel => "PART_ContentPanel";
-        
+
         public static string PartInnerBorder => "PART_InnerBorder";
-        
+
         public static string PartHoverEffect => "PART_HoverEffect";
-        
+
         public static string PartScrollViewer => "PART_ScrollViewer";
-        
+
         public static string PartRipple => "PART_Ripple";
 
         #endregion
@@ -38,7 +38,7 @@
         public static string PartPlaceholderText => "PART_PlaceholderText";
 
         public static string PartTextPresenter => "PART_TextPresenter";
-        
+
         public static string PartDataValidation => "PART_DataValidation";
 
         public static string PartHintsText => "PART_HintsText";
@@ -46,7 +46,7 @@
         public static string PartUnderline => "PART_Underline";
 
         public static string PartLabelText => "PART_LabelText";
-        
+
         public static string PartLabelRootBorder => "PART_LabelRootBorder";
 
         #endregion
@@ -59,9 +59,9 @@
         /// <b>You should do that otherwise your application will crash after click slider.</b>
         /// </summary>
         public static string PartTrack => "PART_Track";
-        
+
         public static string PartTrackBorderBar => "PART_TrackBorderBar";
-        
+
         public static string PartSliderThumb => "PART_SliderThumb";
 
         /// <summary>
@@ -69,7 +69,7 @@
         /// Use this name on RepeatButton of track of slider to get a clickable decrease value track.
         /// </summary>
         public static string PartDecreaseButton => "PART_DecreaseButton";
-        
+
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on RepeatButton of track of slider to get a clickable increase value track.
@@ -77,17 +77,17 @@
         public static string PartIncreaseButton => "PART_IncreaseButton";
 
         public static string PartThumbGrip => "PART_ThumbGrip";
-        
+
         #endregion
 
         #region For ToggleSwitch
 
         public static string PartSwitchBorder => "PART_SwitchBorder";
-        
+
         public static string PartSwitchKnobBorder => "PART_SwitchKnobBorder";
-        
+
         public static string PartKnobOnContentPresenter => "PART_KnobOnContentPresenter";
-        
+
         public static string PartKnobOffContentPresenter => "PART_KnobOffContentPresenter";
 
         /// <summary>
@@ -114,7 +114,7 @@
         public static string AvaloniaProgressBarIndicator => "PART_Indicator";
 
         #endregion
-        
+
         public static string PartInputGestureText => "PART_InputGestureText";
 
         public static string PartVisualLayer => "VisualLayer";

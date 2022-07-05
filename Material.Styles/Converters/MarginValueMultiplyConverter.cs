@@ -25,11 +25,11 @@ namespace Material.Styles.Converters
                 // If value is double primitive type
                 double v when !double.IsNaN(v) => new Thickness(v * param.LeftMultiplier, v * param.TopMultiplier,
                     v * param.RightMultiplier, v * param.BottomMultiplier),
-                
+
                 // or value is 32-bit integer primitive type
                 int i => new Thickness(i * param.LeftMultiplier, i * param.TopMultiplier, i * param.RightMultiplier,
                     i * param.BottomMultiplier),
-                
+
                 // or its unsupported type
                 _ => Thickness.Parse("0")
             };

@@ -1,10 +1,14 @@
 ﻿using System;
 using Avalonia.Media;
 
-namespace Material.Colors.ColorManipulation {
-    internal static class HslConverter {
-        public static Color ToColor(this Hsl hsl) {
-            double HsvRbg(double v1, double v2, double vH) {
+namespace Material.Colors.ColorManipulation
+{
+    internal static class HslConverter
+    {
+        public static Color ToColor(this Hsl hsl)
+        {
+            double HsvRbg(double v1, double v2, double vH)
+            {
                 if (vH < 0) vH += 1;
                 if (vH > 1) vH -= 1;
                 if (6 * vH < 1) return v1 + (v2 - v1) * 6 * vH;
@@ -18,12 +22,14 @@ namespace Material.Colors.ColorManipulation {
             var l = hsl.L * (1.0 / 100);
 
             double r, g, b;
-            if (s == 0) {
+            if (s == 0)
+            {
                 r = l * 255;
                 g = l * 255;
                 b = l * 255;
             }
-            else {
+            else
+            {
                 double var2;
                 if (l < 0.5) var2 = l * (1 + s);
                 else var2 = l + s - s * l;

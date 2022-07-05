@@ -14,9 +14,9 @@ namespace Material.Styles.Controls
         static Arc()
         {
             AffectsRender<Arc>(StrokeProperty,
-                              StrokeThicknessProperty,
-                              StartAngleProperty,
-                              SweepAngleProperty);
+                StrokeThicknessProperty,
+                StartAngleProperty,
+                SweepAngleProperty);
         }
 
         public IBrush Stroke
@@ -59,13 +59,13 @@ namespace Material.Styles.Controls
         {
             const double offsetStroke = 0.5;
             var o = StrokeThickness + offsetStroke;
-            
+
             // Create main circle for draw circle
             var mainCircle =
                 new EllipseGeometry(new Rect(o / 2, o / 2, Bounds.Width - o, Bounds.Height - o));
 
             var paint = new Pen(Stroke, StrokeThickness);
-            
+
             // Push generated clip geometry for clipping circle figure
             using (context.PushGeometryClip(GetClip()))
             {
@@ -78,45 +78,45 @@ namespace Material.Styles.Controls
         // but I give you choice to use this "High-precision" arc if you needed it in ProgressBar btw
         // only you have to do is define a custom style with replacing default circular class of ProgressBar
         // or you can use it anywhere
-        
+
         // Well I did some small changes here to not parsing figure string,
         // but build figure from stream geometry context.
         // This changes may prevent performance waste a little bit.
-        
+
         // Clip geometry generator
         private StreamGeometry GetClip()
         {
             var offset = StartAngle;
-            
+
             var w = Bounds.Width;
             var h = Bounds.Height;
-            
+
             var halfW = w / 2;
             var halfH = h / 2;
-            
+
             var geometry = new StreamGeometry();
-            
+
             var sweep = SweepAngle;
 
             if (sweep == 0)
                 return geometry;
 
             using var ctx = geometry.Open();
-            
+
             // Center point
             ctx.BeginFigure(new Point(halfW, halfH), true);
 
             const int len = 24;
-                
+
             for (var i = 0; i < len; i++)
             {
                 var l = offset + sweep * i / len;
-                
+
                 ctx.LineTo(DegToPoint(l, halfW, halfH));
             }
-                
+
             ctx.LineTo(DegToPoint(offset + sweep, halfW, halfH));
-                
+
             ctx.EndFigure(true);
             return geometry;
         }

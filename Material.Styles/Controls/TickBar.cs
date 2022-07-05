@@ -10,7 +10,6 @@ using Avalonia.Utilities;
 
 namespace Material.Styles.Controls
 {
-
     /// <summary>
     /// An element that is used for drawing <see cref="Slider"/>'s Ticks.
     /// <br/>
@@ -27,12 +26,12 @@ namespace Material.Styles.Controls
                 MaximumProperty,
                 MinimumProperty,
                 ValueProperty,
-                OrientationProperty, 
+                OrientationProperty,
                 ThicknessTickProperty,
                 TickFrequencyProperty,
                 TicksProperty);
         }
-        
+
         public static readonly StyledProperty<bool> IsDirectionReversedProperty =
             AvaloniaProperty.Register<TickBar, bool>(nameof(IsDirectionReversed));
 
@@ -101,7 +100,7 @@ namespace Material.Styles.Controls
             get => GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
-        
+
         /// <summary>
         /// Defines the <see cref="Value"/> property.
         /// </summary>
@@ -116,7 +115,7 @@ namespace Material.Styles.Controls
             get => GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
-        
+
         /// <summary>
         /// Defines the <see cref="ThicknessTick"/> property.
         /// </summary>
@@ -193,7 +192,7 @@ namespace Material.Styles.Controls
             get => GetValue(ReservedSpaceProperty);
             set => SetValue(ReservedSpaceProperty, value);
         }
-        
+
         public override void Render(DrawingContext dc)
         {
             var size = new Size(Bounds.Width, Bounds.Height);
@@ -206,7 +205,7 @@ namespace Material.Styles.Controls
 
             // Take Thumb size in to account
             var halfReservedSpace = rSpace * 0.5;
-            
+
             var thicknessTick = ThicknessTick;
 
             switch (Orientation)
@@ -232,7 +231,7 @@ namespace Material.Styles.Controls
                     endPoint = new Point(hWidth, halfReservedSpace);
                     logicalToPhysical = size.Height / range * -1;
                     break;
-                
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -253,7 +252,7 @@ namespace Material.Styles.Controls
             {
                 dc.DrawEllipse(brush, null, centerPoint, radius, radius);
             }
-            
+
             IBrush PickBrushByRange(double c)
             {
                 if (c < left)
@@ -294,12 +293,12 @@ namespace Material.Styles.Controls
                             if (MathUtilities.LessThanOrClose(tick, Minimum) ||
                                 MathUtilities.GreaterThanOrClose(tick, Maximum))
                                 continue;
-                            
+
                             var adjustedTick = tick - Minimum;
 
                             var x = adjustedTick * logicalToPhysical + startPoint.X;
                             var point = new Point(x, startPoint.Y);
-                            
+
                             DrawTick(PickBrushByRange(tick), point, thicknessTick);
                         }
                     }
@@ -310,11 +309,12 @@ namespace Material.Styles.Controls
                         {
                             var x = i * logicalToPhysical + startPoint.X;
                             var point = new Point(x, startPoint.Y);
-                            
+
                             DrawTick(PickBrushByRange(i), point, thicknessTick);
                         }
                     }
-                } break;
+                }
+                    break;
 
                 // Vertical
                 case Orientation.Vertical:
@@ -327,7 +327,7 @@ namespace Material.Styles.Controls
                         if (interval < minInterval)
                             interval = minInterval;
                     }
-                    
+
                     // Draw Min & Max tick
                     DrawTick(PickBrushByRange(0), startPoint, thicknessTick);
                     DrawTick(PickBrushByRange(range), endPoint, thicknessTick);
@@ -362,12 +362,13 @@ namespace Material.Styles.Controls
                         {
                             var y = i * logicalToPhysical + startPoint.Y;
                             var point = new Point(startPoint.X, y);
-                            
+
                             DrawTick(PickBrushByRange(i), point, thicknessTick);
                         }
                     }
-                } break;
-                
+                }
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }

@@ -16,7 +16,7 @@ namespace Material.Demo.Commands
         {
             if (parameter is not TextBox textBox)
                 return;
-            
+
             Application.Current?
                 .Clipboard?
                 .SetTextAsync(textBox.Text);

@@ -1,10 +1,10 @@
-﻿using Avalonia.Threading;
-using Material.Dialog.Commands;
-using Material.Dialog.Views;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Avalonia.Threading;
+using Material.Dialog.Commands;
 using Material.Dialog.ViewModels.Elements;
 using Material.Dialog.ViewModels.Elements.TextField;
+using Material.Dialog.Views;
 
 namespace Material.Dialog.ViewModels
 {
@@ -47,7 +47,7 @@ namespace Material.Dialog.ViewModels
         {
             foreach (var item in TextFields)
             {
-                if(item != null)
+                if (item != null)
                     item.OnValidateRequired += Field_OnValidateRequired;
             }
         }
@@ -56,7 +56,7 @@ namespace Material.Dialog.ViewModels
         {
             foreach (var item in TextFields)
             {
-                if(item != null)
+                if (item != null)
                     item.OnValidateRequired -= Field_OnValidateRequired;
             }
         }
@@ -71,12 +71,12 @@ namespace Material.Dialog.ViewModels
 
             return true;
         }
-        
+
         private void Field_OnValidateRequired(object sender, bool e)
         {
             SubmitCommand.RaiseCanExecute();
         }
-        
+
         public MaterialDialogRelayCommand SubmitCommand { get; }
 
         private bool CanPressButton(object args)
@@ -94,20 +94,20 @@ namespace Material.Dialog.ViewModels
                 var resultButtonId = "submit";
                 if (args is ObsoleteDialogButtonViewModel vm)
                     resultButtonId = vm.Result;
-                
+
                 var result = new TextFieldDialogResult
                 {
                     result = resultButtonId
                 };
-                
+
                 var fields = new List<TextFieldResult>();
-                
+
                 foreach (var item in TextFields)
                     fields.Add(new TextFieldResult {Text = item.Text});
-                
+
                 result.fieldsResult = fields.ToArray();
                 button.Parent.DialogResult = result;
-                
+
                 Window.Close();
                 UnbindValidateHandler();
             });

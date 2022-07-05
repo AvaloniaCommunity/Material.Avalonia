@@ -18,7 +18,7 @@ namespace Material.Styles.Converters
                 if (values[i] == null)
                     return null;
             }
-            
+
             if (values[0] is double value)
                 val = value;
 

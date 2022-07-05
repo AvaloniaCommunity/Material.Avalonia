@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reactive.Disposables;
-using System.Reactive.Linq;
+﻿#nullable enable
+
+using System;
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
-using Avalonia.VisualTree;
-
-#nullable enable
 
 namespace Material.Styles.Controls
 {
@@ -39,7 +33,7 @@ namespace Material.Styles.Controls
                 Offset = new Vector(x, y);
                 e.Handled = true;
             }
-            
+
             /*if (Extent.Height > Viewport.Height || Extent.Width > Viewport.Width)
             {
                 var scrollable = Child as ILogicalScrollable;

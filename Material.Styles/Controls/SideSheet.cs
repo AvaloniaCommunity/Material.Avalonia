@@ -12,12 +12,12 @@ namespace Material.Styles.Controls
     // TODO: mobile variant
     [PseudoClasses(":open", ":closed", ":left", ":right", ":mobile")]
     public class SideSheet : ContentControl
-    { 
+    {
         // Avalonia properties
-        
+
         public static readonly StyledProperty<object> SideSheetContentProperty =
             AvaloniaProperty.Register<SideSheet, object>(nameof(SideSheetContent));
-         
+
         public static readonly StyledProperty<IDataTemplate> SideSheetContentTemplateProperty =
             AvaloniaProperty.Register<SideSheet, IDataTemplate>(nameof(SideSheetContentTemplate));
 
@@ -29,21 +29,21 @@ namespace Material.Styles.Controls
 
         public static readonly StyledProperty<HorizontalDirection> SideSheetDirectionProperty =
             AvaloniaProperty.Register<SideSheet, HorizontalDirection>(nameof(SideSheetDirection));
-        
+
         public static readonly StyledProperty<object> SideSheetHeaderProperty =
             AvaloniaProperty.Register<SideSheet, object>(nameof(SideSheetHeader));
-        
+
         public static readonly StyledProperty<IDataTemplate> SideSheetHeaderTemplateProperty =
             AvaloniaProperty.Register<SideSheet, IDataTemplate>(nameof(SideSheetHeaderTemplate));
-        
+
         public static readonly StyledProperty<Thickness> SideSheetPaddingProperty =
             AvaloniaProperty.Register<SideSheet, Thickness>(nameof(SideSheetPadding));
-        
+
         public static readonly StyledProperty<bool> SideSheetCanCloseProperty =
             AvaloniaProperty.Register<SideSheet, bool>(nameof(SideSheetCanClose), true);
 
         // CLR properties
-        
+
         /// <summary>
         /// Hide or show the default close button
         /// </summary>
@@ -52,7 +52,7 @@ namespace Material.Styles.Controls
             get => GetValue(SideSheetCanCloseProperty);
             set => SetValue(SideSheetCanCloseProperty, value);
         }
-        
+
         /// <summary>
         /// Gets or sets the padding in the around the <see cref="SideSheetContent"/>
         /// </summary>
@@ -61,7 +61,7 @@ namespace Material.Styles.Controls
             get => GetValue(SideSheetPaddingProperty);
             set => SetValue(SideSheetPaddingProperty, value);
         }
-        
+
         /// <summary>
         /// Gets or sets the content of the header to display.
         /// </summary> 
@@ -71,7 +71,7 @@ namespace Material.Styles.Controls
             get => GetValue(SideSheetHeaderProperty);
             set => SetValue(SideSheetHeaderProperty, value);
         }
-        
+
         /// <summary>
         /// Gets or sets the data template used to display the header of the control.
         /// </summary> 
@@ -80,7 +80,7 @@ namespace Material.Styles.Controls
             get => GetValue(SideSheetHeaderTemplateProperty);
             set => SetValue(SideSheetHeaderTemplateProperty, value);
         }
-        
+
         /// <summary>
         /// Gets or sets the content to display.
         /// </summary> 
@@ -111,7 +111,7 @@ namespace Material.Styles.Controls
             get => GetValue(SideSheetWidthProperty);
             set => SetValue(SideSheetWidthProperty, value);
         }
-        
+
         public HorizontalDirection SideSheetDirection
         {
             get => GetValue(SideSheetDirectionProperty);
@@ -135,7 +135,7 @@ namespace Material.Styles.Controls
         }
 
         // Controls
-        
+
         // ReSharper disable once InconsistentNaming
         private Border? PART_Scrim;
 
@@ -144,7 +144,7 @@ namespace Material.Styles.Controls
             if (e.NameScope.Find("PART_Scrim") is Border border)
             {
                 PART_Scrim = border;
-                
+
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
             }
 
@@ -152,26 +152,26 @@ namespace Material.Styles.Controls
             {
                 button.Click += (_, _) => SideSheetOpened = false;
             }
-            
+
             base.OnApplyTemplate(e);
         }
-        
+
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
-            if(PART_Scrim != null)
+            if (PART_Scrim != null)
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
-            
+
             base.OnAttachedToVisualTree(e);
         }
 
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
-            if(PART_Scrim != null)
+            if (PART_Scrim != null)
                 PART_Scrim.PointerPressed -= PART_Scrim_Pressed;
-            
+
             base.OnDetachedFromVisualTree(e);
         }
-         
+
         private void PART_Scrim_Pressed(object sender, RoutedEventArgs e)
         {
             SideSheetOpened = false;

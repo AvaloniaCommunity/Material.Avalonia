@@ -1,11 +1,10 @@
+using System;
 using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
-using System;
-using Avalonia;
-using Avalonia.Controls.Presenters;
-using Avalonia.Threading;
 
 namespace Material.Dialog.Views
 {
@@ -18,7 +17,7 @@ namespace Material.Dialog.Views
             Result = new TextFieldDialogResult();
 
             InitializeComponent();
-            
+
             Closed += TextFieldDialog_Closed;
             Opened += TextFieldDialog_Opened;
         }
@@ -33,7 +32,7 @@ namespace Material.Dialog.Views
         {
             if (!(DataContext is TextFieldDialogViewModel vm))
                 return;
-            
+
             //vm.ButtonClick.RaiseCanExecute();
 
             var fields = this.Find<ItemsControl>("PART_Fields");
@@ -42,7 +41,7 @@ namespace Material.Dialog.Views
             {
                 if (fields is null)
                     return;
-                        
+
                 int index = 0;
                 foreach (var item in fields.ItemContainerGenerator.Containers)
                 {
@@ -73,7 +72,7 @@ namespace Material.Dialog.Views
         {
             if (!(DataContext is TextFieldDialogViewModel viewModel))
                 return null;
-            
+
             return viewModel.DialogResult switch
             {
                 TextFieldDialogResult vm => vm,

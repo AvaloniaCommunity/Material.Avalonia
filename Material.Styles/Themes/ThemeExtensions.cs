@@ -5,36 +5,47 @@ using Avalonia.Media;
 using Material.Colors.ColorManipulation;
 using Material.Styles.Themes.Base;
 
-namespace Material.Styles.Themes {
-    public static class ThemeExtensions {
-        public static T LocateMaterialTheme<T>(this Application application) where T : MaterialThemeBase {
+namespace Material.Styles.Themes
+{
+    public static class ThemeExtensions
+    {
+        public static T LocateMaterialTheme<T>(this Application application) where T : MaterialThemeBase
+        {
             var materialTheme = application.Styles.FirstOrDefault(style => style is T);
-            if (materialTheme == null) {
-                throw new InvalidOperationException($"Cannot locate {nameof(T)} in Avalonia application styles. Be sure that you include MaterialTheme in your App.xaml in Application.Styles section");
+            if (materialTheme == null)
+            {
+                throw new InvalidOperationException(
+                    $"Cannot locate {nameof(T)} in Avalonia application styles. Be sure that you include MaterialTheme in your App.xaml in Application.Styles section");
             }
-            return (T)materialTheme;
+
+            return (T) materialTheme;
         }
 
-        public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode) {
-            return baseThemeMode switch {
-                BaseThemeMode.Dark  => Theme.Dark,
+        public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode)
+        {
+            return baseThemeMode switch
+            {
+                BaseThemeMode.Dark => Theme.Dark,
                 BaseThemeMode.Light => Theme.Light,
-                BaseThemeMode.Inherit => Theme.GetSystemTheme() switch {
+                BaseThemeMode.Inherit => Theme.GetSystemTheme() switch
+                {
                     BaseThemeMode.Dark => Theme.Dark,
-                    _                  => Theme.Light
+                    _ => Theme.Light
                 },
                 _ => throw new InvalidOperationException()
             };
         }
 
-        public static BaseThemeMode GetBaseTheme(this ITheme theme) {
+        public static BaseThemeMode GetBaseTheme(this ITheme theme)
+        {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             var foreground = theme.Background.ContrastingForegroundColor();
             return foreground == Avalonia.Media.Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
         }
 
-        public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme) {
+        public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme)
+        {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.ValidationError = baseTheme.ValidationErrorColor;
@@ -69,7 +80,8 @@ namespace Material.Styles.Themes {
             return theme;
         }
 
-        public static ITheme SetPrimaryColor(this ITheme theme, Color primaryColor) {
+        public static ITheme SetPrimaryColor(this ITheme theme, Color primaryColor)
+        {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.PrimaryLight = primaryColor.Lighten();
@@ -79,7 +91,8 @@ namespace Material.Styles.Themes {
             return theme;
         }
 
-        public static ITheme SetSecondaryColor(this ITheme theme, Color accentColor) {
+        public static ITheme SetSecondaryColor(this ITheme theme, Color accentColor)
+        {
             if (theme == null) throw new ArgumentNullException(nameof(theme));
             theme.SecondaryLight = accentColor.Lighten();
             theme.SecondaryMid = accentColor;

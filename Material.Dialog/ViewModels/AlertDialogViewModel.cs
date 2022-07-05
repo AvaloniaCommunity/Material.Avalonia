@@ -6,7 +6,6 @@ namespace Material.Dialog.ViewModels
     {
         public AlertDialogViewModel(AlertDialog dialog) : base(dialog)
         {
-            
         }
     }
 }

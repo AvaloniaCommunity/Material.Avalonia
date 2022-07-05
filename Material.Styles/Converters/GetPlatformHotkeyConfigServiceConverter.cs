@@ -15,7 +15,7 @@ namespace Material.Styles.Converters
         {
             _config = AvaloniaLocator.Current.GetService<PlatformHotkeyConfiguration>();
         }
-        
+
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (parameter is not string kind)

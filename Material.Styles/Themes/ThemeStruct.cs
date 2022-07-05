@@ -1,9 +1,12 @@
 using Avalonia.Media;
 using Material.Colors;
 
-namespace Material.Styles.Themes {
-    internal struct ThemeStruct : ITheme {
-        public ThemeStruct(ITheme baseTheme) {
+namespace Material.Styles.Themes
+{
+    internal struct ThemeStruct : ITheme
+    {
+        public ThemeStruct(ITheme baseTheme)
+        {
             PrimaryLight = baseTheme.PrimaryLight;
             PrimaryMid = baseTheme.PrimaryMid;
             PrimaryDark = baseTheme.PrimaryDark;
@@ -39,6 +42,7 @@ namespace Material.Styles.Themes {
             TextAreaInactiveBorder = baseTheme.TextAreaInactiveBorder;
             DataGridRowHoverBackground = baseTheme.DataGridRowHoverBackground;
         }
+
         public ColorPair PrimaryLight { get; set; }
         public ColorPair PrimaryMid { get; set; }
         public ColorPair PrimaryDark { get; set; }

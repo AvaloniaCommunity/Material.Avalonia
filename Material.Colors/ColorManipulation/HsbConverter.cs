@@ -2,9 +2,12 @@
 using System.Linq;
 using Avalonia.Media;
 
-namespace Material.Colors.ColorManipulation {
-    public static class HsbConverter {
-        public static Color ToColor(this Hsb hsv) {
+namespace Material.Colors.ColorManipulation
+{
+    public static class HsbConverter
+    {
+        public static Color ToColor(this Hsb hsv)
+        {
             var h = hsv.Hue;
             var s = hsv.Saturation;
             var b = hsv.Brightness;
@@ -44,7 +47,8 @@ namespace Material.Colors.ColorManipulation {
             }
         }
 
-        public static Hsb ToHsb(this Color color) {
+        public static Hsb ToHsb(this Color color)
+        {
             double r = color.R;
             double g = color.G;
             double b = color.B;
@@ -62,10 +66,12 @@ namespace Material.Colors.ColorManipulation {
             var d = max - min;
             var s = max.IsCloseTo(0) ? 0 : d / max;
 
-            if (max.IsCloseTo(min)) {
+            if (max.IsCloseTo(min))
+            {
                 h = 0; // achromatic
             }
-            else {
+            else
+            {
                 if (max.IsCloseTo(r))
                     h = (g - b) / d + (g < b ? 6 : 0);
                 else if (max.IsCloseTo(g))
@@ -78,7 +84,8 @@ namespace Material.Colors.ColorManipulation {
             return new Hsb(h, s, v);
         }
 
-        private static bool IsCloseTo(this double value, double target, double tolerance = double.Epsilon) {
+        private static bool IsCloseTo(this double value, double target, double tolerance = double.Epsilon)
+        {
             return Math.Abs(value - target) < tolerance;
         }
     }

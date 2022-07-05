@@ -12,12 +12,13 @@ namespace Material.Dialog.Converters
 
             if (parameter is string s)
                 format = s;
-            
+
             if (value is DateTime)
             {
-                var v = (DateTime)value;
+                var v = (DateTime) value;
                 return v.ToString(format);
             }
+
             return "";
         }
 

@@ -28,7 +28,7 @@ namespace Material.Dialog.Resources
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
-        
+
         // ReSharper restore UnusedMember.Local
     }
 }

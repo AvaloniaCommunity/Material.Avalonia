@@ -1,4 +1,4 @@
-﻿using System; 
+﻿using System;
 using System.Windows.Input;
 using Avalonia.Threading;
 
@@ -39,11 +39,8 @@ namespace Material.Dialog.Commands
             if (handler != null)
             {
                 // Call CanExecute via Dispatcher.UIThread.Post to prevent CanExecute can't be called from other thread.
-                Dispatcher.UIThread.Post(delegate
-                {
-                    handler?.Invoke(this, new EventArgs());
-                });
+                Dispatcher.UIThread.Post(delegate { handler?.Invoke(this, new EventArgs()); });
             }
-        } 
+        }
     }
 }

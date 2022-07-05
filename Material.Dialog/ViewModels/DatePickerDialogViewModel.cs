@@ -14,6 +14,7 @@ namespace Material.Dialog.ViewModels
         public DialogButton NegativeButton { get; internal set; }
 
         private DateTime _dateTime;
+
         public DateTime DateTime
         {
             get => _dateTime;
@@ -33,6 +34,7 @@ namespace Material.Dialog.ViewModels
         {
             return true;
         }
+
         public async void OnPressButton(object args)
         {
             var button = args as DialogButton;

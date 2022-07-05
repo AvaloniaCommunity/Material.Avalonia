@@ -18,7 +18,7 @@ namespace Material.Styles.Controls
 
         private readonly ObservableCollection<SnackbarModel> _snackbars;
         public ObservableCollection<SnackbarModel> SnackbarModels => _snackbars;
-        
+
         /// <summary>
         /// Get the name of host. The name of host can be set only one time.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Material.Styles.Controls
 
                     if (!SnackbarHostDictionary.ContainsValue(this))
                         return;
-                    
+
                     KeyValuePair<string, SnackbarHost>? target = null;
                     foreach (var host in SnackbarHostDictionary
                                  .Where(host => ReferenceEquals(host.Value, this)))
@@ -62,7 +62,8 @@ namespace Material.Styles.Controls
         }
 
         public static readonly StyledProperty<HorizontalAlignment> SnackbarHorizontalAlignmentProperty =
-            AvaloniaProperty.Register<SnackbarHost, HorizontalAlignment>(nameof(SnackbarHorizontalAlignment), HorizontalAlignment.Left);
+            AvaloniaProperty.Register<SnackbarHost, HorizontalAlignment>(nameof(SnackbarHorizontalAlignment),
+                HorizontalAlignment.Left);
 
         public VerticalAlignment SnackbarVerticalAlignment
         {
@@ -71,14 +72,15 @@ namespace Material.Styles.Controls
         }
 
         public static readonly StyledProperty<VerticalAlignment> SnackbarVerticalAlignmentProperty =
-            AvaloniaProperty.Register<SnackbarHost, VerticalAlignment>(nameof(SnackbarVerticalAlignment), VerticalAlignment.Bottom);
+            AvaloniaProperty.Register<SnackbarHost, VerticalAlignment>(nameof(SnackbarVerticalAlignment),
+                VerticalAlignment.Bottom);
 
         static SnackbarHost()
         {
             //_snackbarHosts = new HashSet<SnackbarHost>();
             SnackbarHostDictionary = new Dictionary<string, SnackbarHost>();
         }
-        
+
         public SnackbarHost()
         {
             // Initialize model collection
@@ -136,9 +138,9 @@ namespace Material.Styles.Controls
             {
                 void OnExpired(object sender, ElapsedEventArgs args)
                 {
-                    if (sender is not Timer timer) 
+                    if (sender is not Timer timer)
                         return;
-                    
+
                     // Remove timer.
                     timer.Stop();
                     timer.Elapsed -= OnExpired;
@@ -166,37 +168,32 @@ namespace Material.Styles.Controls
         {
             if (string.IsNullOrEmpty(targetHost))
                 targetHost = GetFirstHostName();
-            
+
             var host = GetHost(targetHost);
 
             if (host is null)
-                throw new ArgumentNullException(nameof(targetHost), $"The target host named \"{targetHost}\" is not exist.");
+                throw new ArgumentNullException(nameof(targetHost),
+                    $"The target host named \"{targetHost}\" is not exist.");
 
-            Dispatcher.UIThread.Post(delegate
-            {
-                host.SnackbarModels.Remove(model);
-            }, priority);
+            Dispatcher.UIThread.Post(delegate { host.SnackbarModels.Remove(model); }, priority);
         }
 
         private static void OnSnackbarDurationExpired(SnackbarHost host, SnackbarModel model)
         {
-            Dispatcher.UIThread.Post(delegate
-            {
-                host.SnackbarModels.Remove(model);
-            });
+            Dispatcher.UIThread.Post(delegate { host.SnackbarModels.Remove(model); });
         }
 
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
             SnackbarHostDictionary.Add(HostName, this);
-            
+
             base.OnAttachedToVisualTree(e);
         }
 
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
             SnackbarHostDictionary.Remove(HostName);
-            
+
             base.OnDetachedFromVisualTree(e);
         }
 
@@ -206,7 +203,7 @@ namespace Material.Styles.Controls
             if (HostName is null)
                 throw new ArgumentNullException(nameof(HostName),
                     "The name of SnackbarHost is null. Please define it.");
-            
+
             base.OnApplyTemplate(e);
         }
     }

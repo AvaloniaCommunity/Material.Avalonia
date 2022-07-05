@@ -7,7 +7,8 @@ using Avalonia.Media;
 using Avalonia.Threading;
 using Material.Styles.Themes;
 
-namespace Material.Styles.Controls {
+namespace Material.Styles.Controls
+{
     public enum ColorZoneMode
     {
         Standard,
@@ -20,9 +21,11 @@ namespace Material.Styles.Controls {
         Dark,
         Custom
     }
-    public class ColorZone : ContentControl {
-        
-        public static readonly StyledProperty<ColorZoneMode> ModeProperty = AvaloniaProperty.Register<ColorZone, ColorZoneMode>(nameof(Mode));
+
+    public class ColorZone : ContentControl
+    {
+        public static readonly StyledProperty<ColorZoneMode> ModeProperty =
+            AvaloniaProperty.Register<ColorZone, ColorZoneMode>(nameof(Mode));
 
         public ColorZoneMode Mode
         {
@@ -41,7 +44,7 @@ namespace Material.Styles.Controls {
         {
             if (arg.Sender is not ColorZone control)
                 return;
-            
+
             var resources = Application.Current!.LocateMaterialTheme<MaterialTheme>();
             control.OnThemeChanged(resources);
         }
@@ -49,7 +52,7 @@ namespace Material.Styles.Controls {
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
             OnModeChanged(null);
-            
+
             DisposeSubscription();
 
             var resources = Application.Current!.LocateMaterialTheme<MaterialTheme>();
@@ -61,22 +64,19 @@ namespace Material.Styles.Controls {
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
             DisposeSubscription();
-            
+
             base.OnDetachedFromVisualTree(e);
         }
-        
+
         private void DisposeSubscription()
         {
             _subscription?.Dispose();
             _subscription = null;
         }
-        
+
         private void OnThemeChanged(MaterialThemeBase theme)
         {
-            Dispatcher.UIThread.InvokeAsync(delegate
-            {
-                OnModeChanged(theme);
-            });
+            Dispatcher.UIThread.InvokeAsync(delegate { OnModeChanged(theme); });
         }
 
         private void OnModeChanged(MaterialThemeBase? theme)
@@ -90,65 +90,73 @@ namespace Material.Styles.Controls {
             var resources = theme;
 
             var foregroundProperty = TemplatedControl.ForegroundProperty;
-            
+
             switch (colorZone.Mode)
             {
                 case ColorZoneMode.Standard:
                 {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignPaper"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignBody"));
-                } break;
-                
+                }
+                    break;
+
                 case ColorZoneMode.Inverted:
                 {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignBody"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignPaper"));
-                } break;
-                
+                }
+                    break;
+
                 case ColorZoneMode.Light:
                 {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignLightBackground"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignLightForeground"));
-                } break;
+                }
+                    break;
 
                 case ColorZoneMode.Dark:
                 {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignDarkBackground"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignDarkForeground"));
-                } break;
-                
+                }
+                    break;
+
                 case ColorZoneMode.PrimaryLight:
                 {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "PrimaryHueLightBrush"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueLightForegroundBrush"));
-                } break;
-                
+                }
+                    break;
+
                 case ColorZoneMode.PrimaryMid:
                 {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "PrimaryHueMidBrush"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueMidForegroundBrush"));
-                } break;
-                
+                }
+                    break;
+
                 case ColorZoneMode.PrimaryDark:
                 {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "PrimaryHueDarkBrush"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueDarkForegroundBrush"));
-                } break;
-                
+                }
+                    break;
+
                 case ColorZoneMode.Accent:
                 {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "SecondaryHueMidBrush"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "SecondaryHueMidForegroundBrush"));
-                } break;
-                
+                }
+                    break;
+
                 case ColorZoneMode.Custom:
                     break;
-                
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
+
         private void SetValueInternal(AvaloniaProperty property, object value)
         {
             SetValue(property, value, BindingPriority.Style);
@@ -158,7 +166,7 @@ namespace Material.Styles.Controls {
         {
             if (!theme.TryGetResource(name, out var resource))
                 throw new Exception("Resource not found");
-            
+
             if (resource is IBrush brush)
                 return brush;
 

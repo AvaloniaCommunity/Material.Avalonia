@@ -1,9 +1,11 @@
 using Avalonia;
 using Avalonia.Controls;
 
-namespace Material.Styles.Controls {
-    public class Card : ContentControl {
-        public static readonly StyledProperty<bool> InsideClippingProperty = 
+namespace Material.Styles.Controls
+{
+    public class Card : ContentControl
+    {
+        public static readonly StyledProperty<bool> InsideClippingProperty =
             AvaloniaProperty.Register<Card, bool>(nameof(InsideClipping), true);
 
         /// <summary>
