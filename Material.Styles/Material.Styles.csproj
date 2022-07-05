@@ -59,8 +59,4 @@
       <PackageReference Include="DialogHost.Avalonia" Version="0.4.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Compile Remove="Controls\MaterialCalendar.cs" />
-    </ItemGroup>
-
 </Project>
