@@ -1,6 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls;
+using ShowMeTheXaml;
 
 namespace Material.Demo
 {
