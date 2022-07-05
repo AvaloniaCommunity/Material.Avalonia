@@ -84,9 +84,6 @@ namespace Material.Styles.Controls
             var colorZone = this;
             theme ??= Application.Current!.LocateMaterialTheme<MaterialTheme>();
 
-            if (theme.CurrentTheme == null)
-                return;
-
             var resources = theme;
 
             var foregroundProperty = TemplatedControl.ForegroundProperty;
@@ -157,20 +154,20 @@ namespace Material.Styles.Controls
             }
         }
 
-        private void SetValueInternal(AvaloniaProperty property, object value)
+        private void SetValueInternal(AvaloniaProperty property, object? value)
         {
             SetValue(property, value, BindingPriority.Style);
         }
 
-        private static IBrush GetBrushResource(IResourceNode theme, string name)
+        private static IBrush? GetBrushResource(IResourceNode theme, string name)
         {
             if (!theme.TryGetResource(name, out var resource))
-                throw new Exception("Resource not found");
+                return null;
 
             if (resource is IBrush brush)
                 return brush;
 
-            throw new Exception("Resource not found");
+            return null;
         }
     }
 }

@@ -45,13 +45,13 @@ namespace Material.Styles.Themes
 
         private IResourceDictionary LoadedResourceDictionary => (Loaded as Avalonia.Styling.Styles)!.Resources;
 
-        public static readonly DirectProperty<MaterialThemeBase, ITheme?> CurrentThemeProperty =
-            AvaloniaProperty.RegisterDirect<MaterialThemeBase, ITheme?>(
+        public static readonly DirectProperty<MaterialThemeBase, ITheme> CurrentThemeProperty =
+            AvaloniaProperty.RegisterDirect<MaterialThemeBase, ITheme>(
                 nameof(CurrentTheme),
                 o => o.CurrentTheme,
                 (o, v) => o.CurrentTheme = v);
 
-        private ThemeStruct? _currentTheme;
+        private ThemeStruct _currentTheme;
 
         /// <summary>
         /// Get or set current applied theme
@@ -59,43 +59,25 @@ namespace Material.Styles.Themes
         /// <returns>
         /// Returns a STRUCT implementing ITheme interface 
         /// </returns>
-        public ITheme? CurrentTheme
+        public ITheme CurrentTheme
         {
-            get
-            {
-                if (!_currentTheme.HasValue)
-                    return null;
-
-                return new ThemeStruct(_currentTheme.Value);
-            }
+            get => new ThemeStruct(_currentTheme);
             set
             {
-                if (!_currentTheme.HasValue && value == null)
-                    return;
-
                 var oldTheme = _currentTheme;
 
-                if (value != null)
-                {
-                    var newTheme = new ThemeStruct(value);
+                var newTheme = new ThemeStruct(value);
 
-                    if (oldTheme.HasValue && EqualityComparer<ITheme>.Default.Equals(oldTheme, newTheme))
-                        return;
+                if (EqualityComparer<ITheme>.Default.Equals(oldTheme, newTheme))
+                    return;
 
-                    _currentTheme = newTheme;
-                    RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
-                    StartUpdatingTheme(oldTheme, newTheme);
-                }
-                else
-                {
-                    _currentTheme = null;
-                    RaisePropertyChanged(CurrentThemeProperty, oldTheme, null);
-                    StartUpdatingTheme(oldTheme, null);
-                }
+                _currentTheme = newTheme;
+                RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
+                StartUpdatingTheme(oldTheme, newTheme);
             }
         }
 
-        public IObservable<ITheme?> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
+        public IObservable<ITheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
 
         /// <summary>
         /// This event is raised when all brushes is changed.
