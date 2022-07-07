@@ -33,7 +33,7 @@ jobs:
         path: artifacts/
   numerge:
     runs-on: ubuntu-latest
-    name: Merge packages and publish nightly
+    name: Merge packages and publish release
     needs: [build]
     steps:
       - name: Checkout Numerge
