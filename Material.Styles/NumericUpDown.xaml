@@ -28,6 +28,11 @@
                                        ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
                             <TextBox Name="PART_TextBox" Margin="8 0" 
                                      BorderThickness="0" VerticalAlignment="Center"
+                                     TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                     TextBlock.FontSize="{TemplateBinding FontSize}"
+                                     TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                                     TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                     TextBlock.Foreground="{TemplateBinding Foreground}"
                                      assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
                                      Watermark="{TemplateBinding Watermark}"
                                      DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
