@@ -11,8 +11,15 @@ namespace Material.Dialog.Views
         public AlertDialog()
         {
             InitializeComponent(); 
-        }
+            
+#if DEBUG
+            
+            this.AttachDevTools();
         
+#endif
+            
+        }
+
         public DialogResult GetResult() => (DataContext as AlertDialogViewModel)?.DialogResult;
 
         public void SetNegativeResult(DialogResult result)

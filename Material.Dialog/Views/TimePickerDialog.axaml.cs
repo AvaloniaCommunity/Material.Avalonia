@@ -84,6 +84,13 @@ namespace Material.Dialog.Views
             Pointers = new Stack<IPointer>();
             
             InitializeComponent();
+            
+#if DEBUG
+            
+            this.AttachDevTools();
+        
+#endif
+            
             // Create decorations
             CallerPanel1 = this.Get<Grid>(nameof(CallerPanel1));
             CallerPanel2 = this.Get<Grid>(nameof(CallerPanel2));
