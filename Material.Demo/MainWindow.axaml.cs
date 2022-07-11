@@ -19,6 +19,7 @@ namespace Material.Demo
         private ListBox DrawerList;
         private Carousel PageCarousel;
         private ScrollViewer mainScroller;
+        private NavigationDrawer LeftDrawer;
 
         #endregion
 
@@ -43,6 +44,8 @@ namespace Material.Demo
             PageCarousel = this.Get<Carousel>(nameof(PageCarousel));
 
             mainScroller = this.Get<ScrollViewer>(nameof(mainScroller));
+
+            LeftDrawer = this.Get<NavigationDrawer>(nameof(LeftDrawer));
 
             #endregion
         }
@@ -71,8 +74,8 @@ namespace Material.Demo
             {
                 // ignored
             }
-
-            NavDrawerSwitch.IsChecked = false;
+            
+            LeftDrawer.OptionalCloseLeftDrawer();
         }
 
         private void TemplatedControl_OnTemplateApplied(object? sender, TemplateAppliedEventArgs e)
