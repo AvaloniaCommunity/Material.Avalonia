@@ -1,5 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:assists="clr-namespace:Material.Styles.Assists">
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:controls="clr-namespace:Material.Styles.Controls" >
     <Style Selector="Expander" >
         <Setter Property="ClipToBounds" Value="False"/>
         <Setter Property="CornerRadius" Value="4"/>
@@ -16,20 +17,19 @@
                     <Border Name="PART_InnerBorder" ClipToBounds="True"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <Panel>
-                            <LayoutTransformControl Name="PART_Transform"
-                                                    UseRenderTransform="True">
-                                <ContentPresenter Name="PART_ContentPresenter"
-                                                  Content="{TemplateBinding Content}"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            </LayoutTransformControl>
+                            <controls:ContentExpandControl Name="PART_ContentExpand"
+                                                           Content="{TemplateBinding Content}"
+                                                           ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         
-                            <ToggleButton Name="PART_toggle"
-                                          Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          Foreground="{DynamicResource MaterialDesignBody}"
-                                          IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"/>
+                            <LayoutTransformControl Name="PART_ToggleTransform">
+                                <ToggleButton Name="PART_toggle"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              Foreground="{DynamicResource MaterialDesignBody}"
+                                              IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"/>
+                            </LayoutTransformControl>
                         </Panel>
                     </Border>
                 </Border>
@@ -37,50 +37,77 @@
         </Setter>
     </Style>
     
-    <!-- Transition is disabled because avaloniaUI is still not supports resize transition,
-    and the animation works bad -->
-    
-    <Style Selector="Expander /template/ LayoutTransformControl#PART_Transform">
+    <Style Selector="Expander:not(.notransitions) /template/ controls|ContentExpandControl#PART_ContentExpand">
         <Setter Property="Transitions" >
             <Transitions>
-                <TransformOperationsTransition Easing="CircularEaseOut" Duration="0.3" Property="RenderTransform"/>
+                <DoubleTransition Duration="0.25" Easing="CircularEaseOut" Property="Multiplier"/>
             </Transitions>
         </Setter>
     </Style>
     
-    <Style Selector="Expander:up /template/ LayoutTransformControl#PART_Transform,
-                     Expander:down /template/ LayoutTransformControl#PART_Transform" >
-        <Setter Property="RenderTransform" Value="scale(1, 0)"/>
+    <Style Selector="Expander /template/ LayoutTransformControl#PART_ToggleTransform">
+        <Setter Property="ClipToBounds" Value="False"/>
     </Style>
     
-    <Style Selector="Expander:left /template/ LayoutTransformControl#PART_Transform,
-                     Expander:right /template/ LayoutTransformControl#PART_Transform" >
-        <Setter Property="RenderTransform" Value="scale(0, 1)"/>
+    <Style Selector="Expander /template/ controls|ContentExpandControl#PART_ContentExpand">
+        <Setter Property="Multiplier" Value="0"/>
     </Style>
     
-    <Style Selector="Expander:expanded /template/ LayoutTransformControl#PART_Transform">
-        <Setter Property="RenderTransform" Value="scale(1)"/>
+    <Style Selector="Expander:up /template/ controls|ContentExpandControl#PART_ContentExpand,
+                     Expander:down /template/ controls|ContentExpandControl#PART_ContentExpand" >
+        <Setter Property="Orientation" Value="Vertical"/>
     </Style>
     
-    <Style Selector="Expander:up /template/ ToggleButton#PART_toggle">
+    <Style Selector="Expander:left /template/ controls|ContentExpandControl#PART_ContentExpand,
+                     Expander:right /template/ controls|ContentExpandControl#PART_ContentExpand" >
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    
+    <Style Selector="Expander:expanded /template/ controls|ContentExpandControl#PART_ContentExpand">
+        <Setter Property="Multiplier" Value="1"/>
+    </Style>
+    
+    <Style Selector="Expander:up /template/ LayoutTransformControl#PART_ToggleTransform">
         <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
     
-    <Style Selector="Expander:up /template/ LayoutTransformControl#PART_Transform">
+    <Style Selector="Expander:up /template/ controls|ContentExpandControl#PART_ContentExpand">
         <Setter Property="VerticalAlignment" Value="Bottom"/>
         <Setter Property="Margin" Value="0,0,0,48"/>
-        <Setter Property="RenderTransformOrigin" Value="0.5, 1"/>
     </Style>
     
     
-    <Style Selector="Expander:down /template/ ToggleButton#PART_toggle">
+    <Style Selector="Expander:down /template/ LayoutTransformControl#PART_ToggleTransform">
         <Setter Property="VerticalAlignment" Value="Top"/>
     </Style>
     
-    <Style Selector="Expander:down /template/ LayoutTransformControl#PART_Transform">
+    <Style Selector="Expander:down /template/ controls|ContentExpandControl#PART_ContentExpand">
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Margin" Value="0,48,0,0"/>
-        <Setter Property="RenderTransformOrigin" Value="0.5, 0"/>
+    </Style>
+    
+    <Style Selector="Expander:left /template/ LayoutTransformControl#PART_ToggleTransform,
+    Expander:right /template/ LayoutTransformControl#PART_ToggleTransform">
+        <Setter Property="LayoutTransform" Value="rotate(90deg)"/>
+    </Style>
+    
+    <Style Selector="Expander:left /template/ LayoutTransformControl#PART_ToggleTransform">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+    
+    <Style Selector="Expander:left /template/ controls|ContentExpandControl#PART_ContentExpand">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Margin" Value="0,0,48,0"/>
+    </Style>
+    
+    
+    <Style Selector="Expander:right /template/ LayoutTransformControl#PART_ToggleTransform">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    
+    <Style Selector="Expander:right /template/ controls|ContentExpandControl#PART_ContentExpand">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="48,0,0,0"/>
     </Style>
     
 
@@ -124,11 +151,9 @@
         </Setter>
     </Style>
     
-    
     <Style Selector="Expander /template/ ToggleButton#PART_toggle /template/ Border#PART_RootBorder">
         <Setter Property="Padding" Value="12, 8"/>
     </Style>
-    
     
     <Style Selector="Expander:down /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
         <Setter Property="RenderTransform" Value="rotate(90deg)"/>
@@ -146,19 +171,19 @@
     </Style>
     
     <Style Selector="Expander:left /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
-        <Setter Property="RenderTransform" Value="rotate(0deg)"/>
+        <Setter Property="RenderTransform" Value="rotate(90deg)"/>
     </Style>
     
     <Style Selector="Expander:left:expanded /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
-        <Setter Property="RenderTransform" Value="rotate(180deg)"/>
+        <Setter Property="RenderTransform" Value="rotate(-90deg)"/>
     </Style>
     
     
     <Style Selector="Expander:right /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
-        <Setter Property="RenderTransform" Value="rotate(180deg)"/>
+        <Setter Property="RenderTransform" Value="rotate(-90deg)"/>
     </Style>
     
     <Style Selector="Expander:right:expanded /template/ ToggleButton#PART_toggle /template/ Path#PART_ExpandIcon">
-        <Setter Property="RenderTransform" Value="rotate(0deg)"/>
+        <Setter Property="RenderTransform" Value="rotate(90deg)"/>
     </Style>
 </Styles>
