@@ -5,15 +5,56 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:viewModels="clr-namespace:Material.Demo.ViewModels"
              x:Class="Material.Demo.Pages.ExpandersDemo">
-    <StackPanel Margin="16, 0">
+    <UserControl.DataContext>
+        <viewModels:ExpanderDemoViewModel/>
+    </UserControl.DataContext>
+    
+    <UserControl.Resources>
+        <DataTemplate x:Key="LoremContentTemplate"
+                      DataType="viewModels:ExpanderDemoViewModel">
+            <ItemsControl Items="{Binding LoremText}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock TextWrapping="Wrap"
+                                   Text="{Binding }"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <StackPanel Margin="16, 0"
+                Spacing="16">
         <TextBlock Classes="Headline4 Subheadline" Text="Expanders" />
         
-        <Expander Header="This is expander! Click me to expand the content.">
-            <TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."/>
-        </Expander>
-        <Expander Header="This is another expander!">
-            <TextBlock TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."/>
-        </Expander>
+        <ContentControl Content="{Binding}"
+                        ContentTemplate="{StaticResource LoremContentTemplate}"/>
+        
+        <Expander Header="This is expander! Click me to expand the content."
+                  Content="{Binding }"
+                  ContentTemplate="{StaticResource LoremContentTemplate}"/>
+        
+        <Expander Header="This is another expander!"
+                  Content="{Binding }"
+                  ContentTemplate="{StaticResource LoremContentTemplate}"/>
+        
+        <Expander Header="This expander inflates content from upside!"
+                  ExpandDirection="Up"
+                  Content="{Binding }"
+                  ContentTemplate="{StaticResource LoremContentTemplate}"/>
+        
+        <StackPanel Orientation="Horizontal">
+            <Expander Header="Inflates left!"
+                      ExpandDirection="Left"
+                      Content="{Binding }"
+                      ContentTemplate="{StaticResource LoremContentTemplate}"/>
+            
+            <Expander Header="Inflates right!"
+                      ExpandDirection="Right"
+                      Content="{Binding }"
+                      ContentTemplate="{StaticResource LoremContentTemplate}"/>
+        </StackPanel>
     </StackPanel>
 </UserControl>
