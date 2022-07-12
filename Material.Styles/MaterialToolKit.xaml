@@ -46,11 +46,14 @@
     <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ComboBoxItem.xaml" />
     <StyleInclude Source="avares://Material.Styles/ContentControl.xaml" />
+    
+    <StyleInclude Source="avares://Material.Styles/ContentExpandControl.axaml" />
+    
     <StyleInclude Source="avares://Material.Styles/ContextMenu.xaml" />
     <StyleInclude Source="avares://Material.Styles/DataValidationErrors.xaml" />
     <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" />
     <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" />
-    <StyleInclude Source="avares://Material.Styles/Expander.xaml" />
+ 
     <StyleInclude Source="avares://Material.Styles/FlyoutPresenter.axaml" />
     <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
     <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
@@ -91,6 +94,9 @@
     <StyleInclude Source="avares://Material.Styles/TextBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/Window.xaml" />
     <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" />
+    
+    <!-- Controls (High-priority) -->
+    <StyleInclude Source="avares://Material.Styles/Expander.xaml" />
 
     <!-- Custom controls (High-priority) -->
     <StyleInclude Source="avares://Material.Styles/SideSheet.xaml"/>
