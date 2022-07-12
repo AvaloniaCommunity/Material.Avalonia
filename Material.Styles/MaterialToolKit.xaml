@@ -34,6 +34,9 @@
     <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ComboBoxItem.xaml" />
     <StyleInclude Source="avares://Material.Styles/ContentControl.xaml" />
+    
+    <StyleInclude Source="avares://Material.Styles/ContentExpandControl.axaml" />
+    
     <StyleInclude Source="avares://Material.Styles/ContextMenu.xaml" />
     <StyleInclude Source="avares://Material.Styles/DataValidationErrors.xaml" />
     <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" />
