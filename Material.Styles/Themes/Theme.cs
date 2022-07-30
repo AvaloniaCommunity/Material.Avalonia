@@ -45,11 +45,6 @@ namespace Material.Styles.Themes {
         public Color TextAreaInactiveBorder { get; set; }
         public Color DataGridRowHoverBackground { get; set; }
 
-        public static BaseThemeMode? GetSystemTheme() {
-            // TODO Implement getting system themes
-            return null;
-        }
-
         public static Theme Create(IBaseTheme baseTheme, Color primary, Color accent) {
             if (baseTheme is null) throw new ArgumentNullException(nameof(baseTheme));
             var theme = new Theme();

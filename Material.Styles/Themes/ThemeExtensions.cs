@@ -17,13 +17,10 @@ namespace Material.Styles.Themes {
 
         public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode) {
             return baseThemeMode switch {
-                BaseThemeMode.Dark  => Theme.Dark,
-                BaseThemeMode.Light => Theme.Light,
-                BaseThemeMode.Inherit => Theme.GetSystemTheme() switch {
-                    BaseThemeMode.Dark => Theme.Dark,
-                    _                  => Theme.Light
-                },
-                _ => throw new InvalidOperationException()
+                BaseThemeMode.Dark    => Theme.Dark,
+                BaseThemeMode.Light   => Theme.Light,
+                BaseThemeMode.Inherit => (SystemThemeProbe.GetSystemBaseThemeMode() ?? BaseThemeMode.Light).GetBaseTheme(),
+                _                     => throw new InvalidOperationException()
             };
         }
 
