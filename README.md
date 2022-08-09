@@ -22,23 +22,35 @@ This library is a collection of styles and controls to help you customize your A
 [![nuget](https://img.shields.io/nuget/dt/Material.Avalonia?color=blue&label=Downloads&style=flat-square)][nuget]
 
 # <img src="/FavIcon.svg" width="32" height="32"> Getting started
-Check out the [getting started](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Simple-getting-started) wiki page. Or follow these very quick instructions:
+Check out the [getting started](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Getting-started) wiki page. Or follow these very quick instructions:
 1. Add [Material.Avalonia][nuget] nuget package to your project:
 
        dotnet add package Material.Avalonia
 
 2. Edit `App.xaml` file:
-
-      ```xaml
-      <Application ...
-          xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
-          ...>
-          <Application.Styles>
-              <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
-          </Application.Styles>
-      </Application>
-      ```
-
+   > If you install 3.0.0-* version or higher, use this:
+   ```xaml
+   <Application ...
+     xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+     ...>
+     <Application.Styles>
+       <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
+     </Application.Styles>
+   </Application>
+   ```
+   > If you install 2.5.1 or lower use this:
+   ```xaml
+   <Application ...
+     xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+     ...>
+     <Application.Resources>
+       <themes:BundledTheme BaseTheme="Light" PrimaryColor="Teal" SecondaryColor="Amber"/>
+     </Application.Resources>
+     <Application.Styles>
+       <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
+     </Application.Styles>
+   </Application>
+   ```
 # <img src="/FavIcon.svg" width="32" height="32"> Useful links
 - [Advanced theming](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming) wiki page
 - [Nightly packages](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Using-nightly-build-feed) wiki page
