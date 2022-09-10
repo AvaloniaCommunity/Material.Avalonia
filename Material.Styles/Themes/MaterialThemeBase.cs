@@ -127,6 +127,8 @@ namespace Material.Styles.Themes
         }
 
         bool IResourceNode.HasResources => (Loaded as IResourceProvider)?.HasResources ?? false;
+        public SelectorMatchResult TryAttach(IStyleable target, object? host) => Loaded.TryAttach(target, host);
+        
         IReadOnlyList<IStyle> IStyle.Children => _loaded?.Children ?? Array.Empty<IStyle>();
 
         public event EventHandler OwnerChanged {
