@@ -131,7 +131,7 @@ namespace Material.Styles.Themes
         
         IReadOnlyList<IStyle> IStyle.Children => _loaded?.Children ?? Array.Empty<IStyle>();
 
-        public event EventHandler OwnerChanged {
+        public event EventHandler? OwnerChanged {
             add {
                 if (Loaded is IResourceProvider rp) {
                     rp.OwnerChanged += value;
