@@ -24,7 +24,7 @@ namespace Material.Styles.Themes
         private IStyle? _loaded;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentTheme"/> class.
+        /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
         /// </summary>
         /// <param name="baseUri">The base URL for the XAML context.</param>
         public MaterialThemeBase(Uri baseUri)
@@ -36,7 +36,7 @@ namespace Material.Styles.Themes
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentTheme"/> class.
+        /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
         /// </summary>
         /// <param name="serviceProvider">The XAML service provider.</param>
         public MaterialThemeBase(IServiceProvider serviceProvider)

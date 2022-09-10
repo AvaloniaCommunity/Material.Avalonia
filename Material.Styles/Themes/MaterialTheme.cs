@@ -21,14 +21,14 @@ namespace Material.Styles.Themes
         private ITheme _theme = new ThemeStruct();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentTheme"/> class.
+        /// Initializes a new instance of the <see cref="MaterialTheme"/> class.
         /// </summary>
         /// <param name="baseUri">The base URL for the XAML context.</param>
         public MaterialTheme(Uri baseUri) : base(baseUri)
             => Initialize();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentTheme"/> class.
+        /// Initializes a new instance of the <see cref="MaterialTheme"/> class.
         /// </summary>
         /// <param name="serviceProvider">The XAML service provider.</param>
         public MaterialTheme(IServiceProvider serviceProvider) : base(serviceProvider)
