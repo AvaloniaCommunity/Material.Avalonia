@@ -96,7 +96,7 @@ namespace Material.Styles.Controls
             return SnackbarHostDictionary.First().Key;
         }
 
-        private static SnackbarHost GetHost(string name)
+        private static SnackbarHost GetHost(string? name)
         {
             if (name is null)
                 throw new ArgumentNullException(nameof(name));
