@@ -2,7 +2,6 @@ using System;
 using System.Reactive;
 using System.Reactive.Linq;
 using Avalonia;
-using Avalonia.Themes.Fluent;
 using Avalonia.Threading;
 using Material.Colors;
 using Material.Styles.Themes.Base;
