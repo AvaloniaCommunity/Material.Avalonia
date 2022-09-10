@@ -21,5 +21,9 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
+        
+        <Style Selector="^:not(.no-transitions)">
+            <Setter Property="UseTransitions" Value="True"/>
+        </Style>
     </ControlTheme>
 </ResourceDictionary>
