@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:pages="clr-namespace:Material.Demo.Pages"
         xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-        xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
         xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
         xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
         xmlns:models="clr-namespace:Material.Demo.Models"
@@ -13,12 +12,6 @@
         Width="1280" Height="720" MinWidth="720"
         Title="Material.Demo">
     <Window.Styles>
-        <Style Selector="showMeTheXaml|XamlDisplay">
-            <Setter Property="Margin" Value="8" />
-            
-            <!-- Stretch XamlDisplay horizontally -->
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        </Style>
         <Style Selector="TextBlock.Subheadline">
             <Setter Property="Margin" Value="0, 16" />
         </Style>
@@ -31,22 +24,6 @@
         </Style>
     </Window.Styles>
     
-    <dialogHostAvalonia:DialogHost Identifier="MainDialogHost" >
-        <dialogHostAvalonia:DialogHost.DialogContentTemplate>
-            <DataTemplate DataType="models:Sample2Model" >
-                <StackPanel>
-                    <TextBlock TextAlignment="Center" >Your lucky number:</TextBlock>
-                    <TextBlock Classes="Body1"
-                               TextAlignment="Center"
-                               Text="{Binding Number}" />
-                    <Button Margin="0 8 0 0"
-                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHostAvalonia:DialogHost}, Path=CloseDialogCommand}" >
-                        THANKS, CLOSE
-                    </Button>
-                </StackPanel>
-            </DataTemplate>
-        </dialogHostAvalonia:DialogHost.DialogContentTemplate>
-
     <controls:SnackbarHost HostName="Root" TemplateApplied="TemplatedControl_OnTemplateApplied">
         <controls:NavigationDrawer Name="LeftDrawer" Classes="permanent"
                                  LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
@@ -217,8 +194,4 @@
             </DockPanel>
         </controls:NavigationDrawer>
     </controls:SnackbarHost>
-    </dialogHostAvalonia:DialogHost>
-    
-
-
 </Window>

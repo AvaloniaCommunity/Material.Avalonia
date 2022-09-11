@@ -6,6 +6,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
 using Material.Styles.Controls;
 using Material.Styles.Models;
 
@@ -26,7 +27,7 @@ namespace Material.Demo
         public MainWindow()
         {
             InitializeComponent();
-            this.AttachDevTools(KeyGesture.Parse("Shift+F12"));
+            this.AttachDevTools();
         }
 
         private void InitializeComponent()
@@ -80,7 +81,7 @@ namespace Material.Demo
 
         private void TemplatedControl_OnTemplateApplied(object? sender, TemplateAppliedEventArgs e)
         {
-            SnackbarHost.Post("Welcome to demo of Material.Avalonia!");
+            SnackbarHost.Post("Welcome to demo of Material.Avalonia!", null, DispatcherPriority.Normal);
         }
 
         private readonly List<SnackbarModel> helloSnackBars = new();
@@ -88,7 +89,7 @@ namespace Material.Demo
         private void HelloButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
         {
             var helloSnackBar = new SnackbarModel("Hello, user!", TimeSpan.Zero);
-            SnackbarHost.Post(helloSnackBar);
+            SnackbarHost.Post(helloSnackBar, null, DispatcherPriority.Normal);
             helloSnackBars.Add(helloSnackBar);
         }
 
@@ -96,10 +97,10 @@ namespace Material.Demo
         {
             foreach (var snackbarModel in helloSnackBars)
             {
-                SnackbarHost.Remove(snackbarModel);
+                SnackbarHost.Remove(snackbarModel, null, DispatcherPriority.Normal);
             }
 
-            SnackbarHost.Post("See ya next time, user!");
+            SnackbarHost.Post("See ya next time, user!", null, DispatcherPriority.Normal);
         }
     }
 }

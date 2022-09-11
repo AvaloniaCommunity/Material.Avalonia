@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls;
-using ShowMeTheXaml;
+using Avalonia.Media;
 
 namespace Material.Demo
 {
@@ -33,9 +33,9 @@ namespace Material.Demo
                 })
                 .With(new Win32PlatformOptions
                 {
-                    EnableMultitouch = true
+                    // Avalonia 11.0.0-preview1 issue: CornerRadius not clipping
+                    UseCompositor = true
                 })
-                .UseXamlDisplay()
                 .LogToTrace();
         }
 

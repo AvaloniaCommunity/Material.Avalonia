@@ -1,21 +1,30 @@
 ﻿<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
-             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:dummy="clr-namespace:Material.Demo.Dummy"
              x:Class="Material.Demo.App">
   <Application.Styles>
-    <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
-    <themes:MaterialTheme BaseTheme="Light"
-                          PrimaryColor="Purple"
-                          SecondaryColor="Indigo" />
+      <Style Selector="dummy|XamlDisplay">
+          <Setter Property="ClipToBounds" Value="False"/>
+          <Setter Property="Template">
+              <ControlTemplate>
+                  <ContentPresenter Name="PART_ContentPresenter"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Content="{TemplateBinding Content}"
+                                    Padding="{TemplateBinding Padding}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+              </ControlTemplate>
+          </Setter>
+      </Style>
+      <SimpleTheme />
+      <themes:MaterialTheme BaseTheme="Light"
+                            PrimaryColor="Purple"
+                            SecondaryColor="Indigo" />
     <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
     <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
-    <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" />
-    <StyleInclude Source="avares://Material.Demo/MaterialXamlDisplay.axaml" />
-    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
-
-    <Style Selector="showMeTheXaml|XamlDisplay">
-      <Setter Property="ClipToBounds" Value="False"></Setter>
-    </Style>
   </Application.Styles>
 </Application>
