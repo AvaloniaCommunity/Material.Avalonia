@@ -4,16 +4,18 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Material.Styles/Resources/MaterialUnderline.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml"/>
                 
                 <ResourceInclude Source="avares://Material.Ripple/Theme.axaml"/>
-                <ResourceInclude Source="avares://Material.Styles/Resources/Button.axaml"/>
-                <ResourceInclude Source="avares://Material.Styles/Resources/ToggleSwitch.axaml"/>
-                <ResourceInclude Source="avares://Material.Styles/Resources/CheckBox.axaml"/>
-                <ResourceInclude Source="avares://Material.Styles/Resources/RadioButton.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml"/>
                 
                 <!-- Dont import MaterialUnderline, it has imported by TextBox -->
-                <ResourceInclude Source="avares://Material.Styles/Resources/TextBox.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml"/>
             </ResourceDictionary.MergedDictionaries>
             
             <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
