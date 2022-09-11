@@ -95,7 +95,7 @@
     <StyleInclude Source="avares://Material.Styles/TabControl.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabStrip.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabStripItem.xaml" />
-    <StyleInclude Source="avares://Material.Styles/TextBlock.xaml" />
+    <!-- <StyleInclude Source="avares://Material.Styles/TextBlock.xaml" />-->
 
 
     <StyleInclude Source="avares://Material.Styles/ToolTip.xaml" />
