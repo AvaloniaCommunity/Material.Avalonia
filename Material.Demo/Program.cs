@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Media;
+using ShowMeTheXaml;
 
 namespace Material.Demo
 {
@@ -45,6 +45,7 @@ namespace Material.Demo
                 {
                     UseCompositor = false
                 })
+                .UseXamlDisplay()
                 .LogToTrace();
         }
 

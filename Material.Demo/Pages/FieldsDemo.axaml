@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="2300"
              xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
-             xmlns:showMeTheXaml="clr-namespace:Material.Demo.Dummy"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"

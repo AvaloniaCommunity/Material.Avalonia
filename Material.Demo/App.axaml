@@ -1,25 +1,9 @@
 ﻿<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
-             xmlns:dummy="clr-namespace:Material.Demo.Dummy"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              x:Class="Material.Demo.App">
     <Application.Styles>
-        <Style Selector="dummy|XamlDisplay">
-            <Setter Property="ClipToBounds" Value="False"/>
-            <Setter Property="Template">
-                <ControlTemplate>
-                    <ContentPresenter Name="PART_ContentPresenter"
-                                      Background="{TemplateBinding Background}"
-                                      BorderBrush="{TemplateBinding BorderBrush}"
-                                      BorderThickness="{TemplateBinding BorderThickness}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      Content="{TemplateBinding Content}"
-                                      Padding="{TemplateBinding Padding}"
-                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
-                </ControlTemplate>
-            </Setter>
-        </Style>
         <SimpleTheme />
         <themes:MaterialTheme BaseTheme="Light"
                             PrimaryColor="Purple"
@@ -28,5 +12,8 @@
         <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ButtonClasses.axaml"/>
         <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
         <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
+        
+        <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" />
+        <StyleInclude Source="avares://Material.Demo/MaterialXamlDisplay.axaml" />
     </Application.Styles>
 </Application>
