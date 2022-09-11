@@ -85,7 +85,7 @@ namespace Material.Styles.Assists
         }
 
         public static void SetShadowDepth(AvaloniaObject element, ShadowDepth value)
-            => element.SetValue<ShadowDepth>(ShadowDepthProperty, value);
+            => element.SetValue(ShadowDepthProperty, value);
 
         public static ShadowDepth GetShadowDepth(AvaloniaObject element)
             => element.GetValue<ShadowDepth>(ShadowDepthProperty);
@@ -139,7 +139,7 @@ namespace Material.Styles.Assists
         }
 
         public static void SetDarken(AvaloniaObject element, bool value)
-            => element.SetValue<bool>(DarkenProperty, value);
+            => element.SetValue(DarkenProperty, value);
 
         public static bool GetDarken(AvaloniaObject element)
             => element.GetValue<bool>(DarkenProperty);
