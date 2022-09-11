@@ -5,7 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:pages="clr-namespace:Material.Demo.Pages"
-             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:showMeTheXaml="clr-namespace:Material.Demo.Dummy"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ScrollViewerDemo">
     <StackPanel Margin="16, 0">
