@@ -2,13 +2,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="Material.Styles.MaterialToolKit">
     <Styles.Resources>
-        <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
-        <SolidColorBrush x:Key="MaterialDesignLightForeground" Color="#DD000000"/>
-        <SolidColorBrush x:Key="MaterialDesignDarkBackground" Color="#FF303030"/>
-        <SolidColorBrush x:Key="MaterialDesignDarkForeground" Color="#FFFAFAFA"/>
-        <SolidColorBrush x:Key="MaterialDesignDarkSeparatorBackground" Color="#1F000000" />
-        <SolidColorBrush x:Key="MaterialDesignLightSeparatorBackground" Color="#1FFFFFFF" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://Material.Styles/Resources/MaterialUnderline.axaml"/>
+                
+                <ResourceInclude Source="avares://Material.Ripple/Theme.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Button.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/ToggleSwitch.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/CheckBox.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/RadioButton.axaml"/>
+                
+                <!-- Dont import MaterialUnderline, it has imported by TextBox -->
+                <ResourceInclude Source="avares://Material.Styles/Resources/TextBox.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
+            <SolidColorBrush x:Key="MaterialDesignLightForeground" Color="#DD000000"/>
+            <SolidColorBrush x:Key="MaterialDesignDarkBackground" Color="#FF303030"/>
+            <SolidColorBrush x:Key="MaterialDesignDarkForeground" Color="#FFFAFAFA"/>
+            <SolidColorBrush x:Key="MaterialDesignDarkSeparatorBackground" Color="#1F000000" />
+            <SolidColorBrush x:Key="MaterialDesignLightSeparatorBackground" Color="#1FFFFFFF" />
+        </ResourceDictionary>
     </Styles.Resources>
+    
+    <!-- Above: for Avalonia 0.10 -->
     
     <!--custom controls-->
     
@@ -27,12 +44,12 @@
     
     <!-- Buttons -->
     
-    <StyleInclude Source="avares://Material.Styles/Button.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/Button.xaml" /> -->
     <StyleInclude Source="avares://Material.Styles/ButtonSpinner.xaml" />
     <StyleInclude Source="avares://Material.Styles/ToggleButton.xaml" /> 
-    <StyleInclude Source="avares://Material.Styles/ToggleSwitch.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/ToggleSwitch.xaml" />-->
     
-    <StyleInclude Source="avares://Material.Styles/RadioButton.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/RadioButton.xaml" />-->
     <StyleInclude Source="avares://Material.Styles/RepeatButton.xaml" />
     
     <!-- Uncommented -->
@@ -42,7 +59,7 @@
     <StyleInclude Source="avares://Material.Styles/CalendarDayButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/CalendarItem.xaml" />
     <StyleInclude Source="avares://Material.Styles/Carousel.xaml" />
-    <StyleInclude Source="avares://Material.Styles/CheckBox.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/CheckBox.xaml" />-->
     <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ComboBoxItem.xaml" />
     <StyleInclude Source="avares://Material.Styles/ContentControl.xaml" />
@@ -91,9 +108,10 @@
     <StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />
     <StyleInclude Source="avares://Material.Styles/Scroller.xaml" />
     <StyleInclude Source="avares://Material.Styles/Slider.xaml" />
-    <StyleInclude Source="avares://Material.Styles/TextBox.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/TextBox.xaml" />-->
     <StyleInclude Source="avares://Material.Styles/Window.xaml" />
-    <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" />
+    
+    <!-- <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" /> -->
     
     <!-- Controls (High-priority) -->
     <StyleInclude Source="avares://Material.Styles/Expander.xaml" />
