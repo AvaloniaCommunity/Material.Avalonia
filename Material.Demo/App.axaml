@@ -8,6 +8,7 @@
         <themes:MaterialTheme BaseTheme="Light"
                             PrimaryColor="Purple"
                             SecondaryColor="Indigo" />
+        <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ScrollViewerClasses.axaml"/>
         <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TextBlockClasses.axaml"/>
         <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ButtonClasses.axaml"/>
         <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
