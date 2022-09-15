@@ -17,6 +17,8 @@
                 
                 <!-- Dont import MaterialUnderline, it has imported by TextBox -->
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml"/>
             </ResourceDictionary.MergedDictionaries>
             
             <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
