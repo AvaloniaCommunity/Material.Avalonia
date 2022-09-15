@@ -71,4 +71,56 @@
             <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}"/>
         </Style>
     </ControlTheme>
+    
+    <ControlTheme x:Key="NoAutoHideScrollViewer"
+                  BasedOn="{StaticResource {x:Type ScrollViewer}}"
+                  TargetType="ScrollViewer">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="*, Auto"
+                      RowDefinitions="*, Auto">
+                    <ScrollContentPresenter Grid.Row="0"
+                                            Grid.Column="0"
+                                            Name="PART_ContentPresenter"
+                                            Background="{TemplateBinding Background}"
+                                            CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
+                                            CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}"
+                                            Content="{TemplateBinding Content}"
+                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                            Extent="{TemplateBinding Extent, Mode=TwoWay}"
+                                            Margin="{TemplateBinding Padding}"
+                                            Offset="{TemplateBinding Offset, Mode=TwoWay}"
+                                            Viewport="{TemplateBinding Viewport, Mode=TwoWay}">
+                        <ScrollContentPresenter.GestureRecognizers>
+                            <ScrollGestureRecognizer CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
+                                                     CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}" />
+                        </ScrollContentPresenter.GestureRecognizers>
+                    </ScrollContentPresenter>
+                    
+                    <ScrollBar Grid.Row="1"
+                               Grid.Column="0"
+                               Name="PART_HScrollBar"
+                               Orientation="Horizontal"
+                               ClipToBounds="False"
+                               AllowAutoHide="False"
+                               Maximum="{TemplateBinding HorizontalScrollBarMaximum}"
+                               Value="{TemplateBinding HorizontalScrollBarValue, Mode=TwoWay}"
+                               ViewportSize="{TemplateBinding HorizontalScrollBarViewportSize}"
+                               Visibility="{TemplateBinding HorizontalScrollBarVisibility}"
+                               Focusable="False"/>
+                    <ScrollBar Grid.Row="0"
+                               Grid.Column="1"
+                               Name="PART_VScrollBar"
+                               Orientation="Vertical"
+                               ClipToBounds="False"
+                               AllowAutoHide="False"
+                               Maximum="{TemplateBinding VerticalScrollBarMaximum}"
+                               Value="{TemplateBinding VerticalScrollBarValue, Mode=TwoWay}"
+                               ViewportSize="{TemplateBinding VerticalScrollBarViewportSize}"
+                               Visibility="{TemplateBinding VerticalScrollBarVisibility}"
+                               Focusable="False"/>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
 </ResourceDictionary>
