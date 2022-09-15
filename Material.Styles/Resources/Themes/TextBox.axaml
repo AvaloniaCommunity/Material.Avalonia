@@ -11,6 +11,7 @@
     
     <ResourceDictionary.MergedDictionaries>
         <!-- Used for suppressing warning -->
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml"/>
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml"/>
     </ResourceDictionary.MergedDictionaries>
     
