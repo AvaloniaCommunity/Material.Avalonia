@@ -51,7 +51,7 @@
 
         #endregion
 
-        #region For Slider
+        #region For Slider, ScrollBar
 
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration (Required).</p>
@@ -62,7 +62,23 @@
 
         public static string PartTrackBorderBar => "PART_TrackBorderBar";
 
+        public static string PartThumb => "PART_Thumb";
+        
         public static string PartSliderThumb => "PART_SliderThumb";
+        
+        /// <summary>
+        /// Use this name on RepeatButton of track of scrollbar to scroll up (decrease steps view).
+        /// </summary>
+        public static string PartLineUpButton => "PART_LineUpButton";
+
+        /// <summary>
+        /// Use this name on RepeatButton of track of scrollbar to scroll down (increase steps view).
+        /// </summary>
+        public static string PartLineDownButton => "PART_LineDownButton";
+
+        public static string PartPageUpButton => "PART_PageUpButton";
+
+        public static string PartPageDownButton => "PART_PageDownButton";
 
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
@@ -94,13 +110,13 @@
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on canvas of ToggleSwitch to get a zone for draggable knob
         /// </summary>
-        public static string AvaloniaSwitchKnob => "SwitchKnob";
+        public static string AvaloniaSwitchKnob => "PART_SwitchKnob";
 
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on panel under of canvas of ToggleSwitch to get a draggable knob
         /// </summary>
-        public static string AvaloniaMovingKnobs => "MovingKnobs";
+        public static string AvaloniaMovingKnobs => "PART_MovingKnobs";
 
         #endregion
 
