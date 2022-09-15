@@ -91,7 +91,7 @@
     <StyleInclude Source="avares://Material.Styles/OverlayPopupHost.xaml" />
     <StyleInclude Source="avares://Material.Styles/PopupRoot.xaml" />
     <StyleInclude Source="avares://Material.Styles/ProgressBar.xaml" />
-    <StyleInclude Source="avares://Material.Styles/ScrollBar.xaml" />
+    <!-- <StyleInclude Source="avares://Material.Styles/ScrollBar.xaml" /> -->
     <StyleInclude Source="avares://Material.Styles/Separator.xaml" />
     
     <StyleInclude Source="avares://Material.Styles/SplitView.xaml" />
@@ -110,11 +110,11 @@
     
     
     <StyleInclude Source="avares://Material.Styles/Calendar.xaml" />
-    <StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />-->
     <StyleInclude Source="avares://Material.Styles/Scroller.xaml" />
     <StyleInclude Source="avares://Material.Styles/Slider.xaml" />
     <!--<StyleInclude Source="avares://Material.Styles/TextBox.xaml" />-->
-    <StyleInclude Source="avares://Material.Styles/Window.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/Window.xaml" /> -->
     
     <!-- <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" /> -->
     
