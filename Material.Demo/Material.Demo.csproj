@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <!-- TODO: Require ShowMeTheXaml.Avalonia.Generator for Avalonia 11.0, now we using dummy ShowMeXaml instead to make control visible -->
     <PackageReference Include="Avalonia" Version="11.0.0-preview1" />
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.0-preview1" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview1" />
