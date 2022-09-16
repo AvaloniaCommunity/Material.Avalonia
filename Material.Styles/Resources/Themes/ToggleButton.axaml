@@ -11,7 +11,6 @@
     <ControlTheme x:Key="{x:Type ToggleButton}"
                   TargetType="ToggleButton">
         <Setter Property="CornerRadius" Value="4" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
