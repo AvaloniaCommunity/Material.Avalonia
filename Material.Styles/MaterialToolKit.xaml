@@ -23,6 +23,8 @@
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml"/>
                 
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml"/>
             </ResourceDictionary.MergedDictionaries>
@@ -110,7 +112,7 @@
 
 
     <StyleInclude Source="avares://Material.Styles/ToolTip.xaml" />
-    <StyleInclude Source="avares://Material.Styles/TreeView.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/TreeView.xaml" />-->
     <StyleInclude Source="avares://Material.Styles/UserControl.xaml" />
     <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
     
