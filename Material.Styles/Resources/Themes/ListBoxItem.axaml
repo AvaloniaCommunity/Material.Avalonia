@@ -19,22 +19,14 @@
                         <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}"/>
 
                         <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}"
-                                             RippleFill="{TemplateBinding Foreground}"
-                                             Focusable="False"
+                                             Background="{TemplateBinding Background}"
+                                             BorderBrush="{TemplateBinding BorderBrush}"
+                                             BorderThickness="{TemplateBinding BorderThickness}"
+                                             Content="{TemplateBinding Content}"
+                                             Padding="{TemplateBinding Padding}"
                                              ContentTemplate="{TemplateBinding ContentTemplate}"
                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                             Padding="{TemplateBinding Padding}">
-                            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                                              Background="{TemplateBinding Background}"
-                                              BorderBrush="{TemplateBinding BorderBrush}"
-                                              BorderThickness="{TemplateBinding BorderThickness}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              Content="{TemplateBinding Content}"
-                                              Padding="{TemplateBinding Padding}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
-                        </ripple:RippleEffect>
+                                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         
                         <Border Name="{x:Static naming:PartNames.PartHoverEffect}"/>
                     </Panel>
@@ -51,6 +43,11 @@
             <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
             <Setter Property="Opacity" Value="0"/>
             <Setter Property="IsHitTestVisible" Value="False"/>
+        </Style>
+        
+        <Style Selector="^/template/ ripple|RippleEffect#PART_Ripple">
+            <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignBody}"/>
+            <Setter Property="Focusable" Value="False"/>
         </Style>
         
         <Style Selector="^:not(.no-transitions)">

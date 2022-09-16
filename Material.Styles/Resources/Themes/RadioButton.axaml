@@ -178,7 +178,7 @@
         </Style>
         
         <Style Selector="^:checked /template/ Border#PART_BehaviourEffect">
-            <Setter Property="Opacity" Value="0.45"/>
+            <Setter Property="Opacity" Value="0.24"/>
         </Style>
         
         <Style Selector="^.accent">
