@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
+                    xmlns:system="clr-namespace:System;assembly=netstandard" >
+    <system:Double x:Key="ScrollBarThumbMinimumLength">24</system:Double>
     
     <ControlTheme x:Key="ModernSimpleScrollThumb"
                   TargetType="Thumb">
@@ -126,6 +128,24 @@
             </ControlTemplate>
         </Setter>
         
+        <Style Selector="^ /template/ RepeatButton#PART_LineUpButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Theme" Value="{StaticResource ModernSimpleScrollArrowButton}"/>
+        </Style>
+            
+        <Style Selector="^ /template/ RepeatButton#PART_LineDownButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Theme" Value="{StaticResource ModernSimpleScrollArrowButton}"/>
+        </Style>
+        
+        <Style Selector="^ /template/ RepeatButton#PART_PageUpButton">
+            <Setter Property="Focusable" Value="False"/>
+        </Style>
+            
+        <Style Selector="^ /template/ RepeatButton#PART_PageDownButton">
+            <Setter Property="Focusable" Value="False"/>
+        </Style>
+        
         <Style Selector="^:vertical">
             <!--
             <Style Selector="^ /template/ Border#PART_RootBorder">
@@ -136,6 +156,9 @@
                 <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}"/>
             </Style>
 -->
+            <Style Selector="^ /template/ Thumb#PART_Thumb">
+                <Setter Property="MinHeight" Value="{DynamicResource ScrollBarThumbMinimumLength}"/>
+            </Style>
             
             <Style Selector="^ /template/ Track#PART_Track">
                 <Setter Property="DockPanel.Dock" Value="Right"/>
@@ -143,7 +166,6 @@
             </Style>
             
             <Style Selector="^ /template/ RepeatButton#PART_LineUpButton">
-                <Setter Property="Theme" Value="{StaticResource ModernSimpleScrollArrowButton}"/>
                 <Setter Property="DockPanel.Dock" Value="Top"/>
                 <Setter Property="Content">
                     <Template>
@@ -155,7 +177,6 @@
             </Style>
             
             <Style Selector="^ /template/ RepeatButton#PART_LineDownButton">
-                <Setter Property="Theme" Value="{StaticResource ModernSimpleScrollArrowButton}"/>
                 <Setter Property="DockPanel.Dock" Value="Bottom"/>
                 <Setter Property="Content">
                     <Template>
@@ -166,7 +187,7 @@
                 </Setter>
             </Style>
             
-            <Style Selector="^ /template/ Thumb#PART_Thumb">
+            <Style Selector="^:not(.no-transitions) /template/ Thumb#PART_Thumb">
                 <Setter Property="Transitions" >
                     <Transitions>
                         <DoubleTransition Property="Width" Easing="CircularEaseOut" Duration="0.1"/>
@@ -201,6 +222,9 @@
                 <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}"/>
             </Style>
             -->
+            <Style Selector="^ /template/ Thumb#PART_Thumb">
+                <Setter Property="MinWidth" Value="{DynamicResource ScrollBarThumbMinimumLength}"/>
+            </Style>
             
             <Style Selector="^ /template/ Track#PART_Track">
                 <Setter Property="DockPanel.Dock" Value="Bottom"/>
@@ -230,7 +254,7 @@
                 </Setter>
             </Style>
             
-            <Style Selector="^ /template/ Thumb#PART_Thumb">
+            <Style Selector="^:not(.no-transitions) /template/ Thumb#PART_Thumb">
                 <Setter Property="Transitions" >
                     <Transitions>
                         <DoubleTransition Property="Height" Easing="CircularEaseOut" Duration="0.1"/>

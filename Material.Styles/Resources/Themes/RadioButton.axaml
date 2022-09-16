@@ -141,7 +141,7 @@
                 <ControlTemplate>
                     <Border Name="{x:Static naming:PartNames.PartRootBorder}">
                         <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                            <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+                            <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
                                 <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
                                                   BorderBrush="{TemplateBinding BorderBrush}"
                                                   BorderThickness="{TemplateBinding BorderThickness}"
@@ -152,9 +152,7 @@
                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </ripple:RippleEffect>
-                            <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}"
-                                    Background="{DynamicResource MaterialDesignFlatButtonRipple}"
-                                    BorderThickness="0" IsHitTestVisible="False"/>
+                            <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}"/>
                         </Panel>
                     </Border>
                 </ControlTemplate>
@@ -163,10 +161,26 @@
         
         <Style Selector="^ /template/ Border#PART_BehaviourEffect">
             <Setter Property="Opacity" Value="0"/>
+            <Setter Property="Background" Value="{DynamicResource MaterialDesignFlatButtonRipple}"/>
+            <Setter Property="IsHitTestVisible" Value="False"/>
         </Style>
+        
+        <Style Selector="^ /template/ ripple|RippleEffect#PART_Ripple">
+            <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignFlatButtonRipple}"/>
+        </Style>
+        
+        <Style Selector="^:not(.no-transitions) /template/ Border#PART_BehaviourEffect">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0.2" Easing="CircularEaseOut" />
+                </Transitions>
+            </Setter>
+        </Style>
+        
         <Style Selector="^:checked /template/ Border#PART_BehaviourEffect">
             <Setter Property="Opacity" Value="0.45"/>
         </Style>
+        
         <Style Selector="^.accent">
             <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
