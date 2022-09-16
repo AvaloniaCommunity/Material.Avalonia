@@ -21,6 +21,10 @@
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml"/>
+                
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml"/>
             </ResourceDictionary.MergedDictionaries>
             
             <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
@@ -39,7 +43,7 @@
     <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/Card.xaml"/>
     <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
-    <StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>
+    <!--<StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>-->
     <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
     <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml"/>
@@ -83,8 +87,10 @@
     <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
     <StyleInclude Source="avares://Material.Styles/ItemsControl.xaml" />
     <StyleInclude Source="avares://Material.Styles/Label.axaml" />
-    <StyleInclude Source="avares://Material.Styles/ListBox.xaml" />
+    <!--
+<StyleInclude Source="avares://Material.Styles/ListBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ListBoxItem.xaml" />
+-->
     <StyleInclude Source="avares://Material.Styles/Menu.xaml" />
     <StyleInclude Source="avares://Material.Styles/MenuItem.xaml" />
     <StyleInclude Source="avares://Material.Styles/NativeMenuBar.xaml" />
