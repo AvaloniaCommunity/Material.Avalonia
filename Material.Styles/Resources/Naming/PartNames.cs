@@ -110,13 +110,15 @@
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on canvas of ToggleSwitch to get a zone for draggable knob
         /// </summary>
-        public static string AvaloniaSwitchKnob => "PART_SwitchKnob";
+        /// <!--TODO: Add PART_ Prefix after any revision of avaloniaUI 11.0.0-->
+        public static string AvaloniaSwitchKnob => "SwitchKnob";
 
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on panel under of canvas of ToggleSwitch to get a draggable knob
         /// </summary>
-        public static string AvaloniaMovingKnobs => "PART_MovingKnobs";
+        /// <!--TODO: Add PART_ Prefix after any revision of avaloniaUI 11.0.0-->
+        public static string AvaloniaMovingKnobs => "MovingKnobs";
 
         #endregion
 
