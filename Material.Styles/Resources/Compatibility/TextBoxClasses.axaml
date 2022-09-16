@@ -1,0 +1,14 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <Style Selector="TextBox.filled">
+        <Setter Property="Theme" Value="{StaticResource FilledTextBox}"/>
+    </Style>
+    
+    <Style Selector="TextBox.outline">
+        <Setter Property="Theme" Value="{StaticResource OutlineTextBox}"/>
+    </Style>
+
+    <Style Selector="TextBox.solo">
+        <Setter Property="Theme" Value="{StaticResource SoloTextBox}"/>
+    </Style>
+</Styles>
