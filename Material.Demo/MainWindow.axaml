@@ -85,7 +85,6 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <ToggleButton Name="NavDrawerSwitch"
-                                      Foreground="{DynamicResource MaterialDesignBody}"
                                       Width="32" Height="32" Padding="4">
                             <avalonia:MaterialIcon Kind="Menu" Width="24" Height="24" />
                         </ToggleButton>
