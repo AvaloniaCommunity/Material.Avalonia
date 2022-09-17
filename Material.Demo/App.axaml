@@ -14,6 +14,6 @@
         <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
         <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
         
-        <StyleInclude Source="avares://Material.Demo/MaterialXamlDisplay.axaml" />
+        <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml"/>
     </Application.Styles>
 </Application>
