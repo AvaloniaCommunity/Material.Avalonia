@@ -25,21 +25,20 @@
         <Style Selector="^:not(.no-transitions) /template/ Rectangle#PART_ActiveIndicator" >
             <Setter Property="Transitions" >
                 <Transitions>
-                    <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CubicEaseOut" />
+                    <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CircularEaseOut" />
                 </Transitions>
             </Setter>
         </Style>
         
         <Style Selector="^ /template/ Rectangle#PART_BaseBorder" >
             <Setter Property="Height" Value="1"/>
-            <Setter Property="Margin" Value="0,0,0,1"/>
-            <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="Margin" Value="0,1,0,0"/>
+            <Setter Property="Opacity" Value="0.5"/>
         </Style>
     
         <Style Selector="^ /template/ Rectangle#PART_ActiveIndicator" >
             <Setter Property="Height" Value="2"/>
-            <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
         
         <Style Selector="^ /template/ Rectangle#PART_ActiveIndicator" >
@@ -64,7 +63,7 @@
                   BasedOn="{StaticResource {x:Type controls:MaterialUnderline}}"
                   TargetType="controls:MaterialUnderline">
         <Style Selector="^ /template/ Rectangle#PART_BaseBorder" >
-            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Margin" Value="0,0,0,1"/>
         </Style>
     </ControlTheme>
 </ResourceDictionary>
