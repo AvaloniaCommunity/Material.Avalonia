@@ -33,6 +33,12 @@
         public static string PartHoverEffect => "PART_HoverEffect";
 
         public static string PartScrollViewer => "PART_ScrollViewer";
+        
+        /// <summary>
+        /// General use.
+        /// Please use this name on templated border of controls that have behaviours (Selected / Clicked behaviour or etc.)
+        /// </summary>
+        public static string PartBehaviourEffect => "PART_BehaviourEffect";
 
         public static string PartRipple => "PART_Ripple";
 
@@ -141,13 +147,7 @@
         public static string PartInputGestureText => "PART_InputGestureText";
 
         public static string PartVisualLayer => "VisualLayer";
-
-        /// <summary>
-        /// General use.
-        /// Please use this name on templated border of controls that have behaviours (Selected / Hovered / Clicked behaviour or etc.)
-        /// </summary>
-        public static string PartBehaviourEffect => "PART_BehaviourEffect";
-
+        
         public static string PartExpanderButton => "PART_ExpanderButton";
 
         public static string PartPopup => "PART_Popup";
