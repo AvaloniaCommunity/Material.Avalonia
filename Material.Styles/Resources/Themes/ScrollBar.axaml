@@ -105,23 +105,28 @@
                                    Background="Transparent">
                             <RepeatButton Name="{x:Static naming:PartNames.PartLineUpButton}"/>
                             <RepeatButton Name="{x:Static naming:PartNames.PartLineDownButton}"/>
-                            <Track Name="{x:Static naming:PartNames.PartTrack}"
-                                   Maximum="{TemplateBinding Maximum}"
-                                   Minimum="{TemplateBinding Minimum}"
-                                   Value="{TemplateBinding Value, Mode=TwoWay}"
-                                   ViewportSize="{TemplateBinding ViewportSize}"
-                                   Orientation="{TemplateBinding Orientation}">
-                                <Track.DecreaseButton>
-                                    <RepeatButton Name="{x:Static naming:PartNames.PartPageUpButton}"
-                                                  Theme="{StaticResource ModernSimpleScrollLineButton}"/>
-                                </Track.DecreaseButton>
-                                <Track.IncreaseButton>
-                                    <RepeatButton Name="{x:Static naming:PartNames.PartPageDownButton}"
-                                                  Theme="{StaticResource ModernSimpleScrollLineButton}"/>
-                                </Track.IncreaseButton>
-                                <Thumb Name="{x:Static naming:PartNames.PartThumb}"
-                                       Theme="{StaticResource ModernSimpleScrollThumb}"/>
-                            </Track>
+                            
+                            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
+                                <Border Name="{x:Static naming:PartNames.PartTrackBorderBar}"/>
+                                
+                                <Track Name="{x:Static naming:PartNames.PartTrack}"
+                                       Maximum="{TemplateBinding Maximum}"
+                                       Minimum="{TemplateBinding Minimum}"
+                                       Value="{TemplateBinding Value, Mode=TwoWay}"
+                                       ViewportSize="{TemplateBinding ViewportSize}"
+                                       Orientation="{TemplateBinding Orientation}">
+                                    <Track.DecreaseButton>
+                                        <RepeatButton Name="{x:Static naming:PartNames.PartPageUpButton}"
+                                                      Theme="{StaticResource ModernSimpleScrollLineButton}"/>
+                                    </Track.DecreaseButton>
+                                    <Track.IncreaseButton>
+                                        <RepeatButton Name="{x:Static naming:PartNames.PartPageDownButton}"
+                                                      Theme="{StaticResource ModernSimpleScrollLineButton}"/>
+                                    </Track.IncreaseButton>
+                                    <Thumb Name="{x:Static naming:PartNames.PartThumb}"
+                                           Theme="{StaticResource ModernSimpleScrollThumb}"/>
+                                </Track>
+                            </Panel>
                         </DockPanel>
                     </Border>
                 </Panel>
@@ -146,6 +151,18 @@
             <Setter Property="Focusable" Value="False"/>
         </Style>
         
+        <Style Selector="^ /template/ Border#PART_TrackBorderBar">
+            <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
+            <Setter Property="TemplatedControl.CornerRadius" Value="8"/>
+            <Setter Property="Opacity" Value="0.12"/>
+        </Style>
+        
+        <Style Selector="^[IsExpanded=False]">
+            <Style Selector="^ /template/ Border#PART_TrackBorderBar">
+                <Setter Property="Opacity" Value="0"/>
+            </Style>
+        </Style>
+        
         <Style Selector="^:vertical">
             <!--
             <Style Selector="^ /template/ Border#PART_RootBorder">
@@ -160,8 +177,11 @@
                 <Setter Property="MinHeight" Value="{DynamicResource ScrollBarThumbMinimumLength}"/>
             </Style>
             
-            <Style Selector="^ /template/ Track#PART_Track">
+            <Style Selector="^ /template/ Panel#PART_InnerPanel">
                 <Setter Property="DockPanel.Dock" Value="Right"/>
+            </Style>
+            
+            <Style Selector="^ /template/ Track#PART_Track">
                 <Setter Property="IsDirectionReversed" Value="True"/>
             </Style>
             
@@ -187,7 +207,7 @@
                 </Setter>
             </Style>
             
-            <Style Selector="^:not(.no-transitions) /template/ Thumb#PART_Thumb">
+            <Style Selector="^:not(.no-transitions) /template/ Panel#PART_InnerPanel">
                 <Setter Property="Transitions" >
                     <Transitions>
                         <DoubleTransition Property="Width" Easing="CircularEaseOut" Duration="0.1"/>
@@ -197,7 +217,7 @@
             </Style>
             
             <Style Selector="^[IsExpanded=False]">
-                <Style Selector="^ /template/ Thumb#PART_Thumb">
+                <Style Selector="^ /template/ Panel#PART_InnerPanel">
                     <Setter Property="Width" Value="4"/>
                     <Setter Property="Control.RenderTransform" Value="translateX(4px)"></Setter>
                 </Style>
@@ -226,7 +246,7 @@
                 <Setter Property="MinWidth" Value="{DynamicResource ScrollBarThumbMinimumLength}"/>
             </Style>
             
-            <Style Selector="^ /template/ Track#PART_Track">
+            <Style Selector="^ /template/ Panel#PART_InnerPanel">
                 <Setter Property="DockPanel.Dock" Value="Bottom"/>
             </Style>
             
@@ -254,7 +274,7 @@
                 </Setter>
             </Style>
             
-            <Style Selector="^:not(.no-transitions) /template/ Thumb#PART_Thumb">
+            <Style Selector="^:not(.no-transitions) /template/ Panel#PART_InnerPanel">
                 <Setter Property="Transitions" >
                     <Transitions>
                         <DoubleTransition Property="Height" Easing="CircularEaseOut" Duration="0.1"/>
@@ -264,7 +284,7 @@
             </Style>
             
             <Style Selector="^[IsExpanded=False]">
-                <Style Selector="^ /template/ Thumb#PART_Thumb">
+                <Style Selector="^ /template/ Panel#PART_InnerPanel">
                     <Setter Property="Height" Value="4"/>
                     <Setter Property="Control.RenderTransform" Value="translateY(4px)"></Setter>
                 </Style>
@@ -283,7 +303,7 @@
     <ControlTheme x:Key="MaterialScrollBarTheme"
                   BasedOn="{StaticResource {x:Type ScrollBar}}"
                   TargetType="ScrollBar">
-        <Style Selector="^ /template/ Thumb#PART_Thumb">
+        <Style Selector="^ /template/ Panel#PART_InnerPanel">
             <Setter Property="Control.Margin" Value="2"/>
         </Style>
     </ControlTheme>
