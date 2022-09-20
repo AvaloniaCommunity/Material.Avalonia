@@ -153,5 +153,15 @@
         public static string PartPopup => "PART_Popup";
 
         public static string PartCard => "PART_Card";
+
+        /// <summary>
+        /// Use this name on container pane of tabs, which wrapped ItemsPresenter by pane of TabControl template.
+        /// </summary>
+        public static string PartTabsPanel => "PART_TabsPanel";
+
+        /// <summary>
+        /// Use this name on primary separator of any control template.
+        /// </summary>
+        public static string PartSeparator => "PART_Separator";
     }
 }
