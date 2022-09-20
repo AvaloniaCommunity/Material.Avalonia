@@ -15,5 +15,24 @@
         <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
         
         <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml"/>
+        
+        <!-- Patching XamlDisplay -->
+        <Style Selector="showMeTheXaml|XamlDisplay">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="ClipToBounds" Value="False"/>
+        </Style>
+        
+        <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border">
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+        
+        <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border > Grid">
+            <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground }"/>
+        </Style>
+        
+        <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border > Grid > Button">
+            <Setter Property="Theme" Value="{StaticResource FlatButton}"/>
+        </Style>
     </Application.Styles>
 </Application>
