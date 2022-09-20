@@ -24,6 +24,11 @@
         public static string PartContentPanel => "PART_ContentPanel";
 
         public static string PartInnerBorder => "PART_InnerBorder";
+        
+        /// <summary>
+        /// General use.
+        /// Please use this name on templated border of controls that have feedback on hovered by cursor
+        /// </summary>
 
         public static string PartHoverEffect => "PART_HoverEffect";
 
