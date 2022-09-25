@@ -3,6 +3,7 @@
         xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         xmlns:textField="clr-namespace:Material.Dialog.ViewModels.Elements.TextField"
+        xmlns:controls="clr-namespace:Material.Dialog.Controls"
 
         x:Class="Material.Dialog.Views.TextFieldDialog"
         x:DataType="viewModels:TextFieldDialogViewModel">
@@ -11,30 +12,32 @@
         <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml" />
         <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
     </Window.Styles>
+    
+    <controls:EmbeddedDialogControl>
+        <ScrollViewer Name="PART_ScrollView" Padding="24, 0">
+            <StackPanel Name="PART_ContentPanel">
+                <TextBlock Name="PART_SupportingText"
+                           Classes="Body1"
+                           IsVisible="{CompiledBinding !!ContentMessage.Length}"
+                           Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
 
-    <ScrollViewer Name="PART_ScrollView">
-        <StackPanel Name="PART_ContentPanel">
-            <TextBlock Name="PART_SupportingText"
-                       Classes="Body1"
-                       IsVisible="{CompiledBinding !!ContentMessage.Length}"
-                       Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
-
-            <ItemsControl Name="PART_Fields"
-                          Items="{CompiledBinding TextFields}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate DataType="textField:TextFieldViewModel">
-                        <TextBox Name="PART_Field"
-                                 PasswordChar="{CompiledBinding MaskChar}"
-                                 HorizontalAlignment="Stretch"
-                                 MaxLength="{CompiledBinding MaxCountChars}"
-                                 Text="{CompiledBinding Text, Mode=TwoWay}"
-                                 Watermark="{CompiledBinding PlaceholderText}"
-                                 UseFloatingWatermark="True"
-                                 wpf:TextFieldAssist.Hints="{CompiledBinding AssistiveText}"
-                                 wpf:TextFieldAssist.Label="{CompiledBinding Label}" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
-    </ScrollViewer>
+                <ItemsControl Name="PART_Fields"
+                              Items="{CompiledBinding TextFields}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="textField:TextFieldViewModel">
+                            <TextBox Name="PART_Field"
+                                     PasswordChar="{CompiledBinding MaskChar}"
+                                     HorizontalAlignment="Stretch"
+                                     MaxLength="{CompiledBinding MaxCountChars}"
+                                     Text="{CompiledBinding Text, Mode=TwoWay}"
+                                     Watermark="{CompiledBinding PlaceholderText}"
+                                     UseFloatingWatermark="True"
+                                     wpf:TextFieldAssist.Hints="{CompiledBinding AssistiveText}"
+                                     wpf:TextFieldAssist.Label="{CompiledBinding Label}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+    </controls:EmbeddedDialogControl>
 </Window>

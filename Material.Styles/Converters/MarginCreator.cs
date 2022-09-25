@@ -1,9 +1,8 @@
-﻿using Avalonia;
-using Avalonia.Data.Converters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
+using Avalonia;
+using Avalonia.Data.Converters;
 
 namespace Material.Styles.Converters
 {
@@ -16,17 +15,18 @@ namespace Material.Styles.Converters
 
         public object Convert(IList<object> values, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((values[0] is double left)) 
+            if ((values[0] is double left))
                 return createMargin(left: -left + Offset);
-            if ((values[1] is double up)) 
+            if ((values[1] is double up))
                 return createMargin(up: -up + Offset);
-            if ((values[2] is double right)) 
+            if ((values[2] is double right))
                 return createMargin(right: -right + Offset);
-            if ((values[3] is double down)) 
+            if ((values[3] is double down))
                 return createMargin(down: -down + Offset);
             return createMargin();
         }
 
-        public static Thickness createMargin(double left = 0, double up = 0, double right = 0, double down = 0) => new Thickness(left, up, right, down);
+        public static Thickness createMargin(double left = 0, double up = 0, double right = 0, double down = 0) =>
+            new Thickness(left, up, right, down);
     }
 }

@@ -6,6 +6,7 @@ namespace Material.Demo.ViewModels
     public class TextFieldsViewModel : ViewModelBase
     {
         private string _numerics;
+
         public string Numerics
         {
             get => _numerics;

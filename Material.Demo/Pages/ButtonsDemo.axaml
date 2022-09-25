@@ -7,9 +7,26 @@
              xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ButtonsDemo">
     <StackPanel Margin="16, 0">
+        <StackPanel.Styles>
+            <Style Selector="showMeTheXaml|XamlDisplay Button">
+                <Setter Property="IsEnabled"
+                        Value="{Binding ElementName=IsEnabledCheckBox, Path=IsChecked}"/>
+            </Style>
+            
+            <Style Selector="showMeTheXaml|XamlDisplay controls|FloatingButton">
+                <Setter Property="IsEnabled"
+                        Value="{Binding ElementName=IsEnabledCheckBox, Path=IsChecked}"/>
+            </Style>
+        </StackPanel.Styles>
+        
         <TextBlock Classes="Headline4 Subheadline" Text="Buttons" />
+        <CheckBox Name="IsEnabledCheckBox"
+                  Content="Buttons is enabled"
+                  IsChecked="True"/>
+        
         <TextBlock Classes="Headline6 Subheadline2" Text="Regular buttons" />
         <StackPanel Orientation="Horizontal">
             <showMeTheXaml:XamlDisplay UniqueId="Buttons1">
@@ -62,7 +79,7 @@
         <TextBlock Classes="Headline6 Subheadline2" Text="Floating buttons with icon" />
         <StackPanel Orientation="Horizontal">
             <StackPanel.Styles>
-                <Style Selector="styles|FloatingButton">
+                <Style Selector="controls|FloatingButton">
                     <Setter Property="Content">
                         <Setter.Value>
                             <Template>
@@ -80,28 +97,28 @@
                 </Style>
             </StackPanel.Styles>
             <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons0">
-                <styles:FloatingButton Classes="Light Mini" />
+                <controls:FloatingButton Classes="Light Mini" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons1">
-                <styles:FloatingButton Classes="Mini" />
+                <controls:FloatingButton Classes="Mini" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons2">
-                <styles:FloatingButton Classes="Dark Mini" />
+                <controls:FloatingButton Classes="Dark Mini" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons3">
-                <styles:FloatingButton Classes="Accent Mini" />
+                <controls:FloatingButton Classes="Accent Mini" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons4">
-                <styles:FloatingButton Classes="Light" />
+                <controls:FloatingButton Classes="Light" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons5">
-                <styles:FloatingButton />
+                <controls:FloatingButton />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons6">
-                <styles:FloatingButton Classes="Dark" />
+                <controls:FloatingButton Classes="Dark" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="FloatingButtons7">
-                <styles:FloatingButton Classes="Accent" />
+                <controls:FloatingButton Classes="Accent" />
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
@@ -111,7 +128,7 @@
                 <Style Selector="showMeTheXaml|XamlDisplay">
                     <Setter Property="Margin" Value="8" />
                 </Style>
-                <Style Selector="styles|FloatingButton[IsExtended=false]">
+                <Style Selector="controls|FloatingButton[IsExtended=false]">
                     <Setter Property="Content">
                         <Setter.Value>
                             <Template>
@@ -124,7 +141,7 @@
                         </Setter.Value>
                     </Setter>
                 </Style>
-                <Style Selector="styles|FloatingButton[IsExtended=true]">
+                <Style Selector="controls|FloatingButton[IsExtended=true]">
                     <Setter Property="Content">
                         <Setter.Value>
                             <Template>
@@ -143,16 +160,16 @@
                 </Style>
             </StackPanel.Styles>
             <showMeTheXaml:XamlDisplay UniqueId="ExpandedFloatingButton0">
-                <styles:FloatingButton Classes="Light" IsExtended="True" />
+                <controls:FloatingButton Classes="Light" IsExtended="True" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="ExpandedFloatingButton1">
-                <styles:FloatingButton IsExtended="True" />
+                <controls:FloatingButton IsExtended="True" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="ExpandedFloatingButton2">
-                <styles:FloatingButton Classes="Dark" IsExtended="True" />
+                <controls:FloatingButton Classes="Dark" IsExtended="True" />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="ExpandedFloatingButton3">
-                <styles:FloatingButton Classes="Accent" IsExtended="{Binding ElementName=CheckBox1, Path=IsChecked}" />
+                <controls:FloatingButton Classes="Accent" IsExtended="{Binding ElementName=CheckBox1, Path=IsChecked}" />
             </showMeTheXaml:XamlDisplay>
             <CheckBox Name="CheckBox1" Content="IsExtended" Margin="16,8" />
         </StackPanel>

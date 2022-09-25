@@ -5,7 +5,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Viewbox Stretch="Fill"
+                    <Viewbox Stretch="Uniform"
+                             ClipToBounds="False"
                              HorizontalAlignment="Stretch"
                              VerticalAlignment="Stretch">
                         <Path Name="PATH_DialogIconVectorPath"

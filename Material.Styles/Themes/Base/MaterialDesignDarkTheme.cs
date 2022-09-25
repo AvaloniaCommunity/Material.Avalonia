@@ -1,7 +1,9 @@
 ﻿using Avalonia.Media;
 
-namespace Material.Styles.Themes.Base {
-    public class MaterialDesignDarkTheme : IBaseTheme {
+namespace Material.Styles.Themes.Base
+{
+    public class MaterialDesignDarkTheme : IBaseTheme
+    {
         public Color ValidationErrorColor { get; } = Color.Parse("#f44336");
         public Color MaterialDesignBackground { get; } = Color.Parse("#FF000000");
         public Color MaterialDesignPaper { get; } = Color.Parse("#FF303030");

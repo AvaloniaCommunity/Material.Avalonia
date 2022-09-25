@@ -7,7 +7,8 @@ namespace Material.Dialog.ViewModels
     {
         private object _content;
 
-        public object Content {
+        public object Content
+        {
             get => _content;
             set
             {
@@ -15,10 +16,11 @@ namespace Material.Dialog.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private IDataTemplate _contentTemplate;
 
-        public IDataTemplate ContentTemplate {
+        public IDataTemplate ContentTemplate
+        {
             get => _contentTemplate;
             set
             {
@@ -27,9 +29,8 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        public CustomDialogViewModel(CustomDialog dialog)
+        public CustomDialogViewModel(CustomDialog dialog) : base(dialog)
         {
-            _window = dialog;
         }
     }
 }

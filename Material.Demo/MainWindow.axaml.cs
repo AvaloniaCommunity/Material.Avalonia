@@ -1,33 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using Avalonia;
-using Avalonia.Controls; 
+using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Material.Styles;
+using Material.Styles.Controls;
 using Material.Styles.Models;
 
-namespace Material.Demo {
-    public class MainWindow : Window {
-         
+namespace Material.Demo
+{
+    public class MainWindow : Window
+    {
         #region Control fields
+
         private ToggleButton NavDrawerSwitch;
         private ListBox DrawerList;
         private Carousel PageCarousel;
         private ScrollViewer mainScroller;
+        private NavigationDrawer LeftDrawer;
+
         #endregion
 
-        public MainWindow() {
+        public MainWindow()
+        {
             InitializeComponent();
             this.AttachDevTools(KeyGesture.Parse("Shift+F12"));
         }
 
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             AvaloniaXamlLoader.Load(this);
 
             #region Control getter and event binding
+
             NavDrawerSwitch = this.Get<ToggleButton>(nameof(NavDrawerSwitch));
 
             DrawerList = this.Get<ListBox>(nameof(DrawerList));
@@ -37,6 +44,9 @@ namespace Material.Demo {
             PageCarousel = this.Get<Carousel>(nameof(PageCarousel));
 
             mainScroller = this.Get<ScrollViewer>(nameof(mainScroller));
+
+            LeftDrawer = this.Get<NavigationDrawer>(nameof(LeftDrawer));
+
             #endregion
         }
 
@@ -46,23 +56,26 @@ namespace Material.Demo {
                 DrawerSelectionChanged(sender, null);
         }
 
-        public void DrawerSelectionChanged(object sender, RoutedEventArgs args)
+        public void DrawerSelectionChanged(object sender, RoutedEventArgs? args)
         {
-            var listBox = sender as ListBox;
+            if (sender is not ListBox listBox)
+                return;
+
             if (!listBox.IsFocused && !listBox.IsKeyboardFocusWithin)
                 return;
             try
-            { 
+            {
                 PageCarousel.SelectedIndex = listBox.SelectedIndex;
                 mainScroller.Offset = Vector.Zero;
                 mainScroller.VerticalScrollBarVisibility =
                     listBox.SelectedIndex == 5 ? ScrollBarVisibility.Disabled : ScrollBarVisibility.Auto;
-                
             }
             catch
             {
+                // ignored
             }
-            NavDrawerSwitch.IsChecked = false;
+            
+            LeftDrawer.OptionalCloseLeftDrawer();
         }
 
         private void TemplatedControl_OnTemplateApplied(object? sender, TemplateAppliedEventArgs e)
@@ -70,7 +83,7 @@ namespace Material.Demo {
             SnackbarHost.Post("Welcome to demo of Material.Avalonia!");
         }
 
-        private List<SnackbarModel> helloSnackBars = new List<SnackbarModel>();
+        private readonly List<SnackbarModel> helloSnackBars = new();
 
         private void HelloButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
         {
@@ -85,7 +98,7 @@ namespace Material.Demo {
             {
                 SnackbarHost.Remove(snackbarModel);
             }
-            
+
             SnackbarHost.Post("See ya next time, user!");
         }
     }

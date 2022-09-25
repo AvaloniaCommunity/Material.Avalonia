@@ -5,6 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ProgressIndicatorDemo">
     <StackPanel Margin="16, 0">
         <TextBlock Classes="Headline4 Subheadline" Text="Progress Indicator" />
@@ -29,39 +30,39 @@
                     <ProgressBar Value="{Binding Progress}" />
                 </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators4">
-                    <ProgressBar Value="{Binding Progress}" Classes="notransitions" />
+                    <ProgressBar Value="{Binding Progress}" Classes="no-transitions" />
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
 
             <StackPanel>
                 <TextBlock Classes="Headline6 Subheadline2" Text="Circular progress bars" />
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar0">
-                    <ProgressBar Classes="Circle" Value="30" Margin="4" />
+                    <ProgressBar Classes="circular" Value="30" Margin="4" />
                 </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar1">
-                    <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                    <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center">
-                        <ProgressBar Classes="Circle" Value="60" />
-                    </styles:Card>
+                        <ProgressBar Classes="circular" Value="60" />
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar2">
-                    <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                    <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center">
-                        <ProgressBar Classes="Circle" IsIndeterminate="True" />
-                    </styles:Card>
+                        <ProgressBar Classes="circular" IsIndeterminate="True" />
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar3">
-                    <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                    <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center">
-                        <ProgressBar Classes="Circle" Value="{Binding Progress}" />
-                    </styles:Card>
+                        <ProgressBar Classes="circular" Value="{Binding Progress}" />
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar4">
-                    <styles:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                    <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center"
                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                        <ProgressBar Classes="Circle notransitions" Value="{Binding Progress}" />
-                    </styles:Card>
+                        <ProgressBar Classes="circular no-transitions" Value="{Binding Progress}" />
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
         </WrapPanel>

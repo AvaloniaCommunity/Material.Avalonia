@@ -11,13 +11,14 @@ namespace Material.Styles.Models
             _orientation = orientation;
             //_button = button;
         }
-        
-        public SnackbarModel(object content, TimeSpan duration, Orientation orientation = Orientation.Horizontal) : this(content, orientation)
+
+        public SnackbarModel(object content, TimeSpan duration, Orientation orientation = Orientation.Horizontal) :
+            this(content, orientation)
         {
             _duration = duration;
         }
-        
-        
+
+
         private object _content;
         public object Content => _content;
 

@@ -3,8 +3,10 @@ using Avalonia.Media;
 using Material.Colors;
 using Material.Styles.Themes.Base;
 
-namespace Material.Styles.Themes {
-    public class Theme : ITheme {
+namespace Material.Styles.Themes
+{
+    public class Theme : ITheme
+    {
         public static IBaseTheme Light { get; } = new MaterialDesignLightTheme();
         public static IBaseTheme Dark { get; } = new MaterialDesignDarkTheme();
 

@@ -2,6 +2,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cc="clr-namespace:Material.Ripple">
     <Style Selector="cc|RippleEffect">
+        <Setter Property="RippleOpacity" Value="0.6"/>
+        <Setter Property="RippleFill" Value="White"/>
+        <Setter Property="IsAllowedRaiseRipple" Value="True"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel ClipToBounds="True">
@@ -21,7 +24,7 @@
     
     <!-- Transitions -->
     
-    <Style Selector="cc|RippleEffect:not(.notransitions) /template/ Canvas#PART_RippleCanvasRoot > cc|Ripple">
+    <Style Selector="cc|RippleEffect:not(.no-transitions) /template/ Canvas#PART_RippleCanvasRoot > cc|Ripple">
         <Setter Property="Transitions">
             <Transitions>
                 <ThicknessTransition Property="Margin" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>

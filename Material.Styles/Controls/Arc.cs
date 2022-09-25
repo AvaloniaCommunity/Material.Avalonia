@@ -1,40 +1,41 @@
 ﻿using System;
-using System.Globalization;
-using System.Text;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
-using Avalonia.Threading;
 
 namespace Material.Styles.Controls
 {
+    /// <summary>
+    /// High-precision arc control.
+    /// <b>Be remember, it takes a lot performance than avaloniaUI default arc control!</b>
+    /// </summary>
     public class Arc : Control
     {
         static Arc()
         {
-            AffectsRender<Arc>(ArcBrushProperty,
-                              StrokeProperty,
-                              StartAngleProperty,
-                              SweepAngleProperty);
+            AffectsRender<Arc>(StrokeProperty,
+                StrokeThicknessProperty,
+                StartAngleProperty,
+                SweepAngleProperty);
         }
 
-        public IBrush ArcBrush
-        {
-            get => GetValue(ArcBrushProperty);
-            set => SetValue(ArcBrushProperty, value);
-        }
-
-        public readonly static StyledProperty<IBrush> ArcBrushProperty =
-            AvaloniaProperty.Register<Arc, IBrush>(nameof(ArcBrush), new SolidColorBrush(Avalonia.Media.Colors.White));
-
-        public double Stroke
+        public IBrush Stroke
         {
             get => GetValue(StrokeProperty);
             set => SetValue(StrokeProperty, value);
         }
 
-        public readonly static StyledProperty<double> StrokeProperty =
-            AvaloniaProperty.Register<Arc, double>(nameof(Stroke));
+        public readonly static StyledProperty<IBrush> StrokeProperty =
+            AvaloniaProperty.Register<Arc, IBrush>(nameof(Stroke));
+
+        public double StrokeThickness
+        {
+            get => GetValue(StrokeThicknessProperty);
+            set => SetValue(StrokeThicknessProperty, value);
+        }
+
+        public readonly static StyledProperty<double> StrokeThicknessProperty =
+            AvaloniaProperty.Register<Arc, double>(nameof(StrokeThickness));
 
         public double StartAngle
         {
@@ -52,69 +53,86 @@ namespace Material.Styles.Controls
         }
 
         public static readonly StyledProperty<double> SweepAngleProperty =
-            AvaloniaProperty.Register<Arc, double>(nameof(SweepAngle), 90);
+            AvaloniaProperty.Register<Arc, double>(nameof(SweepAngle));
 
         public override void Render(DrawingContext context)
         {
-            var offsetStroke = 0.5;
-            var o = Stroke + offsetStroke;
-            
+            const double offsetStroke = 0.5;
+            var o = StrokeThickness + offsetStroke;
+
             // Create main circle for draw circle
             var mainCircle =
                 new EllipseGeometry(new Rect(o / 2, o / 2, Bounds.Width - o, Bounds.Height - o));
 
-            var paint = new Pen(ArcBrush, Stroke);
-            
+            var paint = new Pen(Stroke, StrokeThickness);
+
             // Push generated clip geometry for clipping circle figure
             using (context.PushGeometryClip(GetClip()))
             {
-                context.DrawGeometry(SolidColorBrush.Parse("Transparent"), paint, mainCircle);
+                context.DrawGeometry(Brushes.Transparent, paint, mainCircle);
             }
-
-            Dispatcher.UIThread.InvokeAsync(InvalidateVisual, DispatcherPriority.Background);
         }
 
-        // TODO: Optimal clip geometry generator
+        // not-TO-DO: Optimal clip geometry generator
+        // I gave up, using avaloniaUI default arc instead now:(
+        // but I give you choice to use this "High-precision" arc if you needed it in ProgressBar btw
+        // only you have to do is define a custom style with replacing default circular class of ProgressBar
+        // or you can use it anywhere
+
+        // Well I did some small changes here to not parsing figure string,
+        // but build figure from stream geometry context.
+        // This changes may prevent performance waste a little bit.
+
         // Clip geometry generator
         private StreamGeometry GetClip()
         {
-            var offset = StartAngle - 90;
-            
+            var offset = StartAngle;
+
             var w = Bounds.Width;
             var h = Bounds.Height;
-            
+
             var halfW = w / 2;
             var halfH = h / 2;
 
-            var sweep = (offset + SweepAngle) / 360;
-            
-            var path = new StringBuilder($"M {halfW.ToString(CultureInfo.InvariantCulture)} {halfH.ToString(CultureInfo.InvariantCulture)}");
-            
-            int length = 24;
-            
-            for (int i = 0; i < length; i++)
-            {
-                var limit = offset / 360 + i / (double)length;
-                
-                if (limit > sweep)
-                    break;
-                
-                var r2 = limit * (Math.PI * 2);
-                var x2 = halfW + Math.Round(halfW * Math.Cos(r2), 4);
-                var y2 = halfH + Math.Round(halfH * Math.Sin(r2), 4);
-                
-                path.Append($" {x2.ToString(CultureInfo.InvariantCulture)} {y2.ToString(CultureInfo.InvariantCulture)}");
-            }
-            
-            var r3 = sweep * (Math.PI * 2);
-            var x3 = halfW + Math.Round(halfW * Math.Cos(r3), 4);
-            var y3 = halfH + Math.Round(halfH * Math.Sin(r3), 4);
-            
-            path.Append($" {x3.ToString(CultureInfo.InvariantCulture)} {y3.ToString(CultureInfo.InvariantCulture)}");
+            var geometry = new StreamGeometry();
 
-            path.Append(" Z");
-            var result = path.ToString().Replace(',', '.');
-            return StreamGeometry.Parse(result);
+            var sweep = SweepAngle;
+
+            if (sweep == 0)
+                return geometry;
+
+            using var ctx = geometry.Open();
+
+            // Center point
+            ctx.BeginFigure(new Point(halfW, halfH), true);
+
+            const int len = 24;
+
+            for (var i = 0; i < len; i++)
+            {
+                var l = offset + sweep * i / len;
+
+                ctx.LineTo(DegToPoint(l, halfW, halfH));
+            }
+
+            ctx.LineTo(DegToPoint(offset + sweep, halfW, halfH));
+
+            ctx.EndFigure(true);
+            return geometry;
+        }
+
+        private const double Rad = Math.PI / 180d;
+
+        private static double Round(double v) => Math.Round(v);
+
+        private static Point DegToPoint(double deg, double halfW, double halfH)
+        {
+            var rad = deg * Rad;
+
+            var x = halfW + Round(halfW * Math.Cos(rad));
+            var y = halfH + Round(halfH * Math.Sin(rad));
+
+            return new Point(x, y);
         }
     }
 }

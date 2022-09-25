@@ -5,7 +5,9 @@
              x:Class="Material.Demo.App">
   <Application.Styles>
     <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
-    <themes:MaterialTheme BaseTheme="Light" PrimaryColor="Purple" SecondaryColor="Lime" />
+    <themes:MaterialTheme BaseTheme="Light"
+                          PrimaryColor="Purple"
+                          SecondaryColor="Indigo" />
     <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
     <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
     <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" />

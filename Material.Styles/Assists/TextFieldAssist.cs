@@ -1,27 +1,33 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Media;
 
-namespace Material.Styles.Assists {
+namespace Material.Styles.Assists
+{
     public static class TextFieldAssist
     {
-        public static AvaloniaProperty<string> HintsProperty = AvaloniaProperty.RegisterAttached<TextBox, string>(
-            "Hints", typeof(TextBox));
-        
-        public static void SetHints(AvaloniaObject element, string value) => element.SetValue(HintsProperty, value);
+        public static readonly AvaloniaProperty<string?> HintsProperty =
+            AvaloniaProperty.RegisterAttached<TextBox, string?>(
+                "Hints", typeof(TextBox));
 
-        public static string GetHints(AvaloniaObject element) => (string)element.GetValue(HintsProperty);
+        public static void SetHints(AvaloniaObject element, string? value) =>
+            element.SetValue(HintsProperty, value);
 
-        public static AvaloniaProperty<string> LabelProperty = AvaloniaProperty.RegisterAttached<TextBox, string>(
-            "Label", typeof(TextBox));
+        public static string? GetHints(AvaloniaObject element) =>
+            element.GetValue<string?>(HintsProperty);
 
-        public static void SetLabel(AvaloniaObject element, string value) => element.SetValue(LabelProperty, value);
+        public static readonly AvaloniaProperty<string?> LabelProperty =
+            AvaloniaProperty.RegisterAttached<TextBox, string?>(
+                "Label", typeof(TextBox));
 
-        public static string GetLabel(AvaloniaObject element) => (string)element.GetValue(LabelProperty);
+        public static void SetLabel(AvaloniaObject element, string? value) =>
+            element.SetValue(LabelProperty, value);
+
+        public static string? GetLabel(AvaloniaObject element) =>
+            element.GetValue<string?>(LabelProperty);
 
         // Use throw DataValidationException in property of view model instead of those things
         // Example can be found in dev-branch -> /Material.Demo/ViewModels/TextFieldsViewModel.cs
-        
+
         /*
         
         public static AvaloniaProperty<bool> HasErrorProperty = AvaloniaProperty.RegisterAttached<TextBox, bool>(
@@ -46,20 +52,5 @@ namespace Material.Styles.Assists {
         }
         
         */
-        private static readonly CornerRadius DefaultCornerRadius = new CornerRadius(0);
-        
-        /// <summary>
-        ///     Controls the corner radius of the surrounding box.
-        /// </summary>
-        public static readonly AvaloniaProperty<CornerRadius> CornerRadiusProperty = AvaloniaProperty.RegisterAttached<TextBox, CornerRadius>(
-            "CornerRadius", typeof(TextFieldAssist), DefaultCornerRadius, true);
-
-        public static CornerRadius GetCornerRadius(AvaloniaObject element) {
-            return (CornerRadius) element.GetValue(CornerRadiusProperty);
-        }
-
-        public static void SetCornerRadius(AvaloniaObject element, CornerRadius value) {
-            element.SetValue(CornerRadiusProperty, value);
-        }
     }
 }

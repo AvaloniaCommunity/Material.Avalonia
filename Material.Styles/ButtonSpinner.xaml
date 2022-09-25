@@ -1,11 +1,14 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:assists="clr-namespace:Material.Styles.Assists">
     <Style Selector="ButtonSpinner">
-        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
+        <Setter Property="Template">
+            
+        </Setter>
     </Style>
     <Style Selector="ButtonSpinner /template/ RepeatButton#PART_IncreaseButton">
         <Setter Property="Content">

@@ -6,10 +6,11 @@
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:pages="clr-namespace:Material.Demo.Pages"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ScrollViewerDemo">
     <StackPanel Margin="16, 0">
         <StackPanel.Styles>
-            <Style Selector="styles|Card">
+            <Style Selector="controls|Card">
                 <Setter Property="Margin" Value="8" />
             </Style>
         </StackPanel.Styles>
@@ -19,13 +20,13 @@
             <StackPanel>
                 <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer with classic scrollbar" />
                 <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer0">
-                    <styles:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+                    <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
                         <ScrollViewer HorizontalScrollBarVisibility="Visible"
                                       VerticalScrollBarVisibility="Visible"
                                       Classes="Classic">
                             <pages:Home />
                         </ScrollViewer>
-                    </styles:Card>
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
             <StackPanel>
@@ -33,24 +34,24 @@
                 <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer1">
 
 
-                    <styles:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+                    <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
                         <ScrollViewer HorizontalScrollBarVisibility="Visible"
                                       VerticalScrollBarVisibility="Visible">
                             <pages:Home />
                         </ScrollViewer>
-                    </styles:Card>
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
             <StackPanel>
                 <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer with mini scrollbar" />
                 <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer2">
-                    <styles:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+                    <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
                         <ScrollViewer HorizontalScrollBarVisibility="Visible"
                                       VerticalScrollBarVisibility="Visible"
                                       Classes="MiniBar">
                             <pages:Home />
                         </ScrollViewer>
-                    </styles:Card>
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
         </WrapPanel>

@@ -1,21 +1,20 @@
-﻿using Avalonia;
+﻿using System.ComponentModel;
+using System.Timers;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Threading.Tasks;
-using System.Timers;
 
 namespace Material.Demo.Pages
 {
     public class ProgressIndicatorDemo : UserControl
-    { 
+    {
         private Timer timer;
         private int caseProgress;
 
         public class Context : INotifyPropertyChanged
         {
             private double m_Progress = 0;
+
             public double Progress
             {
                 get => m_Progress;
@@ -34,7 +33,7 @@ namespace Material.Demo.Pages
         public ProgressIndicatorDemo()
         {
             this.InitializeComponent();
-             
+
             timer = new Timer(1000);
             timer.Elapsed += Timer_Elapsed;
 
@@ -45,7 +44,7 @@ namespace Material.Demo.Pages
 
         private void ProgressIndicatorDemo_AttachedToVisualTree(object sender, VisualTreeAttachmentEventArgs e)
         {
-            timer.Start(); 
+            timer.Start();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -55,7 +54,7 @@ namespace Material.Demo.Pages
 
         private double SwitchProgress()
         {
-            switch(caseProgress)
+            switch (caseProgress)
             {
                 case 0:
                     caseProgress++;

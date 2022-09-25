@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
+using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
@@ -14,10 +14,11 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.Themes.Fluent;
 using Avalonia.Threading;
-using Material.Colors.ColorManipulation;
 
-namespace Material.Styles.Themes {
-    public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
+namespace Material.Styles.Themes
+{
+    public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider
+    {
         private readonly IStyle _controlsStyles;
         private bool _isLoading;
         private IStyle? _loaded;
@@ -26,8 +27,10 @@ namespace Material.Styles.Themes {
         /// Initializes a new instance of the <see cref="FluentTheme"/> class.
         /// </summary>
         /// <param name="baseUri">The base URL for the XAML context.</param>
-        public MaterialThemeBase(Uri baseUri) {
-            _controlsStyles = new StyleInclude(baseUri) {
+        public MaterialThemeBase(Uri baseUri)
+        {
+            _controlsStyles = new StyleInclude(baseUri)
+            {
                 Source = new Uri("avares://Material.Avalonia/Material.Avalonia.Templates.xaml")
             };
         }
@@ -37,7 +40,9 @@ namespace Material.Styles.Themes {
         /// </summary>
         /// <param name="serviceProvider">The XAML service provider.</param>
         public MaterialThemeBase(IServiceProvider serviceProvider)
-            : this(((IUriContext)serviceProvider.GetService(typeof(IUriContext))).BaseUri) { }
+            : this(((IUriContext) serviceProvider.GetService(typeof(IUriContext))).BaseUri)
+        {
+        }
 
         private IResourceDictionary LoadedResourceDictionary => (_loaded as Avalonia.Styling.Styles)!.Resources;
 
@@ -47,7 +52,7 @@ namespace Material.Styles.Themes {
                 o => o.CurrentTheme,
                 (o, v) => o.CurrentTheme = v);
 
-        private ThemeStruct _currentTheme = new();
+        private ThemeStruct _currentTheme;
 
         /// <summary>
         /// Get or set current applied theme
@@ -61,7 +66,9 @@ namespace Material.Styles.Themes {
                 var oldTheme = _currentTheme;
                 var newTheme = new ThemeStruct(value);
 
-                if (EqualityComparer<ITheme>.Default.Equals(oldTheme, newTheme)) return;
+                if (EqualityComparer<ITheme>.Default.Equals(oldTheme, newTheme))
+                    return;
+
                 _currentTheme = newTheme;
                 RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
                 if (!_isLoading) StartUpdatingTheme(oldTheme, newTheme);
@@ -70,26 +77,46 @@ namespace Material.Styles.Themes {
 
         public IObservable<ITheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
 
+        /// <summary>
+        /// This event is raised when all brushes is changed.
+        /// </summary>
+        public event EventHandler? ThemeChanged;
+
+        public IObservable<MaterialThemeBase> ThemeChangedObservable =>
+            Observable.FromEvent<EventHandler, MaterialThemeBase>(
+                conversion => delegate(object sender, EventArgs _)
+                {
+                    if (sender is not MaterialThemeBase theme)
+                        return;
+
+                    conversion(theme);
+                },
+                h => ThemeChanged += h,
+                h => ThemeChanged -= h);
+
         public IResourceHost? Owner => (Loaded as IResourceProvider)?.Owner;
 
         /// <summary>
         /// Gets the loaded style.
         /// </summary>
-        public IStyle Loaded {
-            get {
-                if (_loaded == null) {
-                    _isLoading = true;
+        public IStyle Loaded
+        {
+            get
+            {
+                if (_loaded != null)
+                    return _loaded!;
 
-                    _loaded = new Avalonia.Styling.Styles() { _controlsStyles };
+                _isLoading = true;
 
-                    var initialTheme = ProvideInitialTheme();
-                    if (initialTheme != null) {
-                        UpdateSolidColorBrush(null, initialTheme, LoadedResourceDictionary, InvokeAndReturnTask).Wait();
-                        CurrentTheme = initialTheme;
-                    }
+                _loaded = new Avalonia.Styling.Styles {_controlsStyles};
 
-                    _isLoading = false;
+                var initialTheme = ProvideInitialTheme();
+                if (initialTheme != null) {
+                    UpdateSolidColorBrush(null, initialTheme, LoadedResourceDictionary, InvokeAndReturnTask).Wait();
+                    CurrentTheme = initialTheme;
                 }
+
+                _isLoading = false;
 
                 return _loaded!;
 
@@ -117,14 +144,18 @@ namespace Material.Styles.Themes {
         }
 
         public SelectorMatchResult TryAttach(IStyleable target, IStyleHost? host) => Loaded.TryAttach(target, host);
-        public bool TryGetResource(object key, out object? value) {
-            if (!_isLoading && Loaded is IResourceProvider p) {
+
+        public bool TryGetResource(object key, out object? value)
+        {
+            if (!_isLoading && Loaded is IResourceProvider p)
+            {
                 return p.TryGetResource(key, out value);
             }
 
             value = null;
             return false;
         }
+
         void IResourceProvider.AddOwner(IResourceHost owner) => (Loaded as IResourceProvider)?.AddOwner(owner);
         void IResourceProvider.RemoveOwner(IResourceHost owner) => (Loaded as IResourceProvider)?.RemoveOwner(owner);
 
@@ -144,7 +175,9 @@ namespace Material.Styles.Themes {
 
         private CancellationTokenSource? _currentCancellationTokenSource;
         private Task? _currentThemeUpdateTask;
-        private void StartUpdatingTheme(ITheme oldTheme, ITheme newTheme) => Task.Run(async () => {
+
+        private void StartUpdatingTheme(ITheme? oldTheme, ITheme newTheme) => Task.Run(async () =>
+        {
             _currentCancellationTokenSource?.Cancel();
             _currentCancellationTokenSource?.Dispose();
 
@@ -152,22 +185,31 @@ namespace Material.Styles.Themes {
             _currentCancellationTokenSource = currentToken;
 
             if (_currentThemeUpdateTask != null) await _currentThemeUpdateTask;
-            if (!currentToken.IsCancellationRequested) {
-                _currentThemeUpdateTask = UpdateSolidColorBrush(oldTheme, newTheme, LoadedResourceDictionary, Dispatcher.UIThread.InvokeAsync);
+            if (!currentToken.IsCancellationRequested)
+            {
+                var task = UpdateSolidColorBrush(oldTheme, newTheme, LoadedResourceDictionary,
+                    Dispatcher.UIThread.InvokeAsync);
+                
+                _currentThemeUpdateTask = task;
+                
+                await task.ContinueWith(delegate
+                {
+                    ThemeChanged?.Invoke(this, EventArgs.Empty);
+                }, CancellationToken.None);
             }
         });
 
         private static IReadOnlyDictionary<string, Func<ITheme, Color>> UpdatableColors =>
-            new Dictionary<string, Func<ITheme, Color>>() {
-                { "PrimaryHueLightForegroundBrush", theme => theme.PrimaryLight.ForegroundColor ?? theme.PrimaryLight.Color.ContrastingForegroundColor() },
-                { "PrimaryHueMidForegroundBrush", theme => theme.PrimaryMid.ForegroundColor ?? theme.PrimaryMid.Color.ContrastingForegroundColor() },
-                { "PrimaryHueDarkForegroundBrush", theme => theme.PrimaryDark.ForegroundColor ?? theme.PrimaryDark.Color.ContrastingForegroundColor() },
+            new Dictionary<string, Func<ITheme, Color>> {
+                { "PrimaryHueLightForegroundBrush", theme => theme.PrimaryLight.ForegroundColor },
+                { "PrimaryHueMidForegroundBrush", theme => theme.PrimaryMid.ForegroundColor },
+                { "PrimaryHueDarkForegroundBrush", theme => theme.PrimaryDark.ForegroundColor },
                 { "PrimaryHueLightBrush", theme => theme.PrimaryLight.Color },
                 { "PrimaryHueMidBrush", theme => theme.PrimaryMid.Color },
                 { "PrimaryHueDarkBrush", theme => theme.PrimaryDark.Color },
-                { "SecondaryHueLightForegroundBrush", theme => theme.SecondaryLight.ForegroundColor ?? theme.SecondaryLight.Color.ContrastingForegroundColor() },
-                { "SecondaryHueMidForegroundBrush", theme => theme.SecondaryMid.ForegroundColor ?? theme.SecondaryMid.Color.ContrastingForegroundColor() },
-                { "SecondaryHueDarkForegroundBrush", theme => theme.SecondaryDark.ForegroundColor ?? theme.SecondaryDark.Color.ContrastingForegroundColor() },
+                { "SecondaryHueLightForegroundBrush", theme => theme.SecondaryLight.ForegroundColor },
+                { "SecondaryHueMidForegroundBrush", theme => theme.SecondaryMid.ForegroundColor },
+                { "SecondaryHueDarkForegroundBrush", theme => theme.SecondaryDark.ForegroundColor },
                 { "SecondaryHueLightBrush", theme => theme.SecondaryLight.Color },
                 { "SecondaryHueMidBrush", theme => theme.SecondaryMid.Color },
                 { "SecondaryHueDarkBrush", theme => theme.SecondaryDark.Color },

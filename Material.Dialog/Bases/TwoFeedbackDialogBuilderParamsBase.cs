@@ -8,13 +8,16 @@ namespace Material.Dialog.Bases
         /// <summary>
         /// Define a positive action button.
         /// </summary>
-        [Obsolete("Please use DialogButton.IsPositive instead. This API will be deprecated and removed on future updates.")]
+        [Obsolete(
+            "Please use DialogButton.IsPositive instead. This API will be deprecated and removed on future updates.")]
         public DialogButton PositiveButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.Ok)[0];
 
         /// <summary>
         /// Define a negative action button.
         /// </summary>
-        [Obsolete("Please use DialogButton.IsPositive instead. This API will be deprecated and removed on future updates.")]
-        public DialogButton NegativeButton = DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[0];
+        [Obsolete(
+            "Please use DialogButton.IsPositive instead. This API will be deprecated and removed on future updates.")]
+        public DialogButton NegativeButton =
+            DialogHelper.CreateSimpleDialogButtons(Enums.DialogButtonsEnum.OkCancel)[0];
     }
 }

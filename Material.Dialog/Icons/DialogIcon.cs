@@ -1,28 +1,23 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Templates;
 using Avalonia.Media;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 
 namespace Material.Dialog.Icons
 {
     public class DialogIcon : TemplatedControl
-    {  
+    {
         static DialogIcon()
-        { 
+        {
         }
 
         public static readonly StyledProperty<DialogIconKind> KindProperty
-            = AvaloniaProperty.Register<DialogIcon, DialogIconKind>(nameof(Kind), notifying: KindPropertyChangedCallback);
+            = AvaloniaProperty.Register<DialogIcon, DialogIconKind>(nameof(Kind),
+                notifying: KindPropertyChangedCallback);
 
         private static void KindPropertyChangedCallback(IAvaloniaObject sender, bool before)
         {
-            ((DialogIcon)sender).UpdateData();
-            ((DialogIcon)sender).UpdateColor();
+            ((DialogIcon) sender).UpdateData();
+            ((DialogIcon) sender).UpdateColor();
         }
 
         /// <summary>
@@ -47,27 +42,29 @@ namespace Material.Dialog.Icons
         }
 
         public static readonly StyledProperty<bool> UseRecommendColorProperty
-    = AvaloniaProperty.Register<DialogIcon, bool>(nameof(UseRecommendColor), true, notifying: UseRecommendColorPropertyChangedCallback);
-         
+            = AvaloniaProperty.Register<DialogIcon, bool>(nameof(UseRecommendColor), true,
+                notifying: UseRecommendColorPropertyChangedCallback);
+
         public bool UseRecommendColor
         {
             get => GetValue(UseRecommendColorProperty);
             set => SetValue(UseRecommendColorProperty, value);
         }
+
         private static void UseRecommendColorPropertyChangedCallback(IAvaloniaObject sender, bool before)
         {
-            ((DialogIcon)sender).UpdateColor();
+            ((DialogIcon) sender).UpdateColor();
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
         {
             base.OnApplyTemplate(e);
             UpdateData();
-        } 
+        }
 
         private void UpdateData()
         {
-            string data = null; 
+            string data = null;
             DialogIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
             var g = StreamGeometry.Parse(data);
             this.Data = g;

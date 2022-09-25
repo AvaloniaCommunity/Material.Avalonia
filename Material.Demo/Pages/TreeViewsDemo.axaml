@@ -5,10 +5,11 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.TreeViewsDemo">
     <StackPanel Margin="16, 0">
         <StackPanel.Styles>
-            <Style Selector="styles|Card.ChildDemo">
+            <Style Selector="controls|Card.ChildDemo">
                 <Setter Property="Width" Value="320" />
                 <Setter Property="Height" Value="320" />
                 <Setter Property="Padding" Value="0" />
@@ -20,7 +21,7 @@
 
         <WrapPanel>
             <!-- Demos -->
-            <styles:Card Classes="ChildDemo">
+            <controls:Card Classes="ChildDemo">
                 <!-- TODO: StackPanel could ignore height of parent. -->
                 <Grid RowDefinitions="Auto, *">
                     <TextBlock Classes="Headline6" Margin="8" Text="Operation systems: " />
@@ -57,6 +58,15 @@
                                     <TextBlock Text="Linux" Grid.Column="2" />
                                 </Grid>
                             </TreeViewItem.Header>
+                            
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <Grid ColumnDefinitions="Auto, 8, *">
+                                        <avalonia:MaterialIcon Kind="Android" />
+                                        <TextBlock Text="Android" Grid.Column="2" />
+                                    </Grid>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
 
                             <TreeViewItem>
                                 <TreeViewItem.Header>
@@ -66,14 +76,7 @@
                                     </Grid>
                                 </TreeViewItem.Header>
                             </TreeViewItem>
-                            <TreeViewItem>
-                                <TreeViewItem.Header>
-                                    <Grid ColumnDefinitions="Auto, 8, *">
-                                        <avalonia:MaterialIcon Kind="LinuxMint" />
-                                        <TextBlock Text="Mint Linux" Grid.Column="2" />
-                                    </Grid>
-                                </TreeViewItem.Header>
-                            </TreeViewItem>
+                            
                             <TreeViewItem>
                                 <TreeViewItem.Header>
                                     <Grid ColumnDefinitions="Auto, 8, *">
@@ -90,14 +93,7 @@
                                     </Grid>
                                 </TreeViewItem.Header>
                             </TreeViewItem>
-                            <TreeViewItem>
-                                <TreeViewItem.Header>
-                                    <Grid ColumnDefinitions="Auto, 8, *">
-                                        <avalonia:MaterialIcon Kind="Ubuntu" />
-                                        <TextBlock Text="Ubuntu" Grid.Column="2" />
-                                    </Grid>
-                                </TreeViewItem.Header>
-                            </TreeViewItem>
+                            
                             <TreeViewItem>
                                 <TreeViewItem.Header>
                                     <Grid ColumnDefinitions="Auto, 8, *">
@@ -105,11 +101,30 @@
                                         <TextBlock Text="Debian" Grid.Column="2" />
                                     </Grid>
                                 </TreeViewItem.Header>
+                                <TreeViewItem>
+                                    <TreeViewItem.Header>
+                                        <Grid ColumnDefinitions="Auto, 8, *">
+                                            <avalonia:MaterialIcon Kind="Ubuntu" />
+                                            <TextBlock Text="Ubuntu" Grid.Column="2" />
+                                        </Grid>
+                                    </TreeViewItem.Header>
+                                    <TreeViewItem>
+                                        <TreeViewItem.Header>
+                                            <Grid ColumnDefinitions="Auto, 8, *">
+                                                <avalonia:MaterialIcon Kind="LinuxMint" />
+                                                <TextBlock Text="Mint Linux" Grid.Column="2" />
+                                            </Grid>
+                                        </TreeViewItem.Header>
+                                    </TreeViewItem>
+                                    <TreeViewItem Header="Pop!_OS"/>
+                                    <TreeViewItem Header="Lubuntu"/>
+                                    <TreeViewItem Header="Zorin OS"/>
+                                </TreeViewItem>
                             </TreeViewItem>
                         </TreeViewItem>
                     </TreeView>
                 </Grid>
-            </styles:Card>
+            </controls:Card>
         </WrapPanel>
     </StackPanel>
 </UserControl>

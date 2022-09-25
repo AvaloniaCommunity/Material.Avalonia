@@ -1,17 +1,17 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:styles="clr-namespace:Material.Styles"
-        xmlns:assists="clr-namespace:Material.Styles.Assists">
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Style Selector="NumericUpDown">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
-        <Setter Property="VerticalAlignment" Value="Bottom"/>
         <Setter Property="MinHeight" Value="48"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_RootBorder"
+                        ClipToBounds="True"
+                        CornerRadius="4,4,0,0"
                         Margin="{TemplateBinding Padding}"
-                        ClipToBounds="True" CornerRadius="4,4,0,0"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
@@ -26,7 +26,7 @@
                                        AllowSpin="{TemplateBinding AllowSpin}"
                                        ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
                                        ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
-                            <TextBox Name="PART_TextBox" Margin="8 0" Classes="Solo"
+                            <TextBox Name="PART_TextBox" Margin="8 0" 
                                      BorderThickness="0" VerticalAlignment="Center"
                                      TextBlock.FontFamily="{TemplateBinding FontFamily}"
                                      TextBlock.FontSize="{TemplateBinding FontSize}"
@@ -40,7 +40,7 @@
                                      Text="{TemplateBinding Text}"
                                      AcceptsReturn="False" TextWrapping="NoWrap" />
                         </ButtonSpinner>
-                        <styles:MaterialUnderline Classes="MirrorY" 
+                        <controls:MaterialUnderline Classes="MirrorY" 
                                                   VerticalAlignment="Bottom"   
                                                   Name="Underline"/>
                     </Grid>
@@ -49,15 +49,15 @@
         </Setter>
     </Style>
     
-    <Style Selector="NumericUpDown /template/ TextBox#PART_TextBox /template/ styles|MaterialUnderline#Underline">
+    <Style Selector="NumericUpDown /template/ TextBox#PART_TextBox /template/ controls|MaterialUnderline#Underline">
         <Setter Property="Opacity" Value="0"/>
     </Style>
     
-    <Style Selector="NumericUpDown:focus-within /template/ styles|MaterialUnderline#Underline">
-        <Setter Property="IsExpanded" Value="True"/>
-    </Style>
+    <Style Selector="NumericUpDown:pointerover /template/ controls|MaterialUnderline#Underline">
+        <Setter Property="IsActive" Value="True"/>
+    </Style> 
     
-    <Style Selector="NumericUpDown:pointerover /template/ styles|MaterialUnderline#Underline">
+    <Style Selector="NumericUpDown:focus-within /template/ controls|MaterialUnderline#Underline">
         <Setter Property="IsActive" Value="True"/>
     </Style> 
     

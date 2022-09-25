@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace Material.Colors.Recommended {
-    public class AmberSwatch : ISwatch {
+namespace Material.Colors.Recommended
+{
+    public class AmberSwatch : ISwatch
+    {
         public static Color Amber50 { get; } = Color.Parse("#FFF8E1");
         public static Color Amber100 { get; } = Color.Parse("#FFECB3");
         public static Color Amber200 { get; } = Color.Parse("#FFE082");
@@ -20,7 +22,8 @@ namespace Material.Colors.Recommended {
 
         public string Name { get; } = "Amber";
 
-        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color> {
+        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color>
+        {
             {MaterialColor.Amber50, Amber50},
             {MaterialColor.Amber100, Amber100},
             {MaterialColor.Amber200, Amber200},

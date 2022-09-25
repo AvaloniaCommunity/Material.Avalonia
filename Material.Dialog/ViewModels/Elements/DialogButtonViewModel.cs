@@ -9,27 +9,27 @@ namespace Material.Dialog.ViewModels.Elements
             _parent = parent;
             _content = content;
         }
-        
+
         public DialogButtonViewModel(DialogWindowViewModel parent, object content, ICommand command)
         {
             _parent = parent;
             _content = content;
             _command = command;
         }
-        
+
         private DialogWindowViewModel _parent;
 
         public DialogWindowViewModel Parent => _parent;
-        
+
 
         private bool _isPositiveButton;
-        
+
         public bool IsPositiveButton
         {
             get => _isPositiveButton;
             set
             {
-                _isPositiveButton = value; 
+                _isPositiveButton = value;
                 OnPropertyChanged();
             }
         }
@@ -46,7 +46,7 @@ namespace Material.Dialog.ViewModels.Elements
             }
         }
 
-        internal ICommand _command;
+        private ICommand _command;
 
         public ICommand Command
         {
