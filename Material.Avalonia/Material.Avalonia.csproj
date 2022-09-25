@@ -12,7 +12,8 @@
         <PackageTags>avalonia xaml material design theme colour color ui ux material-design google-material</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <VersionPrefix>3.0.0-avalonia10-preview2</VersionPrefix>
+        <PackageIcon>FavIcon.png</PackageIcon>
+        <VersionPrefix>3.0.0-avalonia10-preview3</VersionPrefix>
         <PackageReleaseNotes>
 Most likely latest version with Avalonia 0.10.x support
 Version 3.0.0-rc0 was replaced with 3.0.0-avalonia10-preview1 (in order to keep version names clear)
@@ -37,6 +38,7 @@ Version 3.0.0-rc0 was replaced with 3.0.0-avalonia10-preview1 (in order to keep 
 
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="/" />
+        <None Include="../wiki/FavIcon.png" Pack="true" PackagePath="/" />
     </ItemGroup>
 
 <!--    For nightly versions-->
