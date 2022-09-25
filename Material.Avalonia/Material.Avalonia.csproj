@@ -9,6 +9,7 @@
         <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
+        <PackageTags>avalonia xaml material design theme colour color ui ux material-design google-material</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <VersionPrefix>3.0.0-avalonia10-preview2</VersionPrefix>
@@ -35,7 +36,7 @@ Version 3.0.0-rc0 was replaced with 3.0.0-avalonia10-preview1 (in order to keep 
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="../README.md" Pack="true" PackagePath="/"/>
+        <None Include="../README.md" Pack="true" PackagePath="/" />
     </ItemGroup>
 
 <!--    For nightly versions-->
