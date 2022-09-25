@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <VersionPrefix>3.0.0-rc0</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -11,6 +10,8 @@
         <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <VersionPrefix>3.0.0-rc1</VersionPrefix>
         <PackageReleaseNotes>
 - Removed Material.Icons dependency (must be installed separately from https://github.com/AvaloniaUtils/Material.Icons.Avalonia) #127
 - Rework styles (details https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming#migrating-25---30)
@@ -28,6 +29,10 @@
 - Other fixes and improvements
         </PackageReleaseNotes>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="/"/>
+    </ItemGroup>
 
 <!--    For nightly versions-->
     <PropertyGroup>
