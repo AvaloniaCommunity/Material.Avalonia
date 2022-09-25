@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <VersionPrefix>3.0.0-rc0</VersionPrefix>
+        <VersionPrefix>3.0.0-avalonia10-preview1</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
@@ -12,6 +12,9 @@
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
         <PackageReleaseNotes>
+This is the same as 3.0.0-rc0
+Version 3.0.0-rc0 was replaced with 3.0.0-avalonia10-preview1 (in order to keep version names clear)
+
 - Removed Material.Icons dependency (must be installed separately from https://github.com/AvaloniaUtils/Material.Icons.Avalonia) #127
 - Rework styles (details https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming#migrating-25---30)
 - Fix neverest version of Avalonia support #133
