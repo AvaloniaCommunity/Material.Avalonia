@@ -13,7 +13,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>FavIcon.png</PackageIcon>
-        <VersionPrefix>3.0.0-avalonia10-preview3</VersionPrefix>
+        <VersionPrefix>3.0.0-avalonia10-preview2</VersionPrefix>
         <PackageReleaseNotes>
 Most likely latest version with Avalonia 0.10.x support
 Version 3.0.0-rc0 was replaced with 3.0.0-avalonia10-preview1 (in order to keep version names clear)
