@@ -10,7 +10,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel ClipToBounds="True">
-                    <ContentPresenter Name="Content"
+                    <ContentPresenter Name="PART_ContentPresenter"
                                       Background="{TemplateBinding Background}"
                                       BorderBrush="{TemplateBinding BorderBrush}"
                                       BorderThickness="{TemplateBinding BorderThickness}"
