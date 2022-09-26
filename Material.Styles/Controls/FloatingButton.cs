@@ -1,7 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 
-namespace Material.Styles
+namespace Material.Styles.Controls
 {
     public class FloatingButton : Button
     {

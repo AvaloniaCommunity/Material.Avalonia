@@ -3,9 +3,11 @@ using Avalonia.Controls;
 using Material.Colors;
 using Material.Styles.Themes.Base;
 
-namespace Material.Styles.Themes {
+namespace Material.Styles.Themes
+{
     [Obsolete($"Obsolete styling system. Use {nameof(MaterialTheme)}. Details in our wiki: https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming")]
-    public class BundledTheme : ResourceDictionary {
+    public class BundledTheme : ResourceDictionary 
+    {
         private BaseThemeMode? _baseTheme;
 
         private PrimaryColor? _primaryColor;
@@ -42,16 +44,19 @@ namespace Material.Styles.Themes {
             }
         }
 
-        private void SetTheme() {
-            if (!(BaseTheme is { } baseTheme) || !(PrimaryColor is { } primaryColor) || !(SecondaryColor is { } secondaryColor)) return;
+        private void SetTheme()
+        {
+            if (!(BaseTheme is { } baseTheme) || !(PrimaryColor is { } primaryColor) ||
+                !(SecondaryColor is { } secondaryColor)) return;
             var theme = Theme.Create(baseTheme.GetBaseTheme(),
                 SwatchHelper.Lookup[(MaterialColor) primaryColor],
                 SwatchHelper.Lookup[(MaterialColor) secondaryColor]);
-            
+
             ApplyTheme(theme);
         }
 
-        protected virtual void ApplyTheme(ITheme theme) {
+        protected virtual void ApplyTheme(ITheme theme)
+        {
             this.SetTheme(theme);
         }
     }

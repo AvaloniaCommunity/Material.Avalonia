@@ -1,15 +1,15 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:cc="clr-namespace:Material.Styles"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
         xmlns:models="clr-namespace:Material.Styles.Models"
         xmlns:system="clr-namespace:System;assembly=netstandard"
-        x:DataType="cc:SnackbarHost">
+        xmlns:controls="clr-namespace:Material.Styles.Controls"
+        x:DataType="controls:SnackbarHost">
     <Styles.Resources>
         <converters:MarginCreator x:Key="StartMarginCreator" />
     </Styles.Resources>
 
-    <Style Selector="cc|SnackbarHost">
+    <Style Selector="controls|SnackbarHost">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -19,7 +19,7 @@
                     <ItemsControl Name="PART_SnackbarHostItemsContainer"
                                   HorizontalAlignment="{TemplateBinding SnackbarHorizontalAlignment}"
                                   VerticalAlignment="{TemplateBinding SnackbarVerticalAlignment}"
-                                  Items="{CompiledBinding $parent[cc:SnackbarHost].SnackbarModels}">
+                                  Items="{CompiledBinding $parent[controls:SnackbarHost].SnackbarModels}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <ReversibleStackPanel />
@@ -27,7 +27,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="models:SnackbarModel">
-                                <cc:Card Padding="0" Margin="8" Width="344">
+                                <controls:Card Padding="0" Margin="8" Width="344">
                                     <Grid ColumnDefinitions="16,*,8,Auto,8" RowDefinitions="6,Auto,6" Margin="0, 8">
                                         <ContentPresenter Grid.Column="1" Grid.Row="1"
                                                           Content="{CompiledBinding Content,
@@ -43,7 +43,7 @@
                                                           Content="{CompiledBinding Button}"
                                                           IsVisible="{CompiledBinding !!Button}" />
                                     </Grid>
-                                </cc:Card>
+                                </controls:Card>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
@@ -53,7 +53,7 @@
     </Style>
 
     <Style
-        Selector="cc|SnackbarHost /template/ ItemsControl#PART_SnackbarHostItemsContainer TextBlock#PART_SnackbarSupportingText">
+        Selector="controls|SnackbarHost /template/ ItemsControl#PART_SnackbarHostItemsContainer TextBlock#PART_SnackbarSupportingText">
         <Setter Property="TextAlignment" Value="Left" />
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
         <Setter Property="TextWrapping" Value="Wrap" />

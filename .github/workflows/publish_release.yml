@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build and pack
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -32,6 +33,7 @@ jobs:
         path: artifacts/
   numerge:
     runs-on: ubuntu-latest
+    name: Merge packages and publish release
     needs: [build]
     steps:
       - name: Checkout Numerge

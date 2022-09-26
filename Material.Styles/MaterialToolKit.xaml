@@ -20,17 +20,24 @@
     <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml"/>
     
-    <!-- dialog host -->
-    
-    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
-    <StyleInclude Source="avares://Material.Styles/DialogHost.axaml" />
+    <StyleInclude Source="avares://Material.Styles/CircleClockPickerCell.axaml"/>
+    <StyleInclude Source="avares://Material.Styles/CircleClockPicker.axaml"/>
     
     <!-- Basic controls -->
     
-    <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" />
+    <!-- Buttons -->
+    
     <StyleInclude Source="avares://Material.Styles/Button.xaml" />
     <StyleInclude Source="avares://Material.Styles/ButtonSpinner.xaml" />
-    <StyleInclude Source="avares://Material.Styles/Calendar.xaml" />
+    <StyleInclude Source="avares://Material.Styles/ToggleButton.xaml" /> 
+    <StyleInclude Source="avares://Material.Styles/ToggleSwitch.xaml" />
+    
+    <StyleInclude Source="avares://Material.Styles/RadioButton.xaml" />
+    <StyleInclude Source="avares://Material.Styles/RepeatButton.xaml" />
+    
+    <!-- Uncommented -->
+    
+    <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/CalendarButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/CalendarDayButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/CalendarItem.xaml" />
@@ -39,11 +46,14 @@
     <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ComboBoxItem.xaml" />
     <StyleInclude Source="avares://Material.Styles/ContentControl.xaml" />
+    
+    <StyleInclude Source="avares://Material.Styles/ContentExpandControl.axaml" />
+    
     <StyleInclude Source="avares://Material.Styles/ContextMenu.xaml" />
     <StyleInclude Source="avares://Material.Styles/DataValidationErrors.xaml" />
     <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" />
     <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" />
-    <StyleInclude Source="avares://Material.Styles/Expander.xaml" />
+ 
     <StyleInclude Source="avares://Material.Styles/FlyoutPresenter.axaml" />
     <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
     <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
@@ -59,29 +69,41 @@
     <StyleInclude Source="avares://Material.Styles/OverlayPopupHost.xaml" />
     <StyleInclude Source="avares://Material.Styles/PopupRoot.xaml" />
     <StyleInclude Source="avares://Material.Styles/ProgressBar.xaml" />
-    <StyleInclude Source="avares://Material.Styles/RadioButton.xaml" />
-    <StyleInclude Source="avares://Material.Styles/RepeatButton.xaml" />
     <StyleInclude Source="avares://Material.Styles/ScrollBar.xaml" />
-    <StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />
-    <StyleInclude Source="avares://Material.Styles/Scroller.xaml" />
     <StyleInclude Source="avares://Material.Styles/Separator.xaml" />
-    <StyleInclude Source="avares://Material.Styles/Slider.xaml" />
+    
     <StyleInclude Source="avares://Material.Styles/SplitView.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabControl.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabStrip.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabStripItem.xaml" />
-    <StyleInclude Source="avares://Material.Styles/TextBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/TextBlock.xaml" />
-    <StyleInclude Source="avares://Material.Styles/ToggleButton.xaml" /> 
-    <StyleInclude Source="avares://Material.Styles/ToggleSwitch.xaml" />
+
+
     <StyleInclude Source="avares://Material.Styles/ToolTip.xaml" />
     <StyleInclude Source="avares://Material.Styles/TreeView.xaml" />
     <StyleInclude Source="avares://Material.Styles/UserControl.xaml" />
-    <StyleInclude Source="avares://Material.Styles/Window.xaml" />
     <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
+    
+    <!-- Complex controls -->
+    
+    
+    <StyleInclude Source="avares://Material.Styles/Calendar.xaml" />
+    <StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />
+    <StyleInclude Source="avares://Material.Styles/Scroller.xaml" />
+    <StyleInclude Source="avares://Material.Styles/Slider.xaml" />
+    <StyleInclude Source="avares://Material.Styles/TextBox.xaml" />
+    <StyleInclude Source="avares://Material.Styles/Window.xaml" />
     <StyleInclude Source="avares://Material.Ripple/RippleEffect.xaml" />
+    
+    <!-- Controls (High-priority) -->
+    <StyleInclude Source="avares://Material.Styles/Expander.xaml" />
 
     <!-- Custom controls (High-priority) -->
     <StyleInclude Source="avares://Material.Styles/SideSheet.xaml"/>
     
+    <StyleInclude Source="avares://Material.Styles/TransitioningContentControl.axaml"/>
+    
+    <!-- DialogHost.Avalonia -->
+    <!-- dialog host style have been removed for avoid unnecessary package linking -->
+    <!-- you can still add it manually https://github.com/AvaloniaUtils/DialogHost.Avalonia -->
 </Styles>

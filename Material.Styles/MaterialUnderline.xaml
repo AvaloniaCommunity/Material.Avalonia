@@ -1,63 +1,64 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:cc="clr-namespace:Material.Styles"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations">
-  <Style Selector="cc|MaterialUnderline">
-    <Setter Property="Focusable" Value="False"/>
-    <Setter Property="Height" Value="2"/>
-    <Setter Property="BackgroundColor" Value="{DynamicResource MaterialDesignTextBoxBorder}"/>
-    <Setter Property="ActiveColor" Value="{DynamicResource PrimaryHueMidBrush}"/>
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid>
-          <ContentControl Content="{TemplateBinding Content}"></ContentControl>
-          <Border Name="Border"
-                  Height="1" VerticalAlignment="Bottom" Margin="0 0 0 1"
-                  Focusable="False" IsHitTestVisible="False" />
-          <Border Name="ActivationIndicator"
-                  Height="2" VerticalAlignment="Bottom"
-                  Focusable="False" IsHitTestVisible="False"
-                  Background="{TemplateBinding ActiveColor}" />
-        </Grid>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-  <Style Selector="cc|MaterialUnderline.MirrorY">
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid>
-          <ContentControl Content="{TemplateBinding Content}"></ContentControl>
-          <Border Name="Border"
-                  Height="1" VerticalAlignment="Bottom"
-                  Focusable="False" IsHitTestVisible="False" />
-          <Border Name="ActivationIndicator"
-                  Height="2" VerticalAlignment="Bottom"
-                  Focusable="False" IsHitTestVisible="False"
-                  Background="{TemplateBinding ActiveColor}" />
-        </Grid>
-      </ControlTemplate>
-    </Setter>
-  </Style>
+        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
+    <!-- Template and default state for widget -->
+    <Style Selector="controls|MaterialUnderline" >
+        <Setter Property="Height" Value="2" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="IdleBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="ActiveBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Template" >
+            <ControlTemplate>
+                <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                    <Rectangle Name="PART_BaseBorder"
+                               Stroke="{TemplateBinding IdleBrush}"/>
+                    <Rectangle Name="PART_ActiveIndicator"
+                               Fill="{TemplateBinding ActiveBrush}"/>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="controls|MaterialUnderline /template/ Rectangle#PART_BaseBorder" >
+        <Setter Property="Height" Value="1"/>
+        <Setter Property="Margin" Value="0,0,0,1"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+    
+    <Style Selector="controls|MaterialUnderline /template/ Rectangle#PART_ActiveIndicator" >
+        <Setter Property="Height" Value="2"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    
+    <Style Selector="controls|MaterialUnderline.material-mirror-y /template/ Rectangle#PART_BaseBorder" >
+        <Setter Property="Margin" Value="0"/>
+    </Style>
 
-  <Style Selector="cc|MaterialUnderline:not(.notransitions) /template/ Border#ActivationIndicator">
-    <Setter Property="Transitions">
-      <Transitions>
-        <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CubicEaseOut"/>
-      </Transitions>
-    </Setter>
-  </Style>
+    <Style Selector="controls|MaterialUnderline:not(.no-transitions) /template/ Rectangle#PART_ActiveIndicator" >
+        <Setter Property="Transitions" >
+            <Transitions>
+                <DoubleTransition Duration="0:0:0.45" Property="Width" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
 
-  <Style Selector="cc|MaterialUnderline /template/ Border#Border">
-    <Setter Property="Background" Value="{Binding $parent[cc:MaterialUnderline].BackgroundColor}" />
-  </Style>
-  <Style Selector="cc|MaterialUnderline[IsActive=True] /template/ Border#Border">
-    <Setter Property="Background" Value="{Binding $parent[cc:MaterialUnderline].ActiveColor}" />
-  </Style>
-  <Style Selector="cc|MaterialUnderline /template/ Border#ActivationIndicator">
-    <Setter Property="Width" Value="0" />
-  </Style>
-  <Style Selector="cc|MaterialUnderline[IsExpanded=True] /template/ Border#ActivationIndicator">
-    <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
-  </Style>
+    <Style Selector="controls|MaterialUnderline /template/ Rectangle#PART_ActiveIndicator" >
+        <Setter Property="Width" Value="0" />
+    </Style>
+    
+    <Style Selector="controls|MaterialUnderline:disabled /template/ Rectangle#PART_BaseBorder" >
+        <Setter Property="StrokeDashArray" Value="1,2"/>
+    </Style>
+    
+        
+    <Style Selector="controls|MaterialUnderline[IsActive=True] /template/ Rectangle#PART_ActiveIndicator" >
+        <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+    </Style>
+    
+    <Style Selector="controls|MaterialUnderline[IsHovered=True] /template/ Rectangle#PART_BaseBorder" >
+        <Setter Property="Height" Value="2"/>
+    </Style>
 </Styles>

@@ -3,7 +3,7 @@
 
 namespace Material.Dialog.Interfaces
 {
-    public interface IDialogWindowResult <T>
+    public interface IDialogWindowResult<T>
     {
         T GetResult();
     }

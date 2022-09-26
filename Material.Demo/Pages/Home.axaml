@@ -1,84 +1,82 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"  
-             xmlns:demo="clr-namespace:Material.Demo;assembly=Material.Demo"
-             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-             xmlns:models="clr-namespace:Material.Demo.Models"
-             xmlns:conv="clr-namespace:Material.Demo.Converters"
-             x:Class="Material.Demo.Pages.Home" >
-  <UserControl.Resources>
-    <conv:EnumDescriptionConverter x:Key="GetDescription"/>
-  </UserControl.Resources>
+             x:Class="Material.Demo.Pages.Home">
+    <!--UserControl.Resources>
+      <conv:EnumDescriptionConverter x:Key="GetDescription"/>
+    </UserControl.Resources-->
     <StackPanel Margin="16, 0" MaxWidth="600">
-      <StackPanel.Styles>
-        <Style Selector="TextBlock.Content, TextBlock.Subheadline">
-          <Setter Property="HorizontalAlignment" Value="Stretch"/>
-          <Setter Property="TextAlignment" Value="Center"/>
-          <Setter Property="TextWrapping" Value="Wrap"/>
-        </Style>
-      </StackPanel.Styles>
-      <Image Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top"
-              Source="avares://Material.Demo/Assets/FavIcon_200x.png" Margin="0,0,0,-8"/>
-      <TextBlock Classes="Headline4 Subheadline" Text="👋 Welcome to Material.Avalonia Demo!"/>
-      <TextBlock Classes="Content" Text="Material.Avalonia is a library that could beauty and turning your Avalonia Application from regular design to Material Design like Material Design in XAML! It easy for use to your project! Just install NuGet package, slightly change your App.xaml / App.axaml and your application are ready to go with Material Design!"/>
-      <TextBlock Classes="Content" Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!"/>
-      <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!"/>
-      <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12."/>
-
-      <StackPanel Margin="16">
         <StackPanel.Styles>
-          <Style Selector="Button">
-            <Setter Property="Margin" Value="4"/>
-          </Style>
+            <Style Selector="TextBlock.Content, TextBlock.Subheadline">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
         </StackPanel.Styles>
-        <WrapPanel HorizontalAlignment="Center" MaxWidth="600" >
-          <Button Classes="Flat" Content="PROJECT LINK" Command="{Binding Path=OpenProjectRepoLink}"/>
-          <Button Classes="Flat" Content="USE DARK THEME" Command="{Binding Path=UseMaterialUIDarkTheme}"/>
-          <Button Classes="Flat" Content="USE LIGHT THEME" Command="{Binding Path=UseMaterialUILightTheme}"/>
-        </WrapPanel>
-        <WrapPanel HorizontalAlignment="Center" MaxWidth="600" >
-          <Button Classes="Flat" Content="SWITCH TRANSITIONS" Command="{Binding Path=SwitchTransition}"/>
-          <Button Classes="Flat" Content="ABOUT AVALONIAUI" Command="{Binding Path=ShowAboutAvaloniaUI}"/>
-        </WrapPanel>
-      </StackPanel>
-      <StackPanel Margin="0,24">
-        <DataGrid Height="620"
-                  IsReadOnly="True"
-                  Items="{Binding Path=DataContext.Features}" 
-                  VerticalAlignment="Stretch"
-                  VerticalScrollBarVisibility="Disabled">
-          <DataGrid.Columns>
-            <DataGridTextColumn Header="Features"
-                                Binding="{Binding FeatureName}"
-                                Width="20*" />
-            <DataGridTemplateColumn>
-              <DataGridTemplateColumn.Header>
-                <TextBlock TextAlignment="Right" 
-                           Text="Is Ready" 
-                           HorizontalAlignment="Stretch"/>
-              </DataGridTemplateColumn.Header>
-              <DataGridTemplateColumn.CellTemplate>
-                <DataTemplate>
-                  <TextBlock TextAlignment="Right" Text="{Binding Converter={StaticResource GetDescription}, Path=IsReady}"/>
-                </DataTemplate>
-              </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn> 
-            <DataGridTemplateColumn>
-              <DataGridTemplateColumn.Header>
-                <TextBlock TextAlignment="Right" 
-                           Text="Is Animated" 
-                           HorizontalAlignment="Stretch"/>
-              </DataGridTemplateColumn.Header>
-              <DataGridTemplateColumn.CellTemplate>
-                <DataTemplate>
-                  <TextBlock TextAlignment="Right" Text="{Binding Converter={StaticResource GetDescription}, Path=IsAnimated}"/>
-                </DataTemplate>
-              </DataGridTemplateColumn.CellTemplate>
-            </DataGridTemplateColumn>
-          </DataGrid.Columns>
-        </DataGrid>
-      </StackPanel>
+        <Image Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Top"
+               Source="avares://Material.Demo/Assets/FavIcon_200x.png" Margin="0,0,0,-8" />
+        <TextBlock Classes="Headline4 Subheadline" Text="👋 Welcome to Material.Avalonia Demo!" />
+        <TextBlock Classes="Content"
+                   Text="Material.Avalonia is a library that could beauty and turning your Avalonia Application from regular design to Material Design like Material Design in XAML! It easy for use to your project! Just install NuGet package, slightly change your App.xaml / App.axaml and your application are ready to go with Material Design!" />
+        <TextBlock Classes="Content"
+                   Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!" />
+        <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!" />
+        <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12." />
+
+        <StackPanel Margin="16">
+            <StackPanel.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Margin" Value="4" />
+                </Style>
+            </StackPanel.Styles>
+            <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
+                <Button Classes="Flat" Content="PROJECT LINK" Command="{Binding Path=OpenProjectRepoLink}" />
+                <Button Classes="Flat" Content="USE DARK THEME" Command="{Binding Path=UseMaterialUIDarkTheme}" />
+                <Button Classes="Flat" Content="USE LIGHT THEME" Command="{Binding Path=UseMaterialUILightTheme}" />
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
+                <Button Classes="Flat" Content="SWITCH TRANSITIONS" Command="{Binding Path=SwitchTransition}" />
+                <Button Classes="Flat" Content="ABOUT AVALONIAUI" Command="{Binding Path=ShowAboutAvaloniaUI}" />
+            </WrapPanel>
+        </StackPanel>
+        <!-- Features listing is disabled. -->
+        <!--
+            <StackPanel Margin="0,24">
+              <DataGrid Height="620"
+                        IsReadOnly="True"
+                        Items="{Binding Path=DataContext.Features}" 
+                        VerticalAlignment="Stretch"
+                        VerticalScrollBarVisibility="Disabled">
+                <DataGrid.Columns>
+                  <DataGridTextColumn Header="Features"
+                                      Binding="{Binding FeatureName}"
+                                      Width="20*" />
+                  <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                      <TextBlock TextAlignment="Right" 
+                                 Text="Is Ready" 
+                                 HorizontalAlignment="Stretch"/>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                      <DataTemplate>
+                        <TextBlock TextAlignment="Right" Text="{Binding Converter={StaticResource GetDescription}, Path=IsReady}"/>
+                      </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                  </DataGridTemplateColumn> 
+                   <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                      <TextBlock TextAlignment="Right" 
+                                 Text="Is Animated" 
+                                 HorizontalAlignment="Stretch"/>
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                      <DataTemplate>
+                        <TextBlock TextAlignment="Right" Text="{Binding Converter={StaticResource GetDescription}, Path=IsAnimated}"/>
+                      </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                  </DataGridTemplateColumn>
+                </DataGrid.Columns>
+              </DataGrid>
+            </StackPanel>
+            -->
     </StackPanel>
 </UserControl>

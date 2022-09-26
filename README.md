@@ -1,15 +1,13 @@
 [nuget]: https://www.nuget.org/packages/Material.Avalonia/
 
-# <img src="/FavIcon.svg" width="48" height="48"> Material.Avalonia
+# ![](https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/dev/wiki/FavIcon.svg) Material.Avalonia
 
 Customizable Material Design implementation for [AvaloniaUI](http://avaloniaui.net/) framework.
 
-![](wiki/images/demo-screenshots/1.png)
+![](https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/dev/wiki/images/demo-screenshots/1.png)
 ###### [More screenshots](https://github.com/AvaloniaUtils/material.avalonia/wiki/Screenshots-of-Demo)
 
-
-
-# <img src="/FavIcon.svg" width="32" height="32"> Overview
+# ![](https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/dev/wiki/FavIcon.svg) Overview
 This library is a collection of styles and controls to help you customize your Avalonia application with Material Design theme.
 - Material Design styles for almost all Avalonia controls
 - Additional controls to support the Snackbars, side sheets, floating buttons, cards, dialogs and more
@@ -21,28 +19,39 @@ This library is a collection of styles and controls to help you customize your A
 [![nuget](https://img.shields.io/nuget/vpre/Material.Avalonia?label=Nuget&style=flat-square)][nuget]
 [![nuget](https://img.shields.io/nuget/dt/Material.Avalonia?color=blue&label=Downloads&style=flat-square)][nuget]
 
-# <img src="/FavIcon.svg" width="32" height="32"> Getting started
-Check out the [getting started](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Simple-getting-started) wiki page. Or follow these very quick instructions:
+# ![](https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/dev/wiki/FavIcon.svg) Getting started
+Check out the [getting started](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Getting-started) wiki page. Or follow these very quick instructions:
 1. Add [Material.Avalonia][nuget] nuget package to your project:
 
        dotnet add package Material.Avalonia
 
 2. Edit `App.xaml` file:
+   > If you install 3.0.0-* version or higher, use this:
+   ```xaml
+   <Application ...
+     xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+     ...>
+     <Application.Styles>
+       <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
+     </Application.Styles>
+   </Application>
+   ```
+   > If you install 2.5.1 or lower use this:
+   ```xaml
+   <Application ...
+     xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+     ...>
+     <Application.Resources>
+       <themes:BundledTheme BaseTheme="Light" PrimaryColor="Teal" SecondaryColor="Amber"/>
+     </Application.Resources>
+     <Application.Styles>
+       <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
+     </Application.Styles>
+   </Application>
+   ```
 
-       <Application ...
-           xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
-           ...>
-           <Application.Styles>
-               <themes:MaterialTheme BaseTheme="Dark" PrimaryColor="Purple" SecondaryColor="Lime" />
-           </Application.Styles>
-       </Application>
-
+# ![](https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/dev/wiki/FavIcon.svg) Useful links
 - [Advanced theming](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming) wiki page
 - [Nightly packages](https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Using-nightly-build-feed) wiki page
 - [Material Design Icons](https://github.com/AvaloniaUtils/Material.Icons.Avalonia) icon pack support
-
-### Powered by
-
-<a href="https://www.jetbrains.com/?from=material.avalonia">
-<img width="200" alt="portfolio_view" src="https://github.com/AvaloniaCommunity/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png?raw=true" />
-</a>
+- [DialogHost.Avalonia](https://github.com/AvaloniaUtils/DialogHost.Avalonia) that provides a simple way to display a dialog

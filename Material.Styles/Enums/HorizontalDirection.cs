@@ -2,6 +2,7 @@
 {
     public enum HorizontalDirection
     {
-        Left, Right
+        Left,
+        Right
     }
 }

@@ -1,11 +1,14 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:assists="clr-namespace:Material.Styles.Assists">
     <Style Selector="ButtonSpinner">
-        <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
+        <Setter Property="Template">
+            
+        </Setter>
     </Style>
     <Style Selector="ButtonSpinner /template/ RepeatButton#PART_IncreaseButton">
         <Setter Property="Content">
@@ -51,11 +54,11 @@
                                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Padding="{TemplateBinding Padding}" />
                         <Grid Grid.Column="1" RowDefinitions="*,*" IsVisible="{TemplateBinding ShowButtonSpinner}">
-                            <RepeatButton assists:ButtonAssist.CornerRadius="0" Classes="Material"
+                            <RepeatButton CornerRadius="0" Classes="Material"
                                           assists:ShadowAssist.ShadowDepth="Depth0" 
                                           Grid.Row="0"
                                           Name="PART_IncreaseButton" />
-                            <RepeatButton assists:ButtonAssist.CornerRadius="0" Classes="Material"
+                            <RepeatButton CornerRadius="0" Classes="Material"
                                           assists:ShadowAssist.ShadowDepth="Depth0" 
                                           Grid.Row="1"
                                           Name="PART_DecreaseButton" />
@@ -77,11 +80,11 @@
                         VerticalAlignment="{TemplateBinding VerticalAlignment}">
                     <Grid ColumnDefinitions="Auto,*">
                         <Grid Grid.Column="0" RowDefinitions="*,*" IsVisible="{TemplateBinding ShowButtonSpinner}">
-                            <RepeatButton assists:ButtonAssist.CornerRadius="0" Classes="Material"
+                            <RepeatButton CornerRadius="0" Classes="Material"
                                           assists:ShadowAssist.ShadowDepth="Depth0" 
                                           Grid.Row="0"
                                           Name="PART_IncreaseButton" />
-                            <RepeatButton assists:ButtonAssist.CornerRadius="0" Classes="Material"
+                            <RepeatButton CornerRadius="0" Classes="Material"
                                           assists:ShadowAssist.ShadowDepth="Depth0" 
                                           Grid.Row="1"
                                           Name="PART_DecreaseButton" />

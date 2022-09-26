@@ -3,8 +3,10 @@ using Avalonia.Media;
 using Material.Colors;
 using Material.Styles.Themes.Base;
 
-namespace Material.Styles.Themes {
-    public class Theme : ITheme {
+namespace Material.Styles.Themes
+{
+    public class Theme : ITheme
+    {
         public static IBaseTheme Light { get; } = new MaterialDesignLightTheme();
         public static IBaseTheme Dark { get; } = new MaterialDesignDarkTheme();
 
@@ -44,11 +46,6 @@ namespace Material.Styles.Themes {
         public Color TextAreaBorder { get; set; }
         public Color TextAreaInactiveBorder { get; set; }
         public Color DataGridRowHoverBackground { get; set; }
-
-        public static BaseThemeMode? GetSystemTheme() {
-            // TODO Implement getting system themes
-            return null;
-        }
 
         public static Theme Create(IBaseTheme baseTheme, Color primary, Color accent) {
             if (baseTheme is null) throw new ArgumentNullException(nameof(baseTheme));

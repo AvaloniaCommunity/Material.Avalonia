@@ -14,7 +14,7 @@ namespace Material.Demo.ViewModels
 
             _command = new RelayCommand(OnExecuteCommandHandler);
         }
-        
+
         private readonly Func<IAsyncEnumerable<string>> _commandHandler;
 
         private ICommand _command;
@@ -28,9 +28,9 @@ namespace Material.Demo.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private string _header;
-        
+
         public string Header
         {
             get => _header;
@@ -40,9 +40,9 @@ namespace Material.Demo.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private string? _result;
-        
+
         public string? Result
         {
             get => _result;
@@ -56,7 +56,7 @@ namespace Material.Demo.ViewModels
         private async void OnExecuteCommandHandler(object arg)
         {
             Result = "Waiting result...";
-            
+
             var builder = new StringBuilder();
 
             await foreach (var str in _commandHandler())

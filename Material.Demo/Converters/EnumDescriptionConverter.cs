@@ -1,11 +1,9 @@
-﻿using Avalonia.Data.Converters;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Text;
+using Avalonia.Data.Converters;
 
 namespace Material.Demo.Converters
 {
@@ -15,10 +13,10 @@ namespace Material.Demo.Converters
         {
             FieldInfo fieldInfo = enumObj.GetType().GetField(enumObj.ToString());
             var descriptionAttr = fieldInfo
-                                          .GetCustomAttributes(false)
-                                          .OfType<DescriptionAttribute>()
-                                          .Cast<DescriptionAttribute>()
-                                          .SingleOrDefault();
+                .GetCustomAttributes(false)
+                .OfType<DescriptionAttribute>()
+                .Cast<DescriptionAttribute>()
+                .SingleOrDefault();
             if (descriptionAttr == null)
             {
                 return enumObj.ToString();
@@ -31,7 +29,7 @@ namespace Material.Demo.Converters
 
         object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Enum myEnum = (Enum)value;
+            Enum myEnum = (Enum) value;
             string description = GetEnumDescription(myEnum);
             return description;
         }

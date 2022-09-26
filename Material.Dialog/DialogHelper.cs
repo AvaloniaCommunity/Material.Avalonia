@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using Avalonia.Controls;
+using Avalonia.Media.Imaging;
 using Material.Dialog.Bases;
 using Material.Dialog.Enums;
+using Material.Dialog.Icons;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
-using Material.Dialog.Views;
-using System.Collections.ObjectModel;
-using Avalonia.Media.Imaging;
-using Material.Dialog.Icons;
 using Material.Dialog.ViewModels.Elements;
 using Material.Dialog.ViewModels.Elements.Header.Icons;
 using Material.Dialog.ViewModels.Elements.TextField;
+using Material.Dialog.Views;
 
 namespace Material.Dialog
 {
@@ -22,11 +22,12 @@ namespace Material.Dialog
         public const string DIALOG_RESULT_NO = "no";
         public const string DIALOG_RESULT_ABORT = "abort";
 
-        private static bool disableTransitions;
+        private static bool _disableTransitions;
+
         public static bool DisableTransitions
         {
-            get => disableTransitions;
-            set => disableTransitions = value;
+            get => _disableTransitions;
+            set => _disableTransitions = value;
         }
 
         /// <summary>
@@ -39,55 +40,55 @@ namespace Material.Dialog
             {
                 default:
                 case DialogButtonsEnum.Ok:
-                    return new DialogButton[]
+                    return new[]
                     {
-                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" }
+                        new DialogButton {Result = DIALOG_RESULT_OK, Content = "OK"}
                     };
                 case DialogButtonsEnum.OkAbort:
-                    return new DialogButton[]
+                    return new[]
                     {
-                        new DialogButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" },
-                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" },
+                        new DialogButton {Result = DIALOG_RESULT_ABORT, Content = "ABORT"},
+                        new DialogButton {Result = DIALOG_RESULT_OK, Content = "OK"}
                     };
                 case DialogButtonsEnum.OkCancel:
-                    return new DialogButton[]
+                    return new[]
                     {
-                        new DialogButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" },
-                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" },
+                        new DialogButton {Result = DIALOG_RESULT_CANCEL, Content = "CANCEL"},
+                        new DialogButton {Result = DIALOG_RESULT_OK, Content = "OK"}
                     };
                 case DialogButtonsEnum.YesNo:
-                    return new DialogButton[]
+                    return new[]
                     {
-                        new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
-                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" },
+                        new DialogButton {Result = DIALOG_RESULT_NO, Content = "NO"},
+                        new DialogButton {Result = DIALOG_RESULT_YES, Content = "YES"}
                     };
                 case DialogButtonsEnum.YesNoAbort:
-                    return new DialogButton[]
+                    return new[]
                     {
-                        new DialogButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" },
-                        new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
-                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" },
+                        new DialogButton {Result = DIALOG_RESULT_ABORT, Content = "ABORT"},
+                        new DialogButton {Result = DIALOG_RESULT_NO, Content = "NO"},
+                        new DialogButton {Result = DIALOG_RESULT_YES, Content = "YES"}
                     };
                 case DialogButtonsEnum.YesNoCancel:
-                    return new DialogButton[]
+                    return new[]
                     {
-                        new DialogButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" },
-                        new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
-                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" },
+                        new DialogButton {Result = DIALOG_RESULT_CANCEL, Content = "CANCEL"},
+                        new DialogButton {Result = DIALOG_RESULT_NO, Content = "NO"},
+                        new DialogButton {Result = DIALOG_RESULT_YES, Content = "YES"}
                     };
             }
         }
-        
+
         public static IDialogWindow<DialogResult> CreateAlertDialog(AlertDialogBuilderParams @params)
-        { 
+        {
             var window = new AlertDialog();
             var context = new AlertDialogViewModel(window);
 
             ApplyBaseParams(context, @params);
-            
+
             context.DialogButtons ??= new ObservableCollection<DialogButtonViewModel>(
                 CreateObsoleteButtonArray(context, CreateSimpleDialogButtons(DialogButtonsEnum.Ok)));
-            
+
             window.DataContext = context;
             SetupWindowParameters(window, @params);
             return new DialogWindowBase<AlertDialog, DialogResult>(window);
@@ -100,36 +101,37 @@ namespace Material.Dialog
 
             context.TextFields =
                 new ObservableCollection<TextFieldViewModel>(TextFieldsBuilder(context, @params.TextFields));
-            
+
             ApplyBaseParams(context, @params);
 
             var positiveButtonApplied = false;
             var buttons = CreateObsoleteButtonArray(context, @params.DialogButtons);
-            
+
             foreach (var button in buttons)
             {
                 if (!button.IsPositiveButton)
                     continue;
-                
+
                 button.Command = context.SubmitCommand;
                 positiveButtonApplied = true;
             }
 
             context.DialogButtons = new ObservableCollection<DialogButtonViewModel>(buttons);
-            
+
             // TODO: Remove compatibility API with PositiveButton and NegativeButton on future update.
             if (!positiveButtonApplied)
             {
                 var positiveButton = @params.PositiveButton;
                 if (positiveButton != null)
                 {
-                    context.DialogButtons.Add(new ObsoleteDialogButtonViewModel(context, positiveButton.Content, positiveButton.Result)
-                    {
-                        Command = context.SubmitCommand
-                    });
+                    context.DialogButtons.Add(
+                        new ObsoleteDialogButtonViewModel(context, positiveButton.Content, positiveButton.Result)
+                        {
+                            Command = context.SubmitCommand
+                        });
                 }
             }
-            
+
             context.BindValidateHandler();
             window.DataContext = context;
             SetupWindowParameters(window, @params);
@@ -148,23 +150,24 @@ namespace Material.Dialog
             {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton,
-                FirstField = (ushort)@params.ImplicitValue.Hours,
-                SecondField = (ushort)@params.ImplicitValue.Minutes,
+                FirstField = (ushort) @params.ImplicitValue.Hours,
+                SecondField = (ushort) @params.ImplicitValue.Minutes,
             };
             ApplyBaseParams(context, @params);
 
             context.DialogButtons =
-                new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(context, @params.NegativeButton,
+                new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(context,
+                    @params.NegativeButton,
                     @params.PositiveButton));
 
             if (context.Width is null || context.Width < 320)
                 context.Width = 320;
-            
+
             window.AttachViewModel(context);
             SetupWindowParameters(window, @params);
             return new DialogWindowBase<TimePickerDialog, DateTimePickerDialogResult>(window);
         }
-        
+
         /// <summary>
         /// Create date picker dialog.
         /// </summary>
@@ -183,12 +186,13 @@ namespace Material.Dialog
             ApplyBaseParams(context, @params);
 
             context.DialogButtons =
-                new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(context, @params.NegativeButton,
+                new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(context,
+                    @params.NegativeButton,
                     @params.PositiveButton));
 
             if (context.Width is null || context.Width < 320)
                 context.Width = 320;
-            
+
             window.AttachViewModel(context);
             SetupWindowParameters(window, @params);
             return new DialogWindowBase<DatePickerDialog, DateTimePickerDialogResult>(window);
@@ -209,13 +213,14 @@ namespace Material.Dialog
             };
 
             ApplyBaseParams(context, @params);
-            
+
             window.DataContext = context;
             SetupWindowParameters(window, @params);
             return new DialogWindowBase<CustomDialog, DialogResult>(window);
         }
 
-        private static void ApplyBaseParams<T> (T input, DialogWindowBuilderParamsBase @params) where T : DialogWindowViewModel
+        private static void ApplyBaseParams<T>(T input, DialogWindowBuilderParamsBase @params)
+            where T : DialogWindowViewModel
         {
             input.MaxWidth = @params.MaxWidth;
             input.WindowTitle = @params.WindowTitle;
@@ -233,11 +238,12 @@ namespace Material.Dialog
                     {
                         Bitmap = bitmap
                     };
-                } break;
-                
+                }
+                    break;
+
                 case Image _:
                     throw new ArgumentException("Do not wrap Bitmap object with Image control for now.");
-                
+
                 case Control _:
                     throw new ArgumentException("Custom view icon feature is currently unavailable.");
 
@@ -250,11 +256,12 @@ namespace Material.Dialog
                             Kind = kind
                         };
                     }
-                } break;
-                
+                }
+                    break;
+
                 case null:
                     break;
-                
+
                 default:
                     throw new ArgumentException($"{@params.DialogIcon.GetType()} is a unknown or unsupported type.");
             }
@@ -272,11 +279,15 @@ namespace Material.Dialog
             }
 
             if (@params.DialogButtons != null)
-                input.DialogButtons = new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(input, @params.DialogButtons));
-            
+                input.DialogButtons =
+                    new ObservableCollection<DialogButtonViewModel>(
+                        CreateObsoleteButtonArray(input, @params.DialogButtons));
+
             if (@params.NeutralDialogButtons != null)
-                input.NeutralDialogButton = new ObservableCollection<DialogButtonViewModel>(CreateObsoleteButtonArray(input, @params.NeutralDialogButtons));
-            
+                input.NeutralDialogButton =
+                    new ObservableCollection<DialogButtonViewModel>(
+                        CreateObsoleteButtonArray(input, @params.NeutralDialogButtons));
+
             input.ButtonsStackOrientation = @params.ButtonsOrientation;
         }
 
@@ -286,7 +297,8 @@ namespace Material.Dialog
             (window as IHasNegativeResult)?.SetNegativeResult(@params.NegativeResult);
         }
 
-        private static DialogButtonViewModel[] CreateObsoleteButtonArray(DialogWindowViewModel parent, params DialogButton[] buttons)
+        private static DialogButtonViewModel[] CreateObsoleteButtonArray(DialogWindowViewModel parent,
+            params DialogButton[] buttons)
         {
             var len = buttons.Length;
             var result = new DialogButtonViewModel[buttons.Length];
@@ -294,7 +306,7 @@ namespace Material.Dialog
             for (var i = 0; i < len; i++)
             {
                 var button = buttons[i];
-                
+
                 if (button is null)
                     continue;
 
@@ -303,18 +315,19 @@ namespace Material.Dialog
                     IsPositiveButton = button.IsPositive
                 };
             }
-            
+
             return result;
         }
 
-        private static TextFieldViewModel[] TextFieldsBuilder(TextFieldDialogViewModel parent, params TextFieldBuilderParams[] @params)
+        private static TextFieldViewModel[] TextFieldsBuilder(TextFieldDialogViewModel parent,
+            params TextFieldBuilderParams[] @params)
         {
             var len = @params.Length;
             var result = new TextFieldViewModel[len];
             for (var i = 0; i < len; i++)
             {
                 var param = @params[i];
-                
+
                 try
                 {
                     var model = new TextFieldViewModel(parent, param.DefaultText, param.Validater)
@@ -334,7 +347,7 @@ namespace Material.Dialog
                             model.MaskChar = param.MaskChar;
                             model.Classes += " revealPasswordButton";
                             break;
-                        case TextFieldKind.WithClear: 
+                        case TextFieldKind.WithClear:
                             model.Classes += " clearButton";
                             break;
                         case TextFieldKind.Normal:
@@ -345,12 +358,13 @@ namespace Material.Dialog
 
                     result[i] = model;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                     // ignored
                 }
             }
+
             return result;
         }
     }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 
 namespace Material.Demo.Models
 {
@@ -9,15 +6,14 @@ namespace Material.Demo.Models
     {
         Yes,
         No,
-        [Description("N/A")]
-        NA,
-        [Description("Not Fully")]
-        NotFully
+        [Description("N/A")] NA,
+        [Description("Not Fully")] NotFully
     }
+
     public class FeatureStatusModels
     {
         public string FeatureName { get; internal set; }
         public StatusEnum IsReady { get; internal set; }
-        public StatusEnum IsAnimated { get; internal set; } 
+        public StatusEnum IsAnimated { get; internal set; }
     }
 }

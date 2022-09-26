@@ -2,60 +2,67 @@
 using System.Collections.Generic;
 using System.Globalization;
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
-using Avalonia.Media.Transformation;
 using Avalonia.VisualTree;
 
 namespace Material.Styles.Converters
 {
-    public class AutoCorrectPositionConverter : IValueConverter
+    public class AutoCorrectPositionConverter : IMultiValueConverter
     {
+        public static readonly Transform Empty = new MatrixTransform();
+        
         public static double DefaultOffsetY = 0;
         
-        private static double GetOffLeft(Rect bounds, double offsetX) => offsetX;
+        private static double GetOffLeft(double offsetX) => offsetX;
 
-        private static double GetOffRight(Rect bounds, double windowW, double offsetX) => offsetX + (bounds.Width) - windowW;
-
-        private static Vector GetTranslate(TransformedBounds bounds)
+        private static double GetOffRight(Rect bounds, double clipW, double offsetX)
         {
-            return new Vector(bounds.Transform.M31, bounds.Transform.M32);
+            var r = offsetX + bounds.Width;
+
+            return Math.Max(0, r - clipW);
         }
 
-        private Vector _prevCorrect = Vector.One;
-
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        private static Vector GetTranslate(Matrix m)
         {
-            var transformedBounds = value as TransformedBounds?;
-            
+            return Matrix.TryDecomposeTransform(m, out var decomposed) ?
+                decomposed.Translate : Vector.Zero;
+        }
+
+        public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
+        {
             double offsetX = 0;
-            if (transformedBounds.HasValue)
-            {
-                var bounds = transformedBounds.Value;
+
+            if (values.Count <= 1 || values.Count > 2)
+                return Empty;
+            
+            if (values[1] is not Rect clip)
+                return Empty;
+
+            if (values[0] is not TransformedBounds postTransformations)
+                return Empty;
+            
+            var t = postTransformations.Transform;
+            var b = postTransformations.Bounds;
+            var c = clip;
                 
-                var translate = GetTranslate(bounds);
+            var translate = GetTranslate(t);
 
-                var left = GetOffLeft(bounds.Bounds, translate.X - _prevCorrect.X);
-                var right = GetOffRight(bounds.Bounds, bounds.Clip.Width, translate.X- _prevCorrect.X);
+            var left = GetOffLeft(translate.X);
+            var right = GetOffRight(b, c.Width, translate.X);
 
-                if (left < 0)
-                {
-                    offsetX = -left;
-                    //_prevCorrect = new Vector(offsetX, DefaultOffsetY);
-                }
-                else if (right > 0)
-                {
-                    offsetX = -right; 
-                   // _prevCorrect = new Vector(offsetX, DefaultOffsetY);
-                }
+            if (left < 0)
+            {
+                offsetX = -left;
+                //_prevCorrect = new Vector(offsetX, DefaultOffsetY);
             }
+            else if (right > 0)
+            {
+                offsetX = -right; 
+                // _prevCorrect = new Vector(offsetX, DefaultOffsetY);
+            }
+            
             return new TranslateTransform(offsetX, DefaultOffsetY);
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
         }
     }
 }

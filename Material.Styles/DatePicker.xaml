@@ -2,74 +2,92 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
-        xmlns:styles="clr-namespace:Material.Styles"
-        xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <Design.PreviewWith>
-    <StackPanel Margin="20 20 200 200">
-      <DatePicker />
-      <Button>Test</Button>
-    </StackPanel>
-  </Design.PreviewWith>
-  
-  <Style Selector="DatePicker">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
-    <Setter Property="Padding" Value="4" />
-    <Setter Property="assists:TextFieldAssist.Label" Value="Date" />
+        xmlns:controls="clr-namespace:Material.Styles.Controls"
+        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+    <Design.PreviewWith>
+        <StackPanel Margin="20 20 200 1000">
+            <DatePicker />
+        </StackPanel>
+    </Design.PreviewWith>
 
-    <Setter Property="MonthFormat" Value="MMMM" />
-    <Setter Property="DayFormat" Value=" dd" />
-    <Setter Property="YearFormat" Value=", yyyy" />
-    <Setter Property="assists:DatePickerAssist.DateTimeFormat" Value="dd MMMM yyyy" />
+    <Style Selector="DatePicker">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="assists:TextFieldAssist.Label" Value="Date" />
 
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid>
-          <!-- This controls required by avalonia code behind -->
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Classes="Unused" Name="DayText" />
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Classes="Unused" Name="MonthText" />
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Classes="Unused" Name="YearText" />
+        <Setter Property="MonthFormat" Value="MMMM" />
+        <Setter Property="DayFormat" Value=" dd" />
+        <Setter Property="YearFormat" Value=", yyyy" />
+        <Setter Property="assists:DatePickerAssist.DateTimeFormat" Value="dd MMMM yyyy" />
 
-          <!-- TODO: Make TextBox writeable -->
-          <TextBox Name="DisplayTextBox"
-                   Margin="0"
-                   Classes="Filled"
-                   UseFloatingWatermark="True"
-                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
-                   IsReadOnly="True">
-            <TextBox.Text>
-              <MultiBinding Converter="{x:Static converters:DatePickerTextConverter.Instance}">
-                <TemplateBinding Property="SelectedDate" />
-                <TemplateBinding Property="assists:DatePickerAssist.DateTimeFormat" />
-              </MultiBinding>
-            </TextBox.Text>
-            <TextBox.InnerRightContent>
-              <ToggleButton Name="CalendarButton"
-                            Classes="Icon NoFeedback"
-                            VerticalAlignment="Bottom"
-                            Margin="-8 8 8 6">
-                <controls:MaterialInternalIcon Kind="Calendar" Width="20" Height="20" />
-              </ToggleButton>
-            </TextBox.InnerRightContent>
-          </TextBox>
-          <Popup Name="CalendarPopup" 
-                 IsOpen="{Binding #CalendarButton.IsChecked, Mode=TwoWay}"
-                 PlacementTarget="DisplayTextBox"
-                 PlacementAnchor="BottomLeft"
-                 IsLightDismissEnabled="True">
-            <styles:Card Padding="0">
-              <Calendar
-                SelectedDate="{TemplateBinding SelectedDate, Mode=TwoWay, Converter={x:Static converters:DateTimeToOffsetConverter.Instance}}"
-                SelectionMode="SingleDate" />
-            </styles:Card>
-          </Popup>
-        </Grid>
-      </ControlTemplate>
-    </Setter>
-  </Style>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <!-- This controls required by avalonia code behind -->
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="DayText" />
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="MonthText" />
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="YearText" />
 
-  <Style Selector="DatePicker:hasnodate:focus-within /template/ Popup#CalendarPopup">
-    <Setter Property="IsOpen" Value="True" />
-  </Style>
+                    <!-- TODO: Make TextBox writeable -->
+                    <!-- TODO: allow use different text boxes style-->
+                    <TextBox Name="DisplayTextBox"
+                             assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}">
+                        <TextBox.Text>
+                            <MultiBinding Converter="{x:Static converters:DatePickerTextConverter.Instance}">
+                                <TemplateBinding Property="SelectedDate" />
+                                <TemplateBinding Property="assists:DatePickerAssist.DateTimeFormat" />
+                            </MultiBinding>
+                        </TextBox.Text>
+                        <TextBox.InnerRightContent>
+                            <ToggleButton Name="CalendarButton"
+                                          Classes="Icon"
+                                          Width="36"
+                                          Height="36"
+                                          Margin="8 8 8 6">
+                                <controls:MaterialInternalIcon Kind="Calendar"
+                                                               Width="20"
+                                                               Height="20" />
+                            </ToggleButton>
+                        </TextBox.InnerRightContent>
+                    </TextBox>
+                    <Panel Name="PART_PopupContainer">
+                        <Popup Name="PART_CalendarPopup"
+                               IsOpen="{Binding #CalendarButton.IsChecked, Mode=TwoWay}">
+                            <controls:Card Name="{x:Static naming:PartNames.PartCard}">
+                                <Calendar 
+                                    SelectedDate="{TemplateBinding SelectedDate, 
+                                    Mode=TwoWay, Converter={x:Static converters:DateTimeToOffsetConverter.Instance}}"/>
+                            </controls:Card>
+                        </Popup>
+                    </Panel>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="DatePicker /template/ Panel#PART_PopupContainer">
+        <Setter Property="Margin" Value="-8"/>
+    </Style>
+    
+    <Style Selector="DatePicker /template/ Popup#PART_CalendarPopup">
+        <Setter Property="VerticalOffset" Value="-16"/>
+        <Setter Property="IsLightDismissEnabled" Value="True"/>
+    </Style>
+    
+    <Style Selector="DatePicker /template/ Popup#PART_CalendarPopup > controls|Card#PART_Card">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="8"/>
+    </Style>
+    
+    <Style Selector="DatePicker /template/ TextBox#DisplayTextBox">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="UseFloatingWatermark" Value="True"/>
+    </Style>
+    
+    <Style Selector="DatePicker.multiselect /template/ Popup#PART_CalendarPopup Calendar">
+        <Setter Property="SelectionMode" Value="MultipleRange"/>
+    </Style>
 </Styles>

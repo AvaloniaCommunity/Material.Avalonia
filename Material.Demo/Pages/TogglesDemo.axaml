@@ -7,6 +7,7 @@
              xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.TogglesDemo">
     <StackPanel Margin="16, 0">
         <TextBlock Classes="Headline4 Subheadline" Text="Toggles" />
@@ -140,7 +141,7 @@
             </StackPanel.Styles>
             <StackPanel Orientation="Vertical">
                 <showMeTheXaml:XamlDisplay UniqueId="RadioButtonsCard0">
-                    <styles:Card Padding="0" InsideClipping="True">
+                    <controls:Card Padding="0" InsideClipping="True">
                         <StackPanel Orientation="Horizontal">
                             <RadioButton Classes="Button" GroupName="3"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}" />
@@ -153,11 +154,11 @@
                             <RadioButton Classes="Button" GroupName="3"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}" />
                         </StackPanel>
-                    </styles:Card>
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
 
                 <showMeTheXaml:XamlDisplay UniqueId="RadioButtonsCard1">
-                    <styles:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
+                    <controls:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
                         <StackPanel Orientation="Horizontal">
                             <RadioButton Classes="Button Accent" GroupName="4"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}" />
@@ -168,7 +169,7 @@
                             <RadioButton Classes="Button Accent" GroupName="4"
                                          Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}" />
                         </StackPanel>
-                    </styles:Card>
+                    </controls:Card>
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
         </StackPanel>

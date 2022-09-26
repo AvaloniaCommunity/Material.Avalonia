@@ -6,6 +6,7 @@
              xmlns:pages="clr-namespace:Material.Demo.Pages"
              xmlns:models="clr-namespace:Material.Demo.Models"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
              x:Class="Material.Demo.Pages.SideSheetDemo"
              x:DataType="models:SideSheetDemoViewModel">
@@ -16,21 +17,21 @@
     <StackPanel Margin="16, 0">
         <TextBlock Classes="Headline4 Subheadline" Text="Side sheets" />
 
-        <styles:SideSheet
+        <controls:SideSheet
             Name="SideSheet"
             Width="500" Height="560" BorderBrush="Black" BorderThickness="1"
             SideSheetDirection="Right"
             SideSheetOpened="{CompiledBinding SideInfoOpened}"
             SideSheetContent="{CompiledBinding Information}"
             SideSheetHeader="{CompiledBinding Information.Header}">
-            <styles:SideSheet.SideSheetContentTemplate>
+            <controls:SideSheet.SideSheetContentTemplate>
                 <DataTemplate DataType="models:SideSheetData">
                     <StackPanel>
                         <TextBlock Classes="Headline6" Text="{CompiledBinding ContentHeader}"/>
                         <TextBlock Text="{CompiledBinding ImportantInfos}" TextWrapping="Wrap"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
-            </styles:SideSheet.SideSheetContentTemplate>
+            </controls:SideSheet.SideSheetContentTemplate>
             <Panel>
                 <pages:Home />
                 <Button Classes="Icon" Width="36" Height="36"
@@ -40,6 +41,6 @@
                         IsVisible="{Binding !#SideSheet.SideSheetOpened}"
                         Click="OpenSideInfoButton_OnClick" />
             </Panel>
-        </styles:SideSheet>
+        </controls:SideSheet>
     </StackPanel>
 </UserControl>

@@ -61,10 +61,10 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         Background="{TemplateBinding Background}"
-                        CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
                         assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
                     <Border ClipToBounds="True"
-                            CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}">
+                            CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid>
                             <Border Name="PART_HoverIndicator" BorderThickness="0"
                                     Background="{TemplateBinding assists:ButtonAssist.HoverColor}" />
@@ -87,7 +87,7 @@
 
     <!-- Transitions -->
 
-    <Style Selector="RepeatButton.Material:not(.notransitions) /template/ Border#PART_HoverIndicator">
+    <Style Selector="RepeatButton.Material:not(.no-transitions) /template/ Border#PART_HoverIndicator">
         <Setter Property="Transitions">
             <Transitions>
                 <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
@@ -150,7 +150,7 @@
                         <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
                                              RippleOpacity="{StaticResource ButtonPressedOpacity}">
                             <ContentPresenter Name="PART_ContentPresenter"
-                                              CornerRadius="{TemplateBinding assists:ButtonAssist.CornerRadius}"
+                                              CornerRadius="{TemplateBinding CornerRadius}"
                                               BorderBrush="{TemplateBinding BorderBrush}"
                                               BorderThickness="{TemplateBinding BorderThickness}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -168,7 +168,7 @@
 
     <!-- Transitions -->
 
-    <Style Selector="RepeatButton.Material.Icon:not(.notransitions) /template/ Ellipse#PART_HoverIndicator">
+    <Style Selector="RepeatButton.Material.Icon:not(.no-transitions) /template/ Ellipse#PART_HoverIndicator">
         <Setter Property="Transitions">
             <Transitions>
                 <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />

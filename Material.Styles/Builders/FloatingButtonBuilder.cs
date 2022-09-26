@@ -1,27 +1,28 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Material.Styles.Controls;
 
 namespace Material.Styles.Builders
 {
     public class FloatingButtonBuilder
     {
-        private double spacing = 12.0;
-        private Control? icon;
-        private Control? text;
+        private double _spacing = 12.0;
+        private Control? _icon;
+        private Control? _text;
 
         /// <summary>
         /// Set spacing between icon and text views.
         /// </summary>
         public FloatingButtonBuilder SetSpacing(double spacing = 12.0)
         {
-            this.spacing = spacing;
+            _spacing = spacing;
             return this;
         }
 
         public FloatingButtonBuilder SetIcon(Control view)
         {
-            icon = view;
+            _icon = view;
             return this;
         }
 
@@ -38,15 +39,15 @@ namespace Material.Styles.Builders
                 Text = text
             });
         }
-        
+
         public FloatingButtonBuilder SetText(TextBlock textBlock)
         {
             return SetText(view: textBlock);
         }
-        
+
         public FloatingButtonBuilder SetText(Control view)
         {
-            text = view;
+            _text = view;
             return this;
         }
 
@@ -57,34 +58,34 @@ namespace Material.Styles.Builders
         public FloatingButton Build()
         {
             Panel panel;
-            
-            if (icon != null)
+
+            if (_icon != null)
             {
                 panel = new StackPanel
                 {
                     Orientation = Orientation.Horizontal
                 };
-                
-                panel.Children.Add(icon);
+
+                panel.Children.Add(_icon);
 
                 var separator = new Separator
                 {
                     Name = "PART_Spacing",
-                    Width = spacing,
+                    Width = _spacing,
                     Background = Brushes.Transparent,
                     Foreground = Brushes.Transparent
                 };
-                
+
                 panel.Children.Add(separator);
             }
             else
             {
                 panel = new Panel();
             }
-            
-            if(text != null)
-                panel.Children.Add(text);
-            
+
+            if (_text != null)
+                panel.Children.Add(_text);
+
             var button = new FloatingButton
             {
                 Content = panel

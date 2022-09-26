@@ -5,21 +5,20 @@ using System.Linq;
 using System.Timers;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.LogicalTree;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
 using Avalonia.Threading;
 using Material.Styles.Models;
 
-namespace Material.Styles
+namespace Material.Styles.Controls
 {
     public class SnackbarHost : ContentControl
     {
-        private static readonly Dictionary<string, SnackbarHost> _snackbarHostDictionary;
+        private static readonly Dictionary<string, SnackbarHost> SnackbarHostDictionary;
 
         private readonly ObservableCollection<SnackbarModel> _snackbars;
         public ObservableCollection<SnackbarModel> SnackbarModels => _snackbars;
-        
+
         /// <summary>
         /// Get the name of host. The name of host can be set only one time.
         /// </summary>
@@ -32,22 +31,20 @@ namespace Material.Styles
                 {
                     SetValue(HostNameProperty, value);
 
-                    if (_snackbarHostDictionary.ContainsValue(this))
-                    {
-                        KeyValuePair<string, SnackbarHost>? target = null;
-                        foreach (var host in _snackbarHostDictionary)
-                        {
-                            if (ReferenceEquals(host.Value, this))
-                            {
-                                target = host;
-                                break;
-                            }
-                        }
+                    if (!SnackbarHostDictionary.ContainsValue(this))
+                        return;
 
-                        if (target.HasValue)
-                        {
-                            _snackbarHostDictionary.Remove(target.Value.Key);
-                        }
+                    KeyValuePair<string, SnackbarHost>? target = null;
+                    foreach (var host in SnackbarHostDictionary
+                                 .Where(host => ReferenceEquals(host.Value, this)))
+                    {
+                        target = host;
+                        break;
+                    }
+
+                    if (target.HasValue)
+                    {
+                        SnackbarHostDictionary.Remove(target.Value.Key);
                     }
                 }
                 else
@@ -65,7 +62,8 @@ namespace Material.Styles
         }
 
         public static readonly StyledProperty<HorizontalAlignment> SnackbarHorizontalAlignmentProperty =
-            AvaloniaProperty.Register<SnackbarHost, HorizontalAlignment>(nameof(SnackbarHorizontalAlignment), HorizontalAlignment.Left);
+            AvaloniaProperty.Register<SnackbarHost, HorizontalAlignment>(nameof(SnackbarHorizontalAlignment),
+                HorizontalAlignment.Left);
 
         public VerticalAlignment SnackbarVerticalAlignment
         {
@@ -74,14 +72,15 @@ namespace Material.Styles
         }
 
         public static readonly StyledProperty<VerticalAlignment> SnackbarVerticalAlignmentProperty =
-            AvaloniaProperty.Register<SnackbarHost, VerticalAlignment>(nameof(SnackbarVerticalAlignment), VerticalAlignment.Bottom);
+            AvaloniaProperty.Register<SnackbarHost, VerticalAlignment>(nameof(SnackbarVerticalAlignment),
+                VerticalAlignment.Bottom);
 
         static SnackbarHost()
         {
             //_snackbarHosts = new HashSet<SnackbarHost>();
-            _snackbarHostDictionary = new Dictionary<string, SnackbarHost>();
+            SnackbarHostDictionary = new Dictionary<string, SnackbarHost>();
         }
-        
+
         public SnackbarHost()
         {
             // Initialize model collection
@@ -90,11 +89,11 @@ namespace Material.Styles
 
         private static string GetFirstHostName()
         {
-            if (_snackbarHostDictionary is null)
+            if (SnackbarHostDictionary is null)
                 // THIS IS IMPOSSIBLE TO HAPPEN! But I kept this for any reasons.
                 throw new NullReferenceException("Snackbar hosts pool is not initialized!");
 
-            return _snackbarHostDictionary.First().Key;
+            return SnackbarHostDictionary.First().Key;
         }
 
         private static SnackbarHost GetHost(string name)
@@ -102,7 +101,7 @@ namespace Material.Styles
             if (name is null)
                 throw new ArgumentNullException(nameof(name));
 
-            var result = _snackbarHostDictionary[name];
+            var result = SnackbarHostDictionary[name];
             return result;
         }
 
@@ -139,9 +138,9 @@ namespace Material.Styles
             {
                 void OnExpired(object sender, ElapsedEventArgs args)
                 {
-                    if (sender is not Timer timer) 
+                    if (sender is not Timer timer)
                         return;
-                    
+
                     // Remove timer.
                     timer.Stop();
                     timer.Elapsed -= OnExpired;
@@ -164,42 +163,38 @@ namespace Material.Styles
         /// <param name="model">snackbar data model.</param>
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
         /// <param name="priority">the priority of current task.</param>
-        public static void Remove(SnackbarModel model, string targetHost = null, DispatcherPriority priority = DispatcherPriority.Normal)
+        public static void Remove(SnackbarModel model, string targetHost = null,
+            DispatcherPriority priority = DispatcherPriority.Normal)
         {
             if (string.IsNullOrEmpty(targetHost))
                 targetHost = GetFirstHostName();
-            
+
             var host = GetHost(targetHost);
 
             if (host is null)
-                throw new ArgumentNullException(nameof(targetHost), $"The target host named \"{targetHost}\" is not exist.");
+                throw new ArgumentNullException(nameof(targetHost),
+                    $"The target host named \"{targetHost}\" is not exist.");
 
-            Dispatcher.UIThread.Post(delegate
-            {
-                host.SnackbarModels.Remove(model);
-            }, priority);
+            Dispatcher.UIThread.Post(delegate { host.SnackbarModels.Remove(model); }, priority);
         }
 
         private static void OnSnackbarDurationExpired(SnackbarHost host, SnackbarModel model)
         {
-            Dispatcher.UIThread.Post(delegate
-            {
-                host.SnackbarModels.Remove(model);
-            });
+            Dispatcher.UIThread.Post(delegate { host.SnackbarModels.Remove(model); });
         }
 
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
         {
-            _snackbarHostDictionary.Add(HostName, this);
-            
+            SnackbarHostDictionary.Add(HostName, this);
+
             base.OnAttachedToVisualTree(e);
         }
 
-        protected override void OnDetachedFromLogicalTree(LogicalTreeAttachmentEventArgs e)
+        protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
         {
-            _snackbarHostDictionary.Remove(HostName);
-            
-            base.OnDetachedFromLogicalTree(e);
+            SnackbarHostDictionary.Remove(HostName);
+
+            base.OnDetachedFromVisualTree(e);
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -208,7 +203,7 @@ namespace Material.Styles
             if (HostName is null)
                 throw new ArgumentNullException(nameof(HostName),
                     "The name of SnackbarHost is null. Please define it.");
-            
+
             base.OnApplyTemplate(e);
         }
     }

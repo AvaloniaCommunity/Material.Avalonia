@@ -3,9 +3,12 @@ using System.Linq;
 using Avalonia.Media;
 using Material.Colors.Recommended;
 
-namespace Material.Colors {
-    public static class SwatchHelper {
-        public static IEnumerable<ISwatch> Swatches { get; } = new ISwatch[] {
+namespace Material.Colors
+{
+    public static class SwatchHelper
+    {
+        public static IEnumerable<ISwatch> Swatches { get; } = new ISwatch[]
+        {
             new RedSwatch(),
             new PinkSwatch(),
             new PurpleSwatch(),
@@ -27,6 +30,7 @@ namespace Material.Colors {
             new BlueGreySwatch()
         };
 
-        public static IDictionary<MaterialColor, Color> Lookup { get; } = Swatches.SelectMany(o => o.Lookup).ToDictionary(o => o.Key, o => o.Value);
+        public static IDictionary<MaterialColor, Color> Lookup { get; } =
+            Swatches.SelectMany(o => o.Lookup).ToDictionary(o => o.Key, o => o.Value);
     }
 }

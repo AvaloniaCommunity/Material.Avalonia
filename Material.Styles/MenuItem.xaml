@@ -2,8 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:conv="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
         xmlns:sys="clr-namespace:System;assembly=netstandard"
-        xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Styles.Resources>
         <conv:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
     </Styles.Resources>
@@ -159,7 +159,7 @@
                                        PlacementMode="Right"
                                        IsLightDismissEnabled="False"
                                        IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
-                                    <styles:Card Padding="0">
+                                    <controls:Card Padding="0">
                                         <Border Name="PART_MainBorder"
                                                 BorderThickness="{TemplateBinding BorderThickness}">
                                             <ScrollViewer>
@@ -170,7 +170,7 @@
                                                                 Margin="0 8" />
                                             </ScrollViewer>
                                         </Border>
-                                    </styles:Card>
+                                    </controls:Card>
                                 </Popup>
                             </Grid>
                         </ripple:RippleEffect>
@@ -229,7 +229,7 @@
                                IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
                                IsLightDismissEnabled="False"
                                WindowManagerAddShadowHint="False">
-                            <styles:Card Padding="0" Margin="8">
+                            <controls:Card Padding="0" Margin="8">
                                 <Border Name="MainBorder"
                                         BorderThickness="{TemplateBinding BorderThickness}">
                                     <ScrollViewer>
@@ -240,7 +240,7 @@
                                                         Margin="0,8" />
                                     </ScrollViewer>
                                 </Border>
-                            </styles:Card>
+                            </controls:Card>
                         </Popup>
                     </Panel>
                 </Border>

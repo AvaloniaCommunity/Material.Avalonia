@@ -1,65 +1,10 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels">
-    <Styles.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Material.Dialog/Resources/TemplateResources.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Styles.Resources>
+        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels" >
+    <StyleInclude Source="avares://Material.Dialog/Styles/EmbeddedDialogControl.axaml"/>
 
     <Style Selector="Window" x:DataType="viewModels:DialogWindowViewModel">
         <Setter Property="Title" Value="{CompiledBinding WindowTitle}" />
         <Setter Property="WindowStartupLocation" Value="{CompiledBinding WindowStartupLocation}" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Panel>
-                    <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
-                    <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
-                    <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
-                    <VisualLayerManager>
-                        <VisualLayerManager.ChromeOverlayLayer>
-                            <TitleBar />
-                        </VisualLayerManager.ChromeOverlayLayer>
-                        <Border Name="PART_RootBorder"
-                                Background="{DynamicResource MaterialDesignCardBackground}">
-                            <DockPanel Name="PART_RootPanel"
-                                       Width="{CompiledBinding Width}"
-                                       MaxWidth="{CompiledBinding MaxWidth}">
-                                <DockPanel Name="PART_HeaderPanel" DockPanel.Dock="Top">
-                                    <ContentPresenter Name="PART_HeaderIcon"
-                                                      Content="{CompiledBinding DialogIcon}"
-                                                      ContentTemplate="{StaticResource DialogHeaderIconTemplate}"
-                                                      IsVisible="{CompiledBinding !!DialogIcon}" />
-
-                                    <TextBlock Name="PART_HeaderText"
-                                               Classes="Headline6"
-                                               IsVisible="{CompiledBinding !!ContentHeader.Length}"
-                                               Text="{CompiledBinding ContentHeader, FallbackValue='DIALOG_HEADER_NULL'}" />
-                                </DockPanel>
-
-                                <DockPanel Name="PART_ButtonsPanel" DockPanel.Dock="Bottom">
-                                    <ItemsControl Name="PART_NeutralButtonPlacement" DockPanel.Dock="Left"
-                                                  Items="{CompiledBinding NeutralDialogButton}"
-                                                  ItemTemplate="{StaticResource DialogButtonTemplate}"
-                                                  ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
-
-                                    <ItemsControl Name="PART_ButtonPlacement" DockPanel.Dock="Right"
-                                                  Items="{CompiledBinding DialogButtons}"
-                                                  ItemTemplate="{StaticResource DialogButtonTemplate}"
-                                                  ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
-                                </DockPanel>
-
-                                <ContentPresenter Name="PART_ContentPresenter"
-                                                  DockPanel.Dock="Left"
-                                                  Content="{TemplateBinding Content}"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
-                            </DockPanel>
-                        </Border>
-                    </VisualLayerManager>
-                </Panel>
-            </ControlTemplate>
-        </Setter>
     </Style>
 </Styles>

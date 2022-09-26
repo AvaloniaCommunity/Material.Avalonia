@@ -6,96 +6,88 @@
 -->
 
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <Style Selector="CalendarItem">
-    <Setter Property="HorizontalAlignment" Value="Stretch"/>
-    <Setter Property="VerticalAlignment" Value="Stretch"/>
-    <Setter Property="DayTitleTemplate">
-      <Template>
-        <TextBlock Text="{Binding}"
-                   HorizontalAlignment="Stretch"
-                   VerticalAlignment="Stretch"
-                   TextAlignment="Center"
-                   FontSize="12"/>
-      </Template>
-    </Setter>
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border BorderThickness="{TemplateBinding BorderThickness}"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                CornerRadius="{DynamicResource ControlCornerRadius}">
-          <Border.Styles>
-            <Style Selector="Button.CalendarHeaderTitle">
-              <Setter Property="HorizontalAlignment" Value="Stretch" />
-              <Setter Property="VerticalAlignment" Value="Stretch" />
-              <Setter Property="FontSize" Value="20" />
-              <Setter Property="Background" Value="Transparent"/>
-              <Setter Property="Template">
-                <ControlTemplate>
-                  <ContentPresenter Name="Text" Background="{TemplateBinding Background}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Content="{TemplateBinding Content}"
-                                    Margin="{TemplateBinding Padding}"
-                                    HorizontalContentAlignment="Stretch"
-                                    VerticalContentAlignment="Center" />
-                </ControlTemplate>
-              </Setter>
-            </Style>
-            
-            <Style Selector="Button.CalendarHeader TextBlock">
-              <Setter Property="TextAlignment" Value="Center" />
-            </Style>
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
+    <Style Selector="CalendarItem">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="DayTitleTemplate">
+            <Template>
+                <TextBlock Text="{Binding}"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           TextAlignment="Center"
+                           FontSize="12" />
+            </Template>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        CornerRadius="{DynamicResource ControlCornerRadius}">
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                          RowDefinitions="Auto, *" MinWidth="200">
+                        <Grid Name="CalendarHeader"
+                              Margin="8,16,8,12"
+                              ColumnDefinitions="*, 24, Auto, 24, Auto">
+                            <Button Name="HeaderButton"
+                                    Grid.Column="0"
+                                    IsEnabled="False"
+                                    Classes="material-calendar-header-button flat" />
 
-            <Style Selector="Button.CalendarHeader:disabled /template/ ContentPresenter">
-              <Setter Property="TextBlock.Foreground" Value="{DynamicResource CalendarViewWeekDayForegroundDisabled}"/>
-            </Style>
-          </Border.Styles>
-          
-          <!--  To keep calendar from resizing when switching DisplayMode
-                In WinUI Min-Width from TemplateSettings
-                basically...MinWidth of DayItem = 40, 40 * 7 = 280 + margins/padding = ~294
-                Viewport height is set from # of rows displayed (2-8) in Month mode, = ~290 for 6 weeks (+ day names)
-                -->
-          
-          <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-                RowDefinitions="Auto, *" MinWidth="294">
-            <Grid ColumnDefinitions="Auto,*,Auto" Margin="12">
-              <Button Name="PreviousButton" Grid.Column="0"
-                      Classes="CalendarHeader CalendarNavigation Flat" 
-                      Foreground="{TemplateBinding Foreground}" Content="&lt;">
-              </Button>
-              
-              <Button Name="HeaderButton" Grid.Column="1" IsEnabled="False"
-                      Classes="CalendarHeader CalendarHeaderTitle Flat"/>
-              
-              <Button Name="NextButton" Grid.Column="2"
-                      Classes="CalendarHeader CalendarNavigation Flat" 
-                      Foreground="{TemplateBinding Foreground}" Content="&gt;">
-              </Button>
-            </Grid>
-            
-            <Grid Name="MonthView" Grid.Row="1" IsVisible="False" MinHeight="290" Margin="12"
-                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
-                  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*,*,*,*,*,*">
-            </Grid>
-            <Grid Name="YearView" MinHeight="290"
-                    Grid.Row="1" IsVisible="False">
-              <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-              </Grid.RowDefinitions>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-              </Grid.ColumnDefinitions>
-            </Grid>
-          </Grid>
-        </Border>
-      </ControlTemplate>
-    </Setter>
-  </Style>
+                            <Button Name="PreviousButton"
+                                    Grid.Column="2"
+                                    Classes="material-calendar-nav-button flat">
+                                <Button.Content>
+                                    <controls:MaterialInternalIcon Kind="ChevronLeft"/>
+                                </Button.Content>
+                            </Button>
+
+                            <Button Name="NextButton"
+                                    Grid.Column="4"
+                                    Classes="material-calendar-nav-button flat">
+                                <Button.Content>
+                                    <controls:MaterialInternalIcon Kind="ChevronRight"/>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
+
+                        <Grid Name="MonthView"
+                              Grid.Row="1"
+                              Classes="material-calendar-view"
+                              MinHeight="200"
+                              RowDefinitions="32,32,32,32,32,32,32"
+                              ColumnDefinitions="32,32,32,32,32,32,32">
+                        </Grid>
+                        
+                        <Grid Name="YearView"
+                              Grid.Row="1"
+                              Classes="material-calendar-view"
+                              MinHeight="290"
+                              RowDefinitions="*,*,*"
+                              ColumnDefinitions="*,*,*,*">
+                        </Grid>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+
+    <Style Selector="CalendarItem /template/ Button.material-calendar-nav-button">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style Selector="CalendarItem /template/ Button.material-calendar-header-button">
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Padding" Value="8, 0" />
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+    
+    <Style Selector="CalendarItem /template/ Grid.material-calendar-view">
+        <Setter Property="Margin" Value="16, 8" />
+        <Setter Property="IsVisible" Value="False"/>
+    </Style>
 </Styles>

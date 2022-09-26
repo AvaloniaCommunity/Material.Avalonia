@@ -16,7 +16,8 @@
             </DataTemplate>
             
             <DataTemplate DataType="icons:ImageIconViewModel" x:Key="DialogImageIcon">
-                <Image Source="{CompiledBinding Bitmap}" Stretch="{CompiledBinding Stretch}"/>
+                <Image Source="{CompiledBinding Bitmap}"
+                       Stretch="{CompiledBinding Stretch}"/>
             </DataTemplate>
         </RecyclingElementFactory.Templates>
     </RecyclingElementFactory>

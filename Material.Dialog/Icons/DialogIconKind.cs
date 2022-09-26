@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Material.Dialog.Icons
+﻿namespace Material.Dialog.Icons
 {
     public enum DialogIconKind
     {
@@ -13,6 +9,6 @@ namespace Material.Dialog.Icons
         Help,
         Issues,
         Stop,
-        Blocked 
+        Blocked
     }
 }
