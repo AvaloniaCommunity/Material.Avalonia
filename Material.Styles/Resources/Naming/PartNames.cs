@@ -60,10 +60,16 @@
 
         public static string PartLabelRootBorder => "PART_LabelRootBorder";
 
+        public static string PartErrorPresenter => "PART_ErrorPresenter";
+
         #endregion
 
         #region For Slider, ScrollBar
 
+        public static string PartProgressLayer => "PART_ProgressLayer";
+        
+        public static string PartSliderTick => "PART_SliderTick";
+        
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration (Required).</p>
         /// Use this name on track of slider.
@@ -141,6 +147,10 @@
         /// <b>Otherwise ProgressBar will unable to work correctly.</b>
         /// </summary>
         public static string AvaloniaProgressBarIndicator => "PART_Indicator";
+
+        public static string PartInactiveState => "PART_InactiveState";
+
+        public static string PartActiveState => "PART_ActiveState";
 
         #endregion
 
