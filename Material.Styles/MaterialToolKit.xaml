@@ -7,6 +7,7 @@
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Window.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml"/>
                 
                 <ResourceInclude Source="avares://Material.Ripple/Theme.axaml"/>
@@ -17,7 +18,6 @@
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml"/>
                 
-                <!-- Dont import MaterialUnderline, it has imported by TextBox -->
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml"/>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml"/>
@@ -46,7 +46,7 @@
     <StyleInclude Source="avares://Material.Styles/Card.xaml"/>
     <StyleInclude Source="avares://Material.Styles/ColorZone.xaml"/>
     <!--<StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>-->
-    <StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>
+    <!--<StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>-->
     <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml"/>
     <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml"/>
     
@@ -80,7 +80,7 @@
     <StyleInclude Source="avares://Material.Styles/ContentExpandControl.axaml" />
     
     <StyleInclude Source="avares://Material.Styles/ContextMenu.xaml" />
-    <StyleInclude Source="avares://Material.Styles/DataValidationErrors.xaml" />
+    <!-- <StyleInclude Source="avares://Material.Styles/DataValidationErrors.xaml" /> -->
     <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" />
     <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" />
  

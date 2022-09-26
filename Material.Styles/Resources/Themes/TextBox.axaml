@@ -10,8 +10,11 @@
     <!-- TODO: complete TextBox theming for Avalonia 11.0 -->
     
     <ResourceDictionary.MergedDictionaries>
-        <!-- Used for suppressing warning -->
+        <!-- Used for suppressing warning in IDE -->
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml"/>
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml"/>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml"/>
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml"/>
     </ResourceDictionary.MergedDictionaries>
     
@@ -59,8 +62,70 @@
     <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
     <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="8,0" Offset="4,-8"/>
     
-    <!-- TODO: improve text box -->
+    <ControlTheme x:Key="ClearTextBoxButtonTheme"
+                  BasedOn="{StaticResource FlatButton}"
+                  TargetType="Button">
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Margin" Value="0, 0, 4, 0" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="ToolTip.Tip" Value="Click to clear field"/>
+        <Setter Property="Content">
+            <Template>
+                <controls:MaterialInternalIcon Kind="Close" Width="NaN" Height="NaN" />
+            </Template>
+        </Setter>
+    </ControlTheme>
     
+    <ControlTheme x:Key="RevealTextMaskToggleButtonTheme"
+                  BasedOn="{StaticResource FlatToggleButton}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Margin" Value="0, 0, 4, 0" />
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        
+        <Style Selector="^:unchecked">
+            <Setter Property="ToolTip.Tip" Value="Click to reveal content of field"/>
+            <!-- I know this is a bad approach to make it works
+                 Might I should rework it later. For now it just works -->
+            <Setter Property="Content">
+                <Template>
+                    <controls:MaterialInternalIcon Kind="EyeOffOutline" Width="NaN" Height="NaN" />
+                </Template>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^:checked">
+            <Setter Property="ToolTip.Tip" Value="Click to hide content of field"/>
+            <Setter Property="Content">
+                <Template>
+                    <controls:MaterialInternalIcon Kind="EyeOutline" Width="NaN" Height="NaN" />
+                </Template>
+            </Setter>
+        </Style>
+    </ControlTheme>
+    
+    <Template x:Key="ClearTextBoxButtonTemplate">
+        <Button Name="PART_ClearButton"
+                Theme="{StaticResource ClearTextBoxButtonTheme}"
+                Command="{Binding $parent[TextBox].Clear}"/>
+    </Template>
+    
+    <Template x:Key="RevealTextMaskToggleButtonTemplate">
+        <ToggleButton Name="PART_PasswordRevealToggle"
+                      Theme="{StaticResource RevealTextMaskToggleButtonTheme}"
+                      IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}"/>
+    </Template>
+    
+    <!-- Standard text field theme https://material.io/archive/guidelines/components/text-fields.html -->
+    <!-- The template is compatible for filled and outline text field -->
     <ControlTheme x:Key="{x:Type TextBox}"
                   TargetType="TextBox">
         <Setter Property="Cursor" Value="IBeam"/>
@@ -152,8 +217,7 @@
                                     </Panel>
                                 </DockPanel>
                                 
-                                <controls:MaterialUnderline Name="{x:Static naming:PartNames.PartUnderline}"
-                                                            Theme="{StaticResource MaterialUnderlineY}"/>
+                                <controls:MaterialUnderline Name="{x:Static naming:PartNames.PartUnderline}"/>
 
                                 <Border Name="{x:Static naming:PartNames.PartLabelRootBorder}">
                                     <TextBlock Name="{x:Static naming:PartNames.PartLabelText}"
@@ -183,7 +247,7 @@
             <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
         
-        <!-- TODO: incompatible style selector in ControlTheme -->
+        <!-- This style have merged to /Themes/DataValidationErrors.axaml  -->
         <!--
         <Style Selector="TextBox /template/ 
                          DataValidationErrors#PART_DataValidation /template/ 
@@ -192,6 +256,10 @@
                          TextBlock#PART_ErrorText">
             <Setter Property="Margin" Value="0,3,0,0"/>
         </Style>-->
+        
+        <Style Selector="^ /template/ Border#PART_RootBorder" >
+            <Setter Property="ClipToBounds" Value="True" />
+        </Style>
         
         <Style Selector="^ /template/ DockPanel#PART_InnerPanel" >
             <Setter Property="LastChildFill" Value="True" />
@@ -225,21 +293,24 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
         </Style>
         
-        <Style Selector="^ /template/ Border#PART_LabelRootBorder > TextBlock#PART_LabelText" >
+        <Style Selector="^ /template/ TextBlock#PART_LabelText" >
             <Setter Property="FontSize" Value="16" />
         </Style>
-            
-        <Style Selector="^:focus-within:empty[UseFloatingWatermark=True] /template/ TextBlock#PART_PlaceholderText">
-            <Setter Property="IsVisible" Value="True"/>
-        </Style>
         
-        <Style Selector="^:focus-within /template/ Border#PART_LabelRootBorder > TextBlock#PART_LabelText" >
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
-        </Style>
+        <Style Selector="^:focus-within">
+            <Style Selector="^:empty[UseFloatingWatermark=True] /template/ TextBlock#PART_PlaceholderText">
+                <Setter Property="IsVisible" Value="True"/>
+            </Style>
+        
+            <Style Selector="^ /template/ TextBlock#PART_LabelText" >
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Style>
             
-        <Style Selector="^:focus-within /template/ controls|MaterialUnderline#PART_Underline" >
-            <Setter Property="IsActive" Value="True"/>
+            <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
+                <Setter Property="IsActive" Value="True"/>
+            </Style>
         </Style>
+
             
         <Style Selector="^:pointerover /template/ controls|MaterialUnderline#PART_Underline" >
             <Setter Property="IsHovered" Value="True"/>
@@ -247,28 +318,62 @@
         
         <!-- Transitions -->
 
-        <Style Selector="^:not(.no-transitions) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Transitions" >
-                <Transitions>
-                    <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CubicEaseOut" />
-                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CubicEaseOut" />
-                </Transitions>
-            </Setter>
+        <Style Selector="^:not(.no-transitions)" >
+            <Style Selector="^ /template/ Border#PART_LabelRootBorder" >
+                <Setter Property="Transitions" >
+                    <Transitions>
+                        <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CircularEaseOut" />
+                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CircularEaseOut" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            
+            <!-- this transition might flash if you react too fast -->
+            <!--
+            <Style Selector="^ /template/ TextBlock#PART_LabelText" >
+                <Setter Property="Transitions" >
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.25" Property="Foreground" Easing="LinearEasing" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            -->
+            
+            <Style Selector="^ /template/ Border#PART_BackgroundTextField" >
+                <Setter Property="Transitions" >
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.25" Property="BorderBrush" Easing="LinearEasing" />
+                        <ThicknessTransition Duration="0:0:0.25" Property="BorderThickness" Easing="CircularEaseOut" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            
+            <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
+                <Setter Property="Transitions" >
+                    <Transitions>
+                        <BrushTransition Duration="0:0:0.25" Property="ActiveBrush" Easing="LinearEasing" />
+                    </Transitions>
+                </Setter>
+            </Style>
         </Style>
         
-        <!-- Invalid state -->
+        <!-- Invalid state (on validation fail) -->
+        
+        <Style Selector="^:error" >
+            <Style Selector="^ /template/ TextBlock#PART_LabelText" >
+                <Setter Property="Foreground" Value="{DynamicResource ValidationErrorBrush}" />
+            </Style>
+            
+            <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
+                <Setter Property="IdleBrush" Value="{DynamicResource ValidationErrorBrush}" />
+                <Setter Property="ActiveBrush" Value="{DynamicResource ValidationErrorBrush}" />
+            </Style>
 
-        <Style Selector="^:error /template/ TextBlock#PART_LabelText" >
-            <Setter Property="Foreground" Value="{DynamicResource ValidationErrorBrush}" />
-        </Style>
-    
-        <Style Selector="^:error /template/ controls|MaterialUnderline#PART_Underline" >
-            <Setter Property="IdleBrush" Value="{DynamicResource ValidationErrorBrush}" />
-            <Setter Property="ActiveBrush" Value="{DynamicResource ValidationErrorBrush}" />
-        </Style>
-
-        <Style Selector="^:error /template/ TextBlock#PART_HintsText" >
-            <Setter Property="IsVisible" Value="False" />
+            <!-- TODO: Animate fading effect between hints text and validation error text -->
+            <Style Selector="^ /template/ TextBlock#PART_HintsText" >
+                <Setter Property="Opacity" Value="0" />
+                <Setter Property="IsVisible" Value="False"/>
+            </Style>
         </Style>
 
         <!-- Standard text field -->
@@ -311,11 +416,20 @@
         <Style Selector="^:disabled /template/ DockPanel#PART_RootPanel">
             <Setter Property="Opacity" Value="0.5"/>
         </Style>
+        
+        <!-- Additional decorations for TextFields -->
+        <!-- ReSharper disable InconsistentNaming -->
+
+        <Style Selector="^.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)" >
+            <Setter Property="InnerRightContent" Value="{StaticResource ClearTextBoxButtonTemplate}"/>
+        </Style>
+
+        <Style Selector="^.revealPasswordButton" >
+            <Setter Property="InnerRightContent" Value="{StaticResource RevealTextMaskToggleButtonTemplate}"/>
+        </Style>
     </ControlTheme>
     
-    <!-- ***************************************************************************************** -->
-
-    <!-- Filled textfield -->
+    <!-- Filled text field https://material.io/components/text-fields#filled-text-field -->
     
     <ControlTheme x:Key="FilledTextBox"
                   BasedOn="{StaticResource {x:Type TextBox}}"
@@ -383,9 +497,7 @@
         </Style>
     </ControlTheme>
     
-    <!-- ***************************************************************************************** -->
-    
-    <!-- Outlined textfield -->
+    <!-- Outlined text field https://material.io/components/text-fields#outlined-text-field -->
     
     <ControlTheme x:Key="OutlineTextBox"
                   BasedOn="{StaticResource {x:Type TextBox}}"
