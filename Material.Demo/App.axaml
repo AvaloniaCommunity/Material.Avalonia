@@ -21,6 +21,7 @@
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="ClipToBounds" Value="False"/>
+            <Setter Property="Background" Value="Transparent"/>
         </Style>
         
         <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border">
