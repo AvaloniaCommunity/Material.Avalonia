@@ -13,26 +13,11 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>FavIcon.png</PackageIcon>
-        <VersionPrefix>3.0.0-avalonia10-preview2</VersionPrefix>
+        <VersionPrefix>3.0.0-avalonia11-preview2</VersionPrefix>
         <PackageReleaseNotes>
-Most likely latest version with Avalonia 0.10.x support
-Version 3.0.0-rc0 was replaced with 3.0.0-avalonia10-preview1 (in order to keep version names clear)
-- Bump Avalonia version dependency to 0.10.13
-- Implement adapting to system base theme mode on Windows
-- Improve/redesign Expander, TextBlock, Separator and other styles
-- Create ContentExpandControl, used for animate resizing
-- Add TransitioningContentControl style support
-- Allow use Avalonia.Diagnostics to dialogs when using DEBUG profile
-- Attach TextBlock properties to NumericUpDown
-- Add padding to alert dialog and text field dialog
-- Fix AutoCorrectPositionConverter #172
-- Add default value for Slider, correct dots positioning
-- Change resources apply logic to avoid colors apply delay while application starting
-- Correct HsbConverter.ToColor method
-- Add static part names pool
-- Add auto-expand feature on NavigationDrawer
-- Update contrast color algorithm
-- Add InputMethod.IsInputMethodEnabled for TextBox
+This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
+- Move some styles to ControlTheme
+- Improve some styles to proper work with Avalonia 11
         </PackageReleaseNotes>
     </PropertyGroup>
 
