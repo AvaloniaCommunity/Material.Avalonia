@@ -121,15 +121,13 @@
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on canvas of ToggleSwitch to get a zone for draggable knob
         /// </summary>
-        /// <!--TODO: Add PART_ Prefix after any revision of avaloniaUI 11.0.0-->
-        public static string AvaloniaSwitchKnob => "SwitchKnob";
+        public static string AvaloniaSwitchKnob => "PART_SwitchKnob";
 
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on panel under of canvas of ToggleSwitch to get a draggable knob
         /// </summary>
-        /// <!--TODO: Add PART_ Prefix after any revision of avaloniaUI 11.0.0-->
-        public static string AvaloniaMovingKnobs => "MovingKnobs";
+        public static string AvaloniaMovingKnobs => "PART_MovingKnobs";
 
         #endregion
 
@@ -141,6 +139,28 @@
         /// <b>Otherwise ProgressBar will unable to work correctly.</b>
         /// </summary>
         public static string AvaloniaProgressBarIndicator => "PART_Indicator";
+
+        #endregion
+
+        #region For DatePicker
+
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying day text by avalonia
+        /// </summary>
+        public static string AvaloniaDayText = "PART_DayTextBlock";
+        
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying month text by avalonia
+        /// </summary>
+        public static string AvaloniaMonthText = "PART_MonthTextBlock";
+        
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying year text by avalonia
+        /// </summary>
+        public static string AvaloniaYearText = "PART_YearTextBlock";
 
         #endregion
 

@@ -28,20 +28,6 @@ namespace Material.Demo
                     UseDBusMenu = true,
                     EnableIme = true
                 })
-                .With(new Win32PlatformOptions
-                {
-                    // Avalonia 11.0.0-preview1 issue: CornerRadius not clipping,
-                    // Avalonia 11.0.0-preview1 issue: sometimes might crash by collection enumerate fail
-                    UseCompositor = false
-                })
-                .With(new X11PlatformOptions
-                {
-                    UseCompositor = false
-                })
-                .With(new AvaloniaNativePlatformOptions
-                {
-                    UseCompositor = false
-                })
                 .UseXamlDisplay()
                 .LogToTrace();
         }
