@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Threading;
 
@@ -27,6 +28,7 @@ namespace Material.Ripple
 
         public RippleEffect()
         {
+            AddHandler(LostFocusEvent, LostFocusHandler);
             AddHandler(PointerReleasedEvent, PointerReleasedHandler);
             AddHandler(PointerPressedEvent, PointerPressedHandler);
             AddHandler(PointerCaptureLostEvent, PointerCaptureLostHandler);
@@ -51,6 +53,10 @@ namespace Material.Ripple
                 PART_RippleCanvasRoot.Children.Add(r);
                 r.RunFirstStep();
             }, DispatcherPriority.Composition);
+        }
+
+        private void LostFocusHandler(object sender, RoutedEventArgs e) {
+            RemoveLastRipple();
         }
 
         private void PointerReleasedHandler(object sender, PointerReleasedEventArgs e)
