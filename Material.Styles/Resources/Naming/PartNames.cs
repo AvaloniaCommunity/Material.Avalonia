@@ -29,7 +29,6 @@
         /// General use.
         /// Please use this name on templated border of controls that have feedback on hovered by cursor
         /// </summary>
-
         public static string PartHoverEffect => "PART_HoverEffect";
 
         public static string PartScrollViewer => "PART_ScrollViewer";
@@ -40,6 +39,10 @@
         /// </summary>
         public static string PartBehaviourEffect => "PART_BehaviourEffect";
 
+        /// <summary>
+        /// Use this name on Ripple layer control,
+        /// which gives visual feedback to user after click control like <see cref="Avalonia.Controls.Button"/>.
+        /// </summary>
         public static string PartRipple => "PART_Ripple";
 
         #endregion
@@ -127,15 +130,27 @@
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on canvas of ToggleSwitch to get a zone for draggable knob
         /// </summary>
-        /// <!--TODO: Add PART_ Prefix after any revision of avaloniaUI 11.0.0-->
-        public static string AvaloniaSwitchKnob => "SwitchKnob";
+        public static string AvaloniaSwitchKnob => "PART_SwitchKnob";
+
+        /// <summary>
+        /// <b>avaloniaUI before-11.0 Compatibility use!</b>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// <p>Use this name on canvas of ToggleSwitch to get a zone for draggable knob</p>
+        /// </summary>
+        public static string AvaloniaSwitchKnobOld => "SwitchKnob";
 
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on panel under of canvas of ToggleSwitch to get a draggable knob
         /// </summary>
-        /// <!--TODO: Add PART_ Prefix after any revision of avaloniaUI 11.0.0-->
-        public static string AvaloniaMovingKnobs => "MovingKnobs";
+        public static string AvaloniaMovingKnobs => "PART_MovingKnobs";
+        
+        /// <summary>
+        /// <b>avaloniaUI before-11.0 Compatibility use!</b>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on panel under of canvas of ToggleSwitch to get a draggable knob
+        /// </summary>
+        public static string AvaloniaMovingKnobsOld => "MovingKnobs";
 
         #endregion
 
