@@ -104,13 +104,13 @@ namespace Material.Styles.Themes
                 secondaryLight = secondaryMid.Lighten();
 
             if (!TryGetColor("SecondaryHueLightForegroundBrush", out var secondaryLightForeground))
-                secondaryLightForeground = secondaryLight.ContrastingForegroundColor();
+                secondaryLightForeground = secondaryLight.PickContrastColor();
 
             if (!TryGetColor("SecondaryHueDarkBrush", out var secondaryDark))
                 secondaryDark = secondaryMid.Darken();
 
             if (!TryGetColor("SecondaryHueDarkForegroundBrush", out var secondaryDarkForeground))
-                secondaryDarkForeground = secondaryDark.ContrastingForegroundColor();
+                secondaryDarkForeground = secondaryDark.PickContrastColor();
 
             //Attempt to simply look up the appropriate resources
             return new Theme

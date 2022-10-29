@@ -20,7 +20,7 @@ namespace Material.Styles.Controls.Extensions
             Size = size;
         }
 
-        [ConstructorArgument("kind")] public string Kind { get; set; }
+        [ConstructorArgument("kind")] public string? Kind { get; set; }
 
         [ConstructorArgument("size")] public double? Size { get; set; }
 
@@ -28,14 +28,14 @@ namespace Material.Styles.Controls.Extensions
         {
             var result = new MaterialInternalIcon
             {
-                Kind = Kind
+                Kind = Kind ?? string.Empty
             };
 
-            if (Size.HasValue)
-            {
-                result.Height = Size.Value;
-                result.Width = Size.Value;
-            }
+            if (!Size.HasValue)
+                return result;
+            
+            result.Height = Size.Value;
+            result.Width = Size.Value;
 
             return result;
         }

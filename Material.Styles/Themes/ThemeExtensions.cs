@@ -40,7 +40,7 @@ namespace Material.Styles.Themes
         {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
-            var foreground = theme.Background.ContrastingForegroundColor();
+            var foreground = theme.Background.PickContrastColor();
             return foreground == Avalonia.Media.Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
         }
 

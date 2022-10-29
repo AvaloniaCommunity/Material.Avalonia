@@ -44,13 +44,13 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Defines the <see cref="InactiveBrush"/> property.
         /// </summary>
-        public static readonly StyledProperty<IBrush> InactiveBrushProperty =
-            AvaloniaProperty.Register<TickBar, IBrush>(nameof(InactiveBrush));
+        public static readonly StyledProperty<IBrush?> InactiveBrushProperty =
+            AvaloniaProperty.Register<TickBar, IBrush?>(nameof(InactiveBrush));
 
         /// <summary>
         /// Brush used to draw the TickBar's Ticks on inactive track.
         /// </summary>
-        public IBrush InactiveBrush
+        public IBrush? InactiveBrush
         {
             get => GetValue(InactiveBrushProperty);
             set => SetValue(InactiveBrushProperty, value);
@@ -59,13 +59,13 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Defines the <see cref="ActiveBrush"/> property.
         /// </summary>
-        public static readonly StyledProperty<IBrush> ActiveBrushProperty =
-            AvaloniaProperty.Register<TickBar, IBrush>(nameof(ActiveBrush));
+        public static readonly StyledProperty<IBrush?> ActiveBrushProperty =
+            AvaloniaProperty.Register<TickBar, IBrush?>(nameof(ActiveBrush));
 
         /// <summary>
         /// Brush used to draw the TickBar's Ticks on active track.
         /// </summary>
-        public IBrush ActiveBrush
+        public IBrush? ActiveBrush
         {
             get => GetValue(ActiveBrushProperty);
             set => SetValue(ActiveBrushProperty, value);
@@ -245,15 +245,18 @@ namespace Material.Styles.Controls
                 (startPoint, endPoint) = (endPoint, startPoint);
             }
 
-            var inactiveBrush = InactiveBrush.ToImmutable();
-            var activeBrush = ActiveBrush.ToImmutable();
+            var inactiveBrush = InactiveBrush?.ToImmutable();
+            var activeBrush = ActiveBrush?.ToImmutable();
 
-            void DrawTick(IBrush brush, Point centerPoint, double radius)
+            void DrawTick(IBrush? brush, Point centerPoint, double radius)
             {
+                if (brush == null)
+                    return;
+                
                 dc.DrawEllipse(brush, null, centerPoint, radius, radius);
             }
 
-            IBrush PickBrushByRange(double c)
+            IBrush? PickBrushByRange(double c)
             {
                 if (c < left)
                     return reverse ? inactiveBrush : activeBrush;

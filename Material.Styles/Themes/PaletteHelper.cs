@@ -33,7 +33,9 @@ namespace Material.Styles.Themes
 
         private IResourceDictionary GetBundledThemeOrRoot()
         {
-            return LocateBundledTheme() ?? Application.Current.Resources;
+            return LocateBundledTheme() ??
+                   Application.Current?.Resources ??
+                   throw new NullReferenceException();
         }
 
         public virtual ITheme GetTheme()
@@ -47,9 +49,10 @@ namespace Material.Styles.Themes
             GetBundledThemeOrRoot().SetTheme(theme);
         }
 
-        public virtual IThemeManager GetThemeManager()
+        public virtual IThemeManager? GetThemeManager()
         {
-            return GetBundledThemeOrRoot().GetThemeManager();
+            return GetBundledThemeOrRoot()
+                .GetThemeManager();
         }
     }
 }
