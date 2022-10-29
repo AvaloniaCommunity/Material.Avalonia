@@ -1,19 +1,16 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:converters="clr-namespace:Material.Styles.Converters"
-        xmlns:models="clr-namespace:Material.Styles.Models"
-        xmlns:system="clr-namespace:System;assembly=netstandard"
-        xmlns:controls="clr-namespace:Material.Styles.Controls"
-        x:DataType="controls:SnackbarHost">
-    <Styles.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Styles.Resources>
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:models="clr-namespace:Material.Styles.Models"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters"
+                    xmlns:system="clr-namespace:System;assembly=netstandard" >
+    <!-- Add Resources Here -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
+    </ResourceDictionary.MergedDictionaries>
     
-    <Style Selector="controls|SnackbarHost">
+    <ControlTheme x:Key="{x:Type controls:SnackbarHost}"
+                  TargetType="controls:SnackbarHost">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -57,13 +54,12 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-    </Style>
-
-    <Style
-        Selector="controls|SnackbarHost /template/ ItemsControl#PART_SnackbarHostItemsContainer TextBlock#PART_SnackbarSupportingText">
-        <Setter Property="TextAlignment" Value="Left" />
-        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
-        <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="MaxLines" Value="2" />
-    </Style>
-</Styles>
+        
+        <Style Selector="^ /template/ ItemsControl#PART_SnackbarHostItemsContainer TextBlock#PART_SnackbarSupportingText">
+            <Setter Property="TextAlignment" Value="Left" />
+            <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="MaxLines" Value="2" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
