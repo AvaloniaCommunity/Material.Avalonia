@@ -4,13 +4,10 @@
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              x:Class="Material.Demo.App">
     <Application.Styles>
-        <SimpleTheme />
         <themes:MaterialTheme BaseTheme="Light"
                             PrimaryColor="Purple"
                             SecondaryColor="Indigo" />
-        <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ScrollViewerClasses.axaml"/>
-        <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TextBlockClasses.axaml"/>
-        <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ButtonClasses.axaml"/>
+        <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/Index.axaml"/>
         <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
         <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
         
