@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
 
@@ -8,13 +9,15 @@ namespace Material.Styles.Converters
     public class BrushRoundConverter : IValueConverter
     {
         public static readonly IValueConverter Instance = new BrushRoundConverter();
+        
         public Brush HighValue { get; set; } = new SolidColorBrush(Brushes.White.Color);
 
         public Brush LowValue { get; set; } = new SolidColorBrush(Brushes.Black.Color);
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (!(value is SolidColorBrush solidColorBrush)) return null;
+            if (value is not SolidColorBrush solidColorBrush)
+                return BindingOperations.DoNothing;
 
             var color = solidColorBrush.Color;
 
@@ -23,9 +26,9 @@ namespace Material.Styles.Converters
             return brightness < 123 ? LowValue : HighValue;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException("This converter used for logical color picking, no convert back support!");
         }
     }
 }
