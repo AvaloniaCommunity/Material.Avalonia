@@ -28,6 +28,15 @@
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml"/>
                 
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml"/>
+                
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml"/>
+                
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStrip.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStripItem.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml"/>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml"/>
             </ResourceDictionary.MergedDictionaries>
             
             <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
@@ -101,14 +110,16 @@
     <StyleInclude Source="avares://Material.Styles/NumericUpDown.xaml" />
     <StyleInclude Source="avares://Material.Styles/OverlayPopupHost.xaml" />
     <StyleInclude Source="avares://Material.Styles/PopupRoot.xaml" />
-    <StyleInclude Source="avares://Material.Styles/ProgressBar.xaml" />
+    <!-- <StyleInclude Source="avares://Material.Styles/ProgressBar.xaml" /> -->
     <!-- <StyleInclude Source="avares://Material.Styles/ScrollBar.xaml" /> -->
     <StyleInclude Source="avares://Material.Styles/Separator.xaml" />
     
     <StyleInclude Source="avares://Material.Styles/SplitView.xaml" />
-    <StyleInclude Source="avares://Material.Styles/TabControl.xaml" />
-    <StyleInclude Source="avares://Material.Styles/TabStrip.xaml" />
+    <!-- <StyleInclude Source="avares://Material.Styles/TabControl.xaml" /> -->
+    <!--
+<StyleInclude Source="avares://Material.Styles/TabStrip.xaml" />
     <StyleInclude Source="avares://Material.Styles/TabStripItem.xaml" />
+-->
     <!-- <StyleInclude Source="avares://Material.Styles/TextBlock.xaml" />-->
 
 
@@ -122,8 +133,8 @@
     
     <StyleInclude Source="avares://Material.Styles/Calendar.xaml" />
     <!--<StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />-->
-    <StyleInclude Source="avares://Material.Styles/Scroller.xaml" />
-    <StyleInclude Source="avares://Material.Styles/Slider.xaml" />
+    <!--<StyleInclude Source="avares://Material.Styles/Scroller.xaml" />-->
+    <!--<StyleInclude Source="avares://Material.Styles/Slider.xaml" />-->
     <!--<StyleInclude Source="avares://Material.Styles/TextBox.xaml" />-->
     <!--<StyleInclude Source="avares://Material.Styles/Window.xaml" /> -->
     
