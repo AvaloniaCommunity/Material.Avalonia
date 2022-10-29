@@ -58,7 +58,7 @@
                             <controls:Card Name="{x:Static naming:PartNames.PartCard}">
                                 <Calendar 
                                     SelectedDate="{TemplateBinding SelectedDate, 
-                                    Mode=TwoWay, Converter={x:Static converters:DateTimeToOffsetConverter.Instance}}"/>
+                                    Mode=TwoWay, Converter={x:Static converters:DateTimeOffsetConverter.Instance}}"/>
                             </controls:Card>
                         </Popup>
                     </Panel>
