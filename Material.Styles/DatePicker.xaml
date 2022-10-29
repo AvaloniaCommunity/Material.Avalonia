@@ -26,9 +26,9 @@
             <ControlTemplate>
                 <Panel>
                     <!-- This controls required by avalonia code behind -->
-                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="DayText" />
-                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="MonthText" />
-                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="YearText" />
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaDayText}" />
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaMonthText}" />
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaYearText}" />
 
                     <!-- TODO: Make TextBox writeable -->
                     <!-- TODO: allow use different text boxes style-->

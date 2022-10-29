@@ -31,12 +31,12 @@
                         <Grid Name="CalendarHeader"
                               Margin="8,16,8,12"
                               ColumnDefinitions="*, 24, Auto, 24, Auto">
-                            <Button Name="HeaderButton"
+                            <Button Name="PART_HeaderButton"
                                     Grid.Column="0"
                                     IsEnabled="False"
                                     Classes="material-calendar-header-button flat" />
 
-                            <Button Name="PreviousButton"
+                            <Button Name="PART_PreviousButton"
                                     Grid.Column="2"
                                     Classes="material-calendar-nav-button flat">
                                 <Button.Content>
@@ -44,7 +44,7 @@
                                 </Button.Content>
                             </Button>
 
-                            <Button Name="NextButton"
+                            <Button Name="PART_NextButton"
                                     Grid.Column="4"
                                     Classes="material-calendar-nav-button flat">
                                 <Button.Content>
@@ -53,7 +53,7 @@
                             </Button>
                         </Grid>
 
-                        <Grid Name="MonthView"
+                        <Grid Name="PART_MonthView"
                               Grid.Row="1"
                               Classes="material-calendar-view"
                               MinHeight="200"
@@ -61,7 +61,7 @@
                               ColumnDefinitions="32,32,32,32,32,32,32">
                         </Grid>
                         
-                        <Grid Name="YearView"
+                        <Grid Name="PART_YearView"
                               Grid.Row="1"
                               Classes="material-calendar-view"
                               MinHeight="290"

@@ -2,32 +2,29 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <VersionPrefix>3.0.0-rc0</VersionPrefix>
         <Title>Material.Avalonia</Title>
         <Authors>Larymar,SKProCH,Appleneko2001</Authors>
         <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
         <PackageProjectUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</PackageProjectUrl>
-        <PackageLicenseUrl>https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <LangVersion>8</LangVersion>
+        <PackageTags>avalonia xaml material design theme colour color ui ux material-design google-material</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>FavIcon.png</PackageIcon>
+        <VersionPrefix>3.0.0-avalonia11-preview2</VersionPrefix>
         <PackageReleaseNotes>
-- Removed Material.Icons dependency (must be installed separately from https://github.com/AvaloniaUtils/Material.Icons.Avalonia) #127
-- Rework styles (details https://github.com/AvaloniaCommunity/Material.Avalonia/wiki/Advanced-Theming#migrating-25---30)
-- Fix neverest version of Avalonia support #133
-- Add SideSheet control #145
-- Add opening navigation drawer from right side #131
-- Fix context menu item submenu appearing and disappearing in infinite loop #142
-- Fix binding on LeftDrawerWidth hides all content/behavior of NavigationDrawer #151
-- Fix custom dialog view datacontext binding #152
-- Fix ProgressBar styles inheritance #125
-- Fix show password button is not visible until clicked #124
-- Fix CustomDialogs content #121
-- Set KeyboardNavigation.TabNavigation property to Continue on ItemsPresenter #146
-- Stop Spinner from rotating when hidden.
-- Other fixes and improvements
+This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
+- Move some styles to ControlTheme
+- Improve some styles to proper work with Avalonia 11
         </PackageReleaseNotes>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="/" />
+        <None Include="../wiki/FavIcon.png" Pack="true" PackagePath="/" />
+    </ItemGroup>
 
 <!--    For nightly versions-->
     <PropertyGroup>

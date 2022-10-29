@@ -133,24 +133,10 @@
         public static string AvaloniaSwitchKnob => "PART_SwitchKnob";
 
         /// <summary>
-        /// <b>avaloniaUI before-11.0 Compatibility use!</b>
-        /// <p>This name is used for AvaloniaUI integration.</p>
-        /// <p>Use this name on canvas of ToggleSwitch to get a zone for draggable knob</p>
-        /// </summary>
-        public static string AvaloniaSwitchKnobOld => "SwitchKnob";
-
-        /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on panel under of canvas of ToggleSwitch to get a draggable knob
         /// </summary>
         public static string AvaloniaMovingKnobs => "PART_MovingKnobs";
-        
-        /// <summary>
-        /// <b>avaloniaUI before-11.0 Compatibility use!</b>
-        /// <p>This name is used for AvaloniaUI integration.</p>
-        /// Use this name on panel under of canvas of ToggleSwitch to get a draggable knob
-        /// </summary>
-        public static string AvaloniaMovingKnobsOld => "MovingKnobs";
 
         #endregion
 
@@ -166,6 +152,28 @@
         public static string PartInactiveState => "PART_InactiveState";
 
         public static string PartActiveState => "PART_ActiveState";
+
+        #endregion
+
+        #region For DatePicker
+
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying day text by avalonia
+        /// </summary>
+        public static string AvaloniaDayText = "PART_DayTextBlock";
+        
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying month text by avalonia
+        /// </summary>
+        public static string AvaloniaMonthText = "PART_MonthTextBlock";
+        
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying year text by avalonia
+        /// </summary>
+        public static string AvaloniaYearText = "PART_YearTextBlock";
 
         #endregion
 
