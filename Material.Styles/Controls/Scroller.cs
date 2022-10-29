@@ -35,7 +35,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollerContentPresenter"/> in the control's template.
+        /// <see cref="ScrollContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, bool> CanHorizontallyScrollProperty =
             AvaloniaProperty.RegisterDirect<Scroller, bool>(
@@ -47,7 +47,7 @@ namespace Material.Styles.Controls
         /// </summary>
         /// <remarks>
         /// There is no public C# accessor for this property as it is intended to be bound to by a 
-        /// <see cref="ScrollerContentPresenter"/> in the control's template.
+        /// <see cref="ScrollContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, bool> CanVerticallyScrollProperty =
             AvaloniaProperty.RegisterDirect<Scroller, bool>(
