@@ -1,0 +1,261 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls" >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml"/>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!-- Fixed tab control -->
+    <!-- TODO: Make active indicator moved and resized by tab item bounds -->
+    <!-- TODO: Better layouts -->
+    <ControlTheme x:Key="{x:Type TabControl}"
+                  TargetType="TabControl">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
+                            <Rectangle Name="{x:Static naming:PartNames.PartSeparator}"/>
+                            
+                            <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                            Items="{TemplateBinding Items}"
+                                            ItemTemplate="{TemplateBinding ItemTemplate}"/>
+                        </Panel>
+                        
+                        <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                          Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding SelectedContent}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^ /template/ Rectangle#PART_Separator">
+            <Setter Property="Fill" Value="{DynamicResource MaterialDesignBodyLight}"/>
+        </Style>
+        
+        <Style Selector="^ /template/ Panel#PART_TabsPanel">
+            <Setter Property="Control.ZIndex" Value="1"/>
+        </Style>
+        
+        <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+            <Setter Property="ItemsPanel">
+                <ItemsPanelTemplate>
+                    <UniformGrid Name="PART_TabContainer"/>
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Style Selector="^ /template/ Rectangle#PART_Separator">
+                <Setter Property="Height" Value="1"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+            </Style>
+            
+            <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+                <Setter Property="Columns" Value="0" />
+                <Setter Property="Rows" Value="1" />
+            </Style>
+            
+            <Style Selector="^ /template/ Panel#PART_TabsPanel">
+                <Setter Property="DockPanel.Dock" Value="Top"/>
+            </Style>
+            
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="DockPanel.Dock" Value="Bottom"/>
+            </Style>
+        </Style>
+        
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Style Selector="^ /template/ Rectangle#PART_Separator">
+                <Setter Property="Height" Value="1"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+            </Style>
+            
+            <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+                <Setter Property="Columns" Value="0" />
+                <Setter Property="Rows" Value="1" />
+            </Style>
+            
+            <Style Selector="^ /template/ Panel#PART_TabsPanel">
+                <Setter Property="DockPanel.Dock" Value="Bottom"/>
+            </Style>
+            
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="DockPanel.Dock" Value="Top"/>
+            </Style>
+        </Style>
+        
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Style Selector="^ /template/ Rectangle#PART_Separator">
+                <Setter Property="Width" Value="1"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+            </Style>
+            
+            <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+                <Setter Property="Columns" Value="1" />
+                <Setter Property="Rows" Value="0" />
+            </Style>
+            
+            <Style Selector="^ /template/ Panel#PART_TabsPanel">
+                <Setter Property="DockPanel.Dock" Value="Left"/>
+            </Style>
+            
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="DockPanel.Dock" Value="Right"/>
+            </Style>
+        </Style>
+                
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Style Selector="^ /template/ Rectangle#PART_Separator">
+                <Setter Property="Width" Value="1"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+            
+            <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+                <Setter Property="Columns" Value="1" />
+                <Setter Property="Rows" Value="0" />
+            </Style>
+            
+            <Style Selector="^ /template/ Panel#PART_TabsPanel">
+                <Setter Property="DockPanel.Dock" Value="Right"/>
+            </Style>
+            
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="DockPanel.Dock" Value="Left"/>
+            </Style>
+        </Style>
+        
+    </ControlTheme>
+    
+    <!-- Scrollable tab control -->
+    <ControlTheme x:Key="ScrollableTabControl"
+                  BasedOn="{StaticResource {x:Type TabControl}}"
+                  TargetType="TabControl">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
+                            <controls:Scroller Name="{x:Static naming:PartNames.PartScrollViewer}"
+                                               Theme="{StaticResource TabControlScroller}">
+                                <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                                Items="{TemplateBinding Items}"
+                                                ItemTemplate="{TemplateBinding ItemTemplate}"/>
+                            </controls:Scroller>
+                            
+                            <Rectangle Name="{x:Static naming:PartNames.PartSeparator}"/>
+                        </Panel>
+                        
+                        <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                          Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding SelectedContent}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+            <Setter Property="controls:Scroller.HandleMouseWheel" Value="True"/>
+        </Style>
+        
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+                <Setter Property="Control.Margin" Value="40, 0"/>
+            </Style>
+            
+            <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+                <Setter Property="controls:Scroller.Orientation" Value="Horizontal"/>
+            </Style>
+        </Style>
+        
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+                <Setter Property="Control.Margin" Value="40, 0"/>
+            </Style>
+            
+            <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+                <Setter Property="controls:Scroller.Orientation" Value="Horizontal"/>
+            </Style>
+        </Style>
+        
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+                <Setter Property="Control.Margin" Value="0, 40"/>
+            </Style>
+            
+            <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+                <Setter Property="controls:Scroller.Orientation" Value="Vertical"/>
+            </Style>
+        </Style>
+                
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
+                <Setter Property="Control.Margin" Value="0, 40"/>
+            </Style>
+            
+            <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+                <Setter Property="controls:Scroller.Orientation" Value="Vertical"/>
+            </Style>
+        </Style>
+    </ControlTheme>
+    
+    <!-- Experimental: Bottom navigation implementation -->
+    <!-- TODO: Change TabItem styles  -->
+    <ControlTheme x:Key="NavigationTabControl"
+                  BasedOn="{StaticResource {x:Type TabControl}}"
+                  TargetType="TabControl">
+        <!-- Since ControlTheme styles selector cant access children directly,
+             we have to inject style in template to change TabItem theme, which lost flexibility of this theme :(((
+             You have to override the entire template, if you want change TabItem theme to your own theme
+             (or you can change TabItem theme in code-behind? I didn't tried, please submit a PR if works!) -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
+                            <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                            Items="{TemplateBinding Items}"
+                                            ItemTemplate="{TemplateBinding ItemTemplate}">
+                                <ItemsPresenter.Styles>
+                                    <Style Selector="TabItem">
+                                        <Setter Property="Theme" Value="{StaticResource MaterialBottomNavigationTabItem}"/>
+                                    </Style>
+                                </ItemsPresenter.Styles>
+                            </ItemsPresenter>
+                        </Panel>
+                        
+                        <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                          Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding SelectedContent}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        
+    </ControlTheme>
+</ResourceDictionary>

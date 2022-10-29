@@ -1,0 +1,115 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple" >
+    
+    <!-- TODO: Better layouts -->
+    <ControlTheme x:Key="{x:Type TabItem}"
+                  TargetType="TabItem">
+        <Setter Property="MinHeight" Value="48"/>
+        <Setter Property="MinWidth" Value="90"/>
+        <Setter Property="MaxWidth" Value="360"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBodyLight}"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
+                            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
+                                <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                                  Content="{TemplateBinding Header}"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                            </Panel>
+                        </ripple:RippleEffect>
+                        
+                        <Rectangle Name="{x:Static naming:PartNames.PartSeparator}"/>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Margin" Value="24, 12"/>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Control.VerticalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style Selector="^ /template/ ripple|RippleEffect#PART_Ripple">
+            <Setter Property="RippleFill" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        </Style>
+        
+        <Style Selector="^:selected">
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+            
+            <Style Selector="^[TabStripPlacement=Top] /template/ Rectangle#PART_Separator">
+                <Setter Property="Height" Value="2"/>
+                <Setter Property="Control.VerticalAlignment" Value="Bottom"/>
+            </Style>
+        
+            <Style Selector="^[TabStripPlacement=Bottom] /template/ Rectangle#PART_Separator">
+                <Setter Property="Height" Value="2"/>
+                <Setter Property="Control.VerticalAlignment" Value="Top"/>
+            </Style>
+        
+            <Style Selector="^[TabStripPlacement=Left] /template/ Rectangle#PART_Separator">
+                <Setter Property="Width" Value="2"/>
+                <Setter Property="Control.HorizontalAlignment" Value="Right"/>
+            </Style>
+        
+            <Style Selector="^[TabStripPlacement=Right] /template/ Rectangle#PART_Separator">
+                <Setter Property="Width" Value="2"/>
+                <Setter Property="Control.HorizontalAlignment" Value="Left"/>
+            </Style>
+            
+            <Style Selector="^ /template/ Rectangle#PART_Separator">
+                <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}"/>
+            </Style>
+        </Style>
+        
+        <Style Selector="^:disabled /template/ ripple|RippleEffect#PART_Ripple">
+            <Setter Property="Opacity" Value="0.23"/>
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="MaterialBottomNavigationTabItem"
+                  TargetType="TabItem">
+        <Setter Property="MinHeight" Value="56"/>
+        <Setter Property="MinWidth" Value="80"/>
+        <Setter Property="MaxWidth" Value="168"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="12, 0"/>
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBodyLight}"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
+                            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
+                                <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                                  Content="{TemplateBinding Header}"
+                                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                            </Panel>
+                        </ripple:RippleEffect>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
