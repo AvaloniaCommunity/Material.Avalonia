@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -84,23 +83,46 @@ namespace Material.Demo
             SnackbarHost.Post("Welcome to demo of Material.Avalonia!", null, DispatcherPriority.Normal);
         }
 
-        private readonly List<SnackbarModel> helloSnackBars = new();
-
+        /// <summary>
+        /// This method is used for showcase of snackbar.
+        /// </summary>
         private void HelloButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
         {
-            var helloSnackBar = new SnackbarModel("Hello, user!", TimeSpan.Zero);
+            // According to guidelines of Material design, 'endless' snackbar is not recommended.
+            // They should dismiss after 4 - 10 seconds.
+            // https://m2.material.io/components/snackbars#behavior
+            var helloSnackBar = new SnackbarModel("Hello, user!", TimeSpan.FromSeconds(5));
             SnackbarHost.Post(helloSnackBar, null, DispatcherPriority.Normal);
-            helloSnackBars.Add(helloSnackBar);
         }
 
+        /// <summary>
+        /// This method is used for showcase of snackbar.
+        /// </summary>
         private void GoodbyeButtonMenuItem_OnClick(object? sender, RoutedEventArgs e)
         {
-            foreach (var snackbarModel in helloSnackBars)
-            {
-                SnackbarHost.Remove(snackbarModel, null, DispatcherPriority.Normal);
-            }
-
             SnackbarHost.Post("See ya next time, user!", null, DispatcherPriority.Normal);
+        }
+
+        /// <summary>
+        /// This method is used for showcase of snackbar.
+        /// </summary>
+        private void ConnectToNetworkMenuItem_OnClick(object? sender, RoutedEventArgs e)
+        {
+            void Retry()
+            {
+                SnackbarHost.Post(
+                    new SnackbarModel("Connected to network.", TimeSpan.FromSeconds(5)),
+                    null, DispatcherPriority.Normal);
+            }
+            
+            SnackbarHost.Post(
+                new SnackbarModel("Unable to connect network. Please check everything is fine.",
+                    TimeSpan.FromSeconds(10),
+                    new SnackbarButtonModel
+                    {
+                        Text = "Retry",
+                        Action = Retry
+                    }), null, DispatcherPriority.Normal);
         }
     }
 }

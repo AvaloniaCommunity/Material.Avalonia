@@ -97,6 +97,11 @@
                                         <avalonia:MaterialIcon Kind="Hand" Width="24" Height="24" />
                                     </MenuItem.Icon>
                                 </MenuItem>
+                                <MenuItem Header="Connect to network" Click="ConnectToNetworkMenuItem_OnClick">
+                                    <MenuItem.Icon>
+                                        <avalonia:MaterialIcon Kind="RocketLaunch" Width="24" Height="24" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
                                 <Separator />
                                 <MenuItem Header="Action 1" />
                                 <MenuItem Header="Action 2" />
