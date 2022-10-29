@@ -20,6 +20,11 @@ namespace Material.Demo
         // Avalonia configuration, don't remove; also used by visual designer.
         public static AppBuilder BuildAvaloniaApp()
         {
+            // Avalonia 11.0.0-preview1 issue: CornerRadius not clipping,
+            // Avalonia 11.0.0-preview1 issue: sometimes might crash by collection enumerate fail
+            // TODO: change false to true when avaloniaUI compositor feature is fixed
+            const bool useCompositor = false;
+
             return AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .With(new X11PlatformOptions
@@ -30,17 +35,15 @@ namespace Material.Demo
                 })
                 .With(new Win32PlatformOptions
                 {
-                    // Avalonia 11.0.0-preview1 issue: CornerRadius not clipping,
-                    // Avalonia 11.0.0-preview1 issue: sometimes might crash by collection enumerate fail
-                    UseCompositor = false
+                    UseCompositor = useCompositor
                 })
                 .With(new X11PlatformOptions
                 {
-                    UseCompositor = false
+                    UseCompositor = useCompositor
                 })
                 .With(new AvaloniaNativePlatformOptions
                 {
-                    UseCompositor = false
+                    UseCompositor = useCompositor
                 })
                 .UseXamlDisplay()
                 .LogToTrace();
