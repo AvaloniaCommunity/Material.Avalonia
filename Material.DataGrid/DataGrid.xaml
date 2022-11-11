@@ -237,7 +237,11 @@
                        VerticalAlignment="Bottom" Height="1"
                        Background="{TemplateBinding BorderBrush}"/> 
 
-            <DataGridRowsPresenter Name="PART_RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1" />
+            <DataGridRowsPresenter Name="PART_RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1">
+              <DataGridRowsPresenter.GestureRecognizers>
+                <ScrollGestureRecognizer CanHorizontallyScroll="True" CanVerticallyScroll="True" />
+              </DataGridRowsPresenter.GestureRecognizers>
+            </DataGridRowsPresenter>
             <Rectangle Name="PART_BottomRightCorner" Fill="{DynamicResource ThemeControlMidHighBrush}" Grid.Column="2" Grid.Row="2" />
             <Rectangle Name="BottomLeftCorner" Fill="{DynamicResource ThemeControlMidHighBrush}" Grid.Row="2" Grid.ColumnSpan="2" />
             <ScrollBar Name="PART_VerticalScrollbar" Classes="Modern"
@@ -272,7 +276,11 @@
                        VerticalAlignment="Bottom" Height="1"
                        Background="{TemplateBinding BorderBrush}"/> 
 
-            <DataGridRowsPresenter Name="PART_RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1" />
+            <DataGridRowsPresenter Name="PART_RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1">
+              <DataGridRowsPresenter.GestureRecognizers>
+                <ScrollGestureRecognizer CanHorizontallyScroll="True" CanVerticallyScroll="True" />
+              </DataGridRowsPresenter.GestureRecognizers>
+            </DataGridRowsPresenter>
             <Rectangle Name="PART_BottomRightCorner" Fill="{DynamicResource ThemeControlMidHighBrush}" Grid.Column="2" Grid.Row="2" />
             <Rectangle Name="BottomLeftCorner" Fill="{DynamicResource ThemeControlMidHighBrush}" Grid.Row="2" Grid.ColumnSpan="2" />
             <ScrollBar Name="PART_VerticalScrollbar" Grid.Column="2" Grid.Row="1" />
@@ -306,7 +314,11 @@
                        VerticalAlignment="Bottom" Height="1"
                        Background="{TemplateBinding BorderBrush}"/> 
 
-            <DataGridRowsPresenter Name="PART_RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1" />
+            <DataGridRowsPresenter Name="PART_RowsPresenter" Grid.ColumnSpan="2" Grid.Row="1">
+              <DataGridRowsPresenter.GestureRecognizers>
+                <ScrollGestureRecognizer CanHorizontallyScroll="True" CanVerticallyScroll="True" />
+              </DataGridRowsPresenter.GestureRecognizers>
+            </DataGridRowsPresenter>
             <Rectangle Name="PART_BottomRightCorner" Fill="{DynamicResource ThemeControlMidHighBrush}" Grid.Column="2" Grid.Row="2" />
             <Rectangle Name="BottomLeftCorner" Fill="{DynamicResource ThemeControlMidHighBrush}" Grid.Row="2" Grid.ColumnSpan="2" />
             <ScrollBar Name="PART_VerticalScrollbar" Classes="Mini"
