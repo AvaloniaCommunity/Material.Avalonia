@@ -1,12 +1,10 @@
 using Avalonia.Media;
 using Material.Colors;
 
-namespace Material.Styles.Themes
-{
-    internal struct ThemeStruct : ITheme
-    {
-        public ThemeStruct(ITheme baseTheme)
-        {
+namespace Material.Styles.Themes {
+    internal sealed record ReadOnlyTheme : IReadOnlyTheme {
+        public ReadOnlyTheme() { }
+        public ReadOnlyTheme(IReadOnlyTheme baseTheme) {
             PrimaryLight = baseTheme.PrimaryLight;
             PrimaryMid = baseTheme.PrimaryMid;
             PrimaryDark = baseTheme.PrimaryDark;

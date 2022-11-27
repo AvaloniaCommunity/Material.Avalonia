@@ -96,5 +96,13 @@ namespace Material.Styles.Themes
 
             return theme;
         }
+
+        /// <summary>
+        /// Create a shallow copy of <see cref="IReadOnlyTheme"/> and return mutable <see cref="ITheme"/> 
+        /// </summary>
+        /// <param name="readOnlyTheme">Initial read only theme</param>
+        /// <returns>Mutable copy of read only theme</returns>
+        public static ITheme ToMutable(this IReadOnlyTheme readOnlyTheme)
+            => Theme.Create(readOnlyTheme);
     }
 }

@@ -57,5 +57,47 @@ namespace Material.Styles.Themes
 
             return theme;
         }
+
+        public static Theme Create(IReadOnlyTheme readOnlyTheme) {
+            if (readOnlyTheme is null) throw new ArgumentNullException(nameof(readOnlyTheme));
+            var theme = new Theme {
+                PrimaryLight = readOnlyTheme.PrimaryLight,
+                PrimaryMid = readOnlyTheme.PrimaryMid,
+                PrimaryDark = readOnlyTheme.PrimaryDark,
+                SecondaryLight = readOnlyTheme.SecondaryLight,
+                SecondaryMid = readOnlyTheme.SecondaryMid,
+                SecondaryDark = readOnlyTheme.SecondaryDark,
+                ValidationError = readOnlyTheme.ValidationError,
+                Background = readOnlyTheme.Background,
+                Paper = readOnlyTheme.Paper,
+                CardBackground = readOnlyTheme.CardBackground,
+                ToolBarBackground = readOnlyTheme.ToolBarBackground,
+                Body = readOnlyTheme.Body,
+                BodyLight = readOnlyTheme.BodyLight,
+                ColumnHeader = readOnlyTheme.ColumnHeader,
+                CheckBoxOff = readOnlyTheme.CheckBoxOff,
+                CheckBoxDisabled = readOnlyTheme.CheckBoxDisabled,
+                Divider = readOnlyTheme.Divider,
+                Selection = readOnlyTheme.Selection,
+                ToolForeground = readOnlyTheme.ToolForeground,
+                ToolBackground = readOnlyTheme.ToolBackground,
+                FlatButtonClick = readOnlyTheme.FlatButtonClick,
+                FlatButtonRipple = readOnlyTheme.FlatButtonRipple,
+                ToolTipBackground = readOnlyTheme.ToolTipBackground,
+                ChipBackground = readOnlyTheme.ChipBackground,
+                SnackbarBackground = readOnlyTheme.SnackbarBackground,
+                SnackbarMouseOver = readOnlyTheme.SnackbarMouseOver,
+                SnackbarRipple = readOnlyTheme.SnackbarRipple,
+                TextBoxBorder = readOnlyTheme.TextBoxBorder,
+                TextFieldBoxBackground = readOnlyTheme.TextFieldBoxBackground,
+                TextFieldBoxHoverBackground = readOnlyTheme.TextFieldBoxHoverBackground,
+                TextFieldBoxDisabledBackground = readOnlyTheme.TextFieldBoxDisabledBackground,
+                TextAreaBorder = readOnlyTheme.TextAreaBorder,
+                TextAreaInactiveBorder = readOnlyTheme.TextAreaInactiveBorder,
+                DataGridRowHoverBackground = readOnlyTheme.DataGridRowHoverBackground
+            };
+
+            return theme;
+        }
     }
 }
