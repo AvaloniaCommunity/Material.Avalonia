@@ -19,6 +19,7 @@ namespace Material.Styles.Themes
     public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider
     {
         private readonly IStyle _controlsStyles;
+        private readonly IStyle _compabilityStyles;
         private bool _isLoading;
         private IStyle? _loaded;
 
@@ -31,6 +32,10 @@ namespace Material.Styles.Themes
             _controlsStyles = new StyleInclude(baseUri)
             {
                 Source = new Uri("avares://Material.Avalonia/Material.Avalonia.Templates.xaml")
+            };
+            _compabilityStyles = new StyleInclude(baseUri)
+            {
+                Source = new Uri("avares://Material.Styles/Resources/Compatibility/Index.axaml")
             };
         }
 
@@ -107,7 +112,7 @@ namespace Material.Styles.Themes
 
                 _isLoading = true;
 
-                _loaded = new Avalonia.Styling.Styles {_controlsStyles};
+                _loaded = new Avalonia.Styling.Styles {_controlsStyles, _compabilityStyles};
 
                 var initialTheme = ProvideInitialTheme();
                 if (initialTheme != null) {
