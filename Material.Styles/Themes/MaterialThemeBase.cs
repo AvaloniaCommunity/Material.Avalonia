@@ -50,36 +50,33 @@ namespace Material.Styles.Themes
 
         private IResourceDictionary LoadedResourceDictionary => (_loaded as Avalonia.Styling.Styles)!.Resources;
 
-        public static readonly DirectProperty<MaterialThemeBase, ITheme> CurrentThemeProperty =
-            AvaloniaProperty.RegisterDirect<MaterialThemeBase, ITheme>(
+        public static readonly DirectProperty<MaterialThemeBase, IReadOnlyTheme> CurrentThemeProperty =
+            AvaloniaProperty.RegisterDirect<MaterialThemeBase, IReadOnlyTheme>(
                 nameof(CurrentTheme),
                 o => o.CurrentTheme,
                 (o, v) => o.CurrentTheme = v);
 
-        private ThemeStruct _currentTheme;
+        private IReadOnlyTheme _currentTheme = new ReadOnlyTheme();
 
         /// <summary>
         /// Get or set current applied theme
         /// </summary>
-        /// <returns>
-        /// Returns a STRUCT implementing ITheme interface 
-        /// </returns>
-        public ITheme CurrentTheme {
-            get => new ThemeStruct(_currentTheme);
+        public IReadOnlyTheme CurrentTheme {
+            get => _currentTheme;
             set {
                 var oldTheme = _currentTheme;
-                var newTheme = new ThemeStruct(value);
+                var newTheme = new ReadOnlyTheme(value);
 
-                if (EqualityComparer<ITheme>.Default.Equals(oldTheme, newTheme))
+                if (EqualityComparer<IReadOnlyTheme>.Default.Equals(oldTheme, newTheme))
                     return;
 
                 _currentTheme = newTheme;
-                RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
+                SetAndRaise(CurrentThemeProperty, ref _currentTheme, newTheme);
                 if (!_isLoading) StartUpdatingTheme(oldTheme, newTheme);
             }
         }
 
-        public IObservable<ITheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
+        public IObservable<IReadOnlyTheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
 
         /// <summary>
         /// This event is raised when all brushes is changed.
@@ -182,7 +179,7 @@ namespace Material.Styles.Themes
         private CancellationTokenSource? _currentCancellationTokenSource;
         private Task? _currentThemeUpdateTask;
 
-        private void StartUpdatingTheme(ITheme? oldTheme, ITheme newTheme) => Task.Run(async () =>
+        private void StartUpdatingTheme(IReadOnlyTheme oldTheme, IReadOnlyTheme newTheme) => Task.Run(async () =>
         {
             _currentCancellationTokenSource?.Cancel();
             _currentCancellationTokenSource?.Dispose();
@@ -205,8 +202,8 @@ namespace Material.Styles.Themes
             }
         });
 
-        private static IReadOnlyDictionary<string, Func<ITheme, Color>> UpdatableColors =>
-            new Dictionary<string, Func<ITheme, Color>> {
+        private static IReadOnlyDictionary<string, Func<IReadOnlyTheme, Color>> UpdatableColors =>
+            new Dictionary<string, Func<IReadOnlyTheme, Color>> {
                 { "PrimaryHueLightForegroundBrush", theme => theme.PrimaryLight.ForegroundColor },
                 { "PrimaryHueMidForegroundBrush", theme => theme.PrimaryMid.ForegroundColor },
                 { "PrimaryHueDarkForegroundBrush", theme => theme.PrimaryDark.ForegroundColor },
@@ -249,10 +246,10 @@ namespace Material.Styles.Themes
                 { "MaterialDesignDataGridRowHoverBackground", theme => theme.DataGridRowHoverBackground },
             };
 
-        private static Task UpdateSolidColorBrush(ITheme? oldTheme, ITheme newTheme, IResourceDictionary resourceDictionary, Func<Action, DispatcherPriority, Task> contextSync) {
+        private static Task UpdateSolidColorBrush(IReadOnlyTheme? oldTheme, IReadOnlyTheme newTheme, IResourceDictionary resourceDictionary, Func<Action, DispatcherPriority, Task> contextSync) {
             return Task.WhenAll(UpdatableColors.Select(UpdateColorAsync).ToArray());
 
-            Task UpdateColorAsync(KeyValuePair<string, Func<ITheme, Color>> pair) {
+            Task UpdateColorAsync(KeyValuePair<string, Func<IReadOnlyTheme, Color>> pair) {
                 var oldColor = oldTheme != null ? pair.Value(oldTheme) : (Color?)null;
                 var newColor = pair.Value(newTheme);
 

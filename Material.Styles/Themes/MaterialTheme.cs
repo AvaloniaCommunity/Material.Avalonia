@@ -17,7 +17,7 @@ namespace Material.Styles.Themes
     public class MaterialTheme : MaterialThemeBase, IDisposable
     {
         private IDisposable _themeUpdaterDisposable = null!;
-        private ITheme _theme = new ThemeStruct();
+        private ITheme _theme = new Theme();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MaterialTheme"/> class.
