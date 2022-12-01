@@ -58,6 +58,12 @@
                     </controls:Card>
                 </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar4">
+                  <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                                 VerticalAlignment="Center">
+                    <ProgressBar Classes="circular" Height="100" Width="100" ShowProgressText="True" Value="{Binding Progress}" />
+                  </controls:Card>
+                </showMeTheXaml:XamlDisplay>
+                <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar5">
                     <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center"
                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
