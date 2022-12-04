@@ -29,6 +29,8 @@ public static class SystemThemeProbe {
     [DllImport("advapi32.dll", EntryPoint = "RegQueryValueEx")]
     private static extern int RegQueryValueEx_DllImport(UIntPtr hKey, string lpValueName, int lpReserved, out uint lpType, byte[] lpData, ref int lpcbData);
     private static readonly UIntPtr HKEY_CURRENT_USER = (UIntPtr)0x80000001;
+    private static readonly string REGISTRY_THEME_ENTRY_PATH = "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize";
+    private static readonly string REGISTRY_THEME_ENTRY_KEY = "AppsUseLightTheme";
 
     /// <summary>
     /// Retrieving windows base theme from registry
@@ -45,11 +47,11 @@ public static class SystemThemeProbe {
         var infoBytes = new byte[infoDataLength];
 
         // I implemented it via P/Invoke cuz i dont want to see additional package reference to Microsoft.Win32.Registry in Material.Avalonia
-        var o0 = RegOpenKeyEx_DllImport(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", 0, 0x1, out var hKeyVal);
-        if (o0 != 0) throw new Exception("Something went wrong when opening \"Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" registry entry");
-        var o1 = RegQueryValueEx_DllImport(hKeyVal, "AppsUseLightTheme", 0, out _, infoBytes, ref infoDataLength);
-        if (o1 != 0) throw new Exception("Something went wrong when reading \"AppsUseLightTheme\" registry entry value");
+        var o0 = RegOpenKeyEx_DllImport(HKEY_CURRENT_USER, REGISTRY_THEME_ENTRY_PATH, 0, 0x1, out var hKeyVal);
+        if (o0 != 0) throw new Exception($"Something went wrong when opening \"{REGISTRY_THEME_ENTRY_PATH}\" registry entry");
+        var o1 = RegQueryValueEx_DllImport(hKeyVal, REGISTRY_THEME_ENTRY_KEY, 0, out _, infoBytes, ref infoDataLength);
+        if (o1 != 0) throw new Exception($"Something went wrong when reading \"{REGISTRY_THEME_ENTRY_KEY}\" registry entry value");
 
-        return BitConverter.ToBoolean(infoBytes, 0) ? BaseThemeMode.Dark : BaseThemeMode.Light;
+        return BitConverter.ToBoolean(infoBytes, 0) ? BaseThemeMode.Light : BaseThemeMode.Dark;
     }
 }
