@@ -10,6 +10,7 @@
         xmlns:models="clr-namespace:Material.Demo.Models"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Width="1280" Height="720" MinWidth="720"
+        Icon="/Assets/FavIcon_128x.png"
         Title="Material.Demo">
     <Window.Styles>
         <Style Selector="TextBlock.Subheadline">
