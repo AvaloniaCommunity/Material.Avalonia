@@ -44,6 +44,25 @@ namespace Material.Styles.Themes
             return foreground == Avalonia.Media.Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
         }
 
+        /// <summary>
+        /// Invert the <see cref="BaseThemeMode"/>.
+        /// </summary>
+        /// <param name="mode">Initial mode to invert</param>
+        /// <returns>
+        /// <see cref="BaseThemeMode.Dark"/> for <see cref="BaseThemeMode.Light"/> <br/>
+        /// <see cref="BaseThemeMode.Light"/> for <see cref="BaseThemeMode.Dark"/> <br/>
+        /// Everything else remains unchanged
+        /// </returns>
+        public static BaseThemeMode Invert(this BaseThemeMode mode)
+        {
+            return mode switch
+            {
+                BaseThemeMode.Light => BaseThemeMode.Dark,
+                BaseThemeMode.Dark  => BaseThemeMode.Light,
+                _                   => mode
+            };
+        }
+
         public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme)
         {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
