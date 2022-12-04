@@ -32,7 +32,11 @@ namespace Material.Styles.Themes
             };
         }
 
-        public static BaseThemeMode GetBaseTheme(this ITheme theme)
+        [Obsolete("Use GetBaseThemeMode")]
+        public static BaseThemeMode GetBaseTheme(this IReadOnlyTheme theme)
+            => GetBaseThemeMode(theme);
+
+        public static BaseThemeMode GetBaseThemeMode(this IReadOnlyTheme theme)
         {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
