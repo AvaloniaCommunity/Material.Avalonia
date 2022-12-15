@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.18" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.18" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.18" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.18" />
-    <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
-    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="1.1.0" />
-    <PackageReference Include="DialogHost.Avalonia" Version="0.6.0-rc1" />
+    <PackageReference Include="Avalonia" Version="0.10.18"/>
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.18"/>
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.18"/>
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.18"/>
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10"/>
+    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="1.2.0"/>
+    <PackageReference Include="DialogHost.Avalonia" Version="0.6.0-rc1"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
