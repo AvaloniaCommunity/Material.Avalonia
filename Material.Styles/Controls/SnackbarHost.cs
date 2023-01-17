@@ -8,6 +8,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
 using Avalonia.Threading;
+using Material.Styles.Commands;
 using Material.Styles.Models;
 
 namespace Material.Styles.Controls
@@ -74,6 +75,15 @@ namespace Material.Styles.Controls
         public static readonly StyledProperty<VerticalAlignment> SnackbarVerticalAlignmentProperty =
             AvaloniaProperty.Register<SnackbarHost, VerticalAlignment>(nameof(SnackbarVerticalAlignment),
                 VerticalAlignment.Bottom);
+        
+        public int SnackbarMaxCounts
+        {
+            get => GetValue(SnackbarMaxCountsProperty);
+            set => SetValue(SnackbarMaxCountsProperty, value);
+        }
+
+        public static readonly StyledProperty<int> SnackbarMaxCountsProperty =
+            AvaloniaProperty.Register<SnackbarHost, int>(nameof(SnackbarMaxCounts), 1);
 
         static SnackbarHost()
         {
@@ -96,7 +106,7 @@ namespace Material.Styles.Controls
             return SnackbarHostDictionary.First().Key;
         }
 
-        private static SnackbarHost GetHost(string name)
+        private static SnackbarHost GetHost(string? name)
         {
             if (name is null)
                 throw new ArgumentNullException(nameof(name));
@@ -111,8 +121,8 @@ namespace Material.Styles.Controls
         /// <param name="text">message text.</param>
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
         /// <param name="priority">the priority of current task.</param>
-        public static void Post(string text, string? targetHost = null,
-            DispatcherPriority priority = DispatcherPriority.Normal) =>
+        public static void Post(string text, string? targetHost,
+            DispatcherPriority priority) =>
             Post(new SnackbarModel(text), targetHost, priority);
 
         /// <summary>
@@ -121,8 +131,8 @@ namespace Material.Styles.Controls
         /// <param name="model">snackbar data model.</param>
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
         /// <param name="priority">the priority of current task.</param>
-        public static void Post(SnackbarModel model, string? targetHost = null,
-            DispatcherPriority priority = DispatcherPriority.Normal)
+        public static void Post(SnackbarModel model, string? targetHost,
+            DispatcherPriority priority)
         {
             if (string.IsNullOrEmpty(targetHost))
                 targetHost = GetFirstHostName();
@@ -154,7 +164,24 @@ namespace Material.Styles.Controls
                 timer.Start();
             }
 
-            Dispatcher.UIThread.Post(delegate { host.SnackbarModels.Add(model); }, priority);
+            if (model.Button != null)
+            {
+                model.Command = new SnackbarCommand(host, model);
+            }
+            
+            Dispatcher.UIThread.Post(delegate
+            {
+                var max = host.SnackbarMaxCounts;
+                var collection = host.SnackbarModels;
+                
+                while (collection.Count >= max)
+                {
+                    var m = collection.First();
+                    collection.Remove(m);
+                }
+                
+                host.SnackbarModels.Add(model);
+            }, priority);
         }
 
         /// <summary>
@@ -163,8 +190,8 @@ namespace Material.Styles.Controls
         /// <param name="model">snackbar data model.</param>
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
         /// <param name="priority">the priority of current task.</param>
-        public static void Remove(SnackbarModel model, string targetHost = null,
-            DispatcherPriority priority = DispatcherPriority.Normal)
+        public static void Remove(SnackbarModel model, string? targetHost,
+            DispatcherPriority priority)
         {
             if (string.IsNullOrEmpty(targetHost))
                 targetHost = GetFirstHostName();
@@ -175,12 +202,18 @@ namespace Material.Styles.Controls
                 throw new ArgumentNullException(nameof(targetHost),
                     $"The target host named \"{targetHost}\" is not exist.");
 
-            Dispatcher.UIThread.Post(delegate { host.SnackbarModels.Remove(model); }, priority);
+            host.RemoveSnackbarModel(model, priority);
         }
 
         private static void OnSnackbarDurationExpired(SnackbarHost host, SnackbarModel model)
         {
-            Dispatcher.UIThread.Post(delegate { host.SnackbarModels.Remove(model); });
+            host.RemoveSnackbarModel(model, DispatcherPriority.Background);
+        }
+
+        private void RemoveSnackbarModel(SnackbarModel model,
+            DispatcherPriority priority)
+        {
+            Dispatcher.UIThread.Post(delegate { SnackbarModels.Remove(model); }, priority);
         }
 
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)

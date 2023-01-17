@@ -6,9 +6,13 @@
         xmlns:controls="clr-namespace:Material.Styles.Controls"
         x:DataType="controls:SnackbarHost">
     <Styles.Resources>
-        <converters:MarginCreator x:Key="StartMarginCreator" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Styles.Resources>
-
+    
     <Style Selector="controls|SnackbarHost">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
@@ -39,9 +43,12 @@
                                                 </DataTemplate>
                                             </ContentPresenter.DataTemplates>
                                         </ContentPresenter>
-                                        <ContentPresenter Grid.Column="3" Grid.Row="1"
-                                                          Content="{CompiledBinding Button}"
-                                                          IsVisible="{CompiledBinding !!Button}" />
+                                        
+                                        <Button Grid.Column="3" Grid.Row="1"
+                                                Theme="{StaticResource FlatButton}"
+                                                Content="{Binding Button}"
+                                                Command="{Binding Command}"
+                                                IsVisible="{CompiledBinding !!Command}"/>
                                     </Grid>
                                 </controls:Card>
                             </DataTemplate>

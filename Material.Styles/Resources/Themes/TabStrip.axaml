@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists" >
+    <!-- Add Resources Here -->
+    <ControlTheme x:Key="{x:Type TabStrip}"
+                  TargetType="TabStrip">
+        <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
+        <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
+                Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
+                Value="{DynamicResource MaterialDesignBodyLight}" />
+        <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ItemsPresenter Name="PART_ItemsPresenter"
+                                Items="{TemplateBinding Items}"
+                                ItemsPanel="{TemplateBinding ItemsPanel}"
+                                ItemTemplate="{TemplateBinding ItemTemplate}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <WrapPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

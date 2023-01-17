@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using DialogHostAvalonia;
@@ -14,13 +16,19 @@ namespace Material.Demo.Pages
         public DialogDemo()
         {
             InitializeComponent();
-
-            DataContext = new DialogDemoViewModel();
         }
 
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+        }
+
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        {
+            // Lazy Initialize view model
+            DataContext ??= new DialogDemoViewModel();
+            
+            base.OnApplyTemplate(e);
         }
 
         private void OpenDialogWithView(object? sender, RoutedEventArgs e)

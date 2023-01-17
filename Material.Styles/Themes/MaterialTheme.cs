@@ -2,7 +2,6 @@ using System;
 using System.Reactive;
 using System.Reactive.Linq;
 using Avalonia;
-using Avalonia.Themes.Fluent;
 using Avalonia.Threading;
 using Material.Colors;
 using Material.Styles.Themes.Base;
@@ -18,17 +17,17 @@ namespace Material.Styles.Themes
     public class MaterialTheme : MaterialThemeBase, IDisposable
     {
         private IDisposable _themeUpdaterDisposable = null!;
-        private ITheme _theme = new ThemeStruct();
+        private ITheme _theme = new Theme();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentTheme"/> class.
+        /// Initializes a new instance of the <see cref="MaterialTheme"/> class.
         /// </summary>
         /// <param name="baseUri">The base URL for the XAML context.</param>
         public MaterialTheme(Uri baseUri) : base(baseUri)
             => Initialize();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FluentTheme"/> class.
+        /// Initializes a new instance of the <see cref="MaterialTheme"/> class.
         /// </summary>
         /// <param name="serviceProvider">The XAML service provider.</param>
         public MaterialTheme(IServiceProvider serviceProvider) : base(serviceProvider)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Disposables;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
 using Avalonia.Animation;
@@ -12,12 +13,17 @@ namespace Material.Styles.Additional.Animations
         // Required WaitTillEnd == true
         public TimeSpan DelayBetweenReverse { get; set; } = TimeSpan.Zero;
 
-        public override IDisposable Apply(Animatable control, IClock clock, IObservable<bool> match,
-            Action onComplete = null)
+        public override IDisposable Apply(Animatable control, IClock? clock, IObservable<bool> match,
+            Action? onComplete = null)
         {
+            if(Animation is null)
+                return Disposable.Empty;
+            
             var reversedAnimation = new Animation
             {
-                Delay = Animation.Delay, Duration = Animation.Duration, Easing = Animation.Easing,
+                Delay = Animation.Delay,
+                Duration = Animation.Duration,
+                Easing = Animation.Easing,
                 FillMode = Animation.FillMode,
                 IterationCount = new IterationCount(1), SpeedRatio = Animation.SpeedRatio
             };
@@ -35,10 +41,12 @@ namespace Material.Styles.Additional.Animations
             // Applying reversed animation
             var reversedObserver = new Subject<bool>();
             var timeOut = Task.CompletedTask;
-
-            match.Subscribe(async b =>
+            // TODO: fix code
+            match.Subscribe(async delegate(bool b)
             {
-                if (lastValue == b) return;
+                if (lastValue == b)
+                    return;
+                
                 lastValue = b;
                 if (b)
                 {

@@ -9,7 +9,7 @@ namespace Material.Styles.Converters
 {
     public class GetPlatformHotkeyConfigServiceConverter : IValueConverter
     {
-        private PlatformHotkeyConfiguration _config;
+        private readonly PlatformHotkeyConfiguration? _config;
 
         public GetPlatformHotkeyConfigServiceConverter()
         {
@@ -19,6 +19,9 @@ namespace Material.Styles.Converters
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (parameter is not string kind)
+                return null;
+
+            if (_config == null)
                 return null;
 
             var gestures = kind switch
@@ -35,9 +38,12 @@ namespace Material.Styles.Converters
             return gestures?.FirstOrDefault();
         }
 
-        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+        /// <summary>
+        /// Unsupported procedure. Dont use it.
+        /// </summary>
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
     }
 }

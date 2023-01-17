@@ -1,9 +1,9 @@
 <Style xmlns="https://github.com/avaloniaui"
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-       xmlns:styles="clr-namespace:Material.Styles"
+       xmlns:converters="clr-namespace:Material.Styles.Converters"
        Selector="NativeMenuBar">
     <Style.Resources>
-        <styles:InverseBooleanValueConverter x:Key="AvaloniaThemesDefaultNativeMenuBarInverseBooleanValueConverter"
+        <converters:InverseBooleanValueConverter x:Key="AvaloniaThemesDefaultNativeMenuBarInverseBooleanValueConverter"
                                              Default="True" />
     </Style.Resources>
     <Setter Property="Template">

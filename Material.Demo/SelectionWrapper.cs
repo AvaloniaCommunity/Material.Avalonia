@@ -5,7 +5,7 @@ using Avalonia.Controls.Metadata;
 
 namespace Material.Demo
 {
-    [PseudoClasses("selectednow")]
+    [PseudoClasses("selected")]
     public class SelectionWrapper : UserControl
     {
         static SelectionWrapper()
@@ -32,11 +32,11 @@ namespace Material.Demo
                 {
                     if (args.NewValue.Value)
                     {
-                        selectionWrapper.PseudoClasses.Add(":selectednow");
+                        selectionWrapper.PseudoClasses.Add(":selected");
                     }
                     else
                     {
-                        selectionWrapper.PseudoClasses.Remove(":selectednow");
+                        selectionWrapper.PseudoClasses.Remove(":selected");
                     }
                 }
             });
@@ -50,7 +50,7 @@ namespace Material.Demo
 
         public void UpdateSelectedNow()
         {
-            SelectedNow = DataSource != null && DataSource == CurrentSelected;
+            SelectedNow = DataSource == CurrentSelected;
         }
 
         public static readonly StyledProperty<object> DataSourceProperty =

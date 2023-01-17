@@ -24,11 +24,25 @@
         public static string PartContentPanel => "PART_ContentPanel";
 
         public static string PartInnerBorder => "PART_InnerBorder";
-
+        
+        /// <summary>
+        /// General use.
+        /// Please use this name on templated border of controls that have feedback on hovered by cursor
+        /// </summary>
         public static string PartHoverEffect => "PART_HoverEffect";
 
         public static string PartScrollViewer => "PART_ScrollViewer";
+        
+        /// <summary>
+        /// General use.
+        /// Please use this name on templated border of controls that have behaviours (Selected / Clicked behaviour or etc.)
+        /// </summary>
+        public static string PartBehaviourEffect => "PART_BehaviourEffect";
 
+        /// <summary>
+        /// Use this name on Ripple layer control,
+        /// which gives visual feedback to user after click control like <see cref="Avalonia.Controls.Button"/>.
+        /// </summary>
         public static string PartRipple => "PART_Ripple";
 
         #endregion
@@ -49,10 +63,16 @@
 
         public static string PartLabelRootBorder => "PART_LabelRootBorder";
 
+        public static string PartErrorPresenter => "PART_ErrorPresenter";
+
         #endregion
 
-        #region For Slider
+        #region For Slider, ScrollBar
 
+        public static string PartProgressLayer => "PART_ProgressLayer";
+        
+        public static string PartSliderTick => "PART_SliderTick";
+        
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration (Required).</p>
         /// Use this name on track of slider.
@@ -62,7 +82,23 @@
 
         public static string PartTrackBorderBar => "PART_TrackBorderBar";
 
+        public static string PartThumb => "PART_Thumb";
+        
         public static string PartSliderThumb => "PART_SliderThumb";
+        
+        /// <summary>
+        /// Use this name on RepeatButton of track of scrollbar to scroll up (decrease steps view).
+        /// </summary>
+        public static string PartLineUpButton => "PART_LineUpButton";
+
+        /// <summary>
+        /// Use this name on RepeatButton of track of scrollbar to scroll down (increase steps view).
+        /// </summary>
+        public static string PartLineDownButton => "PART_LineDownButton";
+
+        public static string PartPageUpButton => "PART_PageUpButton";
+
+        public static string PartPageDownButton => "PART_PageDownButton";
 
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
@@ -94,13 +130,13 @@
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on canvas of ToggleSwitch to get a zone for draggable knob
         /// </summary>
-        public static string AvaloniaSwitchKnob => "SwitchKnob";
+        public static string AvaloniaSwitchKnob => "PART_SwitchKnob";
 
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on panel under of canvas of ToggleSwitch to get a draggable knob
         /// </summary>
-        public static string AvaloniaMovingKnobs => "MovingKnobs";
+        public static string AvaloniaMovingKnobs => "PART_MovingKnobs";
 
         #endregion
 
@@ -113,22 +149,52 @@
         /// </summary>
         public static string AvaloniaProgressBarIndicator => "PART_Indicator";
 
+        public static string PartInactiveState => "PART_InactiveState";
+
+        public static string PartActiveState => "PART_ActiveState";
+
+        #endregion
+
+        #region For DatePicker
+
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying day text by avalonia
+        /// </summary>
+        public static string AvaloniaDayText = "PART_DayTextBlock";
+        
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying month text by avalonia
+        /// </summary>
+        public static string AvaloniaMonthText = "PART_MonthTextBlock";
+        
+        /// <summary>
+        /// <p>This name is used for AvaloniaUI integration.</p>
+        /// Use this name on TextBlock for displaying year text by avalonia
+        /// </summary>
+        public static string AvaloniaYearText = "PART_YearTextBlock";
+
         #endregion
 
         public static string PartInputGestureText => "PART_InputGestureText";
 
         public static string PartVisualLayer => "VisualLayer";
-
-        /// <summary>
-        /// General use.
-        /// Please use this name on templated border of controls that have behaviours (Selected / Hovered / Clicked behaviour or etc.)
-        /// </summary>
-        public static string PartBehaviourEffect => "PART_BehaviourEffect";
-
+        
         public static string PartExpanderButton => "PART_ExpanderButton";
 
         public static string PartPopup => "PART_Popup";
 
         public static string PartCard => "PART_Card";
+
+        /// <summary>
+        /// Use this name on container pane of tabs, which wrapped ItemsPresenter by pane of TabControl template.
+        /// </summary>
+        public static string PartTabsPanel => "PART_TabsPanel";
+
+        /// <summary>
+        /// Use this name on primary separator of any control template.
+        /// </summary>
+        public static string PartSeparator => "PART_Separator";
     }
 }

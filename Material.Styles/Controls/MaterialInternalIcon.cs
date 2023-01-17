@@ -9,22 +9,22 @@ namespace Material.Styles.Controls
 {
     public class MaterialInternalIcon : TemplatedControl
     {
-        private static readonly Lazy<IDictionary<string, string>> _dataSetInstance = new(IconsDataSet.CreateDataSet);
+        private static readonly Lazy<IDictionary<string, string>> DataSetInstance = new(IconsDataSet.CreateDataSet);
 
         static MaterialInternalIcon()
         {
             KindProperty.Changed.Subscribe(args => (args.Sender as MaterialInternalIcon)?.UpdateData());
         }
 
-        public static readonly AvaloniaProperty<string> KindProperty =
-            AvaloniaProperty.Register<MaterialInternalIcon, string>(nameof(Kind));
+        public static readonly AvaloniaProperty<string?> KindProperty =
+            AvaloniaProperty.Register<MaterialInternalIcon, string?>(nameof(Kind));
 
         /// <summary>
         /// Gets or sets the icon to display.
         /// </summary>
-        public string Kind
+        public string? Kind
         {
-            get => (string) GetValue(KindProperty);
+            get => GetValue(KindProperty) as string;
             set => SetValue(KindProperty, value);
         }
 
@@ -62,10 +62,9 @@ namespace Material.Styles.Controls
             if (Kind is null)
                 return;
 
-            string data = null;
-
-            if (_dataSetInstance.Value?.TryGetValue(Kind, out data) ?? false)
+            if (DataSetInstance.Value?.TryGetValue(Kind, out var data) ?? false)
                 Data = Geometry.Parse(data);
+            
             else
                 Data = null;
         }

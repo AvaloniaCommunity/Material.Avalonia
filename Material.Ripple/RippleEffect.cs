@@ -11,11 +11,21 @@ namespace Material.Ripple
 {
     public class RippleEffect : ContentControl
     {
+        public bool UseTransitions
+        {
+            get => GetValue(UseTransitionsProperty);
+            set => SetValue(UseTransitionsProperty, value);
+        }
+        
+        public static readonly StyledProperty<bool> UseTransitionsProperty =
+            AvaloniaProperty.Register<RippleEffect, bool>(nameof(UseTransitions));
+        
         // ReSharper disable once InconsistentNaming
         private Canvas PART_RippleCanvasRoot;
 
         private Ripple _last;
         private byte _pointers;
+        private bool _isCancelled;
 
         public RippleEffect()
         {
@@ -25,35 +35,42 @@ namespace Material.Ripple
             AddHandler(PointerCaptureLostEvent, PointerCaptureLostHandler);
         }
 
-        private void PointerPressedHandler(object sender, PointerPressedEventArgs e)
-        {
-            if (!IsAllowedRaiseRipple)
-                return;
+        private void PointerPressedHandler(object sender, PointerPressedEventArgs e) {
+            _isCancelled = false;
+            Dispatcher.UIThread.InvokeAsync(delegate
+            {
+                if (!IsAllowedRaiseRipple)
+                    return;
 
-            if (_pointers != 0)
-                return;
+                if (_pointers != 0)
+                    return;
 
-            // Only first pointer can arrive a ripple
-            _pointers++;
-            var r = CreateRipple(e, RaiseRippleCenter);
-            _last = r;
+                // Only first pointer can arrive a ripple
+                _pointers++;
+                var r = CreateRipple(e, RaiseRippleCenter);
+                _last = r;
 
-            // Attach ripple instance to canvas
-            PART_RippleCanvasRoot.Children.Add(r);
-            r.RunFirstStep();
+                // Attach ripple instance to canvas
+                PART_RippleCanvasRoot.Children.Add(r);
+                r.RunFirstStep();
+                if (_isCancelled) {
+                    RemoveLastRipple();
+                }
+            }, DispatcherPriority.Composition);
         }
 
         private void LostFocusHandler(object sender, RoutedEventArgs e) {
+            _isCancelled = true;
             RemoveLastRipple();
         }
 
-        private void PointerReleasedHandler(object sender, PointerReleasedEventArgs e)
-        {
+        private void PointerReleasedHandler(object sender, PointerReleasedEventArgs e) {
+            _isCancelled = true;
             RemoveLastRipple();
         }
 
-        private void PointerCaptureLostHandler(object sender, PointerCaptureLostEventArgs e)
-        {
+        private void PointerCaptureLostHandler(object sender, PointerCaptureLostEventArgs e) {
+            _isCancelled = true;
             RemoveLastRipple();
         }
 
@@ -77,7 +94,7 @@ namespace Material.Ripple
 
             void RemoveRippleTask(Task arg1, object arg2)
             {
-                Dispatcher.UIThread.InvokeAsync(delegate { PART_RippleCanvasRoot.Children.Remove(r); });
+                Dispatcher.UIThread.InvokeAsync(delegate { PART_RippleCanvasRoot.Children.Remove(r); }, DispatcherPriority.Composition);
             }
 
             // Remove ripple from canvas to finalize ripple instance
@@ -96,8 +113,9 @@ namespace Material.Ripple
         {
             var w = Bounds.Width;
             var h = Bounds.Height;
+            var t = UseTransitions;
 
-            var r = new Ripple(w, h)
+            var r = new Ripple(w, h, t)
             {
                 Fill = RippleFill
             };

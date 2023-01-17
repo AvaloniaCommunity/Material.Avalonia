@@ -32,12 +32,35 @@ namespace Material.Styles.Themes
             };
         }
 
-        public static BaseThemeMode GetBaseTheme(this ITheme theme)
+        [Obsolete("Use GetBaseThemeMode")]
+        public static BaseThemeMode GetBaseTheme(this IReadOnlyTheme theme)
+            => GetBaseThemeMode(theme);
+
+        public static BaseThemeMode GetBaseThemeMode(this IReadOnlyTheme theme)
         {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
-            var foreground = theme.Background.ContrastingForegroundColor();
+            var foreground = theme.Background.PickContrastColor();
             return foreground == Avalonia.Media.Colors.Black ? BaseThemeMode.Light : BaseThemeMode.Dark;
+        }
+
+        /// <summary>
+        /// Invert the <see cref="BaseThemeMode"/>.
+        /// </summary>
+        /// <param name="mode">Initial mode to invert</param>
+        /// <returns>
+        /// <see cref="BaseThemeMode.Dark"/> for <see cref="BaseThemeMode.Light"/> <br/>
+        /// <see cref="BaseThemeMode.Light"/> for <see cref="BaseThemeMode.Dark"/> <br/>
+        /// Everything else remains unchanged
+        /// </returns>
+        public static BaseThemeMode Invert(this BaseThemeMode mode)
+        {
+            return mode switch
+            {
+                BaseThemeMode.Light => BaseThemeMode.Dark,
+                BaseThemeMode.Dark  => BaseThemeMode.Light,
+                _                   => mode
+            };
         }
 
         public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme)
@@ -96,5 +119,13 @@ namespace Material.Styles.Themes
 
             return theme;
         }
+
+        /// <summary>
+        /// Create a shallow copy of <see cref="IReadOnlyTheme"/> and return mutable <see cref="ITheme"/> 
+        /// </summary>
+        /// <param name="readOnlyTheme">Initial read only theme</param>
+        /// <returns>Mutable copy of read only theme</returns>
+        public static ITheme ToMutable(this IReadOnlyTheme readOnlyTheme)
+            => Theme.Create(readOnlyTheme);
     }
 }

@@ -2,7 +2,9 @@ name: Publish nightly builds
 
 on:
   push:
-    branches: [ dev ]
+    branches:
+      - 'dev'
+      - '3.0_major_update'
 
 jobs:
   build:

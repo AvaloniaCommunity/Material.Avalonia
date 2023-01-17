@@ -24,14 +24,7 @@
     
     <!-- Transitions -->
     
-    <Style Selector="cc|RippleEffect:not(.no-transitions) /template/ Canvas#PART_RippleCanvasRoot > cc|Ripple">
-        <Setter Property="Transitions">
-            <Transitions>
-                <ThicknessTransition Property="Margin" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>
-                <DoubleTransition Property="Width" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>
-                <DoubleTransition Property="Height" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>
-                <DoubleTransition Property="Opacity" Duration="{x:Static cc:Ripple.Duration}" Easing="{x:Static cc:Ripple.Easing}"/>
-            </Transitions>
-        </Setter>
+    <Style Selector="cc|RippleEffect:not(.no-transitions)">
+        <Setter Property="UseTransitions" Value="True"/>
     </Style>
 </Styles>

@@ -14,41 +14,36 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Panel Name="PART_RootPanel">
-                        <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch" />
-                        <DockPanel>
-                            <Grid Name="HeaderGrid">
-                                <Border Name="HeaderSeparatorBorder" Background="Transparent"
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        BorderBrush="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveBrush), RelativeSource={RelativeSource AncestorType=TabControl}}"
-                                        Opacity="0.12" />
-
-                                <Border Name="HeaderPanelBorder" Background="Transparent" HorizontalAlignment="Stretch">
-                                    <ItemsPresenter
-                                        Name="PART_ItemsPresenter"
-                                        Items="{TemplateBinding Items}"
-                                        ItemTemplate="{TemplateBinding ItemTemplate}">
-                                        <ItemsPresenter.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <UniformGrid Name="HeaderPanel" Background="Transparent"
-                                                             HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
-                                                             VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
-                                                             ZIndex="1" />
-                                            </ItemsPanelTemplate>
-                                        </ItemsPresenter.ItemsPanel>
-                                    </ItemsPresenter>
-                                </Border>
-                            </Grid>
-
-                            <Border Name="PART_SelectedContentHostBorder">
-                                <ContentPresenter Name="PART_SelectedContentHost"
-                                                  Content="{TemplateBinding SelectedContent}"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"/>
-                            </Border>
-                        </DockPanel>
-                    </Panel>
+                    <Border Name="PART_RootBorder"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Panel Name="PART_RootPanel">
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              Content="{TemplateBinding SelectedContent}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                            
+                            <Canvas Name="PART_TabsPanel">
+                                <ItemsPresenter Name="PART_ItemsPresenter"
+                                                Items="{TemplateBinding Items}"
+                                                ItemTemplate="{TemplateBinding ItemTemplate}">
+                                    <ItemsPresenter.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <UniformGrid Name="HeaderPanel"
+                                                         Background="Transparent"
+                                                         HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
+                                                         VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
+                                                         ZIndex="1" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsPresenter.ItemsPanel>
+                                </ItemsPresenter>
+                                
+                                <Rectangle Name="PART_HeaderSeparator"
+                                           VerticalAlignment="Bottom"
+                                           Fill="{TemplateBinding assists:TabControlAssist.TabHeaderInactiveBrush}"/>
+                            </Canvas>
+                        </Panel>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

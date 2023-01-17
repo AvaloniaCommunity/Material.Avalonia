@@ -1,13 +1,13 @@
 using Avalonia;
-using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 
 namespace Material.Styles.Assists
 {
     public static class TextFieldAssist
     {
         public static readonly AvaloniaProperty<string?> HintsProperty =
-            AvaloniaProperty.RegisterAttached<TextBox, string?>(
-                "Hints", typeof(TextBox));
+            AvaloniaProperty.RegisterAttached<TemplatedControl, string?>(
+                "Hints", typeof(TemplatedControl));
 
         public static void SetHints(AvaloniaObject element, string? value) =>
             element.SetValue(HintsProperty, value);
@@ -16,8 +16,8 @@ namespace Material.Styles.Assists
             element.GetValue<string?>(HintsProperty);
 
         public static readonly AvaloniaProperty<string?> LabelProperty =
-            AvaloniaProperty.RegisterAttached<TextBox, string?>(
-                "Label", typeof(TextBox));
+            AvaloniaProperty.RegisterAttached<TemplatedControl, string?>(
+                "Label", typeof(TemplatedControl));
 
         public static void SetLabel(AvaloniaObject element, string? value) =>
             element.SetValue(LabelProperty, value);

@@ -1,0 +1,119 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls" >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!-- Internal component ! Dont use it simply as like other controls!! -->
+    <ControlTheme x:Key="TabControlScroller"
+                  TargetType="controls:Scroller">
+        <Setter Property="ScrollSpeed" Value="50"/>
+        <Setter Property="SmallScrollMultiplier" Value="0.5"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                    <ScrollContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                            CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
+                                            CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}"
+                                            Content="{TemplateBinding Content}"
+                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                            Extent="{TemplateBinding Extent, Mode=TwoWay}"
+                                            Margin="{TemplateBinding Padding}"
+                                            Offset="{TemplateBinding Offset, Mode=TwoWay}"
+                                            Viewport="{TemplateBinding Viewport, Mode=TwoWay}">
+                        <ScrollContentPresenter.GestureRecognizers>
+                            <ScrollGestureRecognizer
+                                CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
+                                CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}" />
+                        </ScrollContentPresenter.GestureRecognizers>
+                    </ScrollContentPresenter>
+                    
+                    <Button Name="{x:Static naming:PartNames.PartPageUpButton}"
+                            IsEnabled="{TemplateBinding controls:Scroller.CanScrollToStart}"
+                            Command="{Binding $parent[controls:Scroller].ScrollPageBackOnce}"/>
+                    <Button Name="{x:Static naming:PartNames.PartPageDownButton}"
+                            IsEnabled="{TemplateBinding controls:Scroller.CanScrollToEnd}"
+                            Command="{Binding $parent[controls:Scroller].ScrollPageForwardOnce}"/>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^ /template/ Button#PART_PageUpButton">
+            <Setter Property="Theme" Value="{StaticResource FlatButton}"/>
+            <Setter Property="TemplatedControl.CornerRadius" Value="0"/>
+        </Style>
+        
+        <Style Selector="^ /template/ Button#PART_PageDownButton">
+            <Setter Property="Theme" Value="{StaticResource FlatButton}"/>
+            <Setter Property="TemplatedControl.CornerRadius" Value="0"/>
+        </Style>
+        
+        <Style Selector="^[Orientation=Horizontal]">
+            <Style Selector="^ /template/ ScrollContentPresenter#PART_ContentPresenter">
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            
+            <Style Selector="^ /template/ Button#PART_PageUpButton">
+                <Setter Property="Width" Value="40"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Content">
+                  <Setter.Value>
+                    <Template>
+                      <Path Name="ArrowLeft"
+                            Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+                            Fill="{DynamicResource MaterialDesignBody}" Stretch="Uniform" />
+                    </Template>
+                  </Setter.Value>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ Button#PART_PageDownButton">
+                <Setter Property="Width" Value="40"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Content">
+                  <Setter.Value>
+                    <Template>
+                      <Path Name="ArrowRight"
+                            Data="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                            Fill="{DynamicResource MaterialDesignBody}" Stretch="Uniform" />
+                    </Template>
+                  </Setter.Value>
+                </Setter>
+            </Style>
+        </Style>
+        
+        <Style Selector="^[Orientation=Vertical]">
+            <Style Selector="^ /template/ ScrollContentPresenter#PART_ContentPresenter">
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            
+            <Style Selector="^ /template/ Button#PART_PageUpButton">
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+                <Setter Property="Content">
+                  <Setter.Value>
+                    <Template>
+                      <Path Name="ArrowTop"
+                            Data="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"
+                            Fill="{DynamicResource MaterialDesignBody}" Stretch="Uniform" />
+                    </Template>
+                  </Setter.Value>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ Button#PART_PageDownButton">
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+                <Setter Property="Content">
+                  <Setter.Value>
+                    <Template>
+                      <Path Name="ArrowBottom"
+                            Data="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"
+                            Fill="{DynamicResource MaterialDesignBody}" Stretch="Uniform" />
+                    </Template>
+                  </Setter.Value>
+                </Setter>
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
