@@ -2,9 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters" >
+                    xmlns:converters="clr-namespace:Material.Styles.Converters"
+                    xmlns:avaloniaConverters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls">
     <!-- Used for convert range of progress as angle (circular progress indicator) -->
     <converters:RangeToSweepConverter x:Key="RangeToSweep" />
+    <avaloniaConverters:StringFormatConverter x:Key="StringFormatConverter" />
     
     <ControlTheme x:Key="ProgressBarBase"
                   TargetType="ProgressBar">
@@ -281,6 +283,23 @@
                             
                         <Arc Name="PART_Arc"
                              Stroke="{TemplateBinding Foreground}"/>
+
+                        <Viewbox Name="PART_ProgressText" MaxHeight="50"
+                                 VerticalAlignment="Center" HorizontalAlignment="Center"
+                                 Margin="4"
+                                 IsVisible="{TemplateBinding ShowProgressText}">
+                          <TextBlock>
+                            <TextBlock.Text>
+                              <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                <TemplateBinding Property="ProgressTextFormat" />
+                                <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+                                <TemplateBinding Property="Percentage" />
+                                <TemplateBinding Property="Minimum" />
+                                <TemplateBinding Property="Maximum" />
+                              </MultiBinding>
+                            </TextBlock.Text>
+                          </TextBlock>
+                        </Viewbox>
 
                         <!-- create a dummy indicator to avoid avaloniaUI crash -->
                         <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}"
