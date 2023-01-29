@@ -3,20 +3,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ProgressIndicatorDemo">
     <StackPanel Margin="16, 0">
         <TextBlock Classes="Headline4 Subheadline" Text="Progress Indicator" />
         <WrapPanel>
-            <StackPanel>
-                <StackPanel.Styles>
-                    <Style Selector="ProgressBar">
-                        <Setter Property="Width" Value="300" />
-                    </Style>
-                </StackPanel.Styles>
-                <TextBlock Classes="Headline6 Subheadline2" Text="Linear progress bars" />
+          <StackPanel Width="200">
+            <TextBlock Classes="Headline6 Subheadline2" Text="Linear" HorizontalAlignment="Center" />
                 <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators0">
                     <ProgressBar Value="0" />
                 </showMeTheXaml:XamlDisplay>
@@ -24,18 +18,39 @@
                     <ProgressBar Value="30" />
                 </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators2">
-                    <ProgressBar IsIndeterminate="True" />
-                </showMeTheXaml:XamlDisplay>
-                <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators3">
                     <ProgressBar Value="{Binding Progress}" />
                 </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators3">
+              <ProgressBar Value="{Binding Progress}" ShowProgressText="True" />
+            </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators4">
                     <ProgressBar Value="{Binding Progress}" Classes="no-transitions" />
                 </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicators5">
+              <ProgressBar IsIndeterminate="True" />
+            </showMeTheXaml:XamlDisplay>
+
+            <UniformGrid Columns="5" Height="200">
+              <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicatorsVertical1">
+                <ProgressBar Orientation="Vertical" Value="30" />
+              </showMeTheXaml:XamlDisplay>
+              <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicatorsVertical2">
+                <ProgressBar Orientation="Vertical" Value="{Binding Progress}" />
+              </showMeTheXaml:XamlDisplay>
+              <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicatorsVertical3">
+                <ProgressBar Orientation="Vertical" Value="{Binding Progress}" ShowProgressText="True" />
+              </showMeTheXaml:XamlDisplay>
+              <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicatorsVertical4">
+                <ProgressBar Orientation="Vertical" Value="{Binding Progress}" Classes="no-transitions" />
+              </showMeTheXaml:XamlDisplay>
+              <showMeTheXaml:XamlDisplay UniqueId="ProgressIndicatorsVertical5">
+                <ProgressBar Orientation="Vertical" IsIndeterminate="True" />
+              </showMeTheXaml:XamlDisplay>
+            </UniformGrid>
             </StackPanel>
 
-            <StackPanel>
-                <TextBlock Classes="Headline6 Subheadline2" Text="Circular progress bars" />
+          <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="Circular" HorizontalAlignment="Center" />
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar0">
                     <ProgressBar Classes="circular" Value="30" Margin="4" />
                 </showMeTheXaml:XamlDisplay>
@@ -60,7 +75,7 @@
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar4">
                   <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center">
-                    <ProgressBar Classes="circular" Height="100" Width="100" ShowProgressText="True" Value="{Binding Progress}" />
+                    <ProgressBar Classes="circular" Height="100" Width="100" Value="{Binding Progress}" />
                   </controls:Card>
                 </showMeTheXaml:XamlDisplay>
                 <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar5">
@@ -71,6 +86,27 @@
                     </controls:Card>
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
+
+          <StackPanel>
+            <TextBlock Classes="Headline6 Subheadline2" Text="With progress" HorizontalAlignment="Center" />
+            <showMeTheXaml:XamlDisplay UniqueId="CircularShowProgressTextProgressBar1">
+              <ProgressBar Classes="circular" Value="{Binding Progress}" ShowProgressText="True" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="CircularShowProgressTextProgressBar2">
+              <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                             VerticalAlignment="Center">
+                <ProgressBar Classes="circular" Height="100" Width="100" ShowProgressText="True"
+                             Value="{Binding Progress}" />
+              </controls:Card>
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="CircularShowProgressTextProgressBar3">
+              <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <ProgressBar Classes="circular no-transitions" ShowProgressText="True" Value="{Binding Progress}" />
+              </controls:Card>
+            </showMeTheXaml:XamlDisplay>
+          </StackPanel>
         </WrapPanel>
     </StackPanel>
 </UserControl>
