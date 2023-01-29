@@ -11,9 +11,7 @@
     
     <ControlTheme x:Key="{x:Type TextBlock}"
                   TargetType="TextBlock">
-        <Setter Property="FontSize" Value="13" />
-        <Setter Property="FontWeight" Value="Regular" />
-        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}"/>
+      <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}" />
     </ControlTheme>
     
     <ControlTheme x:Key="CaptionTextBlock"
