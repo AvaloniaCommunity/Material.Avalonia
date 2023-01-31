@@ -13,11 +13,20 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>FavIcon.png</PackageIcon>
-        <VersionPrefix>3.0.0-avalonia11-preview2</VersionPrefix>
+        <VersionPrefix>3.0.0-avalonia11-preview3</VersionPrefix>
         <PackageReleaseNotes>
-This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
-- Move some styles to ControlTheme
-- Improve some styles to proper work with Avalonia 11
+          This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
+          - Fixes (adds a workaround) runtime theme changing bug
+          - Add IReadOnlyTheme and change CurrentTheme to use it
+          - Move some styles to ControlTheme
+          - Improve some styles to proper work with Avalonia 11
+          - Make compability styles included by default
+          - Removed default font size for TextBlock to allow customizing it as part of other controls #208 #186
+          - Rework ProgressBar styles, add ShowProgressText support
+          - Fix scroll helper buttons content. #206
+          - Fixes TabControl style to support TabControlAssist.TabHeaderAlignment #203
+          - Rework first MenuItems, fix command execution for empty MenuItems #201, reformat MenuItem.xaml
+          - Fix Ripple effect remains after being simultaneously triggered
         </PackageReleaseNotes>
     </PropertyGroup>
 
