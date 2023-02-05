@@ -71,11 +71,10 @@
                                          MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                          MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                                     <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}">
-                                        <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                                        Items="{TemplateBinding Items}"
-                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                        VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                                      <ItemsControl Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                                    Items="{TemplateBinding Items}"
+                                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                    ItemTemplate="{TemplateBinding ItemTemplate}" />
                                     </ScrollViewer>
                                 </controls:Card>
                             </Popup>
@@ -348,11 +347,10 @@
                             <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
                                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                           MinHeight="1">
-                                <ItemsPresenter Name="PART_ItemsPresenter"
-                                                Items="{TemplateBinding Items}"
-                                                ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                              <ItemsControl Name="PART_ItemsPresenter"
+                                            Items="{TemplateBinding Items}"
+                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                            ItemTemplate="{TemplateBinding ItemTemplate}" />
                             </ScrollViewer>
                         </controls:Card>
                     </Popup>
@@ -448,11 +446,10 @@
                             <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
                                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                           MinHeight="1">
-                                <ItemsPresenter Name="PART_ItemsPresenter"
-                                                Items="{TemplateBinding Items}"
-                                                ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                              <ItemsControl Name="PART_ItemsPresenter"
+                                            Items="{TemplateBinding Items}"
+                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                            ItemTemplate="{TemplateBinding ItemTemplate}" />
                             </ScrollViewer>
                         </controls:Card>
                     </Popup>

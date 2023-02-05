@@ -121,8 +121,7 @@
                                     VerticalAlignment="Center"
 
                                     IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                    Content="{TemplateBinding Icon}">
-                  </ContentPresenter>
+                                    Content="{TemplateBinding Icon}" />
                   <ContentPresenter Name="PART_HeaderPresenter"
                                     VerticalAlignment="Center"
                                     Content="{TemplateBinding Header}">
@@ -163,11 +162,11 @@
                     <Border Name="PART_MainBorder"
                             BorderThickness="{TemplateBinding BorderThickness}">
                       <ScrollViewer>
-                        <ItemsPresenter Name="PART_ItemsPresenter"
-                                        Items="{TemplateBinding Items}"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                                        Margin="0 8" />
+                        <ItemsControl Name="PART_ItemsPresenter"
+                                      Items="{TemplateBinding Items}"
+                                      ItemsPanel="{TemplateBinding ItemsPanel}"
+                                      ItemTemplate="{TemplateBinding ItemTemplate}"
+                                      Margin="0 8" />
                       </ScrollViewer>
                     </Border>
                   </controls:Card>
@@ -231,11 +230,11 @@
                     <Border Name="PART_MainBorder"
                             BorderThickness="{TemplateBinding BorderThickness}">
                       <ScrollViewer>
-                        <ItemsPresenter Name="PART_ItemsPresenter"
-                                        Items="{TemplateBinding Items}"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                                        Margin="0 8" />
+                        <ItemsControl Name="PART_ItemsPresenter"
+                                      Items="{TemplateBinding Items}"
+                                      ItemsPanel="{TemplateBinding ItemsPanel}"
+                                      ItemTemplate="{TemplateBinding ItemTemplate}"
+                                      Margin="0 8" />
                       </ScrollViewer>
                     </Border>
                   </controls:Card>

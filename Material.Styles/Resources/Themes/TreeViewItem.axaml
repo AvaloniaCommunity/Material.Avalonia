@@ -90,11 +90,11 @@
                             
                             <Border Name="{x:Static naming:PartNames.PartHoverEffect}"/>
                         </Panel>
-                        
-                        <ItemsPresenter Name="ItemsHost"
-                                        IsVisible="{TemplateBinding IsExpanded}"
-                                        Items="{TemplateBinding Items}"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+
+                      <ItemsControl Name="ItemsHost"
+                                    IsVisible="{TemplateBinding IsExpanded}"
+                                    Items="{TemplateBinding Items}"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
                     </StackPanel>
                 </Border>
             </ControlTemplate>
