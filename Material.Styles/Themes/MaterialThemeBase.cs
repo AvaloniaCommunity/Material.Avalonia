@@ -181,16 +181,8 @@ public class MaterialThemeBase : Visual, IStyle, IResourceProvider {
     void IResourceProvider.RemoveOwner(IResourceHost owner) => (Loaded as IResourceProvider)?.RemoveOwner(owner);
 
     bool IResourceNode.HasResources => (Loaded as IResourceProvider)?.HasResources ?? false;
-    public SelectorMatchResult TryAttach(IStyleable target, object? host) => Loaded.TryAttach(target, host);
 
     IReadOnlyList<IStyle> IStyle.Children => _loaded?.Children ?? Array.Empty<IStyle>();
-
-    public bool TryGetResource(object key, out object? value) {
-        if (!_isLoading && Loaded is IResourceProvider p) return p.TryGetResource(key, out value);
-
-        value = null;
-        return false;
-    }
 
     /// <summary>
     /// This event is raised when all brushes is changed.
@@ -267,4 +259,3 @@ public class MaterialThemeBase : Visual, IStyle, IResourceProvider {
         }
     }
 }
-
