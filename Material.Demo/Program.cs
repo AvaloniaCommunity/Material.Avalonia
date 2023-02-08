@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using ShowMeTheXaml;
 
 namespace Material.Demo {
     internal class Program {
@@ -15,14 +16,15 @@ namespace Material.Demo {
 
         // Avalonia configuration, don't remove; also used by visual designer.
         public static AppBuilder BuildAvaloniaApp() {
-            return LoggingExtensions.LogToTrace(AppBuilder.Configure<App>()
+            return AppBuilder.Configure<App>()
+                .LogToTrace()
                 .UsePlatformDetect()
                 .With(new X11PlatformOptions {
                     EnableMultiTouch = true,
                     UseDBusMenu = true,
                     EnableIme = true
                 })
-                .UseXamlDisplay());
+                .UseXamlDisplay();
         }
     }
 }
