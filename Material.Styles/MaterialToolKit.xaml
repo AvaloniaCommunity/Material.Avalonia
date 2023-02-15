@@ -4,41 +4,41 @@
   <Styles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/Window.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Window.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml" />
 
         <!-- Seems like we cant reference something from other projects... -->
         <!-- I think what we need to move ripple to this project -->
-        <MergeResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/ItemsControl.axaml" />
+        <ResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ItemsControl.axaml" />
 
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml" />
 
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
 
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml" />
 
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStrip.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStripItem.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
-        <MergeResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStrip.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStripItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml" />
       </ResourceDictionary.MergedDictionaries>
       <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA" />
       <SolidColorBrush x:Key="MaterialDesignLightForeground" Color="#DD000000" />

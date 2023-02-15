@@ -5,9 +5,7 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-        <Setter Property="TextBox.Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="TextBox.FontWeight" Value="Regular" />
-        <Setter Property="TextBox.FontSize" Value="14" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>

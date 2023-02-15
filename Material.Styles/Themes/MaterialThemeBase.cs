@@ -8,8 +8,6 @@ using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
-using Avalonia.Controls.Documents;
-using Avalonia.Controls.Presenters;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Media;
@@ -18,7 +16,7 @@ using Avalonia.Threading;
 
 namespace Material.Styles.Themes;
 
-public class MaterialThemeBase : Visual, IStyle, IResourceProvider {
+public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
     public static readonly DirectProperty<MaterialThemeBase, IReadOnlyTheme> CurrentThemeProperty =
         AvaloniaProperty.RegisterDirect<MaterialThemeBase, IReadOnlyTheme>(
             nameof(CurrentTheme),
@@ -33,12 +31,6 @@ public class MaterialThemeBase : Visual, IStyle, IResourceProvider {
     private Task? _currentThemeUpdateTask;
     private bool _isLoading;
     private IStyle? _loaded;
-
-    static MaterialThemeBase() {
-        // Fixes TextBox text color does not change: https://github.com/AvaloniaUI/Avalonia/pull/9631#issuecomment-1353555702
-        // Will be fixed in 11.0.0-preview5 apparently
-        AffectsRender<TextPresenter>(TextElement.ForegroundProperty);
-    }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
@@ -180,6 +172,10 @@ public class MaterialThemeBase : Visual, IStyle, IResourceProvider {
     void IResourceProvider.AddOwner(IResourceHost owner) => (Loaded as IResourceProvider)?.AddOwner(owner);
     void IResourceProvider.RemoveOwner(IResourceHost owner) => (Loaded as IResourceProvider)?.RemoveOwner(owner);
 
+    /// <inheritdoc />
+    public bool TryGetResource(object key, ThemeVariant? theme, out object? value) {
+        return _loaded.TryGetResource(key, theme, out value);
+    }
     bool IResourceNode.HasResources => (Loaded as IResourceProvider)?.HasResources ?? false;
 
     IReadOnlyList<IStyle> IStyle.Children => _loaded?.Children ?? Array.Empty<IStyle>();

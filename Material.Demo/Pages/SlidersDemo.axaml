@@ -8,8 +8,9 @@
     <StackPanel Margin="0, 0" >
         <StackPanel.Styles>
             <Style Selector="StackPanel.Content Slider" >
-                <Setter Property="Maximum" Value="100" />
-                <Setter Property="Minimum" Value="0" />
+              <!-- BUG: Cannot set direct property * in * because the style has an activator -->
+              <!-- <Setter Property="Maximum" Value="100" /> -->
+              <!-- <Setter Property="Minimum" Value="0" /> -->
             </Style>
             <Style Selector="StackPanel.Content Slider:horizontal" >
                 <Setter Property="Width" Value="300" />
@@ -17,7 +18,8 @@
             <Style Selector="StackPanel.Content > TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Margin" Value="16,0" />
-                <Setter Property="Text" Value="{Binding $parent.Children[0].Content.Value}" />
+                <!-- BUG: Cannot set direct property * in * because the style has an activator -->
+                <!-- <Setter Property="Text" Value="{Binding $parent.Children[0].Content.Value}" /> -->
             </Style>
             <Style Selector="StackPanel.Content">
                 <Setter Property="Margin" Value="4 2" />
