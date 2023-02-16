@@ -9,10 +9,8 @@
         <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
         <Setter Property="Template">
             <ControlTemplate>
-              <ItemsControl Name="PART_ItemsPresenter"
-                            Items="{TemplateBinding Items}"
-                            ItemsPanel="{TemplateBinding ItemsPanel}"
-                            ItemTemplate="{TemplateBinding ItemTemplate}" />
+              <ItemsPresenter Name="PART_ItemsPresenter"
+                              ItemsPanel="{TemplateBinding ItemsPanel}" />
             </ControlTemplate>
         </Setter>
         <Setter Property="ItemsPanel">

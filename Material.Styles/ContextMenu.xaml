@@ -20,10 +20,8 @@
                         BorderThickness="{TemplateBinding BorderThickness}">
                     
                     <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}">
-                      <ItemsControl Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                    Items="{TemplateBinding Items}"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                    ItemTemplate="{TemplateBinding ItemTemplate}" />
+                      <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                      ItemsPanel="{TemplateBinding ItemsPanel}" />
                     </ScrollViewer>
                 </Border>
             </ControlTemplate>

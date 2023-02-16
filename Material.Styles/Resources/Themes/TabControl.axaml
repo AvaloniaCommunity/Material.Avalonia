@@ -30,10 +30,8 @@
                 CornerRadius="{TemplateBinding CornerRadius}">
           <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
             <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
-              <ItemsControl Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                            Items="{TemplateBinding Items}"
-                            ItemTemplate="{TemplateBinding ItemTemplate}">
-                <ItemsControl.ItemsPanel>
+              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}">
+                <ItemsPresenter.ItemsPanel>
                   <ItemsPanelTemplate>
                     <UniformGrid Name="PART_TabContainer"
                                  HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
@@ -41,8 +39,8 @@
                                  Background="Transparent"
                                  ZIndex="1" />
                   </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-              </ItemsControl>
+                </ItemsPresenter.ItemsPanel>
+              </ItemsPresenter>
 
               <Rectangle Name="{x:Static naming:PartNames.PartSeparator}"
                          Fill="{TemplateBinding assists:TabControlAssist.TabHeaderInactiveBrush}" />
@@ -176,9 +174,7 @@
             <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
               <controls:Scroller Name="{x:Static naming:PartNames.PartScrollViewer}"
                                  Theme="{StaticResource TabControlScroller}">
-                <ItemsControl Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                              Items="{TemplateBinding Items}"
-                              ItemTemplate="{TemplateBinding ItemTemplate}" />
+                <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}" />
               </controls:Scroller>
 
               <Rectangle Name="{x:Static naming:PartNames.PartSeparator}" />
@@ -256,15 +252,13 @@
                 CornerRadius="{TemplateBinding CornerRadius}">
           <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
             <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
-              <ItemsControl Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                            Items="{TemplateBinding Items}"
-                            ItemTemplate="{TemplateBinding ItemTemplate}">
-                <ItemsControl.Styles>
+              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}">
+                <ItemsPresenter.Styles>
                   <Style Selector="TabItem">
                     <Setter Property="Theme" Value="{StaticResource MaterialBottomNavigationTabItem}" />
                   </Style>
-                </ItemsControl.Styles>
-              </ItemsControl>
+                </ItemsPresenter.Styles>
+              </ItemsPresenter>
             </Panel>
 
             <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"

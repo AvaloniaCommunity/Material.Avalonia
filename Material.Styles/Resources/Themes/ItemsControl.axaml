@@ -5,10 +5,8 @@
                   TargetType="ItemsControl">
         <Setter Property="Template">
             <ControlTemplate>
-              <ItemsControl Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                            Items="{TemplateBinding Items}"
-                            ItemsPanel="{TemplateBinding ItemsPanel}"
-                            ItemTemplate="{TemplateBinding ItemTemplate}" />
+              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                              ItemsPanel="{TemplateBinding ItemsPanel}" />
             </ControlTemplate>
         </Setter>
     </ControlTheme>

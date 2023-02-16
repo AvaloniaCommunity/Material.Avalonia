@@ -162,11 +162,9 @@
                     <Border Name="PART_MainBorder"
                             BorderThickness="{TemplateBinding BorderThickness}">
                       <ScrollViewer>
-                        <ItemsControl Name="PART_ItemsPresenter"
-                                      Items="{TemplateBinding Items}"
-                                      ItemsPanel="{TemplateBinding ItemsPanel}"
-                                      ItemTemplate="{TemplateBinding ItemTemplate}"
-                                      Margin="0 8" />
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        Margin="0 8" />
                       </ScrollViewer>
                     </Border>
                   </controls:Card>
@@ -230,11 +228,9 @@
                     <Border Name="PART_MainBorder"
                             BorderThickness="{TemplateBinding BorderThickness}">
                       <ScrollViewer>
-                        <ItemsControl Name="PART_ItemsPresenter"
-                                      Items="{TemplateBinding Items}"
-                                      ItemsPanel="{TemplateBinding ItemsPanel}"
-                                      ItemTemplate="{TemplateBinding ItemTemplate}"
-                                      Margin="0 8" />
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        Margin="0 8" />
                       </ScrollViewer>
                     </Border>
                   </controls:Card>

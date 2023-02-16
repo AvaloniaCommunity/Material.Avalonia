@@ -17,11 +17,9 @@
                         Padding="{TemplateBinding Padding}"
                         HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                         VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-            <ItemsControl Name="PART_ItemsPresenter"
-                          Items="{TemplateBinding Items}"
-                          ItemsPanel="{TemplateBinding ItemsPanel}"
-                          ItemTemplate="{TemplateBinding ItemTemplate}"
-                          Margin="{TemplateBinding Padding}" />
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            Margin="{TemplateBinding Padding}" />
           </ScrollViewer>
         </Border>
       </ControlTemplate>
@@ -34,11 +32,9 @@
         <Border BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 Background="{TemplateBinding Background}">
-          <ItemsControl Name="PART_ItemsPresenter"
-                        Items="{TemplateBinding Items}"
-                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                        Margin="{TemplateBinding Padding}" />
+          <ItemsPresenter Name="PART_ItemsPresenter"
+                          ItemsPanel="{TemplateBinding ItemsPanel}"
+                          Margin="{TemplateBinding Padding}" />
         </Border>
       </ControlTemplate>
     </Setter>

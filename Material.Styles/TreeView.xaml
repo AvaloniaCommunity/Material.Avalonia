@@ -30,10 +30,8 @@
                                       Padding="{TemplateBinding Padding}"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                          <ItemsControl Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                        Items="{TemplateBinding Items}"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                        ItemTemplate="{TemplateBinding ItemTemplate}"/>
+                          <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                          ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </ScrollViewer>
                     </Border>
                 </ControlTemplate>

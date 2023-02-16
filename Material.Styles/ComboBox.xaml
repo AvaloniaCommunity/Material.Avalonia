@@ -71,78 +71,14 @@
                                          MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                          MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                                     <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}">
-                                      <ItemsControl Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                                    Items="{TemplateBinding Items}"
-                                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    ItemTemplate="{TemplateBinding ItemTemplate}" />
+                                      <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                                      ItemsPanel="{TemplateBinding ItemsPanel}" />
                                     </ScrollViewer>
                                 </controls:Card>
                             </Popup>
                         </Panel>
                     </Panel>
                 </Border>
-                <!-- deprecated style
-                <Grid Name="templateRoot"
-                      Background="{TemplateBinding Background}"
-                      ClipToBounds="False">
-                    <Grid ColumnDefinitions="*,Auto" ClipToBounds="False">
-                        <ToggleButton Name="toggle"
-                                      Classes="ComboBoxToggleButton"
-                                      BorderThickness="0"
-                                      Background="Transparent"
-                                      Focusable="False"
-                                      BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
-                                      IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                                      Grid.ColumnSpan="2" />
-                        <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                              Margin="{TemplateBinding Padding}"
-                              UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Grid Name="InputRoot"
-                                  HorizontalAlignment="Stretch">
-                                <TextBlock Name="placeholderText" Text="{TemplateBinding PlaceholderText}"
-                                           TextAlignment="Left" FontFamily="{TemplateBinding FontFamily}" Margin="0,4" />
-
-                                <ContentPresenter Name="contentPresenter"
-                                                  Content="{TemplateBinding SelectionBoxItem}"
-                                                  ContentTemplate="{TemplateBinding ItemTemplate}"
-                                                  HorizontalContentAlignment="Left"
-                                                  Margin="0, 4" />
-                            </Grid>
-                        </Grid>
-
-                        <Popup Name="PART_Popup"
-                               IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                               MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                               VerticalOffset="0"
-                               Margin="-8"
-                               WindowManagerAddShadowHint="False"
-                               PlacementTarget="{Binding ElementName=templateRoot}"
-                               IsLightDismissEnabled="True"
-                               UseLayoutRounding="True"
-                               ClipToBounds="False">
-                            <cc:Card assists:ShadowAssist.ShadowDepth="Depth1"
-                                     Margin="4,0,4,4"
-                                     CornerRadius="0,0,4,4"
-                                     Padding="0">
-                                <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
-                                              MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                              MinHeight="1">
-                                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Items="{TemplateBinding Items}"
-                                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                    VirtualizationMode="{TemplateBinding VirtualizationMode}" />
-                                </ScrollViewer>
-                            </cc:Card>
-                        </Popup>
-                    </Grid>
-                </Grid>
-                -->
             </ControlTemplate>
         </Setter>
     </Style>
@@ -347,10 +283,8 @@
                             <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
                                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                           MinHeight="1">
-                              <ItemsControl Name="PART_ItemsPresenter"
-                                            Items="{TemplateBinding Items}"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}"
-                                            ItemTemplate="{TemplateBinding ItemTemplate}" />
+                              <ItemsPresenter Name="PART_ItemsPresenter"
+                                              ItemsPanel="{TemplateBinding ItemsPanel}" />
                             </ScrollViewer>
                         </controls:Card>
                     </Popup>
@@ -446,10 +380,8 @@
                             <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
                                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                           MinHeight="1">
-                              <ItemsControl Name="PART_ItemsPresenter"
-                                            Items="{TemplateBinding Items}"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}"
-                                            ItemTemplate="{TemplateBinding ItemTemplate}" />
+                              <ItemsPresenter Name="PART_ItemsPresenter"
+                                              ItemsPanel="{TemplateBinding ItemsPanel}" />
                             </ScrollViewer>
                         </controls:Card>
                     </Popup>
