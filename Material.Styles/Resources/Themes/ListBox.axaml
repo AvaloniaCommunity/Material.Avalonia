@@ -21,12 +21,9 @@
                     <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}"
                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                        <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                        Items="{TemplateBinding Items}"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                                        Margin="{TemplateBinding Padding}"
-                                        VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                      <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                      ItemsPanel="{TemplateBinding ItemsPanel}"
+                                      Margin="{TemplateBinding Padding}" />
                     </ScrollViewer>
                 </Border>
             </ControlTemplate>
@@ -43,12 +40,9 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                    Items="{TemplateBinding Items}"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                    Margin="{TemplateBinding Padding}"
-                                    VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                  <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                  ItemsPanel="{TemplateBinding ItemsPanel}"
+                                  Margin="{TemplateBinding Padding}" />
                 </Border>
             </ControlTemplate>
         </Setter>

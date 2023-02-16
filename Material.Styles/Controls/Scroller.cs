@@ -7,15 +7,13 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
 
-namespace Material.Styles.Controls
-{
+namespace Material.Styles.Controls {
     /// <summary>
     /// A customized ScrollViewer that designed for scrolling in TabControl and Breadcrumbs.
     /// Suitable for single orientation scrolls (horizontally or vertically, for standard scroll: <see cref="ScrollViewer"/>)
     /// </summary>
     /// TODO: Complete component modification
-    public sealed class Scroller : ContentControl, IScrollable, IScrollAnchorProvider
-    {
+    public sealed class Scroller : ContentControl, IScrollable, IScrollAnchorProvider {
         /// <summary>
         /// Defines the <see cref="Orientation"/> property.
         /// </summary>
@@ -23,13 +21,13 @@ namespace Material.Styles.Controls
             AvaloniaProperty.RegisterDirect<Scroller, Orientation>(nameof(Orientation),
                 o => o.Orientation,
                 (o, v) => o.Orientation = v);
-        
+
         public static readonly DirectProperty<Scroller, bool> HandleMouseWheelProperty =
             AvaloniaProperty.RegisterDirect<Scroller, bool>(
                 nameof(CanHorizontallyScroll),
                 o => o.HandleMouseWheel,
-                (o,v) => o.HandleMouseWheel = v);
-        
+                (o, v) => o.HandleMouseWheel = v);
+
         /// <summary>
         /// Defines the <see cref="CanHorizontallyScroll"/> property.
         /// </summary>
@@ -53,7 +51,7 @@ namespace Material.Styles.Controls
             AvaloniaProperty.RegisterDirect<Scroller, bool>(
                 nameof(CanVerticallyScroll),
                 o => o.CanVerticallyScroll);
-        
+
         /// <summary>
         /// Defines the <see cref="Extent"/> property.
         /// </summary>
@@ -102,7 +100,7 @@ namespace Material.Styles.Controls
             AvaloniaProperty.RegisterDirect<Scroller, bool>(
                 nameof(CanScrollToEnd),
                 o => o.CanScrollToEnd);
-        
+
         /// <summary>
         /// Defines the <see cref="SmallScrollMultiplier"/> property.
         /// </summary>
@@ -120,107 +118,54 @@ namespace Material.Styles.Controls
                 nameof(CanScrollToEnd),
                 o => o.ScrollSpeed,
                 (o, v) => o.ScrollSpeed = v);
+        private bool _canScrollToEnd;
+        private bool _canScrollToStart;
 
         private IDisposable? _childSubscription;
-        private Orientation _orientation;
         private Size _extent;
+        private bool _handleMouseWheel;
         private Vector _offset;
-        private Size _viewport;
         private Size _oldExtent;
         private Vector _oldOffset;
         private Size _oldViewport;
+        private Orientation _orientation;
         private double _scrollSpeed;
         private double _smallScrollMultiplier;
-        private bool _canScrollToStart;
-        private bool _canScrollToEnd;
-        private bool _handleMouseWheel;
+        private Size _viewport;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Scroller"/> class.
         /// </summary>
-        public Scroller()
-        {
+        public Scroller() {
             LayoutUpdated += OnLayoutUpdated;
         }
 
-        /// <summary>
-        /// Occurs when changes are detected to the scroll position, extent, or viewport size.
-        /// </summary>
-        public event EventHandler<ScrollChangedEventArgs> ScrollChanged
-        {
-            add => AddHandler(ScrollChangedEvent, value);
-            remove => RemoveHandler(ScrollChangedEvent, value);
-        }
-
-        public bool HandleMouseWheel
-        {
+        public bool HandleMouseWheel {
             get => _handleMouseWheel;
             set => SetAndRaise(HandleMouseWheelProperty, ref _handleMouseWheel, value);
         }
 
-        public Orientation Orientation
-        {
+        public Orientation Orientation {
             get => _orientation;
-            set
-            {
+            set {
                 var wasEnabledHScroll = CanHorizontallyScroll;
                 var wasEnabledVScroll = CanVerticallyScroll;
 
                 if (!SetAndRaise(OrientationProperty, ref _orientation, value))
                     return;
-                
+
                 var isEnabledHScroll = CanHorizontallyScroll;
                 var isEnabledVScroll = CanVerticallyScroll;
-                    
+
                 RaisePropertyChanged(CanHorizontallyScrollProperty, wasEnabledHScroll, isEnabledHScroll);
                 RaisePropertyChanged(CanVerticallyScrollProperty, wasEnabledVScroll, isEnabledVScroll);
             }
         }
 
         /// <summary>
-        /// Gets the extent of the scrollable content.
-        /// </summary>
-        public Size Extent
-        {
-            get => _extent;
-            private set
-            {
-                if (SetAndRaise(ExtentProperty, ref _extent, value))
-                    CalculatedPropertiesChanged();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the current scroll offset.
-        /// </summary>
-        public Vector Offset
-        {
-            get => _offset;
-            set
-            {
-                if (SetAndRaise(OffsetProperty, ref _offset, CoerceOffset(Extent, Viewport, value)))
-                    CalculatedPropertiesChanged();
-            }
-        }
-
-        /// <summary>
-        /// Gets the size of the viewport on the scrollable content.
-        /// </summary>
-        public Size Viewport
-        {
-            get => _viewport;
-            private set
-            {
-                if (SetAndRaise(ViewportProperty, ref _viewport, value))
-                    CalculatedPropertiesChanged();
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the primary scroll speed for the scroller
         /// </summary>
-        public double ScrollSpeed
-        {
+        public double ScrollSpeed {
             get => _scrollSpeed;
             set => SetAndRaise(ScrollSpeedProperty, ref _scrollSpeed, value);
         }
@@ -228,24 +173,17 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Gets or sets the small scroll speed for the scroller. The final speed will multiple <see cref="ScrollSpeed"/> by this property.
         /// </summary>
-        public double SmallScrollMultiplier
-        {
+        public double SmallScrollMultiplier {
             get => _smallScrollMultiplier;
             set => SetAndRaise(SmallScrollMultiplierProperty, ref _smallScrollMultiplier, value);
         }
 
-        /// <inheritdoc/>
-        public IControl? CurrentAnchor => Presenter is IScrollAnchorProvider scrollAnchorProvider
-                ? scrollAnchorProvider.CurrentAnchor
-                : null;
-
-        public bool CanScrollToStart
-        {
+        public bool CanScrollToStart {
             get => _canScrollToStart;
             private set => SetAndRaise(CanScrollToStartProperty, ref _canScrollToStart, value);
         }
-        public bool CanScrollToEnd
-        {
+
+        public bool CanScrollToEnd {
             get => _canScrollToEnd;
             private set => SetAndRaise(CanScrollToEndProperty, ref _canScrollToEnd, value);
         }
@@ -260,10 +198,64 @@ namespace Material.Styles.Controls
         /// </summary>
         public bool CanVerticallyScroll => Orientation == Orientation.Vertical;
 
-        public void ScrollBackOnce()
-        {
-            switch (Orientation)
-            {
+        /// <summary>
+        /// Gets the extent of the scrollable content.
+        /// </summary>
+        public Size Extent {
+            get => _extent;
+            private set {
+                if (SetAndRaise(ExtentProperty, ref _extent, value))
+                    CalculatedPropertiesChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the current scroll offset.
+        /// </summary>
+        public Vector Offset {
+            get => _offset;
+            set {
+                if (SetAndRaise(OffsetProperty, ref _offset, CoerceOffset(Extent, Viewport, value)))
+                    CalculatedPropertiesChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets the size of the viewport on the scrollable content.
+        /// </summary>
+        public Size Viewport {
+            get => _viewport;
+            private set {
+                if (SetAndRaise(ViewportProperty, ref _viewport, value))
+                    CalculatedPropertiesChanged();
+            }
+        }
+
+        /// <inheritdoc/>
+        public Control? CurrentAnchor => Presenter is IScrollAnchorProvider scrollAnchorProvider
+            ? scrollAnchorProvider.CurrentAnchor
+            : null;
+
+        /// <inheritdoc/>
+        public void RegisterAnchorCandidate(Control element) {
+            (Presenter as IScrollAnchorProvider)?.RegisterAnchorCandidate(element);
+        }
+
+        /// <inheritdoc/>
+        public void UnregisterAnchorCandidate(Control element) {
+            (Presenter as IScrollAnchorProvider)?.UnregisterAnchorCandidate(element);
+        }
+
+        /// <summary>
+        /// Occurs when changes are detected to the scroll position, extent, or viewport size.
+        /// </summary>
+        public event EventHandler<ScrollChangedEventArgs> ScrollChanged {
+            add => AddHandler(ScrollChangedEvent, value);
+            remove => RemoveHandler(ScrollChangedEvent, value);
+        }
+
+        public void ScrollBackOnce() {
+            switch (Orientation) {
                 case Orientation.Horizontal:
                     LineLeft();
                     return;
@@ -276,10 +268,8 @@ namespace Material.Styles.Controls
             }
         }
 
-        public void ScrollForwardOnce()
-        {
-            switch (Orientation)
-            {
+        public void ScrollForwardOnce() {
+            switch (Orientation) {
                 case Orientation.Horizontal:
                     LineRight();
                     return;
@@ -291,11 +281,9 @@ namespace Material.Styles.Controls
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
-        public void ScrollPageBackOnce()
-        {
-            switch (Orientation)
-            {
+
+        public void ScrollPageBackOnce() {
+            switch (Orientation) {
                 case Orientation.Horizontal:
                     PageLeft();
                     return;
@@ -308,10 +296,8 @@ namespace Material.Styles.Controls
             }
         }
 
-        public void ScrollPageForwardOnce()
-        {
-            switch (Orientation)
-            {
+        public void ScrollPageForwardOnce() {
+            switch (Orientation) {
                 case Orientation.Horizontal:
                     PageRight();
                     return;
@@ -327,124 +313,99 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Scrolls the content up once with <see cref="ScrollSpeed"/>.
         /// </summary>
-        public void LineUp()
-        {
+        public void LineUp() {
             Offset -= new Vector(0, ScrollSpeed);
         }
 
         /// <summary>
         /// Scrolls the content down once with <see cref="ScrollSpeed"/>.
         /// </summary>
-        public void LineDown()
-        {
+        public void LineDown() {
             Offset += new Vector(0, ScrollSpeed);
         }
 
         /// <summary>
         /// Scrolls the content left once with <see cref="ScrollSpeed"/>.
         /// </summary>
-        public void LineLeft()
-        {
+        public void LineLeft() {
             Offset -= new Vector(ScrollSpeed, 0);
         }
 
         /// <summary>
         /// Scrolls the content right once with <see cref="ScrollSpeed"/>.
         /// </summary>
-        public void LineRight()
-        {
+        public void LineRight() {
             Offset += new Vector(ScrollSpeed, 0);
         }
-        
-        
+
+
         /// <summary>
         /// Scrolls the content up once with <see cref="ScrollSpeed"/>.
         /// </summary>
-        public void PageUp()
-        {
+        public void PageUp() {
             Offset -= new Vector(0, Viewport.Height);
         }
 
         /// <summary>
         /// Scrolls the content down once with <see cref="ScrollSpeed"/>.
         /// </summary>
-        public void PageDown()
-        {
+        public void PageDown() {
             Offset += new Vector(0, Viewport.Height);
         }
 
         /// <summary>
         /// Scrolls the content left once with <see cref="ScrollSpeed"/>.
         /// </summary>
-        public void PageLeft()
-        {
+        public void PageLeft() {
             Offset -= new Vector(Viewport.Width, 0);
         }
 
         /// <summary>
         /// Scrolls the content right once with <see cref="ScrollSpeed"/>.
         /// </summary>
-        public void PageRight()
-        {
+        public void PageRight() {
             Offset += new Vector(Viewport.Width, 0);
         }
 
         /// <summary>
         /// Scrolls to the top-left corner of the content.
         /// </summary>
-        public void ScrollToHome()
-        {
+        public void ScrollToHome() {
             Offset = new Vector(double.NegativeInfinity, double.NegativeInfinity);
         }
 
         /// <summary>
         /// Scrolls to the bottom-left corner of the content.
         /// </summary>
-        public void ScrollToEnd()
-        {
+        public void ScrollToEnd() {
             Offset = new Vector(double.NegativeInfinity, double.PositiveInfinity);
         }
-        
-        /// <inheritdoc/>
-        public void RegisterAnchorCandidate(IControl element)
-        {
-            (Presenter as IScrollAnchorProvider)?.RegisterAnchorCandidate(element);
-        }
 
-        /// <inheritdoc/>
-        public void UnregisterAnchorCandidate(IControl element)
-        {
-            (Presenter as IScrollAnchorProvider)?.UnregisterAnchorCandidate(element);
-        }
-
-        protected override bool RegisterContentPresenter(IContentPresenter presenter)
-        {
+        protected override bool RegisterContentPresenter(IContentPresenter presenter) {
             _childSubscription?.Dispose();
             _childSubscription = null;
 
             if (!base.RegisterContentPresenter(presenter))
                 return false;
-            
-            _childSubscription = Presenter?
-                .GetObservable(ContentPresenter.ChildProperty)
-                .Subscribe(ChildChanged);
+
+            // BUG: Obsolete API?
+            // _childSubscription = Presenter?
+            //     .GetObservable(ContentPresenter.ChildProperty)
+            //     .Subscribe(ChildChanged);
             return true;
         }
 
-        protected override void OnPointerWheelChanged(PointerWheelEventArgs e)
-        {
+        protected override void OnPointerWheelChanged(PointerWheelEventArgs e) {
             var isHandle = HandleMouseWheel;
 
-            if (!isHandle)
-            {
+            if (!isHandle) {
                 base.OnPointerWheelChanged(e);
                 return;
             }
 
             var scrollY = e.Delta.Y;
 
-            switch (scrollY)
-            {
+            switch (scrollY) {
                 case > 0:
                     ScrollBackOnce();
                     break;
@@ -456,15 +417,13 @@ namespace Material.Styles.Controls
             e.Handled = true;
         }
 
-        internal static Vector CoerceOffset(Size extent, Size viewport, Vector offset)
-        {
+        internal static Vector CoerceOffset(Size extent, Size viewport, Vector offset) {
             var maxX = Math.Max(extent.Width - viewport.Width, 0);
             var maxY = Math.Max(extent.Height - viewport.Height, 0);
             return new Vector(Clamp(offset.X, 0, maxX), Clamp(offset.Y, 0, maxY));
         }
 
-        private static double Clamp(double value, double min, double max)
-        {
+        private static double Clamp(double value, double min, double max) {
             return (value < min) ? min : (value > max) ? max : value;
         }
 
@@ -475,20 +434,17 @@ namespace Material.Styles.Controls
             return double.IsNaN(result) ? 0 : result;
         }*/
 
-        private void ChildChanged(IControl? child)
-        {
+        private void ChildChanged(Control? child) {
             CalculatedPropertiesChanged();
         }
 
-        private void CalculatedPropertiesChanged()
-        {
-            switch (_orientation)
-            {
+        private void CalculatedPropertiesChanged() {
+            switch (_orientation) {
                 case Orientation.Horizontal:
                     CanScrollToStart = _offset.X > 0.0;
                     CanScrollToEnd = _offset.X < _extent.Width - _viewport.Width;
                     break;
-                
+
                 case Orientation.Vertical:
                     CanScrollToStart = _offset.Y > 0.0;
                     CanScrollToEnd = _offset.Y < _extent.Height - _viewport.Height;
@@ -505,24 +461,22 @@ namespace Material.Styles.Controls
         /// If you override this method, call `base.OnScrollChanged(ScrollChangedEventArgs)` to
         /// ensure that this event is raised.
         /// </remarks>
-        private void OnScrollChanged(ScrollChangedEventArgs e)
-        {
+        private void OnScrollChanged(ScrollChangedEventArgs e) {
             RaiseEvent(e);
         }
 
         private void OnLayoutUpdated(object sender, EventArgs e) => RaiseScrollChanged();
 
-        private void RaiseScrollChanged()
-        {
+        private void RaiseScrollChanged() {
             var extentDelta = new Vector(Extent.Width - _oldExtent.Width, Extent.Height - _oldExtent.Height);
             var offsetDelta = Offset - _oldOffset;
             var viewportDelta = new Vector(Viewport.Width - _oldViewport.Width, Viewport.Height - _oldViewport.Height);
 
-            if (extentDelta.NearlyEquals(default) && 
+            if (extentDelta.NearlyEquals(default) &&
                 offsetDelta.NearlyEquals(default) &&
                 viewportDelta.NearlyEquals(default))
                 return;
-            
+
             var e = new ScrollChangedEventArgs(extentDelta, offsetDelta, viewportDelta);
             OnScrollChanged(e);
 

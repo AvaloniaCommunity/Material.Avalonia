@@ -30,9 +30,7 @@
                 CornerRadius="{TemplateBinding CornerRadius}">
           <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
             <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
-              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                              Items="{TemplateBinding Items}"
-                              ItemTemplate="{TemplateBinding ItemTemplate}">
+              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}">
                 <ItemsPresenter.ItemsPanel>
                   <ItemsPanelTemplate>
                     <UniformGrid Name="PART_TabContainer"
@@ -176,9 +174,7 @@
             <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
               <controls:Scroller Name="{x:Static naming:PartNames.PartScrollViewer}"
                                  Theme="{StaticResource TabControlScroller}">
-                <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                Items="{TemplateBinding Items}"
-                                ItemTemplate="{TemplateBinding ItemTemplate}" />
+                <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}" />
               </controls:Scroller>
 
               <Rectangle Name="{x:Static naming:PartNames.PartSeparator}" />
@@ -256,9 +252,7 @@
                 CornerRadius="{TemplateBinding CornerRadius}">
           <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
             <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
-              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                              Items="{TemplateBinding Items}"
-                              ItemTemplate="{TemplateBinding ItemTemplate}">
+              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}">
                 <ItemsPresenter.Styles>
                   <Style Selector="TabItem">
                     <Setter Property="Theme" Value="{StaticResource MaterialBottomNavigationTabItem}" />

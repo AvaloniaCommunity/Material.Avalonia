@@ -3,10 +3,12 @@
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
                     xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:system="clr-namespace:System;assembly=netstandard" >
+                    xmlns:system="clr-namespace:System;assembly=netstandard"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters">
     <system:Double x:Key="ButtonHoveredOpacity" >0.12</system:Double>
     <system:Double x:Key="ButtonDisabledOpacity" >0.38</system:Double>
     <system:Double x:Key="ButtonPressedOpacity" >0.26</system:Double>
+  <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
 
     <ControlTheme x:Key="{x:Type Button}"
                   TargetType="Button" >

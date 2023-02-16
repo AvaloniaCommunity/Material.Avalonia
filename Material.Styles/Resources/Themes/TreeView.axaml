@@ -21,11 +21,9 @@
                         <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                            <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                            Margin="{TemplateBinding Padding}"
-                                            Items="{TemplateBinding Items}"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}"
-                                            ItemTemplate="{TemplateBinding ItemTemplate}"/>
+                          <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                          Margin="{TemplateBinding Padding}"
+                                          ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </ScrollViewer>
                     </Border>
                 </ControlTemplate>

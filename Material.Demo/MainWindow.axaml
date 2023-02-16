@@ -6,8 +6,6 @@
         xmlns:pages="clr-namespace:Material.Demo.Pages"
         xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
-        xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
-        xmlns:models="clr-namespace:Material.Demo.Models"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Width="1280" Height="720" MinWidth="720"
         Icon="/Assets/FavIcon_128x.png"
@@ -50,26 +48,26 @@
                                     <Setter Property="IsEnabled" Value="{Binding $self.Content.IsEnabled}" />
                                 </Style>
                             </ListBox.Styles>
-                            <TextBlock Classes="Body2" Text="Home" />
-                            <TextBlock Classes="Body2" Text="Buttons" />
-                            <TextBlock Classes="Body2" Text="Toggles" />
-                            <TextBlock Classes="Body2" Text="Fields" />
-                            <TextBlock Classes="Body2" Text="ComboBoxes" />
-                            <TextBlock Classes="Body2" Text="Material Icons" />
-                            <TextBlock Classes="Body2" Text="Sliders" />
-                            <TextBlock Classes="Body2" Text="Progress indicators" />
-                            <TextBlock Classes="Body2" Text="Lists" />
-                            <TextBlock Classes="Body2" Text="Expanders" />
-                            <TextBlock Classes="Body2" Text="ColorZones" />
-                            <TextBlock Classes="Body2" Text="Dialogs" />
-                            <TextBlock Classes="Body2" Text="ScrollViewer" />
-                            <TextBlock Classes="Body2" Text="SideSheet" />
-                            <TextBlock Classes="Body2" Text="TabControls" />
-                            <TextBlock Classes="Body2" Text="TreeViews" />
-                            <TextBlock Classes="Body2" Text="Card" />
-                            <TextBlock Classes="Body2" Text="Typography" />
-                            <TextBlock Classes="Body2" Text="Pickers" />
-                            <TextBlock Classes="Body2" Text="Shadows" IsEnabled="False" />
+                          <ListBoxItem>Home</ListBoxItem>
+                          <ListBoxItem>Buttons</ListBoxItem>
+                          <ListBoxItem>Toggles</ListBoxItem>
+                          <ListBoxItem>Fields</ListBoxItem>
+                          <ListBoxItem>ComboBoxes</ListBoxItem>
+                          <ListBoxItem>Material Icons</ListBoxItem>
+                          <ListBoxItem>Sliders</ListBoxItem>
+                          <ListBoxItem>Progress indicators</ListBoxItem>
+                          <ListBoxItem>Lists</ListBoxItem>
+                          <ListBoxItem>Expanders</ListBoxItem>
+                          <ListBoxItem>ColorZones</ListBoxItem>
+                          <ListBoxItem>Dialogs</ListBoxItem>
+                          <ListBoxItem>ScrollViewer</ListBoxItem>
+                          <ListBoxItem>SideSheet</ListBoxItem>
+                          <ListBoxItem>TabControls</ListBoxItem>
+                          <ListBoxItem>TreeViews</ListBoxItem>
+                          <ListBoxItem>Card</ListBoxItem>
+                          <ListBoxItem>Typography</ListBoxItem>
+                          <ListBoxItem>Pickers</ListBoxItem>
+                          <ListBoxItem>Shadows</ListBoxItem>
                         </ListBox>
                     </StackPanel>
                 </ScrollViewer>

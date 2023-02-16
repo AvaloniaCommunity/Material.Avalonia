@@ -8,7 +8,6 @@
     
     <ControlTheme x:Key="{x:Type ToggleSwitch}"
                   TargetType="ToggleSwitch">
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
                 Value="{DynamicResource PrimaryHueLightBrush}" />

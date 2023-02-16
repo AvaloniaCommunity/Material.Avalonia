@@ -24,10 +24,8 @@
                                               ContentTemplate="{TemplateBinding ContentTemplate}"/>
                             
                             <Canvas Name="PART_TabsPanel">
-                                <ItemsPresenter Name="PART_ItemsPresenter"
-                                                Items="{TemplateBinding Items}"
-                                                ItemTemplate="{TemplateBinding ItemTemplate}">
-                                    <ItemsPresenter.ItemsPanel>
+                              <ItemsPresenter Name="PART_ItemsPresenter">
+                                <ItemsPresenter.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <UniformGrid Name="HeaderPanel"
                                                          Background="Transparent"
@@ -35,8 +33,8 @@
                                                          VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
                                                          ZIndex="1" />
                                         </ItemsPanelTemplate>
-                                    </ItemsPresenter.ItemsPanel>
-                                </ItemsPresenter>
+                                </ItemsPresenter.ItemsPanel>
+                              </ItemsPresenter>
                                 
                                 <Rectangle Name="PART_HeaderSeparator"
                                            VerticalAlignment="Bottom"
@@ -67,19 +65,17 @@
 
                             <controls:Scroller Name="PART_ScrollerRoot" Grid.ColumnSpan="3" >
                                 <Border Name="HeaderPanelBorder" Background="Transparent" HorizontalAlignment="Stretch">
-                                    <ItemsPresenter
-                                        Name="PART_ItemsPresenter"
-                                        Items="{TemplateBinding Items}"
-                                        ItemTemplate="{TemplateBinding ItemTemplate}">
-                                        <ItemsPresenter.ItemsPanel>
+                                  <ItemsPresenter
+                                    Name="PART_ItemsPresenter">
+                                    <ItemsPresenter.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <UniformGrid Name="HeaderPanel" Background="Transparent"
                                                              HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
                                                              VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
                                                              ZIndex="1" />
                                             </ItemsPanelTemplate>
-                                        </ItemsPresenter.ItemsPanel>
-                                    </ItemsPresenter>
+                                    </ItemsPresenter.ItemsPanel>
+                                  </ItemsPresenter>
                                 </Border>
                             </controls:Scroller>
                             <Button Name="PART_ScrollLeftButton" 
