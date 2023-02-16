@@ -221,9 +221,8 @@ public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
         });
     }
 
-    private static async Task UpdateSolidColorBrush(IReadOnlyTheme? oldTheme, IReadOnlyTheme newTheme, IResourceDictionary resourceDictionary, Func<Action, DispatcherPriority, Task> contextSync) {
-        await Task.WhenAll(UpdatableColors.Select(UpdateColorAsync));
-        await FixTextBlockColors();
+    private static Task UpdateSolidColorBrush(IReadOnlyTheme? oldTheme, IReadOnlyTheme newTheme, IResourceDictionary resourceDictionary, Func<Action, DispatcherPriority, Task> contextSync) {
+        return Task.WhenAll(UpdatableColors.Select(UpdateColorAsync));
 
         Task UpdateColorAsync(KeyValuePair<string, Func<IReadOnlyTheme, Color>> pair) {
             var oldColor = oldTheme != null ? pair.Value(oldTheme) : (Color?)null;
@@ -243,15 +242,6 @@ public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
                 => contextSync(() => {
                     resourceDictionary[pair.Key] = new SolidColorBrush(newColor) { Transitions = new Transitions { new ColorTransition { Duration = TimeSpan.FromSeconds(0.35), Easing = new SineEaseOut(), Property = SolidColorBrush.ColorProperty } } };
                 }, DispatcherPriority.Normal);
-        }
-
-        // Workaround for TextBlock text color does not changing: https://github.com/AvaloniaUI/Avalonia/issues/9675
-        Task FixTextBlockColors() {
-            return contextSync(() => {
-                var bodyBrush = resourceDictionary["MaterialDesignBody"];
-                resourceDictionary.Remove("MaterialDesignBody");
-                resourceDictionary.Add("MaterialDesignBody", bodyBrush);
-            }, DispatcherPriority.Normal);
         }
     }
 }
