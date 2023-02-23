@@ -17,16 +17,11 @@ namespace Material.Styles.Controls {
         /// <summary>
         /// Defines the <see cref="Orientation"/> property.
         /// </summary>
-        public static readonly DirectProperty<Scroller, Orientation> OrientationProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, Orientation>(nameof(Orientation),
-                o => o.Orientation,
-                (o, v) => o.Orientation = v);
+        public static readonly StyledProperty<Orientation> OrientationProperty =
+            AvaloniaProperty.Register<Scroller, Orientation>(nameof(Orientation));
 
-        public static readonly DirectProperty<Scroller, bool> HandleMouseWheelProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, bool>(
-                nameof(CanHorizontallyScroll),
-                o => o.HandleMouseWheel,
-                (o, v) => o.HandleMouseWheel = v);
+        public static readonly StyledProperty<bool> HandleMouseWheelProperty =
+            AvaloniaProperty.Register<Scroller, bool>(nameof(CanHorizontallyScroll));
 
         /// <summary>
         /// Defines the <see cref="CanHorizontallyScroll"/> property.
@@ -36,8 +31,7 @@ namespace Material.Styles.Controls {
         /// <see cref="ScrollContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, bool> CanHorizontallyScrollProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, bool>(
-                nameof(CanHorizontallyScroll),
+            AvaloniaProperty.RegisterDirect<Scroller, bool>(nameof(CanHorizontallyScroll),
                 o => o.CanHorizontallyScroll);
 
         /// <summary>
@@ -48,34 +42,27 @@ namespace Material.Styles.Controls {
         /// <see cref="ScrollContentPresenter"/> in the control's template.
         /// </remarks>
         public static readonly DirectProperty<Scroller, bool> CanVerticallyScrollProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, bool>(
-                nameof(CanVerticallyScroll),
+            AvaloniaProperty.RegisterDirect<Scroller, bool>(nameof(CanVerticallyScroll),
                 o => o.CanVerticallyScroll);
 
         /// <summary>
         /// Defines the <see cref="Extent"/> property.
         /// </summary>
-        public static readonly DirectProperty<Scroller, Size> ExtentProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, Size>(nameof(Extent),
-                o => o.Extent,
-                (o, v) => o.Extent = v);
+        public static readonly StyledProperty<Size> ExtentProperty =
+            AvaloniaProperty.Register<Scroller, Size>(nameof(Extent));
 
         /// <summary>
         /// Defines the <see cref="Offset"/> property.
         /// </summary>
-        public static readonly DirectProperty<Scroller, Vector> OffsetProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, Vector>(
-                nameof(Offset),
-                o => o.Offset,
-                (o, v) => o.Offset = v);
+        public static readonly StyledProperty<Vector> OffsetProperty =
+            AvaloniaProperty.Register<Scroller, Vector>(nameof(Offset),
+                coerce: CoerceOffset);
 
         /// <summary>
         /// Defines the <see cref="Viewport"/> property.
         /// </summary>
-        public static readonly DirectProperty<Scroller, Size> ViewportProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, Size>(nameof(Viewport),
-                o => o.Viewport,
-                (o, v) => o.Viewport = v);
+        public static readonly StyledProperty<Size> ViewportProperty =
+            AvaloniaProperty.Register<Scroller, Size>(nameof(Viewport));
 
         /// <summary>
         /// Defines the <see cref="ScrollChanged"/> event.
@@ -104,34 +91,21 @@ namespace Material.Styles.Controls {
         /// <summary>
         /// Defines the <see cref="SmallScrollMultiplier"/> property.
         /// </summary>
-        public static readonly DirectProperty<Scroller, double> SmallScrollMultiplierProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, double>(
-                nameof(CanScrollToStart),
-                o => o.SmallScrollMultiplier,
-                (o, v) => o.SmallScrollMultiplier = v);
+        public static readonly StyledProperty<double> SmallScrollMultiplierProperty =
+            AvaloniaProperty.Register<Scroller, double>(nameof(CanScrollToStart));
 
         /// <summary>
         /// Defines the <see cref="ScrollSpeed"/> property.
         /// </summary>
-        public static readonly DirectProperty<Scroller, double> ScrollSpeedProperty =
-            AvaloniaProperty.RegisterDirect<Scroller, double>(
-                nameof(CanScrollToEnd),
-                o => o.ScrollSpeed,
-                (o, v) => o.ScrollSpeed = v);
+        public static readonly StyledProperty<double> ScrollSpeedProperty =
+            AvaloniaProperty.Register<Scroller, double>(nameof(CanScrollToEnd));
         private bool _canScrollToEnd;
         private bool _canScrollToStart;
 
         private IDisposable? _childSubscription;
-        private Size _extent;
-        private bool _handleMouseWheel;
-        private Vector _offset;
         private Size _oldExtent;
         private Vector _oldOffset;
         private Size _oldViewport;
-        private Orientation _orientation;
-        private double _scrollSpeed;
-        private double _smallScrollMultiplier;
-        private Size _viewport;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Scroller"/> class.
@@ -141,18 +115,17 @@ namespace Material.Styles.Controls {
         }
 
         public bool HandleMouseWheel {
-            get => _handleMouseWheel;
-            set => SetAndRaise(HandleMouseWheelProperty, ref _handleMouseWheel, value);
+            get => GetValue(HandleMouseWheelProperty);
+            set => SetValue(HandleMouseWheelProperty, value);
         }
 
         public Orientation Orientation {
-            get => _orientation;
+            get => GetValue(OrientationProperty);
             set {
                 var wasEnabledHScroll = CanHorizontallyScroll;
                 var wasEnabledVScroll = CanVerticallyScroll;
 
-                if (!SetAndRaise(OrientationProperty, ref _orientation, value))
-                    return;
+                SetValue(OrientationProperty, value);
 
                 var isEnabledHScroll = CanHorizontallyScroll;
                 var isEnabledVScroll = CanVerticallyScroll;
@@ -166,16 +139,16 @@ namespace Material.Styles.Controls {
         /// Gets or sets the primary scroll speed for the scroller
         /// </summary>
         public double ScrollSpeed {
-            get => _scrollSpeed;
-            set => SetAndRaise(ScrollSpeedProperty, ref _scrollSpeed, value);
+            get => GetValue(ScrollSpeedProperty);
+            set => SetValue(ScrollSpeedProperty, value);
         }
 
         /// <summary>
         /// Gets or sets the small scroll speed for the scroller. The final speed will multiple <see cref="ScrollSpeed"/> by this property.
         /// </summary>
         public double SmallScrollMultiplier {
-            get => _smallScrollMultiplier;
-            set => SetAndRaise(SmallScrollMultiplierProperty, ref _smallScrollMultiplier, value);
+            get => GetValue(SmallScrollMultiplierProperty);
+            set => SetValue(SmallScrollMultiplierProperty, value);
         }
 
         public bool CanScrollToStart {
@@ -202,33 +175,24 @@ namespace Material.Styles.Controls {
         /// Gets the extent of the scrollable content.
         /// </summary>
         public Size Extent {
-            get => _extent;
-            private set {
-                if (SetAndRaise(ExtentProperty, ref _extent, value))
-                    CalculatedPropertiesChanged();
-            }
+            get => GetValue(ExtentProperty);
+            private set => SetValue(ExtentProperty, value);
         }
 
         /// <summary>
         /// Gets or sets the current scroll offset.
         /// </summary>
         public Vector Offset {
-            get => _offset;
-            set {
-                if (SetAndRaise(OffsetProperty, ref _offset, CoerceOffset(Extent, Viewport, value)))
-                    CalculatedPropertiesChanged();
-            }
+            get => GetValue(OffsetProperty);
+            set => SetValue(OffsetProperty, value);
         }
 
         /// <summary>
         /// Gets the size of the viewport on the scrollable content.
         /// </summary>
         public Size Viewport {
-            get => _viewport;
-            private set {
-                if (SetAndRaise(ViewportProperty, ref _viewport, value))
-                    CalculatedPropertiesChanged();
-            }
+            get => GetValue(ViewportProperty);
+            private set => SetValue(ViewportProperty, value);
         }
 
         /// <inheritdoc/>
@@ -244,6 +208,16 @@ namespace Material.Styles.Controls {
         /// <inheritdoc/>
         public void UnregisterAnchorCandidate(Control element) {
             (Presenter as IScrollAnchorProvider)?.UnregisterAnchorCandidate(element);
+        }
+
+        /// <inheritdoc />
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
+            base.OnPropertyChanged(change);
+
+            if (change.OldValue != change.NewValue && (change.Property == ViewportProperty
+                                                    || change.Property == OffsetProperty
+                                                    || change.Property == ExtentProperty))
+                CalculatedPropertiesChanged();
         }
 
         /// <summary>
@@ -417,9 +391,10 @@ namespace Material.Styles.Controls {
             e.Handled = true;
         }
 
-        internal static Vector CoerceOffset(Size extent, Size viewport, Vector offset) {
-            var maxX = Math.Max(extent.Width - viewport.Width, 0);
-            var maxY = Math.Max(extent.Height - viewport.Height, 0);
+        internal static Vector CoerceOffset(AvaloniaObject o, Vector offset) {
+            var scroller = (Scroller)o;
+            var maxX = Math.Max(scroller.Extent.Width - scroller.Viewport.Width, 0);
+            var maxY = Math.Max(scroller.Extent.Height - scroller.Viewport.Height, 0);
             return new Vector(Clamp(offset.X, 0, maxX), Clamp(offset.Y, 0, maxY));
         }
 
@@ -427,27 +402,17 @@ namespace Material.Styles.Controls {
             return (value < min) ? min : (value > max) ? max : value;
         }
 
-        /*
-        private static double Max(double x, double y)
-        {
-            var result = Math.Max(x, y);
-            return double.IsNaN(result) ? 0 : result;
-        }*/
-
-        private void ChildChanged(Control? child) {
-            CalculatedPropertiesChanged();
-        }
-
         private void CalculatedPropertiesChanged() {
-            switch (_orientation) {
+            var offset = Offset;
+            switch (Orientation) {
                 case Orientation.Horizontal:
-                    CanScrollToStart = _offset.X > 0.0;
-                    CanScrollToEnd = _offset.X < _extent.Width - _viewport.Width;
+                    CanScrollToStart = offset.X > 0.0;
+                    CanScrollToEnd = offset.X < Extent.Width - Viewport.Width;
                     break;
 
                 case Orientation.Vertical:
-                    CanScrollToStart = _offset.Y > 0.0;
-                    CanScrollToEnd = _offset.Y < _extent.Height - _viewport.Height;
+                    CanScrollToStart = offset.Y > 0.0;
+                    CanScrollToEnd = offset.Y < Extent.Height - Viewport.Height;
                     break;
             }
         }
