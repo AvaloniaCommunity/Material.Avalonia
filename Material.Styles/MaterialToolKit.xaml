@@ -92,7 +92,7 @@
 
   <StyleInclude Source="avares://Material.Styles/ContextMenu.xaml" />
   <!-- <StyleInclude Source="avares://Material.Styles/DataValidationErrors.xaml" /> -->
-  <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" /> -->
   <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" />
 
   <StyleInclude Source="avares://Material.Styles/FlyoutPresenter.axaml" />
