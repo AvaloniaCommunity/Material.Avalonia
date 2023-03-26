@@ -5,7 +5,6 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using Material.Styles.Controls;
 using Material.Styles.Models;
@@ -13,46 +12,21 @@ using Material.Styles.Themes;
 using Material.Styles.Themes.Base;
 
 namespace Material.Demo {
-    public class MainWindow : Window {
+    public partial class MainWindow : Window {
         private readonly List<SnackbarModel> helloSnackBars = new();
-        private ListBox DrawerList;
-        private NavigationDrawer LeftDrawer;
-        private ScrollViewer mainScroller;
-        private ToggleButton NavDrawerSwitch;
-        private Carousel PageCarousel;
 
         public MainWindow() {
             InitializeComponent();
-            this.AttachDevTools();
-        }
-
-        private void InitializeComponent() {
-            AvaloniaXamlLoader.Load(this);
-
-            #region Control getter and event binding
-
-            NavDrawerSwitch = this.Get<ToggleButton>(nameof(NavDrawerSwitch));
-
-            DrawerList = this.Get<ListBox>(nameof(DrawerList));
             DrawerList.PointerReleased += DrawerSelectionChanged;
             DrawerList.KeyUp += DrawerList_KeyUp;
-
-            PageCarousel = this.Get<Carousel>(nameof(PageCarousel));
-
-            mainScroller = this.Get<ScrollViewer>(nameof(mainScroller));
-
-            LeftDrawer = this.Get<NavigationDrawer>(nameof(LeftDrawer));
-
-            #endregion
-
         }
 
-        private void DrawerList_KeyUp(object sender, KeyEventArgs e) {
+        private void DrawerList_KeyUp(object? sender, KeyEventArgs e) {
             if (e.Key == Key.Space || e.Key == Key.Enter)
                 DrawerSelectionChanged(sender, null);
         }
 
-        public void DrawerSelectionChanged(object sender, RoutedEventArgs? args) {
+        public void DrawerSelectionChanged(object? sender, RoutedEventArgs? args) {
             if (sender is not ListBox listBox)
                 return;
 

@@ -7,42 +7,35 @@ using Avalonia.Media;
 using Avalonia.Media.Transformation;
 using Material.Styles.Converters.Parameters;
 
-namespace Material.Styles.Converters
-{
+namespace Material.Styles.Converters {
     /// <summary>
     /// Converter for creating rectangle geometry with hollow. Used for Outline TextBox.
     /// </summary>
-    public class RectHollowClipConverter : IMultiValueConverter
-    {
-        public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
-        {
+    public class RectHollowClipConverter : IMultiValueConverter {
+        public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {
             double hOffset = 4, vOffset = -8;
             var t = new Thickness(2);
 
-            if (parameter is RectHollowClipParameter param)
-            {
+            if (parameter is RectHollowClipParameter param) {
                 t = param.Margin;
                 hOffset = param.Offset.X;
                 vOffset = param.Offset.Y;
             }
 
-            var main = Rect.Empty;
-            var hollow = Rect.Empty;
+            Rect main = default;
+            Rect hollow = default;
 
             Geometry result;
 
-            try
-            {
+            try {
                 var s = new Point(1, 1);
 
-                if (values[0] is Rect outer && values[1] is Rect inner)
-                {
+                if (values[0] is Rect outer && values[1] is Rect inner) {
                     main = outer;
                     hollow = inner;
                 }
 
-                if (values.Count == 3 && values[2] is TransformOperations transform)
-                {
+                if (values.Count == 3 && values[2] is TransformOperations transform) {
                     if (Matrix.TryDecomposeTransform(transform.Value, out var d))
                         s = new Point(d.Scale.X, d.Scale.Y);
                 }
@@ -59,8 +52,7 @@ namespace Material.Styles.Converters
                 var outerGeometry = new StreamGeometry();
                 var innerGeometry = new StreamGeometry();
 
-                using (var ctx = outerGeometry.Open())
-                {
+                using (var ctx = outerGeometry.Open()) {
                     ctx.BeginFigure(m0, true);
                     ctx.LineTo(new Point(m1.X, m0.Y));
                     ctx.LineTo(new Point(m1.X, m1.Y));
@@ -68,8 +60,7 @@ namespace Material.Styles.Converters
                     ctx.EndFigure(true);
                 }
 
-                using (var ctx = innerGeometry.Open())
-                {
+                using (var ctx = innerGeometry.Open()) {
                     ctx.BeginFigure(new Point(h0.X, h0.Y), true);
                     ctx.LineTo(new Point(h1.X, h0.Y));
                     ctx.LineTo(new Point(h1.X, h1.Y));
@@ -79,8 +70,7 @@ namespace Material.Styles.Converters
 
                 result = new CombinedGeometry(GeometryCombineMode.Xor, innerGeometry, outerGeometry);
             }
-            catch
-            {
+            catch {
                 var m0 = main.TopLeft;
                 var m1 = main.BottomRight;
 
@@ -100,8 +90,7 @@ namespace Material.Styles.Converters
             return result;
         }
 
-        private static Point Multiply(Point p, Point s)
-        {
+        private static Point Multiply(Point p, Point s) {
             return new Point(p.X * s.X, p.Y * s.Y);
         }
     }

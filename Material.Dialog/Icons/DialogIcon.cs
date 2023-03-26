@@ -5,16 +5,17 @@ using Avalonia.Media;
 namespace Material.Dialog.Icons {
     public class DialogIcon : TemplatedControl {
         public static readonly StyledProperty<DialogIconKind> KindProperty
-            = AvaloniaProperty.Register<DialogIcon, DialogIconKind>(nameof(Kind),
-                notifying: KindPropertyChangedCallback);
+            = AvaloniaProperty.Register<DialogIcon, DialogIconKind>(nameof(Kind));
 
         public static readonly StyledProperty<StreamGeometry> DataProperty
             = AvaloniaProperty.Register<DialogIcon, StreamGeometry>(nameof(Data));
 
         public static readonly StyledProperty<bool> UseRecommendColorProperty
-            = AvaloniaProperty.Register<DialogIcon, bool>(nameof(UseRecommendColor), true,
-                notifying: UseRecommendColorPropertyChangedCallback);
-        static DialogIcon() { }
+            = AvaloniaProperty.Register<DialogIcon, bool>(nameof(UseRecommendColor), true);
+        static DialogIcon() {
+            KindProperty.Changed.AddClassHandler<DialogIcon>(KindPropertyChangedCallback);
+            UseRecommendColorProperty.Changed.AddClassHandler<DialogIcon>(UseRecommendColorPropertyChangedCallback);
+        }
 
         /// <summary>
         /// Gets or sets the icon to display.
@@ -37,13 +38,13 @@ namespace Material.Dialog.Icons {
             set => SetValue(UseRecommendColorProperty, value);
         }
 
-        private static void KindPropertyChangedCallback(AvaloniaObject sender, bool before) {
-            ((DialogIcon)sender).UpdateData();
-            ((DialogIcon)sender).UpdateColor();
+        private static void KindPropertyChangedCallback(DialogIcon dialogIcon, AvaloniaPropertyChangedEventArgs avaloniaPropertyChangedEventArgs) {
+            dialogIcon.UpdateData();
+            dialogIcon.UpdateColor();
         }
 
-        private static void UseRecommendColorPropertyChangedCallback(AvaloniaObject sender, bool before) {
-            ((DialogIcon)sender).UpdateColor();
+        private static void UseRecommendColorPropertyChangedCallback(DialogIcon dialogIcon, AvaloniaPropertyChangedEventArgs avaloniaPropertyChangedEventArgs) {
+            dialogIcon.UpdateColor();
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
@@ -59,7 +60,7 @@ namespace Material.Dialog.Icons {
         }
 
         private void UpdateColor() {
-            if (UseRecommendColor == true) {
+            if (UseRecommendColor) {
                 string color = null;
                 DialogIconsDataFactory.RecommendColorIndex.Value?.TryGetValue(Kind, out color);
                 Foreground = SolidColorBrush.Parse(color);
