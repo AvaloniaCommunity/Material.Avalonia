@@ -14,9 +14,9 @@
     <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.0-preview6"/>
     <PackageReference Include="Material.Icons.Avalonia" Version="2.0.0-preview3"/>
     <PackageReference Include="DialogHost.Avalonia" Version="0.7.0-preview8"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia" Version="1.2.0-avalonia11-preview2"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="1.2.0-avalonia11-preview2"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="1.2.0-avalonia11-preview2"/>
+    <PackageReference Include="ShowMeTheXaml.Avalonia" Version="1.2.0-avalonia11-preview3"/>
+    <!--    <PackageReference Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="1.2.0-avalonia11-preview2"/>-->
+    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="1.2.0-avalonia11-preview3"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
