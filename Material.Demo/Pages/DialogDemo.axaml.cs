@@ -3,7 +3,6 @@ using System.Diagnostics;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using DialogHostAvalonia;
 using Material.Demo.Models;
 using Material.Demo.ViewModels;
@@ -12,10 +11,6 @@ namespace Material.Demo.Pages {
     public partial class DialogDemo : UserControl {
         public DialogDemo() {
             InitializeComponent();
-        }
-
-        private void InitializeComponent() {
-            AvaloniaXamlLoader.Load(this);
         }
 
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {

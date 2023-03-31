@@ -2,7 +2,6 @@
 using System.Timers;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 
 namespace Material.Demo.Pages {
     public partial class ProgressIndicatorDemo : UserControl {
@@ -54,10 +53,6 @@ namespace Material.Demo.Pages {
                     caseProgress = 0;
                     return 0;
             }
-        }
-
-        private void InitializeComponent() {
-            AvaloniaXamlLoader.Load(this);
         }
 
         public class Context : INotifyPropertyChanged {

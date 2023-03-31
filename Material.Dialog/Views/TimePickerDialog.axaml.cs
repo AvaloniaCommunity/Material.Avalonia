@@ -1,6 +1,4 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
 
@@ -10,12 +8,6 @@ namespace Material.Dialog.Views {
             Result = new DateTimePickerDialogResult();
 
             InitializeComponent();
-
-#if DEBUG
-
-            this.AttachDevTools();
-
-#endif
         }
         public DateTimePickerDialogResult Result { get; set; }
 
@@ -26,7 +18,5 @@ namespace Material.Dialog.Views {
         public void AttachViewModel(TimePickerDialogViewModel vm) {
             this.DataContext = vm;
         }
-
-        private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
     }
 }

@@ -1,7 +1,6 @@
 #nullable enable
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using Material.Demo.ViewModels;
 
@@ -11,10 +10,6 @@ namespace Material.Demo.Pages {
             InitializeComponent();
 
             DataContext = new IconsDemoViewModel();
-        }
-
-        private void InitializeComponent() {
-            AvaloniaXamlLoader.Load(this);
         }
 
         private void Search_OnKeyDown(object? sender, KeyEventArgs e) {

@@ -1,5 +1,4 @@
 ﻿using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 using Material.Demo.ViewModels;
 
 namespace Material.Demo.Pages {
@@ -8,10 +7,6 @@ namespace Material.Demo.Pages {
             this.InitializeComponent();
 
             DataContext = new TextFieldsViewModel();
-        }
-
-        private void InitializeComponent() {
-            AvaloniaXamlLoader.Load(this);
         }
     }
 }

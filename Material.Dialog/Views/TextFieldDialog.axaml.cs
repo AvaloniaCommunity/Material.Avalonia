@@ -1,8 +1,6 @@
 using System;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
-using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
@@ -13,12 +11,6 @@ namespace Material.Dialog.Views {
             Result = new TextFieldDialogResult();
 
             InitializeComponent();
-
-#if DEBUG
-
-            this.AttachDevTools();
-
-#endif
 
             Closed += TextFieldDialog_Closed;
             Opened += TextFieldDialog_Opened;
@@ -78,7 +70,5 @@ namespace Material.Dialog.Views {
                 }
             });
         }
-
-        private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
     }
 }

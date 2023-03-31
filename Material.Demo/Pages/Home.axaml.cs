@@ -2,7 +2,6 @@
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Dialogs;
-using Avalonia.Markup.Xaml;
 using Material.Dialog;
 using Material.Styles.Assists;
 
@@ -79,9 +78,5 @@ namespace Material.Demo.Pages {
         }
 
         public void ShowAboutAvaloniaUI() => new AboutAvaloniaDialog().ShowDialog(_window!);
-
-        private void InitializeComponent() {
-            AvaloniaXamlLoader.Load(this);
-        }
     }
 }

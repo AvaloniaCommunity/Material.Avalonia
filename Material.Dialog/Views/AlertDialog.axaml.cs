@@ -1,6 +1,4 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Controls;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
 
@@ -8,13 +6,6 @@ namespace Material.Dialog.Views {
     public partial class AlertDialog : Window, IDialogWindowResult<DialogResult>, IHasNegativeResult {
         public AlertDialog() {
             InitializeComponent();
-
-#if DEBUG
-
-            this.AttachDevTools();
-
-#endif
-
         }
 
         public DialogResult GetResult() => (DataContext as AlertDialogViewModel)?.DialogResult;
@@ -23,7 +14,5 @@ namespace Material.Dialog.Views {
             if (DataContext is AlertDialogViewModel viewModel)
                 viewModel.DialogResult = result;
         }
-
-        private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
     }
 }
