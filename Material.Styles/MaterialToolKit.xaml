@@ -29,6 +29,8 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml" />
 
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuFlyoutPresenter.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuScrollViewer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
 
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml" />

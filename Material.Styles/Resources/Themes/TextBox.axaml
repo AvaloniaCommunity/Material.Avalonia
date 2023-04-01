@@ -28,36 +28,69 @@
                  Name="TextBoxContextMenu"
                  WindowManagerAddShadowHint="False" >
 
-        <MenuItem Name="TextBoxContextMenuCutItem"
-                  Header="Cut"
-                  Command="{Binding $parent[TextBox].Cut}"
-                  IsEnabled="{Binding $parent[TextBox].CanCut}"
-                  InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
-                  Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut}" />
+      <MenuItem Name="TextBoxContextMenuCutItem"
+                Header="Cut"
+                Command="{Binding $parent[TextBox].Cut}"
+                IsEnabled="{Binding $parent[TextBox].CanCut}"
+                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
+                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut}" />
 
-        <MenuItem Name="TextBoxContextMenuCopyItem"
-                  Header="Copy"
-                  Command="{Binding $parent[TextBox].Copy}"
-                  IsEnabled="{Binding $parent[TextBox].CanCopy}"
-                  InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
-                  Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy}" />
+      <MenuItem Name="TextBoxContextMenuCopyItem"
+                Header="Copy"
+                Command="{Binding $parent[TextBox].Copy}"
+                IsEnabled="{Binding $parent[TextBox].CanCopy}"
+                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
+                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy}" />
 
-        <MenuItem Name="TextBoxContextMenuPasteItem"
-                  Header="Paste"
-                  Command="{Binding $parent[TextBox].Paste}"
-                  IsEnabled="{Binding $parent[TextBox].CanPaste}"
-                  InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
-                  Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste}" />
+      <MenuItem Name="TextBoxContextMenuPasteItem"
+                Header="Paste"
+                Command="{Binding $parent[TextBox].Paste}"
+                IsEnabled="{Binding $parent[TextBox].CanPaste}"
+                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
+                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste}" />
+
+      <Separator />
+
+      <!-- ReSharper disable once MarkupAttributeTypo -->
+      <MenuItem Name="TextBoxContextMenuSelectAllItem"
+                Header="Select All"
+                Command="{Binding $parent[TextBox].SelectAll}"
+                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
+                Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll}" />
+    </ContextMenu>
+
+    <MenuFlyout x:Key="DefaultTextBoxMenuFlyout"
+                Placement="Bottom">
+      <MenuItem Name="TextBoxMenuFlyoutCutItem"
+                Header="Cut"
+                Command="{Binding $parent[TextBox].Cut}"
+                IsEnabled="{Binding $parent[TextBox].CanCut}"
+                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
+                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut}" />
+
+      <MenuItem Name="TextBoxMenuFlyoutCopyItem"
+                Header="Copy"
+                Command="{Binding $parent[TextBox].Copy}"
+                IsEnabled="{Binding $parent[TextBox].CanCopy}"
+                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
+                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy}" />
+
+      <MenuItem Name="TextBoxMenuFlyoutPasteItem"
+                Header="Paste"
+                Command="{Binding $parent[TextBox].Paste}"
+                IsEnabled="{Binding $parent[TextBox].CanPaste}"
+                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
+                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste}" />
 
         <Separator />
 
         <!-- ReSharper disable once MarkupAttributeTypo -->
-        <MenuItem Name="TextBoxContextMenuSelectAllItem"
-                  Header="Select All"
-                  Command="{Binding $parent[TextBox].SelectAll}"
-                  InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
-                  Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll}" />
-    </ContextMenu>
+      <MenuItem Name="TextBoxMenuFlyoutSelectAllItem"
+                Header="Select All"
+                Command="{Binding $parent[TextBox].SelectAll}"
+                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
+                Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll}" />
+    </MenuFlyout>
 
     <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
     <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="8,0" Offset="4,-8"/>
@@ -132,7 +165,7 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-        <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+        <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
         <Setter Property="CaretBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}"/> 
