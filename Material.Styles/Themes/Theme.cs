@@ -1,12 +1,33 @@
 ﻿using System;
 using Avalonia.Media;
+using Avalonia.Styling;
 using Material.Colors;
 using Material.Styles.Themes.Base;
 
 namespace Material.Styles.Themes {
+    /// <summary>
+    /// Specifies a set of colors that should be used for <see cref="MaterialThemeBase"/>
+    /// </summary>
     public class Theme : ITheme {
+        /// <summary>
+        /// Provides a <see cref="BaseThemeMode.Light"/> set of base colors
+        /// </summary>
         public static IBaseTheme Light { get; } = MaterialDesignLightTheme.Instance;
+
+        /// <summary>
+        /// Provides a <see cref="BaseThemeMode.Dark"/> set of base colors
+        /// </summary>
         public static IBaseTheme Dark { get; } = MaterialDesignDarkTheme.Instance;
+
+        /// <summary>
+        /// Use the Light variant of colors
+        /// </summary>
+        public static ThemeVariant MaterialLight { get; } = new(nameof(MaterialLight), ThemeVariant.Light);
+
+        /// <summary>
+        /// Use the Dark variant of colors
+        /// </summary>
+        public static ThemeVariant MaterialDark { get; } = new(nameof(MaterialDark), ThemeVariant.Dark);
 
         public ColorPair SecondaryLight { get; set; }
         public ColorPair SecondaryMid { get; set; }
