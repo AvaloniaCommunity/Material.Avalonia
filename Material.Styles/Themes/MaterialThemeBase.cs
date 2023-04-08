@@ -54,7 +54,7 @@ public class MaterialThemeBase : InternalStylesCollection {
 
     public IObservable<IReadOnlyTheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
 
-    public IObservable<MaterialThemeBase> ThemeChangedObservable =>
+    public IObservable<MaterialThemeBase> ThemeChangedEndObservable =>
         Observable.FromEvent<EventHandler, MaterialThemeBase>(
             conversion => delegate(object sender, EventArgs _) {
                 if (sender is not MaterialThemeBase theme)
@@ -62,8 +62,8 @@ public class MaterialThemeBase : InternalStylesCollection {
 
                 conversion(theme);
             },
-            h => ThemeChanged += h,
-            h => ThemeChanged -= h);
+            h => ThemeChangedEnd += h,
+            h => ThemeChangedEnd -= h);
 
     private static IReadOnlyDictionary<string, Func<IReadOnlyTheme, Color>> UpdatableColors =>
         new Dictionary<string, Func<IReadOnlyTheme, Color>> {
@@ -112,7 +112,7 @@ public class MaterialThemeBase : InternalStylesCollection {
     /// <summary>
     /// This event is raised when all brushes is changed.
     /// </summary>
-    public event EventHandler? ThemeChanged;
+    public event EventHandler? ThemeChangedEnd;
 
     /// <summary>
     /// This method will be called to get the theme that will be applied at the start of the application. 
@@ -166,7 +166,7 @@ public class MaterialThemeBase : InternalStylesCollection {
                 _currentThemeUpdateTask = task;
 
                 await task.ContinueWith(delegate {
-                    ThemeChanged?.Invoke(this, EventArgs.Empty);
+                    ThemeChangedEnd?.Invoke(this, EventArgs.Empty);
                 }, CancellationToken.None);
             }
         });

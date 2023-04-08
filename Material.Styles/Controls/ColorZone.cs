@@ -49,7 +49,7 @@ namespace Material.Styles.Controls {
             DisposeSubscription();
 
             var resources = Application.Current!.LocateMaterialTheme<MaterialTheme>();
-            _subscription = resources.ThemeChangedObservable.Subscribe(OnThemeChanged);
+            _subscription = resources.ThemeChangedEndObservable.Subscribe(OnThemeChanged);
 
             base.OnAttachedToVisualTree(e);
         }
