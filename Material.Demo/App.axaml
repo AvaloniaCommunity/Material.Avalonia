@@ -4,10 +4,8 @@
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              x:Class="Material.Demo.App">
     <Application.Styles>
-        <themes:MaterialTheme BaseTheme="Light"
-                            PrimaryColor="Purple"
-                            SecondaryColor="Indigo" />
-        <!-- <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/Index.axaml"/> -->
+      <themes:MaterialTheme PrimaryColor="Purple" SecondaryColor="Indigo" />
+
         <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
         <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
 
