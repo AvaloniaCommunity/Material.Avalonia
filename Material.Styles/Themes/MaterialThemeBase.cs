@@ -14,7 +14,7 @@ using Avalonia.Threading;
 
 namespace Material.Styles.Themes;
 
-public class MaterialThemeBase : Avalonia.Styling.Styles {
+public class MaterialThemeBase : InternalStylesCollection {
     public static readonly DirectProperty<MaterialThemeBase, IReadOnlyTheme> CurrentThemeProperty =
         AvaloniaProperty.RegisterDirect<MaterialThemeBase, IReadOnlyTheme>(
             nameof(CurrentTheme),
@@ -32,15 +32,6 @@ public class MaterialThemeBase : Avalonia.Styling.Styles {
     /// <param name="serviceProvider">The parent's service provider.</param>
     public MaterialThemeBase(IServiceProvider? serviceProvider) {
         AvaloniaXamlLoader.Load(serviceProvider, this);
-
-        // TODO: Proper implementation of initial theme
-        var initialTheme = ProvideInitialTheme();
-        if (initialTheme != null) {
-            var readOnlyTheme = new ReadOnlyTheme(initialTheme);
-            UpdateSolidColorBrush(null, readOnlyTheme, Resources, InvokeImmediately).Wait();
-            _currentTheme = readOnlyTheme;
-            RaisePropertyChanged(CurrentThemeProperty!, null, readOnlyTheme);
-        }
     }
 
     /// <summary>
@@ -135,6 +126,18 @@ public class MaterialThemeBase : Avalonia.Styling.Styles {
     /// </returns>
     protected virtual ITheme? ProvideInitialTheme() {
         return null;
+    }
+
+    /// <inheritdoc />
+    protected override void OnResourcedAccessed() {
+        var initialTheme = ProvideInitialTheme();
+        if (initialTheme != null) {
+            var newTheme = new ReadOnlyTheme(initialTheme);
+            UpdateSolidColorBrush(null, newTheme, Resources, InvokeImmediately).Wait();
+            var oldTheme = _currentTheme;
+            _currentTheme = newTheme;
+            RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
+        }
     }
 
     private void StartUpdatingTheme(IReadOnlyTheme oldTheme, IReadOnlyTheme newTheme) {

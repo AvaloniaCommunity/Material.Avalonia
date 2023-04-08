@@ -1,14 +1,15 @@
-<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="Material.Styles.Themes.MaterialThemeBase">
-  <Styles.Resources>
+<themes:MaterialThemeBase xmlns="https://github.com/avaloniaui"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:themes="clr-namespace:Material.Styles.Themes"
+                          x:Class="Material.Styles.Themes.MaterialThemeBase">
+  <themes:MaterialThemeBase.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <MergeResourceInclude Source="avares://Material.Styles/Themes/Base/MaterialPredefinedBaseColors.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
-  </Styles.Resources>
+  </themes:MaterialThemeBase.Resources>
 
   <StyleInclude Source="avares://Material.Styles/MaterialToolKit.xaml" />
   <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/Index.axaml" />
-</Styles>
+</themes:MaterialThemeBase>
