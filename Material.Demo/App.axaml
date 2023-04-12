@@ -2,8 +2,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:Class="Material.Demo.App">
-    <Application.Styles>
+  <Application.Resources>
+    <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
+    <system:Double x:Key="ControlContentThemeFontSize">14</system:Double>
+  </Application.Resources>
+  <Application.Styles>
         <themes:MaterialTheme BaseTheme="Light"
                             PrimaryColor="Purple"
                             SecondaryColor="Indigo" />
@@ -11,8 +16,7 @@
         <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
         <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
 
-        <!-- <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml"/> -->
-        <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" />
+        <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml" />
         
         <!-- Patching XamlDisplay -->
         <Style Selector="showMeTheXaml|XamlDisplay">
