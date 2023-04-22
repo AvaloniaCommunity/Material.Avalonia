@@ -5,29 +5,23 @@ using Avalonia.Media;
 using Material.Colors.ColorManipulation;
 using Material.Styles.Themes.Base;
 
-namespace Material.Styles.Themes
-{
-    public static class ThemeExtensions
-    {
-        public static T LocateMaterialTheme<T>(this Application application) where T : MaterialThemeBase
-        {
+namespace Material.Styles.Themes {
+    public static class ThemeExtensions {
+        public static T LocateMaterialTheme<T>(this Application application) where T : MaterialThemeBase {
             var materialTheme = application.Styles.FirstOrDefault(style => style is T);
-            if (materialTheme == null)
-            {
+            if (materialTheme == null) {
                 throw new InvalidOperationException(
                     $"Cannot locate {nameof(T)} in Avalonia application styles. Be sure that you include MaterialTheme in your App.xaml in Application.Styles section");
             }
 
-            return (T) materialTheme;
+            return (T)materialTheme;
         }
 
-        public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode)
-        {
-            return baseThemeMode switch
-            {
+        public static IBaseTheme GetBaseTheme(this BaseThemeMode baseThemeMode) {
+            return baseThemeMode switch {
                 BaseThemeMode.Dark    => Theme.Dark,
                 BaseThemeMode.Light   => Theme.Light,
-                BaseThemeMode.Inherit => (SystemThemeProbe.GetSystemBaseThemeMode() ?? BaseThemeMode.Light).GetBaseTheme(),
+                BaseThemeMode.Inherit => Theme.Light,
                 _                     => throw new InvalidOperationException()
             };
         }
@@ -36,8 +30,7 @@ namespace Material.Styles.Themes
         public static BaseThemeMode GetBaseTheme(this IReadOnlyTheme theme)
             => GetBaseThemeMode(theme);
 
-        public static BaseThemeMode GetBaseThemeMode(this IReadOnlyTheme theme)
-        {
+        public static BaseThemeMode GetBaseThemeMode(this IReadOnlyTheme theme) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             var foreground = theme.Background.PickContrastColor();
@@ -53,18 +46,15 @@ namespace Material.Styles.Themes
         /// <see cref="BaseThemeMode.Light"/> for <see cref="BaseThemeMode.Dark"/> <br/>
         /// Everything else remains unchanged
         /// </returns>
-        public static BaseThemeMode Invert(this BaseThemeMode mode)
-        {
-            return mode switch
-            {
+        public static BaseThemeMode Invert(this BaseThemeMode mode) {
+            return mode switch {
                 BaseThemeMode.Light => BaseThemeMode.Dark,
                 BaseThemeMode.Dark  => BaseThemeMode.Light,
                 _                   => mode
             };
         }
 
-        public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme)
-        {
+        public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.ValidationError = baseTheme.ValidationErrorColor;
@@ -99,8 +89,7 @@ namespace Material.Styles.Themes
             return theme;
         }
 
-        public static ITheme SetPrimaryColor(this ITheme theme, Color primaryColor)
-        {
+        public static ITheme SetPrimaryColor(this ITheme theme, Color primaryColor) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
             theme.PrimaryLight = primaryColor.Lighten();
@@ -110,8 +99,7 @@ namespace Material.Styles.Themes
             return theme;
         }
 
-        public static ITheme SetSecondaryColor(this ITheme theme, Color accentColor)
-        {
+        public static ITheme SetSecondaryColor(this ITheme theme, Color accentColor) {
             if (theme == null) throw new ArgumentNullException(nameof(theme));
             theme.SecondaryLight = accentColor.Lighten();
             theme.SecondaryMid = accentColor;

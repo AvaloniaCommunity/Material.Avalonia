@@ -9,46 +9,31 @@ using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.Threading;
 
 namespace Material.Styles.Themes;
 
-public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
+public class MaterialThemeBase : InternalStylesCollection {
     public static readonly DirectProperty<MaterialThemeBase, IReadOnlyTheme> CurrentThemeProperty =
         AvaloniaProperty.RegisterDirect<MaterialThemeBase, IReadOnlyTheme>(
             nameof(CurrentTheme),
             o => o.CurrentTheme,
             (o, v) => o.CurrentTheme = v);
-    private readonly IStyle _compabilityStyles;
-    private readonly IStyle _controlsStyles;
 
     private CancellationTokenSource? _currentCancellationTokenSource;
 
     private IReadOnlyTheme _currentTheme = new ReadOnlyTheme();
     private Task? _currentThemeUpdateTask;
-    private bool _isLoading;
-    private IStyle? _loaded;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
     /// </summary>
-    /// <param name="baseUri">The base URL for the XAML context.</param>
-    public MaterialThemeBase(Uri baseUri) {
-        _controlsStyles = new StyleInclude(baseUri) { Source = new Uri("avares://Material.Avalonia/Material.Avalonia.Templates.xaml") };
-        _compabilityStyles = new StyleInclude(baseUri) { Source = new Uri("avares://Material.Styles/Resources/Compatibility/Index.axaml") };
+    /// <param name="serviceProvider">The parent's service provider.</param>
+    public MaterialThemeBase(IServiceProvider? serviceProvider) {
+        AvaloniaXamlLoader.Load(serviceProvider, this);
     }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
-    /// </summary>
-    /// <param name="serviceProvider">The XAML service provider.</param>
-    public MaterialThemeBase(IServiceProvider serviceProvider)
-        : this(((IUriContext)serviceProvider.GetService(typeof(IUriContext))).BaseUri) { }
-
-    private IResourceDictionary LoadedResourceDictionary => (_loaded as Avalonia.Styling.Styles)!.Resources;
 
     /// <summary>
     /// Get or set current applied theme
@@ -64,13 +49,13 @@ public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
 
             _currentTheme = newTheme;
             SetAndRaise(CurrentThemeProperty, ref _currentTheme, newTheme);
-            if (!_isLoading) StartUpdatingTheme(oldTheme, newTheme);
+            StartUpdatingTheme(oldTheme, newTheme);
         }
     }
 
     public IObservable<IReadOnlyTheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
 
-    public IObservable<MaterialThemeBase> ThemeChangedObservable =>
+    public IObservable<MaterialThemeBase> ThemeChangedEndObservable =>
         Observable.FromEvent<EventHandler, MaterialThemeBase>(
             conversion => delegate(object sender, EventArgs _) {
                 if (sender is not MaterialThemeBase theme)
@@ -78,37 +63,8 @@ public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
 
                 conversion(theme);
             },
-            h => ThemeChanged += h,
-            h => ThemeChanged -= h);
-
-    /// <summary>
-    /// Gets the loaded style.
-    /// </summary>
-    public IStyle Loaded {
-        get {
-            if (_loaded != null)
-                return _loaded!;
-
-            _isLoading = true;
-
-            _loaded = new Avalonia.Styling.Styles { _controlsStyles, _compabilityStyles };
-
-            var initialTheme = ProvideInitialTheme();
-            if (initialTheme != null) {
-                UpdateSolidColorBrush(null, initialTheme, LoadedResourceDictionary, InvokeAndReturnTask).Wait();
-                CurrentTheme = initialTheme;
-            }
-
-            _isLoading = false;
-
-            return _loaded!;
-
-            Task InvokeAndReturnTask(Action action, DispatcherPriority _) {
-                action();
-                return Task.CompletedTask;
-            }
-        }
-    }
+            h => ThemeChangedEnd += h,
+            h => ThemeChangedEnd -= h);
 
     private static IReadOnlyDictionary<string, Func<IReadOnlyTheme, Color>> UpdatableColors =>
         new Dictionary<string, Func<IReadOnlyTheme, Color>> {
@@ -154,36 +110,10 @@ public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
             { "MaterialDesignDataGridRowHoverBackground", theme => theme.DataGridRowHoverBackground },
         };
 
-    public IResourceHost? Owner => (Loaded as IResourceProvider)?.Owner;
-
-    public event EventHandler? OwnerChanged {
-        add {
-            if (Loaded is IResourceProvider rp) {
-                rp.OwnerChanged += value;
-            }
-        }
-        remove {
-            if (Loaded is IResourceProvider rp) {
-                rp.OwnerChanged -= value;
-            }
-        }
-    }
-
-    void IResourceProvider.AddOwner(IResourceHost owner) => (Loaded as IResourceProvider)?.AddOwner(owner);
-    void IResourceProvider.RemoveOwner(IResourceHost owner) => (Loaded as IResourceProvider)?.RemoveOwner(owner);
-
-    /// <inheritdoc />
-    public bool TryGetResource(object key, ThemeVariant? theme, out object? value) {
-        return _loaded.TryGetResource(key, theme, out value);
-    }
-    bool IResourceNode.HasResources => (Loaded as IResourceProvider)?.HasResources ?? false;
-
-    IReadOnlyList<IStyle> IStyle.Children => _loaded?.Children ?? Array.Empty<IStyle>();
-
     /// <summary>
     /// This event is raised when all brushes is changed.
     /// </summary>
-    public event EventHandler? ThemeChanged;
+    public event EventHandler? ThemeChangedEnd;
 
     /// <summary>
     /// This method will be called to get the theme that will be applied at the start of the application. 
@@ -199,6 +129,19 @@ public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
         return null;
     }
 
+    /// <inheritdoc />
+    protected override void OnResourcedAccessed() {
+        var initialTheme = ProvideInitialTheme();
+        if (initialTheme != null) {
+            var newTheme = new ReadOnlyTheme(initialTheme);
+            var defaultThemeDictionary = (ResourceDictionary)Resources.ThemeDictionaries[ThemeVariant.Default];
+            UpdateSolidColorBrush(null, newTheme, defaultThemeDictionary, InvokeImmediately).Wait();
+            var oldTheme = _currentTheme;
+            _currentTheme = newTheme;
+            RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
+        }
+    }
+
     private void StartUpdatingTheme(IReadOnlyTheme oldTheme, IReadOnlyTheme newTheme) {
         Task.Run(async () => {
             _currentCancellationTokenSource?.Cancel();
@@ -209,13 +152,24 @@ public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
 
             if (_currentThemeUpdateTask != null) await _currentThemeUpdateTask;
             if (!currentToken.IsCancellationRequested) {
-                var task = UpdateSolidColorBrush(oldTheme, newTheme, LoadedResourceDictionary,
-                    Dispatcher.UIThread.InvokeAsync);
+                // If control is not attached to visual tree (is doesn't have Parent)
+                // And we inside a dispatcher thread (since it required for SolidColorBrush creation/changing)
+                // We can just invoke all color changes RIGHT NOW ON CURRENT THREAD
+                // -------------------------------------------------------------------
+                // If we already attached to something (e.g. theme was changed while app is running)
+                // We enqueue everything to dispatcher thread
+                // Cuz if we execute everything RIGHT NOW on dispatcher thread it will cause lag spike
+                // So we changing colors one by one
+                Func<Action, DispatcherPriority, Task> contextSync = Owner is null && Dispatcher.UIThread.CheckAccess()
+                    ? InvokeImmediately
+                    : Dispatcher.UIThread.InvokeAsync;
+                var defaultThemeDictionary = (ResourceDictionary)Resources.ThemeDictionaries[ThemeVariant.Default];
+                var task = UpdateSolidColorBrush(oldTheme, newTheme, defaultThemeDictionary, contextSync);
 
                 _currentThemeUpdateTask = task;
 
                 await task.ContinueWith(delegate {
-                    ThemeChanged?.Invoke(this, EventArgs.Empty);
+                    ThemeChangedEnd?.Invoke(this, EventArgs.Empty);
                 }, CancellationToken.None);
             }
         });
@@ -243,5 +197,10 @@ public class MaterialThemeBase : AvaloniaObject, IStyle, IResourceProvider {
                     resourceDictionary[pair.Key] = new SolidColorBrush(newColor) { Transitions = new Transitions { new ColorTransition { Duration = TimeSpan.FromSeconds(0.35), Easing = new SineEaseOut(), Property = SolidColorBrush.ColorProperty } } };
                 }, DispatcherPriority.Normal);
         }
+    }
+
+    private Task InvokeImmediately(Action action, DispatcherPriority priority = default) {
+        action();
+        return Task.CompletedTask;
     }
 }

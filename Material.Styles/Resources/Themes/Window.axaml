@@ -3,9 +3,9 @@
     <ControlTheme x:Key="{x:Type Window}"
                   TargetType="Window">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-        <Setter Property="TextBox.FontWeight" Value="Regular" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="TextElement.FontWeight" Value="Regular" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel>
