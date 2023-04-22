@@ -59,7 +59,6 @@ namespace Material.Styles.Themes {
                 .Subscribe(_ => CurrentTheme = _theme);
 
             OwnerChanged += OnOwnerChanged;
-            RegisterActualThemeObservable();
         }
 
         public BaseThemeMode BaseTheme {
