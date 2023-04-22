@@ -4,7 +4,7 @@
         xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:assists="clr-namespace:Material.Styles.Assists" >
     <Style Selector="ContextMenu">
-        <Setter Property="WindowManagerAddShadowHint" Value="True" />
+      <Setter Property="WindowManagerAddShadowHint" Value="False" />
         <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
