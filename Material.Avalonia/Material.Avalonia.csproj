@@ -13,20 +13,19 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>FavIcon.png</PackageIcon>
-        <VersionPrefix>3.0.0-avalonia11-preview3</VersionPrefix>
+        <VersionPrefix>3.0.0-avalonia11-preview4</VersionPrefix>
         <PackageReleaseNotes>
           This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
-          - Fixes (adds a workaround) runtime theme changing bug
-          - Add IReadOnlyTheme and change CurrentTheme to use it
-          - Move some styles to ControlTheme
-          - Improve some styles to proper work with Avalonia 11
-          - Make compability styles included by default
-          - Removed default font size for TextBlock to allow customizing it as part of other controls #208 #186
-          - Rework ProgressBar styles, add ShowProgressText support
-          - Fix scroll helper buttons content. #206
-          - Fixes TabControl style to support TabControlAssist.TabHeaderAlignment #203
-          - Rework first MenuItems, fix command execution for empty MenuItems #201, reformat MenuItem.xaml
-          - Fix Ripple effect remains after being simultaneously triggered
+          - Avalonia 11 Preview 6 support
+          - Removes workaround for theme changing
+          - Fixes and reformat sliders #217
+          - Migrate from DirectProperties to StylesProperties in Scroller. Fixes TabControl styles #217
+          - Exclude DatePicker from styles collection
+          - Add Flyout styles, migrate TextBox tooltip to flyout
+          - Make MaterialDesignLightTheme and MaterialDesignDarkTheme internal sealed, rename ThemeChanged to ThemeChangedEnd
+          - Add ActualBaseTheme property to MaterialTheme, allowing to adapt to Application
+          - Removes the shadow hint for ContextMenu. Fixes #219
+          - Add AreVerticalSnapPointsRegular and AreHorizontalSnapPointsRegular for ListBox and ItemsControl templates
         </PackageReleaseNotes>
     </PropertyGroup>
 
