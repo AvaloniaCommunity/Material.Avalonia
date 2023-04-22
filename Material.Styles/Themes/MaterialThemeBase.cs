@@ -10,6 +10,7 @@ using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
+using Avalonia.Styling;
 using Avalonia.Threading;
 
 namespace Material.Styles.Themes;
@@ -133,7 +134,8 @@ public class MaterialThemeBase : InternalStylesCollection {
         var initialTheme = ProvideInitialTheme();
         if (initialTheme != null) {
             var newTheme = new ReadOnlyTheme(initialTheme);
-            UpdateSolidColorBrush(null, newTheme, Resources, InvokeImmediately).Wait();
+            var defaultThemeDictionary = (ResourceDictionary)Resources.ThemeDictionaries[ThemeVariant.Default];
+            UpdateSolidColorBrush(null, newTheme, defaultThemeDictionary, InvokeImmediately).Wait();
             var oldTheme = _currentTheme;
             _currentTheme = newTheme;
             RaisePropertyChanged(CurrentThemeProperty, oldTheme, newTheme);
@@ -161,7 +163,8 @@ public class MaterialThemeBase : InternalStylesCollection {
                 Func<Action, DispatcherPriority, Task> contextSync = Owner is null && Dispatcher.UIThread.CheckAccess()
                     ? InvokeImmediately
                     : Dispatcher.UIThread.InvokeAsync;
-                var task = UpdateSolidColorBrush(oldTheme, newTheme, Resources, contextSync);
+                var defaultThemeDictionary = (ResourceDictionary)Resources.ThemeDictionaries[ThemeVariant.Default];
+                var task = UpdateSolidColorBrush(oldTheme, newTheme, defaultThemeDictionary, contextSync);
 
                 _currentThemeUpdateTask = task;
 

@@ -7,6 +7,10 @@
       <ResourceDictionary.MergedDictionaries>
         <MergeResourceInclude Source="avares://Material.Styles/Themes/Base/MaterialPredefinedBaseColors.axaml" />
       </ResourceDictionary.MergedDictionaries>
+      <ResourceDictionary.ThemeDictionaries>
+        <!-- This dictionary for changeable colors -->
+        <ResourceDictionary x:Key="Default" />
+      </ResourceDictionary.ThemeDictionaries>
     </ResourceDictionary>
   </themes:MaterialThemeBase.Resources>
 
