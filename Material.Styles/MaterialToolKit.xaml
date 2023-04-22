@@ -15,6 +15,7 @@
         <!-- I think what we need to move ripple to this project -->
         <ResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
@@ -72,7 +73,7 @@
   <!-- Buttons -->
 
   <!--<StyleInclude Source="avares://Material.Styles/Button.xaml" /> -->
-  <StyleInclude Source="avares://Material.Styles/ButtonSpinner.xaml" />
+  <!--<StyleInclude Source="avares://Material.Styles/ButtonSpinner.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/ToggleButton.xaml" />  -->
   <!--<StyleInclude Source="avares://Material.Styles/ToggleSwitch.xaml" />-->
 
