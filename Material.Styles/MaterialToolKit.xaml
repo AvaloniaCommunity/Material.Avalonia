@@ -26,6 +26,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Label.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml" />
@@ -103,7 +104,7 @@
   <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
   <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
   <!--<StyleInclude Source="avares://Material.Styles/ItemsControl.xaml" />-->
-  <StyleInclude Source="avares://Material.Styles/Label.axaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/Label.axaml" /> -->
   <!--
 <StyleInclude Source="avares://Material.Styles/ListBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ListBoxItem.xaml" />
