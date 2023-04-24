@@ -14,7 +14,9 @@
     <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
     <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
 
-    <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml" />
+    <!-- Temporary disable AvaloniaEdit styles -->
+    <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" />
+    <!-- <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml" /> -->
 
     <!-- Patching XamlDisplay -->
     <Style Selector="showMeTheXaml|XamlDisplay">

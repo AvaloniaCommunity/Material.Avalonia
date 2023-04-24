@@ -93,7 +93,7 @@
 
                       <ItemsControl Name="ItemsHost"
                                     IsVisible="{TemplateBinding IsExpanded}"
-                                    Items="{TemplateBinding Items}"
+                                    ItemsSource="{TemplateBinding ItemsSource}"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
                     </StackPanel>
                 </Border>

@@ -6,14 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.0-preview6"/>
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.0-preview6"/>
-    <PackageReference Include="Avalonia.Controls.ItemsRepeater" Version="11.0.0-preview6"/>
-    <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview6"/>
-    <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview6"/>
-    <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.0-preview6"/>
+    <PackageReference Include="Avalonia" Version="11.0.0-preview7"/>
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.0-preview7"/>
+    <PackageReference Include="Avalonia.Controls.ItemsRepeater" Version="11.0.0-preview7"/>
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview7"/>
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview7"/>
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.0-preview7"/>
     <PackageReference Include="Material.Icons.Avalonia" Version="2.0.0-preview3"/>
-    <PackageReference Include="DialogHost.Avalonia" Version="0.7.0-preview8"/>
+    <PackageReference Include="DialogHost.Avalonia" Version="0.7.2"/>
     <PackageReference Include="ShowMeTheXaml.Avalonia" Version="1.2.0-avalonia11-preview4"/>
     <PackageReference Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="1.2.0-avalonia11-preview4"/>
     <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="1.2.0-avalonia11-preview4"/>

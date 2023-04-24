@@ -22,7 +22,7 @@
                            Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
 
                 <ItemsControl Name="PART_Fields"
-                              Items="{CompiledBinding TextFields}">
+                              ItemsSource="{CompiledBinding TextFields}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="textField:TextFieldViewModel">
                             <TextBox Name="PART_Field"

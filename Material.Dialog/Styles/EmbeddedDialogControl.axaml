@@ -36,13 +36,13 @@
                             
                             <ItemsControl Name="{x:Static naming:PartNames.PartNeutralButtonPlacement}"
                                           DockPanel.Dock="Left"
-                                          Items="{CompiledBinding NeutralDialogButton}"
+                                          ItemsSource="{CompiledBinding NeutralDialogButton}"
                                           ItemTemplate="{StaticResource DialogButtonTemplate}"
                                           ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
 
                             <ItemsControl Name="{x:Static naming:PartNames.PartButtonPlacement}"
                                           DockPanel.Dock="Right"
-                                          Items="{CompiledBinding DialogButtons}"
+                                          ItemsSource="{CompiledBinding DialogButtons}"
                                           ItemTemplate="{StaticResource DialogButtonTemplate}"
                                           ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
                         </DockPanel>

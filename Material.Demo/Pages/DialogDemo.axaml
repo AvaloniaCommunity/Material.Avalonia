@@ -34,7 +34,7 @@
             <StackPanel Grid.Column="1" >
                 <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
 
-                <ItemsControl Items="{CompiledBinding StandaloneDialogItems}" >
+                <ItemsControl ItemsSource="{CompiledBinding StandaloneDialogItems}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="viewModels:DialogDemoItemViewModel" >
                             <DockPanel Margin="8" >

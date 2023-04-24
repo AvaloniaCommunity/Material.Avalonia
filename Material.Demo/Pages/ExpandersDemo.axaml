@@ -3,8 +3,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
-             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:viewModels="clr-namespace:Material.Demo.ViewModels"
              x:Class="Material.Demo.Pages.ExpandersDemo">
     <UserControl.DataContext>
@@ -14,7 +12,7 @@
     <UserControl.Resources>
         <DataTemplate x:Key="LoremContentTemplate"
                       DataType="viewModels:ExpanderDemoViewModel">
-            <ItemsControl Items="{Binding LoremText}">
+          <ItemsControl ItemsSource="{Binding LoremText}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <TextBlock TextWrapping="Wrap"

@@ -78,49 +78,10 @@
 
                           <ItemsControl Name="ItemsHost"
                                         IsVisible="{TemplateBinding IsExpanded}"
-                                        Items="{TemplateBinding Items}"
+                                        ItemsSource="{TemplateBinding ItemsSource}"
                                         ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </StackPanel>
                     </Border>
-                    
-                    <!-- Margin="16 0 0 0"
-                    <Grid ColumnDefinitions="Auto,Auto,*" RowDefinitions="Auto,Auto,*">
-                        <Rectangle Opacity="0" Fill="Red"
-                                   Grid.RowSpan="3" Grid.ColumnSpan="3" />
-                        <ToggleButton Grid.Row="0" Grid.Column="0" Name="Expander" ClickMode="Press"
-                                      IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
-                                      Classes="MaterialDesignExpandCollapseToggleStyle"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      Margin="8 0 8 0"
-                                      VerticalAlignment="Center" />
-
-                        <Border Name="MouseOverBorder"
-                                Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
-                                IsHitTestVisible="False"
-                                Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
-
-                        <Border Name="SelectedBorder"
-                                Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
-                                IsHitTestVisible="False"
-                                Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
-
-                        <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Name="ContentGrid" Background="Transparent">
-                            <ripple:RippleEffect
-                                RippleFill="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
-                                Focusable="False">
-                                <ContentPresenter Name="PART_Header" Margin="{Binding $parent[TreeViewItem].Padding}"
-                                                  Content="{TemplateBinding Header}" />
-                            </ripple:RippleEffect>
-                        </Grid>
-
-                        <ItemsPresenter Name="ItemsHost"
-                                        Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
-                                        Margin="-16 0 0 0"
-                                        VerticalAlignment="Top"
-                                        IsVisible="{TemplateBinding IsExpanded}"
-                                        Items="{TemplateBinding Items}"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
-                    </Grid>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

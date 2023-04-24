@@ -20,7 +20,7 @@
                     <ItemsControl Name="PART_SnackbarHostItemsContainer"
                                   HorizontalAlignment="{TemplateBinding SnackbarHorizontalAlignment}"
                                   VerticalAlignment="{TemplateBinding SnackbarVerticalAlignment}"
-                                  Items="{CompiledBinding $parent[controls:SnackbarHost].SnackbarModels}">
+                                  ItemsSource="{CompiledBinding $parent[controls:SnackbarHost].SnackbarModels}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <ReversibleStackPanel />

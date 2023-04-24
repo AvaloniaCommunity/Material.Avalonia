@@ -70,9 +70,9 @@
                           VerticalScrollBarVisibility="Visible"
                           HorizontalScrollBarVisibility="Disabled">
                  <StackPanel VerticalAlignment="Top">
-                    <ItemsRepeater Items="{Binding Kinds}"
-                                   ItemTemplate="{StaticResource MaterialIconElementTemplate}"
-                                   HorizontalAlignment="Stretch">
+                   <ItemsRepeater ItemsSource="{Binding Kinds}"
+                                  ItemTemplate="{StaticResource MaterialIconElementTemplate}"
+                                  HorizontalAlignment="Stretch">
                         <ItemsRepeater.Layout>
                             <UniformGridLayout />
                         </ItemsRepeater.Layout>

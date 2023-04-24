@@ -3,8 +3,8 @@
                     xmlns:system="clr-namespace:System;assembly=netstandard"
                     xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
     <DataTemplate x:Key="DataValidationErrorTemplate">
-        <ItemsControl Items="{Binding }"
-                      TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
+      <ItemsControl ItemsSource="{Binding }"
+                    TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
             <ItemsControl.DataTemplates>
                 <DataTemplate DataType="system:Exception">
                     <TextBlock Name="PART_ErrorText"

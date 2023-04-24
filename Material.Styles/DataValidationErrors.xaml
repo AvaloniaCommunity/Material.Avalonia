@@ -4,8 +4,8 @@
         xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
     <Styles.Resources>
         <DataTemplate x:Key="DataValidationErrorTemplate">
-            <ItemsControl Items="{Binding }"
-                          TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
+          <ItemsControl ItemsSource="{Binding }"
+                        TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
                 <ItemsControl.DataTemplates>
                     <DataTemplate DataType="system:Exception">
                         <TextBlock Name="PART_ErrorText"

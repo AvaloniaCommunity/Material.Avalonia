@@ -162,7 +162,7 @@ public class MaterialThemeBase : InternalStylesCollection {
                 // So we changing colors one by one
                 Func<Action, DispatcherPriority, Task> contextSync = Owner is null && Dispatcher.UIThread.CheckAccess()
                     ? InvokeImmediately
-                    : Dispatcher.UIThread.InvokeAsync;
+                    : (action, priority) => Dispatcher.UIThread.InvokeAsync(action, priority).GetTask();
                 var defaultThemeDictionary = (ResourceDictionary)Resources.ThemeDictionaries[ThemeVariant.Default];
                 var task = UpdateSolidColorBrush(oldTheme, newTheme, defaultThemeDictionary, contextSync);
 
