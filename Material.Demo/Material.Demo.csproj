@@ -6,25 +6,23 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.0-preview7"/>
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.0-preview7"/>
-    <PackageReference Include="Avalonia.Controls.ItemsRepeater" Version="11.0.0-preview7"/>
-    <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview7"/>
-    <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview7"/>
-    <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.0-preview7"/>
-    <PackageReference Include="Material.Icons.Avalonia" Version="2.0.0-preview3"/>
-    <PackageReference Include="DialogHost.Avalonia" Version="0.7.2"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia" Version="1.2.0-avalonia11-preview4"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="1.2.0-avalonia11-preview4"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="1.2.0-avalonia11-preview4"/>
+    <PackageReference Include="Avalonia.Controls.DataGrid"/>
+    <PackageReference Include="Avalonia.Controls.ItemsRepeater"/>
+    <PackageReference Include="Avalonia.Desktop"/>
+    <PackageReference Include="Avalonia.Themes.Simple"/>
+    <PackageReference Include="Material.Icons.Avalonia"/>
+    <PackageReference Include="DialogHost.Avalonia"/>
+    <PackageReference Include="ShowMeTheXaml.Avalonia"/>
+    <PackageReference Include="ShowMeTheXaml.Avalonia.AvaloniaEdit"/>
+    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
-    <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
-    <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj" />
+    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj"/>
+    <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj"/>
+    <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Include="Assets\**"/>
   </ItemGroup>
 </Project>

@@ -1,0 +1,29 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <AvaloniaVersion>11.0.0-preview7</AvaloniaVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia"/>
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)"/>
+    <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
+    <PackageVersion Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)"/>
+    <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)"/>
+    <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
+    <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)"/>
+
+    <!--For Material.Styles-->
+    <PackageVersion Include="System.Reactive" Version="5.0.0"/>
+
+    <!--For Material.Demo-->
+    <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.0-preview3"/>
+    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.2"/>
+    <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="1.2.0-avalonia11-preview4"/>
+    <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="1.2.0-avalonia11-preview4"/>
+    <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="1.2.0-avalonia11-preview4"/>
+  </ItemGroup>
+</Project>

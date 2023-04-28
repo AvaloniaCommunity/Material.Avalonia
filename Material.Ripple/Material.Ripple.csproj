@@ -17,14 +17,4 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
   </ItemGroup>
-
-
-  <ItemGroup>
-    <AvaloniaResource Remove="Ripple\RippleEffect\RippleEffect.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.0-preview7"/>
-  </ItemGroup>
-
 </Project>

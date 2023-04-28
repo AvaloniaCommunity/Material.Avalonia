@@ -46,10 +46,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="11.0.0-preview7"/>
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
     </ItemGroup>
 </Project>
