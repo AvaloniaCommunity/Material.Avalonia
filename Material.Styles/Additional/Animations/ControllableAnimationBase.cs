@@ -7,13 +7,11 @@ using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Metadata;
 
-namespace Material.Styles.Additional.Animations
-{
+namespace Material.Styles.Additional.Animations {
     /// <summary>
     ///     Tracks the progress of an animation. This class should act the same as <see cref="Animation" />
     /// </summary>
-    public class ControllableAnimationBase : AvaloniaObject, IAnimation
-    {
+    public class ControllableAnimationBase : AvaloniaObject, IAnimation {
         public static readonly DirectProperty<ControllableAnimationBase, Animation?> AnimationProperty =
             AvaloniaProperty.RegisterDirect<ControllableAnimationBase, Animation?>(
                 nameof(_animation),
@@ -23,19 +21,16 @@ namespace Material.Styles.Additional.Animations
         private Animation? _animation;
 
         [Content]
-        public Animation? Animation
-        {
+        public Animation? Animation {
             get => _animation;
             set => SetAndRaise(AnimationProperty, ref _animation, value);
         }
 
         public virtual IDisposable Apply(Animatable control, IClock? clock, IObservable<bool> match,
-            Action? onComplete = null)
-        {
+                                         Action? onComplete = null) {
             var previous = false;
             var observable = new Subject<bool>();
-            match.Subscribe(b =>
-            {
+            match.Subscribe(b => {
                 OnNext(observable, previous, b);
                 previous = b;
             });
@@ -43,13 +38,21 @@ namespace Material.Styles.Additional.Animations
         }
 
         public virtual Task RunAsync(Animatable control, IClock clock,
-            CancellationToken cancellationToken = default)
-        {
+                                     CancellationToken cancellationToken = default) {
             return Animation?.RunAsync(control, clock, cancellationToken) ?? Task.CompletedTask;
         }
 
-        internal virtual void OnNext(Subject<bool> match, bool previous, bool obj)
-        {
+        /// <summary>
+        /// YEP, I KNOW WHAT I DOING
+        /// </summary>
+        /// <remarks>
+        /// Actually this method here only for avoid IDE's errors about non implemented interface
+        /// </remarks>
+        public void NotClientImplementable() {
+            throw new NotSupportedException();
+        }
+
+        internal virtual void OnNext(Subject<bool> match, bool previous, bool obj) {
             match.OnNext(obj);
         }
     }

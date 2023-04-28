@@ -216,6 +216,16 @@ public abstract class InternalStylesCollection : AvaloniaObject,
         return false;
     }
 
+    /// <summary>
+    /// YEP, I KNOW WHAT I DOING
+    /// </summary>
+    /// <remarks>
+    /// Actually this method here only for avoid IDE's errors about non implemented interface
+    /// </remarks>
+    public void NotClientImplementable() {
+        throw new NotSupportedException();
+    }
+
     private void EnsureCallToOnResourcedAccessed() {
         if (_isResourcedAccessed) return;
         _isResourcedAccessed = true;
