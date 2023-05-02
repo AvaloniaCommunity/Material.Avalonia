@@ -5,13 +5,16 @@
     <Version>1.0.1</Version>
     <AssemblyName>Material.Dialog</AssemblyName>
     <RootNamespace>Material.Dialog</RootNamespace>
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+    <NoWarn>NU5104</NoWarn>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
     <Authors>Larymar,SKProCH,Appleneko2001</Authors>
     <Description>Material.Dialog provide some essential material dialogs for use.</Description>
     <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <LangVersion>8</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,10 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Icons\DialogIconExtension.cs" />
+    <Compile Remove="Icons\DialogIconExtension.cs"/>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
+    <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
   </ItemGroup>
 </Project>

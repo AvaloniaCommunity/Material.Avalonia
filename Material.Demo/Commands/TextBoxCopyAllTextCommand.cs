@@ -6,11 +6,11 @@ using Avalonia.Input.Platform;
 
 namespace Material.Demo.Commands {
     public class TextBoxCopyAllTextCommand : ICommand {
-        public bool CanExecute(object parameter) {
+        public bool CanExecute(object? parameter) {
             return parameter is TextBox;
         }
 
-        public void Execute(object parameter) {
+        public void Execute(object? parameter) {
             if (parameter is not TextBox textBox)
                 return;
 

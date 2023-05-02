@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <NoWarn>NU5104</NoWarn>
 
     <AvaloniaVersion>11.0.999-cibuild0034135-beta</AvaloniaVersion>
   </PropertyGroup>

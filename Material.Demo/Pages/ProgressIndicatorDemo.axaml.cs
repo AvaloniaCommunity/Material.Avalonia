@@ -21,11 +21,11 @@ namespace Material.Demo.Pages {
             this.AttachedToVisualTree += ProgressIndicatorDemo_AttachedToVisualTree;
         }
 
-        private void ProgressIndicatorDemo_AttachedToVisualTree(object sender, VisualTreeAttachmentEventArgs e) {
+        private void ProgressIndicatorDemo_AttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e) {
             timer.Start();
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e) {
+        private void Timer_Elapsed(object? sender, ElapsedEventArgs e) {
             context.Progress = SwitchProgress();
         }
 
@@ -66,7 +66,7 @@ namespace Material.Demo.Pages {
                 }
             }
 
-            public event PropertyChangedEventHandler PropertyChanged;
+            public event PropertyChangedEventHandler? PropertyChanged;
         }
     }
 }
