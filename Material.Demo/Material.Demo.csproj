@@ -4,10 +4,11 @@
     <TargetFramework>net7.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+
+    <AvaloniaVersion>11.0.999-cibuild0034135-beta</AvaloniaVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia.Controls.DataGrid"/>
-    <PackageReference Include="Avalonia.Controls.ItemsRepeater"/>
     <PackageReference Include="Avalonia.Desktop"/>
     <PackageReference Include="Avalonia.Themes.Simple"/>
     <PackageReference Include="Material.Icons.Avalonia"/>
