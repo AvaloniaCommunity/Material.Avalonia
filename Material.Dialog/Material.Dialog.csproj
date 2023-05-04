@@ -7,7 +7,7 @@
     <RootNamespace>Material.Dialog</RootNamespace>
     <LangVersion>8</LangVersion>
     <Nullable>enable</Nullable>
-    <NoWarn>NU5104</NoWarn>
+    <NoWarn>NU5104, NU1507</NoWarn>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <Authors>Larymar,SKProCH,Appleneko2001</Authors>
