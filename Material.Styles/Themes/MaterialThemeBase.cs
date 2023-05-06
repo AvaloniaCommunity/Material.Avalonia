@@ -15,7 +15,7 @@ using Avalonia.Threading;
 
 namespace Material.Styles.Themes;
 
-public class MaterialThemeBase : InternalStylesCollection {
+public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
     public static readonly DirectProperty<MaterialThemeBase, IReadOnlyTheme> CurrentThemeProperty =
         AvaloniaProperty.RegisterDirect<MaterialThemeBase, IReadOnlyTheme>(
             nameof(CurrentTheme),
@@ -26,6 +26,7 @@ public class MaterialThemeBase : InternalStylesCollection {
 
     private IReadOnlyTheme _currentTheme = new ReadOnlyTheme();
     private Task? _currentThemeUpdateTask;
+    private bool _isResourcedAccessed;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
@@ -110,6 +111,15 @@ public class MaterialThemeBase : InternalStylesCollection {
             { "MaterialDesignDataGridRowHoverBackground", theme => theme.DataGridRowHoverBackground },
         };
 
+    bool IResourceNode.TryGetResource(object key, ThemeVariant? theme, out object? value) {
+        if (!_isResourcedAccessed) {
+            _isResourcedAccessed = true;
+            OnResourcedAccessed();
+        }
+
+        return base.TryGetResource(key, theme, out value);
+    }
+
     /// <summary>
     /// This event is raised when all brushes is changed.
     /// </summary>
@@ -129,8 +139,7 @@ public class MaterialThemeBase : InternalStylesCollection {
         return null;
     }
 
-    /// <inheritdoc />
-    protected override void OnResourcedAccessed() {
+    private void OnResourcedAccessed() {
         var initialTheme = ProvideInitialTheme();
         if (initialTheme != null) {
             var newTheme = new ReadOnlyTheme(initialTheme);
