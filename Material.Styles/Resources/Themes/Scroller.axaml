@@ -15,18 +15,11 @@
             <ControlTemplate>
                 <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
                     <ScrollContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                                            CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
-                                            CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}"
-                                            Content="{TemplateBinding Content}"
-                                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                                            Extent="{TemplateBinding Extent, Mode=TwoWay}"
-                                            Margin="{TemplateBinding Padding}"
-                                            Offset="{TemplateBinding Offset, Mode=TwoWay}"
-                                            Viewport="{TemplateBinding Viewport, Mode=TwoWay}">
+                                            Padding="{TemplateBinding Padding}">
                         <ScrollContentPresenter.GestureRecognizers>
                             <ScrollGestureRecognizer
-                                CanHorizontallyScroll="{TemplateBinding CanHorizontallyScroll}"
-                                CanVerticallyScroll="{TemplateBinding CanVerticallyScroll}" />
+                              CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                              CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}" />
                         </ScrollContentPresenter.GestureRecognizers>
                     </ScrollContentPresenter>
                     
