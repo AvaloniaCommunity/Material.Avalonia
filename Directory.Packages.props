@@ -22,7 +22,7 @@
 
     <!--For Material.Demo-->
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.0-preview3"/>
-    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.2"/>
+    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.3"/>
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="1.2.0-avalonia11-preview4"/>
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="1.2.0-avalonia11-preview4"/>
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="1.2.0-avalonia11-preview4"/>
