@@ -16,4 +16,5 @@
     <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/SliderClasses.axaml"/>
     <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TabControlClasses.axaml"/>
     <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ProgressBarClasses.axaml"/>
+    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/SeparatorClasses.axaml"/>
 </Styles>

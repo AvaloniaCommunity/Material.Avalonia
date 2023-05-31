@@ -20,6 +20,11 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentControl.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentExpandControl.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/EmbeddableControlRoot.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FlyoutPresenter.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/GridSplitter.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ItemsControl.axaml" />
 
@@ -28,6 +33,11 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Label.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NativeMenuBar.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/OverlayPopupHost.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PopupRoot.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml" />
@@ -37,6 +47,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
 
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Separator.axaml" />
 
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
@@ -91,18 +102,18 @@
   <!--<StyleInclude Source="avares://Material.Styles/CheckBox.xaml" />-->
   <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" />
   <StyleInclude Source="avares://Material.Styles/ComboBoxItem.xaml" />
-  <StyleInclude Source="avares://Material.Styles/ContentControl.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/ContentControl.xaml" /> -->
 
-  <StyleInclude Source="avares://Material.Styles/ContentExpandControl.axaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/ContentExpandControl.axaml" /> -->
 
   <StyleInclude Source="avares://Material.Styles/ContextMenu.xaml" />
   <!-- <StyleInclude Source="avares://Material.Styles/DataValidationErrors.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/DatePicker.xaml" /> -->
-  <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" /> -->
 
   <StyleInclude Source="avares://Material.Styles/FlyoutPresenter.axaml" />
   <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
-  <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/ItemsControl.xaml" />-->
   <!-- <StyleInclude Source="avares://Material.Styles/Label.axaml" /> -->
   <!--
@@ -111,14 +122,14 @@
 -->
   <StyleInclude Source="avares://Material.Styles/Menu.xaml" />
   <StyleInclude Source="avares://Material.Styles/MenuItem.xaml" />
-  <StyleInclude Source="avares://Material.Styles/NativeMenuBar.xaml" />
-  <StyleInclude Source="avares://Material.Styles/NotificationCard.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/NativeMenuBar.xaml" /> -->
+  <!-- <StyleInclude Source="avares://Material.Styles/NotificationCard.xaml" /> -->
   <StyleInclude Source="avares://Material.Styles/NumericUpDown.xaml" />
-  <StyleInclude Source="avares://Material.Styles/OverlayPopupHost.xaml" />
-  <StyleInclude Source="avares://Material.Styles/PopupRoot.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/OverlayPopupHost.xaml" /> -->
+  <!-- <StyleInclude Source="avares://Material.Styles/PopupRoot.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/ProgressBar.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/ScrollBar.xaml" /> -->
-  <StyleInclude Source="avares://Material.Styles/Separator.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/Separator.xaml" /> -->
 
   <StyleInclude Source="avares://Material.Styles/SplitView.xaml" />
   <!-- <StyleInclude Source="avares://Material.Styles/TabControl.xaml" /> -->
