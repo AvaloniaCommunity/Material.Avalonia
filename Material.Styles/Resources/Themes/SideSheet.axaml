@@ -1,0 +1,195 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+  <Design.PreviewWith>
+    <Border Margin="40" BorderThickness="1" BorderBrush="Black">
+      <StackPanel Orientation="Horizontal">
+        <Border>
+          <StackPanel>
+
+            <controls:SideSheet Width="400" Height="200"
+                                SideSheetDirection="Left"
+                                SideSheetOpened="{Binding ElementName=LeftToggler, Path=IsChecked, Mode=TwoWay}"
+                                SideSheetHeader="Left side sheet"
+                                Padding="8">
+              <controls:SideSheet.SideSheetContent>
+                <StackPanel>
+                  <Button Content="Test 1" />
+                  <Button Content="Test 2" />
+                </StackPanel>
+              </controls:SideSheet.SideSheetContent>
+              <controls:Card>
+                <ToggleSwitch Name="LeftToggler" IsChecked="True" />
+              </controls:Card>
+            </controls:SideSheet>
+          </StackPanel>
+        </Border>
+        <Border>
+          <StackPanel>
+            <controls:SideSheet Width="400" Height="200"
+                                SideSheetOpened="{Binding ElementName=toggler, Path=IsChecked, Mode=TwoWay}"
+                                SideSheetHeader="Right side sheet"
+                                Padding="8">
+              <controls:SideSheet.SideSheetContent>
+                <StackPanel>
+                  <Button Content="Test 1" />
+                  <Button Content="Test 2" />
+                </StackPanel>
+              </controls:SideSheet.SideSheetContent>
+              <controls:Card>
+                <ToggleSwitch Name="toggler" IsChecked="True" HorizontalAlignment="Right" />
+              </controls:Card>
+            </controls:SideSheet>
+          </StackPanel>
+        </Border>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <SineEaseInOut x:Key="EasingConstant" />
+  <parameters:MarginMultiplyParameter x:Key="LeftMarginCreatorParam" LeftMultiplier="-1" />
+  <parameters:MarginMultiplyParameter x:Key="RightMarginCreatorParam" RightMultiplier="-1" />
+  <converters:MarginMultiplyConverter x:Key="MarginCreator" />
+
+  <!-- SideSheet (desktop variant) -->
+  <ControlTheme x:Key="{x:Type controls:SideSheet}" TargetType="controls:SideSheet">
+    <Setter Property="SideSheetWidth" Value="320" />
+    <Setter Property="SideSheetPadding" Value="16" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="SideSheetDirection" Value="Right" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="SideSheetHeaderTemplate">
+      <DataTemplate>
+        <TextBlock Classes="Headline6" Text="{Binding}" />
+      </DataTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder" ClipToBounds="False"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}">
+          <DockPanel HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch">
+            <Border Name="PART_SideSheet"
+                    Width="{TemplateBinding SideSheetWidth}"
+                    Padding="{TemplateBinding SideSheetPadding}">
+              <StackPanel Name="PART_SideSheetPanel">
+                <DockPanel Name="PART_HeaderPanel">
+                  <Button Name="PART_CloseButton" DockPanel.Dock="Right" Classes="icon"
+                          IsVisible="{TemplateBinding SideSheetCanClose}">
+                    <controls:MaterialInternalIcon Name="PART_Icon" Kind="Close" />
+                  </Button>
+                  <ContentPresenter Name="PART_HeaderContentPresenter" DockPanel.Dock="Left"
+                                    Content="{TemplateBinding SideSheetHeader, Mode=OneWay}"
+                                    ContentTemplate="{TemplateBinding SideSheetHeaderTemplate}" />
+                </DockPanel>
+                <ContentPresenter Name="PART_SideContentPresenter"
+                                  Content="{TemplateBinding SideSheetContent}"
+                                  ContentTemplate="{TemplateBinding SideSheetContentTemplate}"
+                                  IsEnabled="{TemplateBinding SideSheetOpened}" />
+              </StackPanel>
+            </Border>
+            <Panel Name="PART_ContentPanel">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+              <Border Name="PART_Scrim"
+                      Background="Black"
+                      IsHitTestVisible="{TemplateBinding SideSheetOpened}"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch" />
+            </Panel>
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="controls|SideSheet:not(.no-transitions) /template/ Border#PART_Scrim">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Duration="0:0:0.3" Property="Opacity" Easing="{StaticResource EasingConstant}" />
+        </Transitions>
+      </Setter>
+    </Style>
+
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_SideSheet">
+      <Setter Property="Transitions">
+        <Transitions>
+          <ThicknessTransition Duration="0:0:0.3" Property="Margin" Easing="{StaticResource EasingConstant}" />
+        </Transitions>
+      </Setter>
+    </Style>
+
+    <Style Selector="^ /template/ Border#PART_Scrim">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+
+    <Style Selector="^:left:closed /template/ Border#PART_SideSheet">
+      <Setter Property="Margin"
+              Value="{Binding $self.Width, 
+                Converter={StaticResource MarginCreator}, 
+                ConverterParameter={StaticResource LeftMarginCreatorParam}}" />
+    </Style>
+
+    <Style Selector="^:left /template/ Border#PART_ContentPanel">
+      <Setter Property="DockPanel.Dock" Value="Left" />
+    </Style>
+
+    <Style Selector="^:right:closed /template/ Border#PART_SideSheet">
+      <Setter Property="Margin"
+              Value="{Binding $self.Width, 
+                Converter={StaticResource MarginCreator}, 
+                ConverterParameter={StaticResource RightMarginCreatorParam}}" />
+    </Style>
+
+    <Style Selector="^:right /template/ Border#PART_ContentPanel">
+      <Setter Property="DockPanel.Dock" Value="Right" />
+    </Style>
+
+    <!-- Desktop mode should disable the scrim part -->
+    <Style Selector="^:not(:mobile) /template/ Border#PART_Scrim">
+      <Setter Property="IsEnabled" Value="False" />
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^:not(:mobile) /template/ Border#PART_SideSheet">
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+    </Style>
+
+    <Style Selector="^:left:not(:mobile) /template/ Border#PART_SideSheet">
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+      <Setter Property="DockPanel.Dock" Value="Left" />
+    </Style>
+
+    <Style Selector="^:right:not(:mobile) /template/ Border#PART_SideSheet">
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+      <Setter Property="DockPanel.Dock" Value="Right" />
+    </Style>
+
+    <Style Selector="^:open /template/ Border#PART_Scrim">
+      <Setter Property="Opacity" Value="0.32" />
+    </Style>
+
+    <Style
+      Selector="^ /template/ StackPanel#PART_SideSheetPanel > DockPanel#PART_HeaderPanel > Button#PART_CloseButton.Icon">
+      <Setter Property="Height" Value="36" />
+      <Setter Property="Width" Value="36" />
+      <Setter Property="Margin" Value="-6" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    </Style>
+
+    <Style
+      Selector="^ /template/ StackPanel#PART_SideSheetPanel > DockPanel#PART_HeaderPanel > Button#PART_CloseButton > controls|MaterialInternalIcon#PART_Icon">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Width" Value="24" />
+    </Style>
+    <Style
+      Selector="^ /template/ StackPanel#PART_SideSheetPanel > ContentPresenter#PART_SideContentPresenter">
+      <Setter Property="Margin" Value="0,5,0,0" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

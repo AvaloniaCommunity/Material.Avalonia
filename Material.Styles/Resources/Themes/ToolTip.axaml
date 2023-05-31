@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple" >
+  <ControlTheme x:Key="{x:Type ToolTip}" TargetType="ToolTip">
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialDesignToolTipBackground}" />
+    <Setter Property="Margin" Value="0,8"/>
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="Placement" Value="Pointer" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate>
+          <Border Background="{TemplateBinding Background}" CornerRadius="4" 
+                  Margin="{TemplateBinding Margin}">
+            <ContentPresenter Name="ContentPresenter"
+                              Margin="{TemplateBinding Padding}"
+                              Content="{TemplateBinding ContentControl.Content}"
+                              ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" />
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>
