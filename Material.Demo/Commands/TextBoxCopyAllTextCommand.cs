@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Input.Platform;
 
 namespace Material.Demo.Commands {
     public class TextBoxCopyAllTextCommand : ICommand {
@@ -14,7 +12,7 @@ namespace Material.Demo.Commands {
             if (parameter is not TextBox textBox)
                 return;
 
-            AvaloniaLocator.Current.GetService<IClipboard>()?.SetTextAsync(textBox.Text);
+            TopLevel.GetTopLevel(textBox)?.Clipboard?.SetTextAsync(textBox.Text);
         }
 
         public event EventHandler? CanExecuteChanged;

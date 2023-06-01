@@ -3,8 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Avalonia;
-using Avalonia.Input.Platform;
+using Avalonia.Controls;
 using Avalonia.Threading;
 using Material.Demo.Models;
 using Material.Icons;
@@ -25,7 +24,7 @@ namespace Material.Demo.ViewModels {
                     .ToList());
 
             CopyToClipboardCommand = new RelayCommand(o =>
-                AvaloniaLocator.Current.GetService<IClipboard>()?.SetTextAsync($"<avalonia:MaterialIcon Kind=\"{o}\" />"));
+                (o as TopLevel)?.Clipboard?.SetTextAsync($"<avalonia:MaterialIcon Kind=\"{o}\" />"));
 
             SearchCommand = new RelayCommand(DoSearchAsync);
         }

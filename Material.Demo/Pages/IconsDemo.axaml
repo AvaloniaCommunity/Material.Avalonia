@@ -140,7 +140,7 @@
                         <Button Width="{Binding $self.Bounds.Height}"
                                 Foreground="{DynamicResource MaterialDesignCardBackground}"
                                 Classes="flat" Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
-                                CommandParameter="{Binding SelectedGroup.Kind, FallbackValue='{x:Null}'}" CornerRadius="0">
+                                CommandParameter="{Binding $parent[TopLevel]}" CornerRadius="0">
                             <avalonia:MaterialIcon Kind="ContentCopy" Width="20" Height="20"/>
                         </Button>
                     </TextBox.InnerRightContent>
