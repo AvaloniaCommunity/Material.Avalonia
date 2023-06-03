@@ -355,7 +355,7 @@ namespace Material.Styles.Controls {
             Offset = new Vector(double.NegativeInfinity, double.PositiveInfinity);
         }
 
-        protected override bool RegisterContentPresenter(IContentPresenter presenter) {
+        protected override bool RegisterContentPresenter(ContentPresenter presenter) {
             _childSubscription?.Dispose();
             _childSubscription = null;
 

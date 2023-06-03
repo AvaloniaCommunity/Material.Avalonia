@@ -121,11 +121,8 @@ namespace Material.Demo.ViewModels
 
         private async IAsyncEnumerable<string> Dialog4()
         {
-            // Get AssetLoader service
-            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-
             // Open asset stream using assets.Open method.
-            await using var icon = assets?.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
+            await using var icon = AssetLoader.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
 
             var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams
             {

@@ -108,7 +108,7 @@
       </ControlTemplate>
     </Setter>
 
-    <Style Selector="controls|SideSheet:not(.no-transitions) /template/ Border#PART_Scrim">
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_Scrim">
       <Setter Property="Transitions">
         <Transitions>
           <DoubleTransition Duration="0:0:0.3" Property="Opacity" Easing="{StaticResource EasingConstant}" />

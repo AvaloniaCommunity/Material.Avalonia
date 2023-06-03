@@ -3,6 +3,7 @@
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              x:Class="Material.Demo.App">
   <Application.Resources>
     <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
@@ -10,7 +11,7 @@
   <Application.Styles>
     <themes:MaterialTheme PrimaryColor="Purple" SecondaryColor="Indigo" />
 
-    <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
+    <avalonia:MaterialIconStyles />
     <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
     <dialogHostAvalonia:DialogHostStyles />
 

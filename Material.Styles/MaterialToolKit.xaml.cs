@@ -1,17 +1,13 @@
-using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Markup.Xaml;
-using Material.Styles.Additional;
 
-namespace Material.Styles
-{
-    public class MaterialToolKit : Avalonia.Styling.Styles
-    {
-        public MaterialToolKit()
-        {
+namespace Material.Styles {
+    public class MaterialToolKit : Avalonia.Styling.Styles {
+        public MaterialToolKit() {
             AvaloniaXamlLoader.Load(this);
-            Animation.RegisterAnimator<RelativePointAnimator>(property =>
-                typeof(RelativePoint).IsAssignableFrom(property.PropertyType));
+
+            // TODO: Next Avalonia release - register animator missing https://github.com/AvaloniaUI/Avalonia/issues/11594
+            // Animation.RegisterAnimator<RelativePointAnimator>(property =>
+            //     typeof(RelativePoint).IsAssignableFrom(property.PropertyType));
         }
     }
 }

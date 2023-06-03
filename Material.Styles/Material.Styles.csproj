@@ -32,4 +32,8 @@
     <PackageReference Include="System.Reactive"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <AvaloniaXaml Remove="Resources\Themes\WindowNotificationManager.axaml"/>
+  </ItemGroup>
+
 </Project>

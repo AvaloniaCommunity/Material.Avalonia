@@ -7,38 +7,33 @@ using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Threading;
 
-namespace Material.Ripple
-{
-    public class RippleEffect : ContentControl
-    {
-        public bool UseTransitions
-        {
-            get => GetValue(UseTransitionsProperty);
-            set => SetValue(UseTransitionsProperty, value);
-        }
-        
+namespace Material.Ripple {
+    public class RippleEffect : ContentControl {
         public static readonly StyledProperty<bool> UseTransitionsProperty =
             AvaloniaProperty.Register<RippleEffect, bool>(nameof(UseTransitions));
-        
-        // ReSharper disable once InconsistentNaming
-        private Canvas PART_RippleCanvasRoot;
+        private bool _isCancelled;
 
         private Ripple _last;
         private byte _pointers;
-        private bool _isCancelled;
 
-        public RippleEffect()
-        {
+        // ReSharper disable once InconsistentNaming
+        private Canvas PART_RippleCanvasRoot;
+
+        public RippleEffect() {
             AddHandler(LostFocusEvent, LostFocusHandler);
             AddHandler(PointerReleasedEvent, PointerReleasedHandler);
             AddHandler(PointerPressedEvent, PointerPressedHandler);
             AddHandler(PointerCaptureLostEvent, PointerCaptureLostHandler);
         }
 
+        public bool UseTransitions {
+            get => GetValue(UseTransitionsProperty);
+            set => SetValue(UseTransitionsProperty, value);
+        }
+
         private void PointerPressedHandler(object sender, PointerPressedEventArgs e) {
             _isCancelled = false;
-            Dispatcher.UIThread.InvokeAsync(delegate
-            {
+            Dispatcher.UIThread.InvokeAsync(delegate {
                 if (!IsAllowedRaiseRipple)
                     return;
 
@@ -56,7 +51,7 @@ namespace Material.Ripple
                 if (_isCancelled) {
                     RemoveLastRipple();
                 }
-            }, DispatcherPriority.Composition);
+            }, DispatcherPriority.Render);
         }
 
         private void LostFocusHandler(object sender, RoutedEventArgs e) {
@@ -74,8 +69,7 @@ namespace Material.Ripple
             RemoveLastRipple();
         }
 
-        private void RemoveLastRipple()
-        {
+        private void RemoveLastRipple() {
             if (_last == null)
                 return;
 
@@ -87,36 +81,31 @@ namespace Material.Ripple
             _last = null;
         }
 
-        private void OnReleaseHandler(Ripple r)
-        {
+        private void OnReleaseHandler(Ripple r) {
             // Fade out ripple
             r.RunSecondStep();
 
-            void RemoveRippleTask(Task arg1, object arg2)
-            {
-                Dispatcher.UIThread.InvokeAsync(delegate { PART_RippleCanvasRoot.Children.Remove(r); }, DispatcherPriority.Composition);
+            void RemoveRippleTask(Task arg1, object arg2) {
+                Dispatcher.UIThread.InvokeAsync(delegate { PART_RippleCanvasRoot.Children.Remove(r); }, DispatcherPriority.Render);
             }
 
             // Remove ripple from canvas to finalize ripple instance
             Task.Delay(Ripple.Duration).ContinueWith(RemoveRippleTask, null);
         }
 
-        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
-        {
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
             base.OnApplyTemplate(e);
 
             // Find canvas host
             PART_RippleCanvasRoot = e.NameScope.Find<Canvas>(nameof(PART_RippleCanvasRoot));
         }
 
-        private Ripple CreateRipple(PointerPressedEventArgs e, bool center)
-        {
+        private Ripple CreateRipple(PointerPressedEventArgs e, bool center) {
             var w = Bounds.Width;
             var h = Bounds.Height;
             var t = UseTransitions;
 
-            var r = new Ripple(w, h, t)
-            {
+            var r = new Ripple(w, h, t) {
                 Fill = RippleFill
             };
 
@@ -131,8 +120,7 @@ namespace Material.Ripple
         public static readonly StyledProperty<IBrush> RippleFillProperty =
             AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), inherits: true);
 
-        public IBrush RippleFill
-        {
+        public IBrush RippleFill {
             get => GetValue(RippleFillProperty);
             set => SetValue(RippleFillProperty, value);
         }
@@ -140,8 +128,7 @@ namespace Material.Ripple
         public static readonly StyledProperty<double> RippleOpacityProperty =
             AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), inherits: true);
 
-        public double RippleOpacity
-        {
+        public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
             set => SetValue(RippleOpacityProperty, value);
         }
@@ -149,8 +136,7 @@ namespace Material.Ripple
         public static readonly StyledProperty<bool> RaiseRippleCenterProperty =
             AvaloniaProperty.Register<RippleEffect, bool>(nameof(RaiseRippleCenter));
 
-        public bool RaiseRippleCenter
-        {
+        public bool RaiseRippleCenter {
             get => GetValue(RaiseRippleCenterProperty);
             set => SetValue(RaiseRippleCenterProperty, value);
         }
@@ -158,8 +144,7 @@ namespace Material.Ripple
         public static readonly StyledProperty<bool> IsAllowedRaiseRippleProperty =
             AvaloniaProperty.Register<RippleEffect, bool>(nameof(IsAllowedRaiseRipple));
 
-        public bool IsAllowedRaiseRipple
-        {
+        public bool IsAllowedRaiseRipple {
             get => GetValue(IsAllowedRaiseRippleProperty);
             set => SetValue(IsAllowedRaiseRippleProperty, value);
         }
