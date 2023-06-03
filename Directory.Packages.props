@@ -3,9 +3,8 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <AvaloniaVersion>11.0.0-rc1.1</AvaloniaVersion>
-    <ShowMeTheXamlVersion>1.2.0-avalonia11-preview6</ShowMeTheXamlVersion>
+    <ShowMeTheXamlVersion>1.2.0-avalonia11-preview7</ShowMeTheXamlVersion>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Avalonia"/>
   </ItemGroup>
@@ -16,13 +15,11 @@
     <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)"/>
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)"/>
-
     <!--For Material.Styles-->
-    <PackageVersion Include="System.Reactive" Version="5.0.0"/>
-
+    <PackageVersion Include="System.Reactive" Version="6.0.0"/>
     <!--For Material.Demo-->
-    <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.0-preview3"/>
-    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.3"/>
+    <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1"/>
+    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.4"/>
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)"/>
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)"/>
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)"/>
