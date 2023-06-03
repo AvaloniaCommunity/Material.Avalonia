@@ -1,6 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:controls="clr-namespace:Material.Styles.Controls"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
         xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
@@ -61,20 +60,20 @@
     <Style Selector="ProgressBar[IsVisible=true]:not(.circular):not(.no-transitions,
     .material-slider-track-bar-v2) /template/ Panel#PART_RootPanel">
         <Style.Animations>
-            <animations:BeginAnimation>
-                <Animation Duration="0:0:1" FillMode="Both" Easing="CubicEaseOut">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="0" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="1" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
-                    </KeyFrame>
-                </Animation>
-            </animations:BeginAnimation>
+          <!-- <animations:BeginAnimation> -->
+          <!--     <Animation Duration="0:0:1" FillMode="Both" Easing="CubicEaseOut"> -->
+          <!--         <KeyFrame Cue="0%"> -->
+          <!--             <Setter Property="Opacity" Value="0" /> -->
+          <!--             <Setter Property="ScaleTransform.ScaleX" Value="0" /> -->
+          <!--             <Setter Property="ScaleTransform.ScaleY" Value="0" /> -->
+          <!--         </KeyFrame> -->
+          <!--         <KeyFrame Cue="100%"> -->
+          <!--             <Setter Property="Opacity" Value="1" /> -->
+          <!--             <Setter Property="ScaleTransform.ScaleX" Value="1" /> -->
+          <!--             <Setter Property="ScaleTransform.ScaleY" Value="1" /> -->
+          <!--         </KeyFrame> -->
+          <!--     </Animation> -->
+          <!-- </animations:BeginAnimation> -->
         </Style.Animations>
     </Style>
 
@@ -285,7 +284,7 @@
                             <Viewbox Name="PART_ProgressText" MaxHeight="50"
                                      VerticalAlignment="Center" HorizontalAlignment="Center"
                                      Margin="4">
-                              <TextBlock Text="{Binding $parent[ProgressBar].Value}"></TextBlock>
+                              <TextBlock Text="{Binding $parent[ProgressBar].Value}" />
                             </Viewbox>
 
                             <!-- create a dummy indicator to avoid avaloniaUI crash -->
@@ -300,7 +299,7 @@
     </Style>
     
     <Style Selector="ProgressBar[ShowProgressText=False].circular /template/ Viewbox#PART_ProgressText">
-      <Setter Property="IsVisible" Value="False"></Setter>
+      <Setter Property="IsVisible" Value="False" />
     </Style>
 
     <Style Selector="ProgressBar.circular /template/ Arc#PART_Animation">
