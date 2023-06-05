@@ -37,6 +37,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NativeMenuBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NumericUpDown.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/OverlayPopupHost.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PopupRoot.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
@@ -129,7 +130,7 @@
   <StyleInclude Source="avares://Material.Styles/MenuItem.xaml" />
   <!-- <StyleInclude Source="avares://Material.Styles/NativeMenuBar.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/NotificationCard.xaml" /> -->
-  <StyleInclude Source="avares://Material.Styles/NumericUpDown.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/NumericUpDown.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/OverlayPopupHost.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/PopupRoot.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/ProgressBar.xaml" /> -->
