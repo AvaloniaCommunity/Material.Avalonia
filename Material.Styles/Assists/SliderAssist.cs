@@ -1,8 +1,10 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 
-namespace Material.Styles.Assists {
-    public static class SliderAssist {
+namespace Material.Styles.Assists
+{
+    public static class SliderAssist
+    {
         private static readonly double DefaultThicknessTick = 1.0;
 
         #region AttachedProperty
@@ -11,13 +13,11 @@ namespace Material.Styles.Assists {
             AvaloniaProperty.RegisterAttached<Slider, double?>(
                 "ThicknessTick", typeof(SliderAssist), DefaultThicknessTick, true);
 
-        public static double? GetThicknessTick(AvaloniaObject element) {
-            return element.GetValue<double?>(ThicknessTickProperty);
-        }
+        public static double? GetThicknessTick(AvaloniaObject element) =>
+            element.GetValue<double?>(ThicknessTickProperty);
 
-        public static void SetThicknessTick(AvaloniaObject element, double? value) {
+        public static void SetThicknessTick(AvaloniaObject element, double? value) =>
             element.SetValue(ThicknessTickProperty, value);
-        }
 
         #endregion
     }

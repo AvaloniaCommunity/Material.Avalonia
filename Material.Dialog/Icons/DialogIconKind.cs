@@ -1,5 +1,7 @@
-﻿namespace Material.Dialog.Icons {
-    public enum DialogIconKind {
+﻿namespace Material.Dialog.Icons
+{
+    public enum DialogIconKind
+    {
         Error,
         Success,
         Info,

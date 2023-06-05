@@ -1,54 +1,54 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>8</LangVersion>
-        <Nullable>enable</Nullable>
-        <NoWarn>NU5104, NU1507</NoWarn>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+    <NoWarn>NU5104, NU1507</NoWarn>
 
-        <Title>Material.Avalonia</Title>
-        <Authors>Larymar,SKProCH,Appleneko2001</Authors>
-        <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
-        <PackageProjectUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageTags>avalonia xaml material design theme colour color ui ux material-design google-material</PackageTags>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageIcon>FavIcon.png</PackageIcon>
-        <VersionPrefix>3.0.0-avalonia11-preview4</VersionPrefix>
-        <PackageReleaseNotes>
-            This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
-            - Avalonia 11 Preview 6 support
-            - Removes workaround for theme changing
-            - Fixes and reformat sliders #217
-            - Migrate from DirectProperties to StylesProperties in Scroller. Fixes TabControl styles #217
-            - Exclude DatePicker from styles collection
-            - Add Flyout styles, migrate TextBox tooltip to flyout
-            - Make MaterialDesignLightTheme and MaterialDesignDarkTheme internal sealed, rename ThemeChanged to ThemeChangedEnd
-            - Add ActualBaseTheme property to MaterialTheme, allowing to adapt to Application
-            - Removes the shadow hint for ContextMenu. Fixes #219
-            - Add AreVerticalSnapPointsRegular and AreHorizontalSnapPointsRegular for ListBox and ItemsControl templates
-        </PackageReleaseNotes>
-    </PropertyGroup>
+    <Title>Material.Avalonia</Title>
+    <Authors>Larymar,SKProCH,Appleneko2001</Authors>
+    <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
+    <PackageProjectUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>avalonia xaml material design theme colour color ui ux material-design google-material</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>FavIcon.png</PackageIcon>
+    <VersionPrefix>3.0.0-avalonia11-preview4</VersionPrefix>
+    <PackageReleaseNotes>
+      This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
+      - Avalonia 11 Preview 6 support
+      - Removes workaround for theme changing
+      - Fixes and reformat sliders #217
+      - Migrate from DirectProperties to StylesProperties in Scroller. Fixes TabControl styles #217
+      - Exclude DatePicker from styles collection
+      - Add Flyout styles, migrate TextBox tooltip to flyout
+      - Make MaterialDesignLightTheme and MaterialDesignDarkTheme internal sealed, rename ThemeChanged to ThemeChangedEnd
+      - Add ActualBaseTheme property to MaterialTheme, allowing to adapt to Application
+      - Removes the shadow hint for ContextMenu. Fixes #219
+      - Add AreVerticalSnapPointsRegular and AreHorizontalSnapPointsRegular for ListBox and ItemsControl templates
+    </PackageReleaseNotes>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <None Include="../README.md" Pack="true" PackagePath="/"/>
-        <None Include="../wiki/FavIcon.png" Pack="true" PackagePath="/"/>
-    </ItemGroup>
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="/"/>
+    <None Include="../wiki/FavIcon.png" Pack="true" PackagePath="/"/>
+  </ItemGroup>
 
-    <!--For nightly versions-->
-    <PropertyGroup>
-        <Version Condition="'$(PatchNumber)' != ''">$(VersionPrefix).$(PatchNumber)</Version>
-    </PropertyGroup>
+  <!--For nightly versions-->
+  <PropertyGroup>
+    <Version Condition="'$(PatchNumber)' != ''">$(VersionPrefix).$(PatchNumber)</Version>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <AvaloniaResource Include="**\*.xaml">
-            <SubType>Designer</SubType>
-        </AvaloniaResource>
-    </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="**\*.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+  </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
+  </ItemGroup>
 </Project>

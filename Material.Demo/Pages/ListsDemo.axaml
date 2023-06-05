@@ -6,25 +6,25 @@
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ListsDemo">
-  <StackPanel Margin="16, 0">
-    <TextBlock Classes="Headline4 Subheadline" Text="Lists" />
-    <TextBlock Classes="Headline6 Subheadline2" Text="ListBox" />
-    <StackPanel Orientation="Horizontal">
-      <StackPanel.Styles>
-        <Style Selector="Button">
-          <Setter Property="Margin" Value="8" />
-        </Style>
-      </StackPanel.Styles>
-      <showMeTheXaml:XamlDisplay UniqueId="Lists0">
-        <controls:Card Padding="0,4">
-          <ListBox Width="300">
-            <ListBoxItem Content="Item 1" />
-            <ListBoxItem Content="Item 2" />
-            <ListBoxItem Content="Item 3" />
-            <ListBoxItem Content="Item 4" />
-          </ListBox>
-        </controls:Card>
-      </showMeTheXaml:XamlDisplay>
+    <StackPanel Margin="16, 0">
+        <TextBlock Classes="Headline4 Subheadline" Text="Lists" />
+        <TextBlock Classes="Headline6 Subheadline2" Text="ListBox" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="Lists0">
+                <controls:Card Padding="0,4">
+                    <ListBox Width="300">
+                      <ListBoxItem Content="Item 1" />
+                      <ListBoxItem Content="Item 2" />
+                      <ListBoxItem Content="Item 3" />
+                      <ListBoxItem Content="Item 4" />
+                    </ListBox>
+                </controls:Card>
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
     </StackPanel>
-  </StackPanel>
 </UserControl>

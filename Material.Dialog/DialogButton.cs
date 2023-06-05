@@ -1,5 +1,7 @@
-﻿namespace Material.Dialog {
-    public class DialogButton {
+﻿namespace Material.Dialog
+{
+    public class DialogButton
+    {
         public string Result = "None";
         public object Content = "Action";
         public bool IsPositive = false;

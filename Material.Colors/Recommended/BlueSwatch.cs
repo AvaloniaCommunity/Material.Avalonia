@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace Material.Colors.Recommended {
-    public class BlueSwatch : ISwatch {
+namespace Material.Colors.Recommended
+{
+    public class BlueSwatch : ISwatch
+    {
         public static Color Blue50 { get; } = Color.Parse("#E3F2FD");
         public static Color Blue100 { get; } = Color.Parse("#BBDEFB");
         public static Color Blue200 { get; } = Color.Parse("#90CAF9");
@@ -20,21 +22,22 @@ namespace Material.Colors.Recommended {
 
         public string Name { get; } = "Blue";
 
-        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color> {
-            { MaterialColor.Blue50, Blue50 },
-            { MaterialColor.Blue100, Blue100 },
-            { MaterialColor.Blue200, Blue200 },
-            { MaterialColor.Blue300, Blue300 },
-            { MaterialColor.Blue400, Blue400 },
-            { MaterialColor.Blue500, Blue500 },
-            { MaterialColor.Blue600, Blue600 },
-            { MaterialColor.Blue700, Blue700 },
-            { MaterialColor.Blue800, Blue800 },
-            { MaterialColor.Blue900, Blue900 },
-            { MaterialColor.BlueA100, BlueA100 },
-            { MaterialColor.BlueA200, BlueA200 },
-            { MaterialColor.BlueA400, BlueA400 },
-            { MaterialColor.BlueA700, BlueA700 }
+        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color>
+        {
+            {MaterialColor.Blue50, Blue50},
+            {MaterialColor.Blue100, Blue100},
+            {MaterialColor.Blue200, Blue200},
+            {MaterialColor.Blue300, Blue300},
+            {MaterialColor.Blue400, Blue400},
+            {MaterialColor.Blue500, Blue500},
+            {MaterialColor.Blue600, Blue600},
+            {MaterialColor.Blue700, Blue700},
+            {MaterialColor.Blue800, Blue800},
+            {MaterialColor.Blue900, Blue900},
+            {MaterialColor.BlueA100, BlueA100},
+            {MaterialColor.BlueA200, BlueA200},
+            {MaterialColor.BlueA400, BlueA400},
+            {MaterialColor.BlueA700, BlueA700}
         };
 
         public IEnumerable<Color> Hues => Lookup.Values;

@@ -1,16 +1,16 @@
 <Style xmlns="https://github.com/avaloniaui" Selector="Carousel">
-  <Setter Property="Template">
-    <ControlTemplate>
-      <ScrollViewer Name="PART_ScrollViewer"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    HorizontalScrollBarVisibility="Hidden"
-                    VerticalScrollBarVisibility="Hidden">
-        <ItemsPresenter Name="PART_ItemsPresenter"
-                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                        Margin="{TemplateBinding Padding}" />
-      </ScrollViewer>
-    </ControlTemplate>
-  </Setter>
+    <Setter Property="Template">
+        <ControlTemplate>
+          <ScrollViewer Name="PART_ScrollViewer"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Hidden">
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            Margin="{TemplateBinding Padding}" />
+          </ScrollViewer>
+        </ControlTemplate>
+    </Setter>
 </Style>

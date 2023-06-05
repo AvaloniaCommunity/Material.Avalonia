@@ -4,7 +4,7 @@ using Material.Demo.ViewModels;
 namespace Material.Demo.Pages {
     public partial class FieldsDemo : UserControl {
         public FieldsDemo() {
-            InitializeComponent();
+            this.InitializeComponent();
 
             DataContext = new TextFieldsViewModel();
         }

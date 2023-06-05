@@ -2,48 +2,48 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:Material.Styles.Controls"
         xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
-        xmlns:assists="clr-namespace:Material.Styles.Assists">
-  <Style Selector="ContextMenu">
-    <Setter Property="WindowManagerAddShadowHint" Value="False" />
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Padding" Value="0, 8" />
-    <Setter Property="TextBlock.FontSize" Value="14" />
-    <Setter Property="TextBlock.FontWeight" Value="Normal" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                Padding="{TemplateBinding Padding}"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}">
-
-          <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}">
-            <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                            ItemsPanel="{TemplateBinding ItemsPanel}" />
-          </ScrollViewer>
-        </Border>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-
-  <Style Selector="ContextMenu controls|MaterialInternalIcon">
-    <Setter Property="Width" Value="24" />
-    <Setter Property="Height" Value="24" />
-  </Style>
-
-  <Style Selector="ContextMenu /template/ Border#PART_RootBorder">
-    <Setter Property="CornerRadius" Value="4" />
-    <Setter Property="Margin" Value="8" />
-    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="2" />
-  </Style>
-
-  <Style Selector="ContextMenu /template/ Border#PART_RootBorder /template/ Border#PART_BackgroundBorder">
-    <Setter Property="IsHitTestVisible" Value="False" />
-  </Style>
-
-  <Style Selector="ContextMenu /template/ ItemsPresenter#PART_ItemsPresenter">
-    <Setter Property="KeyboardNavigation.TabNavigation" Value="Continue" />
-  </Style>
+        xmlns:assists="clr-namespace:Material.Styles.Assists" >
+    <Style Selector="ContextMenu">
+      <Setter Property="WindowManagerAddShadowHint" Value="False" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0, 8" />
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="TextBlock.FontWeight" Value="Normal" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    
+                    <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}">
+                      <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                                      ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="ContextMenu controls|MaterialInternalIcon" >
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+    </Style>
+    
+    <Style Selector="ContextMenu /template/ Border#PART_RootBorder">
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="Margin" Value="8"/>
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="2"/>
+    </Style>
+    
+    <Style Selector="ContextMenu /template/ Border#PART_RootBorder /template/ Border#PART_BackgroundBorder">
+        <Setter Property="IsHitTestVisible" Value="False"/>
+    </Style>
+    
+    <Style Selector="ContextMenu /template/ ItemsPresenter#PART_ItemsPresenter" >
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Continue" />
+    </Style>
 </Styles>

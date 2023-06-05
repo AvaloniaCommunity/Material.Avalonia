@@ -1,6 +1,8 @@
 ﻿using Material.Dialog.Bases;
 
-namespace Material.Dialog {
-    public class AlertDialogBuilderParams : DialogWindowBuilderParamsBase {
+namespace Material.Dialog
+{
+    public class AlertDialogBuilderParams : DialogWindowBuilderParamsBase
+    {
     }
 }

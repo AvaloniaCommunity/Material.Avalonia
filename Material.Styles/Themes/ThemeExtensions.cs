@@ -27,9 +27,8 @@ namespace Material.Styles.Themes {
         }
 
         [Obsolete("Use GetBaseThemeMode")]
-        public static BaseThemeMode GetBaseTheme(this IReadOnlyTheme theme) {
-            return GetBaseThemeMode(theme);
-        }
+        public static BaseThemeMode GetBaseTheme(this IReadOnlyTheme theme)
+            => GetBaseThemeMode(theme);
 
         public static BaseThemeMode GetBaseThemeMode(this IReadOnlyTheme theme) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
@@ -114,8 +113,7 @@ namespace Material.Styles.Themes {
         /// </summary>
         /// <param name="readOnlyTheme">Initial read only theme</param>
         /// <returns>Mutable copy of read only theme</returns>
-        public static ITheme ToMutable(this IReadOnlyTheme readOnlyTheme) {
-            return Theme.Create(readOnlyTheme);
-        }
+        public static ITheme ToMutable(this IReadOnlyTheme readOnlyTheme)
+            => Theme.Create(readOnlyTheme);
     }
 }

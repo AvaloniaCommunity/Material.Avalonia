@@ -4,236 +4,232 @@
         xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <Styles.Resources>
-    <converters:AutoCorrectPositionConverter x:Key="AutoCorrectPositionConverter" />
-  </Styles.Resources>
+    <Styles.Resources>
+        <converters:AutoCorrectPositionConverter x:Key="AutoCorrectPositionConverter" />
+    </Styles.Resources>
 
-  <!-- Standard slider -->
+    <!-- Standard slider -->
 
-  <Style Selector="Slider">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
-    <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Minimum" Value="0" />
-    <Setter Property="Maximum" Value="0" />
-  </Style>
+    <Style Selector="Slider" >
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="Minimum" Value="0"/>
+        <Setter Property="Maximum" Value="0"/>
+    </Style>
+    
+    <!-- force override avaloniaUI standard themes styles -->
 
-  <!-- force override avaloniaUI standard themes styles -->
-
-  <Style Selector="Slider:horizontal, Slider:vertical">
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}">
-          <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-            <!-- I have no idea how to reorder tick bar in between track and thumb
+    <Style Selector="Slider:horizontal, Slider:vertical" >
+        <Setter Property="Template" >
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}" >
+                        <!-- I have no idea how to reorder tick bar in between track and thumb
                              The tricky way might works by using ProgressBar as track (only visual, no hit test)
                              and then make transparent the track (the interactable one). -->
-            <ProgressBar Classes="material-slider-track-v2"
-                         Minimum="{TemplateBinding Minimum}"
-                         Maximum="{TemplateBinding Maximum}"
-                         Value="{TemplateBinding Value}" />
-
-            <controls:TickBar Name="CenterTick"
-                              TickFrequency="{TemplateBinding TickFrequency}"
-                              IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
-                              Minimum="{TemplateBinding Minimum}"
-                              Maximum="{TemplateBinding Maximum}"
-                              Value="{TemplateBinding Value}"
-                              ThicknessTick="{TemplateBinding assists:SliderAssist.ThicknessTick}" />
-
-            <Track Name="{x:Static naming:PartNames.PartTrack}"
-                   IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
-                   Maximum="{TemplateBinding Maximum}"
-                   Minimum="{TemplateBinding Minimum}"
-                   Value="{TemplateBinding Value}">
-              <Track.DecreaseButton>
-                <RepeatButton Name="{x:Static naming:PartNames.PartDecreaseButton}"
-                              Classes="material-slider-track-bar-v2" />
-              </Track.DecreaseButton>
-              <Track.IncreaseButton>
-                <RepeatButton Name="{x:Static naming:PartNames.PartIncreaseButton}"
-                              Classes="material-slider-track-bar-v2" />
-              </Track.IncreaseButton>
-              <Track.Thumb>
-                <Thumb Name="{x:Static naming:PartNames.PartSliderThumb}"
-                       Focusable="False" Height="0" Width="0"
-                       ClipToBounds="False"
-                       Classes="material-slider-thumb-v2" />
-              </Track.Thumb>
-            </Track>
-          </Panel>
-        </Border>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-
-  <Style Selector="Slider /template/ controls|TickBar#CenterTick">
-    <Setter Property="InactiveBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-    <Setter Property="ActiveBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
-  </Style>
-
-  <Style Selector="Slider:horizontal /template/ Track#PART_Track">
-    <Setter Property="Orientation" Value="Horizontal" />
-  </Style>
-
-  <Style Selector="Slider:vertical /template/ Track#PART_Track">
-    <Setter Property="Orientation" Value="Vertical" />
-  </Style>
-
-  <!-- Styling track (with ProgressBar) -->
-
-  <Style Selector="RepeatButton.material-slider-track-bar-v2">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Focusable" Value="false" />
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate>
-          <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                  Background="{TemplateBinding Background}" />
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
-
-  <Style Selector="Slider /template/ ProgressBar.material-slider-track-v2">
-    <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Background" Value="{TemplateBinding Foreground}" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
-    <!-- Disable transitions for this control -->
-    <Setter Property="Transitions" Value="{x:Null}" />
-    <Setter Property="UseLayoutRounding" Value="False" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <!-- Breaking animations -->
-        <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
-
-          <!-- Inactive track bar -->
-          <Border Name="{x:Static naming:PartNames.PartTrackBorderBar}"
-                  Background="{TemplateBinding Background}" />
-
-          <!-- Active track bar -->
-          <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}"
-                  Background="{TemplateBinding Foreground}" />
-        </Panel>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-
-  <Style Selector="ProgressBar.material-slider-track-v2 /template/ Border#PART_TrackBorderBar">
-    <Setter Property="CornerRadius" Value="4" />
-    <Setter Property="Opacity" Value="0.38" />
-  </Style>
-
-  <Style Selector="ProgressBar.material-slider-track-v2 /template/ Border#PART_Indicator">
-    <Setter Property="CornerRadius" Value="6" />
-  </Style>
-
-  <!-- Horizontal mode -->
-
-  <Style Selector="Slider:horizontal /template/ RepeatButton.material-slider-track-bar-v2">
-    <Setter Property="MinHeight" Value="16" />
-  </Style>
-
-  <Style Selector="ProgressBar.material-slider-track-v2 /template/ Border#PART_Indicator">
-    <!-- Disable transitions for this control -->
-    <Setter Property="Transitions" Value="{x:Null}" />
-  </Style>
-
-  <Style Selector="Slider:horizontal /template/ ProgressBar.material-slider-track-v2">
-    <Setter Property="Orientation" Value="Horizontal" />
-  </Style>
-
-  <Style Selector="ProgressBar.material-slider-track-v2:horizontal /template/ Border#PART_TrackBorderBar">
-    <Setter Property="Height" Value="4" />
-    <Setter Property="Margin" Value="0,0,-2,0" />
-  </Style>
-
-  <Style Selector="ProgressBar.material-slider-track-v2:horizontal /template/ Border#PART_Indicator">
-    <Setter Property="Height" Value="6" />
-    <Setter Property="Margin" Value="-4,0,0,0" />
-    <Setter Property="HorizontalAlignment" Value="Left" />
-  </Style>
-
-  <!-- Horizontal mode (reversed) -->
-
-  <Style
-    Selector="Slider:horizontal[IsDirectionReversed=True] /template/
+                        <ProgressBar Classes="material-slider-track-v2"
+                                     Minimum="{TemplateBinding Minimum}"
+                                     Maximum="{TemplateBinding Maximum}"
+                                     Value="{TemplateBinding Value}"/>
+                        
+                        <controls:TickBar Name="CenterTick"
+                                       TickFrequency="{TemplateBinding TickFrequency}"
+                                       IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                                       Minimum="{TemplateBinding Minimum}"
+                                       Maximum="{TemplateBinding Maximum}"
+                                       Value="{TemplateBinding Value}"
+                                       ThicknessTick="{TemplateBinding assists:SliderAssist.ThicknessTick}"/>
+                        
+                        <Track Name="{x:Static naming:PartNames.PartTrack}"
+                               IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                               Maximum="{TemplateBinding Maximum}"
+                               Minimum="{TemplateBinding Minimum}"
+                               Value="{TemplateBinding Value}" >
+                            <Track.DecreaseButton>
+                                <RepeatButton Name="{x:Static naming:PartNames.PartDecreaseButton}"
+                                              Classes="material-slider-track-bar-v2"/>
+                            </Track.DecreaseButton>
+                            <Track.IncreaseButton>
+                                <RepeatButton Name="{x:Static naming:PartNames.PartIncreaseButton}"
+                                              Classes="material-slider-track-bar-v2"/>
+                            </Track.IncreaseButton>
+                            <Track.Thumb>
+                                <Thumb Name="{x:Static naming:PartNames.PartSliderThumb}"
+                                       Focusable="False" Height="0" Width="0"
+                                       ClipToBounds="False"
+                                       Classes="material-slider-thumb-v2" />
+                            </Track.Thumb>
+                        </Track>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Slider /template/ controls|TickBar#CenterTick">
+        <Setter Property="InactiveBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="ActiveBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
+    </Style>
+           
+    <Style Selector="Slider:horizontal /template/ Track#PART_Track">
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    
+    <Style Selector="Slider:vertical /template/ Track#PART_Track">
+        <Setter Property="Orientation" Value="Vertical"/>
+    </Style>
+    
+    <!-- Styling track (with ProgressBar) -->
+    
+    <Style Selector="RepeatButton.material-slider-track-bar-v2" >
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template" >
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                            Background="{TemplateBinding Background}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+        
+    <Style Selector="Slider /template/ ProgressBar.material-slider-track-v2">
+        <Setter Property="ClipToBounds" Value="False"/>
+        <Setter Property="Background" Value="{TemplateBinding Foreground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <!-- Disable transitions for this control -->
+        <Setter Property="Transitions" Value="{x:Null}"/>
+        <Setter Property="UseLayoutRounding" Value="False"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <!-- Breaking animations -->
+                <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
+                    
+                    <!-- Inactive track bar -->
+                    <Border Name="{x:Static naming:PartNames.PartTrackBorderBar}"
+                            Background="{TemplateBinding Background}" />
+                    
+                    <!-- Active track bar -->
+                    <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}"
+                            Background="{TemplateBinding Foreground}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+        
+    <Style Selector="ProgressBar.material-slider-track-v2 /template/ Border#PART_TrackBorderBar">
+        <Setter Property="CornerRadius" Value="4"/>
+        <Setter Property="Opacity" Value="0.38" />
+    </Style>
+    
+    <Style Selector="ProgressBar.material-slider-track-v2 /template/ Border#PART_Indicator">
+        <Setter Property="CornerRadius" Value="6"/>
+    </Style>
+    
+    <!-- Horizontal mode -->
+    
+    <Style Selector="Slider:horizontal /template/ RepeatButton.material-slider-track-bar-v2" >
+        <Setter Property="MinHeight" Value="16"/>
+    </Style>
+    
+    <Style Selector="ProgressBar.material-slider-track-v2 /template/ Border#PART_Indicator">
+        <!-- Disable transitions for this control -->
+        <Setter Property="Transitions" Value="{x:Null}"/>
+    </Style>
+    
+    <Style Selector="Slider:horizontal /template/ ProgressBar.material-slider-track-v2">
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    
+    <Style Selector="ProgressBar.material-slider-track-v2:horizontal /template/ Border#PART_TrackBorderBar">
+        <Setter Property="Height" Value="4" />
+        <Setter Property="Margin" Value="0,0,-2,0" />
+    </Style>
+    
+    <Style Selector="ProgressBar.material-slider-track-v2:horizontal /template/ Border#PART_Indicator">
+        <Setter Property="Height" Value="6" />
+        <Setter Property="Margin" Value="-4,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    
+    <!-- Horizontal mode (reversed) -->
+    
+    <Style Selector="Slider:horizontal[IsDirectionReversed=True] /template/
                      ProgressBar.material-slider-track-v2:horizontal /template/ Border#PART_TrackBorderBar">
-    <Setter Property="Margin" Value="-2,0,0,0" />
-  </Style>
-
-  <Style
-    Selector="Slider:horizontal[IsDirectionReversed=True] /template/
+        <Setter Property="Margin" Value="-2,0,0,0" />
+    </Style>
+    
+    <Style Selector="Slider:horizontal[IsDirectionReversed=True] /template/
                      ProgressBar.material-slider-track-v2:horizontal /template/ Border#PART_Indicator">
-    <Setter Property="Margin" Value="0,0,-4,0" />
-    <Setter Property="HorizontalAlignment" Value="Right" />
-  </Style>
-
-  <!-- Vertical mode -->
-
-  <Style Selector="Slider:vertical /template/ RepeatButton.material-slider-track-bar-v2">
-    <Setter Property="MinWidth" Value="16" />
-  </Style>
-
-  <Style Selector="Slider:vertical /template/ ProgressBar.material-slider-track-v2">
-    <Setter Property="Orientation" Value="Vertical" />
-  </Style>
-
-  <Style Selector="ProgressBar.material-slider-track-v2:vertical /template/ Border#PART_TrackBorderBar">
-    <Setter Property="Width" Value="4" />
-    <Setter Property="Margin" Value="0,-2,0,0" />
-  </Style>
-
-  <Style Selector="ProgressBar.material-slider-track-v2:vertical /template/ Border#PART_Indicator">
-    <Setter Property="Width" Value="6" />
-    <Setter Property="Margin" Value="0,0,0,-4" />
-    <Setter Property="VerticalAlignment" Value="Bottom" />
-  </Style>
-
-  <!-- Vertical mode (reversed) -->
-
-  <Style
-    Selector="Slider:horizontal[IsDirectionReversed=True] /template/
+        <Setter Property="Margin" Value="0,0,-4,0" />
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+    </Style>
+    
+    <!-- Vertical mode -->
+    
+    <Style Selector="Slider:vertical /template/ RepeatButton.material-slider-track-bar-v2" >
+        <Setter Property="MinWidth" Value="16"/>
+    </Style>
+        
+    <Style Selector="Slider:vertical /template/ ProgressBar.material-slider-track-v2">
+        <Setter Property="Orientation" Value="Vertical"/>
+    </Style>
+    
+    <Style Selector="ProgressBar.material-slider-track-v2:vertical /template/ Border#PART_TrackBorderBar">
+        <Setter Property="Width" Value="4" />
+        <Setter Property="Margin" Value="0,-2,0,0" />
+    </Style>
+    
+    <Style Selector="ProgressBar.material-slider-track-v2:vertical /template/ Border#PART_Indicator">
+        <Setter Property="Width" Value="6" />
+        <Setter Property="Margin" Value="0,0,0,-4" />
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+    
+    <!-- Vertical mode (reversed) -->
+    
+    <Style Selector="Slider:horizontal[IsDirectionReversed=True] /template/
                      ProgressBar.material-slider-track-v2:horizontal /template/ Border#PART_TrackBorderBar">
-    <Setter Property="Margin" Value="0,0,0,-2" />
-  </Style>
-
-  <Style
-    Selector="Slider:horizontal[IsDirectionReversed=True] /template/
+        <Setter Property="Margin" Value="0,0,0,-2" />
+    </Style>
+    
+    <Style Selector="Slider:horizontal[IsDirectionReversed=True] /template/
                      ProgressBar.material-slider-track-v2:horizontal /template/ Border#PART_Indicator">
-    <Setter Property="Margin" Value="0,-4,0,0" />
-    <Setter Property="VerticalAlignment" Value="Top" />
-  </Style>
-
-  <!-- Accent palette -->
-
-  <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ ProgressBar.material-slider-track-v2">
-    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
-  </Style>
-
-  <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ controls|TickBar#CenterTick">
-    <Setter Property="InactiveBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
-    <Setter Property="ActiveBrush" Value="{DynamicResource SecondaryHueLightBrush}" />
-  </Style>
-
-  <Style Selector="Slider:disabled /template/
-                     ProgressBar.material-slider-track-v2">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
-  </Style>
-
-  <Style Selector="Slider:disabled /template/ controls|TickBar#CenterTick">
-    <Setter Property="InactiveBrush" Value="{DynamicResource MaterialDesignBodyLight}" />
-    <Setter Property="ActiveBrush" Value="{DynamicResource MaterialDesignCardBackground}" />
-  </Style>
-
-  <!-- Styling track (native) -->
-
-  <!--
+        <Setter Property="Margin" Value="0,-4,0,0" />
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+    
+    <!-- Accent palette -->
+        
+    <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ ProgressBar.material-slider-track-v2" >
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    </Style>
+        
+    <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ controls|TickBar#CenterTick">
+        <Setter Property="InactiveBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
+        <Setter Property="ActiveBrush" Value="{DynamicResource SecondaryHueLightBrush}"/>
+    </Style>
+    
+    <Style Selector="Slider:disabled /template/
+                     ProgressBar.material-slider-track-v2" >
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+    </Style>
+            
+    <Style Selector="Slider:disabled /template/ controls|TickBar#CenterTick">
+        <Setter Property="InactiveBrush" Value="{DynamicResource MaterialDesignBodyLight}"/>
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialDesignCardBackground}"/>
+    </Style>
+    
+    <!-- Styling track (native) -->
+    
+    <!--
 
     <Style Selector="Slider /template/ RepeatButton.material-slider-track-bar-v2" >
         <Setter Property="Background" Value="{TemplateBinding TemplatedControl.Foreground}" />
@@ -319,297 +315,292 @@
     </Style>
     
     -->
-
-  <Style Selector="Slider:horizontal /template/
+        
+    <Style Selector="Slider:horizontal /template/
                      controls|TickBar#CenterTick">
-    <Setter Property="Orientation" Value="Horizontal" />
-  </Style>
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    
+    <Style Selector="Slider:vertical /template/ 
+                     controls|TickBar#CenterTick" >
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
 
-  <Style Selector="Slider:vertical /template/ 
-                     controls|TickBar#CenterTick">
-    <Setter Property="Orientation" Value="Vertical" />
-  </Style>
+    <Style Selector="Slider:not(.ticks,.Ticks) /template/ 
+                     controls|TickBar#CenterTick" >
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+        
+    <Style Selector="Thumb.material-slider-thumb-v2" >
+        <Setter Property="Template" >
+            <ControlTemplate>
+                <AdornerLayer>
+                    <Panel HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           UseLayoutRounding="False"
+                           ClipToBounds="False" >
+                        <Border Name="{x:Static naming:PartNames.PartHoverEffect}"
+                                Background="{TemplateBinding Foreground}" />
+                        <Border Name="{x:Static naming:PartNames.PartThumbGrip}"
+                                Background="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Center" />
+                        <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                          IsHitTestVisible="False"
+                                          ClipToBounds="False"/>
+                    </Panel>
+                </AdornerLayer>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Slider:not(.no-transitions) /template/ Thumb.material-slider-thumb-v2 /template/ Border" >
+        <Setter Property="Transitions" >
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.45" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Thumb.material-slider-thumb-v2 /template/ Border#PART_HoverEffect" >
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+    
+    <Style Selector="Slider:pointerover /template/ Thumb.material-slider-thumb-v2 /template/ Border#PART_HoverEffect" >
+        <Setter Property="Opacity" Value="0.1" />
+    </Style>
+    
+    <Style Selector="Slider:focused /template/ Thumb.material-slider-thumb-v2 /template/ Border#PART_HoverEffect" >
+        <Setter Property="Opacity" Value="0.2" />
+    </Style>
+    
+    <Style Selector="Slider:pressed /template/ Thumb.material-slider-thumb-v2 /template/ Border#PART_HoverEffect" >
+        <Setter Property="Opacity" Value="0.4" />
+    </Style>
+    
+    <Style Selector="Thumb.material-slider-thumb-v2 /template/ Border#PART_ThumbGrip" >
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1"/>
+    </Style>
 
-  <Style Selector="Slider:not(.ticks,.Ticks) /template/ 
-                     controls|TickBar#CenterTick">
-    <Setter Property="IsVisible" Value="False" />
-  </Style>
+    <Style Selector="Thumb.material-slider-thumb-v2:disabled" >
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+    </Style>
+    
+    <!-- ***************************************************************************************** -->
 
-  <Style Selector="Thumb.material-slider-thumb-v2">
-    <Setter Property="Template">
-      <ControlTemplate>
-        <AdornerLayer>
-          <Panel HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
-                 UseLayoutRounding="False"
-                 ClipToBounds="False">
-            <Border Name="{x:Static naming:PartNames.PartHoverEffect}"
-                    Background="{TemplateBinding Foreground}" />
-            <Border Name="{x:Static naming:PartNames.PartThumbGrip}"
-                    Background="{TemplateBinding Foreground}"
-                    HorizontalAlignment="Center" />
-            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                              IsHitTestVisible="False"
-                              ClipToBounds="False" />
-          </Panel>
-        </AdornerLayer>
-      </ControlTemplate>
-    </Setter>
-  </Style>
+    <!-- Discrete thumb definitions and styles -->
+    
+    <!-- Compatibility: old classes adaption -->
+    <!-- Please use lowercase classes prefer! -->
 
-  <Style Selector="Slider:not(.no-transitions) /template/ Thumb.material-slider-thumb-v2 /template/ Border">
-    <Setter Property="Transitions">
-      <Transitions>
-        <DoubleTransition Property="Opacity" Duration="0:0:0.45" Easing="CubicEaseOut" />
-      </Transitions>
-    </Setter>
-  </Style>
+    <Style Selector="Slider:not(:not(.Discrete, .discrete)) Thumb /template/ ContentPresenter#PART_ContentPresenter" >
+        <Setter Property="Content" >
+            <Template>
+                <Grid Name="InnerBubble"
+                      ClipToBounds="False"
+                      ColumnDefinitions="Auto"
+                      RowDefinitions="Auto, Auto" 
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Bottom"
+                      Width="{Binding Bounds.Width, ElementName=PART_ContentContainer}"
+                      Height="{Binding Bounds.Height, ElementName=PART_ContentContainer}"
+                      RenderTransform="translate(0px, -16px)" >
+                    <Polygon Grid.Row="1" Points="0,0 4.5,5 9,0" HorizontalAlignment="Center"
+                             RenderTransform="translate(0px,-0.5px)"
+                             Fill="{Binding Background, ElementName=PART_ContentContainer}" />
 
-  <Style Selector="Thumb.material-slider-thumb-v2 /template/ Border#PART_HoverEffect">
-    <Setter Property="Width" Value="40" />
-    <Setter Property="Height" Value="40" />
-    <Setter Property="CornerRadius" Value="20" />
-    <Setter Property="HorizontalAlignment" Value="Center" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="Opacity" Value="0" />
-  </Style>
+                    <Border Grid.Row="0"
+                            Name="PART_Positioner" >
+                        <Border Name="PART_ContentContainer"
+                                Background="{DynamicResource MaterialDesignToolTipBackground}"
+                                Padding="4, 8" CornerRadius="2">
+                            <Border.RenderTransform>
+                                <MultiBinding Converter="{StaticResource AutoCorrectPositionConverter}">
+                                    <Binding ElementName="PART_Positioner" Path="TransformedBounds"/>
+                                    <Binding Path="$parent[TopLevel].Bounds"/>
+                                </MultiBinding>
+                            </Border.RenderTransform>
 
-  <Style Selector="Slider:pointerover /template/ Thumb.material-slider-thumb-v2 /template/ Border#PART_HoverEffect">
-    <Setter Property="Opacity" Value="0.1" />
-  </Style>
+                            <TextBlock Name="InnerBubbleText"
+                                       Classes="Caption"
+                                       Text="{Binding $parent[Slider].Value}"
+                                       Foreground="{DynamicResource MaterialDesignBackground}" />
+                        </Border>
+                    </Border>
+                </Grid>
+            </Template>
+        </Setter>
+    </Style>
 
-  <Style Selector="Slider:focused /template/ Thumb.material-slider-thumb-v2 /template/ Border#PART_HoverEffect">
-    <Setter Property="Opacity" Value="0.2" />
-  </Style>
+    <Style Selector="Slider:not(:not(.Discrete, .discrete)):not(.no-transitions) /template/ Thumb /template/ Ellipse" >
+        <Setter Property="Transitions" >
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.45" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="Slider:not(:not(.Discrete, .discrete)):not(.no-transitions) /template/ Thumb /template/ ContentPresenter#PART_ContentPresenter" >
+        <Setter Property="Transitions" >
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.25" Easing="CubicEaseOut" />
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
 
-  <Style Selector="Slider:pressed /template/ Thumb.material-slider-thumb-v2 /template/ Border#PART_HoverEffect">
-    <Setter Property="Opacity" Value="0.4" />
-  </Style>
+    <Style Selector="Slider:not(:not(.Discrete, .discrete)) Thumb /template/ ContentPresenter#PART_ContentPresenter" >
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="RenderTransform" Value="scale(0)" />
+    </Style>
+    <Style Selector="Slider:not(:not(.Discrete, .discrete)):pointerover Thumb /template/ ContentPresenter#PART_ContentPresenter" >
+        <Setter Property="Opacity" Value="1" />
+        <Setter Property="RenderTransform" Value="scale(1)" />
+    </Style>
 
-  <Style Selector="Thumb.material-slider-thumb-v2 /template/ Border#PART_ThumbGrip">
-    <Setter Property="Width" Value="20" />
-    <Setter Property="Height" Value="20" />
-    <Setter Property="CornerRadius" Value="10" />
-    <Setter Property="HorizontalAlignment" Value="Center" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
-  </Style>
-
-  <Style Selector="Thumb.material-slider-thumb-v2:disabled">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
-  </Style>
-
-  <!-- ***************************************************************************************** -->
-
-  <!-- Discrete thumb definitions and styles -->
-
-  <!-- Compatibility: old classes adaption -->
-  <!-- Please use lowercase classes prefer! -->
-
-  <Style Selector="Slider:not(:not(.Discrete, .discrete)) Thumb /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="Content">
-      <Template>
-        <Grid Name="InnerBubble"
-              ClipToBounds="False"
-              ColumnDefinitions="Auto"
-              RowDefinitions="Auto, Auto"
-              HorizontalAlignment="Center"
-              VerticalAlignment="Bottom"
-              Width="{Binding Bounds.Width, ElementName=PART_ContentContainer}"
-              Height="{Binding Bounds.Height, ElementName=PART_ContentContainer}"
-              RenderTransform="translate(0px, -16px)">
-          <Polygon Grid.Row="1" Points="0,0 4.5,5 9,0" HorizontalAlignment="Center"
-                   RenderTransform="translate(0px,-0.5px)"
-                   Fill="{Binding Background, ElementName=PART_ContentContainer}" />
-
-          <Border Grid.Row="0"
-                  Name="PART_Positioner">
-            <Border Name="PART_ContentContainer"
-                    Background="{DynamicResource MaterialDesignToolTipBackground}"
-                    Padding="4, 8" CornerRadius="2">
-              <Border.RenderTransform>
-                <MultiBinding Converter="{StaticResource AutoCorrectPositionConverter}">
-                  <Binding ElementName="PART_Positioner" Path="TransformedBounds" />
-                  <Binding Path="$parent[TopLevel].Bounds" />
-                </MultiBinding>
-              </Border.RenderTransform>
-
-              <TextBlock Name="InnerBubbleText"
-                         Classes="Caption"
-                         Text="{Binding $parent[Slider].Value}"
-                         Foreground="{DynamicResource MaterialDesignBackground}" />
-            </Border>
-          </Border>
-        </Grid>
-      </Template>
-    </Setter>
-  </Style>
-
-  <Style Selector="Slider:not(:not(.Discrete, .discrete)):not(.no-transitions) /template/ Thumb /template/ Ellipse">
-    <Setter Property="Transitions">
-      <Transitions>
-        <DoubleTransition Property="Opacity" Duration="0:0:0.45" Easing="CubicEaseOut" />
-      </Transitions>
-    </Setter>
-  </Style>
-  <Style
-    Selector="Slider:not(:not(.Discrete, .discrete)):not(.no-transitions) /template/ Thumb /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="Transitions">
-      <Transitions>
-        <DoubleTransition Property="Opacity" Duration="0:0:0.25" Easing="CubicEaseOut" />
-        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CubicEaseOut" />
-      </Transitions>
-    </Setter>
-  </Style>
-
-  <Style Selector="Slider:not(:not(.Discrete, .discrete)) Thumb /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="Opacity" Value="0" />
-    <Setter Property="RenderTransform" Value="scale(0)" />
-  </Style>
-  <Style
-    Selector="Slider:not(:not(.Discrete, .discrete)):pointerover Thumb /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="Opacity" Value="1" />
-    <Setter Property="RenderTransform" Value="scale(1)" />
-  </Style>
-
-  <Style
-    Selector="Slider:not(:not(.Discrete, .discrete)) Thumb /template/ ContentPresenter#PART_ContentPresenter TextBlock">
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-  </Style>
-
-  <!-- ***************************************************************************************** -->
-
-  <!-- Slider (Material Design v1) -->
-
-  <Style Selector="Slider.material-v1:horizontal, Slider.material-v1:vertical">
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}">
-          <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-            <Track Name="{x:Static naming:PartNames.PartTrack}"
-                   IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
-                   MinHeight="{TemplateBinding MinHeight}"
-                   Minimum="{TemplateBinding Minimum}"
-                   Maximum="{TemplateBinding Maximum}"
-                   Value="{TemplateBinding Value}">
-              <Track.DecreaseButton>
-                <RepeatButton Name="{x:Static naming:PartNames.PartDecreaseButton}"
-                              Classes="material-slider-track-bar-v1" />
-              </Track.DecreaseButton>
-              <Track.IncreaseButton>
-                <RepeatButton Name="{x:Static naming:PartNames.PartIncreaseButton}"
-                              Classes="material-slider-track-bar-v1" />
-              </Track.IncreaseButton>
-              <Track.Thumb>
-                <Thumb Name="{x:Static naming:PartNames.PartSliderThumb}"
-                       Classes="material-slider-thumb-v1" />
-              </Track.Thumb>
-            </Track>
-          </Panel>
-        </Border>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-
-  <!-- Part of slider: track repeat button -->
-
-  <Style Selector="RepeatButton.material-slider-track-bar-v1">
-    <Setter Property="Foreground" Value="Transparent" />
-    <Setter Property="Focusable" Value="false" />
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate>
-          <Rectangle Fill="{TemplateBinding Foreground}"
-                     Height="{TemplateBinding Height}"
-                     Width="{TemplateBinding Width}" />
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
-
-  <Style Selector="Slider.material-v1 /template/ Track#PART_Track">
-    <Setter Property="UseLayoutRounding" Value="False" />
-  </Style>
-
-  <Style Selector="Slider.material-v1:horizontal /template/ Track#PART_Track">
-    <Setter Property="Height" Value="2" />
-  </Style>
-
-  <Style Selector="Slider.material-v1:vertical /template/ Track#PART_Track">
-    <Setter Property="Width" Value="2" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1 /template/ Track#PART_Track
+    <Style Selector="Slider:not(:not(.Discrete, .discrete)) Thumb /template/ ContentPresenter#PART_ContentPresenter TextBlock" >
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    </Style>
+    
+    <!-- ***************************************************************************************** -->
+    
+    <!-- Slider (Material Design v1) -->
+ 
+    <Style Selector="Slider.material-v1:horizontal, Slider.material-v1:vertical">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}" >
+                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}" >
+                        <Track Name="{x:Static naming:PartNames.PartTrack}"
+                               IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
+                               MinHeight="{TemplateBinding MinHeight}"
+                               Minimum="{TemplateBinding Minimum}"
+                               Maximum="{TemplateBinding Maximum}"
+                               Value="{TemplateBinding Value}" >
+                            <Track.DecreaseButton>
+                                <RepeatButton Name="{x:Static naming:PartNames.PartDecreaseButton}"
+                                              Classes="material-slider-track-bar-v1" />
+                            </Track.DecreaseButton>
+                            <Track.IncreaseButton>
+                                <RepeatButton Name="{x:Static naming:PartNames.PartIncreaseButton}"
+                                              Classes="material-slider-track-bar-v1" />
+                            </Track.IncreaseButton>
+                            <Track.Thumb>
+                                <Thumb Name="{x:Static naming:PartNames.PartSliderThumb}"
+                                       Classes="material-slider-thumb-v1"/>
+                            </Track.Thumb>
+                        </Track>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <!-- Part of slider: track repeat button -->
+    
+    <Style Selector="RepeatButton.material-slider-track-bar-v1" >
+        <Setter Property="Foreground" Value="Transparent" />
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template" >
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Fill="{TemplateBinding Foreground}"
+                               Height="{TemplateBinding Height}"
+                               Width="{TemplateBinding Width}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Slider.material-v1 /template/ Track#PART_Track">
+        <Setter Property="UseLayoutRounding" Value="False"/>
+    </Style>
+        
+    <Style Selector="Slider.material-v1:horizontal /template/ Track#PART_Track">
+        <Setter Property="Height" Value="2"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1:vertical /template/ Track#PART_Track">
+        <Setter Property="Width" Value="2"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1 /template/ Track#PART_Track
                      RepeatButton#PART_DecreaseButton.material-slider-track-bar-v1">
-    <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1 /template/ Track#PART_Track
+        <Setter Property="Foreground" Value="{TemplateBinding Foreground}"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1 /template/ Track#PART_Track
                      RepeatButton#PART_IncreaseButton.material-slider-track-bar-v1">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxOff}" />
-  </Style>
-
-  <!-- Part of slider: thumb -->
-
-  <Style Selector="Thumb.material-slider-thumb-v1">
-    <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Background" Value="{TemplateBinding Foreground}" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Panel HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               ClipToBounds="False">
-          <Ellipse Name="{x:Static naming:PartNames.PartHoverEffect}"
-                   Fill="{TemplateBinding Background}" />
-          <Ellipse Name="{x:Static naming:PartNames.PartThumbGrip}"
-                   Fill="{TemplateBinding Background}" />
-          <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                            Width="0" Height="0"
-                            IsHitTestVisible="False"
-                            ClipToBounds="False"
-                            RenderTransformOrigin="0.5,0.5" />
-        </Panel>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-
-  <Style Selector="Thumb.material-slider-thumb-v1 /template/ Ellipse#PART_HoverEffect">
-    <Setter Property="HorizontalAlignment" Value="Center" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="Margin" Value="-12" />
-    <Setter Property="Width" Value="24" />
-    <Setter Property="Height" Value="24" />
-    <Setter Property="Opacity" Value="0" />
-    <Setter Property="UseLayoutRounding" Value="False" />
-  </Style>
-
-  <Style Selector="Thumb.material-slider-thumb-v1 /template/ Ellipse#PART_ThumbGrip">
-    <Setter Property="HorizontalAlignment" Value="Center" />
-    <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="Margin" Value="-6" />
-    <Setter Property="Width" Value="12" />
-    <Setter Property="Height" Value="12" />
-    <Setter Property="UseLayoutRounding" Value="False" />
-  </Style>
-
-  <Style Selector="Thumb.material-slider-thumb-v1:pointerover /template/ Ellipse#PART_HoverEffect">
-    <Setter Property="Opacity" Value="0.26" />
-  </Style>
-
-  <Style Selector="Thumb.material-slider-thumb-v1:pressed /template/ Ellipse#PART_ThumbGrip">
-    <Setter Property="RenderTransform" Value="scale(1.25)" />
-  </Style>
-
-  <Style Selector="Slider.material-v1:disabled /template/ Thumb.material-slider-thumb-v1">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
-  </Style>
-
-  <!--Style Selector="Slider[Value=0] /template/ Thumb.material-slider-thumb-v1">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxOff}"/>
+    </Style>
+    
+    <!-- Part of slider: thumb -->
+    
+    <Style Selector="Thumb.material-slider-thumb-v1" >
+        <Setter Property="ClipToBounds" Value="False"/>
+        <Setter Property="Background" Value="{TemplateBinding Foreground}"/>
+        <Setter Property="Template" >
+            <ControlTemplate>
+                <Panel HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       ClipToBounds="False" >
+                    <Ellipse Name="{x:Static naming:PartNames.PartHoverEffect}"
+                             Fill="{TemplateBinding Background}"/>
+                    <Ellipse Name="{x:Static naming:PartNames.PartThumbGrip}"
+                             Fill="{TemplateBinding Background}"/>
+                    <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                      Width="0" Height="0"
+                                      IsHitTestVisible="False"
+                                      ClipToBounds="False"
+                                      RenderTransformOrigin="0.5,0.5" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Thumb.material-slider-thumb-v1 /template/ Ellipse#PART_HoverEffect" >
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="-12"/>
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="UseLayoutRounding" Value="False"/>
+    </Style>
+    
+    <Style Selector="Thumb.material-slider-thumb-v1 /template/ Ellipse#PART_ThumbGrip" >
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="-6"/>
+        <Setter Property="Width" Value="12"/>
+        <Setter Property="Height" Value="12"/>
+        <Setter Property="UseLayoutRounding" Value="False"/>
+    </Style>
+    
+    <Style Selector="Thumb.material-slider-thumb-v1:pointerover /template/ Ellipse#PART_HoverEffect" >
+        <Setter Property="Opacity" Value="0.26" />
+    </Style>
+    
+    <Style Selector="Thumb.material-slider-thumb-v1:pressed /template/ Ellipse#PART_ThumbGrip" >
+        <Setter Property="RenderTransform" Value="scale(1.25)" />
+    </Style>
+    
+    <Style Selector="Slider.material-v1:disabled /template/ Thumb.material-slider-thumb-v1" >
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+    </Style>
+    
+    <!--Style Selector="Slider[Value=0] /template/ Thumb.material-slider-thumb-v1">
         <Setter Property="Background" Value="Transparent" />
     </Style>
     
@@ -617,92 +608,84 @@
         <Setter Property="Stroke" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
         <Setter Property="StrokeThickness" Value="2"/>
     </Style-->
-
-  <!-- Transitions -->
-
-  <Style Selector="Slider.material-v1:not(.no-transitions) /template/ Thumb.material-slider-thumb-v1">
-    <Setter Property="Transitions">
-      <Transitions>
-        <DoubleTransition Property="Opacity" Duration="0:0:0.25" Easing="CubicEaseOut" />
-        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25"
-                                       Easing="CubicEaseOut" />
-      </Transitions>
-    </Setter>
-  </Style>
-
-  <Style Selector="Slider.material-v1:disabled">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
+    
+    <!-- Transitions -->
+    
+    <Style Selector="Slider.material-v1:not(.no-transitions) /template/ Thumb.material-slider-thumb-v1">
+        <Setter Property="Transitions" >
+            <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.25" Easing="CubicEaseOut" />
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25"
+                                               Easing="CubicEaseOut" />
+            </Transitions>
+        </Setter>
+    </Style>
+        
+    <Style Selector="Slider.material-v1:disabled" >
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+    </Style>
+        
+    <Style Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
                      RepeatButton#PART_DecreaseButton.material-slider-track-bar-v1 /template/ Rectangle">
-    <Setter Property="Margin" Value="0,0,8,0" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
+        <Setter Property="Margin" Value="0,0,8,0"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
                      RepeatButton#PART_IncreaseButton.material-slider-track-bar-v1 /template/ Rectangle">
-    <Setter Property="Margin" Value="8,0,0,0" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=True] /template/ Track#PART_Track
+        <Setter Property="Margin" Value="8,0,0,0"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=True] /template/ Track#PART_Track
                      RepeatButton#PART_IncreaseButton.material-slider-track-bar-v1 /template/ Rectangle">
-    <Setter Property="Margin" Value="0,0,8,0" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=True] /template/ Track#PART_Track
+        <Setter Property="Margin" Value="0,0,8,0"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=True] /template/ Track#PART_Track
                      RepeatButton#PART_DecreaseButton.material-slider-track-bar-v1 /template/ Rectangle">
-    <Setter Property="Margin" Value="8,0,0,0" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1:vertical:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
+        <Setter Property="Margin" Value="8,0,0,0"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1:vertical:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
                      RepeatButton#PART_DecreaseButton.material-slider-track-bar-v1 /template/ Rectangle">
-    <Setter Property="Margin" Value="0,8,0,0" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1:vertical:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
+        <Setter Property="Margin" Value="0,8,0,0"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1:vertical:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
                      RepeatButton#PART_IncreaseButton.material-slider-track-bar-v1 /template/ Rectangle">
-    <Setter Property="Margin" Value="0,0,0,8" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1:vertical:disabled[IsDirectionReversed=True] /template/ Track#PART_Track
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1:vertical:disabled[IsDirectionReversed=True] /template/ Track#PART_Track
                      RepeatButton#PART_IncreaseButton.material-slider-track-bar-v1 /template/ Rectangle">
-    <Setter Property="Margin" Value="0,8,0,0" />
-  </Style>
-
-  <Style
-    Selector="Slider.material-v1:vertical:disabled[IsDirectionReversed=True] /template/ Track#PART_Track
+        <Setter Property="Margin" Value="0,8,0,0"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1:vertical:disabled[IsDirectionReversed=True] /template/ Track#PART_Track
                      RepeatButton#PART_DecreaseButton.material-slider-track-bar-v1 /template/ Rectangle">
-    <Setter Property="Margin" Value="0,0,0,8" />
-  </Style>
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+    
+    <Style Selector="Slider.material-v1[TickPlacement=None] /template/ TickBar#TopTick" >
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+    
+    <!-- Accent palette -->
+    
+    <Style Selector="Slider:not(:not(.Accent, .accent))" >
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    </Style>
+    
+    <!-- Compatibility fix: Standard avalonia style -->
 
-  <Style Selector="Slider.material-v1[TickPlacement=None] /template/ TickBar#TopTick">
-    <Setter Property="IsVisible" Value="False" />
-  </Style>
-
-  <!-- Accent palette -->
-
-  <Style Selector="Slider:not(:not(.Accent, .accent))">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
-  </Style>
-
-  <!-- Compatibility fix: Standard avalonia style -->
-
-  <Style Selector="Slider:horizontal">
-    <Setter Property="MinWidth" Value="0" />
-    <Setter Property="MinHeight" Value="0" />
-  </Style>
-
-  <Style Selector="Slider:vertical">
-    <Setter Property="MinWidth" Value="0" />
-    <Setter Property="MinHeight" Value="0" />
-  </Style>
+    <Style Selector="Slider:horizontal" >
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="0" />
+    </Style>
+    
+    <Style Selector="Slider:vertical" >
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="0" />
+    </Style>
 </Styles>

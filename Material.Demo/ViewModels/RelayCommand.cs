@@ -18,12 +18,12 @@ namespace Material.Demo.ViewModels {
         public event EventHandler? CanExecuteChanged;
 
         public bool CanExecute(object? parameter) {
-            var result = canExecute == null || canExecute(parameter);
+            var result = this.canExecute == null || this.canExecute(parameter);
             return result;
         }
 
         public void Execute(object? parameter) {
-            execute(parameter);
+            this.execute(parameter);
         }
 
         // Call this method to tell AvaloniaUI about this command can be executed at this moment.

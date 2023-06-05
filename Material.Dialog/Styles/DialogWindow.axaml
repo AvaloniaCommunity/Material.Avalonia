@@ -1,10 +1,10 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels">
-  <StyleInclude Source="avares://Material.Dialog/Styles/EmbeddedDialogControl.axaml" />
+        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels" >
+    <StyleInclude Source="avares://Material.Dialog/Styles/EmbeddedDialogControl.axaml"/>
 
-  <Style Selector="Window" x:DataType="viewModels:DialogWindowViewModel">
-    <Setter Property="Title" Value="{CompiledBinding WindowTitle}" />
-    <Setter Property="WindowStartupLocation" Value="{CompiledBinding WindowStartupLocation}" />
-  </Style>
+    <Style Selector="Window" x:DataType="viewModels:DialogWindowViewModel">
+        <Setter Property="Title" Value="{CompiledBinding WindowTitle}" />
+        <Setter Property="WindowStartupLocation" Value="{CompiledBinding WindowStartupLocation}" />
+    </Style>
 </Styles>

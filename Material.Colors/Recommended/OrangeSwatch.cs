@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace Material.Colors.Recommended {
-    public class OrangeSwatch : ISwatch {
+namespace Material.Colors.Recommended
+{
+    public class OrangeSwatch : ISwatch
+    {
         public static Color Orange50 { get; } = Color.Parse("#FFF3E0");
         public static Color Orange100 { get; } = Color.Parse("#FFE0B2");
         public static Color Orange200 { get; } = Color.Parse("#FFCC80");
@@ -20,21 +22,22 @@ namespace Material.Colors.Recommended {
 
         public string Name { get; } = "Orange";
 
-        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color> {
-            { MaterialColor.Orange50, Orange50 },
-            { MaterialColor.Orange100, Orange100 },
-            { MaterialColor.Orange200, Orange200 },
-            { MaterialColor.Orange300, Orange300 },
-            { MaterialColor.Orange400, Orange400 },
-            { MaterialColor.Orange500, Orange500 },
-            { MaterialColor.Orange600, Orange600 },
-            { MaterialColor.Orange700, Orange700 },
-            { MaterialColor.Orange800, Orange800 },
-            { MaterialColor.Orange900, Orange900 },
-            { MaterialColor.OrangeA100, OrangeA100 },
-            { MaterialColor.OrangeA200, OrangeA200 },
-            { MaterialColor.OrangeA400, OrangeA400 },
-            { MaterialColor.OrangeA700, OrangeA700 }
+        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color>
+        {
+            {MaterialColor.Orange50, Orange50},
+            {MaterialColor.Orange100, Orange100},
+            {MaterialColor.Orange200, Orange200},
+            {MaterialColor.Orange300, Orange300},
+            {MaterialColor.Orange400, Orange400},
+            {MaterialColor.Orange500, Orange500},
+            {MaterialColor.Orange600, Orange600},
+            {MaterialColor.Orange700, Orange700},
+            {MaterialColor.Orange800, Orange800},
+            {MaterialColor.Orange900, Orange900},
+            {MaterialColor.OrangeA100, OrangeA100},
+            {MaterialColor.OrangeA200, OrangeA200},
+            {MaterialColor.OrangeA400, OrangeA400},
+            {MaterialColor.OrangeA700, OrangeA700}
         };
 
         public IEnumerable<Color> Hues => Lookup.Values;

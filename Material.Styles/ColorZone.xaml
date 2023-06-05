@@ -1,40 +1,40 @@
 <Styles
-  xmlns="https://github.com/avaloniaui"
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:assists="clr-namespace:Material.Styles.Assists"
-  xmlns:controls="clr-namespace:Material.Styles.Controls"
-  xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
-  <Style Selector="controls|ColorZone">
-    <Setter Property="Mode" Value="Standard" />
-    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-    <Setter Property="VerticalContentAlignment" Value="Stretch" />
-    <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2" />
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate>
-          <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                  Background="{TemplateBinding Background}"
-                  BorderBrush="{TemplateBinding BorderBrush}"
-                  BorderThickness="{TemplateBinding BorderThickness}"
-                  CornerRadius="{TemplateBinding CornerRadius}"
-                  assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
-            <Border Name="{x:Static naming:PartNames.PartInnerBorder}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Padding="{TemplateBinding Padding}">
-              <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-            </Border>
-          </Border>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
-  <!-- Compatibility issue: require preloaded MaterialTheme
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assists="clr-namespace:Material.Styles.Assists"
+    xmlns:controls="clr-namespace:Material.Styles.Controls"
+    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+    <Style Selector="controls|ColorZone">
+        <Setter Property="Mode" Value="Standard"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+                        <Border Name="{x:Static naming:PartNames.PartInnerBorder}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+<!-- Compatibility issue: require preloaded MaterialTheme
     <Design.PreviewWith>
         <Border Padding="40" BorderThickness="1">
             <controls:ColorZone Mode="PrimaryMid">

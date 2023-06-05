@@ -3,161 +3,161 @@
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
                     xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters">
-  <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
-  <converters:MarginMultiplyConverter x:Key="MarginCreator" />
-  <parameters:MarginMultiplyParameter x:Key="TreeItemContentMargin" LeftMultiplier="28" />
-
-  <ControlTheme x:Key="TreeViewItemExpandToggleButton"
-                TargetType="ToggleButton">
-    <Setter Property="Cursor" Value="Hand" />
-    <Setter Property="Focusable" Value="False" />
-    <Setter Property="CornerRadius" Value="16" />
-    <Setter Property="Width" Value="24" />
-    <Setter Property="Height" Value="24" />
-    <Setter Property="Margin" Value="4,0,0,0" />
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate>
-          <Border Background="Transparent"
-                  CornerRadius="{TemplateBinding CornerRadius}"
-                  ClipToBounds="True">
-            <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}"
-                                 RippleFill="{TemplateBinding Foreground, 
+                    xmlns:converters="clr-namespace:Material.Styles.Converters" >
+    <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
+    <converters:MarginMultiplyConverter x:Key="MarginCreator" />
+    <parameters:MarginMultiplyParameter x:Key="TreeItemContentMargin" LeftMultiplier="28" />
+    
+    <ControlTheme x:Key="TreeViewItemExpandToggleButton"
+                  TargetType="ToggleButton">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Margin" Value="4,0,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="Transparent"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            ClipToBounds="True">
+                        <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}"
+                                             RippleFill="{TemplateBinding Foreground, 
                                              Converter={StaticResource BrushRoundConverter}}">
-              <Panel Name="{x:Static naming:PartNames.PartInnerPanel}" Width="24" Height="24">
-                <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-                      Name="ExpandPath"
-                      Fill="{TemplateBinding Foreground}"
-                      Stroke="{TemplateBinding Foreground}" />
-              </Panel>
-            </ripple:RippleEffect>
-          </Border>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-
-    <Style Selector="^:not(.no-transitions) /template/ Panel#PART_InnerPanel">
-      <Setter Property="Transitions">
-        <Transitions>
-          <TransformOperationsTransition Duration="0:0:0.25" Property="RenderTransform" Easing="CircularEaseOut" />
-        </Transitions>
-      </Setter>
-    </Style>
-
-    <Style Selector="^ /template/ Panel#PART_InnerPanel">
-      <Setter Property="RenderTransform" Value="rotate(0deg)" />
-    </Style>
-
-    <!-- Rotate the arrow to 45 degrees when TreeViewItem expanded -->
-    <Style Selector="^:checked /template/ Panel#PART_InnerPanel">
-      <Setter Property="RenderTransform" Value="rotate(45deg)" />
-    </Style>
-  </ControlTheme>
-
-  <ControlTheme x:Key="{x:Type TreeViewItem}"
-                TargetType="TreeViewItem">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Margin" Value="0" />
-    <Setter Property="Padding" Value="8" />
-    <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}">
-          <StackPanel Name="{x:Static naming:PartNames.PartRootPanel}">
-            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
-              <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}" />
-
-              <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
-                <DockPanel Name="{x:Static naming:PartNames.PartContentPanel}"
-                           Margin="{TemplateBinding Level,
+                            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}" Width="24" Height="24">
+                                <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                                      Name="ExpandPath"
+                                      Fill="{TemplateBinding Foreground}"
+                                      Stroke="{TemplateBinding Foreground}"/>
+                            </Panel>
+                        </ripple:RippleEffect>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Style Selector="^:not(.no-transitions) /template/ Panel#PART_InnerPanel">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Duration="0:0:0.25" Property="RenderTransform" Easing="CircularEaseOut" />
+                </Transitions>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^ /template/ Panel#PART_InnerPanel">
+            <Setter Property="RenderTransform" Value="rotate(0deg)" />
+        </Style>
+    
+        <!-- Rotate the arrow to 45 degrees when TreeViewItem expanded -->
+        <Style Selector="^:checked /template/ Panel#PART_InnerPanel">
+            <Setter Property="RenderTransform" Value="rotate(45deg)" />
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type TreeViewItem}"
+                  TargetType="TreeViewItem">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="ClipToBounds" Value="False"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <StackPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
+                            <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}"/>
+                            
+                            <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
+                                <DockPanel Name="{x:Static naming:PartNames.PartContentPanel}"
+                                           Margin="{TemplateBinding Level,
                                            Converter={StaticResource MarginCreator},
                                            ConverterParameter={StaticResource TreeItemContentMargin}}">
-                  <ToggleButton DockPanel.Dock="Left"
-                                Name="{x:Static naming:PartNames.PartExpanderButton}"
-                                IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
+                                    <ToggleButton DockPanel.Dock="Left"
+                                                  Name="{x:Static naming:PartNames.PartExpanderButton}"
+                                                  IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"/>
+                        
+                                    <ContentPresenter DockPanel.Dock="Right"
+                                                      Name="{x:Static naming:PartNames.PartHeaderPresenter}"
+                                                      Content="{TemplateBinding Header}"
+                                                      Padding="{TemplateBinding Padding}"/>
+                                </DockPanel>
+                            </ripple:RippleEffect>
+                            
+                            <Border Name="{x:Static naming:PartNames.PartHoverEffect}"/>
+                        </Panel>
 
-                  <ContentPresenter DockPanel.Dock="Right"
-                                    Name="{x:Static naming:PartNames.PartHeaderPresenter}"
-                                    Content="{TemplateBinding Header}"
-                                    Padding="{TemplateBinding Padding}" />
-                </DockPanel>
-              </ripple:RippleEffect>
-
-              <Border Name="{x:Static naming:PartNames.PartHoverEffect}" />
-            </Panel>
-
-            <ItemsControl Name="ItemsHost"
-                          IsVisible="{TemplateBinding IsExpanded}"
-                          ItemsSource="{TemplateBinding ItemsSource}"
-                          ItemsPanel="{TemplateBinding ItemsPanel}" />
-          </StackPanel>
-        </Border>
-      </ControlTemplate>
-    </Setter>
-
-    <Style Selector="^ /template/ ToggleButton#PART_ExpanderButton">
-      <Setter Property="Theme" Value="{StaticResource TreeViewItemExpandToggleButton}" />
-    </Style>
-
-    <Style Selector="^/template/ ripple|RippleEffect#PART_Ripple">
-      <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignBody}" />
-      <Setter Property="Focusable" Value="False" />
-    </Style>
-
-    <!-- Transitions -->
-    <Style Selector="^:not(.no-transitions)">
-      <Style Selector="^ /template/ Border#PART_BehaviourEffect">
-        <Setter Property="Transitions">
-          <Transitions>
-            <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
-          </Transitions>
+                      <ItemsControl Name="ItemsHost"
+                                    IsVisible="{TemplateBinding IsExpanded}"
+                                    ItemsSource="{TemplateBinding ItemsSource}"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
         </Setter>
-      </Style>
-
-      <Style Selector="^/template/ Border#PART_HoverEffect">
-        <Setter Property="Transitions">
-          <Transitions>
-            <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
-          </Transitions>
-        </Setter>
-      </Style>
-    </Style>
-
-    <!-- Statements for transition elements -->
-
-    <!-- Default statement - behaviour effect border should have invisible (full-transparent) -->
-    <Style Selector="^ /template/ Border#PART_BehaviourEffect">
-      <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
-      <Setter Property="Opacity" Value="0" />
-    </Style>
-
-    <Style Selector="^ /template/ Border#PART_HoverEffect">
-      <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
-      <Setter Property="IsHitTestVisible" Value="False" />
-      <Setter Property="Opacity" Value="0" />
-    </Style>
-
-    <!-- Set behaviour effect highlight to semi-transparent barely visible when cursor hovering TreeViewItem -->
-    <Style Selector="^:pointerover /template/ Border#PART_HoverEffect">
-      <Setter Property="Opacity" Value="0.05" />
-    </Style>
-
-    <!-- Set behaviour effect highlight to semi-transparent visible when user selected TreeViewItem -->
-    <Style Selector="^:selected /template/ Border#PART_BehaviourEffect">
-      <Setter Property="Opacity" Value="0.24" />
-    </Style>
-
-    <Style Selector="^:disabled /template/ Border#PART_RootBorder">
-      <Setter Property="Opacity" Value="0.56" />
-    </Style>
-
-    <Style Selector="^:empty /template/ ToggleButton#PART_ExpanderButton">
-      <Setter Property="IsVisible" Value="False" />
-    </Style>
-  </ControlTheme>
+        
+        <Style Selector="^ /template/ ToggleButton#PART_ExpanderButton">
+            <Setter Property="Theme" Value="{StaticResource TreeViewItemExpandToggleButton}"/>
+        </Style>
+                    
+        <Style Selector="^/template/ ripple|RippleEffect#PART_Ripple">
+            <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignBody}"/>
+            <Setter Property="Focusable" Value="False"/>
+        </Style>
+        
+        <!-- Transitions -->
+        <Style Selector="^:not(.no-transitions)">
+            <Style Selector="^ /template/ Border#PART_BehaviourEffect">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            
+            <Style Selector="^/template/ Border#PART_HoverEffect">
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+                    </Transitions>
+                </Setter>
+            </Style>
+        </Style>
+        
+        <!-- Statements for transition elements -->
+        
+        <!-- Default statement - behaviour effect border should have invisible (full-transparent) -->
+        <Style Selector="^ /template/ Border#PART_BehaviourEffect">
+            <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+                        
+        <Style Selector="^ /template/ Border#PART_HoverEffect">
+            <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+    
+        <!-- Set behaviour effect highlight to semi-transparent barely visible when cursor hovering TreeViewItem -->
+        <Style Selector="^:pointerover /template/ Border#PART_HoverEffect">
+            <Setter Property="Opacity" Value="0.05" />
+        </Style>
+    
+        <!-- Set behaviour effect highlight to semi-transparent visible when user selected TreeViewItem -->
+        <Style Selector="^:selected /template/ Border#PART_BehaviourEffect">
+            <Setter Property="Opacity" Value="0.24" />
+        </Style>
+        
+        <Style Selector="^:disabled /template/ Border#PART_RootBorder">
+            <Setter Property="Opacity" Value="0.56" />
+        </Style>
+    
+        <Style Selector="^:empty /template/ ToggleButton#PART_ExpanderButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>

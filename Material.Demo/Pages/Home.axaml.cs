@@ -65,17 +65,11 @@ namespace Material.Demo.Pages {
 
         //public ObservableCollection<FeatureStatusModels> Features { get; private set; }
 
-        public void UseMaterialUIDarkTheme() {
-            GlobalCommand.UseMaterialUIDarkTheme();
-        }
+        public void UseMaterialUIDarkTheme() => GlobalCommand.UseMaterialUIDarkTheme();
 
-        public void UseMaterialUILightTheme() {
-            GlobalCommand.UseMaterialUILightTheme();
-        }
+        public void UseMaterialUILightTheme() => GlobalCommand.UseMaterialUILightTheme();
 
-        public void OpenProjectRepoLink() {
-            GlobalCommand.OpenProjectRepoLink();
-        }
+        public void OpenProjectRepoLink() => GlobalCommand.OpenProjectRepoLink();
 
         public void SwitchTransition() {
             var state = !TransitionAssist.GetDisableTransitions(_window!);
@@ -83,8 +77,6 @@ namespace Material.Demo.Pages {
             DialogHelper.DisableTransitions = state;
         }
 
-        public void ShowAboutAvaloniaUI() {
-            new AboutAvaloniaDialog().ShowDialog(_window!);
-        }
+        public void ShowAboutAvaloniaUI() => new AboutAvaloniaDialog().ShowDialog(_window!);
     }
 }

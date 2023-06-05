@@ -1,23 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
-        <NoWarn>NU5104, NU1507</NoWarn>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <NoWarn>NU5104, NU1507</NoWarn>
 
-        <Authors>Larymar,SKProCH,Appleneko2001</Authors>
-        <Company>Larymar,SKProCH,Appleneko2001</Company>
-        <Description>Ripple component library of Material.Avalonia.</Description>
-        <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-    </PropertyGroup>
+    <Authors>Larymar,SKProCH,Appleneko2001</Authors>
+    <Company>Larymar,SKProCH,Appleneko2001</Company>
+    <Description>Ripple component library of Material.Avalonia.</Description>
+    <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <AvaloniaResource Include="**\*.xaml">
-            <SubType>Designer</SubType>
-        </AvaloniaResource>
-    </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="**\*.xaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+  </ItemGroup>
 </Project>

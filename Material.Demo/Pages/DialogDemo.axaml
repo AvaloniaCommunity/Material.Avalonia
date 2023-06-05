@@ -3,63 +3,62 @@
              xmlns:viewModels="clr-namespace:Material.Demo.ViewModels"
              xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              x:Class="Material.Demo.Pages.DialogDemo"
-             x:DataType="viewModels:DialogDemoViewModel">
-  <UserControl.Resources>
-    <!-- ReSharper disable once Xaml.RedundantResource -->
-    <StackPanel x:Key="Sample2View">
-      <ProgressBar Classes="Circle" IsIndeterminate="True" />
-      <Button Margin="0 16 0 0"
-              Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=CloseDialogCommand}">
-        CLOSE
-      </Button>
-    </StackPanel>
-  </UserControl.Resources>
-
-  <StackPanel Margin="16, 0">
-    <TextBlock Classes="Headline4 Subheadline" Text="Dialogs" />
-    <Grid ColumnDefinitions="*, *">
-
-      <StackPanel>
-        <TextBlock Classes="Headline6 Subheadline2" Text="DialogHost" />
-        <StackPanel>
-          <TextBlock TextWrapping="Wrap"
-                     Text="Top level dialog with custom corner radius, using OpenDialog, passing content via the Parameter. You can pass a view model, provided a corresponding DataTemplate can be found in the scope of the root DialogHost." />
-          <StackPanel Spacing="8">
-            <Button Classes="flat" Click="OpenDialogWithView">PASS VIEW</Button>
-            <Button Classes="flat" Click="OpenDialogWithModel">PASS MODEL</Button>
-            <Button Classes="flat" Click="OpenMoreDialogHostExamples">MORE EXAMPLES</Button>
-          </StackPanel>
+             x:DataType="viewModels:DialogDemoViewModel" >
+    <UserControl.Resources>
+        <!-- ReSharper disable once Xaml.RedundantResource -->
+        <StackPanel x:Key="Sample2View">
+            <ProgressBar Classes="Circle" IsIndeterminate="True" />
+            <Button Margin="0 16 0 0"
+                    Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=CloseDialogCommand}">
+                CLOSE
+            </Button>
         </StackPanel>
-      </StackPanel>
+    </UserControl.Resources>
 
-      <StackPanel Grid.Column="1">
-        <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
+    <StackPanel Margin="16, 0" >
+        <TextBlock Classes="Headline4 Subheadline" Text="Dialogs" />
+        <Grid ColumnDefinitions="*, *" >
 
-        <ItemsControl ItemsSource="{CompiledBinding StandaloneDialogItems}">
-          <ItemsControl.ItemTemplate>
-            <DataTemplate DataType="viewModels:DialogDemoItemViewModel">
-              <DockPanel Margin="8">
-                <Button DockPanel.Dock="Top"
-                        Classes="flat"
-                        Content="{CompiledBinding Header}"
-                        Command="{CompiledBinding Command}" />
-                <TextBlock Margin="8"
-                           HorizontalAlignment="Center"
-                           TextWrapping="Wrap"
+            <StackPanel>
+                <TextBlock Classes="Headline6 Subheadline2" Text="DialogHost" />
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Top level dialog with custom corner radius, using OpenDialog, passing content via the Parameter. You can pass a view model, provided a corresponding DataTemplate can be found in the scope of the root DialogHost."/>
+                    <StackPanel Spacing="8" >
+                        <Button Classes="flat" Click="OpenDialogWithView" >PASS VIEW</Button>
+                        <Button Classes="flat" Click="OpenDialogWithModel" >PASS MODEL</Button>
+                        <Button Classes="flat" Click="OpenMoreDialogHostExamples" >MORE EXAMPLES</Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
 
-                           DockPanel.Dock="Bottom"
+            <StackPanel Grid.Column="1" >
+                <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
 
-                           Text="{CompiledBinding Result}"
-                           IsVisible="{CompiledBinding Result,
+                <ItemsControl ItemsSource="{CompiledBinding StandaloneDialogItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="viewModels:DialogDemoItemViewModel" >
+                            <DockPanel Margin="8" >
+                                <Button DockPanel.Dock="Top"
+                                        Classes="flat"
+                                        Content="{CompiledBinding Header}"
+                                        Command="{CompiledBinding Command}" />
+                                <TextBlock Margin="8"
+                                           HorizontalAlignment="Center"
+                                           TextWrapping="Wrap"
+
+                                           DockPanel.Dock="Bottom"
+
+                                           Text="{CompiledBinding Result}"
+                                           IsVisible="{CompiledBinding Result,
                                                  Converter={x:Static StringConverters.IsNotNullOrEmpty},
                                                  FallbackValue=False}" />
-              </DockPanel>
-            </DataTemplate>
-          </ItemsControl.ItemTemplate>
-        </ItemsControl>
-      </StackPanel>
-    </Grid>
-  </StackPanel>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 
 
 </UserControl>

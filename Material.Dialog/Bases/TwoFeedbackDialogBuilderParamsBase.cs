@@ -1,8 +1,10 @@
 ﻿using System;
 
-namespace Material.Dialog.Bases {
+namespace Material.Dialog.Bases
+{
     [Obsolete("Deprecated builder params.")]
-    public class TwoFeedbackDialogBuilderParamsBase : DialogWindowBuilderParamsBase {
+    public class TwoFeedbackDialogBuilderParamsBase : DialogWindowBuilderParamsBase
+    {
         /// <summary>
         /// Define a positive action button.
         /// </summary>

@@ -1,166 +1,166 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <Style Selector=":is(Control)">
-    <Setter Property="TextBlock.FontSize" Value="13" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-    <Setter Property="TextBlock.FontFamily"
-            Value="avares://Material.Styles/Fonts/Roboto#Roboto, Noto Sans, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Cantarell, Ubuntu, Arial, Hiragino Kaku Gothic Pro, MS UI Gothic, MS PMincho, Microsoft JhengHei, Microsoft JhengHei UI, Microsoft YaHei New, Microsoft Yahei, SimHei" />
-  </Style>
+    <Style Selector=":is(Control)">
+        <Setter Property="TextBlock.FontSize" Value="13" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+        <Setter Property="TextBlock.FontFamily"
+                Value="avares://Material.Styles/Fonts/Roboto#Roboto, Noto Sans, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Cantarell, Ubuntu, Arial, Hiragino Kaku Gothic Pro, MS UI Gothic, MS PMincho, Microsoft JhengHei, Microsoft JhengHei UI, Microsoft YaHei New, Microsoft Yahei, SimHei" />
+    </Style>
+    
+    <Style Selector=":is(Control).caption">
+        <Setter Property="TextBlock.FontSize" Value="12" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).caption">
-    <Setter Property="TextBlock.FontSize" Value="12" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).body1">
+        <Setter Property="TextBlock.FontSize" Value="16" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).body1">
-    <Setter Property="TextBlock.FontSize" Value="16" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).body2">
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).body2">
-    <Setter Property="TextBlock.FontSize" Value="14" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).overline">
+        <Setter Property="TextBlock.FontSize" Value="10" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).overline">
-    <Setter Property="TextBlock.FontSize" Value="10" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).subtitle1">
+        <Setter Property="TextBlock.FontSize" Value="16" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).subtitle1">
-    <Setter Property="TextBlock.FontSize" Value="16" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).subtitle2">
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+    </Style>
 
-  <Style Selector=":is(Control).subtitle2">
-    <Setter Property="TextBlock.FontSize" Value="14" />
-    <Setter Property="TextBlock.FontWeight" Value="Medium" />
-  </Style>
+    <Style Selector=":is(Control).headline6">
+        <Setter Property="TextBlock.FontSize" Value="20" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+    </Style>
 
-  <Style Selector=":is(Control).headline6">
-    <Setter Property="TextBlock.FontSize" Value="20" />
-    <Setter Property="TextBlock.FontWeight" Value="Medium" />
-  </Style>
+    <Style Selector=":is(Control).headline5">
+        <Setter Property="TextBlock.FontSize" Value="24" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).headline5">
-    <Setter Property="TextBlock.FontSize" Value="24" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).headline4">
+        <Setter Property="TextBlock.FontSize" Value="34" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).headline4">
-    <Setter Property="TextBlock.FontSize" Value="34" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).headline3">
+        <Setter Property="TextBlock.FontSize" Value="48" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).headline3">
-    <Setter Property="TextBlock.FontSize" Value="48" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).headline2">
+        <Setter Property="TextBlock.FontSize" Value="60" />
+        <Setter Property="TextBlock.FontWeight" Value="Light" />
+    </Style>
 
-  <Style Selector=":is(Control).headline2">
-    <Setter Property="TextBlock.FontSize" Value="60" />
-    <Setter Property="TextBlock.FontWeight" Value="Light" />
-  </Style>
+    <Style Selector=":is(Control).headline1">
+        <Setter Property="TextBlock.FontSize" Value="96" />
+        <Setter Property="TextBlock.FontWeight" Value="Light" />
+    </Style>
 
-  <Style Selector=":is(Control).headline1">
-    <Setter Property="TextBlock.FontSize" Value="96" />
-    <Setter Property="TextBlock.FontWeight" Value="Light" />
-  </Style>
+    <Style Selector=":is(Control).link">
+        <Setter Property="TextBlock.Foreground" Value="#007BFF" />
+        <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+    </Style>
+    
+    <Style Selector=":is(Control).link:pointerover, :is(Control).link:focus">
+        <Setter Property="TextBlock.Foreground" Value="#FF0000" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+    
+    <!-- Compatibility -->
 
-  <Style Selector=":is(Control).link">
-    <Setter Property="TextBlock.Foreground" Value="#007BFF" />
-    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
-  </Style>
+    <Style Selector=":is(Control).Caption">
+        <Setter Property="TextBlock.FontSize" Value="12" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).link:pointerover, :is(Control).link:focus">
-    <Setter Property="TextBlock.Foreground" Value="#FF0000" />
-    <Setter Property="Cursor" Value="Hand" />
-  </Style>
+    <Style Selector=":is(Control).Body1">
+        <Setter Property="TextBlock.FontSize" Value="16" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <!-- Compatibility -->
+    <Style Selector=":is(Control).Body2">
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).Caption">
-    <Setter Property="TextBlock.FontSize" Value="12" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).Overline">
+        <Setter Property="TextBlock.FontSize" Value="10" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).Body1">
-    <Setter Property="TextBlock.FontSize" Value="16" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).Subtitle1">
+        <Setter Property="TextBlock.FontSize" Value="16" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).Body2">
-    <Setter Property="TextBlock.FontSize" Value="14" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).Subtitle2">
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+    </Style>
 
-  <Style Selector=":is(Control).Overline">
-    <Setter Property="TextBlock.FontSize" Value="10" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).Headline6">
+        <Setter Property="TextBlock.FontSize" Value="20" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+    </Style>
 
-  <Style Selector=":is(Control).Subtitle1">
-    <Setter Property="TextBlock.FontSize" Value="16" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).Headline5">
+        <Setter Property="TextBlock.FontSize" Value="24" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).Subtitle2">
-    <Setter Property="TextBlock.FontSize" Value="14" />
-    <Setter Property="TextBlock.FontWeight" Value="Medium" />
-  </Style>
+    <Style Selector=":is(Control).Headline4">
+        <Setter Property="TextBlock.FontSize" Value="34" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).Headline6">
-    <Setter Property="TextBlock.FontSize" Value="20" />
-    <Setter Property="TextBlock.FontWeight" Value="Medium" />
-  </Style>
+    <Style Selector=":is(Control).Headline3">
+        <Setter Property="TextBlock.FontSize" Value="48" />
+        <Setter Property="TextBlock.FontWeight" Value="Regular" />
+    </Style>
 
-  <Style Selector=":is(Control).Headline5">
-    <Setter Property="TextBlock.FontSize" Value="24" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).Headline2">
+        <Setter Property="TextBlock.FontSize" Value="60" />
+        <Setter Property="TextBlock.FontWeight" Value="Light" />
+    </Style>
 
-  <Style Selector=":is(Control).Headline4">
-    <Setter Property="TextBlock.FontSize" Value="34" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).Headline1">
+        <Setter Property="TextBlock.FontSize" Value="96" />
+        <Setter Property="TextBlock.FontWeight" Value="Light" />
+    </Style>
 
-  <Style Selector=":is(Control).Headline3">
-    <Setter Property="TextBlock.FontSize" Value="48" />
-    <Setter Property="TextBlock.FontWeight" Value="Regular" />
-  </Style>
+    <Style Selector=":is(Control).Link">
+        <Setter Property="TextBlock.Foreground" Value="#007BFF" />
+        <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+    </Style>
+    
+    <Style Selector=":is(Control).Link:pointerover, TextBlock.Link:focus">
+        <Setter Property="TextBlock.Foreground" Value="#FF0000" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
 
-  <Style Selector=":is(Control).Headline2">
-    <Setter Property="TextBlock.FontSize" Value="60" />
-    <Setter Property="TextBlock.FontWeight" Value="Light" />
-  </Style>
+    <Style Selector="Button > TextBlock, TextBlock.ButtonText, TextBlock.material-button-text">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
 
-  <Style Selector=":is(Control).Headline1">
-    <Setter Property="TextBlock.FontSize" Value="96" />
-    <Setter Property="TextBlock.FontWeight" Value="Light" />
-  </Style>
-
-  <Style Selector=":is(Control).Link">
-    <Setter Property="TextBlock.Foreground" Value="#007BFF" />
-    <Setter Property="TextBlock.TextDecorations" Value="Underline" />
-  </Style>
-
-  <Style Selector=":is(Control).Link:pointerover, TextBlock.Link:focus">
-    <Setter Property="TextBlock.Foreground" Value="#FF0000" />
-    <Setter Property="Cursor" Value="Hand" />
-  </Style>
-
-  <Style Selector="Button > TextBlock, TextBlock.ButtonText, TextBlock.material-button-text">
-    <Setter Property="FontSize" Value="14" />
-    <Setter Property="FontWeight" Value="Medium" />
-  </Style>
-
-  <Style Selector="controls|FloatingButton > TextBlock">
-    <Setter Property="FontSize" Value="15" />
-    <Setter Property="FontWeight" Value="Medium" />
-  </Style>
-
-  <Style Selector="TextBlock.FloatingButtonText, TextBlock.material-floating-button-text">
-    <Setter Property="FontSize" Value="15" />
-    <Setter Property="FontWeight" Value="Medium" />
-  </Style>
+    <Style Selector="controls|FloatingButton > TextBlock">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+    
+    <Style Selector="TextBlock.FloatingButtonText, TextBlock.material-floating-button-text">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
 </Styles>

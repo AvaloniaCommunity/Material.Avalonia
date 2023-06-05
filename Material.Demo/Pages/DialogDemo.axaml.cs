@@ -21,7 +21,7 @@ namespace Material.Demo.Pages {
         }
 
         private void OpenDialogWithView(object? sender, RoutedEventArgs e) {
-            DialogHost.Show(Resources["Sample2View"]!, "MainDialogHost");
+            DialogHost.Show(this.Resources["Sample2View"]!, "MainDialogHost");
         }
 
         private void OpenDialogWithModel(object? sender, RoutedEventArgs e) {

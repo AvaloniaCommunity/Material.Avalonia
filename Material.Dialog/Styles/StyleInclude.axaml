@@ -1,24 +1,23 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
-        xmlns:controls="clr-namespace:Material.Dialog.Controls">
-  <Style Selector="Window">
-    <Setter Property="CanResize" Value="False" />
-    <Setter Property="SizeToContent" Value="WidthAndHeight" />
-    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-  </Style>
-
-  <Style Selector="Window[SystemDecorations=None]">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="TransparencyLevelHint" Value="Transparent" />
-  </Style>
-
-  <Style
-    Selector="Window[SystemDecorations=Full] controls|EmbeddedDialogControl /template/
+        xmlns:controls="clr-namespace:Material.Dialog.Controls" >
+    <Style Selector="Window">
+        <Setter Property="CanResize" Value="False"/>
+        <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+    
+    <Style Selector="Window[SystemDecorations=None]">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TransparencyLevelHint" Value="Transparent" />
+    </Style>
+    
+    <Style Selector="Window[SystemDecorations=Full] controls|EmbeddedDialogControl /template/
                      Border#PART_RootBorder">
-    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
-    <Setter Property="CornerRadius" Value="0" />
-    <Setter Property="Margin" Value="0" />
-  </Style>
-
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+    
 </Styles>

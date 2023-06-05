@@ -2,16 +2,19 @@
 using System.Linq;
 using Avalonia.Media;
 
-namespace Material.Colors.ColorManipulation {
-    public static class HsbConverter {
-        public static Color ToColor(this Hsb hsv) {
+namespace Material.Colors.ColorManipulation
+{
+    public static class HsbConverter
+    {
+        public static Color ToColor(this Hsb hsv)
+        {
             var h = hsv.Hue;
             var s = hsv.Saturation;
             var b = hsv.Brightness;
 
             b *= 255;
 
-            if (s.IsCloseTo(0)) return Color.FromRgb((byte)b, (byte)b, (byte)b);
+            if (s.IsCloseTo(0)) return Color.FromRgb((byte) b, (byte) b, (byte) b);
 
             if (h.IsCloseTo(360)) h = 0;
             while (h > 360) h -= 360;
@@ -19,31 +22,33 @@ namespace Material.Colors.ColorManipulation {
 
             h /= 60;
 
-            var i = (int)Math.Floor(h);
+            var i = (int) Math.Floor(h);
             var f = h - i;
             var p = b * (1 - s);
             var q = b * (1 - s * f);
             var t = b * (1 - s * (1 - f));
 
-            switch (i) {
+            switch (i)
+            {
                 case 0:
-                    return Color.FromRgb((byte)b, (byte)t, (byte)p);
+                    return Color.FromRgb((byte) b, (byte) t, (byte) p);
                 case 1:
-                    return Color.FromRgb((byte)q, (byte)b, (byte)p);
+                    return Color.FromRgb((byte) q, (byte) b, (byte) p);
                 case 2:
-                    return Color.FromRgb((byte)p, (byte)b, (byte)t);
+                    return Color.FromRgb((byte) p, (byte) b, (byte) t);
                 case 3:
-                    return Color.FromRgb((byte)p, (byte)q, (byte)b);
+                    return Color.FromRgb((byte) p, (byte) q, (byte) b);
                 case 4:
-                    return Color.FromRgb((byte)t, (byte)p, (byte)b);
+                    return Color.FromRgb((byte) t, (byte) p, (byte) b);
                 case 5:
-                    return Color.FromRgb((byte)b, (byte)p, (byte)q);
+                    return Color.FromRgb((byte) b, (byte) p, (byte) q);
                 default:
                     throw new Exception("Invalid HSB values");
             }
         }
 
-        public static Hsb ToHsb(this Color color) {
+        public static Hsb ToHsb(this Color color)
+        {
             double r = color.R;
             double g = color.G;
             double b = color.B;
@@ -52,7 +57,7 @@ namespace Material.Colors.ColorManipulation {
             g = g / 255;
             b = b / 255;
 
-            var rgb = new[] { r, g, b };
+            var rgb = new[] {r, g, b};
             var max = rgb.Max();
             var min = rgb.Min();
             var v = max;
@@ -61,10 +66,12 @@ namespace Material.Colors.ColorManipulation {
             var d = max - min;
             var s = max.IsCloseTo(0) ? 0 : d / max;
 
-            if (max.IsCloseTo(min)) {
+            if (max.IsCloseTo(min))
+            {
                 h = 0; // achromatic
             }
-            else {
+            else
+            {
                 if (max.IsCloseTo(r))
                     h = (g - b) / d + (g < b ? 6 : 0);
                 else if (max.IsCloseTo(g))
@@ -77,7 +84,8 @@ namespace Material.Colors.ColorManipulation {
             return new Hsb(h, s, v);
         }
 
-        private static bool IsCloseTo(this double value, double target, double tolerance = double.Epsilon) {
+        private static bool IsCloseTo(this double value, double target, double tolerance = double.Epsilon)
+        {
             return Math.Abs(value - target) < tolerance;
         }
     }

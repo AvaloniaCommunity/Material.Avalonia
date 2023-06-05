@@ -1,30 +1,30 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="{x:Type Window}"
-                TargetType="Window">
-    <Setter Property="FontSize" Value="14" />
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
-    <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialDesignBody}" />
-    <Setter Property="TextElement.FontWeight" Value="Regular" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Panel>
-          <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
-          <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
-          <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
-          <VisualLayerManager>
-            <VisualLayerManager.ChromeOverlayLayer>
-              <TitleBar />
-            </VisualLayerManager.ChromeOverlayLayer>
-            <ContentPresenter Name="PART_ContentPresenter"
-                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                              Content="{TemplateBinding Content}"
-                              Margin="{TemplateBinding Padding}"
-                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-          </VisualLayerManager>
-        </Panel>
-      </ControlTemplate>
-    </Setter>
-  </ControlTheme>
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <ControlTheme x:Key="{x:Type Window}"
+                  TargetType="Window">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="TextElement.FontWeight" Value="Regular" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+                    <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+                    <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
+                    <VisualLayerManager>
+                        <VisualLayerManager.ChromeOverlayLayer>
+                            <TitleBar />
+                        </VisualLayerManager.ChromeOverlayLayer>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </VisualLayerManager>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
 </ResourceDictionary>

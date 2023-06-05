@@ -3,7 +3,7 @@
 namespace Material.Demo.Pages {
     public partial class ScrollViewerDemo : UserControl {
         public ScrollViewerDemo() {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

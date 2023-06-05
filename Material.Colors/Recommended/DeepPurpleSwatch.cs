@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace Material.Colors.Recommended {
-    public class DeepPurpleSwatch : ISwatch {
+namespace Material.Colors.Recommended
+{
+    public class DeepPurpleSwatch : ISwatch
+    {
         public static Color DeepPurple50 { get; } = Color.Parse("#EDE7F6");
         public static Color DeepPurple100 { get; } = Color.Parse("#D1C4E9");
         public static Color DeepPurple200 { get; } = Color.Parse("#B39DDB");
@@ -20,21 +22,22 @@ namespace Material.Colors.Recommended {
 
         public string Name { get; } = "Deep Purple";
 
-        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color> {
-            { MaterialColor.DeepPurple50, DeepPurple50 },
-            { MaterialColor.DeepPurple100, DeepPurple100 },
-            { MaterialColor.DeepPurple200, DeepPurple200 },
-            { MaterialColor.DeepPurple300, DeepPurple300 },
-            { MaterialColor.DeepPurple400, DeepPurple400 },
-            { MaterialColor.DeepPurple500, DeepPurple500 },
-            { MaterialColor.DeepPurple600, DeepPurple600 },
-            { MaterialColor.DeepPurple700, DeepPurple700 },
-            { MaterialColor.DeepPurple800, DeepPurple800 },
-            { MaterialColor.DeepPurple900, DeepPurple900 },
-            { MaterialColor.DeepPurpleA100, DeepPurpleA100 },
-            { MaterialColor.DeepPurpleA200, DeepPurpleA200 },
-            { MaterialColor.DeepPurpleA400, DeepPurpleA400 },
-            { MaterialColor.DeepPurpleA700, DeepPurpleA700 }
+        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color>
+        {
+            {MaterialColor.DeepPurple50, DeepPurple50},
+            {MaterialColor.DeepPurple100, DeepPurple100},
+            {MaterialColor.DeepPurple200, DeepPurple200},
+            {MaterialColor.DeepPurple300, DeepPurple300},
+            {MaterialColor.DeepPurple400, DeepPurple400},
+            {MaterialColor.DeepPurple500, DeepPurple500},
+            {MaterialColor.DeepPurple600, DeepPurple600},
+            {MaterialColor.DeepPurple700, DeepPurple700},
+            {MaterialColor.DeepPurple800, DeepPurple800},
+            {MaterialColor.DeepPurple900, DeepPurple900},
+            {MaterialColor.DeepPurpleA100, DeepPurpleA100},
+            {MaterialColor.DeepPurpleA200, DeepPurpleA200},
+            {MaterialColor.DeepPurpleA400, DeepPurpleA400},
+            {MaterialColor.DeepPurpleA700, DeepPurpleA700}
         };
 
         public IEnumerable<Color> Hues => Lookup.Values;

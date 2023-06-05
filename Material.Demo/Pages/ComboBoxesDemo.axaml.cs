@@ -3,7 +3,7 @@
 namespace Material.Demo.Pages {
     public partial class ComboBoxesDemo : UserControl {
         public ComboBoxesDemo() {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

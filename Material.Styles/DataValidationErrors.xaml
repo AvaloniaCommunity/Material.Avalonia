@@ -1,45 +1,45 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:system="clr-namespace:System;assembly=netstandard"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
-  <Styles.Resources>
-    <DataTemplate x:Key="DataValidationErrorTemplate">
-      <ItemsControl ItemsSource="{Binding }"
-                    TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
-        <ItemsControl.DataTemplates>
-          <DataTemplate DataType="system:Exception">
-            <TextBlock Name="PART_ErrorText"
-                       Text="{Binding Message}"
-                       TextWrapping="Wrap" />
-          </DataTemplate>
-          <DataTemplate DataType="system:Object">
-            <TextBlock Name="PART_ErrorText"
-                       Text="{Binding }"
-                       TextWrapping="Wrap" />
-          </DataTemplate>
-        </ItemsControl.DataTemplates>
-      </ItemsControl>
-    </DataTemplate>
-  </Styles.Resources>
+        xmlns:system="clr-namespace:System;assembly=netstandard" 
+        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+    <Styles.Resources>
+        <DataTemplate x:Key="DataValidationErrorTemplate">
+          <ItemsControl ItemsSource="{Binding }"
+                        TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
+                <ItemsControl.DataTemplates>
+                    <DataTemplate DataType="system:Exception">
+                        <TextBlock Name="PART_ErrorText"
+                                   Text="{Binding Message}"
+                                   TextWrapping="Wrap"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="system:Object">
+                        <TextBlock Name="PART_ErrorText"
+                                   Text="{Binding }"
+                                   TextWrapping="Wrap"/>
+                    </DataTemplate>
+                </ItemsControl.DataTemplates>
+            </ItemsControl>
+        </DataTemplate>
+    </Styles.Resources>
 
-  <!-- Add Styles Here -->
-  <Style Selector="DataValidationErrors">
-    <Setter Property="ErrorTemplate"
-            Value="{StaticResource DataValidationErrorTemplate}" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
-          <ContentControl Name="PART_ContentControl"
-                          DockPanel.Dock="Bottom"
-                          Content="{TemplateBinding (DataValidationErrors.Errors)}"
-                          ContentTemplate="{TemplateBinding ErrorTemplate}"
-                          IsVisible="{TemplateBinding (DataValidationErrors.HasErrors)}" />
-
-          <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}" />
-        </DockPanel>
-      </ControlTemplate>
-    </Setter>
-  </Style>
+    <!-- Add Styles Here -->
+    <Style Selector="DataValidationErrors">
+        <Setter Property="ErrorTemplate"
+                Value="{StaticResource DataValidationErrorTemplate}"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                    <ContentControl Name="PART_ContentControl"
+                                    DockPanel.Dock="Bottom"
+                                    Content="{TemplateBinding (DataValidationErrors.Errors)}"
+                                    ContentTemplate="{TemplateBinding ErrorTemplate}"
+                                    IsVisible="{TemplateBinding (DataValidationErrors.HasErrors)}"/>
+                    
+                    <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
 </Styles>

@@ -1,8 +1,10 @@
-﻿namespace Material.Styles.Resources.Naming {
+﻿namespace Material.Styles.Resources.Naming
+{
     /// <summary>
     /// Constant naming collections of templated elements in control. 
     /// </summary>
-    public static class PartNames {
+    public static class PartNames
+    {
         #region Common use, including effects
 
         public static string PartRootBorder => "PART_RootBorder";
@@ -22,7 +24,7 @@
         public static string PartContentPanel => "PART_ContentPanel";
 
         public static string PartInnerBorder => "PART_InnerBorder";
-
+        
         /// <summary>
         /// General use.
         /// Please use this name on templated border of controls that have feedback on hovered by cursor
@@ -30,7 +32,7 @@
         public static string PartHoverEffect => "PART_HoverEffect";
 
         public static string PartScrollViewer => "PART_ScrollViewer";
-
+        
         /// <summary>
         /// General use.
         /// Please use this name on templated border of controls that have behaviours (Selected / Clicked behaviour or etc.)
@@ -68,9 +70,9 @@
         #region For Slider, ScrollBar
 
         public static string PartProgressLayer => "PART_ProgressLayer";
-
+        
         public static string PartSliderTick => "PART_SliderTick";
-
+        
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration (Required).</p>
         /// Use this name on track of slider.
@@ -81,9 +83,9 @@
         public static string PartTrackBorderBar => "PART_TrackBorderBar";
 
         public static string PartThumb => "PART_Thumb";
-
+        
         public static string PartSliderThumb => "PART_SliderThumb";
-
+        
         /// <summary>
         /// Use this name on RepeatButton of track of scrollbar to scroll up (decrease steps view).
         /// </summary>
@@ -160,13 +162,13 @@
         /// Use this name on TextBlock for displaying day text by avalonia
         /// </summary>
         public static string AvaloniaDayText = "PART_DayTextBlock";
-
+        
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on TextBlock for displaying month text by avalonia
         /// </summary>
         public static string AvaloniaMonthText = "PART_MonthTextBlock";
-
+        
         /// <summary>
         /// <p>This name is used for AvaloniaUI integration.</p>
         /// Use this name on TextBlock for displaying year text by avalonia
@@ -178,7 +180,7 @@
         public static string PartInputGestureText => "PART_InputGestureText";
 
         public static string PartVisualLayer => "VisualLayer";
-
+        
         public static string PartExpanderButton => "PART_ExpanderButton";
 
         public static string PartPopup => "PART_Popup";

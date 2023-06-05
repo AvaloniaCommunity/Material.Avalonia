@@ -85,8 +85,9 @@ namespace Material.Ripple {
             // Fade out ripple
             r.RunSecondStep();
 
-            void RemoveRippleTask(Task arg1, object arg2) =>
+            void RemoveRippleTask(Task arg1, object arg2) {
                 Dispatcher.UIThread.InvokeAsync(delegate { PART_RippleCanvasRoot.Children.Remove(r); }, DispatcherPriority.Render);
+            }
 
             // Remove ripple from canvas to finalize ripple instance
             Task.Delay(Ripple.Duration).ContinueWith(RemoveRippleTask, null);

@@ -17,7 +17,7 @@
   <ItemGroup>
     <None Remove="Fonts\**"/>
     <AvaloniaResource Include="Fonts\**"/>
-
+    
     <AvaloniaResource Include="**\*.xaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>

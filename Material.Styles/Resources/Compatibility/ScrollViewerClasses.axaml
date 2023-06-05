@@ -1,18 +1,18 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <Styles.Resources>
-    <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
-      </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-  </Styles.Resources>
-
-  <Style Selector="ScrollViewer.classic">
-    <Setter Property="Theme" Value="{StaticResource NoAutoHideScrollViewer}" />
-  </Style>
-
-  <Style Selector="ScrollViewer.no-auto-hide">
-    <Setter Property="Theme" Value="{StaticResource NoAutoHideScrollViewer}" />
-  </Style>
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+    
+    <Style Selector="ScrollViewer.classic">
+        <Setter Property="Theme" Value="{StaticResource NoAutoHideScrollViewer}"/>
+    </Style>
+    
+    <Style Selector="ScrollViewer.no-auto-hide">
+        <Setter Property="Theme" Value="{StaticResource NoAutoHideScrollViewer}"/>
+    </Style>
 </Styles>

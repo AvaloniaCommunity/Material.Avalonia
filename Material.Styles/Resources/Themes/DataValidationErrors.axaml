@@ -1,50 +1,50 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=netstandard"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
-  <DataTemplate x:Key="DataValidationErrorTemplate">
-    <ItemsControl ItemsSource="{Binding }"
-                  TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
-      <ItemsControl.DataTemplates>
-        <DataTemplate DataType="system:Exception">
-          <TextBlock Name="PART_ErrorText"
-                     Text="{Binding Message}"
-                     TextWrapping="Wrap" />
-        </DataTemplate>
-        <DataTemplate DataType="system:Object">
-          <TextBlock Name="PART_ErrorText"
-                     Text="{Binding }"
-                     TextWrapping="Wrap" />
-        </DataTemplate>
-      </ItemsControl.DataTemplates>
-    </ItemsControl>
-  </DataTemplate>
-
-  <ControlTheme x:Key="{x:Type DataValidationErrors}"
-                TargetType="DataValidationErrors">
-    <Setter Property="ErrorTemplate" Value="{StaticResource DataValidationErrorTemplate}" />
-
-    <Setter Property="Template">
-      <ControlTemplate>
-        <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
-          <ContentControl Name="{x:Static naming:PartNames.PartErrorPresenter}"
-                          Content="{TemplateBinding (DataValidationErrors.Errors)}"
-                          ContentTemplate="{TemplateBinding ErrorTemplate}"
-                          IsVisible="{TemplateBinding (DataValidationErrors.HasErrors)}" />
-
-          <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                            Margin="{TemplateBinding Padding}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-        </DockPanel>
-      </ControlTemplate>
-    </Setter>
-
-    <Style Selector="^ /template/ ContentControl#PART_ErrorPresenter">
-      <Setter Property="DockPanel.Dock" Value="Bottom" />
-      <Setter Property="Margin" Value="0,3,0,0" />
-    </Style>
-  </ControlTheme>
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+    <DataTemplate x:Key="DataValidationErrorTemplate">
+      <ItemsControl ItemsSource="{Binding }"
+                    TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
+            <ItemsControl.DataTemplates>
+                <DataTemplate DataType="system:Exception">
+                    <TextBlock Name="PART_ErrorText"
+                               Text="{Binding Message}"
+                               TextWrapping="Wrap"/>
+                </DataTemplate>
+                <DataTemplate DataType="system:Object">
+                    <TextBlock Name="PART_ErrorText"
+                               Text="{Binding }"
+                               TextWrapping="Wrap"/>
+                </DataTemplate>
+            </ItemsControl.DataTemplates>
+        </ItemsControl>
+    </DataTemplate>
+    
+    <ControlTheme x:Key="{x:Type DataValidationErrors}"
+                  TargetType="DataValidationErrors">
+        <Setter Property="ErrorTemplate" Value="{StaticResource DataValidationErrorTemplate}"/>
+        
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                    <ContentControl Name="{x:Static naming:PartNames.PartErrorPresenter}"
+                                    Content="{TemplateBinding (DataValidationErrors.Errors)}"
+                                    ContentTemplate="{TemplateBinding ErrorTemplate}"
+                                    IsVisible="{TemplateBinding (DataValidationErrors.HasErrors)}"/>
+                    
+                    <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                      Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^ /template/ ContentControl#PART_ErrorPresenter">
+            <Setter Property="DockPanel.Dock" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,3,0,0"/>
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>

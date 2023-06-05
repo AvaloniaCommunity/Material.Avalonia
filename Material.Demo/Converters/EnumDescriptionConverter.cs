@@ -8,8 +8,8 @@ using Avalonia.Data.Converters;
 namespace Material.Demo.Converters {
     public class EnumDescriptionConverter : IValueConverter {
         object IValueConverter.Convert(object? value, Type targetType, object? parameter, CultureInfo culture) {
-            var myEnum = (Enum)value;
-            var description = GetEnumDescription(myEnum);
+            Enum myEnum = (Enum)value;
+            string description = GetEnumDescription(myEnum);
             return description;
         }
 
@@ -17,7 +17,7 @@ namespace Material.Demo.Converters {
             return string.Empty;
         }
         private string GetEnumDescription(Enum enumObj) {
-            var fieldInfo = enumObj.GetType().GetField(enumObj.ToString());
+            FieldInfo fieldInfo = enumObj.GetType().GetField(enumObj.ToString());
             var descriptionAttr = fieldInfo
                 .GetCustomAttributes(false)
                 .OfType<DescriptionAttribute>()

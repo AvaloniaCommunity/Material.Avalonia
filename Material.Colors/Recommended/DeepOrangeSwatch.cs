@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace Material.Colors.Recommended {
-    public class DeepOrangeSwatch : ISwatch {
+namespace Material.Colors.Recommended
+{
+    public class DeepOrangeSwatch : ISwatch
+    {
         public static Color DeepOrange50 { get; } = Color.Parse("#FBE9E7");
         public static Color DeepOrange100 { get; } = Color.Parse("#FFCCBC");
         public static Color DeepOrange200 { get; } = Color.Parse("#FFAB91");
@@ -20,21 +22,22 @@ namespace Material.Colors.Recommended {
 
         public string Name { get; } = "Deep Orange";
 
-        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color> {
-            { MaterialColor.DeepOrange50, DeepOrange50 },
-            { MaterialColor.DeepOrange100, DeepOrange100 },
-            { MaterialColor.DeepOrange200, DeepOrange200 },
-            { MaterialColor.DeepOrange300, DeepOrange300 },
-            { MaterialColor.DeepOrange400, DeepOrange400 },
-            { MaterialColor.DeepOrange500, DeepOrange500 },
-            { MaterialColor.DeepOrange600, DeepOrange600 },
-            { MaterialColor.DeepOrange700, DeepOrange700 },
-            { MaterialColor.DeepOrange800, DeepOrange800 },
-            { MaterialColor.DeepOrange900, DeepOrange900 },
-            { MaterialColor.DeepOrangeA100, DeepOrangeA100 },
-            { MaterialColor.DeepOrangeA200, DeepOrangeA200 },
-            { MaterialColor.DeepOrangeA400, DeepOrangeA400 },
-            { MaterialColor.DeepOrangeA700, DeepOrangeA700 }
+        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color>
+        {
+            {MaterialColor.DeepOrange50, DeepOrange50},
+            {MaterialColor.DeepOrange100, DeepOrange100},
+            {MaterialColor.DeepOrange200, DeepOrange200},
+            {MaterialColor.DeepOrange300, DeepOrange300},
+            {MaterialColor.DeepOrange400, DeepOrange400},
+            {MaterialColor.DeepOrange500, DeepOrange500},
+            {MaterialColor.DeepOrange600, DeepOrange600},
+            {MaterialColor.DeepOrange700, DeepOrange700},
+            {MaterialColor.DeepOrange800, DeepOrange800},
+            {MaterialColor.DeepOrange900, DeepOrange900},
+            {MaterialColor.DeepOrangeA100, DeepOrangeA100},
+            {MaterialColor.DeepOrangeA200, DeepOrangeA200},
+            {MaterialColor.DeepOrangeA400, DeepOrangeA400},
+            {MaterialColor.DeepOrangeA700, DeepOrangeA700}
         };
 
         public IEnumerable<Color> Hues => Lookup.Values;

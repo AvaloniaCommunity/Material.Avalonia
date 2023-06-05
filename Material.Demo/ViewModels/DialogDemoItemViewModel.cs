@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace Material.Demo.ViewModels {
-    public class DialogDemoItemViewModel : ViewModelBase {
-        public DialogDemoItemViewModel(string header, Func<IAsyncEnumerable<string>> handler) {
+namespace Material.Demo.ViewModels
+{
+    public class DialogDemoItemViewModel : ViewModelBase
+    {
+        public DialogDemoItemViewModel(string header, Func<IAsyncEnumerable<string>> handler)
+        {
             _header = header;
             _commandHandler = handler;
 
@@ -16,9 +19,11 @@ namespace Material.Demo.ViewModels {
 
         private ICommand _command;
 
-        public ICommand Command {
+        public ICommand Command
+        {
             get => _command;
-            set {
+            set
+            {
                 _command = value;
                 OnPropertyChanged();
             }
@@ -26,9 +31,11 @@ namespace Material.Demo.ViewModels {
 
         private string _header;
 
-        public string Header {
+        public string Header
+        {
             get => _header;
-            set {
+            set
+            {
                 _header = value;
                 OnPropertyChanged();
             }
@@ -36,20 +43,24 @@ namespace Material.Demo.ViewModels {
 
         private string? _result;
 
-        public string? Result {
+        public string? Result
+        {
             get => _result;
-            set {
+            set
+            {
                 _result = value;
                 OnPropertyChanged();
             }
         }
 
-        private async void OnExecuteCommandHandler(object arg) {
+        private async void OnExecuteCommandHandler(object arg)
+        {
             Result = "Waiting result...";
 
             var builder = new StringBuilder();
 
-            await foreach (var str in _commandHandler()) {
+            await foreach (var str in _commandHandler())
+            {
                 builder.AppendLine(str);
                 Result = builder.ToString();
             }

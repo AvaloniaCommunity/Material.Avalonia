@@ -2,8 +2,10 @@
 using Avalonia.Layout;
 using Material.Dialog.Icons;
 
-namespace Material.Dialog.Bases {
-    public class DialogWindowBuilderParamsBase {
+namespace Material.Dialog.Bases
+{
+    public class DialogWindowBuilderParamsBase
+    {
         public string WindowTitle = "Warning";
         public double? MaxWidth = null;
         public double? Width = null;

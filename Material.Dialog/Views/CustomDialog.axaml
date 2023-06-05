@@ -5,24 +5,24 @@
 
         x:Class="Material.Dialog.Views.CustomDialog"
         x:DataType="viewModels:CustomDialogViewModel">
-  <Window.Styles>
-    <StyleInclude Source="avares://Material.Dialog/Styles/DialogWindow.axaml" />
-    <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml" />
-    <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
-  </Window.Styles>
-
-  <controls:EmbeddedDialogControl>
-    <ScrollViewer Name="PART_ScrollView">
-      <StackPanel Name="PART_ContentPanel">
-        <TextBlock Name="PART_SupportingText"
-                   Classes="Body1"
-                   IsVisible="{CompiledBinding !!ContentMessage.Length}"
-                   Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
-
-        <ContentPresenter Name="PART_ContentPresenter"
-                          Content="{CompiledBinding Content}"
-                          ContentTemplate="{CompiledBinding ContentTemplate}" />
-      </StackPanel>
-    </ScrollViewer>
-  </controls:EmbeddedDialogControl>
+    <Window.Styles>
+        <StyleInclude Source="avares://Material.Dialog/Styles/DialogWindow.axaml"/>
+        <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml"/>
+        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
+    </Window.Styles>
+    
+    <controls:EmbeddedDialogControl>
+        <ScrollViewer Name="PART_ScrollView">
+            <StackPanel Name="PART_ContentPanel">
+                <TextBlock Name="PART_SupportingText"
+                           Classes="Body1"
+                           IsVisible="{CompiledBinding !!ContentMessage.Length}"
+                           Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}"/>
+            
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Content="{CompiledBinding Content}"
+                                  ContentTemplate="{CompiledBinding ContentTemplate}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </controls:EmbeddedDialogControl>
 </Window>

@@ -5,12 +5,16 @@ using Avalonia.Data.Converters;
 
 // ReSharper disable HeapView.BoxingAllocation
 
-namespace Material.Styles.Converters {
-    public class RangeToSweepConverter : IMultiValueConverter {
-        public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {
+namespace Material.Styles.Converters
+{
+    public class RangeToSweepConverter : IMultiValueConverter
+    {
+        public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
+        {
             double min = 0, max = 100, val = 0;
 
-            for (var i = 0; i < values.Count; i++) {
+            for (var i = 0; i < values.Count; i++)
+            {
                 if (values[i] == null)
                     return null;
             }

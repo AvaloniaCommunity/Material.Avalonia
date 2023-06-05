@@ -2,17 +2,22 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-namespace Material.Demo {
-    public class App : Application {
-        public override void Initialize() {
+namespace Material.Demo
+{
+    public class App : Application
+    {
+        public override void Initialize()
+        {
             AvaloniaXamlLoader.Load(this);
         }
 
-        public override void OnFrameworkInitializationCompleted() {
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
+        public override void OnFrameworkInitializationCompleted()
+        {
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            {
                 desktop.MainWindow = new MainWindow();
             }
-
+            
             base.OnFrameworkInitializationCompleted();
         }
     }

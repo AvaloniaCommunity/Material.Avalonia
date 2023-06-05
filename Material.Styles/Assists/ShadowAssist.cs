@@ -75,13 +75,11 @@ namespace Material.Styles.Assists {
                     .ToBoxShadows();
         }
 
-        public static void SetShadowDepth(AvaloniaObject element, ShadowDepth value) {
-            element.SetValue(ShadowDepthProperty, value);
-        }
+        public static void SetShadowDepth(AvaloniaObject element, ShadowDepth value)
+            => element.SetValue(ShadowDepthProperty, value);
 
-        public static ShadowDepth GetShadowDepth(AvaloniaObject element) {
-            return element.GetValue<ShadowDepth>(ShadowDepthProperty);
-        }
+        public static ShadowDepth GetShadowDepth(AvaloniaObject element)
+            => element.GetValue<ShadowDepth>(ShadowDepthProperty);
 
         private static void DarkenPropertyChangedCallback(AvaloniaPropertyChangedEventArgs obj) {
             if (obj.Sender is not Border border)
@@ -122,12 +120,10 @@ namespace Material.Styles.Assists {
             }
         }
 
-        public static void SetDarken(AvaloniaObject element, bool value) {
-            element.SetValue(DarkenProperty, value);
-        }
+        public static void SetDarken(AvaloniaObject element, bool value)
+            => element.SetValue(DarkenProperty, value);
 
-        public static bool GetDarken(AvaloniaObject element) {
-            return element.GetValue<bool>(DarkenProperty);
-        }
+        public static bool GetDarken(AvaloniaObject element)
+            => element.GetValue<bool>(DarkenProperty);
     }
 }

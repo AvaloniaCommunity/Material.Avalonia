@@ -71,10 +71,11 @@ namespace Material.Demo {
         /// This method is used for showcase of snackbar.
         /// </summary>
         private void ConnectToNetworkMenuItem_OnClick(object? sender, RoutedEventArgs e) {
-            void Retry() =>
+            void Retry() {
                 SnackbarHost.Post(
                     new SnackbarModel("Connected to network.", TimeSpan.FromSeconds(5)),
                     null, DispatcherPriority.Normal);
+            }
 
             SnackbarHost.Post(
                 new SnackbarModel("Unable to connect network. Please check everything is fine.",

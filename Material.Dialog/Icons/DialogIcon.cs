@@ -56,7 +56,7 @@ namespace Material.Dialog.Icons {
             string data = null;
             DialogIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
             var g = StreamGeometry.Parse(data);
-            Data = g;
+            this.Data = g;
         }
 
         private void UpdateColor() {

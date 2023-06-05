@@ -3,7 +3,7 @@
 namespace Material.Demo.Pages {
     public partial class SlidersDemo : UserControl {
         public SlidersDemo() {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

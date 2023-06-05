@@ -1,14 +1,17 @@
 ﻿using System;
 using Avalonia.Data;
 
-namespace Material.Dialog.ViewModels.Elements.TextField {
-    public class TextFieldViewModel : DialogViewModelBase {
+namespace Material.Dialog.ViewModels.Elements.TextField
+{
+    public class TextFieldViewModel : DialogViewModelBase
+    {
         private readonly TextFieldDialogViewModel _parent;
 
         public TextFieldDialogViewModel Parent => _parent;
 
         public TextFieldViewModel(TextFieldDialogViewModel parent, string defaultText = default,
-            Func<string, Tuple<bool, string>> validateHandler = null) {
+            Func<string, Tuple<bool, string>> validateHandler = null)
+        {
             _parent = parent;
             _text = defaultText;
 
@@ -24,9 +27,11 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
 
         private string _placeholderText;
 
-        public string PlaceholderText {
+        public string PlaceholderText
+        {
             get => _placeholderText;
-            set {
+            set
+            {
                 _placeholderText = value;
                 OnPropertyChanged();
             }
@@ -34,9 +39,11 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
 
         private string _text;
 
-        public string Text {
+        public string Text
+        {
             get => _text;
-            set {
+            set
+            {
                 _text = value;
                 OnPropertyChanged();
                 OnTextChanged(value);
@@ -45,9 +52,11 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
 
         private string _classes;
 
-        public string Classes {
+        public string Classes
+        {
             get => _classes;
-            set {
+            set
+            {
                 _classes = value;
                 OnPropertyChanged();
             }
@@ -55,9 +64,11 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
 
         private string _label;
 
-        public string Label {
+        public string Label
+        {
             get => _label;
-            set {
+            set
+            {
                 _label = value;
                 OnPropertyChanged();
             }
@@ -65,9 +76,11 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
 
         private char _maskChar;
 
-        public char MaskChar {
+        public char MaskChar
+        {
             get => _maskChar;
-            set {
+            set
+            {
                 _maskChar = value;
                 OnPropertyChanged();
             }
@@ -75,9 +88,11 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
 
         private int _maxCountChars;
 
-        public int MaxCountChars {
+        public int MaxCountChars
+        {
             get => _maxCountChars;
-            set {
+            set
+            {
                 _maxCountChars = value;
                 OnPropertyChanged();
             }
@@ -85,9 +100,11 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
 
         private bool _isValid;
 
-        public bool IsValid {
+        public bool IsValid
+        {
             get => _isValid;
-            set {
+            set
+            {
                 _isValid = value;
                 OnPropertyChanged();
             }
@@ -95,15 +112,18 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
 
         private string _assistiveText;
 
-        public string AssistiveText {
+        public string AssistiveText
+        {
             get => _assistiveText;
-            set {
+            set
+            {
                 _assistiveText = value;
                 OnPropertyChanged();
             }
         }
 
-        private void OnTextChanged(string text) {
+        private void OnTextChanged(string text)
+        {
             var result = DoValidate(text);
 
             var isSuccessful = result.Item1;
@@ -115,11 +135,14 @@ namespace Material.Dialog.ViewModels.Elements.TextField {
                 throw new DataValidationException(result.Item2);
         }
 
-        private Tuple<bool, string> DoValidate(string text) {
-            try {
+        private Tuple<bool, string> DoValidate(string text)
+        {
+            try
+            {
                 return ValidateHandler?.Invoke(text) ?? new Tuple<bool, string>(true, null);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return new Tuple<bool, string>(false, e.Message);
             }
         }

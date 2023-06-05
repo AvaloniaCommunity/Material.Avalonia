@@ -1,15 +1,19 @@
 ﻿using System;
 using Material.Dialog.Enums;
 
-namespace Material.Dialog {
-    public class TextFieldBuilderParams {
+namespace Material.Dialog
+{
+    public class TextFieldBuilderParams
+    {
         /// <summary>
         /// Constant normal text field.
         /// </summary>
-        public static TextFieldBuilderParams[] OneRegularTextField = {
-            new TextFieldBuilderParams {
+        public static TextFieldBuilderParams[] OneRegularTextField =
+        {
+            new TextFieldBuilderParams
+            {
                 Label = "Text field",
-                FieldKind = TextFieldKind.Normal
+                FieldKind = TextFieldKind.Normal,
             }
         };
 

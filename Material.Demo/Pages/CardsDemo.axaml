@@ -3,79 +3,80 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.CardsDemo">
-  <UserControl.Resources>
-    <system:String x:Key="DemoText">
-      Greyhound divisively hello coldly wonderfully marginally far upon excluding.
-    </system:String>
-    <system:String x:Key="DemoText2">
-      It's time to get wear some warm suit to defeat cold!
-    </system:String>
-  </UserControl.Resources>
+    <UserControl.Resources>
+        <system:String x:Key="DemoText">
+            Greyhound divisively hello coldly wonderfully marginally far upon excluding.
+        </system:String>
+        <system:String x:Key="DemoText2">
+            It's time to get wear some warm suit to defeat cold!
+        </system:String>
+    </UserControl.Resources>
+    
+    <StackPanel Margin="16, 0">
+        <TextBlock Classes="Headline4 Subheadline" Text="Cards" />
 
-  <StackPanel Margin="16, 0">
-    <TextBlock Classes="Headline4 Subheadline" Text="Cards" />
-
-    <WrapPanel HorizontalAlignment="Stretch">
-      <showMeTheXaml:XamlDisplay UniqueId="Cards0">
-        <controls:Card MinWidth="240" VerticalAlignment="Top">
-          <StackPanel Margin="0,4">
-            <TextBlock Classes="Headline6" Text="Card title" />
-            <TextBlock Classes="Body2" Text="Secondary text" />
-          </StackPanel>
-        </controls:Card>
-      </showMeTheXaml:XamlDisplay>
-      <showMeTheXaml:XamlDisplay UniqueId="Cards1">
-        <controls:Card Width="240" VerticalAlignment="Top">
-          <StackPanel Margin="0,4">
-            <TextBlock Classes="Headline6" Text="Card title" />
-            <TextBlock Classes="Body2" Text="Secondary text" />
-            <TextBlock Margin="0,12,0,0" TextWrapping="Wrap"
-                       Text="{StaticResource DemoText}" />
-          </StackPanel>
-        </controls:Card>
-      </showMeTheXaml:XamlDisplay>
-      <showMeTheXaml:XamlDisplay UniqueId="Cards2">
-        <controls:Card Width="240" Padding="4" VerticalAlignment="Top">
-          <StackPanel>
-            <StackPanel Margin="8">
-              <TextBlock Classes="Headline6" Text="Card title" />
-              <TextBlock Classes="Body2" Text="Secondary text" />
-              <TextBlock Margin="0,12,0,0" TextWrapping="Wrap"
-                         Text="{StaticResource DemoText}" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-              <Button Classes="Flat" Content="BUTTON 1" />
-              <Border Width="8" />
-              <Button Classes="Flat" Content="BUTTON 2" />
-            </StackPanel>
-          </StackPanel>
-        </controls:Card>
-      </showMeTheXaml:XamlDisplay>
-      <showMeTheXaml:XamlDisplay UniqueId="Cards3">
-        <controls:Card Width="240" Padding="0" VerticalAlignment="Top">
-          <StackPanel>
-            <Image Source="avares://Material.Demo/Assets/johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
-            <StackPanel Margin="16">
-              <TextBlock Classes="Headline6" Text="Autumn is come!" />
-              <TextBlock Margin="0,12,0,0" TextWrapping="Wrap"
-                         Text="{StaticResource DemoText2}" />
-            </StackPanel>
-          </StackPanel>
-        </controls:Card>
-      </showMeTheXaml:XamlDisplay>
-
-      <controls:Card>
-        <controls:CircleClockPicker Height="240" Maximum="11" Minimum="0" StepFrequency="3" Value="0"
-                                    FirstLabelOverride="12" />
-      </controls:Card>
-
-      <controls:Card>
-        <controls:CircleClockPicker Height="240" Maximum="59" Minimum="0" StepFrequency="5" Value="30" />
-      </controls:Card>
-    </WrapPanel>
-  </StackPanel>
+        <WrapPanel HorizontalAlignment="Stretch">
+            <showMeTheXaml:XamlDisplay UniqueId="Cards0">
+                <controls:Card MinWidth="240" VerticalAlignment="Top">
+                    <StackPanel Margin="0,4">
+                        <TextBlock Classes="Headline6" Text="Card title" />
+                        <TextBlock Classes="Body2" Text="Secondary text" />
+                    </StackPanel>
+                </controls:Card>
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Cards1">
+                <controls:Card Width="240" VerticalAlignment="Top">
+                    <StackPanel Margin="0,4">
+                        <TextBlock Classes="Headline6" Text="Card title" />
+                        <TextBlock Classes="Body2" Text="Secondary text" />
+                        <TextBlock Margin="0,12,0,0" TextWrapping="Wrap"
+                                   Text="{StaticResource DemoText}"/>
+                    </StackPanel>
+                </controls:Card>
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Cards2">
+                <controls:Card Width="240" Padding="4" VerticalAlignment="Top">
+                    <StackPanel>
+                        <StackPanel Margin="8">
+                            <TextBlock Classes="Headline6" Text="Card title" />
+                            <TextBlock Classes="Body2" Text="Secondary text" />
+                            <TextBlock Margin="0,12,0,0" TextWrapping="Wrap"
+                                       Text="{StaticResource DemoText}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Classes="Flat" Content="BUTTON 1" />
+                            <Border Width="8" />
+                            <Button Classes="Flat" Content="BUTTON 2" />
+                        </StackPanel>
+                    </StackPanel>
+                </controls:Card>
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Cards3">
+                <controls:Card Width="240" Padding="0" VerticalAlignment="Top">
+                    <StackPanel>
+                        <Image Source="avares://Material.Demo/Assets/johannes-plenio-RwHv7LgeC7s-unsplash.jpg" />
+                        <StackPanel Margin="16">
+                            <TextBlock Classes="Headline6" Text="Autumn is come!" />
+                            <TextBlock Margin="0,12,0,0" TextWrapping="Wrap"
+                                       Text="{StaticResource DemoText2}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </controls:Card>
+            </showMeTheXaml:XamlDisplay>
+            
+            <controls:Card>
+                <controls:CircleClockPicker Height="240" Maximum="11" Minimum="0" StepFrequency="3" Value="0"
+                                            FirstLabelOverride="12"/>
+            </controls:Card>
+            
+            <controls:Card>
+                <controls:CircleClockPicker Height="240" Maximum="59" Minimum="0" StepFrequency="5" Value="30"/>
+            </controls:Card>
+        </WrapPanel>
+    </StackPanel>
 </UserControl>

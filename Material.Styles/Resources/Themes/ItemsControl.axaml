@@ -1,15 +1,15 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
-  <ControlTheme x:Key="{x:Type ItemsControl}"
-                TargetType="ItemsControl">
-    <Setter Property="Template">
-      <ControlTemplate>
-        <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                        AreVerticalSnapPointsRegular="{TemplateBinding AreVerticalSnapPointsRegular}"
-                        AreHorizontalSnapPointsRegular="{TemplateBinding AreHorizontalSnapPointsRegular}"
-                        ItemsPanel="{TemplateBinding ItemsPanel}" />
-      </ControlTemplate>
-    </Setter>
-  </ControlTheme>
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+    <ControlTheme x:Key="{x:Type ItemsControl}"
+                  TargetType="ItemsControl">
+        <Setter Property="Template">
+            <ControlTemplate>
+              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                              AreVerticalSnapPointsRegular="{TemplateBinding AreVerticalSnapPointsRegular}"
+                              AreHorizontalSnapPointsRegular="{TemplateBinding AreHorizontalSnapPointsRegular}"
+                              ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
 </ResourceDictionary>

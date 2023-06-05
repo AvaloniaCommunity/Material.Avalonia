@@ -75,7 +75,7 @@ namespace Material.Styles.Controls {
 
             var resources = theme;
 
-            var foregroundProperty = ForegroundProperty;
+            var foregroundProperty = TemplatedControl.ForegroundProperty;
 
             switch (colorZone.Mode) {
                 case ColorZoneMode.Standard: {

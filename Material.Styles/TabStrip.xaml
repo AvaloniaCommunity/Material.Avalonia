@@ -1,22 +1,22 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:assists="clr-namespace:Material.Styles.Assists">
-  <Style Selector="TabStrip">
-    <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
-    <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
-            Value="{DynamicResource PrimaryHueMidBrush}" />
-    <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
-            Value="{DynamicResource MaterialDesignBodyLight}" />
-    <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <ItemsPresenter Name="PART_ItemsPresenter"
-                        ItemsPanel="{TemplateBinding ItemsPanel}" />
-      </ControlTemplate>
-    </Setter>
-    <Setter Property="ItemsPanel">
-      <ItemsPanelTemplate>
-        <WrapPanel />
-      </ItemsPanelTemplate>
-    </Setter>
-  </Style>
+    <Style Selector="TabStrip">
+        <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
+        <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
+                Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
+                Value="{DynamicResource MaterialDesignBodyLight}" />
+        <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
+        <Setter Property="Template">
+            <ControlTemplate>
+              <ItemsPresenter Name="PART_ItemsPresenter"
+                              ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <WrapPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+    </Style>
 </Styles>

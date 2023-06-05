@@ -1,30 +1,30 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cc="clr-namespace:Material.Ripple">
-  <Style Selector="cc|RippleEffect">
-    <Setter Property="RippleOpacity" Value="0.6" />
-    <Setter Property="RippleFill" Value="White" />
-    <Setter Property="IsAllowedRaiseRipple" Value="True" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Panel ClipToBounds="True">
-          <Rectangle Fill="Transparent" Opacity="0" ClipToBounds="True" />
-          <ContentPresenter Name="Content"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}" />
-          <Canvas Name="PART_RippleCanvasRoot"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch"
-                  IsHitTestVisible="False"
-                  Opacity="{TemplateBinding RippleOpacity}" />
-        </Panel>
-      </ControlTemplate>
-    </Setter>
-  </Style>
-
-  <!-- Transitions -->
-
-  <Style Selector="cc|RippleEffect:not(.no-transitions)">
-    <Setter Property="UseTransitions" Value="True" />
-  </Style>
+    <Style Selector="cc|RippleEffect">
+        <Setter Property="RippleOpacity" Value="0.6"/>
+        <Setter Property="RippleFill" Value="White"/>
+        <Setter Property="IsAllowedRaiseRipple" Value="True"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel ClipToBounds="True">
+                    <Rectangle Fill="Transparent" Opacity="0" ClipToBounds="True"/> 
+                    <ContentPresenter Name="Content"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    <Canvas Name="PART_RippleCanvasRoot"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            IsHitTestVisible="False"
+                            Opacity="{TemplateBinding RippleOpacity}"/>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style> 
+    
+    <!-- Transitions -->
+    
+    <Style Selector="cc|RippleEffect:not(.no-transitions)">
+        <Setter Property="UseTransitions" Value="True"/>
+    </Style>
 </Styles>

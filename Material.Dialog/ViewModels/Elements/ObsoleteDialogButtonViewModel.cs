@@ -1,22 +1,28 @@
 ﻿using Material.Dialog.Commands;
 
-namespace Material.Dialog.ViewModels.Elements {
-    public class ObsoleteDialogButtonViewModel : DialogButtonViewModel {
+namespace Material.Dialog.ViewModels.Elements
+{
+    public class ObsoleteDialogButtonViewModel : DialogButtonViewModel
+    {
         public ObsoleteDialogButtonViewModel(DialogWindowViewModel parent, object content, string result) : base(parent,
-            content) {
+            content)
+        {
             _result = result;
             Command = new MaterialDialogRelayCommand(OnExecuteCommandHandler, CanExecuteCommandHandler);
         }
 
-        private bool CanExecuteCommandHandler(object arg) {
+        private bool CanExecuteCommandHandler(object arg)
+        {
             return true;
         }
 
-        private void OnExecuteCommandHandler(object obj) {
+        private void OnExecuteCommandHandler(object obj)
+        {
             if (Parent is null)
                 return;
 
-            if (obj is ObsoleteDialogButtonViewModel vm) {
+            if (obj is ObsoleteDialogButtonViewModel vm)
+            {
                 Parent.DialogResult = new DialogResult(vm.Result);
             }
 
@@ -28,9 +34,11 @@ namespace Material.Dialog.ViewModels.Elements {
         /// <summary>
         /// This property is used for compat deprecated dialog library.
         /// </summary>
-        public string Result {
+        public string Result
+        {
             get => _result;
-            set {
+            set
+            {
                 _result = value;
                 OnPropertyChanged();
             }

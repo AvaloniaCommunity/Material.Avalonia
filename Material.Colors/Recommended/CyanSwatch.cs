@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace Material.Colors.Recommended {
-    public class CyanSwatch : ISwatch {
+namespace Material.Colors.Recommended
+{
+    public class CyanSwatch : ISwatch
+    {
         public static Color Cyan50 { get; } = Color.Parse("#E0F7FA");
         public static Color Cyan100 { get; } = Color.Parse("#B2EBF2");
         public static Color Cyan200 { get; } = Color.Parse("#80DEEA");
@@ -20,21 +22,22 @@ namespace Material.Colors.Recommended {
 
         public string Name { get; } = "Cyan";
 
-        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color> {
-            { MaterialColor.Cyan50, Cyan50 },
-            { MaterialColor.Cyan100, Cyan100 },
-            { MaterialColor.Cyan200, Cyan200 },
-            { MaterialColor.Cyan300, Cyan300 },
-            { MaterialColor.Cyan400, Cyan400 },
-            { MaterialColor.Cyan500, Cyan500 },
-            { MaterialColor.Cyan600, Cyan600 },
-            { MaterialColor.Cyan700, Cyan700 },
-            { MaterialColor.Cyan800, Cyan800 },
-            { MaterialColor.Cyan900, Cyan900 },
-            { MaterialColor.CyanA100, CyanA100 },
-            { MaterialColor.CyanA200, CyanA200 },
-            { MaterialColor.CyanA400, CyanA400 },
-            { MaterialColor.CyanA700, CyanA700 }
+        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color>
+        {
+            {MaterialColor.Cyan50, Cyan50},
+            {MaterialColor.Cyan100, Cyan100},
+            {MaterialColor.Cyan200, Cyan200},
+            {MaterialColor.Cyan300, Cyan300},
+            {MaterialColor.Cyan400, Cyan400},
+            {MaterialColor.Cyan500, Cyan500},
+            {MaterialColor.Cyan600, Cyan600},
+            {MaterialColor.Cyan700, Cyan700},
+            {MaterialColor.Cyan800, Cyan800},
+            {MaterialColor.Cyan900, Cyan900},
+            {MaterialColor.CyanA100, CyanA100},
+            {MaterialColor.CyanA200, CyanA200},
+            {MaterialColor.CyanA400, CyanA400},
+            {MaterialColor.CyanA700, CyanA700}
         };
 
         public IEnumerable<Color> Hues => Lookup.Values;
