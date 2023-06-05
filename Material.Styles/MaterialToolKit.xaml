@@ -23,6 +23,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Carousel.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentExpandControl.axaml" />
@@ -107,7 +108,7 @@
   <!-- <StyleInclude Source="avares://Material.Styles/CalendarButton.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/CalendarDayButton.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/CalendarItem.xaml" /> -->
-  <StyleInclude Source="avares://Material.Styles/Carousel.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/Carousel.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/CheckBox.xaml" />-->
   <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" />
   <StyleInclude Source="avares://Material.Styles/ComboBoxItem.xaml" />
