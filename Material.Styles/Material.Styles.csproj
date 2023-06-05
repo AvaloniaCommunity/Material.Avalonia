@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Themes\WindowNotificationManager.axaml" />
+    <AvaloniaResource Include="Resources\Themes\WindowNotificationManager.axaml" />
   </ItemGroup>
 
 </Project>
