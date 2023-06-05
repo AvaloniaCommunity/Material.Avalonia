@@ -65,6 +65,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SideSheet.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/UserControl.axaml" />
       </ResourceDictionary.MergedDictionaries>
       <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA" />
       <SolidColorBrush x:Key="MaterialDesignLightForeground" Color="#DD000000" />
@@ -152,7 +153,7 @@
 
   <!-- <StyleInclude Source="avares://Material.Styles/ToolTip.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/TreeView.xaml" />-->
-  <StyleInclude Source="avares://Material.Styles/UserControl.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/UserControl.xaml" /> -->
   <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
 
   <!-- Complex controls -->
