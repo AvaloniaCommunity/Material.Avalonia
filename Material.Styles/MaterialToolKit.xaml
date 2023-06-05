@@ -17,6 +17,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
@@ -101,7 +102,7 @@
   <!-- Uncommented -->
 
   <!-- <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" /> -->
-  <StyleInclude Source="avares://Material.Styles/CalendarButton.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/CalendarButton.xaml" /> -->
   <StyleInclude Source="avares://Material.Styles/CalendarDayButton.xaml" />
   <StyleInclude Source="avares://Material.Styles/CalendarItem.xaml" />
   <StyleInclude Source="avares://Material.Styles/Carousel.xaml" />
