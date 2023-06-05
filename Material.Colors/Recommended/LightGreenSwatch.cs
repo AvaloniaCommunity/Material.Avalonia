@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace Material.Colors.Recommended
-{
-    public class LightGreenSwatch : ISwatch
-    {
+namespace Material.Colors.Recommended {
+    public class LightGreenSwatch : ISwatch {
         public static Color LightGreen50 { get; } = Color.Parse("#F1F8E9");
         public static Color LightGreen100 { get; } = Color.Parse("#DCEDC8");
         public static Color LightGreen200 { get; } = Color.Parse("#C5E1A5");
@@ -22,22 +20,21 @@ namespace Material.Colors.Recommended
 
         public string Name { get; } = "Light Green";
 
-        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color>
-        {
-            {MaterialColor.LightGreen50, LightGreen50},
-            {MaterialColor.LightGreen100, LightGreen100},
-            {MaterialColor.LightGreen200, LightGreen200},
-            {MaterialColor.LightGreen300, LightGreen300},
-            {MaterialColor.LightGreen400, LightGreen400},
-            {MaterialColor.LightGreen500, LightGreen500},
-            {MaterialColor.LightGreen600, LightGreen600},
-            {MaterialColor.LightGreen700, LightGreen700},
-            {MaterialColor.LightGreen800, LightGreen800},
-            {MaterialColor.LightGreen900, LightGreen900},
-            {MaterialColor.LightGreenA100, LightGreenA100},
-            {MaterialColor.LightGreenA200, LightGreenA200},
-            {MaterialColor.LightGreenA400, LightGreenA400},
-            {MaterialColor.LightGreenA700, LightGreenA700}
+        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color> {
+            { MaterialColor.LightGreen50, LightGreen50 },
+            { MaterialColor.LightGreen100, LightGreen100 },
+            { MaterialColor.LightGreen200, LightGreen200 },
+            { MaterialColor.LightGreen300, LightGreen300 },
+            { MaterialColor.LightGreen400, LightGreen400 },
+            { MaterialColor.LightGreen500, LightGreen500 },
+            { MaterialColor.LightGreen600, LightGreen600 },
+            { MaterialColor.LightGreen700, LightGreen700 },
+            { MaterialColor.LightGreen800, LightGreen800 },
+            { MaterialColor.LightGreen900, LightGreen900 },
+            { MaterialColor.LightGreenA100, LightGreenA100 },
+            { MaterialColor.LightGreenA200, LightGreenA200 },
+            { MaterialColor.LightGreenA400, LightGreenA400 },
+            { MaterialColor.LightGreenA700, LightGreenA700 }
         };
 
         public IEnumerable<Color> Hues => Lookup.Values;

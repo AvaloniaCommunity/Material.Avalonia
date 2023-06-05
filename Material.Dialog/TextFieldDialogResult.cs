@@ -1,13 +1,9 @@
-﻿namespace Material.Dialog
-{
-    public class TextFieldDialogResult : DialogResult
-    {
-        public TextFieldDialogResult()
-        {
+﻿namespace Material.Dialog {
+    public class TextFieldDialogResult : DialogResult {
+        public TextFieldDialogResult() {
         }
 
-        public TextFieldDialogResult(string result, TextFieldResult[] fieldsResult)
-        {
+        public TextFieldDialogResult(string result, TextFieldResult[] fieldsResult) {
             this.result = result;
             this.fieldsResult = fieldsResult;
         }
@@ -16,6 +12,8 @@
         public string GetResult => result;
 
         internal TextFieldResult[] fieldsResult;
-        public TextFieldResult[] GetFieldsResult() => fieldsResult;
+        public TextFieldResult[] GetFieldsResult() {
+            return fieldsResult;
+        }
     }
 }

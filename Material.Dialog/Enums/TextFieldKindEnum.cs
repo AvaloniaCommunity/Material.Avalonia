@@ -1,7 +1,5 @@
-﻿namespace Material.Dialog.Enums
-{
-    public enum TextFieldKind
-    {
+﻿namespace Material.Dialog.Enums {
+    public enum TextFieldKind {
         /// <summary>
         /// Regular text field.
         /// </summary>
@@ -15,6 +13,6 @@
         /// <summary>
         /// Masked text field, this kind is most used in password field.
         /// </summary>
-        Masked,
+        Masked
     }
 }

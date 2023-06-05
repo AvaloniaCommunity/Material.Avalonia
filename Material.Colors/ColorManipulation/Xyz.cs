@@ -1,13 +1,10 @@
-﻿namespace Material.Colors.ColorManipulation
-{
-    internal struct Xyz
-    {
+﻿namespace Material.Colors.ColorManipulation {
+    internal struct Xyz {
         public double X { get; }
         public double Y { get; }
         public double Z { get; }
 
-        public Xyz(double x, double y, double z)
-        {
+        public Xyz(double x, double y, double z) {
             X = x;
             Y = y;
             Z = z;

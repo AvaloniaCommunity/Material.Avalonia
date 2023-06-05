@@ -2,11 +2,9 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 
-namespace Material.Styles.Controls
-{
+namespace Material.Styles.Controls {
     [PseudoClasses(":selected", ":dot")]
-    public class CircleClockPickerCell : ContentControl
-    {
+    public class CircleClockPickerCell : ContentControl {
         public static readonly StyledProperty<bool> IsSelectedProperty =
             AvaloniaProperty.Register<CircleClockPickerCell, bool>(nameof(IsSelected));
 
@@ -17,28 +15,24 @@ namespace Material.Styles.Controls
             AvaloniaProperty.RegisterDirect<CircleClockPickerCell, int>(nameof(Value), o => o.Value,
                 (o, v) => o.Value = v);
 
-        public bool IsSelected
-        {
+        public bool IsSelected {
             get => GetValue(IsSelectedProperty);
             set => SetValue(IsSelectedProperty, value);
         }
 
-        public bool IsDot
-        {
+        public bool IsDot {
             get => GetValue(IsDotProperty);
             set => SetValue(IsDotProperty, value);
         }
 
-        public int Value
-        {
+        public int Value {
             get => _value;
             set => SetAndRaise(ValueProperty, ref _value, value);
         }
 
         private int _value;
 
-        static CircleClockPickerCell()
-        {
+        static CircleClockPickerCell() {
             AffectsArrange<CircleClockPickerCell>(IsDotProperty);
             AffectsRender<CircleClockPickerCell>(IsSelectedProperty);
 
@@ -47,13 +41,11 @@ namespace Material.Styles.Controls
         }
 
         private static void PropertyChangedHandler(CircleClockPickerCell t,
-            AvaloniaPropertyChangedEventArgs a)
-        {
+            AvaloniaPropertyChangedEventArgs a) {
             t.UpdatePseudoClasses();
         }
 
-        private void UpdatePseudoClasses()
-        {
+        private void UpdatePseudoClasses() {
             PseudoClasses.Set(":selected", IsSelected);
             PseudoClasses.Set(":dot", IsDot);
         }

@@ -1,24 +1,19 @@
 ﻿using System;
 using Avalonia.Media;
 
-namespace Material.Colors.ColorManipulation
-{
-    internal static class XyzConverter
-    {
-        public static Color ToColor(this Xyz xyz)
-        {
-            double XyzRgb(double d)
-            {
+namespace Material.Colors.ColorManipulation {
+    internal static class XyzConverter {
+        public static Color ToColor(this Xyz xyz) {
+            double XyzRgb(double d) {
                 if (d > 0.0031308)
                     return 255.0 * (1.055 * Math.Pow(d, 1.0 / 2.4) - 0.055);
                 return 255.0 * (12.92 * d);
             }
 
-            byte Clip(double d)
-            {
+            byte Clip(double d) {
                 if (d < 0) return 0;
                 if (d > 255) return 255;
-                return (byte) Math.Round(d);
+                return (byte)Math.Round(d);
             }
 
             var r = XyzRgb(3.2404542 * xyz.X - 1.5371385 * xyz.Y - 0.4985314 * xyz.Z);
@@ -28,10 +23,8 @@ namespace Material.Colors.ColorManipulation
             return Color.FromRgb(Clip(r), Clip(g), Clip(b));
         }
 
-        public static Xyz ToXyz(this Color c)
-        {
-            double RgbXyz(double v)
-            {
+        public static Xyz ToXyz(this Color c) {
+            double RgbXyz(double v) {
                 v /= 255;
                 if (v > 0.04045)
                     return Math.Pow((v + 0.055) / 1.055, 2.4);
@@ -48,10 +41,8 @@ namespace Material.Colors.ColorManipulation
             return new Xyz(x, y, z);
         }
 
-        public static Xyz ToXyz(this Lab lab)
-        {
-            double LabXyz(double d)
-            {
+        public static Xyz ToXyz(this Lab lab) {
+            double LabXyz(double d) {
                 if (d > LabConstants.ECubedRoot)
                     return d * d * d;
                 return (116 * d - 16) / LabConstants.K;

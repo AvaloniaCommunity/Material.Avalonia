@@ -4,10 +4,8 @@
 using System.Threading.Tasks;
 using Avalonia.Controls;
 
-namespace Material.Dialog.Interfaces
-{
-    public interface IDialogWindow<T>
-    {
+namespace Material.Dialog.Interfaces {
+    public interface IDialogWindow<T> {
         Window GetWindow();
 
         Task<T> ShowDialog(Window ownerWindow);

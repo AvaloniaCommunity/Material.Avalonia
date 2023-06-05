@@ -1,17 +1,13 @@
 ﻿using Avalonia.Controls.Templates;
 using Material.Dialog.Views;
 
-namespace Material.Dialog.ViewModels
-{
-    public class CustomDialogViewModel : DialogWindowViewModel
-    {
+namespace Material.Dialog.ViewModels {
+    public class CustomDialogViewModel : DialogWindowViewModel {
         private object _content;
 
-        public object Content
-        {
+        public object Content {
             get => _content;
-            set
-            {
+            set {
                 _content = value;
                 OnPropertyChanged();
             }
@@ -19,18 +15,15 @@ namespace Material.Dialog.ViewModels
 
         private IDataTemplate _contentTemplate;
 
-        public IDataTemplate ContentTemplate
-        {
+        public IDataTemplate ContentTemplate {
             get => _contentTemplate;
-            set
-            {
+            set {
                 _contentTemplate = value;
                 OnPropertyChanged();
             }
         }
 
-        public CustomDialogViewModel(CustomDialog dialog) : base(dialog)
-        {
+        public CustomDialogViewModel(CustomDialog dialog) : base(dialog) {
         }
     }
 }

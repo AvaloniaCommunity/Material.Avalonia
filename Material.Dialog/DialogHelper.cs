@@ -12,10 +12,8 @@ using Material.Dialog.ViewModels.Elements.Header.Icons;
 using Material.Dialog.ViewModels.Elements.TextField;
 using Material.Dialog.Views;
 
-namespace Material.Dialog
-{
-    public class DialogHelper
-    {
+namespace Material.Dialog {
+    public class DialogHelper {
         public const string DIALOG_RESULT_OK = "ok";
         public const string DIALOG_RESULT_CANCEL = "cancel";
         public const string DIALOG_RESULT_YES = "yes";
@@ -24,8 +22,7 @@ namespace Material.Dialog
 
         private static bool _disableTransitions;
 
-        public static bool DisableTransitions
-        {
+        public static bool DisableTransitions {
             get => _disableTransitions;
             set => _disableTransitions = value;
         }
@@ -34,53 +31,44 @@ namespace Material.Dialog
         /// Create some dialog buttons for use.
         /// </summary>
         /// <param name="cases">Which dialog buttons group case you need.</param> 
-        public static DialogButton[] CreateSimpleDialogButtons(DialogButtonsEnum cases)
-        {
-            switch (cases)
-            {
+        public static DialogButton[] CreateSimpleDialogButtons(DialogButtonsEnum cases) {
+            switch (cases) {
                 default:
                 case DialogButtonsEnum.Ok:
-                    return new[]
-                    {
-                        new DialogButton {Result = DIALOG_RESULT_OK, Content = "OK"}
+                    return new[] {
+                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" }
                     };
                 case DialogButtonsEnum.OkAbort:
-                    return new[]
-                    {
-                        new DialogButton {Result = DIALOG_RESULT_ABORT, Content = "ABORT"},
-                        new DialogButton {Result = DIALOG_RESULT_OK, Content = "OK"}
+                    return new[] {
+                        new DialogButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" },
+                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" }
                     };
                 case DialogButtonsEnum.OkCancel:
-                    return new[]
-                    {
-                        new DialogButton {Result = DIALOG_RESULT_CANCEL, Content = "CANCEL"},
-                        new DialogButton {Result = DIALOG_RESULT_OK, Content = "OK"}
+                    return new[] {
+                        new DialogButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" },
+                        new DialogButton { Result = DIALOG_RESULT_OK, Content = "OK" }
                     };
                 case DialogButtonsEnum.YesNo:
-                    return new[]
-                    {
-                        new DialogButton {Result = DIALOG_RESULT_NO, Content = "NO"},
-                        new DialogButton {Result = DIALOG_RESULT_YES, Content = "YES"}
+                    return new[] {
+                        new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
+                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" }
                     };
                 case DialogButtonsEnum.YesNoAbort:
-                    return new[]
-                    {
-                        new DialogButton {Result = DIALOG_RESULT_ABORT, Content = "ABORT"},
-                        new DialogButton {Result = DIALOG_RESULT_NO, Content = "NO"},
-                        new DialogButton {Result = DIALOG_RESULT_YES, Content = "YES"}
+                    return new[] {
+                        new DialogButton { Result = DIALOG_RESULT_ABORT, Content = "ABORT" },
+                        new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
+                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" }
                     };
                 case DialogButtonsEnum.YesNoCancel:
-                    return new[]
-                    {
-                        new DialogButton {Result = DIALOG_RESULT_CANCEL, Content = "CANCEL"},
-                        new DialogButton {Result = DIALOG_RESULT_NO, Content = "NO"},
-                        new DialogButton {Result = DIALOG_RESULT_YES, Content = "YES"}
+                    return new[] {
+                        new DialogButton { Result = DIALOG_RESULT_CANCEL, Content = "CANCEL" },
+                        new DialogButton { Result = DIALOG_RESULT_NO, Content = "NO" },
+                        new DialogButton { Result = DIALOG_RESULT_YES, Content = "YES" }
                     };
             }
         }
 
-        public static IDialogWindow<DialogResult> CreateAlertDialog(AlertDialogBuilderParams @params)
-        {
+        public static IDialogWindow<DialogResult> CreateAlertDialog(AlertDialogBuilderParams @params) {
             var window = new AlertDialog();
             var context = new AlertDialogViewModel(window);
 
@@ -94,8 +82,7 @@ namespace Material.Dialog
             return new DialogWindowBase<AlertDialog, DialogResult>(window);
         }
 
-        public static IDialogWindow<TextFieldDialogResult> CreateTextFieldDialog(TextFieldDialogBuilderParams @params)
-        {
+        public static IDialogWindow<TextFieldDialogResult> CreateTextFieldDialog(TextFieldDialogBuilderParams @params) {
             var window = new TextFieldDialog();
             var context = new TextFieldDialogViewModel(window);
 
@@ -107,8 +94,7 @@ namespace Material.Dialog
             var positiveButtonApplied = false;
             var buttons = CreateObsoleteButtonArray(context, @params.DialogButtons);
 
-            foreach (var button in buttons)
-            {
+            foreach (var button in buttons) {
                 if (!button.IsPositiveButton)
                     continue;
 
@@ -119,14 +105,11 @@ namespace Material.Dialog
             context.DialogButtons = new ObservableCollection<DialogButtonViewModel>(buttons);
 
             // TODO: Remove compatibility API with PositiveButton and NegativeButton on future update.
-            if (!positiveButtonApplied)
-            {
+            if (!positiveButtonApplied) {
                 var positiveButton = @params.PositiveButton;
-                if (positiveButton != null)
-                {
+                if (positiveButton != null) {
                     context.DialogButtons.Add(
-                        new ObsoleteDialogButtonViewModel(context, positiveButton.Content, positiveButton.Result)
-                        {
+                        new ObsoleteDialogButtonViewModel(context, positiveButton.Content, positiveButton.Result) {
                             Command = context.SubmitCommand
                         });
                 }
@@ -143,15 +126,13 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of picker.</returns>
-        public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(TimePickerDialogBuilderParams @params)
-        {
+        public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(TimePickerDialogBuilderParams @params) {
             var window = new TimePickerDialog();
-            var context = new TimePickerDialogViewModel(window)
-            {
+            var context = new TimePickerDialogViewModel(window) {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton,
-                FirstField = (ushort) @params.ImplicitValue.Hours,
-                SecondField = (ushort) @params.ImplicitValue.Minutes,
+                FirstField = (ushort)@params.ImplicitValue.Hours,
+                SecondField = (ushort)@params.ImplicitValue.Minutes
             };
             ApplyBaseParams(context, @params);
 
@@ -174,11 +155,9 @@ namespace Material.Dialog
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of picker.</returns>
         //[Obsolete("This feature is still not ready for use! Please come back later!")]
-        public static IDialogWindow<DateTimePickerDialogResult> CreateDatePicker(DatePickerDialogBuilderParams @params)
-        {
+        public static IDialogWindow<DateTimePickerDialogResult> CreateDatePicker(DatePickerDialogBuilderParams @params) {
             var window = new DatePickerDialog();
-            var context = new DatePickerDialogViewModel(window)
-            {
+            var context = new DatePickerDialogViewModel(window) {
                 PositiveButton = @params.PositiveButton,
                 NegativeButton = @params.NegativeButton,
                 DateTime = @params.ImplicitValue
@@ -203,11 +182,9 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of dialog.</returns>
-        public static IDialogWindow<DialogResult> CreateCustomDialog(CustomDialogBuilderParams @params)
-        {
+        public static IDialogWindow<DialogResult> CreateCustomDialog(CustomDialogBuilderParams @params) {
             var window = new CustomDialog();
-            var context = new CustomDialogViewModel(window)
-            {
+            var context = new CustomDialogViewModel(window) {
                 Content = @params.Content,
                 ContentTemplate = @params.ContentTemplate
             };
@@ -220,8 +197,7 @@ namespace Material.Dialog
         }
 
         private static void ApplyBaseParams<T>(T input, DialogWindowBuilderParamsBase @params)
-            where T : DialogWindowViewModel
-        {
+            where T : DialogWindowViewModel {
             input.MaxWidth = @params.MaxWidth;
             input.WindowTitle = @params.WindowTitle;
             input.Width = @params.Width;
@@ -230,12 +206,9 @@ namespace Material.Dialog
             input.Borderless = @params.Borderless;
             input.WindowStartupLocation = @params.StartupLocation;
 
-            switch (@params.DialogIcon)
-            {
-                case Bitmap bitmap:
-                {
-                    input.DialogIcon = new ImageIconViewModel
-                    {
+            switch (@params.DialogIcon) {
+                case Bitmap bitmap: {
+                    input.DialogIcon = new ImageIconViewModel {
                         Bitmap = bitmap
                     };
                 }
@@ -247,12 +220,9 @@ namespace Material.Dialog
                 case Control _:
                     throw new ArgumentException("Custom view icon feature is currently unavailable.");
 
-                case DialogIconKind kind:
-                {
-                    if (@params.DialogHeaderIcon != null)
-                    {
-                        input.DialogIcon = new DialogIconViewModel
-                        {
+                case DialogIconKind kind: {
+                    if (@params.DialogHeaderIcon != null) {
+                        input.DialogIcon = new DialogIconViewModel {
                             Kind = kind
                         };
                     }
@@ -267,12 +237,9 @@ namespace Material.Dialog
             }
 
             // Rollback API Compatibility
-            if (@params.DialogHeaderIcon != null)
-            {
-                if (input.DialogIcon == null && @params.DialogHeaderIcon != null)
-                {
-                    input.DialogIcon = new DialogIconViewModel
-                    {
+            if (@params.DialogHeaderIcon != null) {
+                if (input.DialogIcon == null && @params.DialogHeaderIcon != null) {
+                    input.DialogIcon = new DialogIconViewModel {
                         Kind = @params.DialogHeaderIcon.Value
                     };
                 }
@@ -291,27 +258,23 @@ namespace Material.Dialog
             input.ButtonsStackOrientation = @params.ButtonsOrientation;
         }
 
-        private static void SetupWindowParameters(Window window, DialogWindowBuilderParamsBase @params)
-        {
+        private static void SetupWindowParameters(Window window, DialogWindowBuilderParamsBase @params) {
             window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
             (window as IHasNegativeResult)?.SetNegativeResult(@params.NegativeResult);
         }
 
         private static DialogButtonViewModel[] CreateObsoleteButtonArray(DialogWindowViewModel parent,
-            params DialogButton[] buttons)
-        {
+            params DialogButton[] buttons) {
             var len = buttons.Length;
             var result = new DialogButtonViewModel[buttons.Length];
 
-            for (var i = 0; i < len; i++)
-            {
+            for (var i = 0; i < len; i++) {
                 var button = buttons[i];
 
                 if (button is null)
                     continue;
 
-                result[i] = new ObsoleteDialogButtonViewModel(parent, button.Content, button.Result)
-                {
+                result[i] = new ObsoleteDialogButtonViewModel(parent, button.Content, button.Result) {
                     IsPositiveButton = button.IsPositive
                 };
             }
@@ -320,18 +283,14 @@ namespace Material.Dialog
         }
 
         private static TextFieldViewModel[] TextFieldsBuilder(TextFieldDialogViewModel parent,
-            params TextFieldBuilderParams[] @params)
-        {
+            params TextFieldBuilderParams[] @params) {
             var len = @params.Length;
             var result = new TextFieldViewModel[len];
-            for (var i = 0; i < len; i++)
-            {
+            for (var i = 0; i < len; i++) {
                 var param = @params[i];
 
-                try
-                {
-                    var model = new TextFieldViewModel(parent, param.DefaultText, param.Validater)
-                    {
+                try {
+                    var model = new TextFieldViewModel(parent, param.DefaultText, param.Validater) {
                         // but... I implemented an setter to TextFieldDialog for apply classes when showing dialog.
                         // Currently AvaloniaUI are not supported to binding classes.
                         Classes = param.Classes,
@@ -341,8 +300,7 @@ namespace Material.Dialog
                         AssistiveText = param.HelperText
                     };
 
-                    switch (param.FieldKind)
-                    {
+                    switch (param.FieldKind) {
                         case TextFieldKind.Masked:
                             model.MaskChar = param.MaskChar;
                             model.Classes += " revealPasswordButton";
@@ -358,8 +316,7 @@ namespace Material.Dialog
 
                     result[i] = model;
                 }
-                catch (Exception e)
-                {
+                catch (Exception e) {
                     Console.WriteLine(e.Message);
                     // ignored
                 }

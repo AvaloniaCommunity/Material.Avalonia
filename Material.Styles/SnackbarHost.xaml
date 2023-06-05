@@ -5,65 +5,65 @@
         xmlns:system="clr-namespace:System;assembly=netstandard"
         xmlns:controls="clr-namespace:Material.Styles.Controls"
         x:DataType="controls:SnackbarHost">
-    <Styles.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Styles.Resources>
-    
-    <Style Selector="controls|SnackbarHost">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Panel>
-                    <ContentPresenter Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
-                    <ItemsControl Name="PART_SnackbarHostItemsContainer"
-                                  HorizontalAlignment="{TemplateBinding SnackbarHorizontalAlignment}"
-                                  VerticalAlignment="{TemplateBinding SnackbarVerticalAlignment}"
-                                  ItemsSource="{CompiledBinding $parent[controls:SnackbarHost].SnackbarModels}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <ReversibleStackPanel />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="models:SnackbarModel">
-                                <controls:Card Padding="0" Margin="8" Width="344">
-                                    <Grid ColumnDefinitions="16,*,8,Auto,8" RowDefinitions="6,Auto,6" Margin="0, 8">
-                                        <ContentPresenter Grid.Column="1" Grid.Row="1"
-                                                          Content="{CompiledBinding Content,
-                                        Converter={x:Static converters:WrapContentIntoContentPresenterConverter.Instance}}">
-                                            <ContentPresenter.DataTemplates>
-                                                <DataTemplate DataType="system:String">
-                                                    <TextBlock Name="PART_SnackbarSupportingText"
-                                                               Text="{CompiledBinding }" />
-                                                </DataTemplate>
-                                            </ContentPresenter.DataTemplates>
-                                        </ContentPresenter>
-                                        
-                                        <Button Grid.Column="3" Grid.Row="1"
-                                                Theme="{StaticResource FlatButton}"
-                                                Content="{Binding Button}"
-                                                Command="{Binding Command}"
-                                                IsVisible="{CompiledBinding !!Command}"/>
-                                    </Grid>
-                                </controls:Card>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Panel>
-            </ControlTemplate>
-        </Setter>
-    </Style>
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
 
-    <Style
-        Selector="controls|SnackbarHost /template/ ItemsControl#PART_SnackbarHostItemsContainer TextBlock#PART_SnackbarSupportingText">
-        <Setter Property="TextAlignment" Value="Left" />
-        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
-        <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="MaxLines" Value="2" />
-    </Style>
+  <Style Selector="controls|SnackbarHost">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+          <ItemsControl Name="PART_SnackbarHostItemsContainer"
+                        HorizontalAlignment="{TemplateBinding SnackbarHorizontalAlignment}"
+                        VerticalAlignment="{TemplateBinding SnackbarVerticalAlignment}"
+                        ItemsSource="{CompiledBinding $parent[controls:SnackbarHost].SnackbarModels}">
+            <ItemsControl.ItemsPanel>
+              <ItemsPanelTemplate>
+                <ReversibleStackPanel />
+              </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+              <DataTemplate DataType="models:SnackbarModel">
+                <controls:Card Padding="0" Margin="8" Width="344">
+                  <Grid ColumnDefinitions="16,*,8,Auto,8" RowDefinitions="6,Auto,6" Margin="0, 8">
+                    <ContentPresenter Grid.Column="1" Grid.Row="1"
+                                      Content="{CompiledBinding Content,
+                                        Converter={x:Static converters:WrapContentIntoContentPresenterConverter.Instance}}">
+                      <ContentPresenter.DataTemplates>
+                        <DataTemplate DataType="system:String">
+                          <TextBlock Name="PART_SnackbarSupportingText"
+                                     Text="{CompiledBinding }" />
+                        </DataTemplate>
+                      </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+
+                    <Button Grid.Column="3" Grid.Row="1"
+                            Theme="{StaticResource FlatButton}"
+                            Content="{Binding Button}"
+                            Command="{Binding Command}"
+                            IsVisible="{CompiledBinding !!Command}" />
+                  </Grid>
+                </controls:Card>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style
+    Selector="controls|SnackbarHost /template/ ItemsControl#PART_SnackbarHostItemsContainer TextBlock#PART_SnackbarSupportingText">
+    <Setter Property="TextAlignment" Value="Left" />
+    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="MaxLines" Value="2" />
+  </Style>
 </Styles>

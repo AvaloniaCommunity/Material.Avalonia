@@ -11,12 +11,16 @@ namespace Material.Dialog.Views {
         }
         public DateTimePickerDialogResult Result { get; set; }
 
-        public DateTimePickerDialogResult GetResult() => Result;
+        public DateTimePickerDialogResult GetResult() {
+            return Result;
+        }
 
-        public void SetNegativeResult(DialogResult result) => Result.Result = result.GetResult;
+        public void SetNegativeResult(DialogResult result) {
+            Result.Result = result.GetResult;
+        }
 
         public void AttachViewModel(TimePickerDialogViewModel vm) {
-            this.DataContext = vm;
+            DataContext = vm;
         }
     }
 }

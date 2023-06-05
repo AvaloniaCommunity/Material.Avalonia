@@ -7,12 +7,10 @@ using Avalonia.Interactivity;
 using Avalonia.Metadata;
 using Material.Styles.Enums;
 
-namespace Material.Styles.Controls
-{
+namespace Material.Styles.Controls {
     // TODO: mobile variant
     [PseudoClasses(":open", ":closed", ":left", ":right", ":mobile")]
-    public class SideSheet : ContentControl
-    {
+    public class SideSheet : ContentControl {
         // Avalonia properties
 
         public static readonly StyledProperty<object> SideSheetContentProperty =
@@ -47,8 +45,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Hide or show the default close button
         /// </summary>
-        public bool SideSheetCanClose
-        {
+        public bool SideSheetCanClose {
             get => GetValue(SideSheetCanCloseProperty);
             set => SetValue(SideSheetCanCloseProperty, value);
         }
@@ -56,8 +53,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Gets or sets the padding in the around the <see cref="SideSheetContent"/>
         /// </summary>
-        public Thickness SideSheetPadding
-        {
+        public Thickness SideSheetPadding {
             get => GetValue(SideSheetPaddingProperty);
             set => SetValue(SideSheetPaddingProperty, value);
         }
@@ -66,8 +62,7 @@ namespace Material.Styles.Controls
         /// Gets or sets the content of the header to display.
         /// </summary> 
         [DependsOn(nameof(SideSheetHeaderTemplate))]
-        public object SideSheetHeader
-        {
+        public object SideSheetHeader {
             get => GetValue(SideSheetHeaderProperty);
             set => SetValue(SideSheetHeaderProperty, value);
         }
@@ -75,8 +70,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Gets or sets the data template used to display the header of the control.
         /// </summary> 
-        public IDataTemplate SideSheetHeaderTemplate
-        {
+        public IDataTemplate SideSheetHeaderTemplate {
             get => GetValue(SideSheetHeaderTemplateProperty);
             set => SetValue(SideSheetHeaderTemplateProperty, value);
         }
@@ -85,8 +79,7 @@ namespace Material.Styles.Controls
         /// Gets or sets the content to display.
         /// </summary> 
         [DependsOn(nameof(SideSheetContentTemplate))]
-        public object SideSheetContent
-        {
+        public object SideSheetContent {
             get => GetValue(SideSheetContentProperty);
             set => SetValue(SideSheetContentProperty, value);
         }
@@ -94,43 +87,36 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Gets or sets the data template used to display the content of the control.
         /// </summary>
-        public IDataTemplate SideSheetContentTemplate
-        {
+        public IDataTemplate SideSheetContentTemplate {
             get => GetValue(SideSheetContentTemplateProperty);
             set => SetValue(SideSheetContentTemplateProperty, value);
         }
 
-        public bool SideSheetOpened
-        {
+        public bool SideSheetOpened {
             get => GetValue(SideSheetOpenedProperty);
             set => SetValue(SideSheetOpenedProperty, value);
         }
 
-        public double SideSheetWidth
-        {
+        public double SideSheetWidth {
             get => GetValue(SideSheetWidthProperty);
             set => SetValue(SideSheetWidthProperty, value);
         }
 
-        public HorizontalDirection SideSheetDirection
-        {
+        public HorizontalDirection SideSheetDirection {
             get => GetValue(SideSheetDirectionProperty);
             set => SetValue(SideSheetDirectionProperty, value);
         }
 
-        static SideSheet()
-        {
+        static SideSheet() {
             SideSheetOpenedProperty.Changed.AddClassHandler<SideSheet>(OnSideSheetStateChanged);
             SideSheetDirectionProperty.Changed.AddClassHandler<SideSheet>(OnSideSheetStateChanged);
         }
 
-        private static void OnSideSheetStateChanged(SideSheet control, AvaloniaPropertyChangedEventArgs args)
-        {
+        private static void OnSideSheetStateChanged(SideSheet control, AvaloniaPropertyChangedEventArgs args) {
             control.UpdatePseudoClasses();
         }
 
-        public SideSheet()
-        {
+        public SideSheet() {
             UpdatePseudoClasses();
         }
 
@@ -139,46 +125,39 @@ namespace Material.Styles.Controls
         // ReSharper disable once InconsistentNaming
         private Border? PART_Scrim;
 
-        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
-        {
-            if (e.NameScope.Find("PART_Scrim") is Border border)
-            {
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
+            if (e.NameScope.Find("PART_Scrim") is Border border) {
                 PART_Scrim = border;
 
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
             }
 
-            if (e.NameScope.Find("PART_CloseButton") is Button button)
-            {
+            if (e.NameScope.Find("PART_CloseButton") is Button button) {
                 button.Click += (_, _) => SideSheetOpened = false;
             }
 
             base.OnApplyTemplate(e);
         }
 
-        protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
-        {
+        protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e) {
             if (PART_Scrim != null)
                 PART_Scrim.PointerPressed += PART_Scrim_Pressed;
 
             base.OnAttachedToVisualTree(e);
         }
 
-        protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
-        {
+        protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e) {
             if (PART_Scrim != null)
                 PART_Scrim.PointerPressed -= PART_Scrim_Pressed;
 
             base.OnDetachedFromVisualTree(e);
         }
 
-        private void PART_Scrim_Pressed(object sender, RoutedEventArgs e)
-        {
+        private void PART_Scrim_Pressed(object sender, RoutedEventArgs e) {
             SideSheetOpened = false;
         }
 
-        private void UpdatePseudoClasses()
-        {
+        private void UpdatePseudoClasses() {
             var open = SideSheetOpened;
             PseudoClasses.Add(open ? ":open" : ":closed");
             PseudoClasses.Remove(!open ? ":open" : ":closed");

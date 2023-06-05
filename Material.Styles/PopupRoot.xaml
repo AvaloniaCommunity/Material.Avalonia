@@ -1,22 +1,22 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
-    <Style Selector="PopupRoot">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="TransparencyLevelHint" Value="Transparent" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <VisualLayerManager Name="{x:Static naming:PartNames.PartVisualLayer}"
-                                    IsPopup="True" >
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                        <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                                          Background="{TemplateBinding Background}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          Content="{TemplateBinding Content}"
-                                          Padding="{TemplateBinding Padding}"/>
-                    </Panel>
-                </VisualLayerManager>
-            </ControlTemplate>
-        </Setter>
-    </Style>
+        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+  <Style Selector="PopupRoot">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="TransparencyLevelHint" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <VisualLayerManager Name="{x:Static naming:PartNames.PartVisualLayer}"
+                            IsPopup="True">
+          <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                              Background="{TemplateBinding Background}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              Padding="{TemplateBinding Padding}" />
+          </Panel>
+        </VisualLayerManager>
+      </ControlTemplate>
+    </Setter>
+  </Style>
 </Styles>

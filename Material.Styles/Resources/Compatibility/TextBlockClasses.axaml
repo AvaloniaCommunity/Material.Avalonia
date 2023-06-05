@@ -1,114 +1,114 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
-    <Styles.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Styles.Resources>
-    
-    <Style Selector=":is(Control).Caption">
-        <Setter Property="Theme" Value="{StaticResource CaptionTextBlock}"/>
-    </Style>
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
 
-    <Style Selector=":is(Control).Body1">
-        <Setter Property="Theme" Value="{StaticResource Body1TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Caption">
+    <Setter Property="Theme" Value="{StaticResource CaptionTextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Body2">
-        <Setter Property="Theme" Value="{StaticResource Body2TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Body1">
+    <Setter Property="Theme" Value="{StaticResource Body1TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Overline">
-        <Setter Property="Theme" Value="{StaticResource OverlineTextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Body2">
+    <Setter Property="Theme" Value="{StaticResource Body2TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Subtitle1">
-        <Setter Property="Theme" Value="{StaticResource Subtitle1TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Overline">
+    <Setter Property="Theme" Value="{StaticResource OverlineTextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Subtitle2">
-        <Setter Property="Theme" Value="{StaticResource Subtitle2TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Subtitle1">
+    <Setter Property="Theme" Value="{StaticResource Subtitle1TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Headline6">
-        <Setter Property="Theme" Value="{StaticResource Headline6TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Subtitle2">
+    <Setter Property="Theme" Value="{StaticResource Subtitle2TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Headline5">
-        <Setter Property="Theme" Value="{StaticResource Headline5TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Headline6">
+    <Setter Property="Theme" Value="{StaticResource Headline6TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Headline4">
-        <Setter Property="Theme" Value="{StaticResource Headline4TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Headline5">
+    <Setter Property="Theme" Value="{StaticResource Headline5TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Headline3">
-        <Setter Property="Theme" Value="{StaticResource Headline3TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Headline4">
+    <Setter Property="Theme" Value="{StaticResource Headline4TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Headline2">
-        <Setter Property="Theme" Value="{StaticResource Headline2TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Headline3">
+    <Setter Property="Theme" Value="{StaticResource Headline3TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Headline1">
-        <Setter Property="Theme" Value="{StaticResource Headline1TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Headline2">
+    <Setter Property="Theme" Value="{StaticResource Headline2TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).Link">
-        <Setter Property="Theme" Value="{StaticResource LinkTextBlock}"/>
-    </Style>
-    
-    <Style Selector=":is(Control).caption">
-        <Setter Property="Theme" Value="{StaticResource CaptionTextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Headline1">
+    <Setter Property="Theme" Value="{StaticResource Headline1TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).body1">
-        <Setter Property="Theme" Value="{StaticResource Body1TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).Link">
+    <Setter Property="Theme" Value="{StaticResource LinkTextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).body2">
-        <Setter Property="Theme" Value="{StaticResource Body2TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).caption">
+    <Setter Property="Theme" Value="{StaticResource CaptionTextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).overline">
-        <Setter Property="Theme" Value="{StaticResource OverlineTextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).body1">
+    <Setter Property="Theme" Value="{StaticResource Body1TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).subtitle1">
-        <Setter Property="Theme" Value="{StaticResource Subtitle1TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).body2">
+    <Setter Property="Theme" Value="{StaticResource Body2TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).subtitle2">
-        <Setter Property="Theme" Value="{StaticResource Subtitle2TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).overline">
+    <Setter Property="Theme" Value="{StaticResource OverlineTextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).headline6">
-        <Setter Property="Theme" Value="{StaticResource Headline6TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).subtitle1">
+    <Setter Property="Theme" Value="{StaticResource Subtitle1TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).headline5">
-        <Setter Property="Theme" Value="{StaticResource Headline5TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).subtitle2">
+    <Setter Property="Theme" Value="{StaticResource Subtitle2TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).headline4">
-        <Setter Property="Theme" Value="{StaticResource Headline4TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).headline6">
+    <Setter Property="Theme" Value="{StaticResource Headline6TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).headline3">
-        <Setter Property="Theme" Value="{StaticResource Headline3TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).headline5">
+    <Setter Property="Theme" Value="{StaticResource Headline5TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).headline2">
-        <Setter Property="Theme" Value="{StaticResource Headline2TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).headline4">
+    <Setter Property="Theme" Value="{StaticResource Headline4TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).headline1">
-        <Setter Property="Theme" Value="{StaticResource Headline1TextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).headline3">
+    <Setter Property="Theme" Value="{StaticResource Headline3TextBlock}" />
+  </Style>
 
-    <Style Selector=":is(Control).link">
-        <Setter Property="Theme" Value="{StaticResource LinkTextBlock}"/>
-    </Style>
+  <Style Selector=":is(Control).headline2">
+    <Setter Property="Theme" Value="{StaticResource Headline2TextBlock}" />
+  </Style>
+
+  <Style Selector=":is(Control).headline1">
+    <Setter Property="Theme" Value="{StaticResource Headline1TextBlock}" />
+  </Style>
+
+  <Style Selector=":is(Control).link">
+    <Setter Property="Theme" Value="{StaticResource LinkTextBlock}" />
+  </Style>
 </Styles>

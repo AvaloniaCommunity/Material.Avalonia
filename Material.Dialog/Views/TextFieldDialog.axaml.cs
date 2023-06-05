@@ -30,7 +30,9 @@ namespace Material.Dialog.Views {
             };
         }
 
-        public void SetNegativeResult(DialogResult result) => Result.result = result.GetResult;
+        public void SetNegativeResult(DialogResult result) {
+            Result.result = result.GetResult;
+        }
 
         private void TextFieldDialog_Closed(object sender, EventArgs e) {
             Opened -= TextFieldDialog_Opened;
@@ -49,7 +51,7 @@ namespace Material.Dialog.Views {
                 if (fields is null)
                     return;
 
-                int index = 0;
+                var index = 0;
                 foreach (var item in fields.GetRealizedContainers()) {
                     var fieldViewModel = vm.TextFields[index];
 

@@ -1,17 +1,13 @@
 ﻿using Avalonia.Media;
 using Avalonia.Media.Imaging;
 
-namespace Material.Dialog.ViewModels.Elements.Header.Icons
-{
-    public class ImageIconViewModel : IconViewModelBase
-    {
+namespace Material.Dialog.ViewModels.Elements.Header.Icons {
+    public class ImageIconViewModel : IconViewModelBase {
         private Bitmap _bitmap;
 
-        public Bitmap Bitmap
-        {
+        public Bitmap Bitmap {
             get => _bitmap;
-            set
-            {
+            set {
                 _bitmap = value;
                 OnPropertyChanged();
             }
@@ -19,11 +15,9 @@ namespace Material.Dialog.ViewModels.Elements.Header.Icons
 
         private Stretch _stretch = Stretch.Uniform;
 
-        public Stretch Stretch
-        {
+        public Stretch Stretch {
             get => _stretch;
-            set
-            {
+            set {
                 _stretch = value;
                 OnPropertyChanged();
             }

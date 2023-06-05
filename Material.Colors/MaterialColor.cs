@@ -1,7 +1,5 @@
-﻿namespace Material.Colors
-{
-    public enum PrimaryColor
-    {
+﻿namespace Material.Colors {
+    public enum PrimaryColor {
         Red = MaterialColor.Red500,
         Pink = MaterialColor.Pink500,
         Purple = MaterialColor.Purple500,
@@ -23,8 +21,7 @@
         BlueGrey = MaterialColor.BlueGrey500
     }
 
-    public enum SecondaryColor
-    {
+    public enum SecondaryColor {
         Red = MaterialColor.RedSecondary,
         Pink = MaterialColor.PinkSecondary,
         Purple = MaterialColor.PurpleSecondary,
@@ -43,8 +40,7 @@
         DeepOrange = MaterialColor.DeepOrangeSecondary
     }
 
-    public enum MaterialColor
-    {
+    public enum MaterialColor {
         Red50,
         Red100,
         Red200,

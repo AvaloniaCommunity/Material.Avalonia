@@ -1,15 +1,12 @@
 using Avalonia;
 using Avalonia.Controls;
 
-namespace Material.Styles.Controls
-{
-    public class FloatingButton : Button
-    {
+namespace Material.Styles.Controls {
+    public class FloatingButton : Button {
         public static readonly StyledProperty<bool> IsExtendedProperty =
             AvaloniaProperty.Register<FloatingButton, bool>(nameof(IsExtended));
 
-        public bool IsExtended
-        {
+        public bool IsExtended {
             get => GetValue(IsExtendedProperty);
             set => SetValue(IsExtendedProperty, value);
         }

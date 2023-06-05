@@ -7,10 +7,8 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
 
-namespace Material.Styles.Controls
-{
-    public class CircleClockPicker : TemplatedControl
-    {
+namespace Material.Styles.Controls {
+    public class CircleClockPicker : TemplatedControl {
         public static readonly DirectProperty<CircleClockPicker, int> ValueProperty =
             AvaloniaProperty.RegisterDirect<CircleClockPicker, int>(nameof(Value),
                 o => o.Value, (o, v) => o.Value = v);
@@ -30,54 +28,45 @@ namespace Material.Styles.Controls
         public static readonly StyledProperty<double> RadiusMultiplierProperty =
             AvaloniaProperty.Register<CircleClockPicker, double>(nameof(RadiusMultiplier));
 
-        public int Value
-        {
+        public int Value {
             get => _value;
-            set
-            {
+            set {
                 SetAndRaise(ValueProperty, ref _value, value);
                 UpdateVisual(value);
             }
         }
 
-        public int Minimum
-        {
+        public int Minimum {
             get => GetValue(MinimumProperty);
             set => SetValue(MinimumProperty, value);
         }
 
-        public int Maximum
-        {
+        public int Maximum {
             get => GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
 
-        public int StepFrequency
-        {
+        public int StepFrequency {
             get => GetValue(StepFrequencyProperty);
             set => SetValue(StepFrequencyProperty, value);
         }
 
-        public string? FirstLabelOverride
-        {
+        public string? FirstLabelOverride {
             get => GetValue(FirstLabelOverrideProperty);
             set => SetValue(FirstLabelOverrideProperty, value);
         }
 
-        public double RadiusMultiplier
-        {
+        public double RadiusMultiplier {
             get => GetValue(RadiusMultiplierProperty);
             set => SetValue(RadiusMultiplierProperty, value);
         }
 
         public event EventHandler? AfterDrag;
 
-        static CircleClockPicker()
-        {
+        static CircleClockPicker() {
         }
 
-        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
-        {
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
             base.OnApplyTemplate(e);
 
             _subscription?.Dispose();
@@ -91,8 +80,7 @@ namespace Material.Styles.Controls
             _pointerPin = pointerPin;
             _cellPanel = canvas;
 
-            _subscription = new CompositeDisposable
-            {
+            _subscription = new CompositeDisposable {
                 MinimumProperty.Changed.Subscribe(OnNext),
                 MaximumProperty.Changed.Subscribe(OnNext),
                 StepFrequencyProperty.Changed.Subscribe(OnNext),
@@ -106,8 +94,7 @@ namespace Material.Styles.Controls
             UpdateVisual(_value);
         }
 
-        private void OnCanvasResize(AvaloniaPropertyChangedEventArgs<Rect> obj)
-        {
+        private void OnCanvasResize(AvaloniaPropertyChangedEventArgs<Rect> obj) {
             if (!ReferenceEquals(obj.Sender, _cellPanel))
                 return;
 
@@ -115,14 +102,12 @@ namespace Material.Styles.Controls
             AdjustPointer();
         }
 
-        private void OnNext(EventArgs a)
-        {
+        private void OnNext(EventArgs a) {
             UpdateCellPanel();
             AdjustPointer();
         }
 
-        protected override void OnPointerPressed(PointerPressedEventArgs e)
-        {
+        protected override void OnPointerPressed(PointerPressedEventArgs e) {
             base.OnPointerPressed(e);
 
             _isDragging = true;
@@ -130,8 +115,7 @@ namespace Material.Styles.Controls
             ProcessPointerEvent(e.GetPosition(this));
         }
 
-        protected override void OnPointerMoved(PointerEventArgs e)
-        {
+        protected override void OnPointerMoved(PointerEventArgs e) {
             base.OnPointerMoved(e);
 
             if (!_isDragging)
@@ -140,8 +124,7 @@ namespace Material.Styles.Controls
             ProcessPointerEvent(e.GetPosition(this));
         }
 
-        protected override void OnPointerReleased(PointerReleasedEventArgs e)
-        {
+        protected override void OnPointerReleased(PointerReleasedEventArgs e) {
             base.OnPointerReleased(e);
 
             _isDragging = false;
@@ -157,10 +140,9 @@ namespace Material.Styles.Controls
 
         private int _value;
 
-        private void ProcessPointerEvent(Point point)
-        {
-            var halfSize = (float) (Bounds.Width / 2);
-            var rad = (float) Math.Atan2(point.Y - halfSize, point.X - halfSize);
+        private void ProcessPointerEvent(Point point) {
+            var halfSize = (float)(Bounds.Width / 2);
+            var rad = (float)Math.Atan2(point.Y - halfSize, point.X - halfSize);
             var degrees = rad * 180 / Math.PI + 90;
 
             if (degrees < 0)
@@ -170,7 +152,7 @@ namespace Material.Styles.Controls
                 degrees -= 360;
 
             // degree to value
-            var value = (int) Math.Round(degrees / 360 * (Maximum + 1 - Minimum) + Minimum);
+            var value = (int)Math.Round(degrees / 360 * (Maximum + 1 - Minimum) + Minimum);
 
             if (value == Maximum + 1)
                 value = Minimum;
@@ -181,13 +163,11 @@ namespace Material.Styles.Controls
             Value = c.Value;
         }
 
-        private void UpdateVisual(int v)
-        {
+        private void UpdateVisual(int v) {
             if (!_cachedAccessors.TryGetValue(v, out var cell))
                 return;
 
-            foreach (var c in _cachedAccessors.Values)
-            {
+            foreach (var c in _cachedAccessors.Values) {
                 c.IsSelected = false;
 
                 if (!ReferenceEquals(c, cell))
@@ -205,8 +185,7 @@ namespace Material.Styles.Controls
             _pointer.RenderTransform = transform;
         }
 
-        private void UpdateCellPanel()
-        {
+        private void UpdateCellPanel() {
             if (_cellPanel == null)
                 return;
 
@@ -219,8 +198,7 @@ namespace Material.Styles.Controls
             _cachedAccessors.Clear();
             _cellPanel.Children.Clear();
 
-            void ArrangeCell(CircleClockPickerCell cell, double degree)
-            {
+            void ArrangeCell(CircleClockPickerCell cell, double degree) {
                 var canvasBounds = _cellPanel.Bounds;
 
                 var w = canvasBounds.Width;
@@ -229,29 +207,25 @@ namespace Material.Styles.Controls
                 var hW = w / 2;
                 var hH = h / 2;
 
-                var rad = (float) ((degree - 90) * Math.PI / 180);
+                var rad = (float)((degree - 90) * Math.PI / 180);
 
-                var x = (float) (hW * radiusMultiplier * Math.Cos(rad)) + hW;
-                var y = (float) (hH * radiusMultiplier * Math.Sin(rad)) + hH;
+                var x = (float)(hW * radiusMultiplier * Math.Cos(rad)) + hW;
+                var y = (float)(hH * radiusMultiplier * Math.Sin(rad)) + hH;
 
                 cell.RenderTransform = new TranslateTransform(x, y);
             }
 
-            float GetAngle(int value)
-            {
+            float GetAngle(int value) {
                 var degrees = (value - min) * (360f / (max + 1 - min));
                 return degrees;
             }
 
-            for (var i = min; i <= max; i++)
-            {
-                var cell = new CircleClockPickerCell
-                {
+            for (var i = min; i <= max; i++) {
+                var cell = new CircleClockPickerCell {
                     Value = i
                 };
 
-                if (step > 0)
-                {
+                if (step > 0) {
                     if (i % step == 0)
                         cell.IsDot = false;
                 }
@@ -271,8 +245,7 @@ namespace Material.Styles.Controls
             UpdateVisual(Value);
         }
 
-        private void AdjustPointer()
-        {
+        private void AdjustPointer() {
             if (_pointerPin == null)
                 return;
 

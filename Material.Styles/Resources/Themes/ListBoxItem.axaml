@@ -1,83 +1,83 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
-    <ControlTheme x:Key="{x:Type ListBoxItem}"
-                  TargetType="ListBoxItem">
-        <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="8" />
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                        <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}"/>
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+  <ControlTheme x:Key="{x:Type ListBoxItem}"
+                TargetType="ListBoxItem">
+    <Setter Property="Foreground" Value="{TemplateBinding Foreground}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+            <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}" />
 
-                        <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}"
-                                             Background="{TemplateBinding Background}"
-                                             BorderBrush="{TemplateBinding BorderBrush}"
-                                             BorderThickness="{TemplateBinding BorderThickness}"
-                                             Content="{TemplateBinding Content}"
-                                             Padding="{TemplateBinding Padding}"
-                                             ContentTemplate="{TemplateBinding ContentTemplate}"
-                                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        
-                        <Border Name="{x:Static naming:PartNames.PartHoverEffect}"/>
-                    </Panel>
-                </Border>
-            </ControlTemplate>
+            <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}"
+                                 Background="{TemplateBinding Background}"
+                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 Content="{TemplateBinding Content}"
+                                 Padding="{TemplateBinding Padding}"
+                                 ContentTemplate="{TemplateBinding ContentTemplate}"
+                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+            <Border Name="{x:Static naming:PartNames.PartHoverEffect}" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^/template/ Border#PART_BehaviourEffect">
+      <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+
+    <Style Selector="^/template/ Border#PART_HoverEffect">
+      <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+      <Setter Property="Opacity" Value="0" />
+      <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^/template/ ripple|RippleEffect#PART_Ripple">
+      <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignBody}" />
+      <Setter Property="Focusable" Value="False" />
+    </Style>
+
+    <Style Selector="^:not(.no-transitions)">
+      <Style Selector="^/template/ Border#PART_BehaviourEffect">
+        <Setter Property="Transitions">
+          <Transitions>
+            <DoubleTransition Duration="0:0:0.1" Property="Opacity" Easing="LinearEasing" />
+          </Transitions>
         </Setter>
-                
-        <Style Selector="^/template/ Border#PART_BehaviourEffect">
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
-            <Setter Property="Opacity" Value="0"/>
-        </Style>
-        
-        <Style Selector="^/template/ Border#PART_HoverEffect">
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}"/>
-            <Setter Property="Opacity" Value="0"/>
-            <Setter Property="IsHitTestVisible" Value="False"/>
-        </Style>
-        
-        <Style Selector="^/template/ ripple|RippleEffect#PART_Ripple">
-            <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignBody}"/>
-            <Setter Property="Focusable" Value="False"/>
-        </Style>
-        
-        <Style Selector="^:not(.no-transitions)">
-            <Style Selector="^/template/ Border#PART_BehaviourEffect">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <DoubleTransition Duration="0:0:0.1" Property="Opacity" Easing="LinearEasing" />
-                    </Transitions>
-                </Setter>
-            </Style>
-        
-            <Style Selector="^/template/ Border#PART_HoverEffect">
-                <Setter Property="Transitions">
-                    <Transitions>
-                        <DoubleTransition Duration="0:0:0.1" Property="Opacity" Easing="LinearEasing" />
-                    </Transitions>
-                </Setter>
-            </Style>
-        </Style>
-        
-        <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverEffect">
-            <Setter Property="Opacity" Value="0.05"/>
-        </Style>
-        
-        <Style Selector="^:selected /template/ Border#PART_HoverEffect">
-            <Setter Property="Opacity" Value="0.12"/>
-        </Style>
-        
-        <Style Selector="^:disabled /template/ Border#PART_RootBorder">
-            <Setter Property="Opacity" Value="0.56"/>
-        </Style>
-    </ControlTheme>
+      </Style>
+
+      <Style Selector="^/template/ Border#PART_HoverEffect">
+        <Setter Property="Transitions">
+          <Transitions>
+            <DoubleTransition Duration="0:0:0.1" Property="Opacity" Easing="LinearEasing" />
+          </Transitions>
+        </Setter>
+      </Style>
+    </Style>
+
+    <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="0.05" />
+    </Style>
+
+    <Style Selector="^:selected /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="0.12" />
+    </Style>
+
+    <Style Selector="^:disabled /template/ Border#PART_RootBorder">
+      <Setter Property="Opacity" Value="0.56" />
+    </Style>
+  </ControlTheme>
 </ResourceDictionary>

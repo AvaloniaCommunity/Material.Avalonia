@@ -3,12 +3,9 @@ using System.Globalization;
 using Avalonia;
 using Avalonia.Data.Converters;
 
-namespace Material.Styles.Converters
-{
-    public class MaximizeCornerRadiusConverter : IValueConverter
-    {
-        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
-        {
+namespace Material.Styles.Converters {
+    public class MaximizeCornerRadiusConverter : IValueConverter {
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture) {
             if (value is Rect r)
                 return new CornerRadius(r.Left / 2,
                     r.Top / 2,
@@ -20,8 +17,7 @@ namespace Material.Styles.Converters
             return new CornerRadius(double.MaxValue);
         }
 
-        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
-        {
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) {
             throw new NotImplementedException();
         }
     }

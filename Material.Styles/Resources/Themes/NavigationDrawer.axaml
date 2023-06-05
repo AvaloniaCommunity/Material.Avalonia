@@ -4,158 +4,158 @@
                     xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
-                    xmlns:assists="clr-namespace:Material.Styles.Assists" >
-    
-    <SineEaseInOut x:Key="EasingConstant" />
+                    xmlns:assists="clr-namespace:Material.Styles.Assists">
 
-    <parameters:MarginMultiplyParameter x:Key="LeftMarginCreatorParam" LeftMultiplier="-1" />
-    <parameters:MarginMultiplyParameter x:Key="RightMarginCreatorParam" RightMultiplier="-1" />
+  <SineEaseInOut x:Key="EasingConstant" />
 
-    <converters:MarginMultiplyConverter x:Key="MarginCreator" />
-    
-    <ControlTheme x:Key="{x:Type controls:NavigationDrawer}"
-                  TargetType="controls:NavigationDrawer">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="LeftDrawerWidth" Value="320" />
-        <Setter Property="RightDrawerWidth" Value="320" />
-        <Setter Property="LeftDrawerExpandThresholdWidth" Value="1000"/>
-        <Setter Property="Template" >
-            <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                        Background="{TemplateBinding Background}">
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                        <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
-                                          Margin="{TemplateBinding ContentMargin}"
-                                          Padding="{TemplateBinding Padding}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+  <parameters:MarginMultiplyParameter x:Key="LeftMarginCreatorParam" LeftMultiplier="-1" />
+  <parameters:MarginMultiplyParameter x:Key="RightMarginCreatorParam" RightMultiplier="-1" />
 
-                        <Border Name="PART_Scrim"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch" />
+  <converters:MarginMultiplyConverter x:Key="MarginCreator" />
 
-                        <Border Name="PART_LeftDrawerBorder"
-                                HorizontalAlignment="Left"
-                                Width="{TemplateBinding LeftDrawerWidth}" >
-                            <Border.Styles>
-                                <Style Selector="controls|NavigationDrawer /template/ Border#PART_LeftDrawerBorder" >
-                                    <Setter Property="Margin"
-                                            Value="{Binding $self.Width, 
+  <ControlTheme x:Key="{x:Type controls:NavigationDrawer}"
+                TargetType="controls:NavigationDrawer">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="LeftDrawerWidth" Value="320" />
+    <Setter Property="RightDrawerWidth" Value="320" />
+    <Setter Property="LeftDrawerExpandThresholdWidth" Value="1000" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                Background="{TemplateBinding Background}">
+          <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                              Margin="{TemplateBinding ContentMargin}"
+                              Padding="{TemplateBinding Padding}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+
+            <Border Name="PART_Scrim"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" />
+
+            <Border Name="PART_LeftDrawerBorder"
+                    HorizontalAlignment="Left"
+                    Width="{TemplateBinding LeftDrawerWidth}">
+              <Border.Styles>
+                <Style Selector="controls|NavigationDrawer /template/ Border#PART_LeftDrawerBorder">
+                  <Setter Property="Margin"
+                          Value="{Binding $self.Width, 
                                         Converter={StaticResource MarginCreator}, 
                                         ConverterParameter={StaticResource LeftMarginCreatorParam}}" />
-                                </Style>
-                            </Border.Styles>
+                </Style>
+              </Border.Styles>
 
-                            <ContentControl Content="{TemplateBinding LeftDrawerContent}"
-                                            ContentTemplate="{TemplateBinding LeftDrawerContentTemplate}"
+              <ContentControl Content="{TemplateBinding LeftDrawerContent}"
+                              ContentTemplate="{TemplateBinding LeftDrawerContentTemplate}"
 
-                                            IsEnabled="{TemplateBinding LeftDrawerOpened}" />
-                        </Border>
+                              IsEnabled="{TemplateBinding LeftDrawerOpened}" />
+            </Border>
 
-                        <Border Name="PART_RightDrawerBorder"
-                                HorizontalAlignment="Right"
-                                Width="{TemplateBinding RightDrawerWidth}" >
-                            <Border.Styles>
-                                <Style Selector="controls|NavigationDrawer /template/ Border#PART_RightDrawerBorder" >
-                                    <Setter Property="Margin"
-                                            Value="{Binding $self.Width, 
+            <Border Name="PART_RightDrawerBorder"
+                    HorizontalAlignment="Right"
+                    Width="{TemplateBinding RightDrawerWidth}">
+              <Border.Styles>
+                <Style Selector="controls|NavigationDrawer /template/ Border#PART_RightDrawerBorder">
+                  <Setter Property="Margin"
+                          Value="{Binding $self.Width, 
                                         Converter={StaticResource MarginCreator}, 
                                         ConverterParameter={StaticResource RightMarginCreatorParam}}" />
-                                </Style>
-                            </Border.Styles>
+                </Style>
+              </Border.Styles>
 
-                            <ContentControl Content="{TemplateBinding RightDrawerContent}"
-                                            ContentTemplate="{TemplateBinding RightDrawerContentTemplate}"
+              <ContentControl Content="{TemplateBinding RightDrawerContent}"
+                              ContentTemplate="{TemplateBinding RightDrawerContentTemplate}"
 
-                                            IsEnabled="{TemplateBinding RightDrawerOpened}" />
-                        </Border>
-                    </Panel>
-                </Border>
-            </ControlTemplate>
+                              IsEnabled="{TemplateBinding RightDrawerOpened}" />
+            </Border>
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Transitions -->
+    <Style Selector="^:not(.no-transitions)">
+      <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Transitions">
+          <Transitions>
+            <ThicknessTransition Duration="0:0:0.3"
+                                 Property="Margin"
+                                 Easing="{StaticResource EasingConstant}" />
+          </Transitions>
         </Setter>
-                
-        <!-- Transitions -->
-        <Style Selector="^:not(.no-transitions)" >
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter" >
-                <Setter Property="Transitions" >
-                    <Transitions>
-                        <ThicknessTransition Duration="0:0:0.3"
-                                             Property="Margin"
-                                             Easing="{StaticResource EasingConstant}" />
-                    </Transitions>
-                </Setter>
-            </Style>
-            
-            <Style Selector="^ /template/ Border#PART_LeftDrawerBorder" >
-                <Setter Property="Transitions" >
-                    <Transitions>
-                        <ThicknessTransition Duration="0:0:0.3"
-                                             Property="Margin"
-                                             Easing="{StaticResource EasingConstant}" />
-                    </Transitions>
-                </Setter>
-            </Style>
+      </Style>
 
-            <Style Selector="^ /template/ Border#PART_RightDrawerBorder" >
-                <Setter Property="Transitions" >
-                    <Transitions>
-                        <ThicknessTransition Duration="0:0:0.3"
-                                             Property="Margin"
-                                             Easing="{StaticResource EasingConstant}" />
-                    </Transitions>
-                </Setter>
-            </Style>
-                        
-            <Style Selector="^ /template/ Border#PART_Scrim" >
-                <Setter Property="Transitions" >
-                    <Transitions>
-                        <DoubleTransition Duration="0:0:0.3"
-                                          Property="Opacity"
-                                          Easing="{StaticResource EasingConstant}" />
-                    </Transitions>
-                </Setter>
-            </Style>
-        </Style>
-        
-        <Style Selector="^ /template/ Border#PART_LeftDrawerBorder" >
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
-        </Style>
+      <Style Selector="^ /template/ Border#PART_LeftDrawerBorder">
+        <Setter Property="Transitions">
+          <Transitions>
+            <ThicknessTransition Duration="0:0:0.3"
+                                 Property="Margin"
+                                 Easing="{StaticResource EasingConstant}" />
+          </Transitions>
+        </Setter>
+      </Style>
 
-        <Style Selector="^ /template/ Border#PART_RightDrawerBorder" >
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
-        </Style>
+      <Style Selector="^ /template/ Border#PART_RightDrawerBorder">
+        <Setter Property="Transitions">
+          <Transitions>
+            <ThicknessTransition Duration="0:0:0.3"
+                                 Property="Margin"
+                                 Easing="{StaticResource EasingConstant}" />
+          </Transitions>
+        </Setter>
+      </Style>
 
-        <Style Selector="^ /template/ Border#PART_Scrim" >
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="Opacity" Value="0" />
-            <Setter Property="IsHitTestVisible" Value="False" />
-        </Style>
-        
+      <Style Selector="^ /template/ Border#PART_Scrim">
+        <Setter Property="Transitions">
+          <Transitions>
+            <DoubleTransition Duration="0:0:0.3"
+                              Property="Opacity"
+                              Easing="{StaticResource EasingConstant}" />
+          </Transitions>
+        </Setter>
+      </Style>
+    </Style>
+
+    <Style Selector="^ /template/ Border#PART_LeftDrawerBorder">
+      <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+    </Style>
+
+    <Style Selector="^ /template/ Border#PART_RightDrawerBorder">
+      <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+    </Style>
+
+    <Style Selector="^ /template/ Border#PART_Scrim">
+      <Setter Property="Background" Value="Black" />
+      <Setter Property="Opacity" Value="0" />
+      <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Focusable" Value="False" />
+    </Style>
+
+    <Style Selector="^:open">
+      <Style Selector="^:left /template/ Border#PART_LeftDrawerBorder">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3" />
+      </Style>
+
+      <Style Selector="^:right /template/ Border#PART_RightDrawerBorder">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3" />
+      </Style>
+
+      <Style Selector="^:left:not(:left-expand), ^:right:not(:right-expand)">
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Focusable" Value="False" />
+          <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
         </Style>
-    
-        <Style Selector="^:open" >
-            <Style Selector="^:left /template/ Border#PART_LeftDrawerBorder" >
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3" />
-            </Style>
 
-            <Style Selector="^:right /template/ Border#PART_RightDrawerBorder" >
-                <Setter Property="Margin" Value="0" />
-                <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3" />
-            </Style>
-            
-            <Style Selector="^:left:not(:left-expand), ^:right:not(:right-expand)" >
-                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                    <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
-                </Style>
-                
-                <Style Selector="^ /template/ Border#PART_Scrim" >
-                    <Setter Property="Opacity" Value="0.32" />
-                    <Setter Property="IsHitTestVisible" Value="True" />
-                </Style>
-            </Style>
+        <Style Selector="^ /template/ Border#PART_Scrim">
+          <Setter Property="Opacity" Value="0.32" />
+          <Setter Property="IsHitTestVisible" Value="True" />
         </Style>
-    </ControlTheme>
+      </Style>
+    </Style>
+  </ControlTheme>
 </ResourceDictionary>

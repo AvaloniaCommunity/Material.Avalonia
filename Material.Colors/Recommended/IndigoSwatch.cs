@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using Avalonia.Media;
 
-namespace Material.Colors.Recommended
-{
-    public class IndigoSwatch : ISwatch
-    {
+namespace Material.Colors.Recommended {
+    public class IndigoSwatch : ISwatch {
         public static Color Indigo50 { get; } = Color.Parse("#E8EAF6");
         public static Color Indigo100 { get; } = Color.Parse("#C5CAE9");
         public static Color Indigo200 { get; } = Color.Parse("#9FA8DA");
@@ -22,22 +20,21 @@ namespace Material.Colors.Recommended
 
         public string Name { get; } = "Indigo";
 
-        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color>
-        {
-            {MaterialColor.Indigo50, Indigo50},
-            {MaterialColor.Indigo100, Indigo100},
-            {MaterialColor.Indigo200, Indigo200},
-            {MaterialColor.Indigo300, Indigo300},
-            {MaterialColor.Indigo400, Indigo400},
-            {MaterialColor.Indigo500, Indigo500},
-            {MaterialColor.Indigo600, Indigo600},
-            {MaterialColor.Indigo700, Indigo700},
-            {MaterialColor.Indigo800, Indigo800},
-            {MaterialColor.Indigo900, Indigo900},
-            {MaterialColor.IndigoA100, IndigoA100},
-            {MaterialColor.IndigoA200, IndigoA200},
-            {MaterialColor.IndigoA400, IndigoA400},
-            {MaterialColor.IndigoA700, IndigoA700}
+        public IDictionary<MaterialColor, Color> Lookup { get; } = new Dictionary<MaterialColor, Color> {
+            { MaterialColor.Indigo50, Indigo50 },
+            { MaterialColor.Indigo100, Indigo100 },
+            { MaterialColor.Indigo200, Indigo200 },
+            { MaterialColor.Indigo300, Indigo300 },
+            { MaterialColor.Indigo400, Indigo400 },
+            { MaterialColor.Indigo500, Indigo500 },
+            { MaterialColor.Indigo600, Indigo600 },
+            { MaterialColor.Indigo700, Indigo700 },
+            { MaterialColor.Indigo800, Indigo800 },
+            { MaterialColor.Indigo900, Indigo900 },
+            { MaterialColor.IndigoA100, IndigoA100 },
+            { MaterialColor.IndigoA200, IndigoA200 },
+            { MaterialColor.IndigoA400, IndigoA400 },
+            { MaterialColor.IndigoA700, IndigoA700 }
         };
 
         public IEnumerable<Color> Hues => Lookup.Values;

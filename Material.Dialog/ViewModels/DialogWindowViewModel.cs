@@ -5,19 +5,15 @@ using Avalonia.Threading;
 using Material.Dialog.ViewModels.Elements;
 using Material.Dialog.ViewModels.Elements.Header.Icons;
 
-namespace Material.Dialog.ViewModels
-{
-    public abstract class DialogWindowViewModel : DialogViewModelBase
-    {
-        public DialogWindowViewModel(Window window)
-        {
+namespace Material.Dialog.ViewModels {
+    public abstract class DialogWindowViewModel : DialogViewModelBase {
+        public DialogWindowViewModel(Window window) {
             Window = window;
         }
 
         private Window _window;
 
-        protected Window Window
-        {
+        protected Window Window {
             get => _window;
             private set => _window = value;
         }
@@ -26,11 +22,9 @@ namespace Material.Dialog.ViewModels
 
         private string _windowTitle;
 
-        public string WindowTitle
-        {
+        public string WindowTitle {
             get => _windowTitle;
-            set
-            {
+            set {
                 _windowTitle = value;
                 OnPropertyChanged();
             }
@@ -38,11 +32,9 @@ namespace Material.Dialog.ViewModels
 
         private string _contentHeader;
 
-        public string ContentHeader
-        {
+        public string ContentHeader {
             get => _contentHeader;
-            set
-            {
+            set {
                 _contentHeader = value;
                 OnPropertyChanged();
             }
@@ -50,11 +42,9 @@ namespace Material.Dialog.ViewModels
 
         private string _contentMessage;
 
-        public string ContentMessage
-        {
+        public string ContentMessage {
             get => _contentMessage;
-            set
-            {
+            set {
                 _contentMessage = value;
                 OnPropertyChanged();
             }
@@ -62,11 +52,9 @@ namespace Material.Dialog.ViewModels
 
         private bool _borderless;
 
-        public bool Borderless
-        {
+        public bool Borderless {
             get => _borderless;
-            set
-            {
+            set {
                 _borderless = value;
                 OnPropertyChanged();
             }
@@ -74,11 +62,9 @@ namespace Material.Dialog.ViewModels
 
         private double? _maxWidth;
 
-        public double? MaxWidth
-        {
+        public double? MaxWidth {
             get => _maxWidth;
-            set
-            {
+            set {
                 _maxWidth = value;
                 OnPropertyChanged();
             }
@@ -86,11 +72,9 @@ namespace Material.Dialog.ViewModels
 
         private double? _width;
 
-        public double? Width
-        {
+        public double? Width {
             get => _width;
-            set
-            {
+            set {
                 _width = value;
                 OnPropertyChanged();
             }
@@ -98,11 +82,9 @@ namespace Material.Dialog.ViewModels
 
         private WindowStartupLocation _windowStartupLocation;
 
-        public WindowStartupLocation WindowStartupLocation
-        {
+        public WindowStartupLocation WindowStartupLocation {
             get => _windowStartupLocation;
-            set
-            {
+            set {
                 _windowStartupLocation = value;
                 OnPropertyChanged();
             }
@@ -110,11 +92,9 @@ namespace Material.Dialog.ViewModels
 
         private IconViewModelBase? _dialogIcon;
 
-        public IconViewModelBase? DialogIcon
-        {
+        public IconViewModelBase? DialogIcon {
             get => _dialogIcon;
-            set
-            {
+            set {
                 _dialogIcon = value;
                 OnPropertyChanged();
             }
@@ -124,11 +104,9 @@ namespace Material.Dialog.ViewModels
 
         private ObservableCollection<DialogButtonViewModel> _neutralDialogButton;
 
-        public ObservableCollection<DialogButtonViewModel> NeutralDialogButton
-        {
+        public ObservableCollection<DialogButtonViewModel> NeutralDialogButton {
             get => _neutralDialogButton;
-            internal set
-            {
+            internal set {
                 _neutralDialogButton = value;
                 OnPropertyChanged();
             }
@@ -137,11 +115,9 @@ namespace Material.Dialog.ViewModels
 
         private ObservableCollection<DialogButtonViewModel> _dialogButtons;
 
-        public ObservableCollection<DialogButtonViewModel> DialogButtons
-        {
+        public ObservableCollection<DialogButtonViewModel> DialogButtons {
             get => _dialogButtons;
-            internal set
-            {
+            internal set {
                 _dialogButtons = value;
                 OnPropertyChanged();
             }
@@ -149,11 +125,9 @@ namespace Material.Dialog.ViewModels
 
         private Orientation _buttonsStackOrientation;
 
-        public Orientation ButtonsStackOrientation
-        {
+        public Orientation ButtonsStackOrientation {
             get => _buttonsStackOrientation;
-            internal set
-            {
+            internal set {
                 _buttonsStackOrientation = value;
                 OnPropertyChanged();
             }
@@ -161,18 +135,15 @@ namespace Material.Dialog.ViewModels
 
         private DialogResult _dialogResult;
 
-        public DialogResult DialogResult
-        {
+        public DialogResult DialogResult {
             get => _dialogResult;
-            internal set
-            {
+            internal set {
                 _dialogResult = value;
                 OnPropertyChanged();
             }
         }
 
-        public async void CloseWindow()
-        {
+        public async void CloseWindow() {
             await Dispatcher.UIThread.InvokeAsync(() => { _window.Close(); });
         }
     }

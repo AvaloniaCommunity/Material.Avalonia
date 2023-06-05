@@ -3,51 +3,44 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 
-namespace Material.Styles.Controls
-{
+namespace Material.Styles.Controls {
     /// <summary>
     /// High-precision arc control.
     /// <b>Be remember, it takes a lot performance than avaloniaUI default arc control!</b>
     /// </summary>
-    public class Arc : Control
-    {
-        static Arc()
-        {
+    public class Arc : Control {
+        static Arc() {
             AffectsRender<Arc>(StrokeProperty,
                 StrokeThicknessProperty,
                 StartAngleProperty,
                 SweepAngleProperty);
         }
 
-        public IBrush Stroke
-        {
+        public IBrush Stroke {
             get => GetValue(StrokeProperty);
             set => SetValue(StrokeProperty, value);
         }
 
-        public readonly static StyledProperty<IBrush> StrokeProperty =
+        public static readonly StyledProperty<IBrush> StrokeProperty =
             AvaloniaProperty.Register<Arc, IBrush>(nameof(Stroke));
 
-        public double StrokeThickness
-        {
+        public double StrokeThickness {
             get => GetValue(StrokeThicknessProperty);
             set => SetValue(StrokeThicknessProperty, value);
         }
 
-        public readonly static StyledProperty<double> StrokeThicknessProperty =
+        public static readonly StyledProperty<double> StrokeThicknessProperty =
             AvaloniaProperty.Register<Arc, double>(nameof(StrokeThickness));
 
-        public double StartAngle
-        {
+        public double StartAngle {
             get => GetValue(StartAngleProperty);
             set => SetValue(StartAngleProperty, value);
         }
 
-        public readonly static StyledProperty<double> StartAngleProperty =
+        public static readonly StyledProperty<double> StartAngleProperty =
             AvaloniaProperty.Register<Arc, double>(nameof(StartAngle));
 
-        public double SweepAngle
-        {
+        public double SweepAngle {
             get => GetValue(SweepAngleProperty);
             set => SetValue(SweepAngleProperty, value);
         }
@@ -55,8 +48,7 @@ namespace Material.Styles.Controls
         public static readonly StyledProperty<double> SweepAngleProperty =
             AvaloniaProperty.Register<Arc, double>(nameof(SweepAngle));
 
-        public override void Render(DrawingContext context)
-        {
+        public override void Render(DrawingContext context) {
             const double offsetStroke = 0.5;
             var o = StrokeThickness + offsetStroke;
 
@@ -67,8 +59,7 @@ namespace Material.Styles.Controls
             var paint = new Pen(Stroke, StrokeThickness);
 
             // Push generated clip geometry for clipping circle figure
-            using (context.PushGeometryClip(GetClip()))
-            {
+            using (context.PushGeometryClip(GetClip())) {
                 context.DrawGeometry(Brushes.Transparent, paint, mainCircle);
             }
         }
@@ -84,8 +75,7 @@ namespace Material.Styles.Controls
         // This changes may prevent performance waste a little bit.
 
         // Clip geometry generator
-        private StreamGeometry GetClip()
-        {
+        private StreamGeometry GetClip() {
             var offset = StartAngle;
 
             var w = Bounds.Width;
@@ -108,8 +98,7 @@ namespace Material.Styles.Controls
 
             const int len = 24;
 
-            for (var i = 0; i < len; i++)
-            {
+            for (var i = 0; i < len; i++) {
                 var l = offset + sweep * i / len;
 
                 ctx.LineTo(DegToPoint(l, halfW, halfH));
@@ -123,10 +112,11 @@ namespace Material.Styles.Controls
 
         private const double Rad = Math.PI / 180d;
 
-        private static double Round(double v) => Math.Round(v);
+        private static double Round(double v) {
+            return Math.Round(v);
+        }
 
-        private static Point DegToPoint(double deg, double halfW, double halfH)
-        {
+        private static Point DegToPoint(double deg, double halfW, double halfH) {
             var rad = deg * Rad;
 
             var x = halfW + Round(halfW * Math.Cos(rad));

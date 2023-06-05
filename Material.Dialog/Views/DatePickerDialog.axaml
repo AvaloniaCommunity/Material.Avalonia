@@ -1,8 +1,5 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:main="clr-namespace:Material.Dialog"
-        xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
-        xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         xmlns:converters="clr-namespace:Material.Dialog.Converters"
         x:Class="Material.Dialog.Views.DatePickerDialog"
@@ -11,17 +8,16 @@
         Title="{CompiledBinding WindowTitle}"
         WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
         x:DataType="viewModels:DatePickerDialogViewModel">
-    <Window.Resources>
-        <ResourceDictionary>
-            <converters:DateStringConverter x:Key="DateStringConverter" />
-        </ResourceDictionary>
-    </Window.Resources>
+  <Window.Resources>
+    <ResourceDictionary>
+    </ResourceDictionary>
+  </Window.Resources>
 
-    <Window.Styles>
-        <StyleInclude Source="avares://Material.Dialog/Styles/DialogWindow.axaml" />
-        <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml" />
-        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
-    </Window.Styles>
+  <Window.Styles>
+    <StyleInclude Source="avares://Material.Dialog/Styles/DialogWindow.axaml" />
+    <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml" />
+    <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
+  </Window.Styles>
 
-    
+
 </Window>

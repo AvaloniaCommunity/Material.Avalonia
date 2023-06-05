@@ -8,7 +8,9 @@ namespace Material.Dialog.Views {
             InitializeComponent();
         }
 
-        public DialogResult GetResult() => (DataContext as CustomDialogViewModel)?.DialogResult;
+        public DialogResult GetResult() {
+            return (DataContext as CustomDialogViewModel)?.DialogResult;
+        }
 
         public void SetNegativeResult(DialogResult result) {
             if (DataContext is CustomDialogViewModel viewModel)

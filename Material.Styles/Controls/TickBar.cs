@@ -8,17 +8,14 @@ using Avalonia.Utilities;
 
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace Material.Styles.Controls
-{
+namespace Material.Styles.Controls {
     /// <summary>
     /// An element that is used for drawing <see cref="Slider"/>'s Ticks.
     /// <br/>
     /// Those code taken from AvaloniaUI and modified.
     /// </summary>
-    public class TickBar : Control
-    {
-        static TickBar()
-        {
+    public class TickBar : Control {
+        static TickBar() {
             AffectsRender<TickBar>(IsDirectionReversedProperty,
                 InactiveBrushProperty,
                 ActiveBrushProperty,
@@ -35,8 +32,7 @@ namespace Material.Styles.Controls
         public static readonly StyledProperty<bool> IsDirectionReversedProperty =
             AvaloniaProperty.Register<TickBar, bool>(nameof(IsDirectionReversed));
 
-        public bool IsDirectionReversed
-        {
+        public bool IsDirectionReversed {
             get => GetValue(IsDirectionReversedProperty);
             set => SetValue(IsDirectionReversedProperty, value);
         }
@@ -50,8 +46,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Brush used to draw the TickBar's Ticks on inactive track.
         /// </summary>
-        public IBrush? InactiveBrush
-        {
+        public IBrush? InactiveBrush {
             get => GetValue(InactiveBrushProperty);
             set => SetValue(InactiveBrushProperty, value);
         }
@@ -65,8 +60,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Brush used to draw the TickBar's Ticks on active track.
         /// </summary>
-        public IBrush? ActiveBrush
-        {
+        public IBrush? ActiveBrush {
             get => GetValue(ActiveBrushProperty);
             set => SetValue(ActiveBrushProperty, value);
         }
@@ -80,8 +74,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Logical position where the Minimum Tick will be drawn
         /// </summary>
-        public double Minimum
-        {
+        public double Minimum {
             get => GetValue(MinimumProperty);
             set => SetValue(MinimumProperty, value);
         }
@@ -95,8 +88,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Logical position where the Maximum Tick will be drawn
         /// </summary>
-        public double Maximum
-        {
+        public double Maximum {
             get => GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
@@ -110,8 +102,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Logical position where the Maximum Tick will be drawn
         /// </summary>
-        public double Value
-        {
+        public double Value {
             get => GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
@@ -122,8 +113,7 @@ namespace Material.Styles.Controls
         public static readonly StyledProperty<double> ThicknessTickProperty =
             AvaloniaProperty.Register<TickBar, double>(nameof(ThicknessTick));
 
-        public double ThicknessTick
-        {
+        public double ThicknessTick {
             get => GetValue(ThicknessTickProperty);
             set => SetValue(ThicknessTickProperty, value);
         }
@@ -137,8 +127,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// TickFrequency property defines how the tick will be drawn.
         /// </summary>
-        public double TickFrequency
-        {
+        public double TickFrequency {
             get => GetValue(TickFrequencyProperty);
             set => SetValue(TickFrequencyProperty, value);
         }
@@ -152,8 +141,7 @@ namespace Material.Styles.Controls
         /// <summary>
         /// TickBar parent's orientation.
         /// </summary>
-        public Orientation Orientation
-        {
+        public Orientation Orientation {
             get => GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
@@ -169,8 +157,7 @@ namespace Material.Styles.Controls
         /// are the logical positions use to draw the ticks.
         /// The property value is a <see cref="AvaloniaList{T}" />.
         /// </summary>
-        public AvaloniaList<double> Ticks
-        {
+        public AvaloniaList<double> Ticks {
             get => GetValue(TicksProperty);
             set => SetValue(TicksProperty, value);
         }
@@ -187,14 +174,12 @@ namespace Material.Styles.Controls
         /// The space on both sides of TickBar is half of specified ReservedSpace.
         /// This property has type of <see cref="Rect" />.
         /// </summary>
-        public Rect ReservedSpace
-        {
+        public Rect ReservedSpace {
             get => GetValue(ReservedSpaceProperty);
             set => SetValue(ReservedSpaceProperty, value);
         }
 
-        public override void Render(DrawingContext dc)
-        {
+        public override void Render(DrawingContext dc) {
             var size = new Size(Bounds.Width, Bounds.Height);
             var range = Maximum - Minimum;
             double logicalToPhysical;
@@ -208,8 +193,7 @@ namespace Material.Styles.Controls
 
             var thicknessTick = ThicknessTick;
 
-            switch (Orientation)
-            {
+            switch (Orientation) {
                 case Orientation.Horizontal:
                     if (MathUtilities.GreaterThanOrClose(rSpace, size.Width))
                         return;
@@ -237,8 +221,7 @@ namespace Material.Styles.Controls
             }
 
             // Invert direction of the ticks
-            if (reverse)
-            {
+            if (reverse) {
                 logicalToPhysical *= -1;
 
                 // swap startPoint & endPoint
@@ -248,31 +231,26 @@ namespace Material.Styles.Controls
             var inactiveBrush = InactiveBrush?.ToImmutable();
             var activeBrush = ActiveBrush?.ToImmutable();
 
-            void DrawTick(IBrush? brush, Point centerPoint, double radius)
-            {
+            void DrawTick(IBrush? brush, Point centerPoint, double radius) {
                 if (brush == null)
                     return;
-                
+
                 dc.DrawEllipse(brush, null, centerPoint, radius, radius);
             }
 
-            IBrush? PickBrushByRange(double c)
-            {
+            IBrush? PickBrushByRange(double c) {
                 if (c < left)
                     return reverse ? inactiveBrush : activeBrush;
 
                 return reverse ? activeBrush : inactiveBrush;
             }
 
-            switch (Orientation)
-            {
+            switch (Orientation) {
                 // Horizontal
-                case Orientation.Horizontal:
-                {
+                case Orientation.Horizontal: {
                     // Reduce tick interval if it is more than would be visible on the screen
                     var interval = TickFrequency;
-                    if (interval > 0.0)
-                    {
+                    if (interval > 0.0) {
                         var minInterval = (Maximum - Minimum) / size.Width;
                         if (interval < minInterval)
                             interval = minInterval;
@@ -288,10 +266,8 @@ namespace Material.Styles.Controls
                     var ticks = Ticks ?? null;
 
                     // Draw ticks using specified Ticks collection
-                    if (ticks?.Count > 0)
-                    {
-                        for (var i = 0; i < ticks.Count; i++)
-                        {
+                    if (ticks?.Count > 0) {
+                        for (var i = 0; i < ticks.Count; i++) {
                             var tick = ticks[i];
                             if (MathUtilities.LessThanOrClose(tick, Minimum) ||
                                 MathUtilities.GreaterThanOrClose(tick, Maximum))
@@ -306,10 +282,8 @@ namespace Material.Styles.Controls
                         }
                     }
                     // Draw ticks using specified TickFrequency
-                    else if (interval > 0.0)
-                    {
-                        for (var i = interval; i < range; i += interval)
-                        {
+                    else if (interval > 0.0) {
+                        for (var i = interval; i < range; i += interval) {
                             var x = i * logicalToPhysical + startPoint.X;
                             var point = new Point(x, startPoint.Y);
 
@@ -320,12 +294,10 @@ namespace Material.Styles.Controls
                     break;
 
                 // Vertical
-                case Orientation.Vertical:
-                {
+                case Orientation.Vertical: {
                     // Reduce tick interval if it is more than would be visible on the screen
                     var interval = TickFrequency;
-                    if (interval > 0.0)
-                    {
+                    if (interval > 0.0) {
                         var minInterval = (Maximum - Minimum) / size.Height;
                         if (interval < minInterval)
                             interval = minInterval;
@@ -341,10 +313,8 @@ namespace Material.Styles.Controls
                     var ticks = Ticks ?? null;
 
                     // Draw ticks using specified Ticks collection
-                    if (ticks?.Count > 0)
-                    {
-                        for (var i = 0; i < ticks.Count; i++)
-                        {
+                    if (ticks?.Count > 0) {
+                        for (var i = 0; i < ticks.Count; i++) {
                             var tick = ticks[i];
                             if (MathUtilities.LessThanOrClose(tick, Minimum) ||
                                 MathUtilities.GreaterThanOrClose(tick, Maximum))
@@ -359,10 +329,8 @@ namespace Material.Styles.Controls
                         }
                     }
                     // Draw ticks using specified TickFrequency
-                    else if (interval > 0.0)
-                    {
-                        for (var i = interval; i < range; i += interval)
-                        {
+                    else if (interval > 0.0) {
+                        for (var i = interval; i < range; i += interval) {
                             var y = i * logicalToPhysical + startPoint.Y;
                             var point = new Point(startPoint.X, y);
 

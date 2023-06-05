@@ -5,28 +5,29 @@
                     xmlns:icons1="clr-namespace:Material.Dialog.Icons"
 
                     x:Class="Material.Dialog.Resources.TemplateResources">
-    <ItemsPanelTemplate x:Key="DialogButtonPlacementPanel">
-        <WrapPanel Orientation="Horizontal"/>
-    </ItemsPanelTemplate>
-    
-    <RecyclingElementFactory x:Key="DialogHeaderIconTemplate" SelectTemplateKey="DialogHeaderIconTemplate_OnSelectTemplateKey">
-        <RecyclingElementFactory.Templates>
-            <DataTemplate DataType="icons:DialogIconViewModel" x:Key="DialogIcon">
-                <icons1:DialogIcon Kind="{CompiledBinding Kind}"/>
-            </DataTemplate>
-            
-            <DataTemplate DataType="icons:ImageIconViewModel" x:Key="DialogImageIcon">
-                <Image Source="{CompiledBinding Bitmap}"
-                       Stretch="{CompiledBinding Stretch}"/>
-            </DataTemplate>
-        </RecyclingElementFactory.Templates>
-    </RecyclingElementFactory>
-    
-    <DataTemplate x:Key="DialogButtonTemplate" DataType="elements:DialogButtonViewModel">
-        <!-- ReSharper disable once Xaml.StyleClassNotFound -->
-        <Button Classes="Flat"
-                Content="{CompiledBinding Content, FallbackValue='NULL'}"
-                Command="{CompiledBinding Command}"
-                CommandParameter="{CompiledBinding }"/>
-    </DataTemplate>
+  <ItemsPanelTemplate x:Key="DialogButtonPlacementPanel">
+    <WrapPanel Orientation="Horizontal" />
+  </ItemsPanelTemplate>
+
+  <RecyclingElementFactory x:Key="DialogHeaderIconTemplate"
+                           SelectTemplateKey="DialogHeaderIconTemplate_OnSelectTemplateKey">
+    <RecyclingElementFactory.Templates>
+      <DataTemplate DataType="icons:DialogIconViewModel" x:Key="DialogIcon">
+        <icons1:DialogIcon Kind="{CompiledBinding Kind}" />
+      </DataTemplate>
+
+      <DataTemplate DataType="icons:ImageIconViewModel" x:Key="DialogImageIcon">
+        <Image Source="{CompiledBinding Bitmap}"
+               Stretch="{CompiledBinding Stretch}" />
+      </DataTemplate>
+    </RecyclingElementFactory.Templates>
+  </RecyclingElementFactory>
+
+  <DataTemplate x:Key="DialogButtonTemplate" DataType="elements:DialogButtonViewModel">
+    <!-- ReSharper disable once Xaml.StyleClassNotFound -->
+    <Button Classes="Flat"
+            Content="{CompiledBinding Content, FallbackValue='NULL'}"
+            Command="{CompiledBinding Command}"
+            CommandParameter="{CompiledBinding }" />
+  </DataTemplate>
 </ResourceDictionary>

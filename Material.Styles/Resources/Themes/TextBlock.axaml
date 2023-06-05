@@ -1,112 +1,112 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml"/>
-    </ResourceDictionary.MergedDictionaries>
-    
-    <ControlTheme x:Key="DefaultFontFamily"
-                  TargetType="Control">
-        <Setter Property="TextBlock.FontFamily" Value="{StaticResource MaterialDesignFonts}"/>
-    </ControlTheme>
-    
-    <ControlTheme x:Key="{x:Type TextBlock}"
-                  TargetType="TextBlock">
-      <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="CaptionTextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontWeight" Value="Regular" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Body1TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontWeight" Value="Regular" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Body2TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontWeight" Value="Regular" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="OverlineTextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="10" />
-        <Setter Property="FontWeight" Value="Regular" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Subtitle1TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontWeight" Value="Regular" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Subtitle2TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontWeight" Value="Medium" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Headline6TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="20" />
-        <Setter Property="FontWeight" Value="Medium" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Headline5TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="24" />
-        <Setter Property="FontWeight" Value="Regular" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Headline4TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="34" />
-        <Setter Property="FontWeight" Value="Regular" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Headline3TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="48" />
-        <Setter Property="FontWeight" Value="Regular" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Headline2TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="60" />
-        <Setter Property="FontWeight" Value="Light" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="Headline1TextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="FontSize" Value="96" />
-        <Setter Property="FontWeight" Value="Light" />
-    </ControlTheme>
-    
-    <ControlTheme x:Key="LinkTextBlock"
-                  BasedOn="{StaticResource {x:Type TextBlock}}"
-                  TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#007BFF" />
-        <Setter Property="TextDecorations" Value="Underline" />
-        
-        <Style Selector="^:pointerover, ^:focus">
-            <Setter Property="Foreground" Value="#FF0000" />
-            <Setter Property="Cursor" Value="Hand" />
-        </Style>
-    </ControlTheme>
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <ControlTheme x:Key="DefaultFontFamily"
+                TargetType="Control">
+    <Setter Property="TextBlock.FontFamily" Value="{StaticResource MaterialDesignFonts}" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TextBlock}"
+                TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="CaptionTextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Body1TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Body2TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="OverlineTextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="10" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Subtitle1TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Subtitle2TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Headline6TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="20" />
+    <Setter Property="FontWeight" Value="Medium" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Headline5TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Headline4TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="34" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Headline3TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="48" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Headline2TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="60" />
+    <Setter Property="FontWeight" Value="Light" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="Headline1TextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="FontSize" Value="96" />
+    <Setter Property="FontWeight" Value="Light" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="LinkTextBlock"
+                BasedOn="{StaticResource {x:Type TextBlock}}"
+                TargetType="TextBlock">
+    <Setter Property="Foreground" Value="#007BFF" />
+    <Setter Property="TextDecorations" Value="Underline" />
+
+    <Style Selector="^:pointerover, ^:focus">
+      <Setter Property="Foreground" Value="#FF0000" />
+      <Setter Property="Cursor" Value="Hand" />
+    </Style>
+  </ControlTheme>
 </ResourceDictionary>

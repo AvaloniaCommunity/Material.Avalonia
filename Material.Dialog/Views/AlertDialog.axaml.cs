@@ -8,7 +8,9 @@ namespace Material.Dialog.Views {
             InitializeComponent();
         }
 
-        public DialogResult GetResult() => (DataContext as AlertDialogViewModel)?.DialogResult;
+        public DialogResult GetResult() {
+            return (DataContext as AlertDialogViewModel)?.DialogResult;
+        }
 
         public void SetNegativeResult(DialogResult result) {
             if (DataContext is AlertDialogViewModel viewModel)

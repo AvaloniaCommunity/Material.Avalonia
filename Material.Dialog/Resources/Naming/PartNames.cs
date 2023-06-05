@@ -1,7 +1,5 @@
-﻿namespace Material.Dialog.Resources.Naming
-{
-    public static class PartNames
-    {
+﻿namespace Material.Dialog.Resources.Naming {
+    public static class PartNames {
         public static string PartRootBorder => "PART_RootBorder";
 
         public static string PartRootPanel => "PART_RootPanel";

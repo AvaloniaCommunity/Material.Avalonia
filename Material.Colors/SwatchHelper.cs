@@ -3,12 +3,9 @@ using System.Linq;
 using Avalonia.Media;
 using Material.Colors.Recommended;
 
-namespace Material.Colors
-{
-    public static class SwatchHelper
-    {
-        public static IEnumerable<ISwatch> Swatches { get; } = new ISwatch[]
-        {
+namespace Material.Colors {
+    public static class SwatchHelper {
+        public static IEnumerable<ISwatch> Swatches { get; } = new ISwatch[] {
             new RedSwatch(),
             new PinkSwatch(),
             new PurpleSwatch(),

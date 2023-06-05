@@ -1,7 +1,6 @@
-<Styles xmlns="https://github.com/avaloniaui"
-        >
-    <!-- Just use ScrollViewer! -->
-    <!--
+<Styles xmlns="https://github.com/avaloniaui">
+  <!-- Just use ScrollViewer! -->
+  <!--
     xmlns:controls="clr-namespace:Material.Styles.Controls"
 <Style Selector="controls|Scroller">
         <Setter Property="Background"

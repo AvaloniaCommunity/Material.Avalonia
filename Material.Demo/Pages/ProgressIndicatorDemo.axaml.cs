@@ -11,14 +11,14 @@ namespace Material.Demo.Pages {
         private Timer timer;
 
         public ProgressIndicatorDemo() {
-            this.InitializeComponent();
+            InitializeComponent();
 
             timer = new Timer(1000);
             timer.Elapsed += Timer_Elapsed;
 
-            this.DataContext = context = new Context();
+            DataContext = context = new Context();
 
-            this.AttachedToVisualTree += ProgressIndicatorDemo_AttachedToVisualTree;
+            AttachedToVisualTree += ProgressIndicatorDemo_AttachedToVisualTree;
         }
 
         private void ProgressIndicatorDemo_AttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e) {

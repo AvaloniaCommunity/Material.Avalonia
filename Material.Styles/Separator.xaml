@@ -2,56 +2,56 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
 
-    <Style Selector="Separator">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="CornerRadius" Value="0"/>
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDivider }"/>
-        <Setter Property="MinHeight" Value="1" />
-        <Setter Property="Height" Value="1" />
-        <Setter Property="Margin" Value="0,8"/>
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderThickness}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <Rectangle Fill="{TemplateBinding Foreground}"/>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-    </Style>
-    
-    <Style Selector="Separator /template/ Border#PART_RootBorder">
-        <Setter Property="ClipToBounds" Value="True" />
-    </Style>
-    
-    <Style Selector="Separator /template/ Border#PART_RootBorder > Rectangle">
-        <Setter Property="Height" Value="1" />
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-    </Style>
+  <Style Selector="Separator">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="0" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDivider }" />
+    <Setter Property="MinHeight" Value="1" />
+    <Setter Property="Height" Value="1" />
+    <Setter Property="Margin" Value="0,8" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderThickness}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <Rectangle Fill="{TemplateBinding Foreground}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
 
-    <Style Selector="Separator.middle, Separator.Middle">
-        <Setter Property="Margin" Value="16,8" />
-    </Style>
+  <Style Selector="Separator /template/ Border#PART_RootBorder">
+    <Setter Property="ClipToBounds" Value="True" />
+  </Style>
 
-    <!-- Origin contribution by kirichenec
+  <Style Selector="Separator /template/ Border#PART_RootBorder > Rectangle">
+    <Setter Property="Height" Value="1" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+
+  <Style Selector="Separator.middle, Separator.Middle">
+    <Setter Property="Margin" Value="16,8" />
+  </Style>
+
+  <!-- Origin contribution by kirichenec
          https://github.com/AvaloniaCommunity/Material.Avalonia/pull/141 -->
-    <Style Selector="Separator.vertical, Separator.Vertical">
-        <Setter Property="Height" Value="NaN"/>
-        <Setter Property="Margin" Value="8,0"/>
-        <Setter Property="MinHeight" Value="0"/>
-        <Setter Property="MinWidth" Value="1"/>
-        <Setter Property="Width" Value="1"/>
-    </Style>
-    
-    <Style Selector="Separator.vertical /template/ Border#PART_RootBorder > Rectangle">
-        <Setter Property="Height" Value="NaN" />
-        <Setter Property="Width" Value="1" />
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Stretch"/>
-    </Style>
+  <Style Selector="Separator.vertical, Separator.Vertical">
+    <Setter Property="Height" Value="NaN" />
+    <Setter Property="Margin" Value="8,0" />
+    <Setter Property="MinHeight" Value="0" />
+    <Setter Property="MinWidth" Value="1" />
+    <Setter Property="Width" Value="1" />
+  </Style>
+
+  <Style Selector="Separator.vertical /template/ Border#PART_RootBorder > Rectangle">
+    <Setter Property="Height" Value="NaN" />
+    <Setter Property="Width" Value="1" />
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+  </Style>
 </Styles>

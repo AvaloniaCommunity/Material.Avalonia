@@ -1,7 +1,5 @@
-﻿namespace Material.Dialog.Interfaces
-{
-    public interface IDialogResult
-    {
+﻿namespace Material.Dialog.Interfaces {
+    public interface IDialogResult {
         string GetResult { get; }
     }
 }

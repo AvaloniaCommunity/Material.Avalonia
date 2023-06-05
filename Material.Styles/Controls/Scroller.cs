@@ -399,7 +399,7 @@ namespace Material.Styles.Controls {
         }
 
         private static double Clamp(double value, double min, double max) {
-            return (value < min) ? min : (value > max) ? max : value;
+            return value < min ? min : value > max ? max : value;
         }
 
         private void CalculatedPropertiesChanged() {
@@ -430,7 +430,9 @@ namespace Material.Styles.Controls {
             RaiseEvent(e);
         }
 
-        private void OnLayoutUpdated(object sender, EventArgs e) => RaiseScrollChanged();
+        private void OnLayoutUpdated(object sender, EventArgs e) {
+            RaiseScrollChanged();
+        }
 
         private void RaiseScrollChanged() {
             var extentDelta = new Vector(Extent.Width - _oldExtent.Width, Extent.Height - _oldExtent.Height);

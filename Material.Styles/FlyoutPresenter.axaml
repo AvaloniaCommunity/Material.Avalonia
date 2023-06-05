@@ -21,9 +21,9 @@
     <Setter Property="Template">
       <ControlTemplate>
         <controls:Card Name="LayoutRoot"
-                     Background="{TemplateBinding Background}"
-                     CornerRadius="{TemplateBinding CornerRadius}"
-                     Padding="0">
+                       Background="{TemplateBinding Background}"
+                       CornerRadius="{TemplateBinding CornerRadius}"
+                       Padding="0">
           <!-- TODO Fix ScrollViewer visibility when dark theme enabled -->
           <ScrollViewer Margin="0" Padding="0"
                         HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"

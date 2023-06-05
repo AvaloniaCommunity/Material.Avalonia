@@ -1,15 +1,14 @@
 using Avalonia;
 using Avalonia.Controls;
 
-namespace Material.Styles.Assists
-{
-    public static class DatePickerAssist
-    {
+namespace Material.Styles.Assists {
+    public static class DatePickerAssist {
         public static readonly AttachedProperty<string> DateTimeFormatProperty
             = AvaloniaProperty.RegisterAttached<DatePicker, string>("DateTimeFormat", typeof(DatePickerAssist));
 
-        public static string GetDateTimeFormat(DatePicker element) =>
-            element.GetValue(DateTimeFormatProperty);
+        public static string GetDateTimeFormat(DatePicker element) {
+            return element.GetValue(DateTimeFormatProperty);
+        }
 
         /// <summary>
         /// Sets <see cref="DateTimeFormatProperty"/>
@@ -26,7 +25,8 @@ namespace Material.Styles.Assists
         /// are ignored
         /// </remarks>
         /// <example>"dddd, dd MMMM yyyy" will be displayed as "Friday, 29 May 2015"</example>
-        public static void SetDateTimeFormat(DatePicker element, string value) =>
+        public static void SetDateTimeFormat(DatePicker element, string value) {
             element.SetValue(DateTimeFormatProperty, value);
+        }
     }
 }

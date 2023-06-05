@@ -1,9 +1,7 @@
 ﻿using Material.Dialog.Bases;
 
-namespace Material.Dialog
-{
-    public class TextFieldDialogBuilderParams : TwoFeedbackDialogBuilderParamsBase
-    {
+namespace Material.Dialog {
+    public class TextFieldDialogBuilderParams : TwoFeedbackDialogBuilderParamsBase {
         /// <summary>
         /// Build text fields stack.
         /// </summary>

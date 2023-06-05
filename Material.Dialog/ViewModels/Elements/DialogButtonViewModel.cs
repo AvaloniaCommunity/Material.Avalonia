@@ -1,17 +1,13 @@
 ﻿using System.Windows.Input;
 
-namespace Material.Dialog.ViewModels.Elements
-{
-    public class DialogButtonViewModel : DialogViewModelBase
-    {
-        internal DialogButtonViewModel(DialogWindowViewModel parent, object content)
-        {
+namespace Material.Dialog.ViewModels.Elements {
+    public class DialogButtonViewModel : DialogViewModelBase {
+        internal DialogButtonViewModel(DialogWindowViewModel parent, object content) {
             _parent = parent;
             _content = content;
         }
 
-        public DialogButtonViewModel(DialogWindowViewModel parent, object content, ICommand command)
-        {
+        public DialogButtonViewModel(DialogWindowViewModel parent, object content, ICommand command) {
             _parent = parent;
             _content = content;
             _command = command;
@@ -24,11 +20,9 @@ namespace Material.Dialog.ViewModels.Elements
 
         private bool _isPositiveButton;
 
-        public bool IsPositiveButton
-        {
+        public bool IsPositiveButton {
             get => _isPositiveButton;
-            set
-            {
+            set {
                 _isPositiveButton = value;
                 OnPropertyChanged();
             }
@@ -36,11 +30,9 @@ namespace Material.Dialog.ViewModels.Elements
 
         private object _content;
 
-        public object Content
-        {
+        public object Content {
             get => _content;
-            set
-            {
+            set {
                 _content = value;
                 OnPropertyChanged();
             }
@@ -48,11 +40,9 @@ namespace Material.Dialog.ViewModels.Elements
 
         private ICommand _command;
 
-        public ICommand Command
-        {
+        public ICommand Command {
             get => _command;
-            set
-            {
+            set {
                 _command = value;
                 OnPropertyChanged();
             }
