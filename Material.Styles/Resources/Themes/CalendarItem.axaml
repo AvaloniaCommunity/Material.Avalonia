@@ -1,0 +1,84 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+  <ControlTheme x:Key="{x:Type CalendarItem}">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+    <Setter Property="DayTitleTemplate">
+      <Template>
+        <TextBlock Text="{Binding}"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch"
+                   TextAlignment="Center"
+                   FontSize="12" />
+      </Template>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                CornerRadius="{DynamicResource ControlCornerRadius}">
+          <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                RowDefinitions="Auto, *" MinWidth="200">
+            <Grid Name="CalendarHeader"
+                  Margin="8,16,8,12"
+                  ColumnDefinitions="*, 24, Auto, 24, Auto">
+              <Button Name="PART_HeaderButton"
+                      Grid.Column="0"
+                      IsEnabled="False"
+                      Classes="material-calendar-header-button flat" />
+
+              <Button Name="PART_PreviousButton"
+                      Grid.Column="2"
+                      Classes="material-calendar-nav-button flat">
+                <Button.Content>
+                  <controls:MaterialInternalIcon Kind="ChevronLeft" />
+                </Button.Content>
+              </Button>
+
+              <Button Name="PART_NextButton"
+                      Grid.Column="4"
+                      Classes="material-calendar-nav-button flat">
+                <Button.Content>
+                  <controls:MaterialInternalIcon Kind="ChevronRight" />
+                </Button.Content>
+              </Button>
+            </Grid>
+
+            <Grid Name="PART_MonthView"
+                  Grid.Row="1"
+                  Classes="material-calendar-view"
+                  MinHeight="200"
+                  RowDefinitions="32,32,32,32,32,32,32"
+                  ColumnDefinitions="32,32,32,32,32,32,32" />
+
+            <Grid Name="PART_YearView"
+                  Grid.Row="1"
+                  Classes="material-calendar-view"
+                  MinHeight="290"
+                  RowDefinitions="*,*,*"
+                  ColumnDefinitions="*,*,*,*" />
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Button.material-calendar-nav-button">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style Selector="^ /template/ Button.material-calendar-header-button">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="8, 0" />
+      <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+
+    <Style Selector="^ /template/ Grid.material-calendar-view">
+      <Setter Property="Margin" Value="16, 8" />
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
