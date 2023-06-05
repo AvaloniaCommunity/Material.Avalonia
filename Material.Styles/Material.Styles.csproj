@@ -15,8 +15,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Fonts\**" />
-    <AvaloniaResource Include="Fonts\**" />
+    <None Remove="Fonts\**"/>
+    <AvaloniaResource Include="Fonts\**"/>
     
     <AvaloniaResource Include="**\*.xaml">
       <SubType>Designer</SubType>
@@ -24,16 +24,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Material.Colors\Material.Colors.csproj" />
-    <ProjectReference Include="..\Material.Ripple\Material.Ripple.csproj" />
+    <ProjectReference Include="..\Material.Colors\Material.Colors.csproj"/>
+    <ProjectReference Include="..\Material.Ripple\Material.Ripple.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Reactive" />
+    <PackageReference Include="System.Reactive"/>
   </ItemGroup>
 
   <ItemGroup>
-    <AvaloniaXaml Remove="Resources\Themes\WindowNotificationManager.axaml" />
+    <AvaloniaXaml Remove="Resources\Themes\WindowNotificationManager.axaml"/>
   </ItemGroup>
 
 </Project>
