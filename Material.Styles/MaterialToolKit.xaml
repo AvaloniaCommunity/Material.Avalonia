@@ -14,6 +14,7 @@
         <!-- Seems like we cant reference something from other projects... -->
         <!-- I think what we need to move ripple to this project -->
         <ResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
@@ -98,7 +99,7 @@
 
   <!-- Uncommented -->
 
-  <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" /> -->
   <StyleInclude Source="avares://Material.Styles/CalendarButton.xaml" />
   <StyleInclude Source="avares://Material.Styles/CalendarDayButton.xaml" />
   <StyleInclude Source="avares://Material.Styles/CalendarItem.xaml" />
