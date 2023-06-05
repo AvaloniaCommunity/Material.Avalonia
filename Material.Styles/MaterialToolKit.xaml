@@ -17,6 +17,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Calendar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
@@ -65,7 +66,6 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SideSheet.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/UserControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/WindowNotificationManager.axaml" />
       </ResourceDictionary.MergedDictionaries>
       <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA" />
@@ -154,13 +154,13 @@
 
   <!-- <StyleInclude Source="avares://Material.Styles/ToolTip.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/TreeView.xaml" />-->
-  <!-- <StyleInclude Source="avares://Material.Styles/UserControl.xaml" /> -->
+  <StyleInclude Source="avares://Material.Styles/UserControl.xaml" />
   <!-- <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" /> -->
 
   <!-- Complex controls -->
 
 
-  <StyleInclude Source="avares://Material.Styles/Calendar.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/Calendar.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />-->
   <!--<StyleInclude Source="avares://Material.Styles/Scroller.xaml" />-->
   <!--<StyleInclude Source="avares://Material.Styles/Slider.xaml" />-->
