@@ -47,6 +47,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
 
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SelectableTextBlock.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Separator.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SplitView.axaml" />
 
