@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+  <ControlTheme x:Key="{x:Type controls:CircleClockPicker}"
+                TargetType="controls:CircleClockPicker">
+    <Setter Property="Minimum" Value="0" />
+    <Setter Property="Maximum" Value="59" />
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="RadiusMultiplier" Value="0.8" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+          <Ellipse Name="PART_CircleBackground"
+                   Width="{Binding $self.Bounds.Height}" />
+
+          <Ellipse Name="PART_PointerCenter" />
+
+          <Panel Name="PART_Pointer"
+                 Width="0"
+                 Height="0">
+            <Rectangle Name="PART_PointerPin" />
+          </Panel>
+
+          <Canvas Name="PART_CellPanel" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Ellipse#PART_CircleBackground">
+      <Setter Property="Fill" Value="{DynamicResource MaterialDesignDivider}" />
+    </Style>
+
+    <Style Selector="^ /template/ Ellipse#PART_PointerCenter">
+      <Setter Property="Width" Value="8" />
+      <Setter Property="Height" Value="8" />
+      <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}" />
+    </Style>
+
+    <Style Selector="^ /template/ Rectangle#PART_PointerPin">
+      <Setter Property="Width" Value="2" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="UseLayoutRounding" Value="False" />
+      <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

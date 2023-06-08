@@ -60,6 +60,8 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Separator.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SplitView.axaml" />
 
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CircleClockPicker.axaml" />
+
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStrip.axaml" />
@@ -93,7 +95,7 @@
   <!-- <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml" /> -->
 
   <StyleInclude Source="avares://Material.Styles/CircleClockPickerCell.axaml" />
-  <StyleInclude Source="avares://Material.Styles/CircleClockPicker.axaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/CircleClockPicker.axaml" /> -->
 
   <!-- Basic controls -->
 
