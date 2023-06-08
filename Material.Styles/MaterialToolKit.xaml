@@ -21,6 +21,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ColorZone.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FloatingButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
@@ -84,7 +85,7 @@
 
   <!-- <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" /> -->
   <StyleInclude Source="avares://Material.Styles/Card.xaml" />
-  <StyleInclude Source="avares://Material.Styles/ColorZone.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/ColorZone.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>-->
   <!--<StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>-->
   <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml" />
