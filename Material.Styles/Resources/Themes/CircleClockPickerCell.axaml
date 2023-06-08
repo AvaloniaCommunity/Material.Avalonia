@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
-  <ControlTheme x:Key="{x:Type controls:CircleClockPickerCell}">
+  <ControlTheme x:Key="{x:Type controls:CircleClockPickerCell}"
+                TargetType="controls:CircleClockPickerCell">
     <Setter Property="Margin" Value="-16" />
     <Setter Property="HorizontalAlignment" Value="Center" />
     <Setter Property="VerticalAlignment" Value="Center" />
