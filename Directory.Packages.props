@@ -17,6 +17,7 @@
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)"/>
     <!--For Material.Styles-->
     <PackageVersion Include="System.Reactive" Version="6.0.0"/>
+    <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.0.0"/>
     <!--For Material.Demo-->
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1"/>
     <PackageVersion Include="DialogHost.Avalonia" Version="0.7.4"/>
