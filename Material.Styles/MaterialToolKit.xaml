@@ -14,11 +14,19 @@
         <!-- Seems like we cant reference something from other projects... -->
         <!-- I think what we need to move ripple to this project -->
         <ResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Calendar.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ColorZone.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FloatingButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Carousel.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentExpandControl.axaml" />
@@ -33,9 +41,11 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Label.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialInternalIcon.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NativeMenuBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NumericUpDown.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/OverlayPopupHost.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PopupRoot.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
@@ -51,6 +61,9 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Separator.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SplitView.axaml" />
 
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CircleClockPicker.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CircleClockPickerCell.axaml" />
+
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStrip.axaml" />
@@ -60,6 +73,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SideSheet.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/WindowNotificationManager.axaml" />
       </ResourceDictionary.MergedDictionaries>
       <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA" />
       <SolidColorBrush x:Key="MaterialDesignLightForeground" Color="#DD000000" />
@@ -74,16 +88,16 @@
 
   <!--custom controls-->
 
-  <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/FloatingButton.xaml" /> -->
   <StyleInclude Source="avares://Material.Styles/Card.xaml" />
-  <StyleInclude Source="avares://Material.Styles/ColorZone.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/ColorZone.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>-->
   <!--<StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>-->
   <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml" />
-  <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml" /> -->
 
-  <StyleInclude Source="avares://Material.Styles/CircleClockPickerCell.axaml" />
-  <StyleInclude Source="avares://Material.Styles/CircleClockPicker.axaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/CircleClockPickerCell.axaml" /> -->
+  <!-- <StyleInclude Source="avares://Material.Styles/CircleClockPicker.axaml" /> -->
 
   <!-- Basic controls -->
 
@@ -99,11 +113,11 @@
 
   <!-- Uncommented -->
 
-  <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" />
-  <StyleInclude Source="avares://Material.Styles/CalendarButton.xaml" />
-  <StyleInclude Source="avares://Material.Styles/CalendarDayButton.xaml" />
-  <StyleInclude Source="avares://Material.Styles/CalendarItem.xaml" />
-  <StyleInclude Source="avares://Material.Styles/Carousel.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/AutoCompleteBox.xaml" /> -->
+  <!-- <StyleInclude Source="avares://Material.Styles/CalendarButton.xaml" /> -->
+  <!-- <StyleInclude Source="avares://Material.Styles/CalendarDayButton.xaml" /> -->
+  <!-- <StyleInclude Source="avares://Material.Styles/CalendarItem.xaml" /> -->
+  <!-- <StyleInclude Source="avares://Material.Styles/Carousel.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/CheckBox.xaml" />-->
   <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" />
   <StyleInclude Source="avares://Material.Styles/ComboBoxItem.xaml" />
@@ -129,7 +143,7 @@
   <StyleInclude Source="avares://Material.Styles/MenuItem.xaml" />
   <!-- <StyleInclude Source="avares://Material.Styles/NativeMenuBar.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/NotificationCard.xaml" /> -->
-  <StyleInclude Source="avares://Material.Styles/NumericUpDown.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/NumericUpDown.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/OverlayPopupHost.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/PopupRoot.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/ProgressBar.xaml" /> -->
@@ -148,12 +162,12 @@
   <!-- <StyleInclude Source="avares://Material.Styles/ToolTip.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/TreeView.xaml" />-->
   <StyleInclude Source="avares://Material.Styles/UserControl.xaml" />
-  <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/WindowNotificationManager.xaml" /> -->
 
   <!-- Complex controls -->
 
 
-  <StyleInclude Source="avares://Material.Styles/Calendar.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/Calendar.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/ScrollViewer.xaml" />-->
   <!--<StyleInclude Source="avares://Material.Styles/Scroller.xaml" />-->
   <!--<StyleInclude Source="avares://Material.Styles/Slider.xaml" />-->

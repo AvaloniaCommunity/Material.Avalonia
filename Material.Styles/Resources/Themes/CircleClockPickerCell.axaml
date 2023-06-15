@@ -1,0 +1,48 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+  <ControlTheme x:Key="{x:Type controls:CircleClockPickerCell}"
+                TargetType="controls:CircleClockPickerCell">
+    <Setter Property="Margin" Value="-16" />
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="IsDot" Value="True" />
+    <Setter Property="IsSelected" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+          <Ellipse Name="{x:Static naming:PartNames.PartHoverEffect}"
+                   Width="{Binding $self.Bounds.Height}" />
+          <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Ellipse#PART_HoverEffect">
+      <Setter Property="Fill" Value="Transparent" />
+    </Style>
+
+    <Style Selector="^:selected /template/ Ellipse#PART_HoverEffect">
+      <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}" />
+    </Style>
+
+    <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="TemplatedControl.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    </Style>
+
+    <Style Selector="^:dot /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^:dot">
+      <Setter Property="Margin" Value="-4" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

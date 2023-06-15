@@ -2,6 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:system="clr-namespace:System;assembly=netstandard" >
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Orientation="Horizontal" Spacing="20">
+        <StackPanel Spacing="20">
+          <ScrollBar Orientation="Horizontal" AllowAutoHide="False" VerticalAlignment="Center" Width="100" />
+          <ScrollBar Orientation="Horizontal" AllowAutoHide="False" VerticalAlignment="Center" Width="100" IsEnabled="False" />
+          <ScrollBar Orientation="Horizontal" AllowAutoHide="True" VerticalAlignment="Center" Width="100" />
+          <ScrollBar Orientation="Horizontal" AllowAutoHide="True" VerticalAlignment="Center" Width="100" IsEnabled="False" />
+        </StackPanel>
+        <ScrollBar Orientation="Vertical" AllowAutoHide="False" HorizontalAlignment="Center" Height="100" />
+        <ScrollBar Orientation="Vertical" AllowAutoHide="False" HorizontalAlignment="Center" Height="100" IsEnabled="False" />
+        <ScrollBar Orientation="Vertical" AllowAutoHide="True" HorizontalAlignment="Center" Height="100" />
+        <ScrollBar Orientation="Vertical" AllowAutoHide="True" HorizontalAlignment="Center" Height="100" IsEnabled="False" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
     <system:Double x:Key="ScrollBarThumbMinimumLength">24</system:Double>
     
     <ControlTheme x:Key="ModernSimpleScrollThumb"
@@ -219,7 +235,7 @@
             <Style Selector="^[IsExpanded=False]">
                 <Style Selector="^ /template/ Panel#PART_InnerPanel">
                     <Setter Property="Width" Value="4"/>
-                    <Setter Property="Control.RenderTransform" Value="translateX(4px)"></Setter>
+                    <Setter Property="Control.RenderTransform" Value="translateX(4px)" />
                 </Style>
                 
                 <Style Selector="^ /template/ RepeatButton#PART_LineUpButton">
@@ -286,7 +302,7 @@
             <Style Selector="^[IsExpanded=False]">
                 <Style Selector="^ /template/ Panel#PART_InnerPanel">
                     <Setter Property="Height" Value="4"/>
-                    <Setter Property="Control.RenderTransform" Value="translateY(4px)"></Setter>
+                    <Setter Property="Control.RenderTransform" Value="translateY(4px)" />
                 </Style>
                 
                 <Style Selector="^ /template/ RepeatButton#PART_LineUpButton">
