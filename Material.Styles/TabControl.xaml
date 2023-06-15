@@ -1,7 +1,8 @@
 <Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-        xmlns:controls="clr-namespace:Material.Styles.Controls">
+        xmlns:controls="clr-namespace:Material.Styles.Controls"
+        xmlns:materialAnimationAssists="clr-namespace:Material.Styles.Additional.MaterialAnimationAssists">
     <Style Selector="TabControl">
         <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Stretch" />
         <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
@@ -216,18 +217,16 @@
                 Value="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabControl}}" />
     </Style>
     <Style Selector="TabControl > TabItem:selected /template/ Border#border">
-        <Style.Animations>
-          <!-- <animations:ReverseAfterEndAnimation> -->
-          <!--     <Animation Duration="0:0:0.15" FillMode="Both" Easing="LinearEasing"> -->
-          <!--         <KeyFrame Cue="0%"> -->
-          <!--             <Setter Property="Width" Value="0" /> -->
-          <!--         </KeyFrame> -->
-          <!--         <KeyFrame Cue="100%"> -->
-          <!--             <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" /> -->
-          <!--         </KeyFrame> -->
-          <!--     </Animation> -->
-          <!-- </animations:ReverseAfterEndAnimation> -->
-        </Style.Animations>
+      <Setter Property="materialAnimationAssists:MaterialAnimationAssist.ReverseAfterEndAnimation">
+        <Animation Duration="0:0:0.15" FillMode="Both" Easing="LinearEasing">
+          <KeyFrame Cue="0%">
+            <Setter Property="Width" Value="0" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+          </KeyFrame>
+        </Animation>
+      </Setter>
     </Style>
 
     <Style Selector="TabControl > TabItem:not(:selected) /template/ ContentPresenter#headerContent">

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <NoWarn>NU5104, NU1507</NoWarn>
 
-    <AvaloniaVersion>11.0.0-rc1.1</AvaloniaVersion>
+    <AvaloniaVersion>11.0.999-cibuild0036218-beta</AvaloniaVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia.Controls.DataGrid"/>
