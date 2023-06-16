@@ -33,13 +33,14 @@
         <Setter Property="Padding" Value="0,2,2,2"/>
     </Style>-->
 
-    <Style
-      Selector="^[SelectionMode=MultipleRange] /template/
-                     CalendarItem /template/
-                     Grid#MonthView > CalendarDayButton:selected:nth-child(n+2)">
-      <Setter Property="CornerRadius" Value="18,0,0,18" />
-      <Setter Property="Padding" Value="2,2,0,2" />
-    </Style>
+      <!-- BUG: ControlTemplate styles cannot contain multiple template selectors. -->
+      <!-- <Style -->
+      <!--   Selector="^[SelectionMode=MultipleRange] /template/ -->
+      <!--                  CalendarItem /template/ -->
+      <!--                  Grid#MonthView > CalendarDayButton:selected:nth-child(n+2)"> -->
+      <!--   <Setter Property="CornerRadius" Value="18,0,0,18" /> -->
+      <!--   <Setter Property="Padding" Value="2,2,0,2" /> -->
+      <!-- </Style> -->
   </ControlTheme>
 </ResourceDictionary>
 
