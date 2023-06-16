@@ -64,9 +64,10 @@
       </ControlTemplate>
     </Setter>
 
-    <Style Selector="^ TextBlock">
-      <Setter Property="TextAlignment" Value="Center" />
-    </Style>
+    <!-- BUG: ControlTheme style may not directly contain a child or descendent selector. -->
+    <!-- <Style Selector="^ TextBlock"> -->
+    <!--   <Setter Property="TextAlignment" Value="Center" /> -->
+    <!-- </Style> -->
 
     <Style Selector="^ /template/ Border#PART_BehaviourEffect">
       <Setter Property="Opacity" Value="0" />
