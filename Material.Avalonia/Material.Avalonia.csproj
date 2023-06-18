@@ -16,19 +16,15 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>FavIcon.png</PackageIcon>
-    <VersionPrefix>3.0.0-avalonia11-preview4</VersionPrefix>
+    <VersionPrefix>3.0.0-avalonia11-preview5</VersionPrefix>
     <PackageReleaseNotes>
       This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
-      - Avalonia 11 Preview 6 support
-      - Removes workaround for theme changing
-      - Fixes and reformat sliders #217
-      - Migrate from DirectProperties to StylesProperties in Scroller. Fixes TabControl styles #217
-      - Exclude DatePicker from styles collection
-      - Add Flyout styles, migrate TextBox tooltip to flyout
-      - Make MaterialDesignLightTheme and MaterialDesignDarkTheme internal sealed, rename ThemeChanged to ThemeChangedEnd
-      - Add ActualBaseTheme property to MaterialTheme, allowing to adapt to Application
-      - Removes the shadow hint for ContextMenu. Fixes #219
-      - Add AreVerticalSnapPointsRegular and AreHorizontalSnapPointsRegular for ListBox and ItemsControl templates
+      - Avalonia 11.0.0-rc1.1 support
+      - Fix styles for TreeViewItem, ScrollBar (and ScrollViewer), TransitioningContentControl, Label, NotificationCard
+      - Temporary disable calendar styles
+      - Migrate a bunch of control styles to ControlThemes
+      - Implement styles for SelectableTextBlock
+      - Rework a custom animations, MaterialTheme bootstraping, Rotator
     </PackageReleaseNotes>
   </PropertyGroup>
 
