@@ -13,10 +13,10 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Grid ColumnDefinitions="*, 0"
-              RowDefinitions="*, 0">
-          <ScrollContentPresenter Grid.Row="0"
-                                  Grid.Column="0"
+        <Grid ColumnDefinitions="*, Auto"
+              RowDefinitions="*, Auto">
+          <ScrollContentPresenter Grid.Row="0" Grid.RowSpan="2"
+                                  Grid.Column="0" Grid.ColumnSpan="2"
                                   Name="PART_ContentPresenter"
                                   Background="{TemplateBinding Background}"
                                   Padding="{TemplateBinding Padding}"
@@ -42,10 +42,6 @@
         </Grid>
       </ControlTemplate>
     </Setter>
-
-    <Style Selector="^ /template/ ScrollBar">
-      <Setter Property="Theme" Value="{DynamicResource MaterialScrollBarTheme}" />
-    </Style>
 
     <Style Selector="^ /template/ ScrollBar#PART_HScrollBar">
       <Setter Property="VerticalAlignment" Value="Bottom" />
@@ -84,11 +80,16 @@
           <ScrollBar Grid.Row="1" Grid.Column="0"
                      Name="PART_HorizontalScrollBar"
                      Orientation="Horizontal"
-                     ClipToBounds="False" />
+                     ClipToBounds="False"
+                     AllowAutoHide="False" />
           <ScrollBar Grid.Row="0" Grid.Column="1"
                      Name="PART_VerticalScrollBar"
                      Orientation="Vertical"
-                     ClipToBounds="False" />
+                     ClipToBounds="False"
+                     AllowAutoHide="False" />
+
+          <Rectangle Grid.Row="1" Grid.Column="1"
+                     Fill="{DynamicResource MaterialDesignSelection}" />
         </Grid>
       </ControlTemplate>
     </Setter>
