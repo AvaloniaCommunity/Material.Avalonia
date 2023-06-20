@@ -19,7 +19,6 @@
             Value="{DynamicResource MaterialDesignBodyLight}" />
     <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="{x:Static naming:PartNames.PartRootBorder}"
