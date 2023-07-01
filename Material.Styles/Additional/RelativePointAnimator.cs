@@ -2,7 +2,7 @@
 using Avalonia.Animation;
 
 namespace Material.Styles.Additional {
-    public class RelativePointAnimator : CustomAnimatorBase<RelativePoint> {
+    public class RelativePointAnimator : InterpolatingAnimator<RelativePoint> {
         public override RelativePoint Interpolate(double progress, RelativePoint oldValue, RelativePoint newValue) {
             return new RelativePoint(
                 (newValue.Point.X - oldValue.Point.X) * progress + oldValue.Point.X,

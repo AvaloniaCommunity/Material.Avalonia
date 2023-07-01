@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-    <AvaloniaVersion>11.0.0-rc1.1</AvaloniaVersion>
+    <AvaloniaVersion>11.0.0-rc2.1</AvaloniaVersion>
     <ShowMeTheXamlVersion>1.2.0-avalonia11-preview7</ShowMeTheXamlVersion>
   </PropertyGroup>
   <ItemGroup>

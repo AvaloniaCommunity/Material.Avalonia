@@ -6,8 +6,6 @@
         <Setter Property="Template">
             <ControlTemplate>
               <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                              AreVerticalSnapPointsRegular="{TemplateBinding AreVerticalSnapPointsRegular}"
-                              AreHorizontalSnapPointsRegular="{TemplateBinding AreHorizontalSnapPointsRegular}"
                               ItemsPanel="{TemplateBinding ItemsPanel}" />
             </ControlTemplate>
         </Setter>

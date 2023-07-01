@@ -21,8 +21,6 @@
                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
                       <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                      AreVerticalSnapPointsRegular="{TemplateBinding AreVerticalSnapPointsRegular}"
-                                      AreHorizontalSnapPointsRegular="{TemplateBinding AreHorizontalSnapPointsRegular}"
                                       ItemsPanel="{TemplateBinding ItemsPanel}"
                                       Margin="{TemplateBinding Padding}" />
                     </ScrollViewer>

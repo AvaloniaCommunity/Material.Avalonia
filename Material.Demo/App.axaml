@@ -16,8 +16,8 @@
     <dialogHostAvalonia:DialogHostStyles />
 
     <!-- AvaloniaEdit styles -->
-    <!-- <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" /> -->
-    <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml" />
+    <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" />
+    <!-- <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml" /> -->
 
     <!-- Patching XamlDisplay -->
     <Style Selector="showMeTheXaml|XamlDisplay">
