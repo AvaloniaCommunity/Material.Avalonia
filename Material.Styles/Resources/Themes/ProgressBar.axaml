@@ -391,22 +391,7 @@
       </Setter>
     </Style>
 
-    <Style Selector="^:not(:indeterminate), ^[IsVisible=false]">
-      <Style Selector="^ /template/ controls|Rotator#PART_Rotator">
-        <Style.Animations>
-          <Animation Duration="0:0:0.1" IterationCount="INFINITE">
-            <KeyFrame Cue="0%">
-              <Setter Property="Speed" Value="0" />
-            </KeyFrame>
-            <KeyFrame Cue="100%">
-              <Setter Property="Speed" Value="0" />
-            </KeyFrame>
-          </Animation>
-        </Style.Animations>
-      </Style>
-    </Style>
-
-    <Style Selector="^:indeterminate">
+    <Style Selector="^[IsVisible=True]:indeterminate">
       <Style Selector="^ /template/ Arc#PART_Animation">
         <Setter Property="IsVisible" Value="True" />
         <Style.Animations>
