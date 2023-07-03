@@ -21,7 +21,14 @@
         <Setter Property="assists:SelectionControlAssist.Size" Value="36" />
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="ClipToBounds" Value="False" />
-
+        <Setter Property="KnobTransitions">
+            <Transitions>
+                <DoubleTransition
+                    Easing="CircularEaseOut"
+                    Property="Canvas.Left"
+                    Duration="0.2" />
+            </Transitions>
+        </Setter>
         <Setter Property="OffContent" Value="{x:Null}" />
         <Setter Property="Template">
             <ControlTemplate>
