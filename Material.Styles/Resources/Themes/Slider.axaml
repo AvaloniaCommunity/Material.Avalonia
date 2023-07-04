@@ -186,19 +186,18 @@
     <!-- Disable transitions for this control -->
     <Setter Property="Transitions" Value="{x:Null}" />
     <Setter Property="UseLayoutRounding" Value="False" />
+    <Setter Property="Height" Value="6" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border>
-          <!-- Breaking animations -->
-          <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
+        <!-- Breaking animations -->
+        <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
 
-            <!-- Inactive track bar -->
-            <Border Name="{x:Static naming:PartNames.PartInactiveState}" />
+          <!-- Inactive track bar -->
+          <Border Name="{x:Static naming:PartNames.PartInactiveState}" />
 
-            <!-- Active track bar -->
-            <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}" />
-          </Panel>
-        </Border>
+          <!-- Active track bar -->
+          <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}" />
+        </Panel>
       </ControlTemplate>
     </Setter>
 
@@ -220,7 +219,6 @@
       </Style>
 
       <Style Selector="^ /template/ Border#PART_Indicator">
-        <Setter Property="Height" Value="6" />
         <Setter Property="Margin" Value="-4,0,0,0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
       </Style>

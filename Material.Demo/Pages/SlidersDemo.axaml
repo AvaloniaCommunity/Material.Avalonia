@@ -82,7 +82,7 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="ModernSlider2" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes="Ticks"
+                                TickPlacement="Outside"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -91,7 +91,7 @@
                     <showMeTheXaml:XamlDisplay UniqueId="ModernSlider3" >
                         <Slider IsEnabled="False" Value="20"
                                 IsSnapToTickEnabled="True"
-                                Classes="Ticks"
+                                TickPlacement="Outside"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -111,7 +111,7 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="BubbleSlider1" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=" Discrete"
+                                Classes="Discrete"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -119,7 +119,7 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="BubbleSlider2" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=" Discrete Accent"
+                                Classes="Discrete Accent"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -127,7 +127,8 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="BubbleSlider3" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=" Discrete Accent Ticks"
+                                Classes="Discrete Accent"
+                                TickPlacement="TopLeft"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -202,7 +203,8 @@
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="ModernVSlider2" >
                             <Slider IsSnapToTickEnabled="True"
-                                    Classes="Modern Ticks"
+                                    Classes="Modern"
+                                    TickPlacement="Outside"
                                     TickFrequency="10" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
@@ -211,7 +213,8 @@
                         <showMeTheXaml:XamlDisplay UniqueId="ModernVSlider3" >
                             <Slider IsEnabled="False" Value="20"
                                     IsSnapToTickEnabled="True"
-                                    Classes="Modern Ticks"
+                                    Classes="Modern"
+                                    TickPlacement="Outside"
                                     TickFrequency="10" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
@@ -249,7 +252,8 @@
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="BubbleVSlider3" >
                             <Slider IsSnapToTickEnabled="True"
-                                    Classes="Modern Discrete Accent Ticks"
+                                    Classes="Modern Discrete Accent"
+                                    TickPlacement="Outside"
                                     TickFrequency="10" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
