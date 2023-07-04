@@ -299,6 +299,7 @@
 
             <controls:TickBar Name="{x:Static naming:PartNames.PartSliderTick}"
                               TickFrequency="{TemplateBinding TickFrequency}"
+                              Ticks="{TemplateBinding Ticks}"
                               IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                               Minimum="{TemplateBinding Minimum}"
                               Maximum="{TemplateBinding Maximum}"
