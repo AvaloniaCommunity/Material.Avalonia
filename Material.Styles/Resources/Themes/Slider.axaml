@@ -186,7 +186,6 @@
     <!-- Disable transitions for this control -->
     <Setter Property="Transitions" Value="{x:Null}" />
     <Setter Property="UseLayoutRounding" Value="False" />
-    <Setter Property="Height" Value="6" />
     <Setter Property="Template">
       <ControlTemplate>
         <!-- Breaking animations -->
