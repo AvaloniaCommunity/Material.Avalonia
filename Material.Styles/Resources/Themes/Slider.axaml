@@ -178,6 +178,16 @@
       <Setter Property="RenderTransform" Value="scale(1)" />
     </Style>
   </ControlTheme>
+  
+    <ControlTheme x:Key="MaterialDiscreteSliderThumbVerticalV2"
+                BasedOn="{StaticResource MaterialDiscreteSliderThumbV2}"
+                TargetType="Thumb">
+    <Style Selector="^ /template/ Grid#InnerBubble">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="RenderTransform" Value="translate(16px, 0px)" />
+    </Style>
+  </ControlTheme>
 
   <!-- Slider v2 track bar part -->
   <ControlTheme x:Key="MaterialSliderTrackBarV2"
@@ -418,6 +428,10 @@
                 TargetType="Slider">
     <Style Selector="^ /template/ Thumb#PART_SliderThumb">
       <Setter Property="Theme" Value="{StaticResource MaterialDiscreteSliderThumbV2}" />
+    </Style>
+    
+    <Style Selector="^:vertical /template/ Thumb#PART_SliderThumb">
+      <Setter Property="Theme" Value="{StaticResource MaterialDiscreteSliderThumbVerticalV2}" />
     </Style>
   </ControlTheme>
 
