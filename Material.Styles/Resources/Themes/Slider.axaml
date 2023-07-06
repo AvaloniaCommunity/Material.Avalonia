@@ -126,12 +126,16 @@
               <Border Grid.Row="0"
                       Name="PART_Positioner">
                 <Border Name="PART_ContentContainer">
+                  <!-- TODO: Fix positioner
+                      Seems like TransformedBounds property is gone, we need something else that
+                      can be refreshed at every frame and contains component position data -->
+                  <!--
                   <Border.RenderTransform>
                     <MultiBinding Converter="{StaticResource AutoCorrectPositionConverter}">
                       <Binding ElementName="PART_Positioner" Path="TransformedBounds" />
                       <Binding Path="$parent[TopLevel].Bounds" />
                     </MultiBinding>
-                  </Border.RenderTransform>
+                  </Border.RenderTransform>-->
 
                   <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}" />
                 </Border>
