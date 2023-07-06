@@ -235,6 +235,11 @@
         <Setter Property="Margin" Value="-4,0,0,0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
       </Style>
+      
+      <!-- IDK why indicator component size cant be edited but panel does wtf -->
+      <Style Selector="^ /template/ Panel#PART_InnerPanel">
+        <Setter Property="Height" Value="6" />
+      </Style>
     </Style>
 
     <Style Selector="^:vertical">
