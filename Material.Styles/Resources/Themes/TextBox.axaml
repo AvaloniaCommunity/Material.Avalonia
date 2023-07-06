@@ -550,7 +550,7 @@
         </Style>
         
         <Style Selector="^ /template/ Panel#PART_TextContainer" >
-            <Setter Property="Margin" Value="12,8,8,0"/>
+            <Setter Property="Margin" Value="12,16,8,1"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         
