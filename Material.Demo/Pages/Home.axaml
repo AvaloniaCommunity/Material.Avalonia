@@ -21,7 +21,7 @@
         <TextBlock Classes="Content"
                    Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!" />
         <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!" />
-        <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press Shift + F12." />
+        <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press F12." />
 
         <StackPanel Margin="16">
             <StackPanel.Styles>
