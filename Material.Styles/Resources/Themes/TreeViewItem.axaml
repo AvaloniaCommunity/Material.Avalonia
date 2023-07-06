@@ -102,6 +102,7 @@
                   <ContentPresenter DockPanel.Dock="Right"
                                     Name="{x:Static naming:PartNames.PartHeaderPresenter}"
                                     Content="{TemplateBinding Header}"
+                                    ContentTemplate="{TemplateBinding HeaderTemplate}"
                                     Padding="{TemplateBinding Padding}" />
                 </DockPanel>
               </ripple:RippleEffect>
