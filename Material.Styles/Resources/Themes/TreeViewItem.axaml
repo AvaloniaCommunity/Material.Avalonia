@@ -173,7 +173,8 @@
     </Style>
 
     <Style Selector="^:empty /template/ ToggleButton#PART_ExpanderButton">
-      <Setter Property="IsVisible" Value="False" />
+      <Setter Property="Opacity" Value="0" />
+      <Setter Property="IsEnabled" Value="False" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>
