@@ -6,13 +6,17 @@
       <ItemsControl ItemsSource="{Binding }"
                     TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
             <ItemsControl.DataTemplates>
-                <DataTemplate DataType="system:Exception">
+              <!-- Due to technical issues, the font size will be changed implicitly and its
+              unable to change by styles or external way except code-behind or replace error template -->
+              <DataTemplate DataType="system:Exception">
                     <TextBlock Name="PART_ErrorText"
+                               FontSize="12"
                                Text="{Binding Message}"
                                TextWrapping="Wrap"/>
                 </DataTemplate>
                 <DataTemplate DataType="system:Object">
                     <TextBlock Name="PART_ErrorText"
+                               FontSize="12"
                                Text="{Binding }"
                                TextWrapping="Wrap"/>
                 </DataTemplate>
@@ -22,7 +26,9 @@
     
     <ControlTheme x:Key="{x:Type DataValidationErrors}"
                   TargetType="DataValidationErrors">
-        <Setter Property="ErrorTemplate" Value="{StaticResource DataValidationErrorTemplate}"/>
+      <!-- You can replace error text styles 
+      by change ErrorTemplate to your own version through style setter. -->
+      <Setter Property="ErrorTemplate" Value="{StaticResource DataValidationErrorTemplate}"/>
         
         <Setter Property="Template">
             <ControlTemplate>

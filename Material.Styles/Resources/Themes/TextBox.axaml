@@ -274,6 +274,7 @@
         <Style Selector="^ /template/ TextBlock#PART_HintsText" >
             <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Setter Property="Margin" Value="0,3,0,0"/>
+            <Setter Property="FontSize" Value="12"/>
         </Style>
         
         <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
