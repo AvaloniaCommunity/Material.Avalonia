@@ -65,6 +65,9 @@
             <showMeTheXaml:XamlDisplay UniqueId="Checkboxes1">
                 <CheckBox Content="This is checkbox!" IsChecked="True" />
             </showMeTheXaml:XamlDisplay>
+          <showMeTheXaml:XamlDisplay UniqueId="Checkboxes7">
+            <CheckBox Content="Indeterminate" IsChecked="{x:Null}" />
+          </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="Checkboxes2">
                 <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False" />
             </showMeTheXaml:XamlDisplay>
@@ -82,8 +85,11 @@
                 <CheckBox Content="This is checkbox!" Classes="accent" IsChecked="True"
                           assist:SelectionControlAssist.Size="24" />
             </showMeTheXaml:XamlDisplay>
+          <showMeTheXaml:XamlDisplay UniqueId="Checkboxes8">
+            <CheckBox Content="Indeterminate" Classes="accent" IsChecked="{x:Null}"/>
+          </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="Checkboxes5">
-                <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False" />
+                <CheckBox Content="Uncheckable" IsChecked="{x:Null}" IsEnabled="False" />
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
