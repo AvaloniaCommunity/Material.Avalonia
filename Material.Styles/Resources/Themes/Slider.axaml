@@ -230,9 +230,13 @@
       </Style>
 
       <Style Selector="^ /template/ Border#PART_Indicator">
-        <Setter Property="Width" Value="6" />
         <Setter Property="Margin" Value="0,0,0,-4" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
+      </Style>
+      
+      <!-- IDK why indicator component size cant be edited but panel does wtf -->
+      <Style Selector="^ /template/ Panel#PART_InnerPanel">
+        <Setter Property="Width" Value="6" />
       </Style>
     </Style>
 
@@ -527,4 +531,6 @@
       <Setter Property="Theme" Value="{StaticResource MaterialSliderLegacyThumb}" />
     </Style>
   </ControlTheme>
+  
+  
 </ResourceDictionary>
