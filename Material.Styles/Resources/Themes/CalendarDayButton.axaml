@@ -11,7 +11,6 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="FontSize" Value="20" />
     <Setter Property="IsVisible" Value="True" />
     <Setter Property="Padding" Value="2" />
     <Setter Property="ClipToBounds" Value="False" />

@@ -17,11 +17,11 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
-        <!-- TODO: Fix Calendar styles and return it -->
-        <!-- <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Calendar.axaml" /> -->
-        <!-- <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" /> -->
-        <!-- <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" /> -->
-        <!-- <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" /> -->
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DatePicker.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Calendar.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ColorZone.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FloatingButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
