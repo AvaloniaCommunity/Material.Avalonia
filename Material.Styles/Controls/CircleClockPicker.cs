@@ -22,7 +22,7 @@ namespace Material.Styles.Controls
             AvaloniaProperty.Register<CircleClockPicker, int>(nameof(Maximum));
 
         public static readonly StyledProperty<int> StepFrequencyProperty =
-            AvaloniaProperty.Register<CircleClockPicker, int>(nameof(StepFrequency));
+            AvaloniaProperty.Register<CircleClockPicker, int>(nameof(StepFrequency), 1);
 
         public static readonly StyledProperty<string?> FirstLabelOverrideProperty =
             AvaloniaProperty.Register<CircleClockPicker, string?>(nameof(FirstLabelOverride));
@@ -199,10 +199,10 @@ namespace Material.Styles.Controls
             if (_pointer == null)
                 return;
 
-            var degrees = (v - 90f) * (360f / (Maximum + 1 - Minimum));
+            var degrees = (v - Minimum) * (360f / (Maximum + 1 - Minimum));
 
-            var transform = new RotateTransform(degrees);
-            _pointer.RenderTransform = transform;
+            var transform = (RotateTransform)(_pointer.RenderTransform ??= new RotateTransform());
+            transform.Angle = degrees + 180;
         }
 
         private void UpdateCellPanel()
