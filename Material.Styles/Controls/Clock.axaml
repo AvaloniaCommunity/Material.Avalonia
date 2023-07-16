@@ -44,31 +44,40 @@
       <ControlTemplate>
         <Grid RowDefinitions="Auto 8 Auto">
           <Grid ColumnDefinitions="* Auto * Auto Auto Auto">
-            <TextBox x:Name="PART_HoursTextBox"
-                     Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
-                     Classes="time-input"
-                     assists:TextFieldAssist.Hints="Hour"
-                     Text="{TemplateBinding controls:ClockInternals.Hours, Converter={x:Static converters:IntParseConverter.Instance}}"/>
+            <NumericUpDown x:Name="PART_HoursBox"
+                           Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
+                           Classes="time-input"
+                           assists:TextFieldAssist.Hints="Hour"
+                           ShowButtonSpinner="False"
+                           Minimum="{TemplateBinding TimeFormat, Converter={x:Static converters:AmPmRangeConverter.MinimumInstance}}"
+                           Maximum="{TemplateBinding TimeFormat, Converter={x:Static converters:AmPmRangeConverter.MaximumInstance}}"
+                           Value="{TemplateBinding controls:ClockInternals.Hours}" />
             <TextBlock x:Name="PART_HoursMinutesSeparator"
                        Grid.Row="0" Grid.Column="1"
                        Classes="time-separator"
                        TextAlignment="Center" VerticalAlignment="Center"
                        Text="{TemplateBinding TimeSeparator}" />
-            <TextBox x:Name="PART_MinutesTextBox"
-                     Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"
-                     Classes="time-input"
-                     assists:TextFieldAssist.Hints="Minute" />
+            <NumericUpDown x:Name="PART_MinutesBox"
+                           Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"
+                           Classes="time-input"
+                           assists:TextFieldAssist.Hints="Minute"
+                           ShowButtonSpinner="False"
+                           Minimum="0" Maximum="59"
+                           Value="{TemplateBinding controls:ClockInternals.Minutes}" />
             <TextBlock x:Name="PART_MinutesSecondsSeparator"
                        Grid.Row="0" Grid.Column="3"
                        Classes="time-separator"
                        IsVisible="{TemplateBinding CanSelectSeconds}"
                        TextAlignment="Center" VerticalAlignment="Center"
                        Text="{TemplateBinding TimeSeparator}" />
-            <TextBox x:Name="PART_SecondsTextBox"
-                     Grid.Row="0" Grid.Column="4"
-                     Classes="time-input"
-                     IsVisible="{TemplateBinding CanSelectSeconds}"
-                     assists:TextFieldAssist.Hints="Second" />
+            <NumericUpDown x:Name="PART_SecondsBox"
+                           Grid.Row="0" Grid.Column="4"
+                           Classes="time-input"
+                           IsVisible="{TemplateBinding CanSelectSeconds}"
+                           assists:TextFieldAssist.Hints="Second"
+                           ShowButtonSpinner="False"
+                           Minimum="0" Maximum="59"
+                           Value="{TemplateBinding controls:ClockInternals.Seconds}" />
 
             <Border x:Name="PART_AmPmSelector" Grid.Row="0" Grid.Column="5"
                     Margin="12 8 0 18"
@@ -81,13 +90,13 @@
                              Grid.Row="0"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
                              Content="AM"
-                             IsChecked="{TemplateBinding controls:ClockInternals.IsAm}" /> 
+                             IsChecked="{TemplateBinding controls:ClockInternals.IsAm}" />
                 <Rectangle Grid.Row="1" Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
                 <RadioButton x:Name="PART_PmSelector"
                              Grid.Row="2"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
-                             Content="PM" 
-                             IsChecked="{TemplateBinding controls:ClockInternals.IsAm, Converter={x:Static BoolConverters.Not}}" /> 
+                             Content="PM"
+                             IsChecked="{TemplateBinding controls:ClockInternals.IsAm, Converter={x:Static BoolConverters.Not}}" />
               </Grid>
             </Border>
           </Grid>
@@ -104,8 +113,8 @@
       </ControlTemplate>
     </Setter>
 
-    <Style Selector="^ /template/ TextBox.time-input">
-      <Setter Property="Theme" Value="{StaticResource OutlineTextBox}" />
+    <Style Selector="^ /template/ NumericUpDown.time-input">
+      <!-- <Setter Property="Theme" Value="{StaticResource OutlineTextBox}" /> -->
       <Setter Property="Width" Value="96" />
       <Style Selector="^.active">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />

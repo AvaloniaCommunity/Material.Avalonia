@@ -1,7 +1,54 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="20">
+        <NumericUpDown Minimum="0"
+                       Maximum="10"
+                       Increment="0.5"
+                       Watermark="Enter text" />
+        <NumericUpDown Minimum="0"
+                       Maximum="10"
+                       Increment="0.5"
+                       VerticalContentAlignment="Center"
+                       HorizontalContentAlignment="Center"
+                       ButtonSpinnerLocation="Left"
+                       Watermark="Enter text" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="MaterialOnlyPresenterTextBox" TargetType="TextBox"
+                BasedOn="{StaticResource {x:Type TextBox}}">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <TextPresenter Name="{x:Static naming:PartNames.PartTextPresenter}"
+                       CaretBrush="{TemplateBinding CaretBrush}"
+                       CaretIndex="{TemplateBinding CaretIndex}"
+                       TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                       TextBlock.FontSize="{TemplateBinding FontSize}"
+                       TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                       TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                       TextBlock.Foreground="{TemplateBinding Foreground}"
+                       InputMethod.IsInputMethodEnabled="{TemplateBinding 
+                                                               InputMethod.IsInputMethodEnabled}"
+                       PasswordChar="{TemplateBinding PasswordChar}"
+                       RevealPassword="{TemplateBinding RevealPassword}"
+                       SelectionBrush="{TemplateBinding SelectionBrush}"
+                       SelectionStart="{TemplateBinding SelectionStart}"
+                       SelectionEnd="{TemplateBinding SelectionEnd}"
+                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                       Text="{TemplateBinding Text, Mode=TwoWay}"
+                       TextAlignment="{TemplateBinding TextAlignment}"
+                       TextWrapping="{TemplateBinding TextWrapping}" 
+                       Background="Transparent"/>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
   <ControlTheme x:Key="{x:Type NumericUpDown}"
                 TargetType="NumericUpDown">
     <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
@@ -21,6 +68,7 @@
             <Border Name="focusBorder"
                     Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
             <ButtonSpinner Name="PART_Spinner"
+                           Background="Transparent"
                            BorderThickness="0"
                            BorderBrush="Transparent"
                            HorizontalContentAlignment="Stretch"
@@ -40,11 +88,16 @@
                        DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                        IsReadOnly="{TemplateBinding IsReadOnly}"
                        Text="{TemplateBinding Text}"
-                       AcceptsReturn="False" TextWrapping="NoWrap" />
+                       AcceptsReturn="False" TextWrapping="NoWrap"
+                       Theme="{StaticResource MaterialOnlyPresenterTextBox}" />
             </ButtonSpinner>
             <controls:MaterialUnderline Classes="MirrorY"
                                         VerticalAlignment="Bottom"
                                         Name="Underline" />
+            <Border Name="{x:Static naming:PartNames.PartLabelRootBorder}">
+              <TextBlock Name="{x:Static naming:PartNames.PartLabelText}"
+                         Text="{TemplateBinding (assists:TextFieldAssist.Label)}" />
+            </Border>
           </Grid>
         </Border>
       </ControlTemplate>

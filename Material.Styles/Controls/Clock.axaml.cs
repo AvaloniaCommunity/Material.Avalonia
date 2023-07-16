@@ -9,9 +9,9 @@ using Material.Styles.Enums;
 
 namespace Material.Styles.Controls;
 
-[TemplatePart("PART_HoursTextBox", typeof(TextBox))]
-[TemplatePart("PART_MinutesTextBox", typeof(TextBox))]
-[TemplatePart("PART_SecondsTextBox", typeof(TextBox))]
+[TemplatePart("PART_HoursBox", typeof(NumericUpDown))]
+[TemplatePart("PART_MinutesBox", typeof(NumericUpDown))]
+[TemplatePart("PART_SecondsBox", typeof(NumericUpDown))]
 [TemplatePart("PART_AmSelector", typeof(RadioButton))]
 [TemplatePart("PART_PmSelector", typeof(RadioButton))]
 [TemplatePart("PART_CircleClockContainer", typeof(TransitioningContentControl))]
@@ -41,11 +41,11 @@ public class Clock : TemplatedControl {
         AvaloniaProperty.Register<Clock, string>(nameof(TimeSeparator), ":");
 
 
-    private TextBox _hoursTextBox = null!;
-    private TextBox _minutesTextBox = null!;
-    private TextBox _secondsTextBox = null!;
-    private TextBox _selectedTextBox = null!;
-    private List<TextBox>? _inputBoxes;
+    private NumericUpDown _hoursTextBox = null!;
+    private NumericUpDown _minutesTextBox = null!;
+    private NumericUpDown _secondsTextBox = null!;
+    private NumericUpDown _selectedTextBox = null!;
+    private List<NumericUpDown>? _inputBoxes;
     private TransitioningContentControl _circleClockContainer = null!;
     private RadioButton _amSelectorRadioButton = null!;
     private RadioButton _pmSelectorRadioButton = null!;
@@ -91,10 +91,10 @@ public class Clock : TemplatedControl {
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
         base.OnApplyTemplate(e);
 
-        _hoursTextBox = e.NameScope.Find<TextBox>("PART_HoursTextBox")!;
-        _minutesTextBox = e.NameScope.Find<TextBox>("PART_MinutesTextBox")!;
-        _secondsTextBox = e.NameScope.Find<TextBox>("PART_SecondsTextBox")!;
-        _inputBoxes = new List<TextBox>() { _hoursTextBox, _minutesTextBox, _secondsTextBox };
+        _hoursTextBox = e.NameScope.Find<NumericUpDown>("PART_HoursBox")!;
+        _minutesTextBox = e.NameScope.Find<NumericUpDown>("PART_MinutesBox")!;
+        _secondsTextBox = e.NameScope.Find<NumericUpDown>("PART_SecondsBox")!;
+        _inputBoxes = new List<NumericUpDown>() { _hoursTextBox, _minutesTextBox, _secondsTextBox };
         _selectedTextBox = _hoursTextBox;
 
         _amSelectorRadioButton = e.NameScope.Find<RadioButton>("PART_AmSelector");
@@ -111,7 +111,7 @@ public class Clock : TemplatedControl {
     }
 
     private void TextBoxOnGotFocusHandler(object sender, GotFocusEventArgs e) {
-        _selectedTextBox = (TextBox)sender;
+        _selectedTextBox = (NumericUpDown)sender;
         OnSelectedTextBoxChange();
     }
 
@@ -130,7 +130,7 @@ public class Clock : TemplatedControl {
     private CircleClockPicker SetupClockPicker() {
         var circleClockPicker = new CircleClockPicker { Minimum = 0 };
         
-        if (_selectedTextBox.Name == "PART_HoursTextBox") {
+        if (_selectedTextBox.Name == "PART_HoursBox") {
             if (TimeFormat == TimeFormat.TwelveHour) {
                 circleClockPicker.FirstLabelOverride = "12";
                 circleClockPicker.Maximum = 11;
@@ -145,9 +145,9 @@ public class Clock : TemplatedControl {
         }
 
         circleClockPicker[!CircleClockPicker.ValueProperty] = _secondsTextBox.Name switch {
-            "PART_HoursTextBox"   => this[!ClockInternals.HoursProperty],
-            "PART_MinutesTextBox" => this[!ClockInternals.MinutesProperty],
-            "PART_SecondsTextBox" => this[!ClockInternals.HoursProperty],
+            "PART_HoursBox"   => this[!ClockInternals.HoursProperty],
+            "PART_MinutesBox" => this[!ClockInternals.MinutesProperty],
+            "PART_SecondsBox" => this[!ClockInternals.HoursProperty],
             _                     => throw new ArgumentOutOfRangeException()
         };
         
