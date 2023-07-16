@@ -1,0 +1,130 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:Material.Styles.Controls"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters">
+  <Design.PreviewWith>
+    <UniformGrid>
+      <Border BorderThickness="1" BorderBrush="Black">
+        <controls:Clock x:Name="MainClock" CanSelectSeconds="True" TimeFormat="TwelveHour" />
+      </Border>
+      <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
+        <controls:Clock CanSelectSeconds="False" TimeFormat="TwelveHour"
+                        SelectedTime="{Binding #MainClock.SelectedTime}" />
+      </Border>
+      <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
+        <controls:Clock CanSelectSeconds="True" TimeFormat="TwentyFourHour"
+                        SelectedTime="{Binding #MainClock.SelectedTime}" />
+      </Border>
+      <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
+        <controls:Clock CanSelectSeconds="False" TimeFormat="TwentyFourHour"
+                        SelectedTime="{Binding #MainClock.SelectedTime}" />
+      </Border>
+    </UniformGrid>
+  </Design.PreviewWith>
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CircleClockPicker.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CircleClockPickerCell.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <ControlTheme x:Key="MaterialCircleClockTimeFormatRadioButton" TargetType="RadioButton"
+                BasedOn="{StaticResource RadioButton}">
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="TextBlock.FontWeight" Value="Medium" />
+
+    <Style Selector="^:not(:checked)">
+      <Setter Property="Foreground" Value="{Binding Foreground, 
+      RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:Clock}}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="MaterialCircleClock" TargetType="controls:Clock">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid RowDefinitions="Auto 8 Auto">
+          <Grid ColumnDefinitions="* Auto * Auto Auto Auto">
+            <TextBox x:Name="PART_HoursTextBox"
+                     Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
+                     Classes="time-input"
+                     assists:TextFieldAssist.Hints="Hour"
+                     Text="{TemplateBinding controls:ClockInternals.Hours, Converter={x:Static converters:IntParseConverter.Instance}}"/>
+            <TextBlock x:Name="PART_HoursMinutesSeparator"
+                       Grid.Row="0" Grid.Column="1"
+                       Classes="time-separator"
+                       TextAlignment="Center" VerticalAlignment="Center"
+                       Text="{TemplateBinding TimeSeparator}" />
+            <TextBox x:Name="PART_MinutesTextBox"
+                     Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"
+                     Classes="time-input"
+                     assists:TextFieldAssist.Hints="Minute" />
+            <TextBlock x:Name="PART_MinutesSecondsSeparator"
+                       Grid.Row="0" Grid.Column="3"
+                       Classes="time-separator"
+                       IsVisible="{TemplateBinding CanSelectSeconds}"
+                       TextAlignment="Center" VerticalAlignment="Center"
+                       Text="{TemplateBinding TimeSeparator}" />
+            <TextBox x:Name="PART_SecondsTextBox"
+                     Grid.Row="0" Grid.Column="4"
+                     Classes="time-input"
+                     IsVisible="{TemplateBinding CanSelectSeconds}"
+                     assists:TextFieldAssist.Hints="Second" />
+
+            <Border x:Name="PART_AmPmSelector" Grid.Row="0" Grid.Column="5"
+                    Margin="12 8 0 18"
+                    ClipToBounds="True"
+                    CornerRadius="4"
+                    BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
+                    BorderThickness="1">
+              <Grid RowDefinitions="* 1 *">
+                <RadioButton x:Name="PART_AmSelector"
+                             Grid.Row="0"
+                             Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
+                             Content="AM"
+                             IsChecked="{TemplateBinding controls:ClockInternals.IsAm}" /> 
+                <Rectangle Grid.Row="1" Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                <RadioButton x:Name="PART_PmSelector"
+                             Grid.Row="2"
+                             Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
+                             Content="PM" 
+                             IsChecked="{TemplateBinding controls:ClockInternals.IsAm, Converter={x:Static BoolConverters.Not}}" /> 
+              </Grid>
+            </Border>
+          </Grid>
+
+          <TransitioningContentControl x:Name="PART_CircleClockContainer"
+                                       Grid.Row="2" Grid.Column="0"
+                                       Height="256" Width="256">
+            <TransitioningContentControl.PageTransition>
+              <CompositePageTransition></CompositePageTransition>
+            </TransitioningContentControl.PageTransition>
+            <controls:CircleClockPicker x:Name="PART_CircleClockPicker" />
+          </TransitioningContentControl>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ TextBox.time-input">
+      <Setter Property="Theme" Value="{StaticResource OutlineTextBox}" />
+      <Setter Property="Width" Value="96" />
+      <Style Selector="^.active">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+      </Style>
+    </Style>
+
+    <Style Selector="^ /template/ TextBlock.time-separator">
+      <Setter Property="FontSize" Value="40" />
+      <Setter Property="Margin" Value="0 8 0 18" />
+      <Setter Property="Width" Value="20" />
+    </Style>
+
+    <Style Selector="^[TimeFormat=TwentyFourHour] /template/ Border#PART_AmPmSelector">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
+
+  <!-- Default theme -->
+  <ControlTheme x:Key="{x:Type controls:Clock}" TargetType="controls:Clock"
+                BasedOn="{StaticResource MaterialCircleClock}" />
+</ResourceDictionary>
