@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:system="clr-namespace:System;assembly=netstandard" >
     <system:Double x:Key="CheckBoxHoveredOpacity">0.12</system:Double>
     <system:Double x:Key="CheckBoxPressedOpacity">0.26</system:Double>
@@ -19,17 +18,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <DockPanel Name="PART_RootPanel">
                             <Viewbox Width="{TemplateBinding (assists:SelectionControlAssist.Size)}"
                                      Stretch="Uniform" VerticalAlignment="Center" ClipToBounds="False">
                                 <Panel>
                                     <Path Name="Graphic" Width="24" Height="24" Margin="0" />
 
-                                    <Ellipse Name="{x:Static naming:PartNames.PartHoverEffect}"
+                                    <Ellipse Name="PART_HoverEffect"
                                              Fill="{TemplateBinding (assists:SelectionControlAssist.InnerForeground)}"
                                              VerticalAlignment="Center" HorizontalAlignment="Center"
                                              Width="42" Height="42" Margin="-100"
@@ -44,7 +43,7 @@
                                 </Panel>
                             </Viewbox>
 
-                            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                            <ContentPresenter Name="PART_ContentPresenter"
                                               Focusable="False"
                                               Margin="{TemplateBinding Padding}"
                                               Content="{TemplateBinding Content}"

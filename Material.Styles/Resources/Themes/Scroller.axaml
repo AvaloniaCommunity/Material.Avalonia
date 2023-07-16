@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:controls="clr-namespace:Material.Styles.Controls" >
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
@@ -13,8 +12,8 @@
         <Setter Property="SmallScrollMultiplier" Value="0.5"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                    <ScrollContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                <Panel Name="PART_RootPanel">
+                    <ScrollContentPresenter Name="PART_ContentPresenter"
                                             Padding="{TemplateBinding Padding}">
                         <ScrollContentPresenter.GestureRecognizers>
                             <ScrollGestureRecognizer
@@ -23,10 +22,10 @@
                         </ScrollContentPresenter.GestureRecognizers>
                     </ScrollContentPresenter>
                     
-                    <Button Name="{x:Static naming:PartNames.PartPageUpButton}"
+                    <Button Name="PART_PageUpButton"
                             IsEnabled="{TemplateBinding controls:Scroller.CanScrollToStart}"
                             Command="{Binding $parent[controls:Scroller].ScrollPageBackOnce}"/>
-                    <Button Name="{x:Static naming:PartNames.PartPageDownButton}"
+                    <Button Name="PART_PageDownButton"
                             IsEnabled="{TemplateBinding controls:Scroller.CanScrollToEnd}"
                             Command="{Binding $parent[controls:Scroller].ScrollPageForwardOnce}"/>
                 </Panel>

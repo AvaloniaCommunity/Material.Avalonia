@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
   <Design.PreviewWith>
@@ -26,9 +25,9 @@
       <ControlTemplate>
         <Panel>
           <!-- This controls required by avalonia code behind -->
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaDayText}" />
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaMonthText}" />
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaYearText}" />
+          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="PART_DayTextBlock" />
+          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="PART_MonthTextBlock" />
+          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="PART_YearTextBlock" />
 
           <!-- TODO: Make TextBox writeable -->
           <!-- TODO: allow use different text boxes style-->
@@ -55,7 +54,7 @@
           <Panel Name="PART_PopupContainer">
             <Popup Name="PART_CalendarPopup"
                    IsOpen="{Binding #CalendarButton.IsChecked, Mode=TwoWay}">
-              <controls:Card Name="{x:Static naming:PartNames.PartCard}">
+              <controls:Card Name="PART_Card">
                 <Calendar
                   SelectedDate="{TemplateBinding SelectedDate, 
                                     Mode=TwoWay, Converter={x:Static converters:DateTimeOffsetConverter.Instance}}" />

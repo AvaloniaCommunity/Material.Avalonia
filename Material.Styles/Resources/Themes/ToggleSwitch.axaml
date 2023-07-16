@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:system="clr-namespace:System;assembly=netstandard"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
     <system:Double x:Key="RippleHoveredOpacity">0.12</system:Double>
     <system:Double x:Key="RipplePressedOpacity">0.26</system:Double>
     
@@ -32,11 +31,11 @@
         <Setter Property="OffContent" Value="{x:Null}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
-                    <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                    <DockPanel Name="PART_RootPanel">
                         <Viewbox Width="{TemplateBinding (assists:SelectionControlAssist.Size)}"
                                  Stretch="Uniform"
                                  ClipToBounds="False"
@@ -50,11 +49,11 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch" />
 
-                                <Canvas Name="{x:Static naming:PartNames.AvaloniaSwitchKnob}"
+                                <Canvas Name="PART_SwitchKnob"
                                         Width="16" Height="20"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center">
-                                    <Panel Name="{x:Static naming:PartNames.AvaloniaMovingKnobs}"
+                                    <Panel Name="PART_MovingKnobs"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Width="20" Height="20">

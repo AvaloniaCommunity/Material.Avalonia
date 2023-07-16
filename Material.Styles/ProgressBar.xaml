@@ -2,7 +2,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:Material.Styles.Controls"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:materialAnimationAssists="clr-namespace:Material.Styles.Additional.MaterialAnimationAssists">
     <Styles.Resources>
         <converters:RangeToSweepConverter x:Key="RangeToSweep" />
@@ -262,11 +261,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <Panel Name="PART_RootPanel">
                             <Panel.RenderTransform>
                                 <ScaleTransform />
                             </Panel.RenderTransform>
@@ -286,7 +285,7 @@
                             </Viewbox>
 
                             <!-- create a dummy indicator to avoid avaloniaUI crash -->
-                            <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}"
+                            <Border Name="PART_Indicator"
                                     ClipToBounds="False" IsVisible="False" IsEnabled="False"
                                     Background="{x:Null}" />
                         </Panel>

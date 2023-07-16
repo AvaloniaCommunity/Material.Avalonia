@@ -58,16 +58,14 @@
                               Classes="material-calendar-view"
                               MinHeight="200"
                               RowDefinitions="32,32,32,32,32,32,32"
-                              ColumnDefinitions="32,32,32,32,32,32,32">
-                        </Grid>
-                        
+                              ColumnDefinitions="32,32,32,32,32,32,32" />
+
                         <Grid Name="PART_YearView"
                               Grid.Row="1"
                               Classes="material-calendar-view"
                               MinHeight="290"
                               RowDefinitions="*,*,*"
-                              ColumnDefinitions="*,*,*,*">
-                        </Grid>
+                              ColumnDefinitions="*,*,*,*" />
                     </Grid>
                 </Border>
             </ControlTemplate>

@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:avaloniaConverters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls">
@@ -50,12 +49,12 @@
     <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+        <Border Name="PART_RootBorder"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+          <Panel Name="PART_RootPanel">
             <Rectangle Name="PART_IndeterminateFirst"
                        IsVisible="{TemplateBinding IsIndeterminate}"
                        RenderTransformOrigin="0 0"
@@ -65,7 +64,7 @@
                        RenderTransformOrigin="0 0"
                        Fill="{TemplateBinding Foreground}" />
 
-            <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}"
+            <Border Name="PART_Indicator"
                     ClipToBounds="False"
                     Background="{TemplateBinding Foreground}" />
 
@@ -308,12 +307,12 @@
     <Setter Property="Height" Value="24" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+        <Border Name="PART_RootBorder"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+          <Panel Name="PART_RootPanel">
             <Panel.RenderTransform>
               <ScaleTransform />
             </Panel.RenderTransform>
@@ -344,7 +343,7 @@
             </Viewbox>
 
             <!-- create a dummy indicator to avoid avaloniaUI crash -->
-            <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}"
+            <Border Name="PART_Indicator"
                     ClipToBounds="False" IsVisible="False" IsEnabled="False"
                     Background="{x:Null}" />
           </Panel>

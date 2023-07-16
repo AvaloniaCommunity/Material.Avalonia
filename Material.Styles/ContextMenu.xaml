@@ -1,7 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:Material.Styles.Controls"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:assists="clr-namespace:Material.Styles.Assists" >
     <Style Selector="ContextMenu">
       <Setter Property="WindowManagerAddShadowHint" Value="False" />
@@ -13,14 +12,14 @@
         <Setter Property="TextBlock.FontWeight" Value="Normal" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Padding="{TemplateBinding Padding}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
                     
-                    <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}">
-                      <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                    <ScrollViewer Name="PART_ScrollViewer">
+                      <ItemsPresenter Name="PART_ItemsPresenter"
                                       ItemsPanel="{TemplateBinding ItemsPanel}" />
                     </ScrollViewer>
                 </Border>

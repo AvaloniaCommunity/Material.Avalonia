@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=netstandard"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
@@ -175,20 +174,20 @@
         <Setter Property="InputMethod.IsInputMethodEnabled" Value="True"/>
         <Setter Property="Template" >
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}" >
-                        <TextBlock Name="{x:Static naming:PartNames.PartHintsText}"
+                    <DockPanel Name="PART_RootPanel" >
+                        <TextBlock Name="PART_HintsText"
                                    DockPanel.Dock="Bottom"
                                    IsVisible="{TemplateBinding (assists:TextFieldAssist.Hints),
                                        Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                                    Text="{TemplateBinding (assists:TextFieldAssist.Hints)}"
                                    TextTrimming="CharacterEllipsis" />
                         
-                        <DataValidationErrors Name="{x:Static naming:PartNames.PartDataValidation}" 
+                        <DataValidationErrors Name="PART_DataValidation" 
                                               Errors="{TemplateBinding (DataValidationErrors.Errors)}">
                             <Panel Name="PART_TextFieldPanel" >
                                 <Border Name="PART_BackgroundTextField">
@@ -208,26 +207,26 @@
                                     </Border.Styles>
                                 </Border>
 
-                                <DockPanel Name="{x:Static naming:PartNames.PartInnerPanel}" >
+                                <DockPanel Name="PART_InnerPanel" >
                                     <ContentControl Name="PART_LeftContentControl"
                                                     Content="{TemplateBinding InnerLeftContent}" />
                                     <ContentControl Name="PART_RightContentControl"
                                                     Content="{TemplateBinding InnerRightContent}" />
                                     <Panel Name="PART_TextContainer" >
-                                        <TextBlock Name="{x:Static naming:PartNames.PartPlaceholderText}"
+                                        <TextBlock Name="PART_PlaceholderText"
                                                    Text="{TemplateBinding Watermark}"
                                                    FontFamily="{TemplateBinding FontFamily}"
                                                    FontSize="{TemplateBinding FontSize}"
                                                    FontStyle="{TemplateBinding FontStyle}"
                                                    FontWeight="{TemplateBinding FontWeight}"/>
 
-                                        <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}"
+                                        <ScrollViewer Name="PART_ScrollViewer"
                                                       HorizontalScrollBarVisibility="{TemplateBinding 
                                                   (ScrollViewer.HorizontalScrollBarVisibility)}"
 
                                                       VerticalScrollBarVisibility="{TemplateBinding 
                                                   (ScrollViewer.VerticalScrollBarVisibility)}" >
-                                            <TextPresenter Name="{x:Static naming:PartNames.PartTextPresenter}"
+                                            <TextPresenter Name="PART_TextPresenter"
                                                            CaretBrush="{TemplateBinding CaretBrush}"
                                                            CaretIndex="{TemplateBinding CaretIndex}"
                                                            TextBlock.FontFamily="{TemplateBinding FontFamily}"
@@ -250,10 +249,10 @@
                                     </Panel>
                                 </DockPanel>
                                 
-                                <controls:MaterialUnderline Name="{x:Static naming:PartNames.PartUnderline}"/>
+                                <controls:MaterialUnderline Name="PART_Underline"/>
 
-                                <Border Name="{x:Static naming:PartNames.PartLabelRootBorder}">
-                                    <TextBlock Name="{x:Static naming:PartNames.PartLabelText}"
+                                <Border Name="PART_LabelRootBorder">
+                                    <TextBlock Name="PART_LabelText"
                                                Text="{TemplateBinding (assists:TextFieldAssist.Label)}" />
                                 </Border>
                             </Panel>

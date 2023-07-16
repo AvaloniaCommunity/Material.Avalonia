@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ControlTheme x:Key="{x:Type TreeView}"
                   TargetType="TreeView">
         <Setter Property="Background" Value="{x:Null}" />
@@ -13,15 +12,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
-                        <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}"
+                        <ScrollViewer Name="PART_ScrollViewer"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                          <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
+                          <ItemsPresenter Name="PART_ItemsPresenter"
                                           Margin="{TemplateBinding Padding}"
                                           ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </ScrollViewer>

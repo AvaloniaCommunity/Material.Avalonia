@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
                     xmlns:converters="clr-namespace:Material.Styles.Converters">
   <Design.PreviewWith>
@@ -40,10 +39,10 @@
           <Border Background="Transparent"
                   CornerRadius="{TemplateBinding CornerRadius}"
                   ClipToBounds="True">
-            <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}"
+            <ripple:RippleEffect Name="PART_Ripple"
                                  RippleFill="{TemplateBinding Foreground, 
                                              Converter={StaticResource BrushRoundConverter}}">
-              <Panel Name="{x:Static naming:PartNames.PartInnerPanel}" Width="24" Height="24">
+              <Panel Name="PART_InnerPanel" Width="24" Height="24">
                 <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                       Name="ExpandPath"
                       Fill="{TemplateBinding Foreground}"
@@ -83,31 +82,31 @@
     <Setter Property="Template">
       <ControlTemplate>
         <StackPanel Name="PART_LayoutRoot">
-          <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+          <Border Name="PART_RootBorder"
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
                   BorderThickness="{TemplateBinding BorderThickness}">
-            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
-              <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}" />
+            <Panel Name="PART_InnerPanel">
+              <Border Name="PART_BehaviourEffect" />
 
-              <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
-                <DockPanel Name="{x:Static naming:PartNames.PartContentPanel}"
+              <ripple:RippleEffect Name="PART_Ripple">
+                <DockPanel Name="PART_ContentPanel"
                            Margin="{TemplateBinding Level,
                                            Converter={StaticResource MarginCreator},
                                            ConverterParameter={StaticResource TreeItemContentMargin}}">
                   <ToggleButton DockPanel.Dock="Left"
-                                Name="{x:Static naming:PartNames.PartExpanderButton}"
+                                Name="PART_ExpanderButton"
                                 IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
 
                   <ContentPresenter DockPanel.Dock="Right"
-                                    Name="{x:Static naming:PartNames.PartHeaderPresenter}"
+                                    Name="PART_HeaderPresenter"
                                     Content="{TemplateBinding Header}"
                                     ContentTemplate="{TemplateBinding HeaderTemplate}"
                                     Padding="{TemplateBinding Padding}" />
                 </DockPanel>
               </ripple:RippleEffect>
 
-              <Border Name="{x:Static naming:PartNames.PartHoverEffect}" />
+              <Border Name="PART_HoverEffect" />
             </Panel>
           </Border>
           <ItemsPresenter Name="PART_ItemsPresenter"

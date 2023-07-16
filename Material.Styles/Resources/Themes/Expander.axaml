@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
     <ControlTheme x:Key="ExpanderToggleButtonPart"
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent"/>
@@ -13,7 +12,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -21,7 +20,7 @@
                         assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
                     <Grid ColumnDefinitions="*,Auto">
                         <ContentPresenter Grid.Column="0"
-                                          Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                          Name="PART_ContentPresenter"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -115,13 +114,13 @@
         <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
         <Setter Property="Template" >
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
-                    <Border Name="{x:Static naming:PartNames.PartInnerBorder}"
+                    <Border Name="PART_InnerBorder"
                             CornerRadius="{TemplateBinding CornerRadius}">
                         <Panel>
                             <controls:ContentExpandControl Name="PART_ContentExpand"

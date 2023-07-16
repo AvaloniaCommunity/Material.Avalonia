@@ -2,8 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=netstandard"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
     <!-- Add Resources Here -->
     <system:Double x:Key="RadioButtonHoveredOpacity">0.12</system:Double>
     <system:Double x:Key="RadioButtonPressedOpacity">0.26</system:Double>
@@ -22,17 +21,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <DockPanel Name="PART_RootPanel">
                             <Viewbox Width="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                             Path=(assists:SelectionControlAssist.Size)}"
                         Height="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                             Path=(assists:SelectionControlAssist.Size)}"
                         Stretch="Uniform" VerticalAlignment="Center" ClipToBounds="False">
-                                <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
+                                <Panel Name="PART_InnerPanel">
                                     <Path Name="Graphic"
                                           Height="24" Width="24"
                                           Fill="{TemplateBinding assists:SelectionControlAssist.Foreground}"/>
@@ -40,7 +39,7 @@
                                           Height="24" Width="24"
                                           Fill="{TemplateBinding assists:SelectionControlAssist.InnerForeground}"/>
                                     
-                                    <Ellipse Name="{x:Static naming:PartNames.PartHoverEffect}"
+                                    <Ellipse Name="PART_HoverEffect"
                                              Fill="{TemplateBinding assists:SelectionControlAssist.Foreground}"
                                              VerticalAlignment="Center" HorizontalAlignment="Center"
                                              Width="42" Height="42" Margin="-100" ClipToBounds="False"
@@ -53,7 +52,7 @@
                                     </Border>
                                 </Panel>
                             </Viewbox>
-                            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                            <ContentPresenter Name="PART_ContentPresenter"
                                               Focusable="False"
                                               Margin="{TemplateBinding Padding}"
                                               Content="{TemplateBinding Content}"
@@ -139,10 +138,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}">
-                        <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                            <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
-                                <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                    <Border Name="PART_RootBorder">
+                        <Panel Name="PART_RootPanel">
+                            <ripple:RippleEffect Name="PART_Ripple">
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   BorderBrush="{TemplateBinding BorderBrush}"
                                                   BorderThickness="{TemplateBinding BorderThickness}"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}"
@@ -152,7 +151,7 @@
                                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                             </ripple:RippleEffect>
-                            <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}"/>
+                            <Border Name="PART_BehaviourEffect"/>
                         </Panel>
                     </Border>
                 </ControlTemplate>

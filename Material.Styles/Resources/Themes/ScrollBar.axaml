@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:system="clr-namespace:System;assembly=netstandard">
   <Design.PreviewWith>
     <Border Padding="20">
@@ -25,7 +24,7 @@
     <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+        <Border Name="PART_RootBorder"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
@@ -68,12 +67,12 @@
     <Setter Property="Padding" Value="4" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+        <Border Name="PART_RootBorder"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+          <ContentPresenter Name="PART_ContentPresenter"
                             Content="{TemplateBinding Content}" />
         </Border>
       </ControlTemplate>
@@ -111,31 +110,31 @@
     <Setter Property="Background" Value="{x:Null}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+        <Border Name="PART_RootBorder"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}"
+          <DockPanel Name="PART_RootPanel"
                      Background="Transparent">
-            <RepeatButton Name="{x:Static naming:PartNames.PartLineUpButton}" />
-            <RepeatButton Name="{x:Static naming:PartNames.PartLineDownButton}" />
+            <RepeatButton Name="PART_LineUpButton" />
+            <RepeatButton Name="PART_LineDownButton" />
 
-            <Track Name="{x:Static naming:PartNames.PartTrack}"
+            <Track Name="PART_Track"
                    Maximum="{TemplateBinding Maximum}"
                    Minimum="{TemplateBinding Minimum}"
                    Value="{TemplateBinding Value, Mode=TwoWay}"
                    ViewportSize="{TemplateBinding ViewportSize}"
                    Orientation="{TemplateBinding Orientation}">
               <Track.DecreaseButton>
-                <RepeatButton Name="{x:Static naming:PartNames.PartPageUpButton}"
+                <RepeatButton Name="PART_PageUpButton"
                               Theme="{StaticResource ModernSimpleScrollLineButton}" />
               </Track.DecreaseButton>
               <Track.IncreaseButton>
-                <RepeatButton Name="{x:Static naming:PartNames.PartPageDownButton}"
+                <RepeatButton Name="PART_PageDownButton"
                               Theme="{StaticResource ModernSimpleScrollLineButton}" />
               </Track.IncreaseButton>
-              <Thumb Name="{x:Static naming:PartNames.PartThumb}"
+              <Thumb Name="PART_Thumb"
                      Theme="{StaticResource ModernSimpleScrollThumb}" />
             </Track>
           </DockPanel>

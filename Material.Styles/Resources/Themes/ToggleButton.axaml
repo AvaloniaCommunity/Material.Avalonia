@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=netstandard"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple" >
     <system:Double x:Key="ButtonHoveredOpacity" >0.12</system:Double>
     <system:Double x:Key="ButtonDisabledOpacity" >0.38</system:Double>
@@ -24,22 +23,22 @@
         <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Template" >
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}" >
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                        <Border Name="{x:Static naming:PartNames.PartHoverEffect}"
+                    <Panel Name="PART_RootPanel">
+                        <Border Name="PART_HoverEffect"
                                 Background="{TemplateBinding assists:ButtonAssist.HoverColor}"
                                 CornerRadius="{TemplateBinding CornerRadius}" />
                         <Border CornerRadius="{TemplateBinding CornerRadius}"
                                 ClipToBounds="True" >
-                            <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}"
+                            <ripple:RippleEffect Name="PART_Ripple"
                                                  RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
                                                  RippleOpacity="{StaticResource ButtonPressedOpacity}" >
-                                <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Content}"
                                                   ContentTemplate="{TemplateBinding ContentTemplate}"
                                                   Padding="{TemplateBinding Padding}"

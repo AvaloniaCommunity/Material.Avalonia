@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:assists="clr-namespace:Material.Styles.Assists">
   <ResourceDictionary.MergedDictionaries>
     <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml" />
@@ -21,14 +20,14 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+        <Border Name="PART_RootBorder"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
-            <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
-              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}">
+          <DockPanel Name="PART_RootPanel">
+            <Panel Name="PART_TabsPanel">
+              <ItemsPresenter Name="PART_ItemsPresenter">
                 <ItemsPresenter.ItemsPanel>
                   <ItemsPanelTemplate>
                     <UniformGrid Name="PART_TabContainer"
@@ -40,11 +39,11 @@
                 </ItemsPresenter.ItemsPanel>
               </ItemsPresenter>
 
-              <Rectangle Name="{x:Static naming:PartNames.PartSeparator}"
+              <Rectangle Name="PART_Separator"
                          Fill="{TemplateBinding assists:TabControlAssist.TabHeaderInactiveBrush}" />
             </Panel>
 
-            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+            <ContentPresenter Name="PART_ContentPresenter"
                               Margin="{TemplateBinding Padding}"
                               Content="{TemplateBinding SelectedContent}"
                               ContentTemplate="{TemplateBinding ContentTemplate}" />
@@ -164,20 +163,20 @@
   <!--               TargetType="TabControl"> -->
   <!--   <Setter Property="Template"> -->
   <!--     <ControlTemplate> -->
-  <!--       <Border Name="{x:Static naming:PartNames.PartRootBorder}" -->
+  <!--       <Border Name="PART_RootBorder" -->
   <!--               Background="{TemplateBinding Background}" -->
   <!--               BorderBrush="{TemplateBinding BorderBrush}" -->
   <!--               BorderThickness="{TemplateBinding BorderThickness}" -->
   <!--               CornerRadius="{TemplateBinding CornerRadius}"> -->
-  <!--         <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}"> -->
+  <!--         <DockPanel Name="PART_RootPanel"> -->
   <!--           <Panel Name="{x:Static naming:PartNames.PartTabsPanel}"> -->
-  <!--             <controls:Scroller Name="{x:Static naming:PartNames.PartScrollViewer}" -->
+  <!--             <controls:Scroller Name="PART_ScrollViewer" -->
   <!--                                Theme="{StaticResource TabControlScroller}" /> -->
   <!-- -->
   <!--             <Rectangle Name="{x:Static naming:PartNames.PartSeparator}" /> -->
   <!--           </Panel> -->
   <!-- -->
-  <!--           <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}" -->
+  <!--           <ContentPresenter Name="PART_ContentPresenter" -->
   <!--                             Margin="{TemplateBinding Padding}" -->
   <!--                             Content="{TemplateBinding SelectedContent}" -->
   <!--                             ContentTemplate="{TemplateBinding ContentTemplate}" /> -->
@@ -242,14 +241,14 @@
              (or you can change TabItem theme in code-behind? I didn't tried, please submit a PR if works!) -->
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+        <Border Name="PART_RootBorder"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
-            <Panel Name="{x:Static naming:PartNames.PartTabsPanel}">
-              <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}">
+          <DockPanel Name="PART_RootPanel">
+            <Panel Name="PART_TabsPanel">
+              <ItemsPresenter Name="PART_ItemsPresenter">
                 <ItemsPresenter.Styles>
                   <Style Selector="TabItem">
                     <Setter Property="Theme" Value="{StaticResource MaterialBottomNavigationTabItem}" />
@@ -258,7 +257,7 @@
               </ItemsPresenter>
             </Panel>
 
-            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+            <ContentPresenter Name="PART_ContentPresenter"
                               Margin="{TemplateBinding Padding}"
                               Content="{TemplateBinding SelectedContent}"
                               ContentTemplate="{TemplateBinding ContentTemplate}" />

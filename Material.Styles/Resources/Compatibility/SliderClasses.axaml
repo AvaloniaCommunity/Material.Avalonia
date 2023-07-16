@@ -16,6 +16,5 @@
         <Setter Property="Theme" Value="{StaticResource MaterialSliderV1}"/>
     </Style>
     
-    <Style Selector="Slider.material-v1.discrete">
-    </Style>
+    <Style Selector="Slider.material-v1.discrete" />
 </Styles>

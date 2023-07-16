@@ -3,7 +3,6 @@
         xmlns:converters="clr-namespace:Material.Styles.Converters"
         xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Styles.Resources>
         <SineEaseInOut x:Key="EasingConstant" />
@@ -21,10 +20,10 @@
         <Setter Property="LeftDrawerExpandThresholdWidth" Value="1000"/>
         <Setter Property="Template" >
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}">
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                        <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                    <Panel Name="PART_RootPanel">
+                        <ContentPresenter Name="PART_ContentPresenter"
                                           Margin="{TemplateBinding ContentMargin}"
                                           Padding="{TemplateBinding Padding}"
                                           Content="{TemplateBinding Content}"

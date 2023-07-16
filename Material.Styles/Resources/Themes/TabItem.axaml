@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple" >
     
     <!-- TODO: Better layouts -->
@@ -14,15 +13,15 @@
         <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBodyLight}"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                        <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
-                            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
-                                <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                    <Panel Name="PART_RootPanel">
+                        <ripple:RippleEffect Name="PART_Ripple">
+                            <Panel Name="PART_InnerPanel">
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Header}"
                                                   ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   Margin="{TemplateBinding Padding}"
@@ -31,7 +30,7 @@
                             </Panel>
                         </ripple:RippleEffect>
                         
-                        <Rectangle Name="{x:Static naming:PartNames.PartSeparator}"/>
+                        <Rectangle Name="PART_Separator"/>
                     </Panel>
                 </Border>
             </ControlTemplate>
@@ -91,15 +90,15 @@
         <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBodyLight}"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
-                        <ripple:RippleEffect Name="{x:Static naming:PartNames.PartRipple}">
-                            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
-                                <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                    <Panel Name="PART_RootPanel">
+                        <ripple:RippleEffect Name="PART_Ripple">
+                            <Panel Name="PART_InnerPanel">
+                                <ContentPresenter Name="PART_ContentPresenter"
                                                   Content="{TemplateBinding Header}"
                                                   ContentTemplate="{TemplateBinding HeaderTemplate}"
                                                   Margin="{TemplateBinding Padding}"
