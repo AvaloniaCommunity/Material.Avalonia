@@ -2,64 +2,126 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <ControlTheme x:Key="{x:Type NumericUpDown}"
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="20">
+        <NumericUpDown Minimum="0"
+                       Maximum="10"
+                       Increment="0.5"
+                       Watermark="Enter text"
+                       assists:TextFieldAssist.Hints="Here is the hint"
+                       assists:TextFieldAssist.Label="Cool label"/>
+        <NumericUpDown Minimum="0"
+                       Maximum="10"
+                       Increment="0.5"
+                       VerticalContentAlignment="Center"
+                       HorizontalContentAlignment="Center"
+                       ButtonSpinnerLocation="Left"
+                       Watermark="Enter text" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="MaterialOnlyPresenterTextBox" TargetType="TextBox"
+                BasedOn="{StaticResource {x:Type TextBox}}">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Name="PART_TextFieldPanel">
+          <DockPanel Name="PART_InnerPanel">
+            <Panel Name="PART_TextContainer">
+              <TextBlock Name="PART_PlaceholderText"
+                         Text="{TemplateBinding Watermark}"
+                         FontFamily="{TemplateBinding FontFamily}"
+                         FontSize="{TemplateBinding FontSize}"
+                         FontStyle="{TemplateBinding FontStyle}"
+                         FontWeight="{TemplateBinding FontWeight}" />
+                <TextPresenter Name="PART_TextPresenter"
+                               CaretBrush="{TemplateBinding CaretBrush}"
+                               CaretIndex="{TemplateBinding CaretIndex}"
+                               TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                               TextBlock.FontSize="{TemplateBinding FontSize}"
+                               TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                               TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                               TextBlock.Foreground="{TemplateBinding Foreground}"
+                               InputMethod.IsInputMethodEnabled="{TemplateBinding 
+                                                               InputMethod.IsInputMethodEnabled}"
+                               PasswordChar="{TemplateBinding PasswordChar}"
+                               RevealPassword="{TemplateBinding RevealPassword}"
+                               SelectionBrush="{TemplateBinding SelectionBrush}"
+                               SelectionStart="{TemplateBinding SelectionStart}"
+                               SelectionEnd="{TemplateBinding SelectionEnd}"
+                               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                               Text="{TemplateBinding Text, Mode=TwoWay}"
+                               TextAlignment="{TemplateBinding TextAlignment}"
+                               TextWrapping="{TemplateBinding TextWrapping}"
+                               Background="Transparent" />
+            </Panel>
+          </DockPanel>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="FilledNumericUpDown"
                 TargetType="NumericUpDown">
     <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="MinHeight" Value="48" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="PART_RootBorder"
-                ClipToBounds="True"
-                CornerRadius="4,4,0,0"
-                Margin="{TemplateBinding Padding}"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}">
-          <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Border Name="focusBorder"
-                    Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
-            <ButtonSpinner Name="PART_Spinner"
-                           BorderThickness="0"
-                           BorderBrush="Transparent"
-                           HorizontalContentAlignment="Stretch"
-                           VerticalContentAlignment="Stretch"
-                           AllowSpin="{TemplateBinding AllowSpin}"
-                           ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
-                           ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
-              <TextBox Name="PART_TextBox" Margin="8 0"
-                       BorderThickness="0" VerticalAlignment="Center"
-                       TextBlock.FontFamily="{TemplateBinding FontFamily}"
-                       TextBlock.FontSize="{TemplateBinding FontSize}"
-                       TextBlock.FontStyle="{TemplateBinding FontStyle}"
-                       TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                       TextBlock.Foreground="{TemplateBinding Foreground}"
-                       assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
-                       Watermark="{TemplateBinding Watermark}"
-                       DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                       IsReadOnly="{TemplateBinding IsReadOnly}"
-                       Text="{TemplateBinding Text}"
-                       AcceptsReturn="False" TextWrapping="NoWrap" />
-            </ButtonSpinner>
-            <controls:MaterialUnderline Classes="MirrorY"
-                                        VerticalAlignment="Bottom"
-                                        Name="Underline" />
-          </Grid>
-        </Border>
+        <DockPanel Name="PART_RootPanel">
+          <TextBlock Name="PART_HintsText"
+                     DockPanel.Dock="Bottom"
+                     IsVisible="{TemplateBinding (assists:TextFieldAssist.Hints),
+                                       Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                     Text="{TemplateBinding (assists:TextFieldAssist.Hints)}"
+                     TextTrimming="CharacterEllipsis" />
+          <Border Name="PART_RootBorder"
+                  ClipToBounds="True"
+                  CornerRadius="4,4,0,0"
+                  Margin="{TemplateBinding Padding}"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}">
+
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+              <Border Name="PART_FocusBorder"
+                      Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+              <ButtonSpinner Name="PART_Spinner"
+                             Foreground="{TemplateBinding Foreground}"
+                             BorderThickness="0"
+                             BorderBrush="Transparent"
+                             HorizontalContentAlignment="Stretch"
+                             VerticalContentAlignment="Stretch"
+                             AllowSpin="{TemplateBinding AllowSpin}"
+                             ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
+                             ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
+                <TextBox Name="PART_TextBox" Margin="8 0"
+                         BorderThickness="0" VerticalAlignment="Center"
+                         TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                         TextBlock.FontSize="{TemplateBinding FontSize}"
+                         TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                         TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                         TextBlock.Foreground="{TemplateBinding Foreground}"
+                         assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                         Watermark="{TemplateBinding Watermark}"
+                         DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                         IsReadOnly="{TemplateBinding IsReadOnly}"
+                         Text="{TemplateBinding Text}"
+                         AcceptsReturn="False" TextWrapping="NoWrap"
+                         Theme="{StaticResource MaterialOnlyPresenterTextBox}" />
+              </ButtonSpinner>
+              <controls:MaterialUnderline Classes="MirrorY"
+                                          VerticalAlignment="Bottom"
+                                          Name="Underline" />
+            </Grid>
+          </Border>
+        </DockPanel>
       </ControlTemplate>
     </Setter>
 
-    <!-- <Style Selector="^ /template/ controls|MaterialUnderline#Underline"> -->
-    <!--   <Setter Property="Opacity" Value="0" /> -->
-    <!-- </Style> -->
-    <!-- -->
-    <!-- <Style Selector="^ /template/ TextBox#PART_TextBox"> -->
-    <!--   <Setter Property="Opacity" Value="0" /> -->
-    <!-- </Style> -->
-
     <Style Selector="^:pointerover /template/ controls|MaterialUnderline#Underline">
-      <Setter Property="IsActive" Value="True" />
+      <Setter Property="IsHovered" Value="True" />
     </Style>
 
     <Style Selector="^:focus-within /template/ controls|MaterialUnderline#Underline">
@@ -68,6 +130,11 @@
 
     <Style Selector="^ /template/ Border#PART_RootBorder">
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+      <Setter Property="MinHeight" Value="48" />
     </Style>
   </ControlTheme>
+
+  <!-- Default theme -->
+  <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown"
+                BasedOn="{StaticResource FilledNumericUpDown}" />
 </ResourceDictionary>
