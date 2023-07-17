@@ -337,7 +337,9 @@
                 <StackPanel Orientation="Vertical">
                     <TextBlock Classes="Headline6 Subheadline2" Text="Numeric Up Down" />
                     <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown0">
-                        <NumericUpDown/>
+                        <NumericUpDown Watermark="Enter text"
+                                       wpf:TextFieldAssist.Hints="Here is the hint"
+                                       wpf:TextFieldAssist.Label="Cool label" />
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown1">
                         <NumericUpDown ButtonSpinnerLocation="Left"/>
