@@ -1,8 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
   <Design.PreviewWith>
     <StackPanel Margin="20 20 200 1000">
@@ -20,11 +18,6 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
-          <!-- This controls required by avalonia code behind -->
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaDayText}" />
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaMonthText}" />
-          <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="{x:Static naming:PartNames.AvaloniaYearText}" />
-    
           <!-- TODO: Make TextBox writeable -->
           <!-- TODO: allow use different text boxes style-->
           <TextBox Name="DisplayTextBox"
@@ -45,7 +38,7 @@
           <Panel Name="PART_PopupContainer">
             <Popup Name="PART_TimePickerPopup"
                    IsOpen="{Binding #TimePickerButton.IsChecked, Mode=TwoWay}">
-              <controls:Card Name="{x:Static naming:PartNames.PartCard}">
+              <controls:Card Name="PART_Card">
                 
               </controls:Card>
             </Popup>

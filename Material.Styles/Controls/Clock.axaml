@@ -48,7 +48,8 @@
                            Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
                            Classes="time-input"
                            assists:TextFieldAssist.Hints="Hour"
-                           ShowButtonSpinner="False"
+                           ShowButtonSpinner="False" ClipValueToMinMax="True"
+                           FormatString="0"
                            Minimum="{TemplateBinding TimeFormat, Converter={x:Static converters:AmPmRangeConverter.MinimumInstance}}"
                            Maximum="{TemplateBinding TimeFormat, Converter={x:Static converters:AmPmRangeConverter.MaximumInstance}}"
                            Value="{TemplateBinding controls:ClockInternals.Hours}" />
@@ -61,7 +62,8 @@
                            Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"
                            Classes="time-input"
                            assists:TextFieldAssist.Hints="Minute"
-                           ShowButtonSpinner="False"
+                           ShowButtonSpinner="False" ClipValueToMinMax="True"
+                           FormatString="0"
                            Minimum="0" Maximum="59"
                            Value="{TemplateBinding controls:ClockInternals.Minutes}" />
             <TextBlock x:Name="PART_MinutesSecondsSeparator"
@@ -75,7 +77,8 @@
                            Classes="time-input"
                            IsVisible="{TemplateBinding CanSelectSeconds}"
                            assists:TextFieldAssist.Hints="Second"
-                           ShowButtonSpinner="False"
+                           ShowButtonSpinner="False" ClipValueToMinMax="True"
+                           FormatString="0"
                            Minimum="0" Maximum="59"
                            Value="{TemplateBinding controls:ClockInternals.Seconds}" />
 
