@@ -344,6 +344,11 @@
                     <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown1">
                         <NumericUpDown ButtonSpinnerLocation="Left"/>
                     </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown2">
+                      <NumericUpDown
+                        Theme="{StaticResource OutlineNumericUpDown}"
+                        ButtonSpinnerLocation="Left"/>
+                    </showMeTheXaml:XamlDisplay>
                 </StackPanel>
             </StackPanel>
         </WrapPanel>
