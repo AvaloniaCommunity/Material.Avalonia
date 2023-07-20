@@ -83,7 +83,7 @@
                            Value="{TemplateBinding controls:ClockInternals.Seconds}" />
 
             <Border x:Name="PART_AmPmSelector" Grid.Row="0" Grid.Column="5"
-                    Margin="12 8 0 18"
+                    Margin="12 0 0 18"
                     ClipToBounds="True"
                     CornerRadius="4"
                     BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
@@ -117,7 +117,7 @@
     </Setter>
 
     <Style Selector="^ /template/ NumericUpDown.time-input">
-      <!-- <Setter Property="Theme" Value="{StaticResource OutlineTextBox}" /> -->
+      <Setter Property="Theme" Value="{StaticResource OutlineNumericUpDown}" />
       <Setter Property="Width" Value="96" />
       <Style Selector="^.active">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />

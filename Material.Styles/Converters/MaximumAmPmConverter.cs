@@ -13,10 +13,10 @@ public class AmPmRangeConverter : IValueConverter {
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture) {
         if (value is TimeFormat format) {
             return format switch {
-                TimeFormat.TwelveHour when IsMinimum      => 0,
-                TimeFormat.TwelveHour when !IsMinimum     => 23,
-                TimeFormat.TwentyFourHour when IsMinimum  => 1,
-                TimeFormat.TwentyFourHour when !IsMinimum => 12,
+                TimeFormat.TwelveHour when IsMinimum      => 1,
+                TimeFormat.TwelveHour when !IsMinimum     => 12,
+                TimeFormat.TwentyFourHour when IsMinimum  => 0,
+                TimeFormat.TwentyFourHour when !IsMinimum => 23,
                 _                                         => throw new ArgumentOutOfRangeException()
             };
         }
