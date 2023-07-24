@@ -30,6 +30,9 @@ namespace Material.Styles.Controls
         public static readonly StyledProperty<double> RadiusMultiplierProperty =
             AvaloniaProperty.Register<CircleClockPicker, double>(nameof(RadiusMultiplier));
 
+        public static readonly StyledProperty<int> CellShiftNumberProperty = 
+            AvaloniaProperty.Register<CircleClockPicker, int>(nameof(CellShiftNumber));
+
         public int Value
         {
             get => _value;
@@ -68,6 +71,11 @@ namespace Material.Styles.Controls
         {
             get => GetValue(RadiusMultiplierProperty);
             set => SetValue(RadiusMultiplierProperty, value);
+        }
+        
+        public int CellShiftNumber {
+            get { return GetValue(CellShiftNumberProperty); }
+            set { SetValue(CellShiftNumberProperty, value); }
         }
 
         public event EventHandler? AfterDrag;
@@ -170,7 +178,7 @@ namespace Material.Styles.Controls
                 degrees -= 360;
 
             // degree to value
-            var value = (int) Math.Round(degrees / 360 * (Maximum + 1 - Minimum) + Minimum);
+            var value = (int) Math.Round(degrees / 360 * (Maximum + 1 - Minimum) + Minimum - CellShiftNumber);
 
             if (value == Maximum + 1)
                 value = Minimum;
@@ -199,7 +207,7 @@ namespace Material.Styles.Controls
             if (_pointer == null)
                 return;
 
-            var degrees = (v - Minimum) * (360f / (Maximum + 1 - Minimum));
+            var degrees = (v - Minimum + CellShiftNumber) * (360f / (Maximum + 1 - Minimum));
 
             var transform = (RotateTransform)(_pointer.RenderTransform ??= new RotateTransform());
             transform.Angle = degrees + 180;
@@ -213,6 +221,7 @@ namespace Material.Styles.Controls
             var step = StepFrequency;
             var min = Minimum;
             var max = Maximum;
+            var cellShift = CellShiftNumber;
 
             var radiusMultiplier = RadiusMultiplier;
 
@@ -239,7 +248,7 @@ namespace Material.Styles.Controls
 
             float GetAngle(int value)
             {
-                var degrees = (value - min) * (360f / (max + 1 - min));
+                var degrees = (value - min + cellShift) * (360f / (max + 1 - min));
                 return degrees;
             }
 
