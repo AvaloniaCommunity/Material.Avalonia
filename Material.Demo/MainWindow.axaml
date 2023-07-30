@@ -63,7 +63,6 @@
                     <Setter Property="Height" Value="48" />
                     <Setter Property="Padding" Value="16,0" />
                     <Setter Property="VerticalContentAlignment" Value="Center" />
-                    <Setter Property="IsEnabled" Value="{Binding $self.Content.IsEnabled}" />
                   </Style>
                 </ListBox.Styles>
                 <ListBoxItem>Home</ListBoxItem>
