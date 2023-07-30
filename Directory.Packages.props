@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <AvaloniaVersion>11.0.0</AvaloniaVersion>
-    <ShowMeTheXamlVersion>1.2.0-avalonia11-preview7</ShowMeTheXamlVersion>
+    <ShowMeTheXamlVersion>1.3.0</ShowMeTheXamlVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia"/>
