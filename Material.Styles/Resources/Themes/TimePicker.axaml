@@ -1,0 +1,78 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+  <Design.PreviewWith>
+    <StackPanel Margin="20 20 200 1000">
+      <TimePicker />
+    </StackPanel>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="MaterialTimePicker" TargetType="TimePicker">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="assists:TextFieldAssist.Label" Value="Time" />
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <!-- TODO: Make TextBox writeable -->
+          <!-- TODO: allow use different text boxes style-->
+          <TextBox Name="DisplayTextBox"
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                   Text="{TemplateBinding SelectedTime}">
+            <TextBox.InnerRightContent>
+              <ToggleButton Name="TimePickerButton"
+                            Classes="Icon"
+                            Width="36"
+                            Height="36"
+                            Margin="8 8 8 6">
+                <controls:MaterialInternalIcon Kind="Clock"
+                                               Width="20"
+                                               Height="20" />
+              </ToggleButton>
+            </TextBox.InnerRightContent>
+          </TextBox>
+          <Panel Name="PART_PopupContainer">
+            <Popup Name="PART_TimePickerPopup"
+                   IsOpen="{Binding #TimePickerButton.IsChecked, Mode=TwoWay}">
+              <controls:Card Name="PART_Card">
+                
+              </controls:Card>
+            </Popup>
+          </Panel>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    
+    <Style Selector="^ /template/ Panel#PART_PopupContainer">
+      <Setter Property="Margin" Value="-8" />
+    </Style>
+    
+    <Style Selector="^ /template/ Popup#PART_CalendarPopup">
+      <Setter Property="VerticalOffset" Value="-16" />
+      <Setter Property="IsLightDismissEnabled" Value="True" />
+    </Style>
+    
+    <Style Selector="^ /template/ Popup#PART_CalendarPopup > controls|Card#PART_Card">
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Margin" Value="8" />
+    </Style>
+    
+    <Style Selector="^ /template/ TextBox#DisplayTextBox">
+      <Setter Property="Margin" Value="0" />
+      <Setter Property="IsReadOnly" Value="True" />
+      <Setter Property="UseFloatingWatermark" Value="True" />
+    </Style>
+    
+    <Style Selector="^.multiselect /template/ Popup#PART_CalendarPopup Calendar">
+      <Setter Property="SelectionMode" Value="MultipleRange" />
+    </Style>
+  </ControlTheme>
+  
+  <!-- Default theme -->
+  <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker" 
+                BasedOn="{StaticResource MaterialTimePicker}" />
+</ResourceDictionary>
