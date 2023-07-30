@@ -1,10 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
+using Avalonia.Data;
+using Avalonia.Data.Converters;
 using Avalonia.Input;
+using Avalonia.VisualTree;
 using Material.Styles.Enums;
 
 namespace Material.Styles.Controls;
@@ -14,7 +20,7 @@ namespace Material.Styles.Controls;
 [TemplatePart("PART_SecondsBox", typeof(NumericUpDown))]
 [TemplatePart("PART_AmSelector", typeof(RadioButton))]
 [TemplatePart("PART_PmSelector", typeof(RadioButton))]
-[TemplatePart("PART_CircleClockContainer", typeof(TransitioningContentControl))]
+[TemplatePart("PART_CircleClockCarousel", typeof(Carousel))]
 public class Clock : TemplatedControl {
     /// <summary>
     /// Defines the <see cref="SelectedTime"/> property
@@ -39,17 +45,17 @@ public class Clock : TemplatedControl {
     /// </summary>
     public static readonly StyledProperty<string> TimeSeparatorProperty =
         AvaloniaProperty.Register<Clock, string>(nameof(TimeSeparator), ":");
+    private RadioButton _amSelectorRadioButton = null!;
 
 
     private NumericUpDown _hoursTextBox = null!;
-    private NumericUpDown _minutesTextBox = null!;
-    private NumericUpDown _secondsTextBox = null!;
-    private NumericUpDown _selectedTextBox = null!;
-    private List<NumericUpDown>? _inputBoxes;
-    private TransitioningContentControl _circleClockContainer = null!;
-    private RadioButton _amSelectorRadioButton = null!;
-    private RadioButton _pmSelectorRadioButton = null!;
+    private List<NumericUpDown> _inputBoxes = null!;
     internal bool _isUpdating;
+    private NumericUpDown _minutesTextBox = null!;
+    private RadioButton _pmSelectorRadioButton = null!;
+    private NumericUpDown _secondsTextBox = null!;
+    private NumericUpDown _selectedInputBox = null!;
+    private Carousel _carousel = null!;
 
     static Clock() {
         SelectedTimeProperty.Changed.AddClassHandler<Clock>((o, args) => o.UpdateSelectedTime());
@@ -95,63 +101,60 @@ public class Clock : TemplatedControl {
         _minutesTextBox = e.NameScope.Find<NumericUpDown>("PART_MinutesBox")!;
         _secondsTextBox = e.NameScope.Find<NumericUpDown>("PART_SecondsBox")!;
         _inputBoxes = new List<NumericUpDown>() { _hoursTextBox, _minutesTextBox, _secondsTextBox };
-        _selectedTextBox = _hoursTextBox;
+        _selectedInputBox = _hoursTextBox;
 
-        _amSelectorRadioButton = e.NameScope.Find<RadioButton>("PART_AmSelector");
-        _pmSelectorRadioButton = e.NameScope.Find<RadioButton>("PART_PmSelector");
+        _amSelectorRadioButton = e.NameScope.Find<RadioButton>("PART_AmSelector")!;
+        _pmSelectorRadioButton = e.NameScope.Find<RadioButton>("PART_PmSelector")!;
 
-        _circleClockContainer = e.NameScope.Find<TransitioningContentControl>("PART_CircleClockContainer")!;
+        _carousel = e.NameScope.Find<Carousel>("PART_CircleClockCarousel")!;
+        
+        foreach (var circleClockPicker in _carousel.Items
+                     .OfType<CircleClockPicker>()) {
+            circleClockPicker.PointerReleased += CircleClockPickerOnPointerReleased;
+        }
 
-        _hoursTextBox.GotFocus += TextBoxOnGotFocusHandler;
-        _minutesTextBox.GotFocus += TextBoxOnGotFocusHandler;
-        _secondsTextBox.GotFocus += TextBoxOnGotFocusHandler;
+        _hoursTextBox.GotFocus += InputBoxOnGotFocusHandler;
+        _minutesTextBox.GotFocus += InputBoxOnGotFocusHandler;
+        _secondsTextBox.GotFocus += InputBoxOnGotFocusHandler;
 
-        OnSelectedTextBoxChange();
+        OnSelectedInputBoxChange();
         UpdateSelectedTime();
     }
+    
+    private void CircleClockPickerOnPointerReleased(object sender, PointerReleasedEventArgs e) {
+        var circleClockPicker = (CircleClockPicker)sender;
+        if (circleClockPicker.Value is null) {
+            return;
+        }
 
-    private void TextBoxOnGotFocusHandler(object sender, GotFocusEventArgs e) {
-        _selectedTextBox = (NumericUpDown)sender;
-        OnSelectedTextBoxChange();
+        var nextInputBox = _inputBoxes
+            .Where(x => x.IsVisible)
+            .SkipWhile(x => x != _selectedInputBox)
+            .Skip(1)
+            .DefaultIfEmpty( _inputBoxes[0] )
+            .First();
+
+        // Setting focus to numeric up down TextBox
+        nextInputBox
+            .GetVisualDescendants()
+            .OfType<IInputElement>()
+            .FirstOrDefault(element => element.IsEffectivelyVisible && element.Focusable)
+            ?.Focus();
     }
 
-    private void OnSelectedTextBoxChange() {
-        foreach (var inputBox in _inputBoxes) {
+    private void InputBoxOnGotFocusHandler(object sender, GotFocusEventArgs e) {
+        _selectedInputBox = (NumericUpDown)sender;
+        OnSelectedInputBoxChange();
+    }
+
+    private void OnSelectedInputBoxChange() {
+        foreach (var inputBox in _inputBoxes!) {
             inputBox.Classes.Remove("active");
         }
 
-        _selectedTextBox.Classes.Add("active");
+        _selectedInputBox.Classes.Add("active");
 
-        var circleClockPicker = SetupClockPicker();
-
-        _circleClockContainer.Content = circleClockPicker;
-    }
-
-    private CircleClockPicker SetupClockPicker() {
-        var circleClockPicker = new CircleClockPicker { Minimum = 0 };
-        
-        if (_selectedTextBox.Name == "PART_HoursBox") {
-            if (TimeFormat == TimeFormat.TwelveHour) {
-                circleClockPicker.FirstLabelOverride = "12";
-                circleClockPicker.Maximum = 11;
-            }
-            else {
-                circleClockPicker.Maximum = 23;
-            }
-        }
-        else {
-            circleClockPicker.Maximum = 59;
-            circleClockPicker.StepFrequency = 5;
-        }
-
-        circleClockPicker[!CircleClockPicker.ValueProperty] = _secondsTextBox.Name switch {
-            "PART_HoursBox"   => this[!ClockInternals.HoursProperty],
-            "PART_MinutesBox" => this[!ClockInternals.MinutesProperty],
-            "PART_SecondsBox" => this[!ClockInternals.HoursProperty],
-            _                     => throw new ArgumentOutOfRangeException()
-        };
-        
-        return circleClockPicker;
+        _carousel!.SelectedIndex = _inputBoxes.IndexOf(_selectedInputBox);
     }
 
     private void UpdateSelectedTime() {
@@ -161,6 +164,7 @@ public class Clock : TemplatedControl {
             ClockInternals.SetHours(this, null);
             ClockInternals.SetMinutes(this, null);
             ClockInternals.SetSeconds(this, null);
+            _isUpdating = false;
             return;
         }
 
@@ -175,6 +179,18 @@ public class Clock : TemplatedControl {
     }
 }
 public static class ClockInternals {
+    public static TimeFormatToCellShiftConverter TimeFormatToCellShiftConverterInstance { get; } = new();
+    public static readonly AttachedProperty<int?> HoursProperty =
+        AvaloniaProperty.RegisterAttached<Clock, int?>("Hours", typeof(ClockInternals), defaultBindingMode:BindingMode.TwoWay);
+
+    public static readonly AttachedProperty<int?> MinutesProperty =
+        AvaloniaProperty.RegisterAttached<Clock, int?>("Minutes", typeof(ClockInternals), defaultBindingMode:BindingMode.TwoWay);
+
+    public static readonly AttachedProperty<int?> SecondsProperty = 
+        AvaloniaProperty.RegisterAttached<Clock, int?>("Seconds", typeof(ClockInternals), defaultBindingMode:BindingMode.TwoWay);
+
+    public static readonly AttachedProperty<bool> IsAmProperty =
+        AvaloniaProperty.RegisterAttached<Clock, bool>("IsAm", typeof(ClockInternals));
     static ClockInternals() {
         HoursProperty.Changed.AddClassHandler<Clock>(OnValuesChanged);
         MinutesProperty.Changed.AddClassHandler<Clock>(OnValuesChanged);
@@ -197,9 +213,6 @@ public static class ClockInternals {
         clock.SelectedTime = new TimeSpan(hours, minutes, seconds ?? 0);
     }
 
-    public static readonly AttachedProperty<int?> HoursProperty =
-        AvaloniaProperty.RegisterAttached<Clock, int?>("Hours", typeof(ClockInternals));
-
     public static int? GetHours(Clock element) {
         return element.GetValue(HoursProperty);
     }
@@ -207,9 +220,6 @@ public static class ClockInternals {
     public static void SetHours(Clock element, int? value) {
         element.SetValue(HoursProperty, value);
     }
-
-    public static readonly AttachedProperty<int?> MinutesProperty =
-        AvaloniaProperty.RegisterAttached<Clock, int?>("Minutes", typeof(ClockInternals));
 
     public static int? GetMinutes(Clock element) {
         return element.GetValue(MinutesProperty);
@@ -219,8 +229,6 @@ public static class ClockInternals {
         element.SetValue(MinutesProperty, value);
     }
 
-    public static readonly AttachedProperty<int?> SecondsProperty = AvaloniaProperty.RegisterAttached<Clock, int?>("Seconds", typeof(ClockInternals));
-
     public static int? GetSeconds(Clock element) {
         return element.GetValue(SecondsProperty);
     }
@@ -228,9 +236,6 @@ public static class ClockInternals {
     public static void SetSeconds(Clock element, int? value) {
         element.SetValue(SecondsProperty, value);
     }
-
-    public static readonly AttachedProperty<bool> IsAmProperty =
-        AvaloniaProperty.RegisterAttached<Clock, bool>("IsAm", typeof(ClockInternals));
 
     public static bool GetIsAm(Clock element) {
         return element.GetValue(IsAmProperty);
@@ -258,4 +263,19 @@ public static class ClockInternals {
 
     public static bool IsAm(int twentyFourFormattedHours)
         => twentyFourFormattedHours < 12;
+    
+    public sealed class TimeFormatToCellShiftConverter : IValueConverter {
+        /// <inheritdoc />
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture) {
+            return value switch {
+                TimeFormat.TwelveHour     => 1,
+                TimeFormat.TwentyFourHour => 0,
+                _                         => throw new ArgumentOutOfRangeException(nameof(value), value, null)
+            };
+        }
+        /// <inheritdoc />
+        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) {
+            throw new NotSupportedException();
+        }
+    }
 }
