@@ -5,7 +5,6 @@
                 TargetType="controls:CircleClockPicker">
     <Setter Property="Minimum" Value="0" />
     <Setter Property="Maximum" Value="59" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
     <Setter Property="RadiusMultiplier" Value="0.8" />
     <Setter Property="Template">
       <ControlTemplate>
