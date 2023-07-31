@@ -83,7 +83,7 @@
                 <ListBoxItem>TreeViews</ListBoxItem>
                 <ListBoxItem>Card</ListBoxItem>
                 <ListBoxItem>Typography</ListBoxItem>
-                <ListBoxItem>Pickers</ListBoxItem>
+                <ListBoxItem>Date/Time pickers</ListBoxItem>
                 <ListBoxItem>Shadows</ListBoxItem>
               </ListBox>
             </StackPanel>
@@ -205,7 +205,7 @@
                 <pages:TypographyDemo />
 
                 <!-- Pickers -->
-                <pages:PickersDemo />
+                <pages:DateTimePickerDemo />
 
                 <!-- Shadows -->
                 <pages:NotReadyDemo />

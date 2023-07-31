@@ -1,7 +1,9 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
   <Design.PreviewWith>
     <StackPanel Margin="20 20 200 1000">
       <TimePicker />
@@ -14,17 +16,25 @@
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Padding" Value="0" />
     <Setter Property="assists:TextFieldAssist.Label" Value="Time" />
+    <Setter Property="MinWidth" Value="120" />
 
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
           <!-- TODO: Make TextBox writeable -->
           <!-- TODO: allow use different text boxes style-->
-          <TextBox Name="DisplayTextBox"
-                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
-                   Text="{TemplateBinding SelectedTime}">
+          <TextBox Name="PART_DisplayTextBox"
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}">
+            <TextBox.Text>
+              <MultiBinding Converter="{x:Static converters:TimePickerTextConverter.Instance}">
+                <TemplateBinding Property="SelectedTime" />
+                <TemplateBinding Property="ClockIdentifier" />
+                <TemplateBinding Property="assists:TimePickerAssist.CanSelectSeconds" />
+                <TemplateBinding Property="assists:TimePickerAssist.DateTimeFormat" />
+              </MultiBinding>
+            </TextBox.Text>
             <TextBox.InnerRightContent>
-              <ToggleButton Name="TimePickerButton"
+              <ToggleButton Name="PART_TimePickerPopupButton"
                             Classes="Icon"
                             Width="36"
                             Height="36"
@@ -37,42 +47,48 @@
           </TextBox>
           <Panel Name="PART_PopupContainer">
             <Popup Name="PART_TimePickerPopup"
-                   IsOpen="{Binding #TimePickerButton.IsChecked, Mode=TwoWay}">
+                   IsOpen="{Binding #PART_TimePickerPopupButton.IsChecked, Mode=TwoWay}">
               <controls:Card Name="PART_Card">
-                
+                <controls:Clock Name="PART_Clock"
+                                SelectedTime="{TemplateBinding SelectedTime, Mode=TwoWay}"
+                                CanSelectSeconds="{TemplateBinding assists:TimePickerAssist.CanSelectSeconds}" />
               </controls:Card>
             </Popup>
           </Panel>
         </Panel>
       </ControlTemplate>
     </Setter>
-    
+
     <Style Selector="^ /template/ Panel#PART_PopupContainer">
       <Setter Property="Margin" Value="-8" />
     </Style>
-    
-    <Style Selector="^ /template/ Popup#PART_CalendarPopup">
+
+    <Style Selector="^ /template/ Popup#PART_TimePickerPopup">
       <Setter Property="VerticalOffset" Value="-16" />
       <Setter Property="IsLightDismissEnabled" Value="True" />
     </Style>
-    
-    <Style Selector="^ /template/ Popup#PART_CalendarPopup > controls|Card#PART_Card">
+
+    <Style Selector="^ /template/ Popup#PART_TimePickerPopup > controls|Card#PART_Card">
       <Setter Property="Padding" Value="0" />
       <Setter Property="Margin" Value="8" />
     </Style>
-    
-    <Style Selector="^ /template/ TextBox#DisplayTextBox">
+
+    <Style Selector="^ /template/ TextBox#PART_DisplayTextBox">
       <Setter Property="Margin" Value="0" />
       <Setter Property="IsReadOnly" Value="True" />
       <Setter Property="UseFloatingWatermark" Value="True" />
     </Style>
-    
-    <Style Selector="^.multiselect /template/ Popup#PART_CalendarPopup Calendar">
-      <Setter Property="SelectionMode" Value="MultipleRange" />
+
+    <Style Selector="^[ClockIdentifier=12HourClock] /template/ controls|Clock#PART_Clock">
+      <Setter Property="TimeFormat" Value="TwelveHour" />
+    </Style>
+
+    <Style Selector="^[ClockIdentifier=24HourClock] /template/ controls|Clock#PART_Clock">
+      <Setter Property="TimeFormat" Value="TwentyFourHour" />
     </Style>
   </ControlTheme>
-  
+
   <!-- Default theme -->
-  <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker" 
+  <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker"
                 BasedOn="{StaticResource MaterialTimePicker}" />
 </ResourceDictionary>

@@ -44,6 +44,8 @@
       <ControlTemplate>
         <Grid RowDefinitions="Auto 8 Auto">
           <Grid ColumnDefinitions="* Auto * Auto Auto Auto">
+            <!-- TODO: Make numbers bigger, and do something with color -->
+            <!-- https://m2.material.io/components/time-pickers#anatomy -->
             <NumericUpDown x:Name="PART_HoursBox"
                            Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
                            Classes="time-input" Focusable="False"
@@ -93,17 +95,18 @@
                              Grid.Row="0"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
                              Content="AM"
-                             IsChecked="{TemplateBinding controls:ClockInternals.IsAm}" />
+                             IsChecked="{Binding !!(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                 <Rectangle Grid.Row="1" Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
                 <RadioButton x:Name="PART_PmSelector"
                              Grid.Row="2"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
                              Content="PM"
-                             IsChecked="{TemplateBinding controls:ClockInternals.IsAm, Converter={x:Static BoolConverters.Not}}" />
+                             IsChecked="{Binding !(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
               </Grid>
             </Border>
           </Grid>
 
+          <!-- TODO: Implement animation for carousel, such as in MDIX -->
           <Carousel x:Name="PART_CircleClockCarousel"
                     Grid.Row="2" Grid.Column="0"
                     Height="256" Width="256">

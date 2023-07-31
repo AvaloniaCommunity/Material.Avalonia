@@ -195,6 +195,7 @@ public static class ClockInternals {
         HoursProperty.Changed.AddClassHandler<Clock>(OnValuesChanged);
         MinutesProperty.Changed.AddClassHandler<Clock>(OnValuesChanged);
         SecondsProperty.Changed.AddClassHandler<Clock>(OnValuesChanged);
+        IsAmProperty.Changed.AddClassHandler<Clock>(OnValuesChanged);
     }
 
     private static void OnValuesChanged(Clock clock, AvaloniaPropertyChangedEventArgs args) {

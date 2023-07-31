@@ -1,8 +1,8 @@
 using Avalonia.Controls;
 
 namespace Material.Demo.Pages {
-    public partial class PickersDemo : UserControl {
-        public PickersDemo() {
+    public partial class DateTimePickerDemo : UserControl {
+        public DateTimePickerDemo() {
             InitializeComponent();
         }
     }
