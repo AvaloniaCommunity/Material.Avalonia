@@ -32,6 +32,10 @@ namespace Material.Ripple {
         }
 
         private void PointerPressedHandler(object sender, PointerPressedEventArgs e) {
+            var (x, y) = e.GetPosition(this);
+            if (x < 0 || x > Bounds.Width || y < 0 || y > Bounds.Height) {
+                return;
+            }
             _isCancelled = false;
             Dispatcher.UIThread.InvokeAsync(delegate {
                 if (!IsAllowedRaiseRipple)
