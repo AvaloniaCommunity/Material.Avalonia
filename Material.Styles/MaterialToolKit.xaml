@@ -44,6 +44,8 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Label.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialInternalIcon.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Menu.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NativeMenuBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationDrawer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
@@ -142,8 +144,8 @@
 <StyleInclude Source="avares://Material.Styles/ListBox.xaml" />
     <StyleInclude Source="avares://Material.Styles/ListBoxItem.xaml" />
 -->
-  <StyleInclude Source="avares://Material.Styles/Menu.xaml" />
-  <StyleInclude Source="avares://Material.Styles/MenuItem.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/Menu.xaml" /> -->
+  <!-- <StyleInclude Source="avares://Material.Styles/MenuItem.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/NativeMenuBar.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/NotificationCard.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/NumericUpDown.xaml" /> -->
