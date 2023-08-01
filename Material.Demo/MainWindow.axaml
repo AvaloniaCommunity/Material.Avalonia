@@ -1,4 +1,4 @@
-﻿<Window x:Class="Material.Demo.MainWindow"
+<Window x:Class="Material.Demo.MainWindow"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -71,6 +71,7 @@
                 <ListBoxItem>Fields</ListBoxItem>
                 <ListBoxItem>ComboBoxes</ListBoxItem>
                 <ListBoxItem>Material Icons</ListBoxItem>
+                <ListBoxItem>Colors</ListBoxItem>
                 <ListBoxItem>Sliders</ListBoxItem>
                 <ListBoxItem>Progress indicators</ListBoxItem>
                 <ListBoxItem>Lists</ListBoxItem>
@@ -167,6 +168,9 @@
 
                 <!-- Icons -->
                 <pages:IconsDemo />
+
+                <!-- Colors -->
+                <pages:ColorsDemo />
 
                 <!-- Sliders -->
                 <pages:SlidersDemo />

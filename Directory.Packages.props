@@ -6,23 +6,23 @@
     <ShowMeTheXamlVersion>1.3.0</ShowMeTheXamlVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia"/>
+    <PackageReference Include="Avalonia" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)"/>
-    <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
-    <PackageVersion Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)"/>
-    <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)"/>
-    <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
-    <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)"/>
+    <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
     <!--For Material.Styles-->
-    <PackageVersion Include="System.Reactive" Version="6.0.0"/>
-    <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.0.0"/>
+    <PackageVersion Include="System.Reactive" Version="6.0.0" />
+    <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.0.0" />
     <!--For Material.Demo-->
-    <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1"/>
-    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.4"/>
-    <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)"/>
-    <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)"/>
-    <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)"/>
+    <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1" />
+    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.4" />
+    <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />
+    <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)" />
+    <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
   </ItemGroup>
 </Project>

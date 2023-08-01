@@ -1,22 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Nullable>enable</Nullable>
-    <LangVersion>8</LangVersion>
-    <NoWarn>NU5104, NU1507</NoWarn>
-
-    <Authors>Larymar,SKProCH,Appleneko2001</Authors>
-    <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
-    <RepositoryType>git</RepositoryType>
     <Description>Color palette component of Material.Avalonia.</Description>
   </PropertyGroup>
 
-  <ItemGroup>
-    <AvaloniaResource Include="**\*.xaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-  </ItemGroup>
 </Project>
