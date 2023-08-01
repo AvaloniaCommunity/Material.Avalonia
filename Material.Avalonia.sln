@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29409.12
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Demo", "Material.Demo\Material.Demo.csproj", "{ECB440AE-658B-4602-87CD-BE7FE8285362}"
 EndProject
@@ -15,7 +15,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Colors", "Material
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.DataGrid", "Material.DataGrid\Material.DataGrid.csproj", "{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Material.Dialog", "Material.Dialog\Material.Dialog.csproj", "{4F5F7FFD-B6E2-4C36-B250-D6B8169A0B1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Dialog", "Material.Dialog\Material.Dialog.csproj", "{4F5F7FFD-B6E2-4C36-B250-D6B8169A0B1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{40295CAB-9146-4A0A-B3E1-C31DA6E17256}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Config.Numerge.json = Config.Numerge.json
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		Settings.XamlStyler = Settings.XamlStyler
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

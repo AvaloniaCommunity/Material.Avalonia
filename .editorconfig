@@ -7,7 +7,7 @@ root = true
 # A newline ending every file
 # Use 4 spaces as indentation
 [*]
-insert_final_newline = true
+insert_final_newline = false
 indent_style = space
 indent_size = 4
 
@@ -15,6 +15,14 @@ indent_size = 4
 resharper_place_simple_initializer_on_single_line = true
 resharper_wrap_before_arrow_with_expressions = false
 resharper_xml_wrap_lines = false
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
+tab_width = 4
+end_of_line = crlf
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+dotnet_style_prefer_auto_properties = true:silent
+dotnet_style_object_initializer = true:suggestion
 
 # C# files
 [*.cs]
@@ -34,6 +42,7 @@ csharp_indent_braces = false
 csharp_indent_case_contents = true
 csharp_indent_switch_labels = true
 csharp_indent_labels = one_less_than_current
+csharp_new_line_before_open_brace = all
 
 # avoid this. unless absolutely necessary
 dotnet_style_qualification_for_field = false:suggestion
@@ -126,6 +135,14 @@ csharp_space_between_method_declaration_parameter_list_parentheses = false
 csharp_space_between_parentheses = false
 csharp_space_between_square_brackets = false
 space_within_single_line_array_initializer_braces = true
+csharp_using_directive_placement = outside_namespace:silent
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_prefer_braces = true:silent
+csharp_style_namespace_declarations = block_scoped:silent
+csharp_style_prefer_method_group_conversion = true:silent
+csharp_style_prefer_top_level_statements = true:silent
+csharp_style_expression_bodied_lambdas = true:silent
+csharp_style_expression_bodied_local_functions = false:silent
 
 # Xaml files
 [*.{xaml,axaml}]

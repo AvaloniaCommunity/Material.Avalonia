@@ -1,26 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <LangVersion>10</LangVersion>
-    <Nullable>enable</Nullable>
-    <NoWarn>NU5104, NU1507</NoWarn>
-
-    <Authors>Larymar,SKProCH,Appleneko2001</Authors>
-    <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
     <Description>Main styles library of Material.Avalonia.</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Fonts\**" />
     <AvaloniaResource Include="Fonts\**" />
-    
-    <AvaloniaResource Include="**\*.xaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
   </ItemGroup>
 
   <ItemGroup>

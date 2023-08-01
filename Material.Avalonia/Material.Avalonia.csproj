@@ -1,19 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>8</LangVersion>
-    <Nullable>enable</Nullable>
-    <NoWarn>NU5104, NU1507</NoWarn>
-
-    <Title>Material.Avalonia</Title>
-    <Authors>Larymar,SKProCH,Appleneko2001</Authors>
     <Description>This repository is a set of styles that will help you customize your application in an appropriate material design.</Description>
-    <PackageProjectUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
     <PackageTags>avalonia xaml material design theme colour color ui ux material-design google-material</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>FavIcon.png</PackageIcon>
     <VersionPrefix>3.0.0-avalonia11-preview5</VersionPrefix>
@@ -37,12 +26,6 @@
   <PropertyGroup>
     <Version Condition="'$(PatchNumber)' != ''">$(VersionPrefix).$(PatchNumber)</Version>
   </PropertyGroup>
-
-  <ItemGroup>
-    <AvaloniaResource Include="**\*.xaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
