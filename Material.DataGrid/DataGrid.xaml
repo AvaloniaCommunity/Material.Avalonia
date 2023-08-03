@@ -152,9 +152,7 @@
       <ControlTemplate>
         <Grid Name="PART_Root"
         RowDefinitions="*,*,Auto"
-        ColumnDefinitions="Auto,*">
-
-        </Grid>
+        ColumnDefinitions="Auto,*" />
       </ControlTemplate>
     </Setter>
   </Style>
@@ -169,13 +167,13 @@
                                  ColumnDefinitions="Auto,Auto,Auto,Auto"
                                  RowDefinitions="Auto,*,Auto">
 
-          <Rectangle Grid.Column="1" Grid.Row="1" Name="IndentSpacer" />
-          <ToggleButton Grid.Column="2" Grid.Row="1" Name="ExpanderButton" Margin="2,0,0,0"/>
+          <Rectangle Grid.Column="1" Grid.Row="1" Name="PART_IndentSpacer" />
+          <ToggleButton Grid.Column="2" Grid.Row="1" Name="PART_ExpanderButton" Margin="2,0,0,0"/>
 
           <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,1,0,1">
-            <TextBlock Name="PropertyNameElement" Margin="4,0,0,0" IsVisible="{TemplateBinding IsPropertyNameVisible}"/>
+            <TextBlock Name="PART_PropertyNameElement" Margin="4,0,0,0" IsVisible="{TemplateBinding IsPropertyNameVisible}"/>
             <TextBlock Margin="4,0,0,0" Text="{Binding Key}" />
-            <TextBlock Name="ItemCountElement" Margin="4,0,0,0" IsVisible="{TemplateBinding IsItemCountVisible}"/>
+            <TextBlock Name="PART_ItemCountElement" Margin="4,0,0,0" IsVisible="{TemplateBinding IsItemCountVisible}"/>
           </StackPanel>
 
           <DataGridRowHeader Name="RowHeader" Grid.RowSpan="3" DataGridFrozenGrid.IsFrozen="True"/>
@@ -206,7 +204,6 @@
 
   <Style Selector="DataGrid">
     <Setter Property="RowBackground" Value="Transparent" />
-    <Setter Property="AlternatingRowBackground" Value="Transparent" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="HeadersVisibility" Value="Column" /> 
     <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
@@ -337,12 +334,12 @@
   </Style>
   
   <Style Selector="DataGrid.DisableHoveringScrollBar ScrollBar:horizontal">
-    <Setter Property="Margin" Value="0"></Setter>
-    <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}"></Setter>
+    <Setter Property="Margin" Value="0" />
+    <Setter Property="Height" Value="{DynamicResource ScrollBarThickness}" />
   </Style>
   
   <Style Selector="DataGrid.DisableHoveringScrollBar ScrollBar:vertical">
-    <Setter Property="Margin" Value="0"></Setter>
-    <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}"></Setter>
+    <Setter Property="Margin" Value="0" />
+    <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
   </Style>
 </Styles>

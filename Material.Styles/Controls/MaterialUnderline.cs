@@ -9,10 +9,10 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Defines the <see cref="IdleBrush"/> property.
         /// </summary>
-        public static readonly StyledProperty<IBrush> IdleBrushProperty =
-            AvaloniaProperty.Register<MaterialUnderline, IBrush>(nameof(IdleBrush));
+        public static readonly StyledProperty<IBrush?> IdleBrushProperty =
+            AvaloniaProperty.Register<MaterialUnderline, IBrush?>(nameof(IdleBrush));
 
-        public IBrush IdleBrush
+        public IBrush? IdleBrush
         {
             get => GetValue(IdleBrushProperty);
             set => SetValue(IdleBrushProperty, value);
@@ -21,10 +21,10 @@ namespace Material.Styles.Controls
         /// <summary>
         /// Defines the <see cref="ActiveBrush"/> property.
         /// </summary>
-        public static readonly StyledProperty<IBrush> ActiveBrushProperty =
-            AvaloniaProperty.Register<MaterialUnderline, IBrush>(nameof(ActiveBrush));
+        public static readonly StyledProperty<IBrush?> ActiveBrushProperty =
+            AvaloniaProperty.Register<MaterialUnderline, IBrush?>(nameof(ActiveBrush));
 
-        public IBrush ActiveBrush
+        public IBrush? ActiveBrush
         {
             get => GetValue(ActiveBrushProperty);
             set => SetValue(ActiveBrushProperty, value);

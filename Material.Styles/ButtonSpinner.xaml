@@ -6,9 +6,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
-        <Setter Property="Template">
-            
-        </Setter>
+        <Setter Property="Template" />
     </Style>
     <Style Selector="ButtonSpinner /template/ RepeatButton#PART_IncreaseButton">
         <Setter Property="Content">

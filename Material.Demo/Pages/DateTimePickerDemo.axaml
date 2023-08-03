@@ -1,0 +1,94 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Material.Demo.Pages.DateTimePickerDemo">
+  <StackPanel Margin="16, 0">
+    <TextBlock Classes="Headline4 Subheadline" Text="Pickers" />
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="DatePicker" />
+    <StackPanel Orientation="Horizontal">
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #DatePicker0.SelectedDate, FallbackValue=N}" />
+        <showMeTheXaml:XamlDisplay UniqueId="DatePicker0">
+          <DatePicker Name="DatePicker0" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #DatePicker1.SelectedDate}" />
+        <showMeTheXaml:XamlDisplay UniqueId="DatePicker1">
+          <DatePicker Name="DatePicker1"
+                      assists:TextFieldAssist.Label="This is a date actually"
+                      SelectedDate="09/26/2021" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #DatePicker2.SelectedDate}" />
+        <showMeTheXaml:XamlDisplay UniqueId="DatePicker2">
+          <DatePicker Name="DatePicker2"
+                      SelectedDate="09/26/2021"
+                      assists:DatePickerAssist.DateTimeFormat="\M\y \for\ma\t MMM dd, yyyy" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="Multiple selection" />
+        <TextBlock Text="{Binding #DatePicker3.SelectedDate, FallbackValue=Not selected}" />
+        <showMeTheXaml:XamlDisplay UniqueId="DatePicker3">
+          <DatePicker Name="DatePicker3" Classes="multiselect" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+    </StackPanel>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="TimePicker" />
+    <StackPanel Orientation="Horizontal">
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #TimePicker0.SelectedTime, FallbackValue=Not selected}" />
+        <showMeTheXaml:XamlDisplay UniqueId="TimePicker0">
+          <TimePicker Name="TimePicker0" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #TimePicker1.SelectedTime}" />
+        <showMeTheXaml:XamlDisplay UniqueId="TimePicker1">
+          <TimePicker Name="TimePicker1"
+                      assists:TextFieldAssist.Label="This is a time actually"
+                      SelectedTime="09:26" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #TimePicker2.SelectedTime}" />
+        <showMeTheXaml:XamlDisplay UniqueId="TimePicker2">
+          <TimePicker Name="TimePicker2"
+                      assists:TextFieldAssist.Label="12 hour clock"
+                      ClockIdentifier="12HourClock" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #TimePicker3.SelectedTime}" />
+        <showMeTheXaml:XamlDisplay UniqueId="TimePicker3">
+          <TimePicker Name="TimePicker3"
+                      assists:TextFieldAssist.Label="24 hour clock"
+                      ClockIdentifier="24HourClock" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #TimePicker4.SelectedTime}" />
+        <showMeTheXaml:XamlDisplay UniqueId="TimePicker4">
+          <TimePicker Name="TimePicker4"
+                      assists:TextFieldAssist.Label="With seconds"
+                      assists:TimePickerAssist.CanSelectSeconds="True" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

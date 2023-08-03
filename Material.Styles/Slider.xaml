@@ -1,7 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Styles.Resources>
@@ -24,11 +23,11 @@
     <Style Selector="Slider:horizontal, Slider:vertical" >
         <Setter Property="Template" >
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}" >
+                    <Panel Name="PART_RootPanel" >
                         <!-- I have no idea how to reorder tick bar in between track and thumb
                              The tricky way might works by using ProgressBar as track (only visual, no hit test)
                              and then make transparent the track (the interactable one). -->
@@ -45,21 +44,21 @@
                                        Value="{TemplateBinding Value}"
                                        ThicknessTick="{TemplateBinding assists:SliderAssist.ThicknessTick}"/>
                         
-                        <Track Name="{x:Static naming:PartNames.PartTrack}"
+                        <Track Name="PART_Track"
                                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                Maximum="{TemplateBinding Maximum}"
                                Minimum="{TemplateBinding Minimum}"
                                Value="{TemplateBinding Value}" >
                             <Track.DecreaseButton>
-                                <RepeatButton Name="{x:Static naming:PartNames.PartDecreaseButton}"
+                                <RepeatButton Name="PART_DecreaseButton"
                                               Classes="material-slider-track-bar-v2"/>
                             </Track.DecreaseButton>
                             <Track.IncreaseButton>
-                                <RepeatButton Name="{x:Static naming:PartNames.PartIncreaseButton}"
+                                <RepeatButton Name="PART_IncreaseButton"
                                               Classes="material-slider-track-bar-v2"/>
                             </Track.IncreaseButton>
                             <Track.Thumb>
-                                <Thumb Name="{x:Static naming:PartNames.PartSliderThumb}"
+                                <Thumb Name="PART_SliderThumb"
                                        Focusable="False" Height="0" Width="0"
                                        ClipToBounds="False"
                                        Classes="material-slider-thumb-v2" />
@@ -92,7 +91,7 @@
         <Setter Property="Template" >
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"/>
                 </ControlTemplate>
             </Setter.Value>
@@ -109,14 +108,14 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <!-- Breaking animations -->
-                <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
+                <Panel Name="PART_InnerPanel">
                     
                     <!-- Inactive track bar -->
-                    <Border Name="{x:Static naming:PartNames.PartTrackBorderBar}"
+                    <Border Name="PART_TrackBorderBar"
                             Background="{TemplateBinding Background}" />
                     
                     <!-- Active track bar -->
-                    <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}"
+                    <Border Name="PART_Indicator"
                             Background="{TemplateBinding Foreground}" />
                 </Panel>
             </ControlTemplate>
@@ -242,8 +241,8 @@
         <Setter Property="Template" >
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}">
-                        <Border Name="{x:Static naming:PartNames.PartInnerBorder}"
+                    <Border Name="PART_RootBorder">
+                        <Border Name="PART_InnerBorder"
                                 Background="{TemplateBinding Background}"
                                 CornerRadius="{TemplateBinding CornerRadius}">
                         </Border>
@@ -339,12 +338,12 @@
                            VerticalAlignment="Center"
                            UseLayoutRounding="False"
                            ClipToBounds="False" >
-                        <Border Name="{x:Static naming:PartNames.PartHoverEffect}"
+                        <Border Name="PART_HoverEffect"
                                 Background="{TemplateBinding Foreground}" />
-                        <Border Name="{x:Static naming:PartNames.PartThumbGrip}"
+                        <Border Name="PART_ThumbGrip"
                                 Background="{TemplateBinding Foreground}"
                                 HorizontalAlignment="Center" />
-                        <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                        <ContentPresenter Name="PART_ContentPresenter"
                                           IsHitTestVisible="False"
                                           ClipToBounds="False"/>
                     </Panel>
@@ -477,27 +476,27 @@
     <Style Selector="Slider.material-v1:horizontal, Slider.material-v1:vertical">
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}" >
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}" >
-                        <Track Name="{x:Static naming:PartNames.PartTrack}"
+                    <Panel Name="PART_RootPanel" >
+                        <Track Name="PART_Track"
                                IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                                MinHeight="{TemplateBinding MinHeight}"
                                Minimum="{TemplateBinding Minimum}"
                                Maximum="{TemplateBinding Maximum}"
                                Value="{TemplateBinding Value}" >
                             <Track.DecreaseButton>
-                                <RepeatButton Name="{x:Static naming:PartNames.PartDecreaseButton}"
+                                <RepeatButton Name="PART_DecreaseButton"
                                               Classes="material-slider-track-bar-v1" />
                             </Track.DecreaseButton>
                             <Track.IncreaseButton>
-                                <RepeatButton Name="{x:Static naming:PartNames.PartIncreaseButton}"
+                                <RepeatButton Name="PART_IncreaseButton"
                                               Classes="material-slider-track-bar-v1" />
                             </Track.IncreaseButton>
                             <Track.Thumb>
-                                <Thumb Name="{x:Static naming:PartNames.PartSliderThumb}"
+                                <Thumb Name="PART_SliderThumb"
                                        Classes="material-slider-thumb-v1"/>
                             </Track.Thumb>
                         </Track>
@@ -555,11 +554,11 @@
                 <Panel HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        ClipToBounds="False" >
-                    <Ellipse Name="{x:Static naming:PartNames.PartHoverEffect}"
+                    <Ellipse Name="PART_HoverEffect"
                              Fill="{TemplateBinding Background}"/>
-                    <Ellipse Name="{x:Static naming:PartNames.PartThumbGrip}"
+                    <Ellipse Name="PART_ThumbGrip"
                              Fill="{TemplateBinding Background}"/>
-                    <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                    <ContentPresenter Name="PART_ContentPresenter"
                                       Width="0" Height="0"
                                       IsHitTestVisible="False"
                                       ClipToBounds="False"

@@ -1,35 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.1</Version>
-    <AssemblyName>Material.Dialog</AssemblyName>
-    <RootNamespace>Material.Dialog</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Larymar,SKProCH,Appleneko2001</Authors>
     <Description>Material.Dialog provide some essential material dialogs for use.</Description>
-    <PackageProjectUrl>https://github.com/AvaloniaUtils/material.avalonia</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/AvaloniaUtils/material.avalonia</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <LangVersion>8</LangVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.13" />
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.13" />
+    <PackageReference Include="Avalonia.Controls.ItemsRepeater"/>
   </ItemGroup>
 
   <ItemGroup>
-    <AvaloniaResource Include="**\*.xaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
+    <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Icons\DialogIconExtension.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
-  </ItemGroup>
 </Project>

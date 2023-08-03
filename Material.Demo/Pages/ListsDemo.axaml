@@ -3,7 +3,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ListsDemo">
@@ -19,10 +18,10 @@
             <showMeTheXaml:XamlDisplay UniqueId="Lists0">
                 <controls:Card Padding="0,4">
                     <ListBox Width="300">
-                        <TextBlock Text="Item 1" />
-                        <TextBlock Text="Item 2" />
-                        <TextBlock Text="Item 3" />
-                        <TextBlock Text="Item 4" />
+                      <ListBoxItem Content="Item 1" />
+                      <ListBoxItem Content="Item 2" />
+                      <ListBoxItem Content="Item 3" />
+                      <ListBoxItem Content="Item 4" />
                     </ListBox>
                 </controls:Card>
             </showMeTheXaml:XamlDisplay>

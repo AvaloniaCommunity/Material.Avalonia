@@ -2,8 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:assists="clr-namespace:Material.Styles.Assists"
-    xmlns:controls="clr-namespace:Material.Styles.Controls"
-    xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+    xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Style Selector="controls|ColorZone">
         <Setter Property="Mode" Value="Standard"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -13,16 +12,16 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
-                        <Border Name="{x:Static naming:PartNames.PartInnerBorder}"
+                        <Border Name="PART_InnerBorder"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 Padding="{TemplateBinding Padding}">
-                            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                            <ContentPresenter Name="PART_ContentPresenter"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               TextBlock.Foreground="{TemplateBinding TextBlock.Foreground}"

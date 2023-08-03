@@ -2,7 +2,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:converters1="clr-namespace:Material.Styles.Converters"
         xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters">
     <Styles.Resources>
         <converters1:BrushRoundConverter x:Key="BrushRoundConverter" />
@@ -21,19 +20,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}"
+                        <ScrollViewer Name="PART_ScrollViewer"
                                       Focusable="false"
                                       Padding="{TemplateBinding Padding}"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                       VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                            <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                            Items="{TemplateBinding Items}"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}"
-                                            ItemTemplate="{TemplateBinding ItemTemplate}"/>
+                          <ItemsPresenter Name="PART_ItemsPresenter"
+                                          ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </ScrollViewer>
                     </Border>
                 </ControlTemplate>
@@ -54,75 +51,36 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <StackPanel Name="{x:Static naming:PartNames.PartRootPanel}">
-                            <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
-                                <Border Name="{x:Static naming:PartNames.PartBehaviourEffect}"/>
+                        <StackPanel Name="PART_RootPanel">
+                            <Panel Name="PART_InnerPanel">
+                                <Border Name="PART_BehaviourEffect"/>
                                 
-                                <DockPanel Name="{x:Static naming:PartNames.PartContentPanel}"
+                                <DockPanel Name="PART_ContentPanel"
                                            Margin="{TemplateBinding Level,
                                                Converter={StaticResource MarginCreator},
                                                ConverterParameter={StaticResource TreeItemContentMargin}}">
                                     <ToggleButton DockPanel.Dock="Left"
-                                                  Name="{x:Static naming:PartNames.PartExpanderButton}"
+                                                  Name="PART_ExpanderButton"
                                                   IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
                                                   Classes="material-tree-view-item-expander"/>
                             
                                     <ContentPresenter DockPanel.Dock="Right"
-                                                      Name="{x:Static naming:PartNames.PartHeaderPresenter}"
+                                                      Name="PART_HeaderPresenter"
                                                       Content="{TemplateBinding Header}"
                                                       Padding="{TemplateBinding Padding}"/>
                                 </DockPanel>
                             </Panel>
-                            
-                            <ItemsPresenter Name="ItemsHost"
-                                            IsVisible="{TemplateBinding IsExpanded}"
-                                            Items="{TemplateBinding Items}"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+
+                          <ItemsControl Name="ItemsHost"
+                                        IsVisible="{TemplateBinding IsExpanded}"
+                                        ItemsSource="{TemplateBinding ItemsSource}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
                         </StackPanel>
                     </Border>
-                    
-                    <!-- Margin="16 0 0 0"
-                    <Grid ColumnDefinitions="Auto,Auto,*" RowDefinitions="Auto,Auto,*">
-                        <Rectangle Opacity="0" Fill="Red"
-                                   Grid.RowSpan="3" Grid.ColumnSpan="3" />
-                        <ToggleButton Grid.Row="0" Grid.Column="0" Name="Expander" ClickMode="Press"
-                                      IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
-                                      Classes="MaterialDesignExpandCollapseToggleStyle"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      Margin="8 0 8 0"
-                                      VerticalAlignment="Center" />
-
-                        <Border Name="MouseOverBorder"
-                                Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
-                                IsHitTestVisible="False"
-                                Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
-
-                        <Border Name="SelectedBorder"
-                                Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
-                                IsHitTestVisible="False"
-                                Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
-
-                        <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Name="ContentGrid" Background="Transparent">
-                            <ripple:RippleEffect
-                                RippleFill="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}"
-                                Focusable="False">
-                                <ContentPresenter Name="PART_Header" Margin="{Binding $parent[TreeViewItem].Padding}"
-                                                  Content="{TemplateBinding Header}" />
-                            </ripple:RippleEffect>
-                        </Grid>
-
-                        <ItemsPresenter Name="ItemsHost"
-                                        Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
-                                        Margin="-16 0 0 0"
-                                        VerticalAlignment="Top"
-                                        IsVisible="{TemplateBinding IsExpanded}"
-                                        Items="{TemplateBinding Items}"
-                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
-                    </Grid>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -177,7 +135,7 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             ClipToBounds="True">
                         <ripple:RippleEffect
-                            Name="{x:Static naming:PartNames.PartRipple}"
+                            Name="PART_Ripple"
                             RippleFill="{TemplateBinding Foreground,
                                  Converter={StaticResource BrushRoundConverter}}">
                             <Canvas Width="24" Height="24">

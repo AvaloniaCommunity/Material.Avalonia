@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+    <DataTemplate x:Key="DataValidationErrorTemplate">
+      <ItemsControl ItemsSource="{Binding }"
+                    TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
+            <ItemsControl.DataTemplates>
+              <!-- Due to technical issues, the font size will be changed implicitly and its
+              unable to change by styles or external way except code-behind or replace error template -->
+              <DataTemplate DataType="system:Exception">
+                    <TextBlock Name="PART_ErrorText"
+                               FontSize="12"
+                               Text="{Binding Message}"
+                               TextWrapping="Wrap"/>
+                </DataTemplate>
+                <DataTemplate DataType="system:Object">
+                    <TextBlock Name="PART_ErrorText"
+                               FontSize="12"
+                               Text="{Binding }"
+                               TextWrapping="Wrap"/>
+                </DataTemplate>
+            </ItemsControl.DataTemplates>
+        </ItemsControl>
+    </DataTemplate>
+    
+    <ControlTheme x:Key="{x:Type DataValidationErrors}"
+                  TargetType="DataValidationErrors">
+      <!-- You can replace error text styles 
+      by change ErrorTemplate to your own version through style setter. -->
+      <Setter Property="ErrorTemplate" Value="{StaticResource DataValidationErrorTemplate}"/>
+        
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel Name="PART_RootPanel">
+                    <ContentControl Name="PART_ErrorPresenter"
+                                    Content="{TemplateBinding (DataValidationErrors.Errors)}"
+                                    ContentTemplate="{TemplateBinding ErrorTemplate}"
+                                    IsVisible="{TemplateBinding (DataValidationErrors.HasErrors)}"/>
+                    
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^ /template/ ContentControl#PART_ErrorPresenter">
+            <Setter Property="DockPanel.Dock" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,3,0,0"/>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

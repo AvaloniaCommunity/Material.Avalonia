@@ -2,20 +2,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              x:Class="Material.Demo.App">
+  <Application.Resources>
+    <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
+  </Application.Resources>
   <Application.Styles>
-    <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml" />
-    <themes:MaterialTheme BaseTheme="Light"
-                          PrimaryColor="Purple"
-                          SecondaryColor="Indigo" />
-    <StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
-    <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
-    <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" />
-    <StyleInclude Source="avares://Material.Demo/MaterialXamlDisplay.axaml" />
-    <StyleInclude Source="avares://DialogHost.Avalonia/Styles.xaml" />
+    <themes:MaterialTheme PrimaryColor="Purple" SecondaryColor="Indigo" />
 
+    <avalonia:MaterialIconStyles />
+    <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
+    <dialogHostAvalonia:DialogHostStyles />
+
+    <!-- AvaloniaEdit styles -->
+    <!-- <StyleInclude Source="avares://ShowMeTheXaml.Avalonia/XamlDisplay.xaml" /> -->
+    <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml" />
+
+    <!-- Patching XamlDisplay -->
     <Style Selector="showMeTheXaml|XamlDisplay">
-      <Setter Property="ClipToBounds" Value="False"></Setter>
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border">
+      <Setter Property="CornerRadius" Value="4" />
+    </Style>
+
+    <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border > Grid">
+      <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground }" />
+    </Style>
+
+    <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border > Grid > Button">
+      <Setter Property="Theme" Value="{StaticResource FlatButton}" />
     </Style>
   </Application.Styles>
 </Application>

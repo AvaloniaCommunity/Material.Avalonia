@@ -4,7 +4,6 @@
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="Width" Value="350" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="Foreground" Value="White" />
         <Setter Property="RenderTransformOrigin" Value="50%,75%" />
         <Setter Property="Template">
             <ControlTemplate>

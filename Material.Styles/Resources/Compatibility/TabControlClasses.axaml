@@ -1,0 +1,15 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
+
+  <!-- BUG: Fix ScrollableTabControl theme -->
+  <!-- <Style Selector="TabControl.Scrollable, TabControl.scrollable"> -->
+  <!-- <Setter Property="Control.Theme" Value="{StaticResource ScrollableTabControl}"/> -->
+  <!-- </Style> -->
+</Styles>

@@ -1,16 +1,15 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
         xmlns:controls="clr-namespace:Material.Styles.Controls"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+        xmlns:materialAnimationAssists="clr-namespace:Material.Styles.Additional.MaterialAnimationAssists">
     <Styles.Resources>
         <converters:RangeToSweepConverter x:Key="RangeToSweep" />
     </Styles.Resources>
     <Style Selector="ProgressBar">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
@@ -58,24 +57,21 @@
         </Setter>
     </Style>
 
-    <Style Selector="ProgressBar[IsVisible=true]:not(.circular):not(.no-transitions,
-    .material-slider-track-bar-v2) /template/ Panel#PART_RootPanel">
-        <Style.Animations>
-            <animations:BeginAnimation>
-                <Animation Duration="0:0:1" FillMode="Both" Easing="CubicEaseOut">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Opacity" Value="0" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="0" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Opacity" Value="1" />
-                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
-                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
-                    </KeyFrame>
-                </Animation>
-            </animations:BeginAnimation>
-        </Style.Animations>
+    <Style Selector="ProgressBar[IsVisible=true]:not(.circular, .no-transitions, .material-slider-track-bar-v2) /template/ Panel#PART_RootPanel">
+      <Setter Property="materialAnimationAssists:MaterialAnimationAssist.ContinuousAnimation">
+        <Animation Duration="0:0:1" FillMode="Both" Easing="CubicEaseOut">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="ScaleTransform.ScaleX" Value="0" />
+            <Setter Property="ScaleTransform.ScaleY" Value="0" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="ScaleTransform.ScaleX" Value="1" />
+            <Setter Property="ScaleTransform.ScaleY" Value="1" />
+          </KeyFrame>
+        </Animation>
+      </Setter>
     </Style>
 
     <!-- Setters for default statement of progress bar and its parts -->
@@ -265,11 +261,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                    <Border Name="PART_RootBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                        <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                        <Panel Name="PART_RootPanel">
                             <Panel.RenderTransform>
                                 <ScaleTransform />
                             </Panel.RenderTransform>
@@ -281,9 +277,15 @@
                             
                             <Arc Name="PART_Arc"
                                  Stroke="{TemplateBinding Foreground}"/>
+                            
+                            <Viewbox Name="PART_ProgressText" MaxHeight="50"
+                                     VerticalAlignment="Center" HorizontalAlignment="Center"
+                                     Margin="4">
+                              <TextBlock Text="{Binding $parent[ProgressBar].Value}" />
+                            </Viewbox>
 
                             <!-- create a dummy indicator to avoid avaloniaUI crash -->
-                            <Border Name="{x:Static naming:PartNames.AvaloniaProgressBarIndicator}"
+                            <Border Name="PART_Indicator"
                                     ClipToBounds="False" IsVisible="False" IsEnabled="False"
                                     Background="{x:Null}" />
                         </Panel>
@@ -293,6 +295,10 @@
         </Setter>
     </Style>
     
+    <Style Selector="ProgressBar[ShowProgressText=False].circular /template/ Viewbox#PART_ProgressText">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
     <Style Selector="ProgressBar.circular /template/ Arc#PART_Animation">
         <Setter Property="StrokeThickness" Value="4" />
         

@@ -1,26 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
+    <TargetFramework>net7.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <AvaloniaVersion>11.0.1</AvaloniaVersion>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.18"/>
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="0.10.18"/>
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.18"/>
-    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.18"/>
-    <PackageReference Include="Material.Icons.Avalonia" Version="1.1.10"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" Version="1.2.0"/>
-    <PackageReference Include="DialogHost.Avalonia" Version="0.6.0-rc1"/>
+    <PackageReference Include="Avalonia.Controls.DataGrid"/>
+    <PackageReference Include="Avalonia.Desktop"/>
+    <PackageReference Include="Avalonia.Diagnostics"/>
+    <PackageReference Include="Avalonia.Themes.Simple"/>
+    <PackageReference Include="Material.Icons.Avalonia"/>
+    <PackageReference Include="DialogHost.Avalonia"/>
+    <PackageReference Include="ShowMeTheXaml.Avalonia"/>
+    <PackageReference Include="ShowMeTheXaml.Avalonia.AvaloniaEdit"/>
+    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
-    <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj" />
-    <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj" />
+    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj"/>
+    <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj"/>
+    <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Include="Assets\**"/>
   </ItemGroup>
+
 </Project>

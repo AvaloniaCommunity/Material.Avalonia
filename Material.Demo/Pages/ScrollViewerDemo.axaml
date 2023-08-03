@@ -17,23 +17,10 @@
         <TextBlock Classes="Headline4 Subheadline" Text="ScrollViewer" />
 
         <WrapPanel HorizontalAlignment="Stretch">
+
             <StackPanel>
-                <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer with classic scrollbar" />
-                <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer0">
-                    <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
-                        <ScrollViewer HorizontalScrollBarVisibility="Visible"
-                                      VerticalScrollBarVisibility="Visible"
-                                      Classes="Classic">
-                            <pages:Home />
-                        </ScrollViewer>
-                    </controls:Card>
-                </showMeTheXaml:XamlDisplay>
-            </StackPanel>
-            <StackPanel>
-                <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer with modern scrollbar" />
+                <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer (standard mode)" />
                 <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer1">
-
-
                     <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
                         <ScrollViewer HorizontalScrollBarVisibility="Visible"
                                       VerticalScrollBarVisibility="Visible">
@@ -42,13 +29,14 @@
                     </controls:Card>
                 </showMeTheXaml:XamlDisplay>
             </StackPanel>
+            
             <StackPanel>
-                <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer with mini scrollbar" />
-                <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer2">
+                <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer (No auto-hide mode)" />
+                <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer0">
                     <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
                         <ScrollViewer HorizontalScrollBarVisibility="Visible"
                                       VerticalScrollBarVisibility="Visible"
-                                      Classes="MiniBar">
+                                      Classes="classic no-auto-hide">
                             <pages:Home />
                         </ScrollViewer>
                     </controls:Card>

@@ -13,8 +13,8 @@
         <Setter Property="HeaderBackground" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="Root" ClipToBounds="True">
-                    <CalendarItem Name="CalendarItem"
+                <Panel Name="PART_Root" ClipToBounds="True">
+                    <CalendarItem Name="PART_CalendarItem"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   BorderThickness="{TemplateBinding BorderThickness}"

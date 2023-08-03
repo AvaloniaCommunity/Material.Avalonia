@@ -1,7 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:animations="clr-namespace:Material.Styles.Additional.Animations"
-        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+        xmlns:materialAnimationAssists="clr-namespace:Material.Styles.Additional.MaterialAnimationAssists">
     <Style Selector="TabStrip > TabStripItem">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="assists:TabControlAssist.TabHeaderForeground"
@@ -41,20 +41,18 @@
         <Setter Property="assists:TabControlAssist.TabHeaderForeground"
                 Value="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabControl}}" />
     </Style>
-    <Style Selector="TabStrip > TabStripItem:selected /template/ Border#border">
-        <Style.Animations>
-            <animations:ReverseAfterEndAnimation>
-                <Animation Duration="0:0:0.15" FillMode="Both" Easing="CircularEaseOut">
-                    <KeyFrame Cue="0%">
-                        <Setter Property="Width" Value="0" />
-                    </KeyFrame>
-                    <KeyFrame Cue="100%">
-                        <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
-                    </KeyFrame>
-                </Animation>
-            </animations:ReverseAfterEndAnimation>
-        </Style.Animations>
-    </Style>
+  <Style Selector="TabStrip > TabStripItem:selected /template/ Border#border">
+    <Setter Property="materialAnimationAssists:MaterialAnimationAssist.ReverseAfterEndAnimation">
+      <Animation Duration="0:0:0.15" FillMode="Both" Easing="CircularEaseOut">
+        <KeyFrame Cue="0%">
+          <Setter Property="Width" Value="0" />
+        </KeyFrame>
+        <KeyFrame Cue="100%">
+          <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+        </KeyFrame>
+      </Animation>
+    </Setter>
+  </Style>
 
     <Style Selector="TabStrip > TabStripItem:not(:selected) /template/ ContentPresenter#headerContent">
         <Setter Property="Opacity"

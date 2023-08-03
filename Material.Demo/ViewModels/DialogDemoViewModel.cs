@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Material.Dialog;
@@ -13,11 +14,20 @@ namespace Material.Demo.ViewModels
     {
         private TimeSpan _previousTimePickerResult = TimeSpan.Zero;
         private DateTime _previousDatePickerResult = DateTime.Now;
+        private readonly MainWindow? _window;
 
         public DialogDemoItemViewModel[] StandaloneDialogItems { get; }
 
         public DialogDemoViewModel()
         {
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime app)
+            {
+                if(app.MainWindow is not MainWindow w)
+                    return;
+
+                _window = w;
+            }
+            
             StandaloneDialogItems = new[]
             {
                 new DialogDemoItemViewModel("Simple Dialog", Dialog1),
@@ -39,7 +49,7 @@ namespace Material.Demo.ViewModels
                 SupportingText = "Enjoy Material Design in AvaloniaUI!",
                 StartupLocation = WindowStartupLocation.CenterOwner
             });
-            var result = await dialog.ShowDialog(Program.MainWindow);
+            var result = await dialog.ShowDialog(_window);
             yield return $"Result: {result.GetResult}";
         }
 
@@ -65,7 +75,7 @@ namespace Material.Demo.ViewModels
                         Result = "delete"
                     }
                 }
-            }).ShowDialog(Program.MainWindow);
+            }).ShowDialog(_window);
             yield return $"Result: {result.GetResult}";
         }
 
@@ -92,7 +102,7 @@ namespace Material.Demo.ViewModels
                         Result = "delete"
                     }
                 }
-            }).ShowDialog(Program.MainWindow);
+            }).ShowDialog(_window);
 
             yield return $"Result: {result.GetResult}";
 
@@ -105,17 +115,14 @@ namespace Material.Demo.ViewModels
                     StartupLocation = WindowStartupLocation.CenterOwner,
                     DialogHeaderIcon = Dialog.Icons.DialogIconKind.Success,
                     Borderless = true,
-                }).ShowDialog(Program.MainWindow);
+                }).ShowDialog(_window);
             }
         }
 
         private async IAsyncEnumerable<string> Dialog4()
         {
-            // Get AssetLoader service
-            var assets = AvaloniaLocator.Current.GetService<IAssetLoader>();
-
             // Open asset stream using assets.Open method.
-            await using var icon = assets?.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
+            await using var icon = AssetLoader.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
 
             var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams
             {
@@ -134,7 +141,7 @@ namespace Material.Demo.ViewModels
                     }
                 }
             });
-            var result = await dialog.ShowDialog(Program.MainWindow);
+            var result = await dialog.ShowDialog(_window);
 
             yield return $"Result: {result.GetResult}";
         }
@@ -184,7 +191,7 @@ namespace Material.Demo.ViewModels
                         IsPositive = true
                     }
                 }
-            }).ShowDialog(Program.MainWindow);
+            }).ShowDialog(_window);
 
             yield return $"Result: {result.GetResult}";
 
@@ -242,7 +249,7 @@ namespace Material.Demo.ViewModels
                         IsPositive = true
                     }
                 },
-            }).ShowDialog(Program.MainWindow);
+            }).ShowDialog(_window);
 
             yield return $"Result: {result.GetResult}";
 
@@ -268,7 +275,7 @@ namespace Material.Demo.ViewModels
                         IsPositive = true
                     }
                 }
-            }).ShowDialog(Program.MainWindow);
+            }).ShowDialog(_window);
 
             yield return $"Result: {result.GetResult}";
 
@@ -296,7 +303,7 @@ namespace Material.Demo.ViewModels
                         IsPositive = true
                     }
                 }
-            }).ShowDialog(Program.MainWindow);
+            }).ShowDialog(_window);
 
             yield return $"Result: {result.GetResult}";
 

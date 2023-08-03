@@ -1,6 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style Selector="Separator">
         <Setter Property="Background" Value="Transparent"/>
@@ -13,7 +12,7 @@
         <Setter Property="Margin" Value="0,8"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderThickness}"
                         BorderThickness="{TemplateBinding BorderThickness}"
@@ -54,5 +53,4 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Stretch"/>
     </Style>
-
 </Styles>

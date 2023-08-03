@@ -1,7 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:converters="clr-namespace:Material.Styles.Converters"
         xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
@@ -23,12 +22,12 @@
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="{x:Static naming:PartNames.PartRootBorder}"
+                <Border Name="PART_RootBorder"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                    <Panel Name="PART_RootPanel">
                         <Border Name="PART_BackgroundField">
                             <Border.Styles>
                                 <Style Selector="ComboBox.outline:not(.material-combobox-no-label) /template/
@@ -46,104 +45,39 @@
                             </Border.Styles>
                         </Border>
                         
-                        <Panel Name="{x:Static naming:PartNames.PartInnerPanel}">
-                            <TextBlock Name="{x:Static naming:PartNames.PartPlaceholderText}"
+                        <Panel Name="PART_InnerPanel">
+                            <TextBlock Name="PART_PlaceholderText"
                                        Text="{TemplateBinding PlaceholderText}"
                                        Foreground="{TemplateBinding PlaceholderForeground}"/>
                         
-                            <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                            <ContentPresenter Name="PART_ContentPresenter"
                                               Content="{TemplateBinding SelectionBoxItem}"
                                               ContentTemplate="{TemplateBinding ItemTemplate}"/>
                         </Panel>
                         
-                        <Border Name="{x:Static naming:PartNames.PartLabelRootBorder}">
-                            <TextBlock Name="{x:Static naming:PartNames.PartLabelText}"
+                        <Border Name="PART_LabelRootBorder">
+                            <TextBlock Name="PART_LabelText"
                                        Text="{TemplateBinding (assists:ComboBoxAssist.Label)}" />
                         </Border>
                         
-                        <controls:MaterialUnderline Name="{x:Static naming:PartNames.PartUnderline}" 
+                        <controls:MaterialUnderline Name="PART_Underline" 
                                                   Classes="material-mirror-y"/>
                         
                         <Panel Name="PART_PopupContainer">
-                            <Popup Name="{x:Static naming:PartNames.PartPopup}"
+                            <Popup Name="PART_Popup"
                                    IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}">
-                                <controls:Card Name="{x:Static naming:PartNames.PartCard}"
+                                <controls:Card Name="PART_Card"
                                          MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                          MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
-                                    <ScrollViewer Name="{x:Static naming:PartNames.PartScrollViewer}">
-                                        <ItemsPresenter Name="{x:Static naming:PartNames.PartItemsPresenter}"
-                                                        Items="{TemplateBinding Items}"
-                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                        ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                        VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                                    <ScrollViewer Name="PART_ScrollViewer">
+                                      <ItemsPresenter Name="PART_ItemsPresenter"
+                                                      ItemsPanel="{TemplateBinding ItemsPanel}" />
                                     </ScrollViewer>
                                 </controls:Card>
                             </Popup>
                         </Panel>
                     </Panel>
                 </Border>
-                <!-- deprecated style
-                <Grid Name="templateRoot"
-                      Background="{TemplateBinding Background}"
-                      ClipToBounds="False">
-                    <Grid ColumnDefinitions="*,Auto" ClipToBounds="False">
-                        <ToggleButton Name="toggle"
-                                      Classes="ComboBoxToggleButton"
-                                      BorderThickness="0"
-                                      Background="Transparent"
-                                      Focusable="False"
-                                      BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
-                                      IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                                      Grid.ColumnSpan="2" />
-                        <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                              Margin="{TemplateBinding Padding}"
-                              UseLayoutRounding="{TemplateBinding UseLayoutRounding}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Grid Name="InputRoot"
-                                  HorizontalAlignment="Stretch">
-                                <TextBlock Name="placeholderText" Text="{TemplateBinding PlaceholderText}"
-                                           TextAlignment="Left" FontFamily="{TemplateBinding FontFamily}" Margin="0,4" />
-
-                                <ContentPresenter Name="contentPresenter"
-                                                  Content="{TemplateBinding SelectionBoxItem}"
-                                                  ContentTemplate="{TemplateBinding ItemTemplate}"
-                                                  HorizontalContentAlignment="Left"
-                                                  Margin="0, 4" />
-                            </Grid>
-                        </Grid>
-
-                        <Popup Name="PART_Popup"
-                               IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                               MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                               VerticalOffset="0"
-                               Margin="-8"
-                               WindowManagerAddShadowHint="False"
-                               PlacementTarget="{Binding ElementName=templateRoot}"
-                               IsLightDismissEnabled="True"
-                               UseLayoutRounding="True"
-                               ClipToBounds="False">
-                            <cc:Card assists:ShadowAssist.ShadowDepth="Depth1"
-                                     Margin="4,0,4,4"
-                                     CornerRadius="0,0,4,4"
-                                     Padding="0">
-                                <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
-                                              MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                              MinHeight="1">
-                                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Items="{TemplateBinding Items}"
-                                                    ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                    VirtualizationMode="{TemplateBinding VirtualizationMode}" />
-                                </ScrollViewer>
-                            </cc:Card>
-                        </Popup>
-                    </Grid>
-                </Grid>
-                -->
             </ControlTemplate>
         </Setter>
     </Style>
@@ -248,7 +182,7 @@
 
     <Style Selector="ComboBox.Filled">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
-        <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+        <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
         <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
         <Setter Property="Padding" Value="16,8" />
         <Setter Property="Template">
@@ -348,11 +282,8 @@
                             <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
                                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                           MinHeight="1">
-                                <ItemsPresenter Name="PART_ItemsPresenter"
-                                                Items="{TemplateBinding Items}"
-                                                ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                              <ItemsPresenter Name="PART_ItemsPresenter"
+                                              ItemsPanel="{TemplateBinding ItemsPanel}" />
                             </ScrollViewer>
                         </controls:Card>
                     </Popup>
@@ -372,7 +303,7 @@
     <Style Selector="ComboBox.Outline">
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody }" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
+        <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
         <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
         <Setter Property="Padding" Value="16,8" />
         <Setter Property="Template">
@@ -448,11 +379,8 @@
                             <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
                                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                           MinHeight="1">
-                                <ItemsPresenter Name="PART_ItemsPresenter"
-                                                Items="{TemplateBinding Items}"
-                                                ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                              <ItemsPresenter Name="PART_ItemsPresenter"
+                                              ItemsPanel="{TemplateBinding ItemsPanel}" />
                             </ScrollViewer>
                         </controls:Card>
                     </Popup>

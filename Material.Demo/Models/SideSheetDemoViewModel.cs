@@ -1,8 +1,8 @@
-﻿namespace Material.Demo.Models
-{
+﻿using Material.Demo.ViewModels;
+
+namespace Material.Demo.Models {
     // Data context for sidesheet
-    public class SideSheetData : ViewModelBase
-    {
+    public class SideSheetData : ViewModelBase {
         private string _header = "SideSheet";
         public string Header => _header;
 
@@ -13,18 +13,15 @@
     }
 
     // Data context for SideSheet demo page
-    public class SideSheetDemoViewModel : ViewModelBase
-    {
+    public class SideSheetDemoViewModel : ViewModelBase {
         private SideSheetData _information = new SideSheetData();
-        public SideSheetData Information => _information;
 
         private bool _sideInfoOpened = false;
+        public SideSheetData Information => _information;
 
-        public bool SideInfoOpened
-        {
+        public bool SideInfoOpened {
             get => _sideInfoOpened;
-            set
-            {
+            set {
                 _sideInfoOpened = value;
                 OnPropertyChanged();
             }

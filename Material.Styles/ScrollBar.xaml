@@ -279,8 +279,7 @@
     <!-- Allow overriding from TextBox -->
     <Style Selector="ScrollBar.Modern /template/ Grid#rootGrid">
         <Setter Property="Margin"
-                Value="3 12">
-        </Setter>
+                Value="3 12" />
     </Style>
 
     <!-- Mini scrollbars  -->

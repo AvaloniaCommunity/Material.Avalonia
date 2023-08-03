@@ -8,8 +8,9 @@
     <StackPanel Margin="0, 0" >
         <StackPanel.Styles>
             <Style Selector="StackPanel.Content Slider" >
-                <Setter Property="Maximum" Value="100" />
-                <Setter Property="Minimum" Value="0" />
+              <!-- BUG: Cannot set direct property * in * because the style has an activator -->
+              <!-- <Setter Property="Maximum" Value="100" /> -->
+              <!-- <Setter Property="Minimum" Value="0" /> -->
             </Style>
             <Style Selector="StackPanel.Content Slider:horizontal" >
                 <Setter Property="Width" Value="300" />
@@ -17,7 +18,8 @@
             <Style Selector="StackPanel.Content > TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Margin" Value="16,0" />
-                <Setter Property="Text" Value="{Binding $parent.Children[0].Content.Value}" />
+                <!-- BUG: Cannot set direct property * in * because the style has an activator -->
+                <!-- <Setter Property="Text" Value="{Binding $parent.Children[0].Content.Value}" /> -->
             </Style>
             <Style Selector="StackPanel.Content">
                 <Setter Property="Margin" Value="4 2" />
@@ -32,30 +34,30 @@
              when dragging thumb could contains a long numerics with decimal point. -->
                 <StackPanel Classes="Content" Orientation="Horizontal">
                     <showMeTheXaml:XamlDisplay UniqueId="RegularSlider0">
-                        <Slider Classes="material-v1" ToolTip.Tip="Just show me my tooltip!" />
+                      <Slider Theme="{StaticResource MaterialSliderV1}" ToolTip.Tip="Just show me my tooltip!" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock MinWidth="120" />
                 </StackPanel>
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="RegularSlider1" >
-                        <Slider Classes="material-v1"
-                                IsSnapToTickEnabled="True"
-                                TickFrequency="1" />
+                      <Slider Theme="{StaticResource MaterialSliderV1}"
+                              IsSnapToTickEnabled="True"
+                              TickFrequency="1" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
                 </StackPanel>
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="RegularSlider2" >
-                        <Slider Classes="material-v1 Accent"
-                                IsSnapToTickEnabled="True"
-                                TickFrequency="1" />
+                      <Slider Theme="{StaticResource MaterialSliderV1}" Classes="Accent"
+                              IsSnapToTickEnabled="True"
+                              TickFrequency="1" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
                 </StackPanel>
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="RegularSlider3" >
-                        <Slider Classes="material-v1 Accent"
-                                IsEnabled="False" Value="20" />
+                      <Slider Theme="{StaticResource MaterialSliderV1}" Classes="Accent"
+                              IsEnabled="False" Value="20" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
                 </StackPanel>
@@ -65,7 +67,6 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="ModernSlider0" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=""
                                 TickFrequency="1" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -73,7 +74,7 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="ModernSlider1" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=" Accent"
+                                Classes="Accent"
                                 TickFrequency="1" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -81,7 +82,7 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="ModernSlider2" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=" Ticks"
+                                TickPlacement="Outside"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -90,7 +91,7 @@
                     <showMeTheXaml:XamlDisplay UniqueId="ModernSlider3" >
                         <Slider IsEnabled="False" Value="20"
                                 IsSnapToTickEnabled="True"
-                                Classes=" Ticks"
+                                TickPlacement="Outside"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -101,7 +102,8 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="BubbleSlider0" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes="material-v1 Discrete"
+                                Theme="{StaticResource MaterialSliderV1}"
+                                Classes="Discrete"
                                 TickFrequency="1" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -109,7 +111,7 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="BubbleSlider1" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=" Discrete"
+                                Classes="Discrete"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -117,7 +119,7 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="BubbleSlider2" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=" Discrete Accent"
+                                Classes="Discrete Accent"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -125,7 +127,8 @@
                 <StackPanel Classes="Content" Orientation="Horizontal" >
                     <showMeTheXaml:XamlDisplay UniqueId="BubbleSlider3" >
                         <Slider IsSnapToTickEnabled="True"
-                                Classes=" Discrete Accent Ticks"
+                                Classes="Discrete Accent"
+                                TickPlacement="TopLeft"
                                 TickFrequency="10" />
                     </showMeTheXaml:XamlDisplay>
                     <TextBlock />
@@ -148,30 +151,30 @@
                 <StackPanel Orientation="Horizontal" >
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="RegularVSlider0" >
-                            <Slider Classes="material-v1" />
+                          <Slider Theme="{StaticResource MaterialSliderV1}" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
                     </StackPanel>
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="RegularVSlider1" >
-                            <Slider Classes="material-v1"
-                                    IsSnapToTickEnabled="True"
-                                    TickFrequency="1" />
+                          <Slider Theme="{StaticResource MaterialSliderV1}"
+                                  IsSnapToTickEnabled="True"
+                                  TickFrequency="1" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
                     </StackPanel>
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="RegularVSlider2" >
-                            <Slider Classes="material-v1 Accent"
-                                    IsSnapToTickEnabled="True"
-                                    TickFrequency="1" />
+                          <Slider Theme="{StaticResource MaterialSliderV1}" Classes="Accent"
+                                  IsSnapToTickEnabled="True"
+                                  TickFrequency="1" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
                     </StackPanel>
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="RegularVSlider3" >
-                            <Slider Classes="material-v1 Accent"
-                                    IsEnabled="False" Value="20" />
+                          <Slider Theme="{StaticResource MaterialSliderV1}" Classes="Accent"
+                                  IsEnabled="False" Value="20" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
                     </StackPanel>
@@ -200,7 +203,8 @@
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="ModernVSlider2" >
                             <Slider IsSnapToTickEnabled="True"
-                                    Classes="Modern Ticks"
+                                    Classes="Modern"
+                                    TickPlacement="Outside"
                                     TickFrequency="10" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
@@ -209,7 +213,8 @@
                         <showMeTheXaml:XamlDisplay UniqueId="ModernVSlider3" >
                             <Slider IsEnabled="False" Value="20"
                                     IsSnapToTickEnabled="True"
-                                    Classes="Modern Ticks"
+                                    Classes="Modern"
+                                    TickPlacement="Outside"
                                     TickFrequency="10" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
@@ -223,7 +228,7 @@
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="BubbleVSlider0" >
                             <Slider IsSnapToTickEnabled="True"
-                                    Classes="material-v1 Discrete"
+                                    Theme="{StaticResource MaterialSliderV1}" Classes="Discrete"
                                     TickFrequency="1" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />
@@ -247,7 +252,8 @@
                     <StackPanel Classes="Content" Orientation="Horizontal" >
                         <showMeTheXaml:XamlDisplay UniqueId="BubbleVSlider3" >
                             <Slider IsSnapToTickEnabled="True"
-                                    Classes="Modern Discrete Accent Ticks"
+                                    Classes="Modern Discrete Accent"
+                                    TickPlacement="Outside"
                                     TickFrequency="10" />
                         </showMeTheXaml:XamlDisplay>
                         <TextBlock />

@@ -1,6 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
     <!-- Template and default state for widget -->
     <Style Selector="controls|MaterialUnderline" >
@@ -11,7 +10,7 @@
         <Setter Property="ActiveBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="Template" >
             <ControlTemplate>
-                <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                <Panel Name="PART_RootPanel">
                     <Rectangle Name="PART_BaseBorder"
                                Stroke="{TemplateBinding IdleBrush}"/>
                     <Rectangle Name="PART_ActiveIndicator"

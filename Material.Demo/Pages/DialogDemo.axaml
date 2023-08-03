@@ -22,7 +22,7 @@
             <StackPanel>
                 <TextBlock Classes="Headline6 Subheadline2" Text="DialogHost" />
                 <StackPanel>
-                    <TextBlock TextWrapping="Wrap" >Top level dialog with custom corner radius, using OpenDialog, passing content via the Parameter. You can pass a view model, provided a corresponding DataTemplate can be found in the scope of the root DialogHost.</TextBlock>
+                    <TextBlock TextWrapping="Wrap" Text="Top level dialog with custom corner radius, using OpenDialog, passing content via the Parameter. You can pass a view model, provided a corresponding DataTemplate can be found in the scope of the root DialogHost."/>
                     <StackPanel Spacing="8" >
                         <Button Classes="flat" Click="OpenDialogWithView" >PASS VIEW</Button>
                         <Button Classes="flat" Click="OpenDialogWithModel" >PASS MODEL</Button>
@@ -34,7 +34,7 @@
             <StackPanel Grid.Column="1" >
                 <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
 
-                <ItemsControl Items="{CompiledBinding StandaloneDialogItems}" >
+                <ItemsControl ItemsSource="{CompiledBinding StandaloneDialogItems}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="viewModels:DialogDemoItemViewModel" >
                             <DockPanel Margin="8" >

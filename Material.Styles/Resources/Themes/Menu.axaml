@@ -1,0 +1,97 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <Menu>
+        <MenuItem Header="_Standard" />
+        <MenuItem Header="Selected" IsSelected="True" />
+        <MenuItem Header="Disabled" IsEnabled="False" />
+      </Menu>
+    </Border>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="MaterialTopLevelMenuItem" TargetType="MenuItem">
+    <Setter Property="Height" Value="48" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Padding" Value="16 0" />
+    <Setter Property="Foreground" Value="{Binding $parent[Menu].Foreground}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                BorderThickness="{TemplateBinding BorderThickness}">
+          <Panel>
+            <Border Name="PART_MenuItemHighlighter"
+                    Background="{DynamicResource MaterialDesignBody}"
+                    CornerRadius="4" />
+            <ripple:RippleEffect Name="PART_Ripple"
+                                 RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+              <Panel>
+                <ContentPresenter Name="PART_HeaderPresenter"
+                                  VerticalAlignment="Center"
+                                  Content="{TemplateBinding Header}"
+                                  Margin="{TemplateBinding Padding}">
+                  <ContentPresenter.DataTemplates>
+                    <DataTemplate DataType="system:String">
+                      <AccessText Text="{CompiledBinding }" />
+                    </DataTemplate>
+                  </ContentPresenter.DataTemplates>
+                </ContentPresenter>
+                <Popup Name="PART_Popup"
+                       Placement="Bottom"
+                       IsLightDismissEnabled="True"
+                       WindowManagerAddShadowHint="False"
+                       IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
+                  <controls:Card Padding="0">
+                    <Border Name="PART_MainBorder"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                      <ScrollViewer>
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        Margin="0 8" />
+                      </ScrollViewer>
+                    </Border>
+                  </controls:Card>
+                </Popup>
+              </Panel>
+            </ripple:RippleEffect>
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Border#PART_MenuItemHighlighter">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+
+    <Style Selector="^:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter">
+      <Setter Property="Opacity" Value="0.13" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="MaterialMenu" TargetType="Menu">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="ItemContainerTheme" Value="{StaticResource MaterialTopLevelMenuItem}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Padding="{TemplateBinding Padding}">
+          <ScrollViewer>
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            KeyboardNavigation.TabNavigation="Continue" />
+          </ScrollViewer>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <!-- Default style -->
+  <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu"
+                BasedOn="{StaticResource MaterialMenu}" />
+</ResourceDictionary>

@@ -29,7 +29,7 @@
                         <TreeViewItem>
                             <TreeViewItem.Header>
                                 <Grid ColumnDefinitions="Auto, 8, *">
-                                  <avalonia:MaterialIcon Kind="Apple" />
+                                    <avalonia:MaterialIcon Kind="AppleFinder" />
                                     <TextBlock Text="Apple MacOS" Grid.Column="2" />
                                 </Grid>
                             </TreeViewItem.Header>
@@ -127,3 +127,4 @@
         </WrapPanel>
     </StackPanel>
 </UserControl>
+

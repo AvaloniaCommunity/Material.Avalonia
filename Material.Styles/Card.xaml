@@ -1,7 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assists="clr-namespace:Material.Styles.Assists"
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Style Selector="controls|Card">
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2"/>
@@ -12,14 +11,13 @@
         <Setter Property="Padding" Value="8" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel Name="{x:Static naming:PartNames.PartRootPanel}">
+                <Panel Name="PART_RootPanel">
                     <Border Name="PART_BackgroundBorder"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
-                    </Border>
-                    <Border Name="{x:Static naming:PartNames.PartInnerBorder}"
+                            assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}" />
+                    <Border Name="PART_InnerBorder"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             ClipToBounds="{TemplateBinding InsideClipping}">
                         <ContentPresenter Name="ContentPresenter"

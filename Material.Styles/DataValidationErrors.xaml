@@ -1,11 +1,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:system="clr-namespace:System;assembly=netstandard" 
-        xmlns:naming="clr-namespace:Material.Styles.Resources.Naming" >
+        xmlns:system="clr-namespace:System;assembly=netstandard">
     <Styles.Resources>
         <DataTemplate x:Key="DataValidationErrorTemplate">
-            <ItemsControl Items="{Binding }"
-                          TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
+          <ItemsControl ItemsSource="{Binding }"
+                        TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
                 <ItemsControl.DataTemplates>
                     <DataTemplate DataType="system:Exception">
                         <TextBlock Name="PART_ErrorText"
@@ -28,14 +27,14 @@
                 Value="{StaticResource DataValidationErrorTemplate}"/>
         <Setter Property="Template">
             <ControlTemplate>
-                <DockPanel Name="{x:Static naming:PartNames.PartRootPanel}">
+                <DockPanel Name="PART_RootPanel">
                     <ContentControl Name="PART_ContentControl"
                                     DockPanel.Dock="Bottom"
                                     Content="{TemplateBinding (DataValidationErrors.Errors)}"
                                     ContentTemplate="{TemplateBinding ErrorTemplate}"
                                     IsVisible="{TemplateBinding (DataValidationErrors.HasErrors)}"/>
                     
-                    <ContentPresenter Name="{x:Static naming:PartNames.PartContentPresenter}"
+                    <ContentPresenter Name="PART_ContentPresenter"
                                       Content="{TemplateBinding Content}"
                                       ContentTemplate="{TemplateBinding ContentTemplate}"/>
                 </DockPanel>

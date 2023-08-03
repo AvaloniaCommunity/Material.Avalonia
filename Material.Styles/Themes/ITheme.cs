@@ -3,52 +3,52 @@ using Material.Colors;
 
 namespace Material.Styles.Themes
 {
-    public interface ITheme
+    public interface ITheme : IReadOnlyTheme
     {
-        ColorPair PrimaryLight { get; set; }
-        ColorPair PrimaryMid { get; set; }
-        ColorPair PrimaryDark { get; set; }
+        new ColorPair PrimaryLight { get; set; }
+        new ColorPair PrimaryMid { get; set; }
+        new ColorPair PrimaryDark { get; set; }
 
-        ColorPair SecondaryLight { get; set; }
-        ColorPair SecondaryMid { get; set; }
-        ColorPair SecondaryDark { get; set; }
+        new ColorPair SecondaryLight { get; set; }
+        new ColorPair SecondaryMid { get; set; }
+        new ColorPair SecondaryDark { get; set; }
 
-        Color ValidationError { get; set; }
-        Color Background { get; set; }
-        Color Paper { get; set; }
-        Color CardBackground { get; set; }
-        Color ToolBarBackground { get; set; }
-        Color Body { get; set; }
-        Color BodyLight { get; set; }
-        Color ColumnHeader { get; set; }
+        new Color ValidationError { get; set; }
+        new Color Background { get; set; }
+        new Color Paper { get; set; }
+        new Color CardBackground { get; set; }
+        new Color ToolBarBackground { get; set; }
+        new Color Body { get; set; }
+        new Color BodyLight { get; set; }
+        new Color ColumnHeader { get; set; }
 
-        Color CheckBoxOff { get; set; }
-        Color CheckBoxDisabled { get; set; }
+        new Color CheckBoxOff { get; set; }
+        new Color CheckBoxDisabled { get; set; }
 
-        Color Divider { get; set; }
-        Color Selection { get; set; }
+        new Color Divider { get; set; }
+        new Color Selection { get; set; }
 
-        Color ToolForeground { get; set; }
-        Color ToolBackground { get; set; }
+        new Color ToolForeground { get; set; }
+        new Color ToolBackground { get; set; }
 
-        Color FlatButtonClick { get; set; }
-        Color FlatButtonRipple { get; set; }
+        new Color FlatButtonClick { get; set; }
+        new Color FlatButtonRipple { get; set; }
 
-        Color ToolTipBackground { get; set; }
-        Color ChipBackground { get; set; }
+        new Color ToolTipBackground { get; set; }
+        new Color ChipBackground { get; set; }
 
-        Color SnackbarBackground { get; set; }
-        Color SnackbarMouseOver { get; set; }
-        Color SnackbarRipple { get; set; }
+        new Color SnackbarBackground { get; set; }
+        new Color SnackbarMouseOver { get; set; }
+        new Color SnackbarRipple { get; set; }
 
-        Color TextBoxBorder { get; set; }
+        new Color TextBoxBorder { get; set; }
 
-        Color TextFieldBoxBackground { get; set; }
-        Color TextFieldBoxHoverBackground { get; set; }
-        Color TextFieldBoxDisabledBackground { get; set; }
-        Color TextAreaBorder { get; set; }
-        Color TextAreaInactiveBorder { get; set; }
+        new Color TextFieldBoxBackground { get; set; }
+        new Color TextFieldBoxHoverBackground { get; set; }
+        new Color TextFieldBoxDisabledBackground { get; set; }
+        new Color TextAreaBorder { get; set; }
+        new Color TextAreaInactiveBorder { get; set; }
 
-        Color DataGridRowHoverBackground { get; set; }
+        new Color DataGridRowHoverBackground { get; set; }
     }
 }

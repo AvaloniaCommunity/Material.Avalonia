@@ -2,36 +2,15 @@
 using System.Timers;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 
-namespace Material.Demo.Pages
-{
-    public class ProgressIndicatorDemo : UserControl
-    {
-        private Timer timer;
+namespace Material.Demo.Pages {
+    public partial class ProgressIndicatorDemo : UserControl {
         private int caseProgress;
 
-        public class Context : INotifyPropertyChanged
-        {
-            private double m_Progress = 0;
-
-            public double Progress
-            {
-                get => m_Progress;
-                set
-                {
-                    m_Progress = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Progress)));
-                }
-            }
-
-            public event PropertyChangedEventHandler PropertyChanged;
-        }
-
         private Context context;
+        private Timer timer;
 
-        public ProgressIndicatorDemo()
-        {
+        public ProgressIndicatorDemo() {
             this.InitializeComponent();
 
             timer = new Timer(1000);
@@ -42,20 +21,16 @@ namespace Material.Demo.Pages
             this.AttachedToVisualTree += ProgressIndicatorDemo_AttachedToVisualTree;
         }
 
-        private void ProgressIndicatorDemo_AttachedToVisualTree(object sender, VisualTreeAttachmentEventArgs e)
-        {
+        private void ProgressIndicatorDemo_AttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e) {
             timer.Start();
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
+        private void Timer_Elapsed(object? sender, ElapsedEventArgs e) {
             context.Progress = SwitchProgress();
         }
 
-        private double SwitchProgress()
-        {
-            switch (caseProgress)
-            {
+        private double SwitchProgress() {
+            switch (caseProgress) {
                 case 0:
                     caseProgress++;
                     return 30;
@@ -80,9 +55,18 @@ namespace Material.Demo.Pages
             }
         }
 
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
+        public class Context : INotifyPropertyChanged {
+            private double m_Progress = 0;
+
+            public double Progress {
+                get => m_Progress;
+                set {
+                    m_Progress = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Progress)));
+                }
+            }
+
+            public event PropertyChangedEventHandler? PropertyChanged;
         }
     }
 }

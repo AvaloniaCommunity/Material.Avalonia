@@ -9,8 +9,8 @@
         <TextBlock Classes="Headline4 Subheadline" Text="Typography" />
 
         <Grid HorizontalAlignment="Left"
-              RowDefinitions="* * * * * * * * * * * * * *"
-              ColumnDefinitions="200, *">
+              RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*,*"
+              ColumnDefinitions="200,*">
             <Grid.Styles>
                 <Style Selector="TextBlock">
                     <Setter Property="HorizontalAlignment" Value="Left" />

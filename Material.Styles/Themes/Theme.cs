@@ -1,14 +1,33 @@
 ﻿using System;
 using Avalonia.Media;
+using Avalonia.Styling;
 using Material.Colors;
 using Material.Styles.Themes.Base;
 
-namespace Material.Styles.Themes
-{
-    public class Theme : ITheme
-    {
-        public static IBaseTheme Light { get; } = new MaterialDesignLightTheme();
-        public static IBaseTheme Dark { get; } = new MaterialDesignDarkTheme();
+namespace Material.Styles.Themes {
+    /// <summary>
+    /// Specifies a set of colors that should be used for <see cref="MaterialThemeBase"/>
+    /// </summary>
+    public class Theme : ITheme {
+        /// <summary>
+        /// Provides a <see cref="BaseThemeMode.Light"/> set of base colors
+        /// </summary>
+        public static IBaseTheme Light { get; } = MaterialDesignLightTheme.Instance;
+
+        /// <summary>
+        /// Provides a <see cref="BaseThemeMode.Dark"/> set of base colors
+        /// </summary>
+        public static IBaseTheme Dark { get; } = MaterialDesignDarkTheme.Instance;
+
+        /// <summary>
+        /// Use the Light variant of colors
+        /// </summary>
+        public static ThemeVariant MaterialLight { get; } = new(nameof(MaterialLight), ThemeVariant.Light);
+
+        /// <summary>
+        /// Use the Dark variant of colors
+        /// </summary>
+        public static ThemeVariant MaterialDark { get; } = new(nameof(MaterialDark), ThemeVariant.Dark);
 
         public ColorPair SecondaryLight { get; set; }
         public ColorPair SecondaryMid { get; set; }
@@ -54,6 +73,48 @@ namespace Material.Styles.Themes
             theme.SetBaseTheme(baseTheme);
             theme.SetPrimaryColor(primary);
             theme.SetSecondaryColor(accent);
+
+            return theme;
+        }
+
+        public static Theme Create(IReadOnlyTheme readOnlyTheme) {
+            if (readOnlyTheme is null) throw new ArgumentNullException(nameof(readOnlyTheme));
+            var theme = new Theme {
+                PrimaryLight = readOnlyTheme.PrimaryLight,
+                PrimaryMid = readOnlyTheme.PrimaryMid,
+                PrimaryDark = readOnlyTheme.PrimaryDark,
+                SecondaryLight = readOnlyTheme.SecondaryLight,
+                SecondaryMid = readOnlyTheme.SecondaryMid,
+                SecondaryDark = readOnlyTheme.SecondaryDark,
+                ValidationError = readOnlyTheme.ValidationError,
+                Background = readOnlyTheme.Background,
+                Paper = readOnlyTheme.Paper,
+                CardBackground = readOnlyTheme.CardBackground,
+                ToolBarBackground = readOnlyTheme.ToolBarBackground,
+                Body = readOnlyTheme.Body,
+                BodyLight = readOnlyTheme.BodyLight,
+                ColumnHeader = readOnlyTheme.ColumnHeader,
+                CheckBoxOff = readOnlyTheme.CheckBoxOff,
+                CheckBoxDisabled = readOnlyTheme.CheckBoxDisabled,
+                Divider = readOnlyTheme.Divider,
+                Selection = readOnlyTheme.Selection,
+                ToolForeground = readOnlyTheme.ToolForeground,
+                ToolBackground = readOnlyTheme.ToolBackground,
+                FlatButtonClick = readOnlyTheme.FlatButtonClick,
+                FlatButtonRipple = readOnlyTheme.FlatButtonRipple,
+                ToolTipBackground = readOnlyTheme.ToolTipBackground,
+                ChipBackground = readOnlyTheme.ChipBackground,
+                SnackbarBackground = readOnlyTheme.SnackbarBackground,
+                SnackbarMouseOver = readOnlyTheme.SnackbarMouseOver,
+                SnackbarRipple = readOnlyTheme.SnackbarRipple,
+                TextBoxBorder = readOnlyTheme.TextBoxBorder,
+                TextFieldBoxBackground = readOnlyTheme.TextFieldBoxBackground,
+                TextFieldBoxHoverBackground = readOnlyTheme.TextFieldBoxHoverBackground,
+                TextFieldBoxDisabledBackground = readOnlyTheme.TextFieldBoxDisabledBackground,
+                TextAreaBorder = readOnlyTheme.TextAreaBorder,
+                TextAreaInactiveBorder = readOnlyTheme.TextAreaInactiveBorder,
+                DataGridRowHoverBackground = readOnlyTheme.DataGridRowHoverBackground
+            };
 
             return theme;
         }

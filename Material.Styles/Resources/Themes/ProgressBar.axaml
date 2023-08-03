@@ -1,0 +1,434 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters"
+                    xmlns:avaloniaConverters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls">
+  <Design.PreviewWith>
+    <Border Padding="20" Width="200">
+      <StackPanel>
+        <StackPanel.Styles>
+          <Style Selector="ProgressBar">
+            <Setter Property="Margin" Value="0 0 0 10" />
+          </Style>
+        </StackPanel.Styles>
+
+        <ProgressBar />
+        <ProgressBar Value="30" />
+        <ProgressBar Value="30" ShowProgressText="True" />
+        <ProgressBar IsIndeterminate="True" />
+
+        <UniformGrid Columns="4" Height="100">
+          <ProgressBar Orientation="Vertical" />
+          <ProgressBar Orientation="Vertical" Value="30" />
+          <ProgressBar Orientation="Vertical" Value="30" ShowProgressText="True" />
+          <ProgressBar Orientation="Vertical" IsIndeterminate="True" />
+        </UniformGrid>
+
+        <ProgressBar Theme="{StaticResource CircularProgressBar}" Value="30" />
+        <ProgressBar Theme="{StaticResource CircularProgressBar}" Value="30" ShowProgressText="True" />
+        <ProgressBar Theme="{StaticResource CircularProgressBar}" IsIndeterminate="True" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- Used for convert range of progress as angle (circular progress indicator) -->
+  <converters:RangeToSweepConverter x:Key="RangeToSweep" />
+  <converters:ProgressBarIntermediateOffsetConverter x:Key="IntermediateOffsetConverter" />
+  <avaloniaConverters:StringFormatConverter x:Key="StringFormatConverter" />
+
+  <ControlTheme x:Key="ProgressBarBase"
+                TargetType="ProgressBar">
+    <Setter Property="BorderBrush" Value="{x:Null}" />
+    <Setter Property="BorderThickness" Value="0" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="LinearProgressBar"
+                BasedOn="{StaticResource ProgressBarBase}"
+                TargetType="ProgressBar">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <Panel Name="PART_RootPanel">
+            <Rectangle Name="PART_IndeterminateFirst"
+                       IsVisible="{TemplateBinding IsIndeterminate}"
+                       RenderTransformOrigin="0 0"
+                       Fill="{TemplateBinding Foreground}" />
+            <Rectangle Name="PART_IndeterminateSecond"
+                       IsVisible="{TemplateBinding IsIndeterminate}"
+                       RenderTransformOrigin="0 0"
+                       Fill="{TemplateBinding Foreground}" />
+
+            <Border Name="PART_Indicator"
+                    ClipToBounds="False"
+                    Background="{TemplateBinding Foreground}" />
+
+            <LayoutTransformControl
+              x:Name="PART_LayoutTransformControl"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              IsVisible="{TemplateBinding ShowProgressText}">
+              <TextBlock Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                <TextBlock.Text>
+                  <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                    <TemplateBinding Property="ProgressTextFormat" />
+                    <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+                    <TemplateBinding Property="Percentage" />
+                    <TemplateBinding Property="Minimum" />
+                    <TemplateBinding Property="Maximum" />
+                  </MultiBinding>
+                </TextBlock.Text>
+              </TextBlock>
+            </LayoutTransformControl>
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Setters for default statement of progress bar and its parts -->
+    <Style Selector="^:horizontal">
+      <Setter Property="MinHeight" Value="4" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+
+      <Style Selector="^ /template/ Border#PART_Indicator">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+      </Style>
+    </Style>
+
+    <Style Selector="^:vertical">
+      <Setter Property="MinWidth" Value="4" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+
+      <Style Selector="^ /template/ Border#PART_Indicator">
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+      </Style>
+
+      <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransformControl">
+        <Setter Property="LayoutTransform">
+          <Setter.Value>
+            <RotateTransform Angle="90" />
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </Style>
+
+    <!-- indeterminate progress animations -->
+
+    <Style Selector="^:indeterminate">
+      <Style Selector="^:horizontal">
+        <Style Selector="^ /template/ Rectangle#PART_IndeterminateFirst">
+          <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="INFINITE">
+              <KeyFrame Cue="0%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=-0.1}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0.1" />
+              </KeyFrame>
+              <KeyFrame Cue="35%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.45}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0.6" />
+              </KeyFrame>
+              <KeyFrame Cue="60%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="1" />
+              </KeyFrame>
+              <KeyFrame Cue="90%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="100%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0" />
+              </KeyFrame>
+            </Animation>
+          </Style.Animations>
+        </Style>
+        <Style Selector="^ /template/ Rectangle#PART_IndeterminateSecond">
+          <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="INFINITE">
+              <KeyFrame Cue="0%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="50%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="70%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0.7" />
+              </KeyFrame>
+              <KeyFrame Cue="90%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.95}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0.2" />
+              </KeyFrame>
+              <KeyFrame Cue="95%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="100%">
+                <Setter Property="TranslateTransform.X"
+                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleX" Value="0" />
+              </KeyFrame>
+            </Animation>
+          </Style.Animations>
+        </Style>
+      </Style>
+
+      <Style Selector="^:vertical">
+        <Style Selector="^ /template/ Rectangle#PART_IndeterminateFirst">
+          <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="INFINITE">
+              <KeyFrame Cue="0%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=-0.1}" />
+
+                <Setter Property="ScaleTransform.ScaleY" Value="0.1" />
+              </KeyFrame>
+              <KeyFrame Cue="35%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.45}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0.6" />
+              </KeyFrame>
+              <KeyFrame Cue="60%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0.1" />
+              </KeyFrame>
+              <KeyFrame Cue="90%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="100%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0" />
+              </KeyFrame>
+            </Animation>
+          </Style.Animations>
+        </Style>
+        <Style Selector="^ /template/ Rectangle#PART_IndeterminateSecond">
+          <Style.Animations>
+            <Animation Duration="0:0:2" IterationCount="INFINITE">
+              <KeyFrame Cue="0%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="50%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="70%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0.7" />
+              </KeyFrame>
+              <KeyFrame Cue="90%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.95}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0.2" />
+              </KeyFrame>
+              <KeyFrame Cue="95%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="ScaleTransform.ScaleY" Value="0" />
+              </KeyFrame>
+              <KeyFrame Cue="100%">
+                <Setter Property="TranslateTransform.Y"
+                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                <Setter Property="Height" Value="0" />
+              </KeyFrame>
+            </Animation>
+          </Style.Animations>
+        </Style>
+      </Style>
+    </Style>
+
+    <!-- Zoom the control when progress bar become visible -->
+    <Style Selector="^[IsVisible=true]:not(.no-transitions) /template/ Panel#PART_RootPanel">
+      <Style.Animations>
+        <Animation Duration="0:0:0.5" FillMode="Both" Easing="CubicEaseOut">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="ScaleTransform.ScaleX" Value="0" />
+            <Setter Property="ScaleTransform.ScaleY" Value="0" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="ScaleTransform.ScaleX" Value="1" />
+            <Setter Property="ScaleTransform.ScaleY" Value="1" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_Indicator">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Width" Duration="0:0:0.25" Easing="CubicEaseOut" />
+          <DoubleTransition Property="Height" Duration="0:0:0.25" Easing="CubicEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+  </ControlTheme>
+
+  <!-- Use Linear progress indicator as default theme -->
+  <ControlTheme x:Key="{x:Type ProgressBar}"
+                BasedOn="{StaticResource LinearProgressBar}"
+                TargetType="ProgressBar" />
+
+  <!-- Circular progress indicator -->
+  <ControlTheme x:Key="CircularProgressBar"
+                BasedOn="{StaticResource ProgressBarBase}"
+                TargetType="ProgressBar">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="{x:Null}" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <Panel Name="PART_RootPanel">
+            <Panel.RenderTransform>
+              <ScaleTransform />
+            </Panel.RenderTransform>
+
+            <controls:Rotator Name="PART_Rotator">
+              <Arc Name="PART_Animation"
+                   Stroke="{TemplateBinding Foreground}" />
+            </controls:Rotator>
+
+            <Arc Name="PART_Arc"
+                 Stroke="{TemplateBinding Foreground}" />
+
+            <Viewbox Name="PART_ProgressText" MaxHeight="50"
+                     VerticalAlignment="Center" HorizontalAlignment="Center"
+                     Margin="4"
+                     IsVisible="{TemplateBinding ShowProgressText}">
+              <TextBlock>
+                <TextBlock.Text>
+                  <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                    <TemplateBinding Property="ProgressTextFormat" />
+                    <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+                    <TemplateBinding Property="Percentage" />
+                    <TemplateBinding Property="Minimum" />
+                    <TemplateBinding Property="Maximum" />
+                  </MultiBinding>
+                </TextBlock.Text>
+              </TextBlock>
+            </Viewbox>
+
+            <!-- create a dummy indicator to avoid avaloniaUI crash -->
+            <Border Name="PART_Indicator"
+                    ClipToBounds="False" IsVisible="False" IsEnabled="False"
+                    Background="{x:Null}" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Arc#PART_Animation">
+      <Setter Property="StrokeThickness" Value="4" />
+
+      <!-- The avalonia arc control will be rotate to 3'0 clockwise position by default
+             We must correct back to 12'0 position -->
+      <Setter Property="StartAngle" Value="-90" />
+    </Style>
+
+    <Style Selector="^ /template/ Arc#PART_Arc">
+      <Setter Property="StrokeThickness" Value="4" />
+
+      <!-- The avalonia arc control will be rotate to 3'0 clockwise position by default
+             We must correct back to 12'0 position -->
+      <Setter Property="StartAngle" Value="-90" />
+      <Setter Property="SweepAngle">
+        <MultiBinding Converter="{StaticResource RangeToSweep}">
+          <Binding RelativeSource="{RelativeSource AncestorType=ProgressBar}" Path="Value" />
+          <Binding RelativeSource="{RelativeSource AncestorType=ProgressBar}" Path="Minimum" />
+          <Binding RelativeSource="{RelativeSource AncestorType=ProgressBar}" Path="Maximum" />
+        </MultiBinding>
+      </Setter>
+    </Style>
+
+    <Style Selector="^ /template/ Panel#PART_RootPanel">
+      <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
+    </Style>
+
+    <Style Selector="^ /template/ Arc#PART_Animation">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^:not(.no-transitions) /template/ Arc#PART_Arc">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="SweepAngle" Duration="0:0:0.25" Easing="CubicEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+
+    <Style Selector="^[IsVisible=True]:indeterminate">
+      <Style Selector="^ /template/ Arc#PART_Animation">
+        <Setter Property="IsVisible" Value="True" />
+        <Style.Animations>
+          <Animation Duration="0:0:1.2" IterationCount="INFINITE">
+            <KeyFrame Cue="0%">
+              <Setter Property="SweepAngle" Value="45" />
+            </KeyFrame>
+            <KeyFrame Cue="50%">
+              <Setter Property="SweepAngle" Value="235" />
+            </KeyFrame>
+            <KeyFrame Cue="60%">
+              <Setter Property="SweepAngle" Value="235" />
+            </KeyFrame>
+            <KeyFrame Cue="100%">
+              <Setter Property="SweepAngle" Value="45" />
+            </KeyFrame>
+          </Animation>
+        </Style.Animations>
+      </Style>
+
+      <Style Selector="^ /template/ controls|Rotator#PART_Rotator">
+        <Style.Animations>
+          <Animation Duration="0:0:1.2" IterationCount="INFINITE">
+            <KeyFrame Cue="0%">
+              <Setter Property="Speed" Value="0.4" />
+            </KeyFrame>
+            <KeyFrame Cue="50%">
+              <Setter Property="Speed" Value="0.35" />
+            </KeyFrame>
+            <KeyFrame Cue="60%">
+              <Setter Property="Speed" Value="0.65" />
+            </KeyFrame>
+            <KeyFrame Cue="100%">
+              <Setter Property="Speed" Value="0.65" />
+            </KeyFrame>
+          </Animation>
+        </Style.Animations>
+      </Style>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

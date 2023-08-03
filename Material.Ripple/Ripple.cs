@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
@@ -10,31 +11,59 @@ namespace Material.Ripple
 {
     public class Ripple : Ellipse
     {
-        private static Easing _easing = new CircularEaseOut();
-
         public static Easing Easing
         {
             get => _easing;
-            set => _easing = value;
+            set
+            {
+                _easing = value;
+                UpdateTransitions();
+            }
         }
 
-        public static readonly TimeSpan Duration = new TimeSpan(0, 0, 0, 0, 500);
+        public static TimeSpan Duration
+        {
+            get => _duration;
+            set
+            {
+                _duration = value;
+                UpdateTransitions();
+            }
+        }
+        
+        public static Transitions RippleTransitions;
+        
+        private static Easing _easing = new CircularEaseOut();
+        private static TimeSpan _duration = new(0, 0, 0, 0, 500);
 
-        private double maxDiam;
 
-        private double endX, endY;
 
-        public Ripple(double outerWidth, double outerHeight)
+        private readonly double _maxDiam;
+
+        private readonly double _endX;
+        private readonly double _endY;
+
+        static Ripple()
+        {
+            UpdateTransitions();
+        }
+
+        public Ripple(double outerWidth, double outerHeight, bool transitions = true)
         {
             Width = 0;
             Height = 0;
 
-            maxDiam = Math.Sqrt(Math.Pow(outerWidth, 2) + Math.Pow(outerHeight, 2));
-            endY = maxDiam - outerHeight;
-            endX = maxDiam - outerWidth;
+            _maxDiam = Math.Sqrt(Math.Pow(outerWidth, 2) + Math.Pow(outerHeight, 2));
+            _endY = _maxDiam - outerHeight;
+            _endX = _maxDiam - outerWidth;
             HorizontalAlignment = HorizontalAlignment.Left;
             VerticalAlignment = VerticalAlignment.Top;
             Opacity = 1;
+
+            if (!transitions)
+                return;
+            
+            Transitions = RippleTransitions;
         }
 
         public void SetupInitialValues(PointerPressedEventArgs e, Control parent)
@@ -45,14 +74,45 @@ namespace Material.Ripple
 
         public void RunFirstStep()
         {
-            Width = maxDiam;
-            Height = maxDiam;
-            Margin = new Thickness(-endX / 2, -endY / 2, 0, 0);
+            Width = _maxDiam;
+            Height = _maxDiam;
+            Margin = new Thickness(-_endX / 2, -_endY / 2, 0, 0);
         }
 
         public void RunSecondStep()
         {
             Opacity = 0;
+        }
+
+        private static void UpdateTransitions()
+        {
+            RippleTransitions = new Transitions
+            {
+                new ThicknessTransition
+                {
+                    Duration = Duration,
+                    Easing = Easing,
+                    Property = MarginProperty
+                },
+                new DoubleTransition
+                {
+                    Duration = Duration,
+                    Easing = Easing,
+                    Property = WidthProperty
+                },
+                new DoubleTransition
+                {
+                    Duration = Duration,
+                    Easing = Easing,
+                    Property = HeightProperty
+                },
+                new DoubleTransition
+                {
+                    Duration = Duration,
+                    Easing = Easing,
+                    Property = OpacityProperty
+                }
+            };
         }
     }
 }

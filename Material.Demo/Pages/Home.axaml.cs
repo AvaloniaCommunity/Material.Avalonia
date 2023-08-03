@@ -1,15 +1,15 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Dialogs;
-using Avalonia.Markup.Xaml;
 using Material.Dialog;
 using Material.Styles.Assists;
 
-namespace Material.Demo.Pages
-{
-    public class Home : UserControl
-    {
-        public Home()
-        {
+namespace Material.Demo.Pages {
+    public partial class Home : UserControl {
+        private MainWindow? _window;
+
+        public Home() {
             // Sadly I don't have much time to update this listing
             // and doesn't get updated after any changes
             // I'm gonna disable this listing
@@ -51,6 +51,18 @@ namespace Material.Demo.Pages
             DataContext = this;
         }
 
+        protected override void OnInitialized() {
+            if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime app)
+                return;
+
+            if (app.MainWindow is not MainWindow w)
+                return;
+
+            _window = w;
+
+            base.OnInitialized();
+        }
+
         //public ObservableCollection<FeatureStatusModels> Features { get; private set; }
 
         public void UseMaterialUIDarkTheme() => GlobalCommand.UseMaterialUIDarkTheme();
@@ -59,18 +71,12 @@ namespace Material.Demo.Pages
 
         public void OpenProjectRepoLink() => GlobalCommand.OpenProjectRepoLink();
 
-        public void SwitchTransition()
-        {
-            var state = !TransitionAssist.GetDisableTransitions(Program.MainWindow);
-            TransitionAssist.SetDisableTransitions(Program.MainWindow, state);
+        public void SwitchTransition() {
+            var state = !TransitionAssist.GetDisableTransitions(_window!);
+            TransitionAssist.SetDisableTransitions(_window!, state);
             DialogHelper.DisableTransitions = state;
         }
 
-        public void ShowAboutAvaloniaUI() => new AboutAvaloniaDialog().ShowDialog(Program.MainWindow);
-
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
+        public void ShowAboutAvaloniaUI() => new AboutAvaloniaDialog().ShowDialog(_window!);
     }
 }
