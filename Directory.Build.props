@@ -5,7 +5,7 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>NU5104, NU1507</NoWarn>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
     <Authors>Larymar,SKProCH,Appleneko2001</Authors>
     <Company>Larymar,SKProCH,Appleneko2001</Company>
