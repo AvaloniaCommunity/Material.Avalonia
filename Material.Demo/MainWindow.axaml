@@ -11,6 +11,7 @@
         xmlns:models="clr-namespace:Material.Demo.Models"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Width="1280" Height="720" MinWidth="720"
+        Icon="/Assets/FavIcon_128x.png"
         Title="Material.Demo">
     <Window.Styles>
         <Style Selector="showMeTheXaml|XamlDisplay">
@@ -56,7 +57,8 @@
                         <controls:ColorZone Mode="Accent" Height="180">
                             <StackPanel>
                                 <Image Width="120" Height="120" HorizontalAlignment="Center" VerticalAlignment="Top"
-                                       Source="avares://Material.Demo/Assets/FavIcon_200x.png" Margin="0,0,0,-8" />
+                                       Source="avares://Material.Demo/Assets/FavIcon_200x.png" Margin="0,0,0,-8"
+                                       PointerPressed="MaterialIcon_OnPointerPressed" />
                                 <TextBlock Classes="Headline6" Text="Material Design" HorizontalAlignment="Center" />
                                 <TextBlock Classes="Subtitle1" Text="with AvaloniaUI" HorizontalAlignment="Center" />
                             </StackPanel>
