@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'dev'
-      - '3.0_major_update'
+      - 'master'
 
 jobs:
   build:
