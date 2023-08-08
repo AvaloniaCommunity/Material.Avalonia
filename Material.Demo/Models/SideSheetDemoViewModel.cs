@@ -3,7 +3,7 @@
 namespace Material.Demo.Models {
     // Data context for sidesheet
     public class SideSheetData : ViewModelBase {
-        private string _header = "SideSheet";
+        private readonly string _header = "SideSheet";
         public string Header => _header;
 
         public string ContentHeader { get; set; } = "What is Lorem Ipsum?";
@@ -14,7 +14,7 @@ namespace Material.Demo.Models {
 
     // Data context for SideSheet demo page
     public class SideSheetDemoViewModel : ViewModelBase {
-        private SideSheetData _information = new SideSheetData();
+        private readonly SideSheetData _information = new SideSheetData();
 
         private bool _sideInfoOpened = false;
         public SideSheetData Information => _information;
