@@ -7,7 +7,6 @@ using Material.Styles.Assists;
 
 namespace Material.Demo.Pages {
     public partial class Home : UserControl {
-        private MainWindow? _window;
 
         public Home() {
             // Sadly I don't have much time to update this listing
@@ -51,18 +50,6 @@ namespace Material.Demo.Pages {
             DataContext = this;
         }
 
-        protected override void OnInitialized() {
-            if (Application.Current?.ApplicationLifetime is not IClassicDesktopStyleApplicationLifetime app)
-                return;
-
-            if (app.MainWindow is not MainWindow w)
-                return;
-
-            _window = w;
-
-            base.OnInitialized();
-        }
-
         //public ObservableCollection<FeatureStatusModels> Features { get; private set; }
 
         public void UseMaterialUIDarkTheme() => GlobalCommand.UseMaterialUIDarkTheme();
@@ -71,12 +58,18 @@ namespace Material.Demo.Pages {
 
         public void OpenProjectRepoLink() => GlobalCommand.OpenProjectRepoLink();
 
-        public void SwitchTransition() {
-            var state = !TransitionAssist.GetDisableTransitions(_window!);
-            TransitionAssist.SetDisableTransitions(_window!, state);
+        public void SwitchTransition()
+        {
+            var window = TopLevel.GetTopLevel(this);
+            var state = !TransitionAssist.GetDisableTransitions(window!);
+            TransitionAssist.SetDisableTransitions(window!, state);
             DialogHelper.DisableTransitions = state;
         }
 
-        public void ShowAboutAvaloniaUI() => new AboutAvaloniaDialog().ShowDialog(_window!);
+        public void ShowAboutAvaloniaUI()
+        {
+            var window = TopLevel.GetTopLevel(this) as Window;
+            new AboutAvaloniaDialog().ShowDialog(window!);
+        }
     }
 }
