@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup>
+    <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true" />
+  </PropertyGroup>
+</Project>

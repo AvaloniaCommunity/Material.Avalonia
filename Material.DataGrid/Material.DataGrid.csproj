@@ -12,4 +12,10 @@
     <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="*.props">
+      <Pack>true</Pack>
+      <PackagePath>build\;buildTransitive\</PackagePath>
+    </Content>
+  </ItemGroup>
 </Project>

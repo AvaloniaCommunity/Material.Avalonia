@@ -23,6 +23,10 @@
     <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj"/>
     <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj"/>
   </ItemGroup>
+  
+  <ItemGroup>
+    <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true" />
+  </ItemGroup>
 
   <ItemGroup>
     <AvaloniaResource Include="Assets\**"/>

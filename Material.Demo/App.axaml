@@ -12,7 +12,6 @@
     <themes:MaterialTheme PrimaryColor="Purple" SecondaryColor="Indigo" />
 
     <avalonia:MaterialIconStyles />
-    <StyleInclude Source="avares://Material.DataGrid/DataGrid.xaml" />
     <dialogHostAvalonia:DialogHostStyles />
 
     <!-- AvaloniaEdit styles -->
