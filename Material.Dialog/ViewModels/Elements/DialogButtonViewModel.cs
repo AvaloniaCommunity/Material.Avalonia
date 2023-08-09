@@ -17,7 +17,7 @@ namespace Material.Dialog.ViewModels.Elements
             _command = command;
         }
 
-        private DialogWindowViewModel _parent;
+        private readonly DialogWindowViewModel _parent;
 
         public DialogWindowViewModel Parent => _parent;
 

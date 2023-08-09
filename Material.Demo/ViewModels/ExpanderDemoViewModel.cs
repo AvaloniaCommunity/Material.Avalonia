@@ -6,7 +6,7 @@ namespace Material.Demo.ViewModels
     public class ExpanderDemoViewModel : ViewModelBase
     {
         public ObservableCollection<string> LoremText => _loremText;
-        private ObservableCollection<string> _loremText;
+        private readonly ObservableCollection<string> _loremText;
 
         public ExpanderDemoViewModel()
         {

@@ -7,8 +7,8 @@ namespace Material.Demo.Pages {
     public partial class ProgressIndicatorDemo : UserControl {
         private int caseProgress;
 
-        private Context context;
-        private Timer timer;
+        private readonly Context context;
+        private readonly Timer timer;
 
         public ProgressIndicatorDemo() {
             this.InitializeComponent();

@@ -8,8 +8,8 @@ namespace Material.Demo.ViewModels {
     /// If you want to use this, you should copy all whole code and paste them to your new RelayCommand.cs source file.
     /// </summary>
     public class RelayCommand : ICommand {
-        private Func<object?, bool>? canExecute;
-        private Action<object?> execute;
+        private readonly Func<object?, bool>? canExecute;
+        private readonly Action<object?> execute;
 
         public RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null) {
             this.execute = execute;
