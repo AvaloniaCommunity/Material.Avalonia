@@ -56,14 +56,5 @@ public class BundledTheme : ResourceDictionary {
 
     protected virtual void ApplyTheme(ITheme theme) {
         this.SetTheme(theme);
-
-        // Workaround for TextBlock text color does not changing: https://github.com/AvaloniaUI/Avalonia/issues/9675
-        // Actually, do not use BundledTheme, use MaterialTheme instead
-        Dispatcher.UIThread.InvokeAsync(() => {
-            var bodyBrush = this["MaterialDesignBody"];
-            Remove("MaterialDesignBody");
-            Add("MaterialDesignBody", bodyBrush);
-        }, DispatcherPriority.Normal);
     }
 }
-
