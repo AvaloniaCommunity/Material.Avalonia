@@ -13,7 +13,7 @@ This library is a collection of styles and controls to help you customize your A
 - Material Design styles for almost all Avalonia controls
 - Additional controls to support the Snackbars, side sheets, floating buttons, cards, dialogs and more
 - Easy configuration of palette (at design and runtime), according to Material Guidelines guidelines
-- Full [Material Design Icons](https://materialdesignicons.com/) icon pack support (must be [installed separately](https://github.com/AvaloniaUtils/Material.Icons.Avalonia), in favor of small library size)
+- Full [Material Design Icons](https://materialdesignicons.com/) icon pack support (must be [installed separately](https://github.com/SKProCH/Material.Icons), in favor of small library size)
 - Demo applications included in the source project
 
 [![nuget](https://img.shields.io/nuget/v/Material.Avalonia?label=Nuget&style=flat-square)][nuget]
