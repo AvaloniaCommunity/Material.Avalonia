@@ -13,6 +13,15 @@
     <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>3.0.0-avalonia11-preview6</Version>
+    <PackageReleaseNotes>
+      - Avalonia 11.0.0 support
+      - Material.Avalonia.DataGrid and Material.Dialogs moved to separate packages
+      - Add nuke build
+      - A lot of fixes and refactoring styles to ControlThemes
+      - Add TimePicker and Clock controls
+    </PackageReleaseNotes>
+    
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
   </PropertyGroup>
 

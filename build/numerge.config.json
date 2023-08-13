@@ -1,0 +1,35 @@
+{
+  "Packages": [
+    {
+      "Id": "Material.Avalonia",
+      "MergeAll": true,
+      "Merge": [
+        {
+          "Id": "Material.Ripple",
+          "IgnoreMissingFrameworkBinaries": true,
+          "IgnoreMissingFrameworkDependencies": true
+        },
+        {
+          "Id": "Material.Colors",
+          "IgnoreMissingFrameworkBinaries": true,
+          "IgnoreMissingFrameworkDependencies": true
+        },
+        {
+          "Id": "Material.Styles",
+          "IgnoreMissingFrameworkBinaries": true,
+          "IgnoreMissingFrameworkDependencies": true
+        }
+      ]
+    },
+    {
+      "Id": "Material.Avalonia.DataGrid",
+      "MergeAll": false,
+      "Merge": []
+    },
+    {
+      "Id": "Material.Avalonia.Dialogs",
+      "MergeAll": false,
+      "Merge": []
+    }
+  ]
+}

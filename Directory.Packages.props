@@ -24,5 +24,8 @@
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
+    <!--For _build-->
+    <PackageVersion Include="Nuke.Common" Version="7.0.2" />
+    <PackageVersion Include="NuGet.Protocol" Version="6.7.0" />
   </ItemGroup>
 </Project>

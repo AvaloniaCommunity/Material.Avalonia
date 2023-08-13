@@ -26,12 +26,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Settings.XamlStyler = Settings.XamlStyler
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{32F02580-2829-46FF-A2BE-2E5A6683627E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32F02580-2829-46FF-A2BE-2E5A6683627E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32F02580-2829-46FF-A2BE-2E5A6683627E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECB440AE-658B-4602-87CD-BE7FE8285362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ECB440AE-658B-4602-87CD-BE7FE8285362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECB440AE-658B-4602-87CD-BE7FE8285362}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -5,27 +5,12 @@
     <PackageTags>avalonia xaml material design theme colour color ui ux material-design google-material</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>FavIcon.png</PackageIcon>
-    <VersionPrefix>3.0.0-avalonia11-preview5</VersionPrefix>
-    <PackageReleaseNotes>
-      This is UNSTABLE version, I think what many things do not work properly here, report all bugs to issues at GitHub.
-      - Avalonia 11.0.0-rc1.1 support
-      - Fix styles for TreeViewItem, ScrollBar (and ScrollViewer), TransitioningContentControl, Label, NotificationCard
-      - Temporary disable calendar styles
-      - Migrate a bunch of control styles to ControlThemes
-      - Implement styles for SelectableTextBlock
-      - Rework a custom animations, MaterialTheme bootstraping, Rotator
-    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="/"/>
     <None Include="../wiki/FavIcon.png" Pack="true" PackagePath="/"/>
   </ItemGroup>
-
-  <!--For nightly versions-->
-  <PropertyGroup>
-    <Version Condition="'$(PatchNumber)' != ''">$(VersionPrefix).$(PatchNumber)</Version>
-  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
