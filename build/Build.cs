@@ -14,8 +14,7 @@ using Serilog;
 [GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
     OnPushBranches = new[] { "master" },
     InvokedTargets = new[] { nameof(PublishNugetPackages) },
-    ImportSecrets = new[] { nameof(NuGetApiKey) },
-    OnPushExcludePaths = new[] { "[no nightly]" })]
+    ImportSecrets = new[] { nameof(NuGetApiKey) })]
 partial class Build : NukeBuild {
     [Solution] readonly Solution Solution = null!;
     BuildParameters Parameters { get; set; } = null!;

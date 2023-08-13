@@ -20,8 +20,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - '![no nightly]'
 
 jobs:
   ubuntu-latest:
