@@ -5,7 +5,7 @@ using Avalonia.Threading;
 namespace Material.Dialog.Commands
 {
     /// <summary>
-    /// Do not use it in your project! It should be used only inside of Material.Dialog.<br/>
+    /// Do not use it in your project! It should be used only inside of Material.Avalonia.Dialogs.<br/>
     /// If you want to use this one, you should copy all whole code and paste them to your new RelayCommand.cs source file.
     /// </summary>
     public class MaterialDialogRelayCommand : ICommand

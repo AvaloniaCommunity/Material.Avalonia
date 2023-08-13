@@ -7,7 +7,7 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Material.Dialog/Resources/TemplateResources.axaml" />
+                <ResourceInclude Source="avares://Material.Avalonia.Dialogs/Resources/TemplateResources.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

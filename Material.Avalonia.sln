@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Colors", "Material
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Avalonia.DataGrid", "Material.Avalonia.DataGrid\Material.Avalonia.DataGrid.csproj", "{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Dialog", "Material.Dialog\Material.Dialog.csproj", "{4F5F7FFD-B6E2-4C36-B250-D6B8169A0B1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Avalonia.Dialogs", "Material.Avalonia.Dialogs\Material.Avalonia.Dialogs.csproj", "{4F5F7FFD-B6E2-4C36-B250-D6B8169A0B1A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{40295CAB-9146-4A0A-B3E1-C31DA6E17256}"
 	ProjectSection(SolutionItems) = preProject

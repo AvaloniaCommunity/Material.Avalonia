@@ -18,9 +18,9 @@
     </Window.Resources>
 
     <Window.Styles>
-        <StyleInclude Source="avares://Material.Dialog/Styles/DialogWindow.axaml" />
-        <StyleInclude Source="avares://Material.Dialog/Styles/StyleInclude.axaml" />
-        <StyleInclude Source="avares://Material.Dialog/Icons/DialogIconStyle.axaml" />
+        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/DialogWindow.axaml" />
+        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml" />
+        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Icons/DialogIconStyle.axaml" />
     </Window.Styles>
 
     

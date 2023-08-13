@@ -1,7 +1,7 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels" >
-    <StyleInclude Source="avares://Material.Dialog/Styles/EmbeddedDialogControl.axaml"/>
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/EmbeddedDialogControl.axaml"/>
 
     <Style Selector="Window" x:DataType="viewModels:DialogWindowViewModel">
         <Setter Property="Title" Value="{CompiledBinding WindowTitle}" />
