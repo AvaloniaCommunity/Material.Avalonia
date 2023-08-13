@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Avalonia", "Materi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Colors", "Material.Colors\Material.Colors.csproj", "{FBD28B04-578E-4309-ABB2-BEC809D26818}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.DataGrid", "Material.DataGrid\Material.DataGrid.csproj", "{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Avalonia.DataGrid", "Material.Avalonia.DataGrid\Material.Avalonia.DataGrid.csproj", "{E0F697EE-358C-4E73-A4A8-3279B5B8DFF3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Material.Dialog", "Material.Dialog\Material.Dialog.csproj", "{4F5F7FFD-B6E2-4C36-B250-D6B8169A0B1A}"
 EndProject

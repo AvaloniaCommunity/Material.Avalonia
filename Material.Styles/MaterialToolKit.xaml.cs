@@ -19,7 +19,7 @@ namespace Material.Styles
             AvaloniaXamlLoader.Load(this);
             if (AppContext.TryGetSwitch("MaterialThemeIncludeDataGrid", out var includeDataGrid) && includeDataGrid)
             {
-                Add(new StyleInclude((Uri?)null) { Source = new Uri("avares://Material.DataGrid/DataGrid.xaml") });
+                Add(new StyleInclude((Uri?)null) { Source = new Uri("avares://Material.Avalonia.DataGrid/DataGrid.xaml") });
             }
         }
     }

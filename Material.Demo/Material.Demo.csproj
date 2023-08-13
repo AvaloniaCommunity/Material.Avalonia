@@ -20,8 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj"/>
-    <ProjectReference Include="..\Material.DataGrid\Material.DataGrid.csproj"/>
     <ProjectReference Include="..\Material.Dialog\Material.Dialog.csproj"/>
+    <ProjectReference Include="..\Material.Avalonia.DataGrid\Material.Avalonia.DataGrid.csproj" />
   </ItemGroup>
   
   <ItemGroup>
