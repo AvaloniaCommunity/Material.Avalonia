@@ -103,7 +103,7 @@ partial class Build : NukeBuild {
             DotNetTasks.DotNetNuGetPush(s => s
                 .SetSource(Parameters.NugetFeedUrl)
                 .SetApiKey(Parameters.NugetApiKey)
-                .SetTargetPath(NugetRoot)
+                .SetTargetPath(NugetRoot / "*.nupkg")
                 .EnableSkipDuplicate());
         });
 

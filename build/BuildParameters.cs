@@ -37,13 +37,13 @@ public partial class Build {
             IsRunningOnGitHubActions = Host is GitHubActions;
             if (IsRunningOnGitHubActions) {
                 RepositoryName = $"{GitHubActions.Instance.ServerUrl}/{GitHubActions.Instance.Repository}";
-                RepositoryBranch = GitHubActions.Instance.RefName;
+                RepositoryBranch = GitHubActions.Instance.Ref;
                 NightlyHeight = GitHubActions.Instance.RunNumber;
             }
 
             IsMainRepo = StringComparer.OrdinalIgnoreCase.Equals(MainRepo, RepositoryName);
             IsMasterBranch = StringComparer.OrdinalIgnoreCase.Equals(MasterBranch, RepositoryBranch);
-            IsReleasable = StringComparer.OrdinalIgnoreCase.Equals(Configuration.Release, Configuration);
+            IsReleasable = Configuration.Release == Configuration;
 
             ShouldPublishNugetPackages = IsRunningOnGitHubActions && IsMasterBranch && IsReleasable;
 
