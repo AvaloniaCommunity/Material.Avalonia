@@ -71,8 +71,7 @@ partial class Build : NukeBuild {
             DotNetTasks.DotNetBuild(_ => _
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
-                .SetVersion(Parameters.Version)
-                .EnableNoRestore());
+                .SetVersion(Parameters.Version));
         });
 
     Target CreateIntermediateNugetPackages => _ => _
