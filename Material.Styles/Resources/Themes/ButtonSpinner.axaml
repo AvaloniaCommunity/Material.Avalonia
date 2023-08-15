@@ -53,11 +53,11 @@
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                 Padding="{TemplateBinding Padding}" />
               <Grid Grid.Column="1" RowDefinitions="*,*" IsVisible="{TemplateBinding ShowButtonSpinner}">
-                <RepeatButton CornerRadius="0" Classes="Material Flat"
+                <RepeatButton CornerRadius="0" Theme="{StaticResource MaterialFlatRepeatButton}"
                               assists:ShadowAssist.ShadowDepth="Depth0"
                               Grid.Row="0"
                               Name="PART_IncreaseButton" />
-                <RepeatButton CornerRadius="0" Classes="Material Flat"
+                <RepeatButton CornerRadius="0" Theme="{StaticResource MaterialFlatRepeatButton}"
                               assists:ShadowAssist.ShadowDepth="Depth0"
                               Grid.Row="1"
                               Name="PART_DecreaseButton" />
@@ -79,11 +79,11 @@
                   VerticalAlignment="{TemplateBinding VerticalAlignment}">
             <Grid ColumnDefinitions="Auto,*">
               <Grid Grid.Column="0" RowDefinitions="*,*" IsVisible="{TemplateBinding ShowButtonSpinner}">
-                <RepeatButton CornerRadius="0" Classes="Material Flat"
+                <RepeatButton CornerRadius="0" Theme="{StaticResource MaterialFlatRepeatButton}"
                               assists:ShadowAssist.ShadowDepth="Depth0"
                               Grid.Row="0"
                               Name="PART_IncreaseButton" />
-                <RepeatButton CornerRadius="0" Classes="Material Flat"
+                <RepeatButton CornerRadius="0" Theme="{StaticResource MaterialFlatRepeatButton}"
                               assists:ShadowAssist.ShadowDepth="Depth0"
                               Grid.Row="1"
                               Name="PART_DecreaseButton" />

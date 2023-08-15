@@ -89,7 +89,8 @@
                      AllowAutoHide="False" />
 
           <Rectangle Grid.Row="1" Grid.Column="1"
-                     Fill="{DynamicResource MaterialDesignSelection}" />
+                     Fill="{DynamicResource MaterialDesignSelection}" 
+                     Opacity="0.7"/>
         </Grid>
       </ControlTemplate>
     </Setter>

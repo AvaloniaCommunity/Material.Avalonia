@@ -29,7 +29,8 @@
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Center"
                         RenderTransform="{x:Null}"
-                        Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}">
+                        Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
+                        Theme="{StaticResource MaterialEmptyRepeatButton}">
             <RepeatButton.IsVisible>
               <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
                             ConverterParameter="0">
@@ -55,7 +56,8 @@
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Center"
                         RenderTransform="{x:Null}"
-                        Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}">
+                        Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
+                        Theme="{StaticResource MaterialEmptyRepeatButton}">
             <RepeatButton.IsVisible>
               <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
                             ConverterParameter="100">

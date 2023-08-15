@@ -333,10 +333,10 @@
                    Minimum="{TemplateBinding Minimum}"
                    Value="{TemplateBinding Value}">
               <Track.DecreaseButton>
-                <RepeatButton Name="PART_DecreaseButton" />
+                <RepeatButton Name="PART_DecreaseButton" Theme="{StaticResource MaterialEmptyRepeatButton}" />
               </Track.DecreaseButton>
               <Track.IncreaseButton>
-                <RepeatButton Name="PART_IncreaseButton" />
+                <RepeatButton Name="PART_IncreaseButton" Theme="{StaticResource MaterialEmptyRepeatButton}" />
               </Track.IncreaseButton>
               <Track.Thumb>
                 <Thumb Name="PART_SliderThumb" />
@@ -527,10 +527,10 @@
                    Maximum="{TemplateBinding Maximum}"
                    Value="{TemplateBinding Value}">
               <Track.DecreaseButton>
-                <RepeatButton Name="PART_DecreaseButton" />
+                <RepeatButton Name="PART_DecreaseButton" Theme="{StaticResource MaterialEmptyRepeatButton}" />
               </Track.DecreaseButton>
               <Track.IncreaseButton>
-                <RepeatButton Name="PART_IncreaseButton" />
+                <RepeatButton Name="PART_IncreaseButton" Theme="{StaticResource MaterialEmptyRepeatButton}" />
               </Track.IncreaseButton>
               <Track.Thumb>
                 <Thumb Name="PART_SliderThumb" />

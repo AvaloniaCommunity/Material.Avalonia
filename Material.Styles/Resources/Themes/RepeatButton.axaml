@@ -1,0 +1,301 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+  <Design.PreviewWith>
+    <StackPanel Spacing="10" Margin="8">
+      <RepeatButton Theme="{StaticResource MaterialEmptyRepeatButton}" Foreground="Black">Empty just displays content</RepeatButton>
+      <StackPanel Orientation="Horizontal" Spacing="10">
+        <RepeatButton>Default</RepeatButton>
+        <RepeatButton Classes="accent">Accent</RepeatButton>
+        <RepeatButton Classes="light">Light</RepeatButton>
+        <RepeatButton Classes="dark">Dark</RepeatButton>
+        <RepeatButton Classes="no-ripple">No ripple</RepeatButton>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="10">
+        <RepeatButton Theme="{StaticResource MaterialFlatRepeatButton}">Default</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialFlatRepeatButton}" Classes="accent">Accent</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialFlatRepeatButton}" Classes="light">Light</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialFlatRepeatButton}" Classes="dark">Dark</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialFlatRepeatButton}" Classes="no-ripple">No ripple</RepeatButton>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="10">
+        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}">Default</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}" Classes="accent">Accent</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}" Classes="light">Light</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}" Classes="dark">Dark</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}" Classes="no-ripple">No ripple</RepeatButton>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="10">
+        <RepeatButton Theme="{StaticResource MaterialOutlineRepeatButton}">Default</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialOutlineRepeatButton}" Classes="accent">Accent</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialOutlineRepeatButton}" Classes="light">Light</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialOutlineRepeatButton}" Classes="dark">Dark</RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialOutlineRepeatButton}" Classes="no-ripple">No ripple</RepeatButton>
+      </StackPanel>
+    </StackPanel>
+  </Design.PreviewWith>
+
+  <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
+  <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
+
+  <!-- Base styles (common properties) -->
+  <ControlTheme x:Key="MaterialRepeatButtonBase" TargetType="RepeatButton">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.12" />
+    </Style>
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+    </Style>
+  </ControlTheme>
+
+
+  <!-- Utility style (only content displayed) -->
+  <ControlTheme x:Key="MaterialEmptyRepeatButton" TargetType="RepeatButton"
+                BasedOn="{StaticResource MaterialRepeatButtonBase}">
+    <Setter Property="Padding" Value="4" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Content="{TemplateBinding Content}"
+                          Padding="{TemplateBinding Padding}"
+                          TextBlock.Foreground="{TemplateBinding Foreground}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+
+  <!-- Default (Material) style  -->
+  <ControlTheme x:Key="MaterialRepeatButton" TargetType="RepeatButton"
+                BasedOn="{StaticResource MaterialRepeatButtonBase}">
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Padding" Value="16 8" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+    <Setter Property="assists:ButtonAssist.HoverColor"
+            Value="{Binding Foreground, Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#000000" />
+    <Setter Property="TextBlock.FontWeight" Value="Medium" />
+    <Setter Property="TextBlock.FontSize" Value="14" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_ButtonRootBorder"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+          <Border ClipToBounds="True"
+                  CornerRadius="{TemplateBinding CornerRadius}">
+            <Grid>
+              <Border Name="PART_HoverIndicator" BorderThickness="0"
+                      Background="{TemplateBinding assists:ButtonAssist.HoverColor}" />
+              <ripple:RippleEffect Name="PART_Ripple"
+                                   RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
+                                   RippleOpacity="{StaticResource ButtonPressedOpacity}">
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Content="{TemplateBinding Content}"
+                                  Padding="{TemplateBinding Padding}"
+                                  TextBlock.Foreground="{TemplateBinding Foreground}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+              </ripple:RippleEffect>
+            </Grid>
+          </Border>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Border#PART_HoverIndicator">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+
+    <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverIndicator">
+      <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
+
+    <Style Selector="^.no-ripple /template/ ripple|RippleEffect#PART_Ripple">
+      <Setter Property="IsAllowedRaiseRipple" Value="False" />
+    </Style>
+
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_HoverIndicator">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+        </Transitions>
+      </Setter>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type RepeatButton}" TargetType="RepeatButton"
+                BasedOn="{StaticResource MaterialRepeatButton}" />
+
+
+  <!-- Flat -->
+  <ControlTheme x:Key="MaterialFlatRepeatButton" TargetType="RepeatButton"
+                BasedOn="{StaticResource MaterialRepeatButton}">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Padding" Value="16 6" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
+    <Setter Property="assists:ButtonAssist.HoverColor" Value="{Binding $self.Foreground}" />
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#CCCCCC" />
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    </Style>
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <!-- Icon -->
+  <ControlTheme x:Key="MaterialIconRepeatButton" TargetType="RepeatButton"
+                BasedOn="{StaticResource MaterialRepeatButton}">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Padding" Value="16" />
+    <Setter Property="Height" Value="48" />
+    <Setter Property="Width" Value="48" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid>
+          <Ellipse Name="PART_HoverIndicator"
+                   Width="{TemplateBinding Width}"
+                   Height="{TemplateBinding Height}" Margin="-100"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Fill="{TemplateBinding Foreground}"
+                   IsHitTestVisible="False" />
+          <Border Width="{TemplateBinding Width}"
+                  Height="{TemplateBinding Height}"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  ClipToBounds="True" CornerRadius="1000000">
+            <ripple:RippleEffect Name="PART_Ripple"
+                                 RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
+                                 RippleOpacity="{StaticResource ButtonPressedOpacity}">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                Margin="{TemplateBinding Padding}"
+                                TextBlock.Foreground="{TemplateBinding Foreground}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ripple:RippleEffect>
+          </Border>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Ellipse#PART_HoverIndicator">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+
+    <Style Selector="^:not(:disabled):pointerover /template/ Ellipse#PART_HoverIndicator">
+      <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
+
+    <Style Selector="^:not(.no-transitions) /template/ Ellipse#PART_HoverIndicator">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+        </Transitions>
+      </Setter>
+    </Style>
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    </Style>
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <!-- Outline -->
+  <ControlTheme x:Key="MaterialOutlineRepeatButton" TargetType="RepeatButton"
+                BasedOn="{StaticResource MaterialRepeatButton}">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Padding" Value="16 6" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
+
+    <Style Selector="^.accent">
+      <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+    </Style>
+    <Style Selector="^.light">
+      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+    </Style>
+    <Style Selector="^.dark">
+      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

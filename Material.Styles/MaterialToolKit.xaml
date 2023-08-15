@@ -40,6 +40,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FlyoutPresenter.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/GridSplitter.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RepeatButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ItemsControl.axaml" />
 
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
@@ -118,7 +119,7 @@
   <!--<StyleInclude Source="avares://Material.Styles/ToggleSwitch.xaml" />-->
 
   <!--<StyleInclude Source="avares://Material.Styles/RadioButton.xaml" />-->
-  <StyleInclude Source="avares://Material.Styles/RepeatButton.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/RepeatButton.xaml" /> -->
 
   <!-- Uncommented -->
 

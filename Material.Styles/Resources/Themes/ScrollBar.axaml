@@ -19,8 +19,7 @@
   </Design.PreviewWith>
   <system:Double x:Key="ScrollBarThumbMinimumLength">24</system:Double>
 
-  <ControlTheme x:Key="ModernSimpleScrollThumb"
-                TargetType="Thumb">
+  <ControlTheme x:Key="ModernSimpleScrollThumb" TargetType="Thumb">
     <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -58,13 +57,14 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="ModernSimpleScrollArrowButton"
-                TargetType="RepeatButton">
+  <ControlTheme x:Key="ModernSimpleScrollArrowButton" TargetType="RepeatButton">
     <Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="CornerRadius" Value="0" />
     <Setter Property="Padding" Value="4" />
+    <Setter Property="Height" Value="16" />
+    <Setter Property="Width" Value="16" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_RootBorder"
@@ -92,8 +92,7 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="ModernSimpleScrollLineButton"
-                TargetType="RepeatButton">
+  <ControlTheme x:Key="ModernSimpleScrollLineButton" TargetType="RepeatButton">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -104,8 +103,7 @@
     </Setter>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type ScrollBar}"
-                TargetType="ScrollBar">
+  <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
     <Setter Property="CornerRadius" Value="0" />
     <Setter Property="Background" Value="{x:Null}" />
     <Setter Property="Template">
