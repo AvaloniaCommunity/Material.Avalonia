@@ -11,6 +11,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ThemeVariantScope.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Controls/Card.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Controls/SnackbarHost.axaml" />
 
         <!-- Seems like we cant reference something from other projects... -->
         <!-- I think what we need to move ripple to this project -->
@@ -101,7 +102,7 @@
   <!-- <StyleInclude Source="avares://Material.Styles/ColorZone.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/NavigationDrawer.xaml"/>-->
   <!--<StyleInclude Source="avares://Material.Styles/MaterialUnderline.xaml"/>-->
-  <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/SnackbarHost.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/MaterialInternalIcon.axaml" /> -->
 
   <!-- <StyleInclude Source="avares://Material.Styles/CircleClockPickerCell.axaml" /> -->
