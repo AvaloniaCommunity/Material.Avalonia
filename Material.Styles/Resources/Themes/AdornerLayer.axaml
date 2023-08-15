@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="MaterialAdornerLayer" TargetType="AdornerLayer">
+    <Setter Property="DefaultFocusAdorner">
+      <FocusAdornerTemplate>
+        <Rectangle Stroke="{DynamicResource MaterialDesignBody}"
+                   StrokeThickness="1"
+                   StrokeDashArray="1,2" />
+      </FocusAdornerTemplate>
+    </Setter>
+  </ControlTheme>
+  
+  <ControlTheme x:Key="{x:Type AdornerLayer}" TargetType="AdornerLayer"
+                BasedOn="{StaticResource MaterialAdornerLayer}"/>
+</ResourceDictionary>

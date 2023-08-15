@@ -15,6 +15,7 @@
         <!-- Seems like we cant reference something from other projects... -->
         <!-- I think what we need to move ripple to this project -->
         <ResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AdornerLayer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
@@ -138,7 +139,7 @@
   <!-- <StyleInclude Source="avares://Material.Styles/EmbeddableControlRoot.xaml" /> -->
 
   <StyleInclude Source="avares://Material.Styles/FlyoutPresenter.axaml" />
-  <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/FocusAdorner.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/GridSplitter.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/ItemsControl.xaml" />-->
   <!-- <StyleInclude Source="avares://Material.Styles/Label.axaml" /> -->
