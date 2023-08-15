@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <AvaloniaVersion>11.0.1</AvaloniaVersion>
+    <AvaloniaVersion>11.0.3</AvaloniaVersion>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
