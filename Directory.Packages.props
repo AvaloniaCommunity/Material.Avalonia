@@ -17,15 +17,19 @@
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
     <!--For Material.Styles-->
     <PackageVersion Include="System.Reactive" Version="6.0.0" />
-    <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.0.0" />
+    <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.2.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageVersion>
     <!--For Material.Demo-->
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1" />
-    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.4" />
+    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.6" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
     <!--For _build-->
     <PackageVersion Include="Nuke.Common" Version="7.0.2" />
     <PackageVersion Include="NuGet.Protocol" Version="6.7.0" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
   </ItemGroup>
 </Project>

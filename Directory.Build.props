@@ -1,4 +1,5 @@
 <Project>
+  <Import Project="SourceLink.props" Condition="'$(DisableSourceLink)' == ''"/>
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -21,7 +22,7 @@
       - A lot of fixes and refactoring styles to ControlThemes
       - Add TimePicker and Clock controls
     </PackageReleaseNotes>
-    
+
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
   </PropertyGroup>
 
