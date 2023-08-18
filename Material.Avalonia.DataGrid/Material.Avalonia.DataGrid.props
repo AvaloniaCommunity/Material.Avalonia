@@ -1,5 +1,5 @@
-<Project>
-  <PropertyGroup>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
     <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true" />
-  </PropertyGroup>
+  </ItemGroup>
 </Project>
