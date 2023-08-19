@@ -2,8 +2,13 @@
 
   <PropertyGroup>
     <Description>Material.Dialog provide some essential material dialogs for use.</Description>
-    <Version>1.0.1</Version>
+    <PackageTags>avalonia xaml material design theme dialogs colour color ui ux material-design google-material</PackageTags>
+    <PackageIcon>FavIcon.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../wiki/FavIcon.png" Pack="true" PackagePath="/"/>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia.Controls.ItemsRepeater"/>
