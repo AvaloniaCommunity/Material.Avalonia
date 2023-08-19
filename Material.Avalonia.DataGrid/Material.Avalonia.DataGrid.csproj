@@ -2,14 +2,20 @@
 
   <PropertyGroup>
     <Description>DataGrid styles library of Material.Avalonia.</Description>
+    <PackageTags>avalonia xaml material design theme datagrid colour color ui ux material-design google-material</PackageTags>
+    <PackageIcon>FavIcon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Controls.DataGrid"/>
+    <None Include="../wiki/FavIcon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
+    <PackageReference Include="Avalonia.Controls.DataGrid" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Material.Styles\Material.Styles.csproj" />
   </ItemGroup>
 
   <ItemGroup>
