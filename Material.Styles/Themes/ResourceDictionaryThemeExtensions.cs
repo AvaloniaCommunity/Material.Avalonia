@@ -49,7 +49,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialSecondaryHueDarkForegroundBrush",
                 theme.SecondaryDark.ForegroundColor);
 
-            SetSolidColorBrush(resourceDictionary, "ValidationErrorBrush", theme.ValidationError);
+            SetSolidColorBrush(resourceDictionary, "MaterialValidationErrorBrush", theme.ValidationError);
 
             SetSolidColorBrush(resourceDictionary, "MaterialDesignBackground", theme.Background);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignPaper", theme.Paper);
@@ -145,7 +145,7 @@ namespace Material.Styles.Themes {
                 ToolForeground = GetColor("MaterialDesignToolForeground"),
                 ToolTipBackground = GetColor("MaterialDesignToolTipBackground"),
                 Paper = GetColor("MaterialDesignPaper"),
-                ValidationError = GetColor("ValidationErrorBrush")
+                ValidationError = GetColor("MaterialValidationErrorBrush")
             };
 
             Color GetColor(string key) {

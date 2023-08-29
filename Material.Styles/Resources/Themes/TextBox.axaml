@@ -394,12 +394,12 @@
         
         <Style Selector="^:error" >
             <Style Selector="^ /template/ TextBlock#PART_LabelText" >
-                <Setter Property="Foreground" Value="{DynamicResource ValidationErrorBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorBrush}" />
             </Style>
             
             <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
-                <Setter Property="IdleBrush" Value="{DynamicResource ValidationErrorBrush}" />
-                <Setter Property="ActiveBrush" Value="{DynamicResource ValidationErrorBrush}" />
+                <Setter Property="IdleBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
+                <Setter Property="ActiveBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
             </Style>
 
             <!-- TODO: Animate fading effect between hints text and validation error text -->
@@ -583,7 +583,7 @@
         <!-- Invalid state -->
 
         <Style Selector="^:error /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
         </Style>
     </ControlTheme>
     

@@ -249,12 +249,12 @@
     <!-- Invalid state -->
 
     <Style Selector="TextBox:error /template/ TextBlock#PART_LabelText" >
-        <Setter Property="Foreground" Value="{DynamicResource ValidationErrorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorBrush}" />
     </Style>
     
     <Style Selector="TextBox:error /template/ controls|MaterialUnderline#PART_Underline" >
-        <Setter Property="IdleBrush" Value="{DynamicResource ValidationErrorBrush}" />
-        <Setter Property="ActiveBrush" Value="{DynamicResource ValidationErrorBrush}" />
+        <Setter Property="IdleBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
     </Style>
 
     <Style Selector="TextBox:error /template/ TextBlock#PART_HintsText" >
@@ -420,7 +420,7 @@
     <!-- Invalid state -->
 
     <Style Selector="TextBox.outline:error /template/ Border#PART_BackgroundTextField" >
-        <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
@@ -667,7 +667,7 @@
     <!-- Invalid state -->
 
     <Style Selector="TextBox.Outline:error /template/ Border#PART_BackgroundTextField" >
-        <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
