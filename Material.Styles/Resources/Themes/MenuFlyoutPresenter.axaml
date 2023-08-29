@@ -3,7 +3,7 @@
                     xmlns:assists="clr-namespace:Material.Styles.Assists">
   <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
     <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialCardBackgroundBrush}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Padding" Value="0, 8" />

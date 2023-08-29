@@ -53,7 +53,7 @@ namespace Material.Styles.Themes {
 
             SetSolidColorBrush(resourceDictionary, "MaterialBackgroundBrush", theme.Background);
             SetSolidColorBrush(resourceDictionary, "MaterialPaperBrush", theme.Paper);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignCardBackground", theme.CardBackground);
+            SetSolidColorBrush(resourceDictionary, "MaterialCardBackgroundBrush", theme.CardBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignToolBarBackground", theme.ToolBarBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignBody", theme.Body);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignBodyLight", theme.BodyLight);
@@ -121,7 +121,7 @@ namespace Material.Styles.Themes {
                 Background = GetColor("MaterialBackgroundBrush"),
                 Body = GetColor("MaterialDesignBody"),
                 BodyLight = GetColor("MaterialDesignBodyLight"),
-                CardBackground = GetColor("MaterialDesignCardBackground"),
+                CardBackground = GetColor("MaterialCardBackgroundBrush"),
                 CheckBoxDisabled = GetColor("MaterialDesignCheckBoxDisabled"),
                 CheckBoxOff = GetColor("MaterialDesignCheckBoxOff"),
                 ChipBackground = GetColor("MaterialDesignChipBackground"),

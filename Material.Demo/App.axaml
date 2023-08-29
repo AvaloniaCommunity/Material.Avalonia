@@ -31,7 +31,7 @@
     </Style>
 
     <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border > Grid">
-      <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground }" />
+      <Setter Property="Background" Value="{DynamicResource MaterialCardBackgroundBrush }" />
     </Style>
 
     <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border > Grid > Button">

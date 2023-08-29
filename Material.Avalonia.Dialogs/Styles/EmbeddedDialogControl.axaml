@@ -16,7 +16,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_RootBorder"
-                        Background="{DynamicResource MaterialDesignCardBackground}" >
+                        Background="{DynamicResource MaterialCardBackgroundBrush}" >
                     <DockPanel Name="PART_RootPanel"
                                Width="{CompiledBinding Width}"
                                MaxWidth="{CompiledBinding MaxWidth}" >

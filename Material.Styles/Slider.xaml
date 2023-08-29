@@ -223,7 +223,7 @@
             
     <Style Selector="Slider:disabled /template/ controls|TickBar#CenterTick">
         <Setter Property="InactiveBrush" Value="{DynamicResource MaterialDesignBodyLight}"/>
-        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialDesignCardBackground}"/>
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialCardBackgroundBrush}"/>
     </Style>
     
     <!-- Styling track (native) -->
