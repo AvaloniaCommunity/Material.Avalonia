@@ -4,74 +4,74 @@
   <ResourceDictionary.ThemeDictionaries>
     <ResourceDictionary x:Key="{x:Static themes:Theme.MaterialLight}">
       <Color x:Key="ValidationErrorColor">#F44336</Color>
-      <Color x:Key="MaterialBackgroundBrush">#FFFFFFFF</Color>
-      <Color x:Key="MaterialPaperBrush">#FFFAFAFA</Color>
-      <Color x:Key="MaterialCardBackgroundBrush">#FFFFFFFF</Color>
-      <Color x:Key="MaterialToolBarBackgroundBrush">#FFF5F5F5</Color>
-      <Color x:Key="MaterialBodyBrush">#DD000000</Color>
-      <Color x:Key="MaterialBodyLightBrush">#89000000</Color>
-      <Color x:Key="MaterialDesignColumnHeader">#BC000000</Color>
-      <Color x:Key="MaterialDesignCheckBoxOff">#89000000</Color>
-      <Color x:Key="MaterialDesignCheckBoxDisabled">#FFBDBDBD</Color>
-      <Color x:Key="MaterialDesignTextBoxBorder">#89000000</Color>
-      <Color x:Key="MaterialDesignDivider">#1F000000</Color>
-      <Color x:Key="MaterialDesignSelection">#FFDEDEDE</Color>
-      <Color x:Key="MaterialDesignToolForeground">#FF616161</Color>
-      <Color x:Key="MaterialDesignToolBackground">#FFE0E0E0</Color>
-      <Color x:Key="MaterialDesignFlatButtonClick">#FFDEDEDE</Color>
-      <Color x:Key="MaterialDesignFlatButtonRipple">#FFB6B6B6</Color>
-      <Color x:Key="MaterialDesignToolTipBackground">#757575</Color>
-      <Color x:Key="MaterialDesignChipBackground">#12000000</Color>
-      <Color x:Key="MaterialDesignSnackbarBackground">#FF323232</Color>
-      <Color x:Key="MaterialDesignSnackbarMouseOver">#FF464642</Color>
-      <Color x:Key="MaterialDesignSnackbarRipple">#FFB6B6B6</Color>
-      <Color x:Key="MaterialDesignTextFieldBoxBackground">#0F000000</Color>
-      <Color x:Key="MaterialDesignTextFieldBoxHoverBackground">#14000000</Color>
-      <Color x:Key="MaterialDesignTextFieldBoxDisabledBackground">#08000000</Color>
-      <Color x:Key="MaterialDesignTextAreaBorder">#BC000000</Color>
-      <Color x:Key="MaterialDesignTextAreaInactiveBorder">#0F000000</Color>
-      <Color x:Key="MaterialDesignDataGridRowHoverBackground">#0A000000</Color>
+      <Color x:Key="MaterialBackgroundColor">#FFFFFFFF</Color>
+      <Color x:Key="MaterialPaperColor">#FFFAFAFA</Color>
+      <Color x:Key="MaterialCardBackgroundColor">#FFFFFFFF</Color>
+      <Color x:Key="MaterialToolBarBackgroundColor">#FFF5F5F5</Color>
+      <Color x:Key="MaterialBodyColor">#DD000000</Color>
+      <Color x:Key="MaterialBodyLightColor">#89000000</Color>
+      <Color x:Key="MaterialColumnHeaderColor">#BC000000</Color>
+      <Color x:Key="MaterialCheckBoxOffColor">#89000000</Color>
+      <Color x:Key="MaterialCheckBoxDisabledColor">#FFBDBDBD</Color>
+      <Color x:Key="MaterialTextBoxBorderColor">#89000000</Color>
+      <Color x:Key="MaterialDividerColor">#1F000000</Color>
+      <Color x:Key="MaterialSelectionColor">#FFDEDEDE</Color>
+      <Color x:Key="MaterialToolForegroundColor">#FF616161</Color>
+      <Color x:Key="MaterialToolBackgroundColor">#FFE0E0E0</Color>
+      <Color x:Key="MaterialFlatButtonClickColor">#FFDEDEDE</Color>
+      <Color x:Key="MaterialFlatButtonRippleColor">#FFB6B6B6</Color>
+      <Color x:Key="MaterialToolTipBackgroundColor">#757575</Color>
+      <Color x:Key="MaterialChipBackgroundColor">#12000000</Color>
+      <Color x:Key="MaterialSnackbarBackgroundColor">#FF323232</Color>
+      <Color x:Key="MaterialSnackbarMouseOverColor">#FF464642</Color>
+      <Color x:Key="MaterialSnackbarRippleColor">#FFB6B6B6</Color>
+      <Color x:Key="MaterialTextFieldBoxBackgroundColor">#0F000000</Color>
+      <Color x:Key="MaterialTextFieldBoxHoverBackgroundColor">#14000000</Color>
+      <Color x:Key="MaterialTextFieldBoxDisabledBackgroundColor">#08000000</Color>
+      <Color x:Key="MaterialTextAreaBorderColor">#BC000000</Color>
+      <Color x:Key="MaterialTextAreaInactiveBorderColor">#0F000000</Color>
+      <Color x:Key="MaterialDataGridRowHoverBackgroundColor">#0A000000</Color>
 
       <SolidColorBrush x:Key="ValidationErrorColorBrush" Color="{StaticResource ValidationErrorColor}" />
-      <SolidColorBrush x:Key="MaterialDesignBackgroundBrush" Color="{StaticResource MaterialBackgroundBrush}" />
-      <SolidColorBrush x:Key="MaterialDesignPaperBrush" Color="{StaticResource MaterialPaperBrush}" />
-      <SolidColorBrush x:Key="MaterialDesignCardBackgroundBrush" Color="{StaticResource MaterialCardBackgroundBrush}" />
+      <SolidColorBrush x:Key="MaterialDesignBackgroundBrush" Color="{StaticResource MaterialBackgroundColor}" />
+      <SolidColorBrush x:Key="MaterialDesignPaperBrush" Color="{StaticResource MaterialPaperColor}" />
+      <SolidColorBrush x:Key="MaterialDesignCardBackgroundBrush" Color="{StaticResource MaterialCardBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialDesignToolBarBackgroundBrush"
-                       Color="{StaticResource MaterialToolBarBackgroundBrush}" />
-      <SolidColorBrush x:Key="MaterialDesignBodyBrush" Color="{StaticResource MaterialBodyBrush}" />
-      <SolidColorBrush x:Key="MaterialDesignBodyLightBrush" Color="{StaticResource MaterialBodyLightBrush}" />
-      <SolidColorBrush x:Key="MaterialDesignColumnHeaderBrush" Color="{StaticResource MaterialDesignColumnHeader}" />
-      <SolidColorBrush x:Key="MaterialDesignCheckBoxOffBrush" Color="{StaticResource MaterialDesignCheckBoxOff}" />
+                       Color="{StaticResource MaterialToolBarBackgroundColor}" />
+      <SolidColorBrush x:Key="MaterialDesignBodyBrush" Color="{StaticResource MaterialBodyColor}" />
+      <SolidColorBrush x:Key="MaterialDesignBodyLightBrush" Color="{StaticResource MaterialBodyLightColor}" />
+      <SolidColorBrush x:Key="MaterialDesignColumnHeaderBrush" Color="{StaticResource MaterialColumnHeaderColor}" />
+      <SolidColorBrush x:Key="MaterialDesignCheckBoxOffBrush" Color="{StaticResource MaterialCheckBoxOffColor}" />
       <SolidColorBrush x:Key="MaterialDesignCheckBoxDisabledBrush"
-                       Color="{StaticResource MaterialDesignCheckBoxDisabled}" />
-      <SolidColorBrush x:Key="MaterialDesignTextBoxBorderBrush" Color="{StaticResource MaterialDesignTextBoxBorder}" />
-      <SolidColorBrush x:Key="MaterialDesignDividerBrush" Color="{StaticResource MaterialDesignDivider}" />
-      <SolidColorBrush x:Key="MaterialDesignSelectionBrush" Color="{StaticResource MaterialDesignSelection}" />
-      <SolidColorBrush x:Key="MaterialDesignToolForegroundBrush" Color="{StaticResource MaterialDesignToolForeground}" />
-      <SolidColorBrush x:Key="MaterialDesignToolBackgroundBrush" Color="{StaticResource MaterialDesignToolBackground}" />
+                       Color="{StaticResource MaterialCheckBoxDisabledColor}" />
+      <SolidColorBrush x:Key="MaterialDesignTextBoxBorderBrush" Color="{StaticResource MaterialTextBoxBorderColor}" />
+      <SolidColorBrush x:Key="MaterialDesignDividerBrush" Color="{StaticResource MaterialDividerColor}" />
+      <SolidColorBrush x:Key="MaterialDesignSelectionBrush" Color="{StaticResource MaterialSelectionColor}" />
+      <SolidColorBrush x:Key="MaterialDesignToolForegroundBrush" Color="{StaticResource MaterialToolForegroundColor}" />
+      <SolidColorBrush x:Key="MaterialDesignToolBackgroundBrush" Color="{StaticResource MaterialToolBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialDesignFlatButtonClickBrush"
-                       Color="{StaticResource MaterialDesignFlatButtonClick}" />
+                       Color="{StaticResource MaterialFlatButtonClickColor}" />
       <SolidColorBrush x:Key="MaterialDesignFlatButtonRippleBrush"
-                       Color="{StaticResource MaterialDesignFlatButtonRipple}" />
+                       Color="{StaticResource MaterialFlatButtonRippleColor}" />
       <SolidColorBrush x:Key="MaterialDesignToolTipBackgroundBrush"
-                       Color="{StaticResource MaterialDesignToolTipBackground}" />
-      <SolidColorBrush x:Key="MaterialDesignChipBackgroundBrush" Color="{StaticResource MaterialDesignChipBackground}" />
+                       Color="{StaticResource MaterialToolTipBackgroundColor}" />
+      <SolidColorBrush x:Key="MaterialDesignChipBackgroundBrush" Color="{StaticResource MaterialChipBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialDesignSnackbarBackgroundBrush"
-                       Color="{StaticResource MaterialDesignSnackbarBackground}" />
+                       Color="{StaticResource MaterialSnackbarBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialDesignSnackbarMouseOverBrush"
-                       Color="{StaticResource MaterialDesignSnackbarMouseOver}" />
-      <SolidColorBrush x:Key="MaterialDesignSnackbarRippleBrush" Color="{StaticResource MaterialDesignSnackbarRipple}" />
+                       Color="{StaticResource MaterialSnackbarMouseOverColor}" />
+      <SolidColorBrush x:Key="MaterialDesignSnackbarRippleBrush" Color="{StaticResource MaterialSnackbarRippleColor}" />
       <SolidColorBrush x:Key="MaterialDesignTextFieldBoxBackgroundBrush"
-                       Color="{StaticResource MaterialDesignTextFieldBoxBackground}" />
+                       Color="{StaticResource MaterialTextFieldBoxBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialDesignTextFieldBoxHoverBackgroundBrush"
-                       Color="{StaticResource MaterialDesignTextFieldBoxHoverBackground}" />
+                       Color="{StaticResource MaterialTextFieldBoxHoverBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialDesignTextFieldBoxDisabledBackgroundBrush"
-                       Color="{StaticResource MaterialDesignTextFieldBoxDisabledBackground}" />
-      <SolidColorBrush x:Key="MaterialDesignTextAreaBorderBrush" Color="{StaticResource MaterialDesignTextAreaBorder}" />
+                       Color="{StaticResource MaterialTextFieldBoxDisabledBackgroundColor}" />
+      <SolidColorBrush x:Key="MaterialDesignTextAreaBorderBrush" Color="{StaticResource MaterialTextAreaBorderColor}" />
       <SolidColorBrush x:Key="MaterialDesignTextAreaInactiveBorderBrush"
-                       Color="{StaticResource MaterialDesignTextAreaInactiveBorder}" />
+                       Color="{StaticResource MaterialTextAreaInactiveBorderColor}" />
       <SolidColorBrush x:Key="MaterialDesignDataGridRowHoverBackgroundBrush"
-                       Color="{StaticResource MaterialDesignDataGridRowHoverBackground}" />
+                       Color="{StaticResource MaterialDataGridRowHoverBackgroundColor}" />
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static themes:Theme.MaterialDark}">
