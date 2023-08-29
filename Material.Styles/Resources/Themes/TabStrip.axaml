@@ -8,7 +8,7 @@
         <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
                 Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
-                Value="{DynamicResource MaterialDesignBodyLight}" />
+                Value="{DynamicResource MaterialBodyLightBrush}" />
         <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
         <Setter Property="Template">
             <ControlTemplate>

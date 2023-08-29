@@ -425,7 +425,7 @@
     </Style>
 
     <Style Selector="^:disabled /template/ controls|TickBar#PART_SliderTick">
-      <Setter Property="InactiveBrush" Value="{DynamicResource MaterialDesignBodyLight}" />
+      <Setter Property="InactiveBrush" Value="{DynamicResource MaterialBodyLightBrush}" />
       <Setter Property="ActiveBrush" Value="{DynamicResource MaterialCardBackgroundBrush}" />
     </Style>
   </ControlTheme>

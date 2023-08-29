@@ -9,7 +9,7 @@
       <Color x:Key="MaterialCardBackgroundBrush">#FFFFFFFF</Color>
       <Color x:Key="MaterialToolBarBackgroundBrush">#FFF5F5F5</Color>
       <Color x:Key="MaterialBodyBrush">#DD000000</Color>
-      <Color x:Key="MaterialDesignBodyLight">#89000000</Color>
+      <Color x:Key="MaterialBodyLightBrush">#89000000</Color>
       <Color x:Key="MaterialDesignColumnHeader">#BC000000</Color>
       <Color x:Key="MaterialDesignCheckBoxOff">#89000000</Color>
       <Color x:Key="MaterialDesignCheckBoxDisabled">#FFBDBDBD</Color>
@@ -39,7 +39,7 @@
       <SolidColorBrush x:Key="MaterialDesignToolBarBackgroundBrush"
                        Color="{StaticResource MaterialToolBarBackgroundBrush}" />
       <SolidColorBrush x:Key="MaterialDesignBodyBrush" Color="{StaticResource MaterialBodyBrush}" />
-      <SolidColorBrush x:Key="MaterialDesignBodyLightBrush" Color="{StaticResource MaterialDesignBodyLight}" />
+      <SolidColorBrush x:Key="MaterialDesignBodyLightBrush" Color="{StaticResource MaterialBodyLightBrush}" />
       <SolidColorBrush x:Key="MaterialDesignColumnHeaderBrush" Color="{StaticResource MaterialDesignColumnHeader}" />
       <SolidColorBrush x:Key="MaterialDesignCheckBoxOffBrush" Color="{StaticResource MaterialDesignCheckBoxOff}" />
       <SolidColorBrush x:Key="MaterialDesignCheckBoxDisabledBrush"
@@ -81,7 +81,7 @@
       <Color x:Key="MaterialCardBackgroundBrush">#FF424242</Color>
       <Color x:Key="MaterialToolBarBackgroundBrush">#FF212121</Color>
       <Color x:Key="MaterialBodyBrush">#DDFFFFFF</Color>
-      <Color x:Key="MaterialDesignBodyLight">#89FFFFFF</Color>
+      <Color x:Key="MaterialBodyLightBrush">#89FFFFFF</Color>
       <Color x:Key="MaterialDesignColumnHeader">#BCFFFFFF</Color>
       <Color x:Key="MaterialDesignCheckBoxOff">#89FFFFFF</Color>
       <Color x:Key="MaterialDesignCheckBoxDisabled">#FF647076</Color>
@@ -111,7 +111,7 @@
       <SolidColorBrush x:Key="MaterialDesignToolBarBackgroundBrush"
                        Color="{StaticResource MaterialToolBarBackgroundBrush}" />
       <SolidColorBrush x:Key="MaterialDesignBodyBrush" Color="{StaticResource MaterialBodyBrush}" />
-      <SolidColorBrush x:Key="MaterialDesignBodyLightBrush" Color="{StaticResource MaterialDesignBodyLight}" />
+      <SolidColorBrush x:Key="MaterialDesignBodyLightBrush" Color="{StaticResource MaterialBodyLightBrush}" />
       <SolidColorBrush x:Key="MaterialDesignColumnHeaderBrush" Color="{StaticResource MaterialDesignColumnHeader}" />
       <SolidColorBrush x:Key="MaterialDesignCheckBoxOffBrush" Color="{StaticResource MaterialDesignCheckBoxOff}" />
       <SolidColorBrush x:Key="MaterialDesignCheckBoxDisabledBrush"
