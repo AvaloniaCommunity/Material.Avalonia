@@ -181,7 +181,7 @@
   <Style Selector="controls|FloatingButton.Light">
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}"/>
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/> 
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}"/> 
   </Style> 
 
   <Style Selector="controls|FloatingButton.Dark">
@@ -197,7 +197,7 @@
   </Style>
 
   <Style Selector="controls|FloatingButton.Light Path">
-    <Setter Property="Fill" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+    <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}"/>
   </Style>
   <Style Selector="controls|FloatingButton.Dark Path">
     <Setter Property="Fill" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>

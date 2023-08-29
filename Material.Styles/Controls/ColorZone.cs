@@ -104,7 +104,7 @@ namespace Material.Styles.Controls {
 
                 case ColorZoneMode.PrimaryLight: {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryHueLightBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueLightForegroundBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryHueLightForegroundBrush"));
                 }
                     break;
 

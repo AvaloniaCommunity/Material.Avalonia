@@ -72,7 +72,7 @@
     <Style Selector="Button.light:not(.outline)" >
         <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}" />
     </Style>
     
     <Style Selector="Button.dark:not(.outline)" >
@@ -205,7 +205,7 @@
     <Style Selector="Button.Light:not(.Outline)" >
         <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}" />
     </Style>
     
     <Style Selector="Button.Dark:not(.Outline)" >
