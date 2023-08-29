@@ -3,7 +3,7 @@
                     xmlns:themes="clr-namespace:Material.Styles.Themes">
   <ResourceDictionary.ThemeDictionaries>
     <ResourceDictionary x:Key="{x:Static themes:Theme.MaterialLight}">
-      <Color x:Key="ValidationErrorColor">#F44336</Color>
+      <Color x:Key="MaterialValidationErrorColor">#F44336</Color>
       <Color x:Key="MaterialBackgroundColor">#FFFFFFFF</Color>
       <Color x:Key="MaterialPaperColor">#FFFAFAFA</Color>
       <Color x:Key="MaterialCardBackgroundColor">#FFFFFFFF</Color>
@@ -32,7 +32,7 @@
       <Color x:Key="MaterialTextAreaInactiveBorderColor">#0F000000</Color>
       <Color x:Key="MaterialDataGridRowHoverBackgroundColor">#0A000000</Color>
 
-      <SolidColorBrush x:Key="ValidationErrorColorBrush" Color="{StaticResource ValidationErrorColor}" />
+      <SolidColorBrush x:Key="ValidationErrorColorBrush" Color="{StaticResource MaterialValidationErrorColor}" />
       <SolidColorBrush x:Key="MaterialDesignBackgroundBrush" Color="{StaticResource MaterialBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialDesignPaperBrush" Color="{StaticResource MaterialPaperColor}" />
       <SolidColorBrush x:Key="MaterialDesignCardBackgroundBrush" Color="{StaticResource MaterialCardBackgroundColor}" />
