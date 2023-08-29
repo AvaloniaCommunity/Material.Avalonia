@@ -122,14 +122,14 @@ namespace Material.Dialog.ViewModels
 
         #endregion
 
-        private ObservableCollection<DialogButtonViewModel> _neutralDialogButton;
+        private ObservableCollection<DialogButtonViewModel> _altDialogButton;
 
-        public ObservableCollection<DialogButtonViewModel> NeutralDialogButton
+        public ObservableCollection<DialogButtonViewModel> AltDialogButton
         {
-            get => _neutralDialogButton;
+            get => _altDialogButton;
             internal set
             {
-                _neutralDialogButton = value;
+                _altDialogButton = value;
                 OnPropertyChanged();
             }
         }
