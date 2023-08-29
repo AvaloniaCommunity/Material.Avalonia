@@ -54,7 +54,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialBackgroundBrush", theme.Background);
             SetSolidColorBrush(resourceDictionary, "MaterialPaperBrush", theme.Paper);
             SetSolidColorBrush(resourceDictionary, "MaterialCardBackgroundBrush", theme.CardBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignToolBarBackground", theme.ToolBarBackground);
+            SetSolidColorBrush(resourceDictionary, "MaterialToolBarBackgroundBrush", theme.ToolBarBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignBody", theme.Body);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignBodyLight", theme.BodyLight);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignColumnHeader", theme.ColumnHeader);
@@ -141,7 +141,7 @@ namespace Material.Styles.Themes {
                 TextFieldBoxDisabledBackground = GetColor("MaterialDesignTextFieldBoxDisabledBackground"),
                 TextFieldBoxHoverBackground = GetColor("MaterialDesignTextFieldBoxHoverBackground"),
                 ToolBackground = GetColor("MaterialDesignToolBackground"),
-                ToolBarBackground = GetColor("MaterialDesignToolBarBackground"),
+                ToolBarBackground = GetColor("MaterialToolBarBackgroundBrush"),
                 ToolForeground = GetColor("MaterialDesignToolForeground"),
                 ToolTipBackground = GetColor("MaterialDesignToolTipBackground"),
                 Paper = GetColor("MaterialPaperBrush"),
