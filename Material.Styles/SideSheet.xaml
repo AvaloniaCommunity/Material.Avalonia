@@ -18,7 +18,7 @@
         <Setter Property="SideSheetPadding" Value="16"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="SideSheetDirection" Value="Right" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
         <Setter Property="SideSheetHeaderTemplate">
             <DataTemplate>
                 <TextBlock Classes="Headline6" Text="{Binding}"/>

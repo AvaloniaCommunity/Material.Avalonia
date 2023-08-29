@@ -79,14 +79,14 @@ namespace Material.Styles.Controls {
 
             switch (colorZone.Mode) {
                 case ColorZoneMode.Standard: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignPaper"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPaperBrush"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignBody"));
                 }
                     break;
 
                 case ColorZoneMode.Inverted: {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignBody"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignPaper"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPaperBrush"));
                 }
                     break;
 

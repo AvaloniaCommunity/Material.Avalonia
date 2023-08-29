@@ -1,6 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="ToolTip">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPaperBrush}" />
         <Setter Property="Background" Value="{DynamicResource MaterialDesignToolTipBackground}" />
         <Setter Property="Margin" Value="0,8"/>
         <Setter Property="Padding" Value="8" />

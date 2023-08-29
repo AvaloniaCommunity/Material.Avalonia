@@ -83,7 +83,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             { "MaterialSecondaryHueDarkBrush", theme => theme.SecondaryDark.Color },
             { "MaterialValidationErrorBrush", theme => theme.ValidationError },
             { "MaterialBackgroundBrush", theme => theme.Background },
-            { "MaterialDesignPaper", theme => theme.Paper },
+            { "MaterialPaperBrush", theme => theme.Paper },
             { "MaterialDesignCardBackground", theme => theme.CardBackground },
             { "MaterialDesignToolBarBackground", theme => theme.ToolBarBackground },
             { "MaterialDesignBody", theme => theme.Body },

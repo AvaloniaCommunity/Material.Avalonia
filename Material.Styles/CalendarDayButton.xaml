@@ -88,7 +88,7 @@
     </Style>
         
     <Style Selector="CalendarDayButton:selected">
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignPaper}"/>
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialPaperBrush}"/>
     </Style>
     
     <Style Selector="CalendarDayButton:selected /template/ Border#PART_BehaviourEffect">

@@ -74,7 +74,7 @@
     </Style>
 
     <Style Selector="NotificationCard">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
     </Style>
     <!-- <Style Selector="NotificationCard:information"> -->
     <!--     <Setter Property="Background" Value="{DynamicResource NotificationCardInformationBackgroundBrush}" /> -->

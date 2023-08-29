@@ -7,7 +7,7 @@
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
     <Setter Property="Background" Value="{DynamicResource MaterialDesignToolTipBackground}" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignPaper}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="Padding" Value="8" />
     <Setter Property="MaxWidth" Value="{DynamicResource FlyoutThemeMaxWidth}" />
     <Setter Property="MaxHeight" Value="{DynamicResource FlyoutThemeMaxHeight}" />
