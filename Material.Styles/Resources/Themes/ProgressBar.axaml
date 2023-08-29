@@ -45,7 +45,7 @@
   <ControlTheme x:Key="LinearProgressBar"
                 BasedOn="{StaticResource ProgressBarBase}"
                 TargetType="ProgressBar">
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
     <Setter Property="Template">
       <ControlTemplate>

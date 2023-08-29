@@ -115,7 +115,7 @@ namespace Material.Styles.Controls {
                     break;
 
                 case ColorZoneMode.PrimaryDark: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "PrimaryHueDarkBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryHueDarkBrush"));
                     SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueDarkForegroundBrush"));
                 }
                     break;

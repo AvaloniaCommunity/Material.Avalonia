@@ -76,8 +76,8 @@
     </Style>
     
     <Style Selector="Button.dark:not(.outline)" >
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
     </Style>
     
@@ -150,8 +150,8 @@
     </Style>
     
     <Style Selector="Button.outline.dark" >
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
     </Style>
     
     <Style Selector="Button.outline:disabled">
@@ -209,8 +209,8 @@
     </Style>
     
     <Style Selector="Button.Dark:not(.Outline)" >
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
     </Style>
     
@@ -290,8 +290,8 @@
     </Style>
     
     <Style Selector="Button.Outline.Dark" >
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
     </Style>
     
     <Style Selector="Button.Outline:disabled">

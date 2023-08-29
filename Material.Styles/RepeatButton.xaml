@@ -202,8 +202,8 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}" />
     </Style>
     <Style Selector="RepeatButton.Material.Dark:not(.Outline)">
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
     </Style>
     <Style Selector="RepeatButton.Material.Accent:not(.Outline)">
@@ -241,8 +241,8 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
     </Style>
     <Style Selector="RepeatButton.Material.Outline.Dark">
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
     </Style>
 
 </Styles>

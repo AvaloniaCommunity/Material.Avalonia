@@ -87,8 +87,8 @@
         </Style>
     
         <Style Selector="^.dark" >
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
         </Style>
     
@@ -152,8 +152,8 @@
     
         <Style Selector="^.dark" >
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
         </Style>
         
                 
