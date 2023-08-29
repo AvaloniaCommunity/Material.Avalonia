@@ -160,7 +160,7 @@
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
                 Value="{DynamicResource MaterialSecondaryHueLightBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
-                Value="{DynamicResource SecondaryHueMidBrush}" />
+                Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
 
     <!-- On disabled state -->

@@ -90,7 +90,7 @@
         
         <Style Selector="^.accent">
             <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                    Value="{DynamicResource SecondaryHueMidBrush}" />
+                    Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
         </Style>
         
         <!-- Hover effect -->

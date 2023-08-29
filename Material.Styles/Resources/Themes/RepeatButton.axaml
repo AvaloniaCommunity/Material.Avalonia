@@ -51,8 +51,8 @@
     </Style>
 
     <Style Selector="^.accent">
-      <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
       <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
     </Style>
 
@@ -179,7 +179,7 @@
     <Style Selector="^.accent">
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="BorderBrush" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
 
     <Style Selector="^.light">
@@ -256,7 +256,7 @@
     <Style Selector="^.accent">
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="BorderBrush" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
 
     <Style Selector="^.light">
@@ -283,9 +283,9 @@
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
 
     <Style Selector="^.accent">
-      <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
     <Style Selector="^.light">
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />

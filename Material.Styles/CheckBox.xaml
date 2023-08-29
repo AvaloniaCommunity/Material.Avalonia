@@ -104,7 +104,7 @@
     
     <Style Selector="CheckBox.Accent">
         <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                Value="{DynamicResource SecondaryHueMidBrush}" />
+                Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
     
     <!-- Hover effect -->

@@ -192,8 +192,8 @@
     </Style>
 
     <Style Selector="^.Accent">
-      <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
       <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
     </Style>
 

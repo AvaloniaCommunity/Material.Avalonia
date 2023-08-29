@@ -207,15 +207,15 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}" />
     </Style>
     <Style Selector="RepeatButton.Material.Accent:not(.Outline)">
-        <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
     </Style>
 
     <Style Selector="RepeatButton.Material.Accent.Flat:not(.Outline)">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
 
     <!-- Outlined buttons -->
@@ -232,8 +232,8 @@
     </Style>
 
     <Style Selector="RepeatButton.Material.Outline.Accent">
-        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
 
     <Style Selector="RepeatButton.Material.Outline.Light">

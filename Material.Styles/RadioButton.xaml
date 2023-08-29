@@ -99,9 +99,9 @@
 
     <Style Selector="RadioButton.Accent:not(:disabled)">
         <Setter Property="assists:SelectionControlAssist.Foreground"
-                Value="{DynamicResource SecondaryHueMidBrush}" />
+                Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
         <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                Value="{DynamicResource SecondaryHueMidBrush}" />
+                Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
     
     <!-- RadioButton but looks like buttons -->
@@ -143,7 +143,7 @@
         <Setter Property="Opacity" Value="0.45"/>
     </Style>
     <Style Selector="RadioButton.Button.Accent">
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
     </Style>
 </Styles>
