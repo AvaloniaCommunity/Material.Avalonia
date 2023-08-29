@@ -212,7 +212,7 @@
         
     <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ controls|TickBar#CenterTick">
         <Setter Property="InactiveBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
-        <Setter Property="ActiveBrush" Value="{DynamicResource SecondaryHueLightBrush}"/>
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialSecondaryHueLightBrush}"/>
     </Style>
     
     <Style Selector="Slider:disabled /template/

@@ -154,7 +154,7 @@
 
         <Style Selector="^.accent">
             <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
-                    Value="{DynamicResource SecondaryHueLightBrush}" />
+                    Value="{DynamicResource MaterialSecondaryHueLightBrush}" />
             <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
                     Value="{DynamicResource SecondaryHueMidBrush}" />
         </Style>

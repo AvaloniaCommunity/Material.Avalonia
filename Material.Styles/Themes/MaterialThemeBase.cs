@@ -78,7 +78,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             { "SecondaryHueLightForegroundBrush", theme => theme.SecondaryLight.ForegroundColor },
             { "SecondaryHueMidForegroundBrush", theme => theme.SecondaryMid.ForegroundColor },
             { "SecondaryHueDarkForegroundBrush", theme => theme.SecondaryDark.ForegroundColor },
-            { "SecondaryHueLightBrush", theme => theme.SecondaryLight.Color },
+            { "MaterialSecondaryHueLightBrush", theme => theme.SecondaryLight.Color },
             { "SecondaryHueMidBrush", theme => theme.SecondaryMid.Color },
             { "SecondaryHueDarkBrush", theme => theme.SecondaryDark.Color },
             { "ValidationErrorBrush", theme => theme.ValidationError },
