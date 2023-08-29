@@ -34,7 +34,7 @@
 
                         <DockPanel Name="{x:Static naming:PartNames.PartButtonsPanel}">
                             
-                            <ItemsControl Name="{x:Static naming:PartNames.PartNeutralButtonPlacement}"
+                            <ItemsControl Name="PART_AltButtonPlacement"
                                           DockPanel.Dock="Left"
                                           ItemsSource="{CompiledBinding NeutralDialogButton}"
                                           ItemTemplate="{StaticResource DialogButtonTemplate}"
@@ -88,11 +88,11 @@
     </Style>
     
     <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement Button,
-                     controls|EmbeddedDialogControl /template/ ItemsControl#PART_NeutralButtonPlacement Button">
+                     controls|EmbeddedDialogControl /template/ ItemsControl#PART_AltButtonPlacement Button">
         <Setter Property="Margin" Value="4"/>
     </Style>
     
-    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_NeutralButtonPlacement ItemsPresenter">
+    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_AltButtonPlacement ItemsPresenter">
         <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
     </Style>
     
