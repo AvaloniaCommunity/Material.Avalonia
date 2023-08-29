@@ -5,7 +5,7 @@ namespace Material.Styles.Themes.Base;
 internal sealed class MaterialDesignLightTheme : IBaseTheme {
     public static IBaseTheme Instance { get; } = new MaterialDesignLightTheme();
 
-    public Color ValidationErrorColor { get; } = Color.Parse("#F44336");
+    public Color MaterialValidationErrorColor { get; } = Color.Parse("#F44336");
     public Color MaterialBackgroundColor { get; } = Color.Parse("#FFFFFFFF");
     public Color MaterialPaperColor { get; } = Color.Parse("#FFFAFAFA");
     public Color MaterialCardBackgroundColor { get; } = Color.Parse("#FFFFFFFF");

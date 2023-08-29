@@ -57,7 +57,7 @@ namespace Material.Styles.Themes {
         public static ITheme SetBaseTheme(this ITheme theme, IBaseTheme baseTheme) {
             if (theme is null) throw new ArgumentNullException(nameof(theme));
 
-            theme.ValidationError = baseTheme.ValidationErrorColor;
+            theme.ValidationError = baseTheme.MaterialValidationErrorColor;
             theme.Background = baseTheme.MaterialBackgroundColor;
             theme.Paper = baseTheme.MaterialPaperColor;
             theme.CardBackground = baseTheme.MaterialCardBackgroundColor;

@@ -4,7 +4,7 @@ namespace Material.Styles.Themes.Base
 {
     public interface IBaseTheme
     {
-        Color ValidationErrorColor { get; }
+        Color MaterialValidationErrorColor { get; }
         Color MaterialBackgroundColor { get; }
         Color MaterialPaperColor { get; }
         Color MaterialCardBackgroundColor { get; }
