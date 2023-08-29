@@ -187,7 +187,7 @@
   <Style Selector="controls|FloatingButton.Dark">
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}"/>
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}"/>
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/> 
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}"/> 
   </Style>
  
   <Style Selector="controls|FloatingButton.Accent">
@@ -200,7 +200,7 @@
     <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}"/>
   </Style>
   <Style Selector="controls|FloatingButton.Dark Path">
-    <Setter Property="Fill" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+    <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}"/>
   </Style>
   <Style Selector="controls|FloatingButton.Accent Path">
     <Setter Property="Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>

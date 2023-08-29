@@ -37,7 +37,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialPrimaryHueMidBrush", theme.PrimaryMid.Color);
             SetSolidColorBrush(resourceDictionary, "MaterialPrimaryHueMidForegroundBrush", theme.PrimaryMid.ForegroundColor);
             SetSolidColorBrush(resourceDictionary, "MaterialPrimaryHueDarkBrush", theme.PrimaryDark.Color);
-            SetSolidColorBrush(resourceDictionary, "PrimaryHueDarkForegroundBrush", theme.PrimaryDark.ForegroundColor);
+            SetSolidColorBrush(resourceDictionary, "MaterialPrimaryHueDarkForegroundBrush", theme.PrimaryDark.ForegroundColor);
 
             SetSolidColorBrush(resourceDictionary, "SecondaryHueLightBrush", theme.SecondaryLight.Color);
             SetSolidColorBrush(resourceDictionary, "SecondaryHueLightForegroundBrush",
@@ -112,7 +112,7 @@ namespace Material.Styles.Themes {
                 PrimaryLight = new ColorPair(GetColor("MaterialPrimaryHueLightBrush"),
                     GetColor("MaterialPrimaryHueLightForegroundBrush")),
                 PrimaryMid = new ColorPair(GetColor("MaterialPrimaryHueMidBrush"), GetColor("MaterialPrimaryHueMidForegroundBrush")),
-                PrimaryDark = new ColorPair(GetColor("MaterialPrimaryHueDarkBrush"), GetColor("PrimaryHueDarkForegroundBrush")),
+                PrimaryDark = new ColorPair(GetColor("MaterialPrimaryHueDarkBrush"), GetColor("MaterialPrimaryHueDarkForegroundBrush")),
 
                 SecondaryLight = new ColorPair(secondaryLight, secondaryLightForeground),
                 SecondaryMid = new ColorPair(secondaryMid, secondaryMidForeground),

@@ -71,7 +71,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
         new Dictionary<string, Func<IReadOnlyTheme, Color>> {
             { "MaterialPrimaryHueLightForegroundBrush", theme => theme.PrimaryLight.ForegroundColor },
             { "MaterialPrimaryHueMidForegroundBrush", theme => theme.PrimaryMid.ForegroundColor },
-            { "PrimaryHueDarkForegroundBrush", theme => theme.PrimaryDark.ForegroundColor },
+            { "MaterialPrimaryHueDarkForegroundBrush", theme => theme.PrimaryDark.ForegroundColor },
             { "MaterialPrimaryHueLightBrush", theme => theme.PrimaryLight.Color },
             { "MaterialPrimaryHueMidBrush", theme => theme.PrimaryMid.Color },
             { "MaterialPrimaryHueDarkBrush", theme => theme.PrimaryDark.Color },

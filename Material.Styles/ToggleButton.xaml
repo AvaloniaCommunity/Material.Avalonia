@@ -112,7 +112,7 @@
     <Style Selector="ToggleButton.Dark:not(.Outline)" >
         <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}" />
     </Style>
     
     <Style Selector="ToggleButton.Accent:not(.Outline)" >
