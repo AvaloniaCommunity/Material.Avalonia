@@ -73,7 +73,7 @@
               HorizontalAlignment="Center"
               VerticalAlignment="Center"
               IsVisible="{TemplateBinding ShowProgressText}">
-              <TextBlock Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+              <TextBlock Foreground="{DynamicResource MaterialPrimaryHueMidForegroundBrush}">
                 <TextBlock.Text>
                   <MultiBinding Converter="{StaticResource StringFormatConverter}">
                     <TemplateBinding Property="ProgressTextFormat" />

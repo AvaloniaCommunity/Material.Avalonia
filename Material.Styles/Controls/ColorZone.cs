@@ -110,7 +110,7 @@ namespace Material.Styles.Controls {
 
                 case ColorZoneMode.PrimaryMid: {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryHueMidBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueMidForegroundBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryHueMidForegroundBrush"));
                 }
                     break;
 

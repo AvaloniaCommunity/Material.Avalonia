@@ -11,7 +11,7 @@
     <!-- Default style -->
     <Style Selector="RepeatButton">
         <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="4" />
@@ -43,7 +43,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="16 8" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />

@@ -163,7 +163,7 @@
         <Setter Property="Cursor" Value="IBeam"/>
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="SelectionBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
         <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
         <Setter Property="CaretBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="FontSize" Value="16" />

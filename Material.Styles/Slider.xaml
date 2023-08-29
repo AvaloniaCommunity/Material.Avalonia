@@ -466,7 +466,7 @@
     </Style>
 
     <Style Selector="Slider:not(:not(.Discrete, .discrete)) Thumb /template/ ContentPresenter#PART_ContentPresenter TextBlock" >
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->

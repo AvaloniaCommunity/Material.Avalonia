@@ -70,7 +70,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
     private static IReadOnlyDictionary<string, Func<IReadOnlyTheme, Color>> UpdatableColors =>
         new Dictionary<string, Func<IReadOnlyTheme, Color>> {
             { "MaterialPrimaryHueLightForegroundBrush", theme => theme.PrimaryLight.ForegroundColor },
-            { "PrimaryHueMidForegroundBrush", theme => theme.PrimaryMid.ForegroundColor },
+            { "MaterialPrimaryHueMidForegroundBrush", theme => theme.PrimaryMid.ForegroundColor },
             { "PrimaryHueDarkForegroundBrush", theme => theme.PrimaryDark.ForegroundColor },
             { "MaterialPrimaryHueLightBrush", theme => theme.PrimaryLight.Color },
             { "MaterialPrimaryHueMidBrush", theme => theme.PrimaryMid.Color },

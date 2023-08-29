@@ -21,7 +21,7 @@
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
@@ -207,7 +207,7 @@
     <!--   <Setter Property="Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/> -->
     <!-- </Style>  -->
     <!-- <Style Selector="^ Path"> -->
-    <!--   <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/> -->
+    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}"/> -->
     <!-- </Style> -->
 
     <Style Selector="^:disabled:not(.no-material)">

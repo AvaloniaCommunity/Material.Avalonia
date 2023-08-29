@@ -58,7 +58,7 @@
     <Style Selector="TextBox" >
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="SelectionBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
         <Setter Property="CaretBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="FontSize" Value="16" />

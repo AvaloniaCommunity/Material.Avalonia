@@ -42,7 +42,7 @@
 
   <!-- Base styles (common properties) -->
   <ControlTheme x:Key="MaterialRepeatButtonBase" TargetType="RepeatButton">
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
 
@@ -98,7 +98,7 @@
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
     <Setter Property="CornerRadius" Value="4" />
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16 8" />

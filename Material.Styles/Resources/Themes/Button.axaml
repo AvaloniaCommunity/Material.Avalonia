@@ -16,7 +16,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="16 8" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
