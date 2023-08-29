@@ -7,7 +7,7 @@
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="IdleBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
-        <Setter Property="ActiveBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Template" >
             <ControlTemplate>
                 <Panel Name="PART_RootPanel">

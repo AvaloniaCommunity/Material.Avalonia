@@ -50,7 +50,7 @@
       <Setter Property="HorizontalAlignment" Value="Center" />
       <Setter Property="VerticalAlignment" Value="Center" />
       <Setter Property="Opacity" Value="0" />
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
     </Style>
 
     <Style Selector="^ /template/ Border#PART_ThumbGrip">
@@ -60,7 +60,7 @@
       <Setter Property="HorizontalAlignment" Value="Center" />
       <Setter Property="VerticalAlignment" Value="Center" />
       <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
     </Style>
 
     <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
@@ -214,13 +214,13 @@
     </Setter>
 
     <Style Selector="^ /template/ Border#PART_InactiveState">
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
       <Setter Property="CornerRadius" Value="4" />
       <Setter Property="Opacity" Value="0.38" />
     </Style>
 
     <Style Selector="^ /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
       <Setter Property="CornerRadius" Value="6" />
     </Style>
 
@@ -301,7 +301,7 @@
                 TargetType="Slider">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -348,7 +348,7 @@
     </Setter>
 
     <Style Selector="^ /template/ controls|TickBar#PART_SliderTick">
-      <Setter Property="InactiveBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="InactiveBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
       <Setter Property="ActiveBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
     </Style>
 

@@ -13,8 +13,8 @@
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="16 8" />
@@ -92,7 +92,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
         <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialDesignBody}" />
@@ -118,7 +118,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Padding" Value="12" />
         <Setter Property="Height" Value="32" />
         <Setter Property="Width" Value="32" />
@@ -133,8 +133,8 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     </Style>
@@ -232,7 +232,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
         <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialDesignBody}" />
@@ -258,7 +258,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Padding" Value="12" />
         <Setter Property="Height" Value="32" />
         <Setter Property="Width" Value="32" />
@@ -273,8 +273,8 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     </Style>

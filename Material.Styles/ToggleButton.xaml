@@ -22,7 +22,7 @@
         <Setter Property="assists:ButtonAssist.HoverColor"
                 Value="{Binding Foreground,
                       Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
-        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Template" >
             <ControlTemplate>
                 <Border Name="PART_RootBorder"
@@ -79,7 +79,7 @@
     </Style>
 
     <Style Selector="ToggleButton:checked" >
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
     </Style>
 
     <Style Selector="ToggleButton.no-ripple /template/ ripple|RippleEffect#PART_Ripple" >
@@ -132,8 +132,8 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     </Style>

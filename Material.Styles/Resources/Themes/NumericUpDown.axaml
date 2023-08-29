@@ -228,7 +228,7 @@
     <!-- Feedbacks -->
 
     <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField">
-      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
       <Setter Property="BorderThickness" Value="2" />
     </Style>
 

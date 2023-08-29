@@ -135,7 +135,7 @@
       <Setter Property="Width" Value="96" />
       <Style Selector="^.active">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
       </Style>
     </Style>
 

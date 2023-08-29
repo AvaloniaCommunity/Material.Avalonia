@@ -13,7 +13,7 @@
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground"
                 Value="Black" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
-                Value="{DynamicResource PrimaryHueMidBrush}" />
+                Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOffBackground"
                 Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />

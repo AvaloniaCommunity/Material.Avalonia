@@ -299,7 +299,7 @@
   <ControlTheme x:Key="CircularProgressBar"
                 BasedOn="{StaticResource ProgressBarBase}"
                 TargetType="ProgressBar">
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="{x:Null}" />
     <Setter Property="BorderThickness" Value="0" />

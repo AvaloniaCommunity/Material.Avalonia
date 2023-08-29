@@ -9,7 +9,7 @@
     <Style Selector="CheckBox">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                Value="{DynamicResource PrimaryHueMidBrush}" />
+                Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="20" />

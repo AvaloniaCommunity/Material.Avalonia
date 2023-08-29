@@ -187,7 +187,7 @@
   <Style Selector="MenuItem:separator">
     <Setter Property="Template">
       <ControlTemplate>
-        <Separator Background="{DynamicResource PrimaryHueMidBrush}"
+        <Separator Background="{DynamicResource MaterialPrimaryHueMidBrush}"
                    Margin="0, 8"
                    Height="1" />
       </ControlTemplate>
