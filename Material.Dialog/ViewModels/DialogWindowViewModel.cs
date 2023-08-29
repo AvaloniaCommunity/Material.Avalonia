@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Threading;
+using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels.Elements;
 using Material.Dialog.ViewModels.Elements.Header.Icons;
 
@@ -9,18 +10,17 @@ namespace Material.Dialog.ViewModels
 {
     public abstract class DialogWindowViewModel : DialogViewModelBase
     {
-        public DialogWindowViewModel(Window window)
+        // TODO: Use other way to handle result holder and close window if possible!!!!
+        // do not let view model relate with window
+        // probably property and simple handler and its enough!!!!!
+        public DialogWindowViewModel(IDialogModalHost host)
         {
-            Window = window;
+            _host = host;
         }
 
-        private Window _window;
+        private readonly IDialogModalHost _host;
 
-        protected Window Window
-        {
-            get => _window;
-            private set => _window = value;
-        }
+        protected IDialogModalHost Host => _host;
 
         #region Base Properties
 
@@ -159,9 +159,9 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        private DialogResult _dialogResult;
+        private object? _dialogResult;
 
-        public DialogResult DialogResult
+        public object? DialogResult
         {
             get => _dialogResult;
             internal set
@@ -173,7 +173,15 @@ namespace Material.Dialog.ViewModels
 
         public async void CloseWindow()
         {
-            await Dispatcher.UIThread.InvokeAsync(() => { _window.Close(); });
+            await Dispatcher.UIThread.InvokeAsync(() => {
+                var result = DialogResult;
+                if (!_host.OnDialogClosing(result))
+                    return;
+                
+                lock (this) {
+                    _host.OnDialogClosed(result);
+                }
+            });
         }
     }
 }
