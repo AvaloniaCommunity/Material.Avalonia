@@ -3,7 +3,7 @@
   <ControlTheme x:Key="MaterialAdornerLayer" TargetType="AdornerLayer">
     <Setter Property="DefaultFocusAdorner">
       <FocusAdornerTemplate>
-        <Rectangle Stroke="{DynamicResource MaterialDesignBody}"
+        <Rectangle Stroke="{DynamicResource MaterialBodyBrush}"
                    StrokeThickness="1"
                    StrokeDashArray="1,2" />
       </FocusAdornerTemplate>

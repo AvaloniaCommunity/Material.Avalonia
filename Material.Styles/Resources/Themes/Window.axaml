@@ -4,7 +4,7 @@
                   TargetType="Window">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
-        <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="TextElement.FontWeight" Value="Regular" />
         <Setter Property="Template">
             <ControlTemplate>

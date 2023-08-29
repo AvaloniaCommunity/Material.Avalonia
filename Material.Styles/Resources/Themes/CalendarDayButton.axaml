@@ -6,7 +6,7 @@
     <Setter Property="MinWidth" Value="32" />
     <Setter Property="MinHeight" Value="32" />
     <!--These are actually set on the CalendarView in WinUI-->
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
@@ -89,7 +89,7 @@
     </Style>
 
     <Style Selector="^:today /template/ Border#PART_InnerBorder">
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
       <Setter Property="BorderThickness" Value="1" />
     </Style>
 

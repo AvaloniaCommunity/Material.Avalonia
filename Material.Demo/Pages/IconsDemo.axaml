@@ -25,9 +25,9 @@
                                            Background="Transparent">
                         <Panel>
                             <Border Name="pointerOverBorder"
-                                    Background="{DynamicResource MaterialDesignBody}" />
+                                    Background="{DynamicResource MaterialBodyBrush}" />
                             <Border Name="selectedBorder"
-                                    Background="{DynamicResource MaterialDesignBody}" />
+                                    Background="{DynamicResource MaterialBodyBrush}" />
                             <Grid RowDefinitions="*, Auto" Margin="8" Height="64" Width="64">
                                 <avalonia:MaterialIcon Grid.Row="0"
                                                        Kind="{Binding Kind}"

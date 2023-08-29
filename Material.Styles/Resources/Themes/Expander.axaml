@@ -133,7 +133,7 @@
                                 <ToggleButton Name="PART_ToggleButton"
                                               Content="{TemplateBinding Header}"
                                               ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                              Foreground="{DynamicResource MaterialDesignBody}"
+                                              Foreground="{DynamicResource MaterialBodyBrush}"
                                               IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"/>
                             </LayoutTransformControl>
                         </Panel>

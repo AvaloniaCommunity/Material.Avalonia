@@ -33,7 +33,7 @@
     </Style>
     
     <Style Selector="controls|CircleClockPickerCell:selected /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="TemplatedControl.Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+        <Setter Property="TemplatedControl.Foreground" Value="{DynamicResource MaterialBodyBrush}"/>
     </Style>
     
     <Style Selector="controls|CircleClockPickerCell:dot /template/ ContentPresenter#PART_ContentPresenter">

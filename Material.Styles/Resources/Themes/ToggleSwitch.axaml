@@ -7,7 +7,7 @@
     
     <ControlTheme x:Key="{x:Type ToggleSwitch}"
                   TargetType="ToggleSwitch">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
                 Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground"
@@ -15,7 +15,7 @@
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
                 Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOffBackground"
-                Value="{DynamicResource MaterialDesignBody}" />
+                Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="36" />
         <Setter Property="VerticalContentAlignment" Value="Center"/>

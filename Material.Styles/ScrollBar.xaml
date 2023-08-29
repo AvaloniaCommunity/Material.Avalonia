@@ -27,7 +27,7 @@
                             <Viewbox Width="8" Height="8">
                                 <Path Name="ArrowTop"
                                       Data="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"
-                                      Fill="{DynamicResource MaterialDesignBody}"
+                                      Fill="{DynamicResource MaterialBodyBrush}"
                                       Stretch="Uniform" />
                             </Viewbox>
                         </RepeatButton>
@@ -60,7 +60,7 @@
                             <Viewbox Width="8" Height="8" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Path Name="ArrowBottom"
                                       Data="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"
-                                      Fill="{DynamicResource MaterialDesignBody}"
+                                      Fill="{DynamicResource MaterialBodyBrush}"
                                       Stretch="Uniform" />
                             </Viewbox>
                         </RepeatButton>
@@ -93,7 +93,7 @@
                                      HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Path Name="ArrowLeft"
                                       Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
-                                      Fill="{DynamicResource MaterialDesignBody}" Stretch="Uniform" />
+                                      Fill="{DynamicResource MaterialBodyBrush}" Stretch="Uniform" />
                             </Viewbox>
                         </RepeatButton>
                         <Track Grid.Column="1"
@@ -125,7 +125,7 @@
                                      HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Path Name="ArrowRight"
                                       Data="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-                                      Fill="{DynamicResource MaterialDesignBody}" Stretch="Uniform" />
+                                      Fill="{DynamicResource MaterialBodyBrush}" Stretch="Uniform" />
                             </Viewbox>
                         </RepeatButton>
                     </Grid>
@@ -142,7 +142,7 @@
     </Style>
 
     <Style Selector="ScrollBar /template/ Thumb#thumb">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="Opacity" Value="0.5" />
         <Setter Property="Template">
             <Setter.Value>
@@ -200,7 +200,7 @@
         <Setter Property="Width" Value="0" />
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Margin" Value="-20,0,0,0" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -288,7 +288,7 @@
         <Setter Property="Width" Value="0" />
         <Setter Property="Cursor" Value="Arrow" />
         <Setter Property="Margin" Value="-16,0,0,0" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
@@ -369,7 +369,7 @@
 
     <Style Selector="ScrollBar.Modern /template/ Thumb#thumb,
          ScrollBar.Mini /template/ Thumb#thumb">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="Opacity" Value="0.5" />
         <Setter Property="Template">
             <Setter.Value>

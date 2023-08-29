@@ -14,7 +14,7 @@
         <Setter Property="Height" Value="48" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_MenuItemRootBorder" Height="{TemplateBinding Height}"
@@ -22,7 +22,7 @@
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <Panel>
                         <Border Name="PART_MenuItemHighlighter"
-                                Background="{DynamicResource MaterialDesignBody}"/>
+                                Background="{DynamicResource MaterialBodyBrush}"/>
                         <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
                         <Grid Margin="{TemplateBinding Padding}">
                             <Grid.ColumnDefinitions>
@@ -96,7 +96,7 @@
     <Setter Property="Padding" Value="0" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_MenuItemRootBorder" Height="{TemplateBinding Height}"
@@ -104,7 +104,7 @@
                 BorderThickness="{TemplateBinding BorderThickness}">
           <Panel>
             <Border Name="PART_MenuItemHighlighter"
-                    Background="{DynamicResource MaterialDesignBody}" />
+                    Background="{DynamicResource MaterialBodyBrush}" />
             <ripple:RippleEffect Name="PART_Ripple"
                                  RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
               <Grid Margin="{TemplateBinding Padding}">
@@ -204,7 +204,7 @@
                 BorderThickness="{TemplateBinding BorderThickness}">
           <Panel>
             <Border Name="PART_MenuItemHighlighter"
-                    Background="{DynamicResource MaterialDesignBody}"
+                    Background="{DynamicResource MaterialBodyBrush}"
                     CornerRadius="4" />
             <ripple:RippleEffect Name="PART_Ripple"
                                  RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">

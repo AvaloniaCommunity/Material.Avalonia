@@ -159,8 +159,8 @@
                 
         <Style Selector="^:disabled">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         </Style>
     </ControlTheme>
     
@@ -175,7 +175,7 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
-        <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{Binding $self.Foreground}" />
         
         <!-- Colour variants -->
@@ -190,8 +190,8 @@
                 
         <Style Selector="^:disabled">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         </Style>
     </ControlTheme>
     
@@ -220,8 +220,8 @@
         
         <Style Selector="^:disabled">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

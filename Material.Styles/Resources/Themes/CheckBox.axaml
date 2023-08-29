@@ -11,7 +11,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="assists:SelectionControlAssist.InnerForeground"
                 Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="24" />
         <Setter Property="Padding" Value="4,0,0,0" />

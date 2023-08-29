@@ -212,7 +212,7 @@
     <Setter Property="GridLinesVisibility" Value="Horizontal"/>
     <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MaterialDesignDivider}" />
     <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource MaterialDesignDivider}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}"/>
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="DropLocationIndicatorTemplate">
       <Template>
