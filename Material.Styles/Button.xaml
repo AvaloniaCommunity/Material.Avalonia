@@ -84,7 +84,7 @@
     <Style Selector="Button.accent:not(.outline)" >
         <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
     </Style>
     
     <Style Selector="Button.flat" >
@@ -217,7 +217,7 @@
     <Style Selector="Button.Accent:not(.Outline)" >
         <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
     </Style>
 
     

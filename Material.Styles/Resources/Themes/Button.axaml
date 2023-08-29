@@ -95,7 +95,7 @@
         <Style Selector="^.accent" >
             <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
             <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
         </Style>
         
         <!-- Default state -->

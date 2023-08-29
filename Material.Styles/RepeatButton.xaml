@@ -209,7 +209,7 @@
     <Style Selector="RepeatButton.Material.Accent:not(.Outline)">
         <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
     </Style>
 
     <Style Selector="RepeatButton.Material.Accent.Flat:not(.Outline)">

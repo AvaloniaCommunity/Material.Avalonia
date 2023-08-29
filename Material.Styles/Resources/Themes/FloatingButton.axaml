@@ -194,7 +194,7 @@
     <Style Selector="^.Accent">
       <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-      <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
     </Style>
 
     <!-- <Style Selector="^.Light Path"> -->
@@ -204,7 +204,7 @@
     <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}"/> -->
     <!-- </Style> -->
     <!-- <Style Selector="^.Accent Path"> -->
-    <!--   <Setter Property="Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/> -->
+    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}"/> -->
     <!-- </Style>  -->
     <!-- <Style Selector="^ Path"> -->
     <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}"/> -->

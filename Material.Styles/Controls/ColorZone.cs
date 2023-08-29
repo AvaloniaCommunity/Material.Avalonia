@@ -122,7 +122,7 @@ namespace Material.Styles.Controls {
 
                 case ColorZoneMode.Accent: {
                     SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialSecondaryHueMidBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "SecondaryHueMidForegroundBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialSecondaryHueMidForegroundBrush"));
                 }
                     break;
 
