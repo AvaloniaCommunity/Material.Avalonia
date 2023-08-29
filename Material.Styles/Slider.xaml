@@ -432,7 +432,7 @@
                             <TextBlock Name="InnerBubbleText"
                                        Classes="Caption"
                                        Text="{Binding $parent[Slider].Value}"
-                                       Foreground="{DynamicResource MaterialDesignBackground}" />
+                                       Foreground="{DynamicResource MaterialBackgroundBrush}" />
                         </Border>
                     </Border>
                 </Grid>

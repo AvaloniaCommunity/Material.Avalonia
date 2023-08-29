@@ -51,7 +51,7 @@ namespace Material.Styles.Themes {
 
             SetSolidColorBrush(resourceDictionary, "MaterialValidationErrorBrush", theme.ValidationError);
 
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignBackground", theme.Background);
+            SetSolidColorBrush(resourceDictionary, "MaterialBackgroundBrush", theme.Background);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignPaper", theme.Paper);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignCardBackground", theme.CardBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignToolBarBackground", theme.ToolBarBackground);
@@ -118,7 +118,7 @@ namespace Material.Styles.Themes {
                 SecondaryMid = new ColorPair(secondaryMid, secondaryMidForeground),
                 SecondaryDark = new ColorPair(secondaryDark, secondaryDarkForeground),
 
-                Background = GetColor("MaterialDesignBackground"),
+                Background = GetColor("MaterialBackgroundBrush"),
                 Body = GetColor("MaterialDesignBody"),
                 BodyLight = GetColor("MaterialDesignBodyLight"),
                 CardBackground = GetColor("MaterialDesignCardBackground"),

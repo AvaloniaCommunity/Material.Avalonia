@@ -25,7 +25,7 @@
   <!-- Slider v2 thumb part -->
   <ControlTheme x:Key="MaterialSliderThumbV2"
                 TargetType="Thumb">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialBackgroundBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel Name="PART_RootPanel">
