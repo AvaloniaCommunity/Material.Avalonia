@@ -180,8 +180,8 @@
     <!-- Color definitions -->
 
     <Style Selector="^.Light">
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
       <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
     </Style>
 

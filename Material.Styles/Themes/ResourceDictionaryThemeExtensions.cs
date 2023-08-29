@@ -31,7 +31,7 @@ namespace Material.Styles.Themes {
         internal static void SetThemeInternal(this IResourceDictionary resourceDictionary, ITheme theme) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
 
-            SetSolidColorBrush(resourceDictionary, "PrimaryHueLightBrush", theme.PrimaryLight.Color);
+            SetSolidColorBrush(resourceDictionary, "MaterialPrimaryHueLightBrush", theme.PrimaryLight.Color);
             SetSolidColorBrush(resourceDictionary, "PrimaryHueLightForegroundBrush",
                 theme.PrimaryLight.ForegroundColor);
             SetSolidColorBrush(resourceDictionary, "PrimaryHueMidBrush", theme.PrimaryMid.Color);
@@ -109,7 +109,7 @@ namespace Material.Styles.Themes {
 
             //Attempt to simply look up the appropriate resources
             return new Theme {
-                PrimaryLight = new ColorPair(GetColor("PrimaryHueLightBrush"),
+                PrimaryLight = new ColorPair(GetColor("MaterialPrimaryHueLightBrush"),
                     GetColor("PrimaryHueLightForegroundBrush")),
                 PrimaryMid = new ColorPair(GetColor("PrimaryHueMidBrush"), GetColor("PrimaryHueMidForegroundBrush")),
                 PrimaryDark = new ColorPair(GetColor("PrimaryHueDarkBrush"), GetColor("PrimaryHueDarkForegroundBrush")),

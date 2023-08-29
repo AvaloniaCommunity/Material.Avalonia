@@ -46,7 +46,7 @@
                 BasedOn="{StaticResource ProgressBarBase}"
                 TargetType="ProgressBar">
     <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
-    <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_RootBorder"

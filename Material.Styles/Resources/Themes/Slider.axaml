@@ -349,7 +349,7 @@
 
     <Style Selector="^ /template/ controls|TickBar#PART_SliderTick">
       <Setter Property="InactiveBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-      <Setter Property="ActiveBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+      <Setter Property="ActiveBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
     </Style>
 
     <Style Selector="^[TickPlacement=None] /template/ controls|TickBar#PART_SliderTick">

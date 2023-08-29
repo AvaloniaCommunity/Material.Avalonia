@@ -8,7 +8,7 @@
     </Styles.Resources>
     <Style Selector="ProgressBar">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">

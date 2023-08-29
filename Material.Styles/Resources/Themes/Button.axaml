@@ -81,8 +81,8 @@
         <!-- Colour variants -->
         
         <Style Selector="^.light" >
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
             <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
         </Style>
     
@@ -146,8 +146,8 @@
 
         <Style Selector="^.light" >
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
         </Style>
     
         <Style Selector="^.dark" >

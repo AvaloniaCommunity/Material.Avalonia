@@ -11,7 +11,7 @@
         <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
-                Value="{DynamicResource PrimaryHueLightBrush}" />
+                Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground"
                 Value="Black" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"

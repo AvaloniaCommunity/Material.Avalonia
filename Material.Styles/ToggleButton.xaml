@@ -104,8 +104,8 @@
     </Style>
     
     <Style Selector="ToggleButton.Light:not(.Outline)" >
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
     </Style>
     
@@ -144,8 +144,8 @@
     </Style>
 
     <Style Selector="ToggleButton.Outline.Light" >
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
     </Style>
     
     <Style Selector="ToggleButton.Outline.Dark" >
