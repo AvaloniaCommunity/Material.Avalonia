@@ -40,7 +40,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialPrimaryHueDarkForegroundBrush", theme.PrimaryDark.ForegroundColor);
 
             SetSolidColorBrush(resourceDictionary, "MaterialSecondaryHueLightBrush", theme.SecondaryLight.Color);
-            SetSolidColorBrush(resourceDictionary, "SecondaryHueLightForegroundBrush",
+            SetSolidColorBrush(resourceDictionary, "MaterialSecondaryHueLightForegroundBrush",
                 theme.SecondaryLight.ForegroundColor);
             SetSolidColorBrush(resourceDictionary, "SecondaryHueMidBrush", theme.SecondaryMid.Color);
             SetSolidColorBrush(resourceDictionary, "SecondaryHueMidForegroundBrush",
@@ -98,7 +98,7 @@ namespace Material.Styles.Themes {
             if (!TryGetColor("MaterialSecondaryHueLightBrush", out var secondaryLight))
                 secondaryLight = secondaryMid.Lighten();
 
-            if (!TryGetColor("SecondaryHueLightForegroundBrush", out var secondaryLightForeground))
+            if (!TryGetColor("MaterialSecondaryHueLightForegroundBrush", out var secondaryLightForeground))
                 secondaryLightForeground = secondaryLight.PickContrastColor();
 
             if (!TryGetColor("SecondaryHueDarkBrush", out var secondaryDark))
