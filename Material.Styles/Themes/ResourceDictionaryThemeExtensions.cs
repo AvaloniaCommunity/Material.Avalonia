@@ -63,7 +63,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialTextBoxBorderBrush", theme.TextBoxBorder);
             SetSolidColorBrush(resourceDictionary, "MaterialDividerBrush", theme.Divider);
             SetSolidColorBrush(resourceDictionary, "MaterialSelectionBrush", theme.Selection);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignToolForeground", theme.ToolForeground);
+            SetSolidColorBrush(resourceDictionary, "MaterialToolForegroundBrush", theme.ToolForeground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignToolBackground", theme.ToolBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignFlatButtonClick", theme.FlatButtonClick);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignFlatButtonRipple", theme.FlatButtonRipple);
@@ -142,7 +142,7 @@ namespace Material.Styles.Themes {
                 TextFieldBoxHoverBackground = GetColor("MaterialDesignTextFieldBoxHoverBackground"),
                 ToolBackground = GetColor("MaterialDesignToolBackground"),
                 ToolBarBackground = GetColor("MaterialToolBarBackgroundBrush"),
-                ToolForeground = GetColor("MaterialDesignToolForeground"),
+                ToolForeground = GetColor("MaterialToolForegroundBrush"),
                 ToolTipBackground = GetColor("MaterialDesignToolTipBackground"),
                 Paper = GetColor("MaterialPaperBrush"),
                 ValidationError = GetColor("MaterialValidationErrorBrush")
