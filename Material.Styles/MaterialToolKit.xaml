@@ -89,8 +89,8 @@
       <SolidColorBrush x:Key="MaterialLightForegroundBrush" Color="#DD000000" />
       <SolidColorBrush x:Key="MaterialDarkBackgroundBrush" Color="#FF303030" />
       <SolidColorBrush x:Key="MaterialDarkForegroundBrush" Color="#FFFAFAFA" />
-      <SolidColorBrush x:Key="MaterialDesignDarkSeparatorBackground" Color="#1F000000" />
-      <SolidColorBrush x:Key="MaterialDesignLightSeparatorBackground" Color="#1FFFFFFF" />
+      <SolidColorBrush x:Key="MaterialDarkSeparatorBackgroundBrush" Color="#1F000000" />
+      <SolidColorBrush x:Key="MaterialLightSeparatorBackgroundBrush" Color="#1FFFFFFF" />
     </ResourceDictionary>
   </Styles.Resources>
 

@@ -4,7 +4,7 @@
   <Styles.Resources>
     <x:Double x:Key="SplitViewOpenPaneThemeLength">320</x:Double>
     <x:Double x:Key="SplitViewCompactPaneThemeLength">48</x:Double>
-    <SolidColorBrush x:Key="SplitViewLightDismissOverlayBackground" Color="{DynamicResource MaterialDesignBodyColor}" Opacity="0.6"/>
+    <SolidColorBrush x:Key="SplitViewLightDismissOverlayBackground" Color="{DynamicResource MaterialBodyColor}" Opacity="0.6"/>
   </Styles.Resources>
 
   <Style Selector="SplitView">
