@@ -89,7 +89,7 @@
         <Setter Property="Opacity" Value="0.56" />
     </Style>
     <Style Selector="CheckBox:disabled /template/ Path#Graphic">
-        <Setter Property="Fill" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Fill" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
     </Style>
     
     <!-- Indeterminate state -->

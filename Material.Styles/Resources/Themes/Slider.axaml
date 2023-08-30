@@ -99,7 +99,7 @@
     </Style>
 
     <Style Selector="^:disabled /template/ Border#PART_ThumbGrip">
-      <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
     </Style>
   </ControlTheme>
 
@@ -260,11 +260,11 @@
 
     <Style Selector="^:disabled">
       <Style Selector="^ /template/ Border#PART_InactiveState">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
       </Style>
 
       <Style Selector="^ /template/ Border#PART_Indicator">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
       </Style>
     </Style>
   </ControlTheme>
@@ -487,11 +487,11 @@
 
     <Style Selector="^:disabled">
       <Style Selector="^ /template/ Border#PART_HoverEffect">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
       </Style>
 
       <Style Selector="^ /template/ Border#PART_ThumbGrip">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
       </Style>
     </Style>
   </ControlTheme>

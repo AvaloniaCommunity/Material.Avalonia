@@ -98,9 +98,9 @@
         
         <Style Selector="^:disabled">
             <Setter Property="assists:SelectionControlAssist.Foreground"
-                    Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+                    Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
             <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                    Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+                    Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
             <Setter Property="Opacity" Value="0.26" />
         </Style>
         
