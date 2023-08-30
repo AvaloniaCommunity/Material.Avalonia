@@ -541,7 +541,7 @@
     
     <Style Selector="Slider.material-v1 /template/ Track#PART_Track
                      RepeatButton#PART_IncreaseButton.material-slider-track-bar-v1">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxOff}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialCheckBoxOffBrush}"/>
     </Style>
     
     <!-- Part of slider: thumb -->

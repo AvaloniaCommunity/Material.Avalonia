@@ -58,7 +58,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialBodyBrush", theme.Body);
             SetSolidColorBrush(resourceDictionary, "MaterialBodyLightBrush", theme.BodyLight);
             SetSolidColorBrush(resourceDictionary, "MaterialColumnHeaderBrush", theme.ColumnHeader);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignCheckBoxOff", theme.CheckBoxOff);
+            SetSolidColorBrush(resourceDictionary, "MaterialCheckBoxOffBrush", theme.CheckBoxOff);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignCheckBoxDisabled", theme.CheckBoxDisabled);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignTextBoxBorder", theme.TextBoxBorder);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignDivider", theme.Divider);
@@ -123,7 +123,7 @@ namespace Material.Styles.Themes {
                 BodyLight = GetColor("MaterialBodyLightBrush"),
                 CardBackground = GetColor("MaterialCardBackgroundBrush"),
                 CheckBoxDisabled = GetColor("MaterialDesignCheckBoxDisabled"),
-                CheckBoxOff = GetColor("MaterialDesignCheckBoxOff"),
+                CheckBoxOff = GetColor("MaterialCheckBoxOffBrush"),
                 ChipBackground = GetColor("MaterialDesignChipBackground"),
                 ColumnHeader = GetColor("MaterialColumnHeaderBrush"),
                 DataGridRowHoverBackground = GetColor("MaterialDesignDataGridRowHoverBackground"),
