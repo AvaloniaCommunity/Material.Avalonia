@@ -181,7 +181,7 @@
     
 
     <Style Selector="ComboBox.Filled">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
         <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
         <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
         <Setter Property="Padding" Value="16,8" />

@@ -469,7 +469,7 @@
                   TargetType="TextBox">
         <Style Selector="^ /template/ Border#PART_BackgroundTextField" >
             <Setter Property="CornerRadius" Value="4,4,0,0" />
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
         </Style>
         
         <Style Selector="^ /template/ Panel#PART_TextContainer" >

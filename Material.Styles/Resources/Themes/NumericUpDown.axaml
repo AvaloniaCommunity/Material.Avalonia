@@ -76,7 +76,7 @@
 
   <ControlTheme x:Key="FilledNumericUpDown"
                 TargetType="NumericUpDown">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Template">

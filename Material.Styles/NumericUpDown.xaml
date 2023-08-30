@@ -2,7 +2,7 @@
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Style Selector="NumericUpDown">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="MinHeight" Value="48"/>

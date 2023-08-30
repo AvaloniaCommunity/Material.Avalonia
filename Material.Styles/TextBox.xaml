@@ -308,7 +308,7 @@
 
     <Style Selector="TextBox.filled /template/ Border#PART_BackgroundTextField" >
         <Setter Property="CornerRadius" Value="4,4,0,0" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     </Style>
     
     <Style Selector="TextBox.filled /template/ Panel#PART_TextContainer" >
@@ -555,7 +555,7 @@
 
     <Style Selector="TextBox.Filled /template/ Border#PART_BackgroundTextField" >
         <Setter Property="CornerRadius" Value="4,4,0,0" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     </Style>
     
     <Style Selector="TextBox.Filled /template/ Panel#PART_TextContainer" >
