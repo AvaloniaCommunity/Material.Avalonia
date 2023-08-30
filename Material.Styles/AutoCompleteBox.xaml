@@ -21,7 +21,7 @@
                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
                            PlacementTarget="{TemplateBinding}"
                            IsLightDismissEnabled="True">
-                        <Border BorderBrush="{DynamicResource MaterialDesignTextAreaBorder}"
+                        <Border BorderBrush="{DynamicResource MaterialTextAreaBorderBrush}"
                                 BorderThickness="1">
                             <ListBox Name="PART_SelectingItemsControl"
                                      BorderThickness="0"

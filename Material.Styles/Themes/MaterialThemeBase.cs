@@ -106,7 +106,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             { "MaterialTextFieldBoxBackgroundBrush", theme => theme.TextFieldBoxBackground },
             { "MaterialTextFieldBoxHoverBackgroundBrush", theme => theme.TextFieldBoxHoverBackground },
             { "MaterialTextFieldBoxDisabledBackgroundBrush", theme => theme.TextFieldBoxDisabledBackground },
-            { "MaterialDesignTextAreaBorder", theme => theme.TextAreaBorder },
+            { "MaterialTextAreaBorderBrush", theme => theme.TextAreaBorder },
             { "MaterialDesignTextAreaInactiveBorder", theme => theme.TextAreaInactiveBorder },
             { "MaterialDesignDataGridRowHoverBackground", theme => theme.DataGridRowHoverBackground },
         };
