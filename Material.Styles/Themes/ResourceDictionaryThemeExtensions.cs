@@ -65,7 +65,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialSelectionBrush", theme.Selection);
             SetSolidColorBrush(resourceDictionary, "MaterialToolForegroundBrush", theme.ToolForeground);
             SetSolidColorBrush(resourceDictionary, "MaterialToolBackgroundBrush", theme.ToolBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignFlatButtonClick", theme.FlatButtonClick);
+            SetSolidColorBrush(resourceDictionary, "MaterialFlatButtonClickBrush", theme.FlatButtonClick);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignFlatButtonRipple", theme.FlatButtonRipple);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignToolTipBackground", theme.ToolTipBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignChipBackground", theme.ChipBackground);
@@ -128,7 +128,7 @@ namespace Material.Styles.Themes {
                 ColumnHeader = GetColor("MaterialColumnHeaderBrush"),
                 DataGridRowHoverBackground = GetColor("MaterialDesignDataGridRowHoverBackground"),
                 Divider = GetColor("MaterialDividerBrush"),
-                FlatButtonClick = GetColor("MaterialDesignFlatButtonClick"),
+                FlatButtonClick = GetColor("MaterialFlatButtonClickBrush"),
                 FlatButtonRipple = GetColor("MaterialDesignFlatButtonRipple"),
                 Selection = GetColor("MaterialSelectionBrush"),
                 SnackbarBackground = GetColor("MaterialDesignSnackbarBackground"),
