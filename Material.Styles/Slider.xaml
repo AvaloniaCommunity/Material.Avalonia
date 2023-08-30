@@ -420,7 +420,7 @@
                     <Border Grid.Row="0"
                             Name="PART_Positioner" >
                         <Border Name="PART_ContentContainer"
-                                Background="{DynamicResource MaterialDesignToolTipBackground}"
+                                Background="{DynamicResource MaterialToolTipBackgroundBrush}"
                                 Padding="4, 8" CornerRadius="2">
                             <Border.RenderTransform>
                                 <MultiBinding Converter="{StaticResource AutoCorrectPositionConverter}">

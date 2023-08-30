@@ -98,7 +98,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             { "MaterialToolBackgroundBrush", theme => theme.ToolBackground },
             { "MaterialFlatButtonClickBrush", theme => theme.FlatButtonClick },
             { "MaterialFlatButtonRippleBrush", theme => theme.FlatButtonRipple },
-            { "MaterialDesignToolTipBackground", theme => theme.ToolTipBackground },
+            { "MaterialToolTipBackgroundBrush", theme => theme.ToolTipBackground },
             { "MaterialDesignChipBackground", theme => theme.ChipBackground },
             { "MaterialDesignSnackbarBackground", theme => theme.SnackbarBackground },
             { "MaterialDesignSnackbarMouseOver", theme => theme.SnackbarMouseOver },
