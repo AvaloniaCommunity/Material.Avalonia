@@ -35,7 +35,7 @@
 
   <Style Selector="DataGridColumnHeader">
     <Setter Property="MinHeight" Value="56"/>
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignColumnHeader}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialColumnHeaderBrush}" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="SeparatorBrush" Value="{DynamicResource MaterialDesignDivider}" />

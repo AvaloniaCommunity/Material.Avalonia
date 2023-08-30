@@ -88,7 +88,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             { "MaterialToolBarBackgroundBrush", theme => theme.ToolBarBackground },
             { "MaterialBodyBrush", theme => theme.Body },
             { "MaterialBodyLightBrush", theme => theme.BodyLight },
-            { "MaterialDesignColumnHeader", theme => theme.ColumnHeader },
+            { "MaterialColumnHeaderBrush", theme => theme.ColumnHeader },
             { "MaterialDesignCheckBoxOff", theme => theme.CheckBoxOff },
             { "MaterialDesignCheckBoxDisabled", theme => theme.CheckBoxDisabled },
             { "MaterialDesignTextBoxBorder", theme => theme.TextBoxBorder },
