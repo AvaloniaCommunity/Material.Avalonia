@@ -1,7 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui">
     <Style Selector="AutoCompleteBox">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
         <!-- <Setter Property="BorderThickness" Value="0 0 0 1" /> -->
         <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
         <Setter Property="Padding" Value="4" />

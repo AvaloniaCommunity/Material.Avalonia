@@ -248,7 +248,7 @@
                                               HorizontalAlignment="Right"
                                               VerticalAlignment="Center"
                                               Data="M7,10L12,15L17,10H7Z"
-                                              Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                                              Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                                     </Border>
                                 </Grid>
                                 <controls:MaterialUnderline Classes="MirrorY"
@@ -357,7 +357,7 @@
                                           HorizontalAlignment="Right"
                                           VerticalAlignment="Center"
                                           Data="M7,10L12,15L17,10H7Z"
-                                          Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                                          Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                                 </Border>
                             </Grid>
                         </Grid>

@@ -6,7 +6,7 @@
         <Setter Property="Height" Value="2" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsHitTestVisible" Value="False"/>
-        <Setter Property="IdleBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="IdleBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
         <Setter Property="ActiveBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
         <Setter Property="Template" >
             <ControlTemplate>

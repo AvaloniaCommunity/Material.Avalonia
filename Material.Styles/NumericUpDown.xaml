@@ -62,6 +62,6 @@
     </Style> 
     
     <Style Selector="TextBox /template/ Border#PART_RootBorder">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
     </Style>
 </Styles>

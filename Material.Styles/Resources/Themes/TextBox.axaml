@@ -540,7 +540,7 @@
         <Style Selector="^ /template/ Border#PART_BackgroundTextField">
             <Setter Property="CornerRadius" Value="4" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
             <Setter Property="Margin" Value="0,8,0,0" />
         </Style>
         

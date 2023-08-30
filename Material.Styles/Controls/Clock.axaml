@@ -88,7 +88,7 @@
                     Margin="12 0 0 18"
                     ClipToBounds="True"
                     CornerRadius="4"
-                    BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
+                    BorderBrush="{DynamicResource MaterialTextBoxBorderBrush}"
                     BorderThickness="1">
               <Grid RowDefinitions="* 1 *">
                 <RadioButton x:Name="PART_AmSelector"
@@ -96,7 +96,7 @@
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
                              Content="AM"
                              IsChecked="{Binding !!(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
-                <Rectangle Grid.Row="1" Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                <Rectangle Grid.Row="1" Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                 <RadioButton x:Name="PART_PmSelector"
                              Grid.Row="2"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
