@@ -76,7 +76,7 @@ namespace Material.Styles.Themes {
                 theme.TextFieldBoxBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialTextFieldBoxHoverBackgroundBrush",
                 theme.TextFieldBoxHoverBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignTextFieldBoxDisabledBackground",
+            SetSolidColorBrush(resourceDictionary, "MaterialTextFieldBoxDisabledBackgroundBrush",
                 theme.TextFieldBoxDisabledBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignTextAreaBorder", theme.TextAreaBorder);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignTextAreaInactiveBorder",
@@ -138,7 +138,7 @@ namespace Material.Styles.Themes {
                 TextAreaInactiveBorder = GetColor("MaterialDesignTextAreaInactiveBorder"),
                 TextBoxBorder = GetColor("MaterialTextBoxBorderBrush"),
                 TextFieldBoxBackground = GetColor("MaterialTextFieldBoxBackgroundBrush"),
-                TextFieldBoxDisabledBackground = GetColor("MaterialDesignTextFieldBoxDisabledBackground"),
+                TextFieldBoxDisabledBackground = GetColor("MaterialTextFieldBoxDisabledBackgroundBrush"),
                 TextFieldBoxHoverBackground = GetColor("MaterialTextFieldBoxHoverBackgroundBrush"),
                 ToolBackground = GetColor("MaterialToolBackgroundBrush"),
                 ToolBarBackground = GetColor("MaterialToolBarBackgroundBrush"),

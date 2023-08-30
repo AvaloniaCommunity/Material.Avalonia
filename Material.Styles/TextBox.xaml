@@ -365,7 +365,7 @@
     </Style>
     
     <Style Selector="TextBox.filled:disabled /template/ Border#PART_RootBorder" >
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxDisabledBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxDisabledBackgroundBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
@@ -612,7 +612,7 @@
     </Style>
     
     <Style Selector="TextBox.Filled:disabled /template/ Border#PART_RootBorder" >
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxDisabledBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxDisabledBackgroundBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
