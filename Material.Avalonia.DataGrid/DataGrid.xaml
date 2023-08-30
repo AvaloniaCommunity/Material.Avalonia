@@ -130,7 +130,7 @@
 
   <Style Selector="DataGridRow /template/ Rectangle#BackgroundRectangle">
     <Setter Property="IsVisible" Value="False"/>
-    <Setter Property="Fill" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="Fill" Value="{DynamicResource MaterialSelectionBrush}" />
   </Style>
 
   <Style Selector="DataGridRow:pointerover /template/ Rectangle#BackgroundRectangle">
@@ -144,7 +144,7 @@
   </Style>
 
   <!--Style Selector="DataGridRow:selected">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialSelectionBrush}" />
   </Style-->
 
   <Style Selector="DataGridRowHeader">
@@ -216,7 +216,7 @@
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="DropLocationIndicatorTemplate">
       <Template>
-        <Rectangle Fill="{DynamicResource MaterialDesignSelection}" Width="2"/>
+        <Rectangle Fill="{DynamicResource MaterialSelectionBrush}" Width="2"/>
       </Template>
     </Setter>
     <Setter Property="Template">

@@ -58,7 +58,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="ModernSimpleScrollArrowButton" TargetType="RepeatButton">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialSelectionBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="CornerRadius" Value="0" />

@@ -18,7 +18,7 @@
                             </Transitions>
                         </Grid.Transitions>
                         <RepeatButton Name="PART_LineUpButton" HorizontalAlignment="Center"
-                                      Background="{DynamicResource MaterialDesignSelection}"
+                                      Background="{DynamicResource MaterialSelectionBrush}"
                                       Classes="repeat"
                                       Grid.Row="0"
                                       Focusable="False"
@@ -51,7 +51,7 @@
                             <Thumb Name="thumb" />
                         </Track>
                         <RepeatButton Name="PART_LineDownButton" HorizontalAlignment="Center"
-                                      Background="{DynamicResource MaterialDesignSelection}"
+                                      Background="{DynamicResource MaterialSelectionBrush}"
                                       Classes="repeat"
                                       Grid.Row="2"
                                       Focusable="False"
@@ -82,7 +82,7 @@
                             </Transitions>
                         </Grid.Transitions>
                         <RepeatButton Name="PART_LineUpButton" VerticalAlignment="Center"
-                                      Background="{DynamicResource MaterialDesignSelection}"
+                                      Background="{DynamicResource MaterialSelectionBrush}"
                                       Classes="repeat"
                                       Grid.Row="0"
                                       Grid.Column="0"
@@ -115,7 +115,7 @@
                             <Thumb Name="thumb" />
                         </Track>
                         <RepeatButton Name="PART_LineDownButton" VerticalAlignment="Center"
-                                      Background="{DynamicResource MaterialDesignSelection}"
+                                      Background="{DynamicResource MaterialSelectionBrush}"
                                       Classes="repeat"
                                       Grid.Column="2"
                                       Focusable="False"
