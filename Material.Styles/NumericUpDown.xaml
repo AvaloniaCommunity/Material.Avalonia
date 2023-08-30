@@ -17,7 +17,7 @@
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Border Name="focusBorder"
-                                Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+                                Background="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
                         <ButtonSpinner Name="PART_Spinner"
                                        BorderThickness="0"
                                        BorderBrush="Transparent"

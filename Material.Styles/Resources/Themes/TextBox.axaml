@@ -496,7 +496,7 @@
         </Style>
 
         <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
         </Style>
 
         <!-- Default filled text field -->

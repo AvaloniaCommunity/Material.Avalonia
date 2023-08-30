@@ -74,7 +74,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialSnackbarRippleBrush", theme.SnackbarRipple);
             SetSolidColorBrush(resourceDictionary, "MaterialTextFieldBoxBackgroundBrush",
                 theme.TextFieldBoxBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignTextFieldBoxHoverBackground",
+            SetSolidColorBrush(resourceDictionary, "MaterialTextFieldBoxHoverBackgroundBrush",
                 theme.TextFieldBoxHoverBackground);
             SetSolidColorBrush(resourceDictionary, "MaterialDesignTextFieldBoxDisabledBackground",
                 theme.TextFieldBoxDisabledBackground);
@@ -139,7 +139,7 @@ namespace Material.Styles.Themes {
                 TextBoxBorder = GetColor("MaterialTextBoxBorderBrush"),
                 TextFieldBoxBackground = GetColor("MaterialTextFieldBoxBackgroundBrush"),
                 TextFieldBoxDisabledBackground = GetColor("MaterialDesignTextFieldBoxDisabledBackground"),
-                TextFieldBoxHoverBackground = GetColor("MaterialDesignTextFieldBoxHoverBackground"),
+                TextFieldBoxHoverBackground = GetColor("MaterialTextFieldBoxHoverBackgroundBrush"),
                 ToolBackground = GetColor("MaterialToolBackgroundBrush"),
                 ToolBarBackground = GetColor("MaterialToolBarBackgroundBrush"),
                 ToolForeground = GetColor("MaterialToolForegroundBrush"),
