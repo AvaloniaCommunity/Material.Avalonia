@@ -91,14 +91,14 @@ namespace Material.Styles.Controls {
                     break;
 
                 case ColorZoneMode.Light: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignLightBackground"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignLightForeground"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialLightBackgroundBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialLightForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.Dark: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignDarkBackground"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignDarkForeground"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDarkBackgroundBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDarkForegroundBrush"));
                 }
                     break;
 
