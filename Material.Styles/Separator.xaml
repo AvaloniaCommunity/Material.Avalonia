@@ -6,7 +6,7 @@
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="CornerRadius" Value="0"/>
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignDivider }"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDividerBrush }"/>
         <Setter Property="MinHeight" Value="1" />
         <Setter Property="Height" Value="1" />
         <Setter Property="Margin" Value="0,8"/>

@@ -134,7 +134,7 @@
       <Setter Property="Theme" Value="{StaticResource OutlineNumericUpDown}" />
       <Setter Property="Width" Value="96" />
       <Style Selector="^.active">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDividerBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
       </Style>
     </Style>

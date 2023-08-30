@@ -33,7 +33,7 @@
     </Style>
     
     <Style Selector="controls|CircleClockPicker /template/ Ellipse#PART_CircleBackground">
-        <Setter Property="Fill" Value="{DynamicResource MaterialDesignDivider}"/>
+        <Setter Property="Fill" Value="{DynamicResource MaterialDividerBrush}"/>
     </Style>
     
     <Style Selector="controls|CircleClockPicker /template/ Ellipse#PART_PointerCenter">

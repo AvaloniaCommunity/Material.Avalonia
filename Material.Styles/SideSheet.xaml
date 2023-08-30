@@ -117,7 +117,7 @@
     </Style>
 
     <Style Selector="controls|SideSheet:not(:mobile) /template/ Border#PART_SideSheet">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDividerBrush}" />
     </Style>
 
     <Style Selector="controls|SideSheet:left:not(:mobile) /template/ Border#PART_SideSheet">

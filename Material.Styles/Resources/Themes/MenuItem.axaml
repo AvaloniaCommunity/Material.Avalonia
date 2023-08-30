@@ -172,7 +172,7 @@
       <Setter Property="Height" Value="NaN" />
       <Setter Property="Template">
         <ControlTemplate>
-          <Separator Foreground="{DynamicResource MaterialDesignDivider}"
+          <Separator Foreground="{DynamicResource MaterialDividerBrush}"
                      Margin="0, 8"
                      Height="1" />
         </ControlTemplate>
