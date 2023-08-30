@@ -102,7 +102,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             { "MaterialChipBackgroundBrush", theme => theme.ChipBackground },
             { "MaterialSnackbarBackgroundBrush", theme => theme.SnackbarBackground },
             { "MaterialSnackbarMouseOverBrush", theme => theme.SnackbarMouseOver },
-            { "MaterialDesignSnackbarRipple", theme => theme.SnackbarRipple },
+            { "MaterialSnackbarRippleBrush", theme => theme.SnackbarRipple },
             { "MaterialDesignTextFieldBoxBackground", theme => theme.TextFieldBoxBackground },
             { "MaterialDesignTextFieldBoxHoverBackground", theme => theme.TextFieldBoxHoverBackground },
             { "MaterialDesignTextFieldBoxDisabledBackground", theme => theme.TextFieldBoxDisabledBackground },
