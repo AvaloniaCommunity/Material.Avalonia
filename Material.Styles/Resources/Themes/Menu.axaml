@@ -28,7 +28,7 @@
                     Background="{DynamicResource MaterialBodyBrush}"
                     CornerRadius="4" />
             <ripple:RippleEffect Name="PART_Ripple"
-                                 RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+                                 RippleFill="{DynamicResource MaterialFlatButtonRippleBrush}">
               <Panel>
                 <ContentPresenter Name="PART_HeaderPresenter"
                                   VerticalAlignment="Center"

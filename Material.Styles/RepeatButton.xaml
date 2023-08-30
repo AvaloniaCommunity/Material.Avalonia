@@ -147,7 +147,7 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             ClipToBounds="True" CornerRadius="1000000">
-                        <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}"
+                        <ripple:RippleEffect RippleFill="{DynamicResource MaterialFlatButtonRippleBrush}"
                                              RippleOpacity="{StaticResource ButtonPressedOpacity}">
                             <ContentPresenter Name="PART_ContentPresenter"
                                               CornerRadius="{TemplateBinding CornerRadius}"

@@ -160,12 +160,12 @@
         
         <Style Selector="^ /template/ Border#PART_BehaviourEffect">
             <Setter Property="Opacity" Value="0"/>
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignFlatButtonRipple}"/>
+            <Setter Property="Background" Value="{DynamicResource MaterialFlatButtonRippleBrush}"/>
             <Setter Property="IsHitTestVisible" Value="False"/>
         </Style>
         
         <Style Selector="^ /template/ ripple|RippleEffect#PART_Ripple">
-            <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignFlatButtonRipple}"/>
+            <Setter Property="RippleFill" Value="{DynamicResource MaterialFlatButtonRippleBrush}"/>
         </Style>
         
         <Style Selector="^:not(.no-transitions) /template/ Border#PART_BehaviourEffect">

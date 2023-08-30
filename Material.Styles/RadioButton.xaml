@@ -117,7 +117,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid Name="templateRoot">
-                        <ripple:RippleEffect RippleFill="{DynamicResource MaterialDesignFlatButtonRipple}">
+                        <ripple:RippleEffect RippleFill="{DynamicResource MaterialFlatButtonRippleBrush}">
                             <ContentPresenter Name="PART_ContentPresenter"
                                               BorderBrush="{TemplateBinding BorderBrush}"
                                               BorderThickness="{TemplateBinding BorderThickness}"
@@ -128,7 +128,7 @@
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </ripple:RippleEffect>
-                        <Border Name="PART_SelectedIndicator" Background="{DynamicResource MaterialDesignFlatButtonRipple}"
+                        <Border Name="PART_SelectedIndicator" Background="{DynamicResource MaterialFlatButtonRippleBrush}"
                                 BorderThickness="0" IsHitTestVisible="False"/>
                     </Grid>
                 </ControlTemplate>
