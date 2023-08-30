@@ -81,7 +81,7 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialTextAreaBorderBrush", theme.TextAreaBorder);
             SetSolidColorBrush(resourceDictionary, "MaterialTextAreaInactiveBorderBrush",
                 theme.TextAreaInactiveBorder);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignDataGridRowHoverBackground",
+            SetSolidColorBrush(resourceDictionary, "MaterialDataGridRowHoverBackgroundBrush",
                 theme.DataGridRowHoverBackground);
         }
 
@@ -126,7 +126,7 @@ namespace Material.Styles.Themes {
                 CheckBoxOff = GetColor("MaterialCheckBoxOffBrush"),
                 ChipBackground = GetColor("MaterialChipBackgroundBrush"),
                 ColumnHeader = GetColor("MaterialColumnHeaderBrush"),
-                DataGridRowHoverBackground = GetColor("MaterialDesignDataGridRowHoverBackground"),
+                DataGridRowHoverBackground = GetColor("MaterialDataGridRowHoverBackgroundBrush"),
                 Divider = GetColor("MaterialDividerBrush"),
                 FlatButtonClick = GetColor("MaterialFlatButtonClickBrush"),
                 FlatButtonRipple = GetColor("MaterialFlatButtonRippleBrush"),
