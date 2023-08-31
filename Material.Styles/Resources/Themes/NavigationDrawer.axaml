@@ -117,11 +117,11 @@
         </Style>
         
         <Style Selector="^ /template/ Border#PART_LeftDrawerBorder" >
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialCardBackgroundBrush}" />
         </Style>
 
         <Style Selector="^ /template/ Border#PART_RightDrawerBorder" >
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialCardBackgroundBrush}" />
         </Style>
 
         <Style Selector="^ /template/ Border#PART_Scrim" >

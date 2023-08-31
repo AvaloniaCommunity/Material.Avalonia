@@ -85,12 +85,12 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SideSheet.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/WindowNotificationManager.axaml" />
       </ResourceDictionary.MergedDictionaries>
-      <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA" />
-      <SolidColorBrush x:Key="MaterialDesignLightForeground" Color="#DD000000" />
-      <SolidColorBrush x:Key="MaterialDesignDarkBackground" Color="#FF303030" />
-      <SolidColorBrush x:Key="MaterialDesignDarkForeground" Color="#FFFAFAFA" />
-      <SolidColorBrush x:Key="MaterialDesignDarkSeparatorBackground" Color="#1F000000" />
-      <SolidColorBrush x:Key="MaterialDesignLightSeparatorBackground" Color="#1FFFFFFF" />
+      <SolidColorBrush x:Key="MaterialLightBackgroundBrush" Color="#FFFAFAFA" />
+      <SolidColorBrush x:Key="MaterialLightForegroundBrush" Color="#DD000000" />
+      <SolidColorBrush x:Key="MaterialDarkBackgroundBrush" Color="#FF303030" />
+      <SolidColorBrush x:Key="MaterialDarkForegroundBrush" Color="#FFFAFAFA" />
+      <SolidColorBrush x:Key="MaterialDarkSeparatorBackgroundBrush" Color="#1F000000" />
+      <SolidColorBrush x:Key="MaterialLightSeparatorBackgroundBrush" Color="#1FFFFFFF" />
     </ResourceDictionary>
   </Styles.Resources>
 

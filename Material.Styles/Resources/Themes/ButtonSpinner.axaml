@@ -5,8 +5,8 @@
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextAreaBorder}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextAreaBorderBrush}" />
 
     <Style Selector="^ /template/ RepeatButton#PART_IncreaseButton">
       <Setter Property="Content">

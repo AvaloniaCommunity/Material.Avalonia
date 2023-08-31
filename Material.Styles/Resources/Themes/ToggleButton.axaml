@@ -11,7 +11,7 @@
                   TargetType="ToggleButton">
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDividerBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderThickness" Value="0" />
@@ -20,7 +20,7 @@
         <Setter Property="assists:ButtonAssist.HoverColor"
                 Value="{Binding Foreground,
                       Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
-        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Template" >
             <ControlTemplate>
                 <Border Name="PART_RootBorder"
@@ -76,21 +76,21 @@
         </Style>
         
         <Style Selector="^.accent" >
-            <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
         </Style>
 
         <Style Selector="^.light" >
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
         </Style>
     
         <Style Selector="^.dark" >
-            <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
         </Style>
     </ControlTheme>
     
@@ -99,24 +99,24 @@
                   TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         
         <Style Selector="^.accent" >
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
         </Style>
 
         <Style Selector="^.light" >
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
         </Style>
     
         <Style Selector="^.dark" >
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
         </Style>
     </ControlTheme>
     
@@ -127,24 +127,24 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     
         <Style Selector="^.accent" >
-            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
         </Style>
 
         <Style Selector="^.light" >
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
         </Style>
     
         <Style Selector="^.dark" >
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
         </Style>
     </ControlTheme>
     

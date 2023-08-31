@@ -9,7 +9,7 @@
         we using different way to animate it -->
         <Setter Property="ContentTransition" Value="{x:Null}"/>
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth2"/>
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
+        <Setter Property="Background" Value="{DynamicResource MaterialCardBackgroundBrush}"/>
     </Style>
     
     <!-- Replace Avalonia.Themes.Default style -->
@@ -40,7 +40,7 @@
                                 <ToggleButton Name="PART_toggle"
                                               Content="{TemplateBinding Header}"
                                               ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                              Foreground="{DynamicResource MaterialDesignBody}"
+                                              Foreground="{DynamicResource MaterialBodyBrush}"
                                               IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"/>
                             </LayoutTransformControl>
                         </Panel>
@@ -125,8 +125,8 @@
     
 
     <Style Selector="Expander /template/ ToggleButton#PART_toggle">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}"/>
-        <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignCardBackground}"/>
+        <Setter Property="Background" Value="{DynamicResource MaterialCardBackgroundBrush}"/>
+        <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialCardBackgroundBrush}"/>
         <Setter Property="Height" Value="48"/>
         <Setter Property="Template">
             <ControlTemplate>

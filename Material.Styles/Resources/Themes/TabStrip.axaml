@@ -6,9 +6,9 @@
                   TargetType="TabStrip">
         <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
         <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
-                Value="{DynamicResource PrimaryHueMidBrush}" />
+                Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
-                Value="{DynamicResource MaterialDesignBodyLight}" />
+                Value="{DynamicResource MaterialBodyLightBrush}" />
         <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
         <Setter Property="Template">
             <ControlTemplate>

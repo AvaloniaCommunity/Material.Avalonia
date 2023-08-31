@@ -299,7 +299,7 @@
                             <TextBox Watermark="Search field" Classes="solo" Theme="{StaticResource SoloTextBox}" Margin="0">
                                 <TextBox.InnerRightContent>
                                     <Button Width="{Binding $self.Bounds.Height}" Classes="Flat"
-                                            Foreground="{DynamicResource MaterialDesignCardBackground}">
+                                            Foreground="{DynamicResource MaterialCardBackgroundBrush}">
                                         <avalonia:MaterialIcon Kind="Magnify" Width="20" Height="20" />
                                     </Button>
                                 </TextBox.InnerRightContent>

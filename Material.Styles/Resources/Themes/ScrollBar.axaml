@@ -20,7 +20,7 @@
   <system:Double x:Key="ScrollBarThumbMinimumLength">24</system:Double>
 
   <ControlTheme x:Key="ModernSimpleScrollThumb" TargetType="Thumb">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_RootBorder"
@@ -58,8 +58,8 @@
   </ControlTheme>
 
   <ControlTheme x:Key="ModernSimpleScrollArrowButton" TargetType="RepeatButton">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialSelectionBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="CornerRadius" Value="0" />
     <Setter Property="Padding" Value="4" />
@@ -202,7 +202,7 @@
         <Setter Property="Content">
           <Template>
             <Path Data="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"
-                  Fill="{DynamicResource MaterialDesignBody}"
+                  Fill="{DynamicResource MaterialBodyBrush}"
                   Width="8" Height="8" HorizontalAlignment="Center" VerticalAlignment="Center"
                   Stretch="Uniform" />
           </Template>
@@ -214,7 +214,7 @@
         <Setter Property="Content">
           <Template>
             <Path Data="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"
-                  Fill="{DynamicResource MaterialDesignBody}"
+                  Fill="{DynamicResource MaterialBodyBrush}"
                   Width="8" Height="8" HorizontalAlignment="Center" VerticalAlignment="Center"
                   Stretch="Uniform" />
           </Template>
@@ -252,7 +252,7 @@
         <Setter Property="Content">
           <Template>
             <Path Data="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
-                  Fill="{DynamicResource MaterialDesignBody}"
+                  Fill="{DynamicResource MaterialBodyBrush}"
                   Width="8" Height="8" HorizontalAlignment="Center" VerticalAlignment="Center"
                   Stretch="Uniform" />
           </Template>
@@ -264,7 +264,7 @@
         <Setter Property="Content">
           <Template>
             <Path Data="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-                  Fill="{DynamicResource MaterialDesignBody}"
+                  Fill="{DynamicResource MaterialBodyBrush}"
                   Width="8" Height="8" HorizontalAlignment="Center" VerticalAlignment="Center"
                   Stretch="Uniform" />
           </Template>

@@ -13,9 +13,9 @@
                 TargetType="TabControl">
     <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Stretch" />
     <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
-            Value="{DynamicResource PrimaryHueMidBrush}" />
+            Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
-            Value="{DynamicResource MaterialDesignBodyLight}" />
+            Value="{DynamicResource MaterialBodyLightBrush}" />
     <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Template">
@@ -53,7 +53,7 @@
     </Setter>
 
     <Style Selector="^ /template/ Rectangle#PART_Separator">
-      <Setter Property="Fill" Value="{DynamicResource MaterialDesignBodyLight}" />
+      <Setter Property="Fill" Value="{DynamicResource MaterialBodyLightBrush}" />
     </Style>
 
     <Style Selector="^ /template/ Panel#PART_TabsPanel">

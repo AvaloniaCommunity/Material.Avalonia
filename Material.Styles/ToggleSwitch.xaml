@@ -8,16 +8,16 @@
     </Styles.Resources>
 
     <Style Selector="ToggleSwitch">
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
-                Value="{DynamicResource PrimaryHueLightBrush}" />
+                Value="{DynamicResource MaterialPrimaryLightBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground"
                 Value="Black" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
-                Value="{DynamicResource PrimaryHueMidBrush}" />
+                Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOffBackground"
-                Value="{DynamicResource MaterialDesignBody}" />
+                Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="36" />
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -158,9 +158,9 @@
 
     <Style Selector="ToggleSwitch.Accent">
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
-                Value="{DynamicResource SecondaryHueLightBrush}" />
+                Value="{DynamicResource MaterialSecondaryLightBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
-                Value="{DynamicResource SecondaryHueMidBrush}" />
+                Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
 
     <!-- On disabled state -->
@@ -173,8 +173,8 @@
     <!-- Issue: https://github.com/AvaloniaCommunity/Material.Avalonia/issues/132 -->
 
     <Style Selector="ToggleSwitch:disabled">
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     </Style>
     
     <!-- Another fix -->

@@ -10,8 +10,8 @@
                   TargetType="CheckBox">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
+                Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="24" />
         <Setter Property="Padding" Value="4,0,0,0" />
@@ -67,7 +67,7 @@
         <Style Selector="^ /template/ Path#Graphic">
             <Setter Property="Data"
                     Value="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z" />
-            <Setter Property="Fill" Value="{DynamicResource MaterialDesignCheckBoxOff}" />
+            <Setter Property="Fill" Value="{DynamicResource MaterialCheckBoxOffBrush}" />
         </Style>
         
         <!-- Indeterminate state -->
@@ -90,7 +90,7 @@
         
         <Style Selector="^.accent">
             <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                    Value="{DynamicResource SecondaryHueMidBrush}" />
+                    Value="{DynamicResource MaterialSecondaryMidBrush}" />
         </Style>
         
         <!-- Hover effect -->
@@ -109,7 +109,7 @@
             <Setter Property="Opacity" Value="0.56" />
         </Style>
         <Style Selector="^:disabled /template/ Path#Graphic">
-            <Setter Property="Fill" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+            <Setter Property="Fill" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

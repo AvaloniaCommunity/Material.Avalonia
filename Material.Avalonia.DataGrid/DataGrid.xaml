@@ -35,10 +35,10 @@
 
   <Style Selector="DataGridColumnHeader">
     <Setter Property="MinHeight" Value="56"/>
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignColumnHeader}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialColumnHeaderBrush}" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="SeparatorBrush" Value="{DynamicResource MaterialDesignDivider}" />
+    <Setter Property="SeparatorBrush" Value="{DynamicResource MaterialDividerBrush}" />
     <Setter Property="Padding" Value="16,0" />
     <Setter Property="Background" Value="Transparent"/>
     <Setter Property="Template">
@@ -130,7 +130,7 @@
 
   <Style Selector="DataGridRow /template/ Rectangle#BackgroundRectangle">
     <Setter Property="IsVisible" Value="False"/>
-    <Setter Property="Fill" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="Fill" Value="{DynamicResource MaterialSelectionBrush}" />
   </Style>
 
   <Style Selector="DataGridRow:pointerover /template/ Rectangle#BackgroundRectangle">
@@ -144,7 +144,7 @@
   </Style>
 
   <!--Style Selector="DataGridRow:selected">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignSelection}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialSelectionBrush}" />
   </Style-->
 
   <Style Selector="DataGridRowHeader">
@@ -210,13 +210,13 @@
     <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
     <Setter Property="SelectionMode" Value="Extended" />
     <Setter Property="GridLinesVisibility" Value="Horizontal"/>
-    <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MaterialDesignDivider}" />
-    <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource MaterialDesignDivider}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody}"/>
+    <Setter Property="HorizontalGridLinesBrush" Value="{DynamicResource MaterialDividerBrush}" />
+    <Setter Property="VerticalGridLinesBrush" Value="{DynamicResource MaterialDividerBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}"/>
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="DropLocationIndicatorTemplate">
       <Template>
-        <Rectangle Fill="{DynamicResource MaterialDesignSelection}" Width="2"/>
+        <Rectangle Fill="{DynamicResource MaterialSelectionBrush}" Width="2"/>
       </Template>
     </Setter>
     <Setter Property="Template">

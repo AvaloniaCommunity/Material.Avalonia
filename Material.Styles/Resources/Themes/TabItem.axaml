@@ -10,7 +10,7 @@
         <Setter Property="MaxWidth" Value="360"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBodyLight}"/>
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialBodyLightBrush}"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_RootBorder"
@@ -43,11 +43,11 @@
         </Style>
         
         <Style Selector="^ /template/ ripple|RippleEffect#PART_Ripple">
-            <Setter Property="RippleFill" Value="{DynamicResource PrimaryHueMidBrush}"/>
+            <Setter Property="RippleFill" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
         </Style>
         
         <Style Selector="^:selected">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
             
             <Style Selector="^[TabStripPlacement=Top] /template/ Rectangle#PART_Separator">
                 <Setter Property="Height" Value="2"/>
@@ -70,7 +70,7 @@
             </Style>
             
             <Style Selector="^ /template/ Rectangle#PART_Separator">
-                <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}"/>
+                <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
             </Style>
         </Style>
         
@@ -87,7 +87,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="12, 0"/>
-        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBodyLight}"/>
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialBodyLightBrush}"/>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="PART_RootBorder"

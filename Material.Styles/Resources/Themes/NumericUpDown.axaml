@@ -76,7 +76,7 @@
 
   <ControlTheme x:Key="FilledNumericUpDown"
                 TargetType="NumericUpDown">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Template">
@@ -139,7 +139,7 @@
     </Style>
 
     <Style Selector="^ /template/ Border#PART_RootBorder">
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
       <Setter Property="MinHeight" Value="48" />
     </Style>
 
@@ -213,7 +213,7 @@
     <Style Selector="^ /template/ Border#PART_BackgroundTextField">
       <Setter Property="CornerRadius" Value="4" />
       <Setter Property="BorderThickness" Value="1" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
     </Style>
 
     <Style Selector="^ /template/ Panel#PART_TextContainer">
@@ -228,7 +228,7 @@
     <!-- Feedbacks -->
 
     <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField">
-      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       <Setter Property="BorderThickness" Value="2" />
     </Style>
 

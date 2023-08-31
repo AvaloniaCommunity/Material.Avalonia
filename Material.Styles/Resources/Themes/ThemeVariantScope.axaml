@@ -2,6 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ControlTheme x:Key="{x:Type ThemeVariantScope}"
                 TargetType="ThemeVariantScope">
-    <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
   </ControlTheme>
 </ResourceDictionary>

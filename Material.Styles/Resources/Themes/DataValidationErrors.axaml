@@ -3,7 +3,7 @@
                     xmlns:system="clr-namespace:System;assembly=netstandard">
     <DataTemplate x:Key="DataValidationErrorTemplate">
       <ItemsControl ItemsSource="{Binding }"
-                    TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
+                    TextBlock.Foreground="{DynamicResource MaterialValidationErrorBrush}">
             <ItemsControl.DataTemplates>
               <!-- Due to technical issues, the font size will be changed implicitly and its
               unable to change by styles or external way except code-behind or replace error template -->

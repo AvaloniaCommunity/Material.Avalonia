@@ -79,50 +79,50 @@ namespace Material.Styles.Controls {
 
             switch (colorZone.Mode) {
                 case ColorZoneMode.Standard: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignPaper"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignBody"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPaperBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialBodyBrush"));
                 }
                     break;
 
                 case ColorZoneMode.Inverted: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignBody"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignPaper"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialBodyBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPaperBrush"));
                 }
                     break;
 
                 case ColorZoneMode.Light: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignLightBackground"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignLightForeground"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialLightBackgroundBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialLightForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.Dark: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDesignDarkBackground"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDesignDarkForeground"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialDarkBackgroundBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialDarkForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.PrimaryLight: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "PrimaryHueLightBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueLightForegroundBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryLightBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryLightForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.PrimaryMid: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "PrimaryHueMidBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueMidForegroundBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryMidBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryMidForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.PrimaryDark: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "PrimaryHueDarkBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "PrimaryHueDarkForegroundBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryDarkBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.Accent: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "SecondaryHueMidBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "SecondaryHueMidForegroundBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialSecondaryMidBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialSecondaryMidForegroundBrush"));
                 }
                     break;
 

@@ -5,7 +5,7 @@
     <Style Selector="controls|Card">
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth2"/>
         <Setter Property="CornerRadius" Value="4"/>
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCardBackgroundBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="Padding" Value="8" />

@@ -103,7 +103,7 @@
         <Setter Property="Padding" Value="4" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="ToolTip.Tip" Value="Click to clear field"/>
         <Setter Property="Content">
             <Template>
@@ -121,7 +121,7 @@
         <Setter Property="Padding" Value="4"/>
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         
         <Style Selector="^:unchecked">
             <Setter Property="ToolTip.Tip" Value="Click to reveal content of field"/>
@@ -162,10 +162,10 @@
                   TargetType="TextBox">
         <Setter Property="Cursor" Value="IBeam"/>
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
         <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
-        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="CaretBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}"/> 
         <Setter Property="FontWeight" Value="Normal" />
@@ -336,7 +336,7 @@
             </Style>
         
             <Style Selector="^ /template/ TextBlock#PART_LabelText" >
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
             </Style>
             
             <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
@@ -394,12 +394,12 @@
         
         <Style Selector="^:error" >
             <Style Selector="^ /template/ TextBlock#PART_LabelText" >
-                <Setter Property="Foreground" Value="{DynamicResource ValidationErrorBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorBrush}" />
             </Style>
             
             <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
-                <Setter Property="IdleBrush" Value="{DynamicResource ValidationErrorBrush}" />
-                <Setter Property="ActiveBrush" Value="{DynamicResource ValidationErrorBrush}" />
+                <Setter Property="IdleBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
+                <Setter Property="ActiveBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
             </Style>
 
             <!-- TODO: Animate fading effect between hints text and validation error text -->
@@ -469,7 +469,7 @@
                   TargetType="TextBox">
         <Style Selector="^ /template/ Border#PART_BackgroundTextField" >
             <Setter Property="CornerRadius" Value="4,4,0,0" />
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
         </Style>
         
         <Style Selector="^ /template/ Panel#PART_TextContainer" >
@@ -496,7 +496,7 @@
         </Style>
 
         <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
         </Style>
 
         <!-- Default filled text field -->
@@ -526,7 +526,7 @@
         </Style>
         
         <Style Selector="^:disabled /template/ Border#PART_RootBorder" >
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxDisabledBackground}" />
+            <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxDisabledBackgroundBrush}" />
         </Style>
     </ControlTheme>
     
@@ -540,7 +540,7 @@
         <Style Selector="^ /template/ Border#PART_BackgroundTextField">
             <Setter Property="CornerRadius" Value="4" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
             <Setter Property="Margin" Value="0,8,0,0" />
         </Style>
         
@@ -560,7 +560,7 @@
         <!-- Feedbacks -->
             
         <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
             <Setter Property="BorderThickness" Value="2" />
         </Style>
         
@@ -583,7 +583,7 @@
         <!-- Invalid state -->
 
         <Style Selector="^:error /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
         </Style>
     </ControlTheme>
     

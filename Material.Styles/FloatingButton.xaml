@@ -18,9 +18,9 @@
   <Style Selector="controls|FloatingButton">
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
-    <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
@@ -179,34 +179,34 @@
   <!-- Color definitions -->
 
   <Style Selector="controls|FloatingButton.Light">
-    <Setter Property="Background" Value="{DynamicResource PrimaryHueLightBrush}"/>
-    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/> 
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}"/> 
   </Style> 
 
   <Style Selector="controls|FloatingButton.Dark">
-    <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}"/>
-    <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueDarkBrush}"/>
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/> 
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}"/> 
   </Style>
  
   <Style Selector="controls|FloatingButton.Accent">
-    <Setter Property="Background" Value="{DynamicResource SecondaryHueMidBrush}"/>
-    <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
-    <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/> 
+    <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}"/>
+    <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}"/> 
   </Style>
 
   <Style Selector="controls|FloatingButton.Light Path">
-    <Setter Property="Fill" Value="{DynamicResource PrimaryHueLightForegroundBrush}"/>
+    <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}"/>
   </Style>
   <Style Selector="controls|FloatingButton.Dark Path">
-    <Setter Property="Fill" Value="{DynamicResource PrimaryHueDarkForegroundBrush}"/>
+    <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryForegroundBrush}"/>
   </Style>
   <Style Selector="controls|FloatingButton.Accent Path">
-    <Setter Property="Fill" Value="{DynamicResource SecondaryHueMidForegroundBrush}"/>
+    <Setter Property="Fill" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}"/>
   </Style> 
   <Style Selector="controls|FloatingButton Path">
-    <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+    <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}"/>
   </Style>
   
   <Style Selector="controls|FloatingButton:disabled:not(.no-material)">

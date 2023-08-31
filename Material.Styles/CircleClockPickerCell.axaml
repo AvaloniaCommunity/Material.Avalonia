@@ -29,11 +29,11 @@
     </Style>
     
     <Style Selector="controls|CircleClockPickerCell:selected /template/ Ellipse#PART_HoverEffect">
-        <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
     </Style>
     
     <Style Selector="controls|CircleClockPickerCell:selected /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="TemplatedControl.Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+        <Setter Property="TemplatedControl.Foreground" Value="{DynamicResource MaterialBodyBrush}"/>
     </Style>
     
     <Style Selector="controls|CircleClockPickerCell:dot /template/ ContentPresenter#PART_ContentPresenter">

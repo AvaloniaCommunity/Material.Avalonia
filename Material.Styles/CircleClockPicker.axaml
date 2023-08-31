@@ -10,7 +10,7 @@
     <Style Selector="controls|CircleClockPicker">
         <Setter Property="Minimum" Value="0"/>
         <Setter Property="Maximum" Value="59"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
         <Setter Property="RadiusMultiplier" Value="0.8"/>
         <Setter Property="Template">
             <ControlTemplate>
@@ -33,19 +33,19 @@
     </Style>
     
     <Style Selector="controls|CircleClockPicker /template/ Ellipse#PART_CircleBackground">
-        <Setter Property="Fill" Value="{DynamicResource MaterialDesignDivider}"/>
+        <Setter Property="Fill" Value="{DynamicResource MaterialDividerBrush}"/>
     </Style>
     
     <Style Selector="controls|CircleClockPicker /template/ Ellipse#PART_PointerCenter">
         <Setter Property="Width" Value="8"/>
         <Setter Property="Height" Value="8"/>
-        <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
     </Style>
     
     <Style Selector="controls|CircleClockPicker /template/ Rectangle#PART_PointerPin">
         <Setter Property="Width" Value="2"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="UseLayoutRounding" Value="False"/>
-        <Setter Property="Fill" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
     </Style>
 </Styles>

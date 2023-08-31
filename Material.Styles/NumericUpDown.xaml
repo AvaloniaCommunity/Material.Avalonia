@@ -2,7 +2,7 @@
         xmlns:assists="clr-namespace:Material.Styles.Assists"
         xmlns:controls="clr-namespace:Material.Styles.Controls">
     <Style Selector="NumericUpDown">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="MinHeight" Value="48"/>
@@ -17,7 +17,7 @@
                         BorderThickness="{TemplateBinding BorderThickness}">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Border Name="focusBorder"
-                                Background="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+                                Background="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
                         <ButtonSpinner Name="PART_Spinner"
                                        BorderThickness="0"
                                        BorderBrush="Transparent"
@@ -62,6 +62,6 @@
     </Style> 
     
     <Style Selector="TextBox /template/ Border#PART_RootBorder">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
     </Style>
 </Styles>

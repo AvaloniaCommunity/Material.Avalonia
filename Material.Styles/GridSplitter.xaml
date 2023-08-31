@@ -3,7 +3,7 @@
         <Setter Property="Focusable" Value="True" />
         <Setter Property="MinWidth" Value="1" />
         <Setter Property="MinHeight" Value="1" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignDivider}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDividerBrush}" />
         <Setter Property="PreviewContent">
             <Template>
                 <Rectangle Fill="{DynamicResource HighlightBrush}" />

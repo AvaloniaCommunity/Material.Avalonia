@@ -12,7 +12,7 @@
     <!-- TODO: Rework combobox styles-->
     <Style Selector="ComboBox">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="PlaceholderForeground" Value="{DynamicResource MaterialDesignBody}"/>
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource MaterialBodyBrush}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -122,10 +122,10 @@
     </Style>
 
     <Style Selector="ToggleButton.ComboBoxToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialDesignPaper}" />
-        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialPaperBrush}" />
+        <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="16 4 16 4" />
@@ -181,7 +181,7 @@
     
 
     <Style Selector="ComboBox.Filled">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
         <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
         <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
         <Setter Property="Padding" Value="16,8" />
@@ -248,7 +248,7 @@
                                               HorizontalAlignment="Right"
                                               VerticalAlignment="Center"
                                               Data="M7,10L12,15L17,10H7Z"
-                                              Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                                              Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                                     </Border>
                                 </Grid>
                                 <controls:MaterialUnderline Classes="MirrorY"
@@ -301,7 +301,7 @@
     </Style>
 
     <Style Selector="ComboBox.Outline">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody }" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush }" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
         <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
@@ -357,7 +357,7 @@
                                           HorizontalAlignment="Right"
                                           VerticalAlignment="Center"
                                           Data="M7,10L12,15L17,10H7Z"
-                                          Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                                          Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                                 </Border>
                             </Grid>
                         </Grid>
@@ -423,7 +423,7 @@
     </Style>
 
     <Style Selector="ComboBox.Outline:focus-within">
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="BorderThickness" Value="2" />
     </Style>
 

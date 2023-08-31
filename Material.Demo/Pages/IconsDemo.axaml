@@ -25,9 +25,9 @@
                                            Background="Transparent">
                         <Panel>
                             <Border Name="pointerOverBorder"
-                                    Background="{DynamicResource MaterialDesignBody}" />
+                                    Background="{DynamicResource MaterialBodyBrush}" />
                             <Border Name="selectedBorder"
-                                    Background="{DynamicResource MaterialDesignBody}" />
+                                    Background="{DynamicResource MaterialBodyBrush}" />
                             <Grid RowDefinitions="*, Auto" Margin="8" Height="64" Width="64">
                                 <avalonia:MaterialIcon Grid.Row="0"
                                                        Kind="{Binding Kind}"
@@ -110,7 +110,7 @@
                         
                     <TextBox.InnerRightContent>
                         <Button Width="{Binding $self.Bounds.Height}"
-                                Name="SearchButton" Foreground="{DynamicResource MaterialDesignCardBackground}"
+                                Name="SearchButton" Foreground="{DynamicResource MaterialCardBackgroundBrush}"
                                 Classes="flat" Command="{Binding SearchCommand}"
                                 CommandParameter="{Binding ElementName=SearchBox, Path=Text}" CornerRadius="0">
                             <avalonia:MaterialIcon Kind="ArrowRightBottom" Width="20" Height="20"/>
@@ -138,7 +138,7 @@
                     
                     <TextBox.InnerRightContent>
                         <Button Width="{Binding $self.Bounds.Height}"
-                                Foreground="{DynamicResource MaterialDesignCardBackground}"
+                                Foreground="{DynamicResource MaterialCardBackgroundBrush}"
                                 Classes="flat" Command="{Binding CopyToClipboardCommand, Mode=OneTime}"
                                 CommandParameter="{Binding $parent[TopLevel]}" CornerRadius="0">
                             <avalonia:MaterialIcon Kind="ContentCopy" Width="20" Height="20"/>

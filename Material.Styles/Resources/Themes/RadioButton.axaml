@@ -13,8 +13,8 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="assists:SelectionControlAssist.Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
-        <Setter Property="assists:SelectionControlAssist.InnerForeground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="assists:SelectionControlAssist.Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
+        <Setter Property="assists:SelectionControlAssist.InnerForeground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="24" />
         <Setter Property="Padding" Value="4 2 0 0" />
@@ -98,9 +98,9 @@
         
         <Style Selector="^:disabled">
             <Setter Property="assists:SelectionControlAssist.Foreground"
-                    Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+                    Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
             <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                    Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+                    Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
             <Setter Property="Opacity" Value="0.26" />
         </Style>
         
@@ -118,9 +118,9 @@
 
         <Style Selector="^.accent:not(:disabled)">
             <Setter Property="assists:SelectionControlAssist.Foreground"
-                    Value="{DynamicResource SecondaryHueMidBrush}" />
+                    Value="{DynamicResource MaterialSecondaryMidBrush}" />
             <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                    Value="{DynamicResource SecondaryHueMidBrush}" />
+                    Value="{DynamicResource MaterialSecondaryMidBrush}" />
         </Style>
     </ControlTheme>
     
@@ -131,8 +131,8 @@
                   BasedOn="{StaticResource {x:Type RadioButton}}">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Padding" Value="16 4" />
         <Setter Property="Template">
@@ -160,12 +160,12 @@
         
         <Style Selector="^ /template/ Border#PART_BehaviourEffect">
             <Setter Property="Opacity" Value="0"/>
-            <Setter Property="Background" Value="{DynamicResource MaterialDesignFlatButtonRipple}"/>
+            <Setter Property="Background" Value="{DynamicResource MaterialFlatButtonRippleBrush}"/>
             <Setter Property="IsHitTestVisible" Value="False"/>
         </Style>
         
         <Style Selector="^ /template/ ripple|RippleEffect#PART_Ripple">
-            <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignFlatButtonRipple}"/>
+            <Setter Property="RippleFill" Value="{DynamicResource MaterialFlatButtonRippleBrush}"/>
         </Style>
         
         <Style Selector="^:not(.no-transitions) /template/ Border#PART_BehaviourEffect">
@@ -181,8 +181,8 @@
         </Style>
         
         <Style Selector="^.accent">
-            <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryHueMidBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

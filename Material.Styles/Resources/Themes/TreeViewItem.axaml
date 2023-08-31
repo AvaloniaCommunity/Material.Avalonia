@@ -121,7 +121,7 @@
     </Style>
 
     <Style Selector="^/template/ ripple|RippleEffect#PART_Ripple">
-      <Setter Property="RippleFill" Value="{DynamicResource MaterialDesignBody}" />
+      <Setter Property="RippleFill" Value="{DynamicResource MaterialBodyBrush}" />
       <Setter Property="Focusable" Value="False" />
     </Style>
 
@@ -148,12 +148,12 @@
 
     <!-- Default statement - behaviour effect border should have invisible (full-transparent) -->
     <Style Selector="^ /template/ Border#PART_BehaviourEffect">
-      <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
       <Setter Property="Opacity" Value="0" />
     </Style>
 
     <Style Selector="^ /template/ Border#PART_HoverEffect">
-      <Setter Property="Background" Value="{DynamicResource MaterialDesignBody}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
       <Setter Property="IsHitTestVisible" Value="False" />
       <Setter Property="Opacity" Value="0" />
     </Style>

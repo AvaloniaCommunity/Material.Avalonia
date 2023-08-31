@@ -31,57 +31,57 @@ namespace Material.Styles.Themes {
         internal static void SetThemeInternal(this IResourceDictionary resourceDictionary, ITheme theme) {
             if (resourceDictionary == null) throw new ArgumentNullException(nameof(resourceDictionary));
 
-            SetSolidColorBrush(resourceDictionary, "PrimaryHueLightBrush", theme.PrimaryLight.Color);
-            SetSolidColorBrush(resourceDictionary, "PrimaryHueLightForegroundBrush",
+            SetSolidColorBrush(resourceDictionary, "MaterialPrimaryLightBrush", theme.PrimaryLight.Color);
+            SetSolidColorBrush(resourceDictionary, "MaterialPrimaryLightForegroundBrush",
                 theme.PrimaryLight.ForegroundColor);
-            SetSolidColorBrush(resourceDictionary, "PrimaryHueMidBrush", theme.PrimaryMid.Color);
-            SetSolidColorBrush(resourceDictionary, "PrimaryHueMidForegroundBrush", theme.PrimaryMid.ForegroundColor);
-            SetSolidColorBrush(resourceDictionary, "PrimaryHueDarkBrush", theme.PrimaryDark.Color);
-            SetSolidColorBrush(resourceDictionary, "PrimaryHueDarkForegroundBrush", theme.PrimaryDark.ForegroundColor);
+            SetSolidColorBrush(resourceDictionary, "MaterialPrimaryMidBrush", theme.PrimaryMid.Color);
+            SetSolidColorBrush(resourceDictionary, "MaterialPrimaryMidForegroundBrush", theme.PrimaryMid.ForegroundColor);
+            SetSolidColorBrush(resourceDictionary, "MaterialPrimaryDarkBrush", theme.PrimaryDark.Color);
+            SetSolidColorBrush(resourceDictionary, "MaterialPrimaryForegroundBrush", theme.PrimaryDark.ForegroundColor);
 
-            SetSolidColorBrush(resourceDictionary, "SecondaryHueLightBrush", theme.SecondaryLight.Color);
-            SetSolidColorBrush(resourceDictionary, "SecondaryHueLightForegroundBrush",
+            SetSolidColorBrush(resourceDictionary, "MaterialSecondaryLightBrush", theme.SecondaryLight.Color);
+            SetSolidColorBrush(resourceDictionary, "MaterialSecondaryLightForegroundBrush",
                 theme.SecondaryLight.ForegroundColor);
-            SetSolidColorBrush(resourceDictionary, "SecondaryHueMidBrush", theme.SecondaryMid.Color);
-            SetSolidColorBrush(resourceDictionary, "SecondaryHueMidForegroundBrush",
+            SetSolidColorBrush(resourceDictionary, "MaterialSecondaryMidBrush", theme.SecondaryMid.Color);
+            SetSolidColorBrush(resourceDictionary, "MaterialSecondaryMidForegroundBrush",
                 theme.SecondaryMid.ForegroundColor);
-            SetSolidColorBrush(resourceDictionary, "SecondaryHueDarkBrush", theme.SecondaryDark.Color);
-            SetSolidColorBrush(resourceDictionary, "SecondaryHueDarkForegroundBrush",
+            SetSolidColorBrush(resourceDictionary, "MaterialSecondaryDarkBrush", theme.SecondaryDark.Color);
+            SetSolidColorBrush(resourceDictionary, "MaterialSecondaryDarkForegroundBrush",
                 theme.SecondaryDark.ForegroundColor);
 
-            SetSolidColorBrush(resourceDictionary, "ValidationErrorBrush", theme.ValidationError);
+            SetSolidColorBrush(resourceDictionary, "MaterialValidationErrorBrush", theme.ValidationError);
 
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignBackground", theme.Background);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignPaper", theme.Paper);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignCardBackground", theme.CardBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignToolBarBackground", theme.ToolBarBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignBody", theme.Body);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignBodyLight", theme.BodyLight);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignColumnHeader", theme.ColumnHeader);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignCheckBoxOff", theme.CheckBoxOff);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignCheckBoxDisabled", theme.CheckBoxDisabled);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignTextBoxBorder", theme.TextBoxBorder);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignDivider", theme.Divider);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignSelection", theme.Selection);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignToolForeground", theme.ToolForeground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignToolBackground", theme.ToolBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignFlatButtonClick", theme.FlatButtonClick);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignFlatButtonRipple", theme.FlatButtonRipple);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignToolTipBackground", theme.ToolTipBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignChipBackground", theme.ChipBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignSnackbarBackground", theme.SnackbarBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignSnackbarMouseOver", theme.SnackbarMouseOver);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignSnackbarRipple", theme.SnackbarRipple);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignTextFieldBoxBackground",
+            SetSolidColorBrush(resourceDictionary, "MaterialBackgroundBrush", theme.Background);
+            SetSolidColorBrush(resourceDictionary, "MaterialPaperBrush", theme.Paper);
+            SetSolidColorBrush(resourceDictionary, "MaterialCardBackgroundBrush", theme.CardBackground);
+            SetSolidColorBrush(resourceDictionary, "MaterialToolBarBackgroundBrush", theme.ToolBarBackground);
+            SetSolidColorBrush(resourceDictionary, "MaterialBodyBrush", theme.Body);
+            SetSolidColorBrush(resourceDictionary, "MaterialBodyLightBrush", theme.BodyLight);
+            SetSolidColorBrush(resourceDictionary, "MaterialColumnHeaderBrush", theme.ColumnHeader);
+            SetSolidColorBrush(resourceDictionary, "MaterialCheckBoxOffBrush", theme.CheckBoxOff);
+            SetSolidColorBrush(resourceDictionary, "MaterialCheckBoxDisabledBrush", theme.CheckBoxDisabled);
+            SetSolidColorBrush(resourceDictionary, "MaterialTextBoxBorderBrush", theme.TextBoxBorder);
+            SetSolidColorBrush(resourceDictionary, "MaterialDividerBrush", theme.Divider);
+            SetSolidColorBrush(resourceDictionary, "MaterialSelectionBrush", theme.Selection);
+            SetSolidColorBrush(resourceDictionary, "MaterialToolForegroundBrush", theme.ToolForeground);
+            SetSolidColorBrush(resourceDictionary, "MaterialToolBackgroundBrush", theme.ToolBackground);
+            SetSolidColorBrush(resourceDictionary, "MaterialFlatButtonClickBrush", theme.FlatButtonClick);
+            SetSolidColorBrush(resourceDictionary, "MaterialFlatButtonRippleBrush", theme.FlatButtonRipple);
+            SetSolidColorBrush(resourceDictionary, "MaterialToolTipBackgroundBrush", theme.ToolTipBackground);
+            SetSolidColorBrush(resourceDictionary, "MaterialChipBackgroundBrush", theme.ChipBackground);
+            SetSolidColorBrush(resourceDictionary, "MaterialSnackbarBackgroundBrush", theme.SnackbarBackground);
+            SetSolidColorBrush(resourceDictionary, "MaterialSnackbarMouseOverBrush", theme.SnackbarMouseOver);
+            SetSolidColorBrush(resourceDictionary, "MaterialSnackbarRippleBrush", theme.SnackbarRipple);
+            SetSolidColorBrush(resourceDictionary, "MaterialTextFieldBoxBackgroundBrush",
                 theme.TextFieldBoxBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignTextFieldBoxHoverBackground",
+            SetSolidColorBrush(resourceDictionary, "MaterialTextFieldBoxHoverBackgroundBrush",
                 theme.TextFieldBoxHoverBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignTextFieldBoxDisabledBackground",
+            SetSolidColorBrush(resourceDictionary, "MaterialTextFieldBoxDisabledBackgroundBrush",
                 theme.TextFieldBoxDisabledBackground);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignTextAreaBorder", theme.TextAreaBorder);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignTextAreaInactiveBorder",
+            SetSolidColorBrush(resourceDictionary, "MaterialTextAreaBorderBrush", theme.TextAreaBorder);
+            SetSolidColorBrush(resourceDictionary, "MaterialTextAreaInactiveBorderBrush",
                 theme.TextAreaInactiveBorder);
-            SetSolidColorBrush(resourceDictionary, "MaterialDesignDataGridRowHoverBackground",
+            SetSolidColorBrush(resourceDictionary, "MaterialDataGridRowHoverBackgroundBrush",
                 theme.DataGridRowHoverBackground);
         }
 
@@ -92,60 +92,60 @@ namespace Material.Styles.Themes {
             if (resourceDictionary.TryGetResource(CurrentThemeKey, null, out var theme) && theme is ITheme)
                 return (ITheme)theme;
 
-            var secondaryMid = GetColor("SecondaryHueMidBrush");
-            var secondaryMidForeground = GetColor("SecondaryHueMidForegroundBrush");
+            var secondaryMid = GetColor("MaterialSecondaryMidBrush");
+            var secondaryMidForeground = GetColor("MaterialSecondaryMidForegroundBrush");
 
-            if (!TryGetColor("SecondaryHueLightBrush", out var secondaryLight))
+            if (!TryGetColor("MaterialSecondaryLightBrush", out var secondaryLight))
                 secondaryLight = secondaryMid.Lighten();
 
-            if (!TryGetColor("SecondaryHueLightForegroundBrush", out var secondaryLightForeground))
+            if (!TryGetColor("MaterialSecondaryLightForegroundBrush", out var secondaryLightForeground))
                 secondaryLightForeground = secondaryLight.PickContrastColor();
 
-            if (!TryGetColor("SecondaryHueDarkBrush", out var secondaryDark))
+            if (!TryGetColor("MaterialSecondaryDarkBrush", out var secondaryDark))
                 secondaryDark = secondaryMid.Darken();
 
-            if (!TryGetColor("SecondaryHueDarkForegroundBrush", out var secondaryDarkForeground))
+            if (!TryGetColor("MaterialSecondaryDarkForegroundBrush", out var secondaryDarkForeground))
                 secondaryDarkForeground = secondaryDark.PickContrastColor();
 
             //Attempt to simply look up the appropriate resources
             return new Theme {
-                PrimaryLight = new ColorPair(GetColor("PrimaryHueLightBrush"),
-                    GetColor("PrimaryHueLightForegroundBrush")),
-                PrimaryMid = new ColorPair(GetColor("PrimaryHueMidBrush"), GetColor("PrimaryHueMidForegroundBrush")),
-                PrimaryDark = new ColorPair(GetColor("PrimaryHueDarkBrush"), GetColor("PrimaryHueDarkForegroundBrush")),
+                PrimaryLight = new ColorPair(GetColor("MaterialPrimaryLightBrush"),
+                    GetColor("MaterialPrimaryLightForegroundBrush")),
+                PrimaryMid = new ColorPair(GetColor("MaterialPrimaryMidBrush"), GetColor("MaterialPrimaryMidForegroundBrush")),
+                PrimaryDark = new ColorPair(GetColor("MaterialPrimaryDarkBrush"), GetColor("MaterialPrimaryForegroundBrush")),
 
                 SecondaryLight = new ColorPair(secondaryLight, secondaryLightForeground),
                 SecondaryMid = new ColorPair(secondaryMid, secondaryMidForeground),
                 SecondaryDark = new ColorPair(secondaryDark, secondaryDarkForeground),
 
-                Background = GetColor("MaterialDesignBackground"),
-                Body = GetColor("MaterialDesignBody"),
-                BodyLight = GetColor("MaterialDesignBodyLight"),
-                CardBackground = GetColor("MaterialDesignCardBackground"),
-                CheckBoxDisabled = GetColor("MaterialDesignCheckBoxDisabled"),
-                CheckBoxOff = GetColor("MaterialDesignCheckBoxOff"),
-                ChipBackground = GetColor("MaterialDesignChipBackground"),
-                ColumnHeader = GetColor("MaterialDesignColumnHeader"),
-                DataGridRowHoverBackground = GetColor("MaterialDesignDataGridRowHoverBackground"),
-                Divider = GetColor("MaterialDesignDivider"),
-                FlatButtonClick = GetColor("MaterialDesignFlatButtonClick"),
-                FlatButtonRipple = GetColor("MaterialDesignFlatButtonRipple"),
-                Selection = GetColor("MaterialDesignSelection"),
-                SnackbarBackground = GetColor("MaterialDesignSnackbarBackground"),
-                SnackbarMouseOver = GetColor("MaterialDesignSnackbarMouseOver"),
-                SnackbarRipple = GetColor("MaterialDesignSnackbarRipple"),
-                TextAreaBorder = GetColor("MaterialDesignTextAreaBorder"),
-                TextAreaInactiveBorder = GetColor("MaterialDesignTextAreaInactiveBorder"),
-                TextBoxBorder = GetColor("MaterialDesignTextBoxBorder"),
-                TextFieldBoxBackground = GetColor("MaterialDesignTextFieldBoxBackground"),
-                TextFieldBoxDisabledBackground = GetColor("MaterialDesignTextFieldBoxDisabledBackground"),
-                TextFieldBoxHoverBackground = GetColor("MaterialDesignTextFieldBoxHoverBackground"),
-                ToolBackground = GetColor("MaterialDesignToolBackground"),
-                ToolBarBackground = GetColor("MaterialDesignToolBarBackground"),
-                ToolForeground = GetColor("MaterialDesignToolForeground"),
-                ToolTipBackground = GetColor("MaterialDesignToolTipBackground"),
-                Paper = GetColor("MaterialDesignPaper"),
-                ValidationError = GetColor("ValidationErrorBrush")
+                Background = GetColor("MaterialBackgroundBrush"),
+                Body = GetColor("MaterialBodyBrush"),
+                BodyLight = GetColor("MaterialBodyLightBrush"),
+                CardBackground = GetColor("MaterialCardBackgroundBrush"),
+                CheckBoxDisabled = GetColor("MaterialCheckBoxDisabledBrush"),
+                CheckBoxOff = GetColor("MaterialCheckBoxOffBrush"),
+                ChipBackground = GetColor("MaterialChipBackgroundBrush"),
+                ColumnHeader = GetColor("MaterialColumnHeaderBrush"),
+                DataGridRowHoverBackground = GetColor("MaterialDataGridRowHoverBackgroundBrush"),
+                Divider = GetColor("MaterialDividerBrush"),
+                FlatButtonClick = GetColor("MaterialFlatButtonClickBrush"),
+                FlatButtonRipple = GetColor("MaterialFlatButtonRippleBrush"),
+                Selection = GetColor("MaterialSelectionBrush"),
+                SnackbarBackground = GetColor("MaterialSnackbarBackgroundBrush"),
+                SnackbarMouseOver = GetColor("MaterialSnackbarMouseOverBrush"),
+                SnackbarRipple = GetColor("MaterialSnackbarRippleBrush"),
+                TextAreaBorder = GetColor("MaterialTextAreaBorderBrush"),
+                TextAreaInactiveBorder = GetColor("MaterialTextAreaInactiveBorderBrush"),
+                TextBoxBorder = GetColor("MaterialTextBoxBorderBrush"),
+                TextFieldBoxBackground = GetColor("MaterialTextFieldBoxBackgroundBrush"),
+                TextFieldBoxDisabledBackground = GetColor("MaterialTextFieldBoxDisabledBackgroundBrush"),
+                TextFieldBoxHoverBackground = GetColor("MaterialTextFieldBoxHoverBackgroundBrush"),
+                ToolBackground = GetColor("MaterialToolBackgroundBrush"),
+                ToolBarBackground = GetColor("MaterialToolBarBackgroundBrush"),
+                ToolForeground = GetColor("MaterialToolForegroundBrush"),
+                ToolTipBackground = GetColor("MaterialToolTipBackgroundBrush"),
+                Paper = GetColor("MaterialPaperBrush"),
+                ValidationError = GetColor("MaterialValidationErrorBrush")
             };
 
             Color GetColor(string key) {

@@ -12,7 +12,7 @@
     <Style Selector="Slider" >
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Minimum" Value="0"/>
         <Setter Property="Maximum" Value="0"/>
@@ -71,8 +71,8 @@
     </Style>
     
     <Style Selector="Slider /template/ controls|TickBar#CenterTick">
-        <Setter Property="InactiveBrush" Value="{DynamicResource PrimaryHueMidBrush}"/>
-        <Setter Property="ActiveBrush" Value="{DynamicResource PrimaryHueLightBrush}"/>
+        <Setter Property="InactiveBrush" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialPrimaryLightBrush}"/>
     </Style>
            
     <Style Selector="Slider:horizontal /template/ Track#PART_Track">
@@ -101,7 +101,7 @@
     <Style Selector="Slider /template/ ProgressBar.material-slider-track-v2">
         <Setter Property="ClipToBounds" Value="False"/>
         <Setter Property="Background" Value="{TemplateBinding Foreground}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
         <!-- Disable transitions for this control -->
         <Setter Property="Transitions" Value="{x:Null}"/>
         <Setter Property="UseLayoutRounding" Value="False"/>
@@ -207,23 +207,23 @@
     <!-- Accent palette -->
         
     <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ ProgressBar.material-slider-track-v2" >
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
         
     <Style Selector="Slider:not(:not(.Accent, .accent)) /template/ controls|TickBar#CenterTick">
-        <Setter Property="InactiveBrush" Value="{DynamicResource SecondaryHueMidBrush}"/>
-        <Setter Property="ActiveBrush" Value="{DynamicResource SecondaryHueLightBrush}"/>
+        <Setter Property="InactiveBrush" Value="{DynamicResource MaterialSecondaryMidBrush}"/>
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialSecondaryLightBrush}"/>
     </Style>
     
     <Style Selector="Slider:disabled /template/
                      ProgressBar.material-slider-track-v2" >
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
     </Style>
             
     <Style Selector="Slider:disabled /template/ controls|TickBar#CenterTick">
-        <Setter Property="InactiveBrush" Value="{DynamicResource MaterialDesignBodyLight}"/>
-        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialDesignCardBackground}"/>
+        <Setter Property="InactiveBrush" Value="{DynamicResource MaterialBodyLightBrush}"/>
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialCardBackgroundBrush}"/>
     </Style>
     
     <!-- Styling track (native) -->
@@ -391,7 +391,7 @@
     </Style>
 
     <Style Selector="Thumb.material-slider-thumb-v2:disabled" >
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
@@ -420,7 +420,7 @@
                     <Border Grid.Row="0"
                             Name="PART_Positioner" >
                         <Border Name="PART_ContentContainer"
-                                Background="{DynamicResource MaterialDesignToolTipBackground}"
+                                Background="{DynamicResource MaterialToolTipBackgroundBrush}"
                                 Padding="4, 8" CornerRadius="2">
                             <Border.RenderTransform>
                                 <MultiBinding Converter="{StaticResource AutoCorrectPositionConverter}">
@@ -432,7 +432,7 @@
                             <TextBlock Name="InnerBubbleText"
                                        Classes="Caption"
                                        Text="{Binding $parent[Slider].Value}"
-                                       Foreground="{DynamicResource MaterialDesignBackground}" />
+                                       Foreground="{DynamicResource MaterialBackgroundBrush}" />
                         </Border>
                     </Border>
                 </Grid>
@@ -466,7 +466,7 @@
     </Style>
 
     <Style Selector="Slider:not(:not(.Discrete, .discrete)) Thumb /template/ ContentPresenter#PART_ContentPresenter TextBlock" >
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
@@ -541,7 +541,7 @@
     
     <Style Selector="Slider.material-v1 /template/ Track#PART_Track
                      RepeatButton#PART_IncreaseButton.material-slider-track-bar-v1">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxOff}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialCheckBoxOffBrush}"/>
     </Style>
     
     <!-- Part of slider: thumb -->
@@ -596,7 +596,7 @@
     </Style>
     
     <Style Selector="Slider.material-v1:disabled /template/ Thumb.material-slider-thumb-v1" >
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
     </Style>
     
     <!--Style Selector="Slider[Value=0] /template/ Thumb.material-slider-thumb-v1">
@@ -604,7 +604,7 @@
     </Style>
     
     <Style Selector="Slider[Value=0] /template/ Thumb.material-slider-thumb-v1 /template/ Ellipse#PART_ThumbGrip">
-        <Setter Property="Stroke" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Stroke" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
         <Setter Property="StrokeThickness" Value="2"/>
     </Style-->
     
@@ -621,7 +621,7 @@
     </Style>
         
     <Style Selector="Slider.material-v1:disabled" >
-        <Setter Property="Foreground" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
     </Style>
         
     <Style Selector="Slider.material-v1:horizontal:disabled[IsDirectionReversed=False] /template/ Track#PART_Track
@@ -673,7 +673,7 @@
     <Style Selector="Slider:not(:not(.Accent, .accent))" >
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
     
     <!-- Compatibility fix: Standard avalonia style -->

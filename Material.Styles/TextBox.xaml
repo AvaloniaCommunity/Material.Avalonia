@@ -57,10 +57,10 @@
 
     <Style Selector="TextBox" >
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
         <Setter Property="ContextMenu" Value="{StaticResource DefaultTextBoxContextMenu}" />
-        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="CaretBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Watermark" Value="{x:Static system:String.Empty}"/>
@@ -224,7 +224,7 @@
     </Style>
     
     <Style Selector="TextBox:focus-within /template/ Border#PART_LabelRootBorder > TextBlock#PART_LabelText" >
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     </Style>
         
     <Style Selector="TextBox:focus-within /template/ controls|MaterialUnderline#PART_Underline" >
@@ -249,12 +249,12 @@
     <!-- Invalid state -->
 
     <Style Selector="TextBox:error /template/ TextBlock#PART_LabelText" >
-        <Setter Property="Foreground" Value="{DynamicResource ValidationErrorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorBrush}" />
     </Style>
     
     <Style Selector="TextBox:error /template/ controls|MaterialUnderline#PART_Underline" >
-        <Setter Property="IdleBrush" Value="{DynamicResource ValidationErrorBrush}" />
-        <Setter Property="ActiveBrush" Value="{DynamicResource ValidationErrorBrush}" />
+        <Setter Property="IdleBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
     </Style>
 
     <Style Selector="TextBox:error /template/ TextBlock#PART_HintsText" >
@@ -308,7 +308,7 @@
 
     <Style Selector="TextBox.filled /template/ Border#PART_BackgroundTextField" >
         <Setter Property="CornerRadius" Value="4,4,0,0" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     </Style>
     
     <Style Selector="TextBox.filled /template/ Panel#PART_TextContainer" >
@@ -335,7 +335,7 @@
     </Style>
 
     <Style Selector="TextBox.filled:focus-within /template/ Border#PART_BackgroundTextField" >
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
     </Style>
 
     <!-- Default filled text field -->
@@ -365,7 +365,7 @@
     </Style>
     
     <Style Selector="TextBox.filled:disabled /template/ Border#PART_RootBorder" >
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxDisabledBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxDisabledBackgroundBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
@@ -377,7 +377,7 @@
     <Style Selector="TextBox.outline /template/ Border#PART_BackgroundTextField">
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
         <Setter Property="Margin" Value="0,8,0,0" />
     </Style>
     
@@ -397,7 +397,7 @@
     <!-- Feedbacks -->
         
     <Style Selector="TextBox.outline:focus-within /template/ Border#PART_BackgroundTextField" >
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="BorderThickness" Value="2" />
     </Style>
     
@@ -420,7 +420,7 @@
     <!-- Invalid state -->
 
     <Style Selector="TextBox.outline:error /template/ Border#PART_BackgroundTextField" >
-        <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
@@ -469,7 +469,7 @@
                               BorderThickness="0"
                               Classes="Icon ImplicitForeground ConstantForeground TransparentBack"
                               
-                              wpf:ToggleButtonAssist.UncheckedForeground="{DynamicResource PrimaryHueMidBrush}"
+                              wpf:ToggleButtonAssist.UncheckedForeground="{DynamicResource MaterialPrimaryMidBrush}"
                               Width="{Binding Path=$self.Height}" Cursor="Arrow" Focusable="True" Padding="4"
                               IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=OneWayToSource}" >
                     <ToggleButton.Styles>
@@ -499,7 +499,7 @@
         <Setter Property="Margin" Value="0, 0, 4, 0" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     </Style>
 
     <Style Selector="TextBox.revealPasswordButton ToggleButton#PART_PasswordRevealToggle" >
@@ -507,7 +507,7 @@
         <Setter Property="Margin" Value="0, 0, 4, 0" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     </Style>
 
     <Style Selector="TextBox.filled.clearButton Button#PART_ClearButton,
@@ -555,7 +555,7 @@
 
     <Style Selector="TextBox.Filled /template/ Border#PART_BackgroundTextField" >
         <Setter Property="CornerRadius" Value="4,4,0,0" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     </Style>
     
     <Style Selector="TextBox.Filled /template/ Panel#PART_TextContainer" >
@@ -582,7 +582,7 @@
     </Style>
 
     <Style Selector="TextBox.Filled:focus-within /template/ Border#PART_BackgroundTextField" >
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxHoverBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
     </Style>
 
     <!-- Default filled text field -->
@@ -612,7 +612,7 @@
     </Style>
     
     <Style Selector="TextBox.Filled:disabled /template/ Border#PART_RootBorder" >
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxDisabledBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxDisabledBackgroundBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->
@@ -624,7 +624,7 @@
     <Style Selector="TextBox.Outline /template/ Border#PART_BackgroundTextField">
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
         <Setter Property="Margin" Value="0,8,0,0" />
     </Style>
     
@@ -644,7 +644,7 @@
     <!-- Feedbacks -->
         
     <Style Selector="TextBox.Outline:focus-within /template/ Border#PART_BackgroundTextField" >
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="BorderThickness" Value="2" />
     </Style>
     
@@ -667,7 +667,7 @@
     <!-- Invalid state -->
 
     <Style Selector="TextBox.Outline:error /template/ Border#PART_BackgroundTextField" >
-        <Setter Property="BorderBrush" Value="{DynamicResource ValidationErrorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
     </Style>
     
     <!-- ***************************************************************************************** -->

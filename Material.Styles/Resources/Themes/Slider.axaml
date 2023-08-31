@@ -25,7 +25,7 @@
   <!-- Slider v2 thumb part -->
   <ControlTheme x:Key="MaterialSliderThumbV2"
                 TargetType="Thumb">
-    <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialBackgroundBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel Name="PART_RootPanel">
@@ -50,7 +50,7 @@
       <Setter Property="HorizontalAlignment" Value="Center" />
       <Setter Property="VerticalAlignment" Value="Center" />
       <Setter Property="Opacity" Value="0" />
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     </Style>
 
     <Style Selector="^ /template/ Border#PART_ThumbGrip">
@@ -60,7 +60,7 @@
       <Setter Property="HorizontalAlignment" Value="Center" />
       <Setter Property="VerticalAlignment" Value="Center" />
       <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     </Style>
 
     <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
@@ -99,7 +99,7 @@
     </Style>
 
     <Style Selector="^:disabled /template/ Border#PART_ThumbGrip">
-      <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
     </Style>
   </ControlTheme>
 
@@ -158,7 +158,7 @@
     </Style>
 
     <Style Selector="^ /template/ Border#PART_ContentContainer">
-      <Setter Property="Background" Value="{DynamicResource MaterialDesignToolTipBackground}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialToolTipBackgroundBrush}" />
       <Setter Property="CornerRadius" Value="2" />
       <Setter Property="Padding" Value="4, 8" />
     </Style>
@@ -214,13 +214,13 @@
     </Setter>
 
     <Style Selector="^ /template/ Border#PART_InactiveState">
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       <Setter Property="CornerRadius" Value="4" />
       <Setter Property="Opacity" Value="0.38" />
     </Style>
 
     <Style Selector="^ /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       <Setter Property="CornerRadius" Value="6" />
     </Style>
 
@@ -260,11 +260,11 @@
 
     <Style Selector="^:disabled">
       <Style Selector="^ /template/ Border#PART_InactiveState">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
       </Style>
 
       <Style Selector="^ /template/ Border#PART_Indicator">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
       </Style>
     </Style>
   </ControlTheme>
@@ -301,7 +301,7 @@
                 TargetType="Slider">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -348,8 +348,8 @@
     </Setter>
 
     <Style Selector="^ /template/ controls|TickBar#PART_SliderTick">
-      <Setter Property="InactiveBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-      <Setter Property="ActiveBrush" Value="{DynamicResource PrimaryHueLightBrush}" />
+      <Setter Property="InactiveBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      <Setter Property="ActiveBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
     </Style>
 
     <Style Selector="^[TickPlacement=None] /template/ controls|TickBar#PART_SliderTick">
@@ -425,8 +425,8 @@
     </Style>
 
     <Style Selector="^:disabled /template/ controls|TickBar#PART_SliderTick">
-      <Setter Property="InactiveBrush" Value="{DynamicResource MaterialDesignBodyLight}" />
-      <Setter Property="ActiveBrush" Value="{DynamicResource MaterialDesignCardBackground}" />
+      <Setter Property="InactiveBrush" Value="{DynamicResource MaterialBodyLightBrush}" />
+      <Setter Property="ActiveBrush" Value="{DynamicResource MaterialCardBackgroundBrush}" />
     </Style>
   </ControlTheme>
 
@@ -487,11 +487,11 @@
 
     <Style Selector="^:disabled">
       <Style Selector="^ /template/ Border#PART_HoverEffect">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
       </Style>
 
       <Style Selector="^ /template/ Border#PART_ThumbGrip">
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialCheckBoxDisabledBrush}" />
       </Style>
     </Style>
   </ControlTheme>

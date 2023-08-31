@@ -4,7 +4,7 @@
     <Styles.Resources>
         <DataTemplate x:Key="DataValidationErrorTemplate">
           <ItemsControl ItemsSource="{Binding }"
-                        TextBlock.Foreground="{DynamicResource ValidationErrorBrush}">
+                        TextBlock.Foreground="{DynamicResource MaterialValidationErrorBrush}">
                 <ItemsControl.DataTemplates>
                     <DataTemplate DataType="system:Exception">
                         <TextBlock Name="PART_ErrorText"
