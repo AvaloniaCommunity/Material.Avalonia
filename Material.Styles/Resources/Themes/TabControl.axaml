@@ -13,7 +13,7 @@
                 TargetType="TabControl">
     <Setter Property="assists:TabControlAssist.TabHeaderHorizontalAlignment" Value="Stretch" />
     <Setter Property="assists:TabControlAssist.TabHeaderHighlightBrush"
-            Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+            Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="assists:TabControlAssist.TabHeaderInactiveBrush"
             Value="{DynamicResource MaterialBodyLightBrush}" />
     <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />

@@ -11,7 +11,7 @@
 
     <Style Selector="ToggleButton" >
         <Setter Property="CornerRadius" Value="4" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialDividerBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -22,7 +22,7 @@
         <Setter Property="assists:ButtonAssist.HoverColor"
                 Value="{Binding Foreground,
                       Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
-        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Template" >
             <ControlTemplate>
                 <Border Name="PART_RootBorder"
@@ -79,7 +79,7 @@
     </Style>
 
     <Style Selector="ToggleButton:checked" >
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     </Style>
 
     <Style Selector="ToggleButton.no-ripple /template/ ripple|RippleEffect#PART_Ripple" >
@@ -104,27 +104,27 @@
     </Style>
     
     <Style Selector="ToggleButton.Light:not(.Outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
     </Style>
     
     <Style Selector="ToggleButton.Dark:not(.Outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
     </Style>
     
     <Style Selector="ToggleButton.Accent:not(.Outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
     </Style>
 
     <Style Selector="ToggleButton.Accent.Flat:not(.Outline)" >
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
     
     <Style Selector="ToggleButton.Outline" >
@@ -132,24 +132,24 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     </Style>
     
     <Style Selector="ToggleButton.Outline.Accent" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
 
     <Style Selector="ToggleButton.Outline.Light" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
     </Style>
     
     <Style Selector="ToggleButton.Outline.Dark" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
     </Style>
 </Styles>

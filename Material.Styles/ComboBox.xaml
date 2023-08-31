@@ -122,8 +122,8 @@
     </Style>
 
     <Style Selector="ToggleButton.ComboBoxToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="assists:ToggleButtonAssist.UncheckedBackground" Value="{DynamicResource MaterialPaperBrush}" />
         <Setter Property="assists:ToggleButtonAssist.UncheckedForeground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -423,7 +423,7 @@
     </Style>
 
     <Style Selector="ComboBox.Outline:focus-within">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="BorderThickness" Value="2" />
     </Style>
 

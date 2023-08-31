@@ -32,14 +32,14 @@
     <Style Selector="^ /template/ Ellipse#PART_PointerCenter">
       <Setter Property="Width" Value="8" />
       <Setter Property="Height" Value="8" />
-      <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+      <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     </Style>
 
     <Style Selector="^ /template/ Rectangle#PART_PointerPin">
       <Setter Property="Width" Value="2" />
       <Setter Property="VerticalAlignment" Value="Top" />
       <Setter Property="UseLayoutRounding" Value="False" />
-      <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+      <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

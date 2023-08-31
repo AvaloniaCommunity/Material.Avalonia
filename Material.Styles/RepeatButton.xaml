@@ -11,7 +11,7 @@
     <!-- Default style -->
     <Style Selector="RepeatButton">
         <Setter Property="BorderThickness" Value="1" /> <!-- FixBorderThickness -->
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="4" />
@@ -41,9 +41,9 @@
     <Style Selector="RepeatButton.Material">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="16 8" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
@@ -117,7 +117,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
         <Setter Property="assists:ButtonAssist.HoverColor" Value="{Binding $self.Foreground}" />
@@ -129,7 +129,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 16 16 16" />
         <Setter Property="Height" Value="48" />
         <Setter Property="Width" Value="48" />
@@ -197,25 +197,25 @@
     </Style>
 
     <Style Selector="RepeatButton.Material.Light:not(.Outline)">
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
     </Style>
     <Style Selector="RepeatButton.Material.Dark:not(.Outline)">
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
     </Style>
     <Style Selector="RepeatButton.Material.Accent:not(.Outline)">
-        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
     </Style>
 
     <Style Selector="RepeatButton.Material.Accent.Flat:not(.Outline)">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
 
     <!-- Outlined buttons -->
@@ -225,24 +225,24 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     </Style>
 
     <Style Selector="RepeatButton.Material.Outline.Accent">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
 
     <Style Selector="RepeatButton.Material.Outline.Light">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
     </Style>
     <Style Selector="RepeatButton.Material.Outline.Dark">
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
     </Style>
 
 </Styles>

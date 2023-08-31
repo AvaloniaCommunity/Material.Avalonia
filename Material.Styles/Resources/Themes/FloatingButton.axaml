@@ -19,9 +19,9 @@
 
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
-    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
@@ -180,34 +180,34 @@
     <!-- Color definitions -->
 
     <Style Selector="^.Light">
-      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
     </Style>
 
     <Style Selector="^.Dark">
-      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
     </Style>
 
     <Style Selector="^.Accent">
-      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
     </Style>
 
     <!-- <Style Selector="^.Light Path"> -->
-    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}"/> -->
+    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}"/> -->
     <!-- </Style> -->
     <!-- <Style Selector="^.Dark Path"> -->
-    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}"/> -->
+    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryForegroundBrush}"/> -->
     <!-- </Style> -->
     <!-- <Style Selector="^.Accent Path"> -->
-    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}"/> -->
+    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}"/> -->
     <!-- </Style>  -->
     <!-- <Style Selector="^ Path"> -->
-    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}"/> -->
+    <!--   <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}"/> -->
     <!-- </Style> -->
 
     <Style Selector="^:disabled:not(.no-material)">

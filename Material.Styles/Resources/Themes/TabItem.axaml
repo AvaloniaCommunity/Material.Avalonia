@@ -43,11 +43,11 @@
         </Style>
         
         <Style Selector="^ /template/ ripple|RippleEffect#PART_Ripple">
-            <Setter Property="RippleFill" Value="{DynamicResource MaterialPrimaryHueMidBrush}"/>
+            <Setter Property="RippleFill" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
         </Style>
         
         <Style Selector="^:selected">
-            <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}"/>
+            <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
             
             <Style Selector="^[TabStripPlacement=Top] /template/ Rectangle#PART_Separator">
                 <Setter Property="Height" Value="2"/>
@@ -70,7 +70,7 @@
             </Style>
             
             <Style Selector="^ /template/ Rectangle#PART_Separator">
-                <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueMidBrush}"/>
+                <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
             </Style>
         </Style>
         

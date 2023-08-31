@@ -76,7 +76,7 @@
     
     <Style Selector="CalendarDayButton /template/ Border#PART_BehaviourEffect">
         <Setter Property="Opacity" Value="0" />
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
     </Style>
     
     <Style Selector="CalendarDayButton:pointerover /template/ Border#PART_BehaviourEffect">

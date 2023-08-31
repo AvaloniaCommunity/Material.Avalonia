@@ -13,9 +13,9 @@
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="16 8" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
@@ -70,21 +70,21 @@
     
     
     <Style Selector="Button.light:not(.outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
     </Style>
     
     <Style Selector="Button.dark:not(.outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
     </Style>
     
     <Style Selector="Button.accent:not(.outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
     </Style>
     
     <Style Selector="Button.flat" >
@@ -92,7 +92,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
         <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialBodyBrush}" />
@@ -104,7 +104,7 @@
     <Style Selector="Button.accent.flat:not(.outline)" >
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
     
     <Style Selector="Button.flat:not(.outline):disabled">
@@ -118,7 +118,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="12" />
         <Setter Property="Height" Value="32" />
         <Setter Property="Width" Value="32" />
@@ -133,25 +133,25 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     </Style>
 
     <Style Selector="Button.outline.accent" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
 
     <Style Selector="Button.outline.light" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
     </Style>
     
     <Style Selector="Button.outline.dark" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
     </Style>
     
     <Style Selector="Button.outline:disabled">
@@ -203,21 +203,21 @@
     
     
     <Style Selector="Button.Light:not(.Outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
     </Style>
     
     <Style Selector="Button.Dark:not(.Outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
     </Style>
     
     <Style Selector="Button.Accent:not(.Outline)" >
-        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
     </Style>
 
     
@@ -232,7 +232,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
         <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialBodyBrush}" />
@@ -244,7 +244,7 @@
     <Style Selector="Button.Accent.Flat:not(.Outline)" >
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
     
     <Style Selector="Button.Flat:not(.Outline):disabled">
@@ -258,7 +258,7 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="12" />
         <Setter Property="Height" Value="32" />
         <Setter Property="Width" Value="32" />
@@ -273,25 +273,25 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Padding" Value="16 6" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     </Style>
 
     <Style Selector="Button.Outline.Accent" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
 
     <Style Selector="Button.Outline.Light" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
     </Style>
     
     <Style Selector="Button.Outline.Dark" >
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
     </Style>
     
     <Style Selector="Button.Outline:disabled">

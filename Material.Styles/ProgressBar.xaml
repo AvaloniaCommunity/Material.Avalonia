@@ -7,8 +7,8 @@
         <converters:RangeToSweepConverter x:Key="RangeToSweep" />
     </Styles.Resources>
     <Style Selector="ProgressBar">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
-        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
@@ -252,7 +252,7 @@
     <!-- Circular Progress indicator -->
 
     <Style Selector="ProgressBar.circular">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueDarkBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />

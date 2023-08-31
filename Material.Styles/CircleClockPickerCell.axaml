@@ -29,7 +29,7 @@
     </Style>
     
     <Style Selector="controls|CircleClockPickerCell:selected /template/ Ellipse#PART_HoverEffect">
-        <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryHueMidBrush}"/>
+        <Setter Property="Fill" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
     </Style>
     
     <Style Selector="controls|CircleClockPickerCell:selected /template/ ContentPresenter#PART_ContentPresenter">

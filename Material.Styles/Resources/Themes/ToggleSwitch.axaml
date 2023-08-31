@@ -9,11 +9,11 @@
                   TargetType="ToggleSwitch">
         <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
-                Value="{DynamicResource MaterialPrimaryHueLightBrush}" />
+                Value="{DynamicResource MaterialPrimaryLightBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground"
                 Value="Black" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
-                Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+                Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOffBackground"
                 Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
@@ -154,9 +154,9 @@
 
         <Style Selector="^.accent">
             <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
-                    Value="{DynamicResource MaterialSecondaryHueLightBrush}" />
+                    Value="{DynamicResource MaterialSecondaryLightBrush}" />
             <Setter Property="assists:ToggleSwitchAssist.SwitchThumbOnBackground"
-                    Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+                    Value="{DynamicResource MaterialSecondaryMidBrush}" />
         </Style>
 
         <!-- On disabled state -->

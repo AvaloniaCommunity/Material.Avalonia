@@ -103,26 +103,26 @@ namespace Material.Styles.Controls {
                     break;
 
                 case ColorZoneMode.PrimaryLight: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryHueLightBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryHueLightForegroundBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryLightBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryLightForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.PrimaryMid: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryHueMidBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryHueMidForegroundBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryMidBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryMidForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.PrimaryDark: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryHueDarkBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryHueDarkForegroundBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialPrimaryDarkBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialPrimaryForegroundBrush"));
                 }
                     break;
 
                 case ColorZoneMode.Accent: {
-                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialSecondaryHueMidBrush"));
-                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialSecondaryHueMidForegroundBrush"));
+                    SetValueInternal(BackgroundProperty, GetBrushResource(resources, "MaterialSecondaryMidBrush"));
+                    SetValueInternal(foregroundProperty, GetBrushResource(resources, "MaterialSecondaryMidForegroundBrush"));
                 }
                     break;
 

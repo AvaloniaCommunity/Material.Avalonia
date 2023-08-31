@@ -9,7 +9,7 @@
     <Style Selector="CheckBox">
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                Value="{DynamicResource MaterialPrimaryHueMidBrush}" />
+                Value="{DynamicResource MaterialPrimaryMidBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="assists:SelectionControlAssist.Size" Value="20" />
@@ -104,7 +104,7 @@
     
     <Style Selector="CheckBox.Accent">
         <Setter Property="assists:SelectionControlAssist.InnerForeground"
-                Value="{DynamicResource MaterialSecondaryHueMidBrush}" />
+                Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
     
     <!-- Hover effect -->

@@ -4,7 +4,7 @@
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryHueMidForegroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextAreaBorderBrush}" />
         <Setter Property="Template" />
     </Style>
