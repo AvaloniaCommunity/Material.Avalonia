@@ -26,10 +26,10 @@
         </Grid>
       </ControlTemplate>
     </Setter>
-    <Style Selector="ComboBoxItem:selected /template/ Border#PointerOverBorder">
+    <Style Selector="^:selected /template/ Border#PointerOverBorder">
       <Setter Property="Opacity" Value="0.1" />
     </Style>
-    <Style Selector="ComboBoxItem:pressed /template/ Border#PointerOverBorder">
+    <Style Selector="^:pressed /template/ Border#PointerOverBorder">
       <Setter Property="Opacity" Value="0.15" />
     </Style>
   </ControlTheme>

@@ -34,7 +34,7 @@
   <!-- Default -->
   <ControlTheme x:Key="MaterialComboBox" TargetType="ComboBox">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="PlaceholderForeground" Value="{DynamicResource MaterialDesignBody}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="VerticalAlignment" Value="Center" />
@@ -135,7 +135,7 @@
   <!-- Filled -->
   <ControlTheme x:Key="MaterialFilledComboBox" TargetType="ComboBox"
                 BasedOn="{StaticResource MaterialComboBox}">
-    <Setter Property="Background" Value="{DynamicResource MaterialDesignTextFieldBoxBackground}" />
+    <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
     <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
     <Setter Property="Padding" Value="16,8" />
@@ -202,7 +202,7 @@
                           HorizontalAlignment="Right"
                           VerticalAlignment="Center"
                           Data="M7,10L12,15L17,10H7Z"
-                          Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                          Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                   </Border>
                 </Grid>
                 <controls:MaterialUnderline Classes="MirrorY"
@@ -258,7 +258,7 @@
   <!-- Outline -->
   <ControlTheme x:Key="MaterialOutlineComboBox" TargetType="ComboBox"
                 BasedOn="{StaticResource MaterialComboBox}">
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignBody }" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
     <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
@@ -314,7 +314,7 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Data="M7,10L12,15L17,10H7Z"
-                        Fill="{DynamicResource MaterialDesignTextBoxBorder}" />
+                        Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                 </Border>
               </Grid>
             </Grid>
@@ -377,7 +377,7 @@
     </Style>
 
     <Style Selector="^:focus-within">
-      <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       <Setter Property="BorderThickness" Value="2" />
     </Style>
   </ControlTheme>
