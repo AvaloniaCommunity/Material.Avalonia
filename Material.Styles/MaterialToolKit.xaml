@@ -27,6 +27,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ColorZone.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBoxItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContextMenu.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FloatingButton.axaml" />
@@ -130,7 +131,7 @@
   <!-- <StyleInclude Source="avares://Material.Styles/CalendarItem.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/Carousel.xaml" /> -->
   <!--<StyleInclude Source="avares://Material.Styles/CheckBox.xaml" />-->
-  <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" />
+  <!-- <StyleInclude Source="avares://Material.Styles/ComboBox.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/ComboBoxItem.xaml" /> -->
   <!-- <StyleInclude Source="avares://Material.Styles/ContentControl.xaml" /> -->
 
