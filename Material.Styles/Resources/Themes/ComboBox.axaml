@@ -301,7 +301,7 @@
                   <MultiBinding Converter="{StaticResource RectangleHollowGeometry}">
                     <Binding ElementName="PART_Border" Path="Bounds" />
                     <Binding ElementName="watermarkRoot" Path="Bounds" />
-                    <Binding ElementName="watermarkRoot" Path="TransformedBounds" />
+                    <Binding ElementName="watermarkRoot" Path="RenderTransform" />
                   </MultiBinding>
                 </Border.Clip>
               </Border>
