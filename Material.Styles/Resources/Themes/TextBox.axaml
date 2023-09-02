@@ -13,7 +13,7 @@
     <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
     <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
     <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Controls/MaterialUnderline.axaml" />
   </ResourceDictionary.MergedDictionaries>
 
   <converters:GetPlatformHotkeyConfigServiceConverter x:Key="GetPlatformHotkeyConfig" />

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists">
   <ResourceDictionary.MergedDictionaries>
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Scroller.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Controls/Scroller.axaml" />
     <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
   </ResourceDictionary.MergedDictionaries>
 

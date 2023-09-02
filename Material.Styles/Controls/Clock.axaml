@@ -24,8 +24,8 @@
   </Design.PreviewWith>
   <ResourceDictionary.MergedDictionaries>
     <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CircleClockPicker.axaml" />
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CircleClockPickerCell.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Controls/CircleClockPicker.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Controls/CircleClockPickerCell.axaml" />
   </ResourceDictionary.MergedDictionaries>
 
   <ControlTheme x:Key="MaterialCircleClockTimeFormatRadioButton" TargetType="RadioButton"
