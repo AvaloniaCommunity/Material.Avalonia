@@ -93,4 +93,6 @@
       <SolidColorBrush x:Key="MaterialLightSeparatorBackgroundBrush" Color="#1FFFFFFF" />
     </ResourceDictionary>
   </Styles.Resources>
+
+  <StyleInclude Source="avares://Material.Styles/UserControl.xaml" />
 </Styles>
