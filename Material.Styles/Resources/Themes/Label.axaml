@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="{x:Type Label}" TargetType="Label">
+  <ControlTheme x:Key="MaterialLabel" TargetType="Label">
     <Setter Property="Padding" Value="3" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -22,4 +22,7 @@
       <Setter Property="Opacity" Value="0.56" />
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type Label}" TargetType="Label"
+                BasedOn="{StaticResource MaterialLabel}" />
 </ResourceDictionary>

@@ -2,158 +2,158 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=netstandard"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple" >
-    <system:Double x:Key="ButtonHoveredOpacity" >0.12</system:Double>
-    <system:Double x:Key="ButtonDisabledOpacity" >0.38</system:Double>
-    <system:Double x:Key="ButtonPressedOpacity" >0.26</system:Double>
-    
-    <ControlTheme x:Key="{x:Type ToggleButton}"
-                  TargetType="ToggleButton">
-        <Setter Property="CornerRadius" Value="4" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDividerBrush}" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="16 4 16 4" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="assists:ButtonAssist.HoverColor"
-                Value="{Binding Foreground,
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+  <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
+  <system:Double x:Key="ButtonDisabledOpacity">0.38</system:Double>
+  <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
+
+  <ControlTheme x:Key="MaterialToggleButton" TargetType="ToggleButton">
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDividerBrush}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="16 4 16 4" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="assists:ButtonAssist.HoverColor"
+            Value="{Binding Foreground,
                       Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
-        <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-        <Setter Property="Template" >
-            <ControlTemplate>
-                <Border Name="PART_RootBorder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}" >
-                    <Panel Name="PART_RootPanel">
-                        <Border Name="PART_HoverEffect"
-                                Background="{TemplateBinding assists:ButtonAssist.HoverColor}"
-                                CornerRadius="{TemplateBinding CornerRadius}" />
-                        <Border CornerRadius="{TemplateBinding CornerRadius}"
-                                ClipToBounds="True" >
-                            <ripple:RippleEffect Name="PART_Ripple"
-                                                 RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
-                                                 RippleOpacity="{StaticResource ButtonPressedOpacity}" >
-                                <ContentPresenter Name="PART_ContentPresenter"
-                                                  Content="{TemplateBinding Content}"
-                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                  Padding="{TemplateBinding Padding}"
-                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                            </ripple:RippleEffect>
-                        </Border>
-                    </Panel>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-        
-        <Style Selector="^:not(.no-transitions) /template/ Border#PART_HoverEffect" >
-            <Setter Property="Transitions" >
-                <Transitions>
-                    <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
-                </Transitions>
-            </Setter>
-        </Style>
-        
-        <Style Selector="^ /template/ Border#PART_HoverEffect" >
-            <Setter Property="Opacity" Value="0" />
-        </Style>
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+          <Panel Name="PART_RootPanel">
+            <Border Name="PART_HoverEffect"
+                    Background="{TemplateBinding assists:ButtonAssist.HoverColor}"
+                    CornerRadius="{TemplateBinding CornerRadius}" />
+            <Border CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True">
+              <ripple:RippleEffect Name="PART_Ripple"
+                                   RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
+                                   RippleOpacity="{StaticResource ButtonPressedOpacity}">
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+              </ripple:RippleEffect>
+            </Border>
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
 
-        <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverEffect" >
-            <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
-        </Style>
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_HoverEffect">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+        </Transitions>
+      </Setter>
+    </Style>
 
-        <Style Selector="^.no-ripple /template/ ripple|RippleEffect#PART_Ripple" >
-            <Setter Property="IsAllowedRaiseRipple" Value="False"/>
-        </Style>
-        
-        <Style Selector="^:disabled /template/ Border#PART_RootBorder" >
-            <Setter Property="Opacity" Value="{StaticResource ButtonDisabledOpacity}" />
-        </Style>
-        
-        <Style Selector="^.accent" >
-            <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
-        </Style>
+    <Style Selector="^ /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
 
-        <Style Selector="^.light" >
-            <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
-        </Style>
-    
-        <Style Selector="^.dark" >
-            <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
-        </Style>
-    </ControlTheme>
-    
-    <ControlTheme x:Key="FlatToggleButton"
-                  BasedOn="{StaticResource {x:Type ToggleButton}}"
-                  TargetType="ToggleButton">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-        
-        <Style Selector="^.accent" >
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
-        </Style>
+    <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
 
-        <Style Selector="^.light" >
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
-        </Style>
-    
-        <Style Selector="^.dark" >
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
-        </Style>
-    </ControlTheme>
-    
-    <ControlTheme x:Key="OutlineToggleButton"
-                  BasedOn="{StaticResource {x:Type ToggleButton}}"
-                  TargetType="ToggleButton">
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-        <Setter Property="Padding" Value="16 6" />
-        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
-    
-        <Style Selector="^.accent" >
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
-        </Style>
+    <Style Selector="^.no-ripple /template/ ripple|RippleEffect#PART_Ripple">
+      <Setter Property="IsAllowedRaiseRipple" Value="False" />
+    </Style>
 
-        <Style Selector="^.light" >
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
-        </Style>
-    
-        <Style Selector="^.dark" >
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
-            <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
-        </Style>
-    </ControlTheme>
-    
-    <ControlTheme x:Key="IconToggleButton"
-                  BasedOn="{StaticResource {x:Type ToggleButton}}"
-                  TargetType="ToggleButton">
-        <Setter Property="Padding" Value="12" />
-        <Setter Property="CornerRadius" Value="24"/>
-        <Setter Property="Height" Value="48" />
-        <Setter Property="Width" Value="48" />
-    </ControlTheme>
+    <Style Selector="^:disabled /template/ Border#PART_RootBorder">
+      <Setter Property="Opacity" Value="{StaticResource ButtonDisabledOpacity}" />
+    </Style>
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton"
+                BasedOn="{StaticResource MaterialToggleButton}" />
+
+  <ControlTheme x:Key="FlatToggleButton" TargetType="ToggleButton"
+                BasedOn="{StaticResource MaterialToggleButton}">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+    </Style>
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="OutlineToggleButton"
+                BasedOn="{StaticResource MaterialToggleButton}"
+                TargetType="ToggleButton">
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Padding" Value="16 6" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
+
+    <Style Selector="^.accent">
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+    </Style>
+
+    <Style Selector="^.light">
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="IconToggleButton" TargetType="ToggleButton"
+                BasedOn="{StaticResource MaterialToggleButton}">
+    <Setter Property="Padding" Value="12" />
+    <Setter Property="CornerRadius" Value="24" />
+    <Setter Property="Height" Value="48" />
+    <Setter Property="Width" Value="48" />
+  </ControlTheme>
 </ResourceDictionary>

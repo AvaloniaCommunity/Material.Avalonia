@@ -5,8 +5,7 @@
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
                     xmlns:system="clr-namespace:System;assembly=netstandard">
-  <ControlTheme x:Key="{x:Type controls:FloatingButton}"
-                TargetType="controls:FloatingButton">
+  <ControlTheme x:Key="MaterialFloatingButton" TargetType="controls:FloatingButton">
     <ControlTheme.Resources>
       <ResourceDictionary>
         <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
@@ -220,4 +219,7 @@
       </Border>
     </Design.PreviewWith>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type controls:FloatingButton}" TargetType="controls:FloatingButton"
+                BasedOn="{StaticResource MaterialFloatingButton}" />
 </ResourceDictionary>

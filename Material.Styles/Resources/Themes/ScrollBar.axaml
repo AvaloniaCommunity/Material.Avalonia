@@ -103,7 +103,7 @@
     </Setter>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
+  <ControlTheme x:Key="MaterialScrollBar" TargetType="ScrollBar">
     <Setter Property="CornerRadius" Value="0" />
     <Setter Property="Background" Value="{x:Null}" />
     <Setter Property="Template">
@@ -287,4 +287,7 @@
       </Style>
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar"
+                BasedOn="{StaticResource MaterialScrollBar}" />
 </ResourceDictionary>

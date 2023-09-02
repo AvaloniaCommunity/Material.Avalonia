@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists">
-  <ControlTheme x:Key="{x:Type ButtonSpinner}" TargetType="ButtonSpinner">
+  <ControlTheme x:Key="MaterialButtonSpinner" TargetType="ButtonSpinner">
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -100,4 +100,7 @@
       </Setter>
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ButtonSpinner}" TargetType="ButtonSpinner"
+                BasedOn="{StaticResource MaterialButtonSpinner}" />
 </ResourceDictionary>

@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="{x:Type Carousel}"
-                TargetType="Carousel">
+  <ControlTheme x:Key="MaterialCarousel" TargetType="Carousel">
     <Setter Property="Template">
       <ControlTemplate>
         <ScrollViewer Name="PART_ScrollViewer"
@@ -17,4 +16,7 @@
       </ControlTemplate>
     </Setter>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel"
+                BasedOn="{StaticResource MaterialCarousel}" />
 </ResourceDictionary>

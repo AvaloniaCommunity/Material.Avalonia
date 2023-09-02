@@ -35,7 +35,7 @@
   </Design.PreviewWith>
 
   <ControlTheme x:Key="MaterialOnlyPresenterTextBox" TargetType="TextBox"
-                BasedOn="{StaticResource {x:Type TextBox}}">
+                BasedOn="{StaticResource MaterialTextBox}">
     <Setter Property="Template">
       <ControlTemplate>
         <Panel Name="PART_TextFieldPanel">
@@ -74,8 +74,7 @@
     </Setter>
   </ControlTheme>
 
-  <ControlTheme x:Key="FilledNumericUpDown"
-                TargetType="NumericUpDown">
+  <ControlTheme x:Key="FilledNumericUpDown" TargetType="NumericUpDown">
     <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />

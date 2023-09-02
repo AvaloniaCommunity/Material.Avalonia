@@ -5,7 +5,7 @@
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:system="clr-namespace:System;assembly=netstandard">
   <ControlTheme x:Key="MaterialSnackbarHostSupportingTextBlock" TargetType="TextBlock"
-                BasedOn="{StaticResource {x:Type TextBlock}}">
+                BasedOn="{StaticResource MaterialTextBlock}">
     <Setter Property="TextAlignment" Value="Left" />
     <Setter Property="TextTrimming" Value="CharacterEllipsis" />
     <Setter Property="TextWrapping" Value="Wrap" />

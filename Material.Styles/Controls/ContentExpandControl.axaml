@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <ControlTheme x:Key="{x:Type controls:ContentExpandControl}" TargetType="controls:ContentExpandControl">
+  <ControlTheme x:Key="MaterialContentExpandControl" TargetType="controls:ContentExpandControl">
     <Setter Property="Template">
       <ControlTemplate>
         <ContentPresenter Name="PART_ContentPresenter"
@@ -16,4 +16,7 @@
       </ControlTemplate>
     </Setter>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type controls:ContentExpandControl}" TargetType="controls:ContentExpandControl"
+                BasedOn="{StaticResource MaterialContentExpandControl}" />
 </ResourceDictionary>

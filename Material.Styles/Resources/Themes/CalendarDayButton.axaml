@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="{x:Type CalendarDayButton}"
-                TargetType="CalendarDayButton">
+  <ControlTheme x:Key="MaterialCalendarDayButton" TargetType="CalendarDayButton">
     <Setter Property="ClickMode" Value="Release" />
     <Setter Property="MinWidth" Value="32" />
     <Setter Property="MinHeight" Value="32" />
@@ -111,4 +110,7 @@
       <Setter Property="MinHeight" Value="48" />
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type CalendarDayButton}" TargetType="CalendarDayButton"
+                BasedOn="{StaticResource MaterialCalendarDayButton}" />
 </ResourceDictionary>

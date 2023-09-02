@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="{x:Type PopupRoot}" TargetType="PopupRoot">
+  <ControlTheme x:Key="MaterialPopupRoot" TargetType="PopupRoot">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="TransparencyLevelHint" Value="Transparent" />
     <Setter Property="Template">
@@ -18,4 +18,7 @@
       </ControlTemplate>
     </Setter>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type PopupRoot}" TargetType="PopupRoot"
+                BasedOn="{StaticResource MaterialPopupRoot}" />
 </ResourceDictionary>
