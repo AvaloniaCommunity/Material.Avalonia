@@ -86,7 +86,7 @@
                       Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
               </Border>
             </Grid>
-            
+
 
             <controls:MaterialUnderline Name="PART_Underline"
                                         Theme="{StaticResource MaterialUnderlineY}" />
@@ -110,7 +110,7 @@
     </Setter>
 
     <Style Selector="^ /template/ Panel#PART_RootPanel">
-      <Setter Property="Height" Value="56" />
+      <Setter Property="Height" Value="48" />
     </Style>
 
     <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
@@ -150,11 +150,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox"
-                BasedOn="{StaticResource MaterialComboBox}" >
-    <Style Selector="^ /template/ Panel#PART_RootPanel">
-      <Setter Property="Height" Value="48" />
-    </Style>
-  </ControlTheme>
+                BasedOn="{StaticResource MaterialComboBox}" />
 
 
   <!-- Filled -->

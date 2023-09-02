@@ -5,283 +5,281 @@
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:extensions="clr-namespace:Material.Styles.Controls.Extensions"
-                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters" >
-    <!-- TODO: complete TextBox theming for Avalonia 11.0 -->
-    
-    <ResourceDictionary.MergedDictionaries>
-        <!-- Used for suppressing warning in IDE -->
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml"/>
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml"/>
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml"/>
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml"/>
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml"/>
-    </ResourceDictionary.MergedDictionaries>
-    
-    <converters:GetPlatformHotkeyConfigServiceConverter x:Key="GetPlatformHotkeyConfig" />
+                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters">
 
-    <StreamGeometry x:Key="TextBoxClearButtonData" >M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>
-    <StreamGeometry x:Key="PasswordBoxRevealButtonData" >M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z</StreamGeometry>
-    <StreamGeometry x:Key="PasswordBoxHideButtonData" >M2,5.27L3.28,4L20,20.72L18.73,22L15.65,18.92C14.5,19.3 13.28,19.5 12,19.5C7,19.5 2.73,16.39 1,12C1.69,10.24 2.79,8.69 4.19,7.46L2,5.27M12,9A3,3 0 0,1 15,12C15,12.35 14.94,12.69 14.83,13L11,9.17C11.31,9.06 11.65,9 12,9M12,4.5C17,4.5 21.27,7.61 23,12C22.18,14.08 20.79,15.88 19,17.19L17.58,15.76C18.94,14.82 20.06,13.54 20.82,12C19.17,8.64 15.76,6.5 12,6.5C10.91,6.5 9.84,6.68 8.84,7L7.3,5.47C8.74,4.85 10.33,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C12.69,17.5 13.37,17.43 14,17.29L11.72,15C10.29,14.85 9.15,13.71 9,12.28L5.6,8.87C4.61,9.72 3.78,10.78 3.18,12Z</StreamGeometry>
+  <ResourceDictionary.MergedDictionaries>
+    <!-- Used for suppressing warning in IDE -->
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MaterialUnderline.axaml" />
+  </ResourceDictionary.MergedDictionaries>
 
-    <ContextMenu x:Key="DefaultTextBoxContextMenu"
-                 Name="TextBoxContextMenu"
-                 WindowManagerAddShadowHint="False" >
+  <converters:GetPlatformHotkeyConfigServiceConverter x:Key="GetPlatformHotkeyConfig" />
 
-      <MenuItem Name="TextBoxContextMenuCutItem"
-                Header="Cut"
-                Command="{Binding $parent[TextBox].Cut}"
-                IsEnabled="{Binding $parent[TextBox].CanCut}"
-                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
-                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut, Size=24}" />
+  <StreamGeometry x:Key="TextBoxClearButtonData">M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>
+  <StreamGeometry x:Key="PasswordBoxRevealButtonData">M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z</StreamGeometry>
+  <StreamGeometry x:Key="PasswordBoxHideButtonData">M2,5.27L3.28,4L20,20.72L18.73,22L15.65,18.92C14.5,19.3 13.28,19.5 12,19.5C7,19.5 2.73,16.39 1,12C1.69,10.24 2.79,8.69 4.19,7.46L2,5.27M12,9A3,3 0 0,1 15,12C15,12.35 14.94,12.69 14.83,13L11,9.17C11.31,9.06 11.65,9 12,9M12,4.5C17,4.5 21.27,7.61 23,12C22.18,14.08 20.79,15.88 19,17.19L17.58,15.76C18.94,14.82 20.06,13.54 20.82,12C19.17,8.64 15.76,6.5 12,6.5C10.91,6.5 9.84,6.68 8.84,7L7.3,5.47C8.74,4.85 10.33,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C12.69,17.5 13.37,17.43 14,17.29L11.72,15C10.29,14.85 9.15,13.71 9,12.28L5.6,8.87C4.61,9.72 3.78,10.78 3.18,12Z</StreamGeometry>
 
-      <MenuItem Name="TextBoxContextMenuCopyItem"
-                Header="Copy"
-                Command="{Binding $parent[TextBox].Copy}"
-                IsEnabled="{Binding $parent[TextBox].CanCopy}"
-                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
-                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy, Size=24}" />
+  <ContextMenu x:Key="DefaultTextBoxContextMenu"
+               Name="TextBoxContextMenu"
+               WindowManagerAddShadowHint="False">
 
-      <MenuItem Name="TextBoxContextMenuPasteItem"
-                Header="Paste"
-                Command="{Binding $parent[TextBox].Paste}"
-                IsEnabled="{Binding $parent[TextBox].CanPaste}"
-                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
-                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste, Size=24}" />
+    <MenuItem Name="TextBoxContextMenuCutItem"
+              Header="Cut"
+              Command="{Binding $parent[TextBox].Cut}"
+              IsEnabled="{Binding $parent[TextBox].CanCut}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
+              Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut, Size=24}" />
 
-      <Separator />
+    <MenuItem Name="TextBoxContextMenuCopyItem"
+              Header="Copy"
+              Command="{Binding $parent[TextBox].Copy}"
+              IsEnabled="{Binding $parent[TextBox].CanCopy}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
+              Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy, Size=24}" />
 
-      <!-- ReSharper disable once MarkupAttributeTypo -->
-      <MenuItem Name="TextBoxContextMenuSelectAllItem"
-                Header="Select All"
-                Command="{Binding $parent[TextBox].SelectAll}"
-                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
-                Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll, Size=24}" />
-    </ContextMenu>
+    <MenuItem Name="TextBoxContextMenuPasteItem"
+              Header="Paste"
+              Command="{Binding $parent[TextBox].Paste}"
+              IsEnabled="{Binding $parent[TextBox].CanPaste}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
+              Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste, Size=24}" />
 
-    <MenuFlyout x:Key="DefaultTextBoxMenuFlyout"
-                Placement="Bottom">
-      <MenuItem Name="TextBoxMenuFlyoutCutItem"
-                Header="Cut"
-                Command="{Binding $parent[TextBox].Cut}"
-                IsEnabled="{Binding $parent[TextBox].CanCut}"
-                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
-                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut, Size=24}" />
+    <Separator />
 
-      <MenuItem Name="TextBoxMenuFlyoutCopyItem"
-                Header="Copy"
-                Command="{Binding $parent[TextBox].Copy}"
-                IsEnabled="{Binding $parent[TextBox].CanCopy}"
-                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
-                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy, Size=24}" />
+    <!-- ReSharper disable once MarkupAttributeTypo -->
+    <MenuItem Name="TextBoxContextMenuSelectAllItem"
+              Header="Select All"
+              Command="{Binding $parent[TextBox].SelectAll}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
+              Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll, Size=24}" />
+  </ContextMenu>
 
-      <MenuItem Name="TextBoxMenuFlyoutPasteItem"
-                Header="Paste"
-                Command="{Binding $parent[TextBox].Paste}"
-                IsEnabled="{Binding $parent[TextBox].CanPaste}"
-                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
-                Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste, Size=24}" />
+  <MenuFlyout x:Key="DefaultTextBoxMenuFlyout"
+              Placement="Bottom">
+    <MenuItem Name="TextBoxMenuFlyoutCutItem"
+              Header="Cut"
+              Command="{Binding $parent[TextBox].Cut}"
+              IsEnabled="{Binding $parent[TextBox].CanCut}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
+              Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut, Size=24}" />
 
-        <Separator />
+    <MenuItem Name="TextBoxMenuFlyoutCopyItem"
+              Header="Copy"
+              Command="{Binding $parent[TextBox].Copy}"
+              IsEnabled="{Binding $parent[TextBox].CanCopy}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
+              Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy, Size=24}" />
 
-        <!-- ReSharper disable once MarkupAttributeTypo -->
-      <MenuItem Name="TextBoxMenuFlyoutSelectAllItem"
-                Header="Select All"
-                Command="{Binding $parent[TextBox].SelectAll}"
-                InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
-                Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll, Size=24}" />
-    </MenuFlyout>
+    <MenuItem Name="TextBoxMenuFlyoutPasteItem"
+              Header="Paste"
+              Command="{Binding $parent[TextBox].Paste}"
+              IsEnabled="{Binding $parent[TextBox].CanPaste}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
+              Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste, Size=24}" />
 
-    <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-    <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="8,0" Offset="4,-8"/>
-    
-    <ControlTheme x:Key="ClearTextBoxButtonTheme"
-                  BasedOn="{StaticResource FlatButton}"
-                  TargetType="Button">
-        <Setter Property="Height" Value="32" />
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Margin" Value="0, 0, 4, 0" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-        <Setter Property="ToolTip.Tip" Value="Click to clear field"/>
-        <Setter Property="Content">
-            <Template>
-                <controls:MaterialInternalIcon Kind="Close" Width="NaN" Height="NaN" />
-            </Template>
-        </Setter>
-    </ControlTheme>
-    
-    <ControlTheme x:Key="RevealTextMaskToggleButtonTheme"
-                  BasedOn="{StaticResource FlatToggleButton}"
-                  TargetType="ToggleButton">
-        <Setter Property="Height" Value="32" />
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Margin" Value="0, 0, 4, 0" />
-        <Setter Property="Padding" Value="4"/>
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-        
-        <Style Selector="^:unchecked">
-            <Setter Property="ToolTip.Tip" Value="Click to reveal content of field"/>
-            <!-- I know this is a bad approach to make it works
+    <Separator />
+
+    <!-- ReSharper disable once MarkupAttributeTypo -->
+    <MenuItem Name="TextBoxMenuFlyoutSelectAllItem"
+              Header="Select All"
+              Command="{Binding $parent[TextBox].SelectAll}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
+              Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll, Size=24}" />
+  </MenuFlyout>
+
+  <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
+  <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="8,0" Offset="4,-8" />
+
+  <ControlTheme x:Key="ClearTextBoxButton"
+                BasedOn="{StaticResource FlatButton}"
+                TargetType="Button">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Width" Value="32" />
+    <Setter Property="Margin" Value="0, 0, 4, 0" />
+    <Setter Property="Padding" Value="4" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="ToolTip.Tip" Value="Click to clear field" />
+    <Setter Property="Content">
+      <Template>
+        <controls:MaterialInternalIcon Kind="Close" Width="NaN" Height="NaN" />
+      </Template>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="RevealTextMaskToggleButtonTheme"
+                BasedOn="{StaticResource FlatToggleButton}"
+                TargetType="ToggleButton">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Width" Value="32" />
+    <Setter Property="Margin" Value="0, 0, 4, 0" />
+    <Setter Property="Padding" Value="4" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+
+    <Style Selector="^:unchecked">
+      <Setter Property="ToolTip.Tip" Value="Click to reveal content of field" />
+      <!-- I know this is a bad approach to make it works
                  Might I should rework it later. For now it just works -->
-            <Setter Property="Content">
-                <Template>
-                    <controls:MaterialInternalIcon Kind="EyeOffOutline" Width="NaN" Height="NaN" />
-                </Template>
-            </Setter>
-        </Style>
-        
-        <Style Selector="^:checked">
-            <Setter Property="ToolTip.Tip" Value="Click to hide content of field"/>
-            <Setter Property="Content">
-                <Template>
-                    <controls:MaterialInternalIcon Kind="EyeOutline" Width="NaN" Height="NaN" />
-                </Template>
-            </Setter>
-        </Style>
-    </ControlTheme>
-    
-    <Template x:Key="ClearTextBoxButtonTemplate">
-        <Button Name="PART_ClearButton"
-                Theme="{StaticResource ClearTextBoxButtonTheme}"
-                Command="{Binding $parent[TextBox].Clear}"/>
-    </Template>
-    
-    <Template x:Key="RevealTextMaskToggleButtonTemplate">
-        <ToggleButton Name="PART_PasswordRevealToggle"
-                      Theme="{StaticResource RevealTextMaskToggleButtonTheme}"
-                      IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}"/>
-    </Template>
-    
-    <!-- Standard text field theme https://material.io/archive/guidelines/components/text-fields.html -->
-    <!-- The template is compatible for filled and outline text field -->
-    <ControlTheme x:Key="{x:Type TextBox}"
-                  TargetType="TextBox">
-        <Setter Property="Cursor" Value="IBeam"/>
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="SelectionBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
-        <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
-        <Setter Property="CaretBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}"/> 
-        <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="Watermark" Value="{x:Static system:String.Empty}"/>
-        <!-- Enable IME system by default -->
-        <Setter Property="InputMethod.IsInputMethodEnabled" Value="True"/>
-        <Setter Property="Template" >
-            <ControlTemplate>
-                <Border Name="PART_RootBorder"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                    <DockPanel Name="PART_RootPanel" >
-                        <TextBlock Name="PART_HintsText"
-                                   DockPanel.Dock="Bottom"
-                                   IsVisible="{TemplateBinding (assists:TextFieldAssist.Hints),
+      <Setter Property="Content">
+        <Template>
+          <controls:MaterialInternalIcon Kind="EyeOffOutline" Width="NaN" Height="NaN" />
+        </Template>
+      </Setter>
+    </Style>
+
+    <Style Selector="^:checked">
+      <Setter Property="ToolTip.Tip" Value="Click to hide content of field" />
+      <Setter Property="Content">
+        <Template>
+          <controls:MaterialInternalIcon Kind="EyeOutline" Width="NaN" Height="NaN" />
+        </Template>
+      </Setter>
+    </Style>
+  </ControlTheme>
+
+  <Template x:Key="ClearTextBoxButtonTemplate">
+    <Button Name="PART_ClearButton"
+            Theme="{StaticResource ClearTextBoxButton}"
+            Command="{Binding $parent[TextBox].Clear}" />
+  </Template>
+
+  <Template x:Key="RevealTextMaskToggleButtonTemplate">
+    <ToggleButton Name="PART_PasswordRevealToggle"
+                  Theme="{StaticResource RevealTextMaskToggleButtonTheme}"
+                  IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}" />
+  </Template>
+
+  <!-- Standard text field theme https://material.io/archive/guidelines/components/text-fields.html -->
+  <!-- The template is compatible for filled and outline text field -->
+  <ControlTheme x:Key="MaterialTextBox" TargetType="TextBox">
+    <Setter Property="Cursor" Value="IBeam" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
+    <Setter Property="CaretBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="Watermark" Value="{x:Static system:String.Empty}" />
+    <!-- Enable IME system by default -->
+    <Setter Property="InputMethod.IsInputMethodEnabled" Value="True" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <DockPanel Name="PART_RootPanel">
+            <TextBlock Name="PART_HintsText"
+                       DockPanel.Dock="Bottom"
+                       IsVisible="{TemplateBinding (assists:TextFieldAssist.Hints),
                                        Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                                   Text="{TemplateBinding (assists:TextFieldAssist.Hints)}"
-                                   TextTrimming="CharacterEllipsis" />
-                        
-                        <DataValidationErrors Name="PART_DataValidation" 
-                                              Errors="{TemplateBinding (DataValidationErrors.Errors)}">
-                            <Panel Name="PART_TextFieldPanel" >
-                                <Border Name="PART_BackgroundTextField">
-                                    <Border.Styles>
-                                        <Style Selector="TextBox.outline[UseFloatingWatermark=True] /template/
+                       Text="{TemplateBinding (assists:TextFieldAssist.Hints)}"
+                       TextTrimming="CharacterEllipsis" />
+
+            <DataValidationErrors Name="PART_DataValidation"
+                                  Errors="{TemplateBinding (DataValidationErrors.Errors)}">
+              <Panel Name="PART_TextFieldPanel">
+                <Border Name="PART_BackgroundTextField">
+                  <Border.Styles>
+                    <Style Selector="TextBox.outline[UseFloatingWatermark=True] /template/
                                                          Border#PART_BackgroundTextField">
-                                            <Setter Property="Clip">
-                                                <MultiBinding Converter="{StaticResource RectangleHollowGeometry}"
-                                                              ConverterParameter="{StaticResource OutlineTextBoxClippingParameter}"
-                                                              RelativeSource="{RelativeSource AncestorType=TextBox}">
-                                                    <Binding ElementName="PART_TextFieldPanel" Path="Bounds"/>
-                                                    <Binding ElementName="PART_LabelRootBorder" Path="Bounds"/>
-                                                    <Binding ElementName="PART_LabelRootBorder" Path="RenderTransform"/>
-                                                </MultiBinding>
-                                            </Setter>
-                                        </Style>
-                                    </Border.Styles>
-                                </Border>
+                      <Setter Property="Clip">
+                        <MultiBinding Converter="{StaticResource RectangleHollowGeometry}"
+                                      ConverterParameter="{StaticResource OutlineTextBoxClippingParameter}"
+                                      RelativeSource="{RelativeSource AncestorType=TextBox}">
+                          <Binding ElementName="PART_TextFieldPanel" Path="Bounds" />
+                          <Binding ElementName="PART_LabelRootBorder" Path="Bounds" />
+                          <Binding ElementName="PART_LabelRootBorder" Path="RenderTransform" />
+                        </MultiBinding>
+                      </Setter>
+                    </Style>
+                  </Border.Styles>
+                </Border>
 
-                                <DockPanel Name="PART_InnerPanel" >
-                                    <ContentControl Name="PART_LeftContentControl"
-                                                    Content="{TemplateBinding InnerLeftContent}" />
-                                    <ContentControl Name="PART_RightContentControl"
-                                                    Content="{TemplateBinding InnerRightContent}" />
-                                    <Panel Name="PART_TextContainer" >
-                                        <TextBlock Name="PART_PlaceholderText"
-                                                   Text="{TemplateBinding Watermark}"
-                                                   FontFamily="{TemplateBinding FontFamily}"
-                                                   FontSize="{TemplateBinding FontSize}"
-                                                   FontStyle="{TemplateBinding FontStyle}"
-                                                   FontWeight="{TemplateBinding FontWeight}"/>
+                <DockPanel Name="PART_InnerPanel">
+                  <ContentControl Name="PART_LeftContentControl"
+                                  Content="{TemplateBinding InnerLeftContent}" />
+                  <ContentControl Name="PART_RightContentControl"
+                                  Content="{TemplateBinding InnerRightContent}" />
+                  <Panel Name="PART_TextContainer">
+                    <TextBlock Name="PART_PlaceholderText"
+                               Text="{TemplateBinding Watermark}"
+                               FontFamily="{TemplateBinding FontFamily}"
+                               FontSize="{TemplateBinding FontSize}"
+                               FontStyle="{TemplateBinding FontStyle}"
+                               FontWeight="{TemplateBinding FontWeight}" />
 
-                                        <ScrollViewer Name="PART_ScrollViewer"
-                                                      HorizontalScrollBarVisibility="{TemplateBinding 
+                    <ScrollViewer Name="PART_ScrollViewer"
+                                  HorizontalScrollBarVisibility="{TemplateBinding 
                                                   (ScrollViewer.HorizontalScrollBarVisibility)}"
 
-                                                      VerticalScrollBarVisibility="{TemplateBinding 
-                                                  (ScrollViewer.VerticalScrollBarVisibility)}" >
-                                            <TextPresenter Name="PART_TextPresenter"
-                                                           CaretBrush="{TemplateBinding CaretBrush}"
-                                                           CaretIndex="{TemplateBinding CaretIndex}"
-                                                           TextBlock.FontFamily="{TemplateBinding FontFamily}"
-                                                           TextBlock.FontSize="{TemplateBinding FontSize}"
-                                                           TextBlock.FontStyle="{TemplateBinding FontStyle}"
-                                                           TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                                                           TextBlock.Foreground="{TemplateBinding Foreground}"
-                                                           InputMethod.IsInputMethodEnabled="{TemplateBinding 
+                                  VerticalScrollBarVisibility="{TemplateBinding 
+                                                  (ScrollViewer.VerticalScrollBarVisibility)}">
+                      <TextPresenter Name="PART_TextPresenter"
+                                     CaretBrush="{TemplateBinding CaretBrush}"
+                                     CaretIndex="{TemplateBinding CaretIndex}"
+                                     TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                                     TextBlock.FontSize="{TemplateBinding FontSize}"
+                                     TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                                     TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                                     TextBlock.Foreground="{TemplateBinding Foreground}"
+                                     InputMethod.IsInputMethodEnabled="{TemplateBinding 
                                                                InputMethod.IsInputMethodEnabled}"
-                                                           PasswordChar="{TemplateBinding PasswordChar}"
-                                                           RevealPassword="{TemplateBinding RevealPassword}"
-                                                           SelectionBrush="{TemplateBinding SelectionBrush}"
-                                                           SelectionStart="{TemplateBinding SelectionStart}"
-                                                           SelectionEnd="{TemplateBinding SelectionEnd}"
-                                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                                           Text="{TemplateBinding Text, Mode=TwoWay}"
-                                                           TextAlignment="{TemplateBinding TextAlignment}"
-                                                           TextWrapping="{TemplateBinding TextWrapping}" />
-                                        </ScrollViewer>
-                                    </Panel>
-                                </DockPanel>
-                                
-                                <controls:MaterialUnderline Name="PART_Underline"/>
+                                     PasswordChar="{TemplateBinding PasswordChar}"
+                                     RevealPassword="{TemplateBinding RevealPassword}"
+                                     SelectionBrush="{TemplateBinding SelectionBrush}"
+                                     SelectionStart="{TemplateBinding SelectionStart}"
+                                     SelectionEnd="{TemplateBinding SelectionEnd}"
+                                     SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                     Text="{TemplateBinding Text, Mode=TwoWay}"
+                                     TextAlignment="{TemplateBinding TextAlignment}"
+                                     TextWrapping="{TemplateBinding TextWrapping}" />
+                    </ScrollViewer>
+                  </Panel>
+                </DockPanel>
 
-                                <Border Name="PART_LabelRootBorder">
-                                    <TextBlock Name="PART_LabelText"
-                                               Text="{TemplateBinding (assists:TextFieldAssist.Label)}" />
-                                </Border>
-                            </Panel>
-                        </DataValidationErrors>
-                    </DockPanel>
+                <controls:MaterialUnderline Name="PART_Underline" />
+
+                <Border Name="PART_LabelRootBorder">
+                  <TextBlock Name="PART_LabelText"
+                             Text="{TemplateBinding (assists:TextFieldAssist.Label)}" />
                 </Border>
-            </ControlTemplate>
-        </Setter>
-        
-        <!-- Default behaviour for TextFields -->
-        <!-- Fix corner radius rendering issue -->
-        <Style Selector="^ /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Margin" Value="-1"/>
-        </Style>
-        
-        <Style Selector="^ /template/ TextBlock#PART_HintsText" >
-            <Setter Property="VerticalAlignment" Value="Bottom"/>
-            <Setter Property="Margin" Value="0,3,0,0"/>
-            <Setter Property="FontSize" Value="12"/>
-        </Style>
-        
-        <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
-            <Setter Property="VerticalAlignment" Value="Bottom"/>
-        </Style>
-        
-        <!-- This style have merged to /Themes/DataValidationErrors.axaml  -->
-        <!--
+              </Panel>
+            </DataValidationErrors>
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Default behaviour for TextFields -->
+    <!-- Fix corner radius rendering issue -->
+    <Style Selector="^ /template/ Border#PART_BackgroundTextField">
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Margin" Value="-1" />
+    </Style>
+
+    <Style Selector="^ /template/ TextBlock#PART_HintsText">
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Margin" Value="0,3,0,0" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+    </Style>
+
+    <!-- This style have merged to /Themes/DataValidationErrors.axaml  -->
+    <!--
         <Style Selector="TextBox /template/ 
                          DataValidationErrors#PART_DataValidation /template/ 
                          ContentControl#PART_ContentControl 
@@ -289,80 +287,80 @@
                          TextBlock#PART_ErrorText">
             <Setter Property="Margin" Value="0,3,0,0"/>
         </Style>-->
-        
-        <Style Selector="^ /template/ Border#PART_RootBorder" >
-            <Setter Property="ClipToBounds" Value="True" />
-        </Style>
-        
-        <Style Selector="^ /template/ DockPanel#PART_InnerPanel" >
-            <Setter Property="LastChildFill" Value="True" />
-        </Style>
-        
-        <Style Selector="^ /template/ DockPanel#PART_InnerPanel > ContentControl#PART_LeftContentControl" >
-            <Setter Property="DockPanel.Dock" Value="Left" />
-        </Style>
 
-        <Style Selector="^ /template/ DockPanel#PART_InnerPanel > ContentControl#PART_RightContentControl" >
-            <Setter Property="DockPanel.Dock" Value="Right" />
-        </Style>
-        
-        <Style Selector="^ /template/ DockPanel#PART_InnerPanel > Panel#PART_TextContainer" >
-            <Setter Property="DockPanel.Dock" Value="Top" />
-        </Style>
-        
-        <Style Selector="^ /template/ TextBlock#PART_PlaceholderText">
-            <Setter Property="IsVisible" Value="False"/>
-            <Setter Property="Opacity" Value="0.5"/>
-        </Style>
-        
-        <!-- TODO: Make placeholder text is visible when is not empty and floating label is enabled -->
-        <Style Selector="^:empty[UseFloatingWatermark=False] /template/ TextBlock#PART_PlaceholderText">
-            <Setter Property="IsVisible" Value="True"/>
-        </Style>
-            
-        <Style Selector="^ /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="RenderTransformOrigin" Value="0,0" />
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-        </Style>
-        
-        <Style Selector="^ /template/ TextBlock#PART_LabelText" >
-            <Setter Property="FontSize" Value="16" />
-        </Style>
-        
-        <Style Selector="^:focus-within">
-            <Style Selector="^:empty[UseFloatingWatermark=True] /template/ TextBlock#PART_PlaceholderText">
-                <Setter Property="IsVisible" Value="True"/>
-            </Style>
-        
-            <Style Selector="^ /template/ TextBlock#PART_LabelText" >
-                <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-            </Style>
-            
-            <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
-                <Setter Property="IsActive" Value="True"/>
-            </Style>
-        </Style>
+    <Style Selector="^ /template/ Border#PART_RootBorder">
+      <Setter Property="ClipToBounds" Value="True" />
+    </Style>
 
-            
-        <Style Selector="^:pointerover /template/ controls|MaterialUnderline#PART_Underline" >
-            <Setter Property="IsHovered" Value="True"/>
-        </Style>
-        
-        <!-- Transitions -->
+    <Style Selector="^ /template/ DockPanel#PART_InnerPanel">
+      <Setter Property="LastChildFill" Value="True" />
+    </Style>
 
-        <Style Selector="^:not(.no-transitions)" >
-            <Style Selector="^ /template/ Border#PART_LabelRootBorder" >
-                <Setter Property="Transitions" >
-                    <Transitions>
-                        <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CircularEaseOut" />
-                        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CircularEaseOut" />
-                    </Transitions>
-                </Setter>
-            </Style>
-            
-            <!-- this transition might flash if you react too fast -->
-            <!--
+    <Style Selector="^ /template/ DockPanel#PART_InnerPanel > ContentControl#PART_LeftContentControl">
+      <Setter Property="DockPanel.Dock" Value="Left" />
+    </Style>
+
+    <Style Selector="^ /template/ DockPanel#PART_InnerPanel > ContentControl#PART_RightContentControl">
+      <Setter Property="DockPanel.Dock" Value="Right" />
+    </Style>
+
+    <Style Selector="^ /template/ DockPanel#PART_InnerPanel > Panel#PART_TextContainer">
+      <Setter Property="DockPanel.Dock" Value="Top" />
+    </Style>
+
+    <Style Selector="^ /template/ TextBlock#PART_PlaceholderText">
+      <Setter Property="IsVisible" Value="False" />
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+
+    <!-- TODO: Make placeholder text is visible when is not empty and floating label is enabled -->
+    <Style Selector="^:empty[UseFloatingWatermark=False] /template/ TextBlock#PART_PlaceholderText">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector="^ /template/ Border#PART_LabelRootBorder">
+      <Setter Property="RenderTransformOrigin" Value="0,0" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+
+    <Style Selector="^ /template/ TextBlock#PART_LabelText">
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style Selector="^:focus-within">
+      <Style Selector="^:empty[UseFloatingWatermark=True] /template/ TextBlock#PART_PlaceholderText">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+
+      <Style Selector="^ /template/ TextBlock#PART_LabelText">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      </Style>
+
+      <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
+        <Setter Property="IsActive" Value="True" />
+      </Style>
+    </Style>
+
+
+    <Style Selector="^:pointerover /template/ controls|MaterialUnderline#PART_Underline">
+      <Setter Property="IsHovered" Value="True" />
+    </Style>
+
+    <!-- Transitions -->
+
+    <Style Selector="^:not(.no-transitions)">
+      <Style Selector="^ /template/ Border#PART_LabelRootBorder">
+        <Setter Property="Transitions">
+          <Transitions>
+            <ThicknessTransition Duration="0:0:0.25" Property="Margin" Easing="CircularEaseOut" />
+            <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.25" Easing="CircularEaseOut" />
+          </Transitions>
+        </Setter>
+      </Style>
+
+      <!-- this transition might flash if you react too fast -->
+      <!--
             <Style Selector="^ /template/ TextBlock#PART_LabelText" >
                 <Setter Property="Transitions" >
                     <Transitions>
@@ -371,242 +369,246 @@
                 </Setter>
             </Style>
             -->
-            
-            <Style Selector="^ /template/ Border#PART_BackgroundTextField" >
-                <Setter Property="Transitions" >
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.25" Property="BorderBrush" Easing="LinearEasing" />
-                        <ThicknessTransition Duration="0:0:0.25" Property="BorderThickness" Easing="CircularEaseOut" />
-                    </Transitions>
-                </Setter>
-            </Style>
-            
-            <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
-                <Setter Property="Transitions" >
-                    <Transitions>
-                        <BrushTransition Duration="0:0:0.25" Property="ActiveBrush" Easing="LinearEasing" />
-                    </Transitions>
-                </Setter>
-            </Style>
-        </Style>
-        
-        <!-- Invalid state (on validation fail) -->
-        
-        <Style Selector="^:error" >
-            <Style Selector="^ /template/ TextBlock#PART_LabelText" >
-                <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorBrush}" />
-            </Style>
-            
-            <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
-                <Setter Property="IdleBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
-                <Setter Property="ActiveBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
-            </Style>
 
-            <!-- TODO: Animate fading effect between hints text and validation error text -->
-            <Style Selector="^ /template/ TextBlock#PART_HintsText" >
-                <Setter Property="Opacity" Value="0" />
-                <Setter Property="IsVisible" Value="False"/>
-            </Style>
-        </Style>
+      <Style Selector="^ /template/ Border#PART_BackgroundTextField">
+        <Setter Property="Transitions">
+          <Transitions>
+            <BrushTransition Duration="0:0:0.25" Property="BorderBrush" Easing="LinearEasing" />
+            <ThicknessTransition Duration="0:0:0.25" Property="BorderThickness" Easing="CircularEaseOut" />
+          </Transitions>
+        </Setter>
+      </Style>
 
-        <!-- Standard text field -->
-    
-        <Style Selector="^ /template/ Panel#PART_TextFieldPanel" >
-            <Setter Property="MinHeight" Value="56" />
-        </Style>
-    
-        <Style Selector="^ /template/ Panel#PART_TextContainer" >
-            <Setter Property="Margin" Value="0,20,4,1"/>
-        </Style>
-    
-        <Style Selector="^[UseFloatingWatermark=True] /template/ Panel#PART_TextContainer" >
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-        
-        <!-- Feedbacks -->
-    
-        <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="0,24,1,1" />
-            <Setter Property="RenderTransform" Value="scale(1)" />
-        </Style>
-    
-        <Style
-            Selector="^:focus-within:not(:empty) /template/ Border#PART_LabelRootBorder,
+      <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
+        <Setter Property="Transitions">
+          <Transitions>
+            <BrushTransition Duration="0:0:0.25" Property="ActiveBrush" Easing="LinearEasing" />
+          </Transitions>
+        </Setter>
+      </Style>
+    </Style>
+
+    <!-- Invalid state (on validation fail) -->
+
+    <Style Selector="^:error">
+      <Style Selector="^ /template/ TextBlock#PART_LabelText">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorBrush}" />
+      </Style>
+
+      <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
+        <Setter Property="IdleBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
+        <Setter Property="ActiveBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
+      </Style>
+
+      <!-- TODO: Animate fading effect between hints text and validation error text -->
+      <Style Selector="^ /template/ TextBlock#PART_HintsText">
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </Style>
+
+    <!-- Standard text field -->
+
+    <Style Selector="^ /template/ Panel#PART_TextFieldPanel">
+      <Setter Property="MinHeight" Value="56" />
+    </Style>
+
+    <Style Selector="^ /template/ Panel#PART_TextContainer">
+      <Setter Property="Margin" Value="0,20,4,1" />
+    </Style>
+
+    <Style Selector="^[UseFloatingWatermark=True] /template/ Panel#PART_TextContainer">
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- Feedbacks -->
+
+    <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="0,24,1,1" />
+      <Setter Property="RenderTransform" Value="scale(1)" />
+    </Style>
+
+    <Style
+      Selector="^:focus-within:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
-                     ^:not(:empty) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="0,8,1,1" />
-            <Setter Property="RenderTransform" Value="scale(0.75)" />
-        </Style>
-        
-        <!-- standard dense text field -->
-    
-        <Style Selector="^.dense /template/ Panel#PART_TextFieldPanel" >
-            <Setter Property="MinHeight" Value="48" />
-        </Style>
-    
-        <!-- Disabled state -->
-    
-        <Style Selector="^:disabled /template/ DockPanel#PART_RootPanel">
-            <Setter Property="Opacity" Value="0.5"/>
-        </Style>
-        
-        <!-- Additional decorations for TextFields -->
-        <!-- ReSharper disable InconsistentNaming -->
+                     ^:not(:empty) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="0,8,1,1" />
+      <Setter Property="RenderTransform" Value="scale(0.75)" />
+    </Style>
 
-        <Style Selector="^.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)" >
-            <Setter Property="InnerRightContent" Value="{StaticResource ClearTextBoxButtonTemplate}"/>
-        </Style>
+    <!-- standard dense text field -->
 
-        <Style Selector="^.revealPasswordButton" >
-            <Setter Property="InnerRightContent" Value="{StaticResource RevealTextMaskToggleButtonTemplate}"/>
-        </Style>
-    </ControlTheme>
-    
-    <!-- Filled text field https://material.io/components/text-fields#filled-text-field -->
-    
-    <ControlTheme x:Key="FilledTextBox"
-                  BasedOn="{StaticResource {x:Type TextBox}}"
-                  TargetType="TextBox">
-        <Style Selector="^ /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="CornerRadius" Value="4,4,0,0" />
-            <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
-        </Style>
-        
-        <Style Selector="^ /template/ Panel#PART_TextContainer" >
-            <Setter Property="Margin" Value="12,20,4,1"/>
-        </Style>
-        
-        <Style Selector="^[UseFloatingWatermark=True] /template/ Panel#PART_TextContainer" >
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
+    <Style Selector="^.dense /template/ Panel#PART_TextFieldPanel">
+      <Setter Property="MinHeight" Value="48" />
+    </Style>
 
-        <!-- Feedbacks -->
-        
-        <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="12,18,1,1" />
-            <Setter Property="RenderTransform" Value="scale(1)" />
-        </Style>
-        
-        <Style
-            Selector="^:focus-within:not(:empty) /template/ Border#PART_LabelRootBorder,
+    <!-- Disabled state -->
+
+    <Style Selector="^:disabled /template/ DockPanel#PART_RootPanel">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+
+    <!-- Additional decorations for TextFields -->
+    <!-- ReSharper disable InconsistentNaming -->
+
+    <Style Selector="^.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(TextBox:empty)">
+      <Setter Property="InnerRightContent" Value="{StaticResource ClearTextBoxButtonTemplate}" />
+    </Style>
+
+    <Style Selector="^.revealPasswordButton">
+      <Setter Property="InnerRightContent" Value="{StaticResource RevealTextMaskToggleButtonTemplate}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox"
+                BasedOn="{StaticResource MaterialTextBox}">
+  </ControlTheme>
+
+  <!-- Filled text field https://material.io/components/text-fields#filled-text-field -->
+
+  <ControlTheme x:Key="FilledTextBox"
+                BasedOn="{StaticResource MaterialTextBox}"
+                TargetType="TextBox">
+    <Style Selector="^ /template/ Border#PART_BackgroundTextField">
+      <Setter Property="CornerRadius" Value="4,4,0,0" />
+      <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
+    </Style>
+
+    <Style Selector="^ /template/ Panel#PART_TextContainer">
+      <Setter Property="Margin" Value="12,20,4,1" />
+    </Style>
+
+    <Style Selector="^[UseFloatingWatermark=True] /template/ Panel#PART_TextContainer">
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- Feedbacks -->
+
+    <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="12,18,1,1" />
+      <Setter Property="RenderTransform" Value="scale(1)" />
+    </Style>
+
+    <Style
+      Selector="^:focus-within:not(:empty) /template/ Border#PART_LabelRootBorder,
                          ^:focus-within /template/ Border#PART_LabelRootBorder,
-                         ^:not(:empty) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="12,8,1,1" />
-            <Setter Property="RenderTransform" Value="scale(0.75)" />
-        </Style>
+                         ^:not(:empty) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="12,8,1,1" />
+      <Setter Property="RenderTransform" Value="scale(0.75)" />
+    </Style>
 
-        <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
-        </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField">
+      <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
+    </Style>
 
-        <!-- Default filled text field -->
-        
-        <Style Selector="^ /template/ Panel#PART_TextFieldPanel" >
-            <Setter Property="MinHeight" Value="56" />
-        </Style>
+    <!-- Default filled text field -->
 
-        <!-- Filled dense text field -->
-        
-        <Style Selector="^.dense /template/ Panel#PART_TextFieldPanel" >
-            <Setter Property="MinHeight" Value="48" />
-        </Style>
+    <Style Selector="^ /template/ Panel#PART_TextFieldPanel">
+      <Setter Property="MinHeight" Value="56" />
+    </Style>
 
-        <Style Selector="^.dense:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="12,14,1,1" />
-        </Style>
-        
-        <Style Selector="^.dense[UseFloatingWatermark=False] /template/ Panel#PART_TextContainer" >
-            <Setter Property="Margin" Value="12,14,4,1"/>
-        </Style>
-        
-        <!-- Disabled state -->
-        
-        <Style Selector="^:disabled /template/ DockPanel#PART_RootPanel">
-            <Setter Property="Opacity" Value="0.5"/>
-        </Style>
-        
-        <Style Selector="^:disabled /template/ Border#PART_RootBorder" >
-            <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxDisabledBackgroundBrush}" />
-        </Style>
-    </ControlTheme>
-    
-    <!-- Outlined text field https://material.io/components/text-fields#outlined-text-field -->
-    
-    <ControlTheme x:Key="OutlineTextBox"
-                  BasedOn="{StaticResource {x:Type TextBox}}"
-                  TargetType="TextBox">
-        <!-- Default behaviour -->
-        
-        <Style Selector="^ /template/ Border#PART_BackgroundTextField">
-            <Setter Property="CornerRadius" Value="4" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
-            <Setter Property="Margin" Value="0,8,0,0" />
-        </Style>
-        
-        <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        
-        <Style Selector="^ /template/ Panel#PART_TextContainer" >
-            <Setter Property="Margin" Value="12,12,8,2"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-        
-        <Style Selector="^ /template/ DockPanel#PART_InnerPanel > ContentControl#PART_RightContentControl" >
-            <Setter Property="Margin" Value="0,8,0,0" />
-        </Style>
-        
-        <!-- Feedbacks -->
-            
-        <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-            <Setter Property="BorderThickness" Value="2" />
-        </Style>
-        
-        <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="10,22,1,1" />
-            <Setter Property="RenderTransform" Value="scale(1)" />
-        </Style>
-        
-        <Style Selector="^:focus-within:not(:empty) /template/ Border#PART_LabelRootBorder,
+    <!-- Filled dense text field -->
+
+    <Style Selector="^.dense /template/ Panel#PART_TextFieldPanel">
+      <Setter Property="MinHeight" Value="48" />
+    </Style>
+
+    <Style Selector="^.dense:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="12,14,1,1" />
+    </Style>
+
+    <Style Selector="^.dense[UseFloatingWatermark=False] /template/ Panel#PART_TextContainer">
+      <Setter Property="Margin" Value="12,14,4,1" />
+    </Style>
+
+    <!-- Disabled state -->
+
+    <Style Selector="^:disabled /template/ DockPanel#PART_RootPanel">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+
+    <Style Selector="^:disabled /template/ Border#PART_RootBorder">
+      <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxDisabledBackgroundBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <!-- Outlined text field https://material.io/components/text-fields#outlined-text-field -->
+
+  <ControlTheme x:Key="OutlineTextBox"
+                BasedOn="{StaticResource MaterialTextBox}"
+                TargetType="TextBox">
+    <!-- Default behaviour -->
+
+    <Style Selector="^ /template/ Border#PART_BackgroundTextField">
+      <Setter Property="CornerRadius" Value="4" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
+      <Setter Property="Margin" Value="0,8,0,0" />
+    </Style>
+
+    <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^ /template/ Panel#PART_TextContainer">
+      <Setter Property="Margin" Value="12,12,8,2" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="^ /template/ DockPanel#PART_InnerPanel > ContentControl#PART_RightContentControl">
+      <Setter Property="Margin" Value="0,8,0,0" />
+    </Style>
+
+    <!-- Feedbacks -->
+
+    <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField">
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      <Setter Property="BorderThickness" Value="2" />
+    </Style>
+
+    <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="10,22,1,1" />
+      <Setter Property="RenderTransform" Value="scale(1)" />
+    </Style>
+
+    <Style Selector="^:focus-within:not(:empty) /template/ Border#PART_LabelRootBorder,
                          ^:focus-within /template/ Border#PART_LabelRootBorder,
-                         ^:not(:empty) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="14,2,1,1" />
-            <Setter Property="RenderTransform" Value="scale(0.75)" />
-        </Style>
-        
-        <Style Selector="^.dense:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="10,18,1,1" />
-        </Style>
-        
-        <!-- Invalid state -->
+                         ^:not(:empty) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="14,2,1,1" />
+      <Setter Property="RenderTransform" Value="scale(0.75)" />
+    </Style>
 
-        <Style Selector="^:error /template/ Border#PART_BackgroundTextField" >
-            <Setter Property="BorderBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
-        </Style>
-    </ControlTheme>
-    
-    <ControlTheme x:Key="SoloTextBox"
-                  BasedOn="{StaticResource {x:Type TextBox}}"
-                  TargetType="TextBox">
-        <Style Selector="^ /template/ Panel#PART_TextFieldPanel" >
-            <Setter Property="MinHeight" Value="36" />
-        </Style>
-    
-        <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline" >
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-    
-        <Style Selector="^ /template/ Panel#PART_TextContainer" >
-            <Setter Property="Margin" Value="4,0" />
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-        
-        <!-- Fix Strange transitions source -->
-        <Style Selector="^ /template/ Border#PART_LabelRootBorder" >
-            <Setter Property="Margin" Value="0"/>
-            <Setter Property="IsVisible" Value="False"/>
-        </Style>
-    </ControlTheme>
+    <Style Selector="^.dense:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="10,18,1,1" />
+    </Style>
+
+    <!-- Invalid state -->
+
+    <Style Selector="^:error /template/ Border#PART_BackgroundTextField">
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="SoloTextBox"
+                BasedOn="{StaticResource MaterialTextBox}"
+                TargetType="TextBox">
+    <Style Selector="^ /template/ Panel#PART_TextFieldPanel">
+      <Setter Property="MinHeight" Value="36" />
+    </Style>
+
+    <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^ /template/ Panel#PART_TextContainer">
+      <Setter Property="Margin" Value="4,0" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- Fix Strange transitions source -->
+    <Style Selector="^ /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Margin" Value="0" />
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
 </ResourceDictionary>

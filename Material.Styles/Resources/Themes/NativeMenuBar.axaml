@@ -3,7 +3,8 @@
                     xmlns:converters="clr-namespace:Material.Styles.Converters">
   <converters:InverseBooleanValueConverter x:Key="AvaloniaThemesDefaultNativeMenuBarInverseBooleanValueConverter"
                                            Default="True" />
-  <ControlTheme x:Key="{x:Type NativeMenuBar}" TargetType="NativeMenuBar">
+
+  <ControlTheme x:Key="MaterialNativeMenuBar" TargetType="NativeMenuBar">
     <Setter Property="Template">
       <ControlTemplate>
         <Menu
@@ -24,4 +25,6 @@
     </Setter>
   </ControlTheme>
 
+  <ControlTheme x:Key="{x:Type NativeMenuBar}" TargetType="NativeMenuBar"
+                BasedOn="{StaticResource MaterialNativeMenuBar}" />
 </ResourceDictionary>

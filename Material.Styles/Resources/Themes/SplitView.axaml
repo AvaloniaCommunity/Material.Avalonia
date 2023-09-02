@@ -5,7 +5,7 @@
   <SolidColorBrush x:Key="SplitViewLightDismissOverlayBackground" Color="{DynamicResource MaterialBodyColor}"
                    Opacity="0.6" />
 
-  <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
+  <ControlTheme x:Key="MaterialSplitView" TargetType="SplitView">
     <Setter Property="OpenPaneLength" Value="{DynamicResource SplitViewOpenPaneThemeLength}" />
     <Setter Property="CompactPaneLength" Value="{DynamicResource SplitViewCompactPaneThemeLength}" />
     <Setter Property="PaneBackground" Value="{DynamicResource ThemeControlHighlightLowBrush}" />
@@ -225,4 +225,7 @@
       <Setter Property="IsVisible" Value="True" />
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView"
+                BasedOn="{StaticResource MaterialSplitView}" />
 </ResourceDictionary>

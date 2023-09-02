@@ -72,8 +72,7 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type TreeViewItem}"
-                TargetType="TreeViewItem">
+  <ControlTheme x:Key="MaterialTreeViewItem" TargetType="TreeViewItem">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Margin" Value="0" />
@@ -177,4 +176,7 @@
       <Setter Property="IsEnabled" Value="False" />
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem"
+                BasedOn="{StaticResource MaterialTreeViewItem}" />
 </ResourceDictionary>

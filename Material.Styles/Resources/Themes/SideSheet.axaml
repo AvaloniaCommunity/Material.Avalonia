@@ -54,7 +54,7 @@
   <converters:MarginMultiplyConverter x:Key="MarginCreator" />
 
   <!-- SideSheet (desktop variant) -->
-  <ControlTheme x:Key="{x:Type controls:SideSheet}" TargetType="controls:SideSheet">
+  <ControlTheme x:Key="MaterialSideSheet" TargetType="controls:SideSheet">
     <Setter Property="SideSheetWidth" Value="320" />
     <Setter Property="SideSheetPadding" Value="16" />
     <Setter Property="Padding" Value="0" />
@@ -192,4 +192,7 @@
       <Setter Property="Margin" Value="0,5,0,0" />
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type controls:SideSheet}" TargetType="controls:SideSheet"
+                BasedOn="{StaticResource MaterialSideSheet}" />
 </ResourceDictionary>

@@ -1,8 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <ControlTheme x:Key="{x:Type controls:CircleClockPicker}"
-                TargetType="controls:CircleClockPicker">
+  <ControlTheme x:Key="{x:Type controls:CircleClockPicker}" TargetType="controls:CircleClockPicker">
     <Setter Property="Minimum" Value="0" />
     <Setter Property="Maximum" Value="59" />
     <Setter Property="RadiusMultiplier" Value="0.8" />

@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
+  <ControlTheme x:Key="MaterialSeparator" TargetType="Separator">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
@@ -32,13 +32,16 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="MiddleSeparator" BasedOn="{StaticResource {x:Type Separator}}" TargetType="Separator">
+  <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator"
+                BasedOn="{StaticResource MaterialSeparator}" />
+
+  <ControlTheme x:Key="MiddleSeparator" BasedOn="{StaticResource MaterialSeparator}" TargetType="Separator">
     <Setter Property="Margin" Value="16,8" />
   </ControlTheme>
 
   <!-- Origin contribution by kirichenec
          https://github.com/AvaloniaCommunity/Material.Avalonia/pull/141 -->
-  <ControlTheme x:Key="VerticalSeparator" BasedOn="{StaticResource {x:Type Separator}}" TargetType="Separator">
+  <ControlTheme x:Key="VerticalSeparator" BasedOn="{StaticResource MaterialSeparator}" TargetType="Separator">
     <Setter Property="Height" Value="NaN" />
     <Setter Property="Margin" Value="8,0" />
     <Setter Property="MinHeight" Value="0" />

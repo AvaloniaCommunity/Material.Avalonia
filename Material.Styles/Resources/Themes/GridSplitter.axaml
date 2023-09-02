@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
+  <ControlTheme x:Key="MaterialGridSplitter" TargetType="GridSplitter">
     <Setter Property="Focusable" Value="True" />
     <Setter Property="MinWidth" Value="1" />
     <Setter Property="MinHeight" Value="1" />
@@ -19,4 +19,7 @@
       </ControlTemplate>
     </Setter>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter"
+                BasedOn="{StaticResource MaterialGridSplitter}" />
 </ResourceDictionary>

@@ -10,8 +10,7 @@
   <converters:AutoCorrectPositionConverter x:Key="AutoCorrectPositionConverter" />
 
   <!-- Slider v2 track bar pointer click zone -->
-  <ControlTheme x:Key="MaterialSliderTrackBarRepeatButtonV2"
-                TargetType="RepeatButton">
+  <ControlTheme x:Key="MaterialSliderTrackBarRepeatButtonV2" TargetType="RepeatButton">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Focusable" Value="false" />
     <Setter Property="Template">
@@ -23,8 +22,7 @@
   </ControlTheme>
 
   <!-- Slider v2 thumb part -->
-  <ControlTheme x:Key="MaterialSliderThumbV2"
-                TargetType="Thumb">
+  <ControlTheme x:Key="MaterialSliderThumbV2" TargetType="Thumb">
     <Setter Property="Foreground" Value="{DynamicResource MaterialBackgroundBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -103,9 +101,8 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="MaterialDiscreteSliderThumbV2"
-                BasedOn="{StaticResource MaterialSliderThumbV2}"
-                TargetType="Thumb">
+  <ControlTheme x:Key="MaterialDiscreteSliderThumbV2" TargetType="Thumb"
+                BasedOn="{StaticResource MaterialSliderThumbV2}">
     <Setter Property="Template">
       <ControlTemplate>
         <Panel Name="PART_RootPanel">
@@ -181,10 +178,9 @@
       <Setter Property="RenderTransform" Value="scale(1)" />
     </Style>
   </ControlTheme>
-  
-    <ControlTheme x:Key="MaterialDiscreteSliderThumbVerticalV2"
-                BasedOn="{StaticResource MaterialDiscreteSliderThumbV2}"
-                TargetType="Thumb">
+
+  <ControlTheme x:Key="MaterialDiscreteSliderThumbVerticalV2" TargetType="Thumb"
+                BasedOn="{StaticResource MaterialDiscreteSliderThumbV2}">
     <Style Selector="^ /template/ Grid#InnerBubble">
       <Setter Property="HorizontalAlignment" Value="Left" />
       <Setter Property="VerticalAlignment" Value="Center" />
@@ -234,7 +230,7 @@
         <Setter Property="Margin" Value="-4,0,0,0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
       </Style>
-      
+
       <!-- IDK why indicator component size cant be edited but panel does wtf -->
       <Style Selector="^ /template/ Panel#PART_InnerPanel">
         <Setter Property="Height" Value="6" />
@@ -251,7 +247,7 @@
         <Setter Property="Margin" Value="0,0,0,-4" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
       </Style>
-      
+
       <!-- IDK why indicator component size cant be edited but panel does wtf -->
       <Style Selector="^ /template/ Panel#PART_InnerPanel">
         <Setter Property="Width" Value="6" />
@@ -270,9 +266,8 @@
   </ControlTheme>
 
   <!-- Slider v2 track bar part, but reversed -->
-  <ControlTheme x:Key="MaterialSliderTrackBarReversedV2"
-                BasedOn="{StaticResource MaterialSliderTrackBarV2}"
-                TargetType="ProgressBar">
+  <ControlTheme x:Key="MaterialSliderTrackBarReversedV2" TargetType="ProgressBar"
+                BasedOn="{StaticResource MaterialSliderTrackBarV2}">
     <Style Selector="^:horizontal">
       <Style Selector="^ /template/ Border#PART_InactiveState">
         <Setter Property="Margin" Value="-2,0,0,0" />
@@ -297,8 +292,7 @@
   </ControlTheme>
 
   <!-- Default slider theme (v2, continuous) -->
-  <ControlTheme x:Key="{x:Type Slider}"
-                TargetType="Slider">
+  <ControlTheme x:Key="MaterialSlider" TargetType="Slider">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
@@ -429,15 +423,18 @@
       <Setter Property="ActiveBrush" Value="{DynamicResource MaterialCardBackgroundBrush}" />
     </Style>
   </ControlTheme>
+  
+  <ControlTheme x:Key="{x:Type Slider}" TargetType="Slider"
+                BasedOn="{StaticResource MaterialSlider}" />
 
   <!-- Discrete slider theme (v2) -->
   <ControlTheme x:Key="MaterialDiscreteSliderV2"
-                BasedOn="{StaticResource {x:Type Slider}}"
+                BasedOn="{StaticResource MaterialSlider}"
                 TargetType="Slider">
     <Style Selector="^ /template/ Thumb#PART_SliderThumb">
       <Setter Property="Theme" Value="{StaticResource MaterialDiscreteSliderThumbV2}" />
     </Style>
-    
+
     <Style Selector="^:vertical /template/ Thumb#PART_SliderThumb">
       <Setter Property="Theme" Value="{StaticResource MaterialDiscreteSliderThumbVerticalV2}" />
     </Style>
@@ -553,6 +550,4 @@
       <Setter Property="Theme" Value="{StaticResource MaterialSliderLegacyThumb}" />
     </Style>
   </ControlTheme>
-  
-  
 </ResourceDictionary>

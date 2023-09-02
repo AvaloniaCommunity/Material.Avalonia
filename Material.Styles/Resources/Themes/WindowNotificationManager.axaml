@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="{x:Type WindowNotificationManager}"
-                TargetType="WindowNotificationManager">
+  <ControlTheme x:Key="MaterialWindowNotificationManager" TargetType="WindowNotificationManager">
     <Setter Property="Margin" Value="0 0 8 8" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -44,4 +43,7 @@
       <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type WindowNotificationManager}" TargetType="WindowNotificationManager"
+                BasedOn="{StaticResource MaterialWindowNotificationManager}" />
 </ResourceDictionary>

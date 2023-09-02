@@ -6,7 +6,7 @@
       <NotificationCard Content="Testing" />
     </Border>
   </Design.PreviewWith>
-  <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
+  <ControlTheme x:Key="MaterialNotificationCard" TargetType="NotificationCard">
     <Setter Property="UseLayoutRounding" Value="True" />
     <Setter Property="Width" Value="350" />
     <Setter Property="FontSize" Value="14" />
@@ -74,4 +74,7 @@
       </Animation>
     </ControlTheme.Animations>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard"
+                BasedOn="{StaticResource MaterialNotificationCard}" />
 </ResourceDictionary>

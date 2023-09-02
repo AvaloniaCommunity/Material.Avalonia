@@ -1,8 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <ControlTheme x:Key="{x:Type controls:CircleClockPickerCell}"
-                TargetType="controls:CircleClockPickerCell">
+  <ControlTheme x:Key="MaterialCircleClockPickerCell" TargetType="controls:CircleClockPickerCell">
     <Setter Property="Margin" Value="-16" />
     <Setter Property="HorizontalAlignment" Value="Center" />
     <Setter Property="VerticalAlignment" Value="Center" />
@@ -44,4 +43,7 @@
       <Setter Property="Margin" Value="-4" />
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type controls:CircleClockPickerCell}" TargetType="controls:CircleClockPickerCell"
+                BasedOn="{StaticResource MaterialCircleClockPickerCell}" />
 </ResourceDictionary>

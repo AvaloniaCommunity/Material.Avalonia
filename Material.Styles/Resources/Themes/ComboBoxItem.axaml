@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
-  <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+  <ControlTheme x:Key="MaterialComboBoxItem" TargetType="ComboBoxItem">
     <Setter Property="Padding" Value="16, 8" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -33,4 +33,7 @@
       <Setter Property="Opacity" Value="0.15" />
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem"
+                BasedOn="{StaticResource MaterialComboBoxItem}" />
 </ResourceDictionary>
