@@ -72,7 +72,7 @@
 
               <Border Name="splitBorder"
                       Grid.Column="1"
-                      Margin="16"
+                      Margin="16 8"
                       HorizontalAlignment="Right"
                       VerticalAlignment="Center"
                       BorderBrush="Transparent"
@@ -150,7 +150,11 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox"
-                BasedOn="{StaticResource MaterialComboBox}" />
+                BasedOn="{StaticResource MaterialComboBox}" >
+    <Style Selector="^ /template/ Panel#PART_RootPanel">
+      <Setter Property="Height" Value="48" />
+    </Style>
+  </ControlTheme>
 
 
   <!-- Filled -->
