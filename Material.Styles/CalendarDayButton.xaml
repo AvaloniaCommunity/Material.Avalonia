@@ -1,0 +1,120 @@
+<!--
+// (c) Copyright Microsoft Corporation.
+// This source is subject to the Microsoft Public License (Ms-PL).
+// Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
+// All other rights reserved.
+-->
+
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="CalendarDayButton">
+        <Setter Property="ClickMode" Value="Release" />
+        <Setter Property="MinWidth" Value="32" />
+        <Setter Property="MinHeight" Value="32" />
+        <!--These are actually set on the CalendarView in WinUI-->
+        <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="IsVisible" Value="True" />
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="CornerRadius" Value="18"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_RootBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                    <Panel Name="PART_RootPanel">
+                        <Border Name="PART_InnerBorder"
+                                CornerRadius="{TemplateBinding CornerRadius}"/>
+                        
+                        <Border Name="PART_BehaviourEffect"
+                                CornerRadius="{TemplateBinding CornerRadius}"/>
+                        
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Panel>
+                </Border>
+                
+                <!--Panel>
+                    <Border Name="PART_InnerBorder" CornerRadius="64" 
+                            Background="{TemplateBinding BorderBrush}"/>
+                    
+                    <Border Name="Root" Background="{TemplateBinding Background}"
+                            BorderThickness="0" ClipToBounds="True">
+                        <ContentControl Name="Content"
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+
+                    <Border Name="PART_Border" CornerRadius="64" 
+                            BorderBrush="{TemplateBinding BorderBrush}" />
+                    
+                </Panel-->
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="CalendarDayButton TextBlock">
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+    
+    <Style Selector="CalendarDayButton /template/ Border#PART_BehaviourEffect">
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
+    </Style>
+    
+    <Style Selector="CalendarDayButton:pointerover /template/ Border#PART_BehaviourEffect">
+        <Setter Property="Opacity" Value="0.32" />
+    </Style>
+    
+    <Style Selector="CalendarDayButton:pressed /template/ Border#PART_BehaviourEffect">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+        
+    <Style Selector="CalendarDayButton:selected">
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialPaperBrush}"/>
+    </Style>
+    
+    <Style Selector="CalendarDayButton:selected /template/ Border#PART_BehaviourEffect">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style Selector="CalendarDayButton:today /template/ Border#PART_InnerBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+
+    <Style Selector="CalendarDayButton:inactive /template/ Border#PART_RootBorder">
+        <Setter Property="Opacity" Value="0.24" />
+    </Style>
+    
+    <Style Selector="CalendarDayButton:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Opacity" Value="0.32" />
+    </Style>
+    
+    <Style Selector="CalendarDayButton:blackout">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+    
+    <Style Selector="CalendarDayButton.mobile">
+        <Setter Property="MinWidth" Value="48" />
+        <Setter Property="MinHeight" Value="48" />
+    </Style>
+</Styles>

@@ -1,0 +1,50 @@
+<!--
+// (c) Copyright Microsoft Corporation.
+// This source is subject to the Microsoft Public License (Ms-PL).
+// Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
+// All other rights reserved.
+-->
+
+<!-- TODO Full calendar redesign -->
+<Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="Calendar">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="HeaderBackground" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Name="PART_Root" ClipToBounds="True">
+                    <CalendarItem Name="PART_CalendarItem"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  HeaderBackground="{TemplateBinding HeaderBackground}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <!-- TODO: multiselect variant -->
+    <!--
+    <Style Selector="Calendar[SelectionMode=MultipleRange] /template/
+                     CalendarItem /template/
+                     Grid#MonthView > CalendarDayButton:selected:nth-child(n+2):not(:nth-last-child(1))">
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Padding" Value="0,2,0,2"/>
+    </Style>
+    
+    <Style Selector="Calendar[SelectionMode=MultipleRange] /template/
+                     CalendarItem /template/
+                     Grid#MonthView > CalendarDayButton:selected:nth-last-child(n+1):not(:nth-last-child(n+2))">
+        <Setter Property="CornerRadius" Value="0,18,18,0"/>
+        <Setter Property="Padding" Value="0,2,2,2"/>
+    </Style>-->
+    
+    <Style Selector="Calendar[SelectionMode=MultipleRange] /template/
+                     CalendarItem /template/
+                     Grid#MonthView > CalendarDayButton:selected:nth-child(n+2)">
+        <Setter Property="CornerRadius" Value="18,0,0,18"/>
+        <Setter Property="Padding" Value="2,2,0,2"/>
+    </Style>
+
+</Styles>

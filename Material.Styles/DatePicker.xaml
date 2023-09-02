@@ -1,0 +1,92 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:assists="clr-namespace:Material.Styles.Assists"
+        xmlns:converters="clr-namespace:Material.Styles.Converters"
+        xmlns:controls="clr-namespace:Material.Styles.Controls">
+    <Design.PreviewWith>
+        <StackPanel Margin="20 20 200 1000">
+            <DatePicker />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <Style Selector="DatePicker">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="assists:TextFieldAssist.Label" Value="Date" />
+
+        <Setter Property="MonthFormat" Value="MMMM" />
+        <Setter Property="DayFormat" Value=" dd" />
+        <Setter Property="YearFormat" Value=", yyyy" />
+        <Setter Property="assists:DatePickerAssist.DateTimeFormat" Value="dd MMMM yyyy" />
+
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <!-- This controls required by avalonia code behind -->
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="PART_DayTextBlock" />
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="PART_MonthTextBlock" />
+                    <TextBlock IsVisible="False" IsTabStop="False" Height="0" Width="0" Name="PART_YearTextBlock" />
+
+                    <!-- TODO: Make TextBox writeable -->
+                    <!-- TODO: allow use different text boxes style-->
+                    <TextBox Name="DisplayTextBox"
+                             assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}">
+                        <TextBox.Text>
+                            <MultiBinding Converter="{x:Static converters:DatePickerTextConverter.Instance}">
+                                <TemplateBinding Property="SelectedDate" />
+                                <TemplateBinding Property="assists:DatePickerAssist.DateTimeFormat" />
+                            </MultiBinding>
+                        </TextBox.Text>
+                        <TextBox.InnerRightContent>
+                            <ToggleButton Name="CalendarButton"
+                                          Classes="Icon"
+                                          Width="36"
+                                          Height="36"
+                                          Margin="8 8 8 6">
+                                <controls:MaterialInternalIcon Kind="Calendar"
+                                                               Width="20"
+                                                               Height="20" />
+                            </ToggleButton>
+                        </TextBox.InnerRightContent>
+                    </TextBox>
+                    <Panel Name="PART_PopupContainer">
+                        <Popup Name="PART_CalendarPopup"
+                               IsOpen="{Binding #CalendarButton.IsChecked, Mode=TwoWay}">
+                            <controls:Card Name="PART_Card">
+                                <Calendar 
+                                    SelectedDate="{TemplateBinding SelectedDate, 
+                                    Mode=TwoWay, Converter={x:Static converters:DateTimeOffsetConverter.Instance}}"/>
+                            </controls:Card>
+                        </Popup>
+                    </Panel>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="DatePicker /template/ Panel#PART_PopupContainer">
+        <Setter Property="Margin" Value="-8"/>
+    </Style>
+    
+    <Style Selector="DatePicker /template/ Popup#PART_CalendarPopup">
+        <Setter Property="VerticalOffset" Value="-16"/>
+        <Setter Property="IsLightDismissEnabled" Value="True"/>
+    </Style>
+    
+    <Style Selector="DatePicker /template/ Popup#PART_CalendarPopup > controls|Card#PART_Card">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="8"/>
+    </Style>
+    
+    <Style Selector="DatePicker /template/ TextBox#DisplayTextBox">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="UseFloatingWatermark" Value="True"/>
+    </Style>
+    
+    <Style Selector="DatePicker.multiselect /template/ Popup#PART_CalendarPopup Calendar">
+        <Setter Property="SelectionMode" Value="MultipleRange"/>
+    </Style>
+</Styles>

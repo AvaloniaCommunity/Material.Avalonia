@@ -1,0 +1,80 @@
+<!--
+// (c) Copyright Microsoft Corporation.
+// This source is subject to the Microsoft Public License (Ms-PL).
+// Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
+// All other rights reserved.
+-->
+
+<Styles xmlns="https://github.com/avaloniaui">
+    <Style Selector="CalendarButton">
+        <Setter Property="ClickMode" Value="Release" />
+        <Setter Property="MinWidth" Value="40" />
+        <Setter Property="MinHeight" Value="40" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="PART_InnerBorder" CornerRadius="2" 
+                            Background="{TemplateBinding BorderBrush}"/>
+                    
+                    <Border Name="Root" Background="{TemplateBinding Background}"
+                            BorderThickness="0" ClipToBounds="True">
+                        <ContentControl Name="Content"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Content="{TemplateBinding Content}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        FontSize="{TemplateBinding FontSize}"
+                                        Margin="{TemplateBinding Padding}" />
+                    </Border>
+
+                    <Border Name="PART_Border" CornerRadius="2" 
+                            BorderBrush="{TemplateBinding BorderBrush}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    
+    <Style Selector="CalendarButton TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="CalendarButton /template/ Border#PART_Border">
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    
+    <Style Selector="CalendarButton /template/ Border#PART_InnerBorder">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+    
+    <Style Selector="CalendarButton:pointerover /template/ Border#PART_InnerBorder">
+        <Setter Property="Opacity" Value="0.32" />
+    </Style>
+    <Style Selector="CalendarButton:pressed /template/ Border#PART_InnerBorder">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="CalendarButton:selected /template/ Border#PART_InnerBorder">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style Selector="CalendarButton:inactive /template/ Border#Root">
+        <Setter Property="Opacity" Value="0.32" />
+    </Style>
+    
+    <Style Selector="CalendarButton:disabled /template/ ContentControl#Content">
+        <Setter Property="Opacity" Value="0.32" />
+    </Style>
+</Styles>
