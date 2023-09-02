@@ -36,7 +36,7 @@
                         </ComboBox>
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes2">
-                        <ComboBox Classes="Filled">
+                        <ComboBox Theme="{StaticResource MaterialFilledComboBox}">
                             <TextBlock Text="Item 1" />
                             <TextBlock Text="Item 2" />
                             <TextBlock Text="Item 3" />
@@ -44,7 +44,7 @@
                         </ComboBox>
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes3">
-                        <ComboBox Classes="Outline" assist:ComboBoxAssist.Label="ComboBox">
+                        <ComboBox Theme="{StaticResource MaterialOutlineComboBox}" assist:ComboBoxAssist.Label="ComboBox">
                             <TextBlock Text="Item 1" />
                             <TextBlock Text="Item 2" />
                             <TextBlock Text="Item 3" />

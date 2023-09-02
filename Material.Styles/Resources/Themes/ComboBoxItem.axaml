@@ -1,0 +1,36 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
+  <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+    <Setter Property="Padding" Value="16, 8" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid>
+          <Border Name="PointerOverBorder"
+                  Opacity="0"
+                  Background="{TemplateBinding Foreground}" />
+          <ripple:RippleEffect RippleFill="{DynamicResource MaterialFlatButtonRippleBrush}">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Padding="{TemplateBinding Padding}" />
+          </ripple:RippleEffect>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:selected /template/ Border#PointerOverBorder">
+      <Setter Property="Opacity" Value="0.1" />
+    </Style>
+    <Style Selector="^:pressed /template/ Border#PointerOverBorder">
+      <Setter Property="Opacity" Value="0.15" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
