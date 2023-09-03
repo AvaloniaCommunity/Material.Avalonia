@@ -126,7 +126,7 @@
 
 
   <ControlTheme x:Key="OutlineButton"
-                BasedOn="{StaticResource {x:Type Button}}"
+                BasedOn="{StaticResource MaterialButton}"
                 TargetType="Button">
 
     <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -168,7 +168,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="FlatButton"
-                BasedOn="{StaticResource {x:Type Button}}"
+                BasedOn="{StaticResource MaterialButton}"
                 TargetType="Button">
 
     <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -199,7 +199,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="IconButton"
-                BasedOn="{StaticResource {x:Type Button}}"
+                BasedOn="{StaticResource MaterialButton}"
                 TargetType="Button">
 
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
