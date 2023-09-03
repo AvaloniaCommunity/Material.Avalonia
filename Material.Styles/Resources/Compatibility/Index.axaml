@@ -1,6 +1,6 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
-    <!--
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!--
     
     You want apply all old classes compatibility? no problem! 
     Add above line to your styles of App.axaml
@@ -8,13 +8,21 @@
     <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/Index.axaml"/>
     
     -->
-    
-    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ScrollViewerClasses.axaml"/>
-    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TextBlockClasses.axaml"/>
-    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TextBoxClasses.axaml"/>
-    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ButtonClasses.axaml"/>
-    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/SliderClasses.axaml"/>
-    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TabControlClasses.axaml"/>
-    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ProgressBarClasses.axaml"/>
-    <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/SeparatorClasses.axaml"/>
+
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ScrollViewerClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TextBlockClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TextBoxClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ButtonClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/SliderClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TabControlClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ProgressBarClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/SeparatorClasses.axaml" />
+
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Compatibility/BrushesNames.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
 </Styles>

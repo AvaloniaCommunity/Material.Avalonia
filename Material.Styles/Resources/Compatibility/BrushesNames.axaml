@@ -1,0 +1,42 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <DynamicResource x:Key="PrimaryHueLightBrush" ResourceKey="MaterialPrimaryLightBrush" />
+  <DynamicResource x:Key="PrimaryHueLightForegroundBrush" ResourceKey="MaterialPrimaryLightForegroundBrush" />
+  <DynamicResource x:Key="PrimaryHueMidBrush" ResourceKey="MaterialPrimaryMidBrush" />
+  <DynamicResource x:Key="PrimaryHueMidForegroundBrush" ResourceKey="MaterialPrimaryMidForegroundBrush" />
+  <DynamicResource x:Key="PrimaryHueDarkBrush" ResourceKey="MaterialPrimaryDarkBrush" />
+  <DynamicResource x:Key="PrimaryHueDarkForegroundBrush" ResourceKey="MaterialPrimaryForegroundBrush" />
+  <DynamicResource x:Key="SecondaryHueLightBrush" ResourceKey="MaterialSecondaryLightBrush" />
+  <DynamicResource x:Key="SecondaryHueLightForegroundBrush" ResourceKey="MaterialSecondaryLightForegroundBrush" />
+  <DynamicResource x:Key="SecondaryHueMidBrush" ResourceKey="MaterialSecondaryMidBrush" />
+  <DynamicResource x:Key="SecondaryHueDarkBrush" ResourceKey="MaterialSecondaryDarkBrush" />
+  <DynamicResource x:Key="SecondaryHueDarkForegroundBrush" ResourceKey="MaterialSecondaryDarkForegroundBrush" />
+  <DynamicResource x:Key="ValidationErrorBrush" ResourceKey="MaterialValidationErrorBrush" />
+  <DynamicResource x:Key="MaterialDesignBackground" ResourceKey="MaterialBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignPaper" ResourceKey="MaterialPaperBrush" />
+  <DynamicResource x:Key="MaterialDesignCardBackground" ResourceKey="MaterialCardBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignToolBarBackground" ResourceKey="MaterialToolBarBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignBody" ResourceKey="MaterialBodyBrush" />
+  <DynamicResource x:Key="MaterialDesignBodyLight" ResourceKey="MaterialBodyLightBrush" />
+  <DynamicResource x:Key="MaterialDesignColumnHeader" ResourceKey="MaterialColumnHeaderBrush" />
+  <DynamicResource x:Key="MaterialDesignCheckBoxOff" ResourceKey="MaterialCheckBoxOffBrush" />
+  <DynamicResource x:Key="MaterialDesignCheckBoxDisabled" ResourceKey="MaterialCheckBoxDisabledBrush" />
+  <DynamicResource x:Key="MaterialDesignTextBoxBorder" ResourceKey="MaterialTextBoxBorderBrush" />
+  <DynamicResource x:Key="MaterialDesignDivider" ResourceKey="MaterialDividerBrush" />
+  <DynamicResource x:Key="MaterialDesignSelection" ResourceKey="MaterialSelectionBrush" />
+  <DynamicResource x:Key="MaterialDesignToolForeground" ResourceKey="MaterialToolForegroundBrush" />
+  <DynamicResource x:Key="MaterialDesignToolBackground" ResourceKey="MaterialToolBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignFlatButtonClick" ResourceKey="MaterialFlatButtonClickBrush" />
+  <DynamicResource x:Key="MaterialDesignFlatButtonRipple" ResourceKey="MaterialFlatButtonRippleBrush" />
+  <DynamicResource x:Key="MaterialDesignToolTipBackground" ResourceKey="MaterialToolTipBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignChipBackground" ResourceKey="MaterialChipBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignSnackbarBackground" ResourceKey="MaterialSnackbarBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignSnackbarMouseOver" ResourceKey="MaterialSnackbarMouseOverBrush" />
+  <DynamicResource x:Key="MaterialDesignSnackbarRipple" ResourceKey="MaterialSnackbarRippleBrush" />
+  <DynamicResource x:Key="MaterialDesignTextFieldBoxBackground" ResourceKey="MaterialTextFieldBoxBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignTextFieldBoxHoverBackground" ResourceKey="MaterialTextFieldBoxHoverBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignTextFieldBoxDisabledBackground" ResourceKey="MaterialTextFieldBoxDisabledBackgroundBrush" />
+  <DynamicResource x:Key="MaterialDesignTextAreaBorder" ResourceKey="MaterialTextAreaBorderBrush" />
+  <DynamicResource x:Key="MaterialDesignTextAreaInactiveBorder" ResourceKey="MaterialTextAreaInactiveBorderBrush" />
+  <DynamicResource x:Key="MaterialDesignDataGridRowHoverBackground" ResourceKey="MaterialDataGridRowHoverBackgroundBrush" />
+</ResourceDictionary>
