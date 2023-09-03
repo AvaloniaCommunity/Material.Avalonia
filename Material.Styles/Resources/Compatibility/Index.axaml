@@ -17,12 +17,12 @@
   <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TabControlClasses.axaml" />
   <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ProgressBarClasses.axaml" />
   <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/SeparatorClasses.axaml" />
-  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/RadioButtons.axaml" />
-  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ToggleButtons.axaml" />
 
   <Styles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Styles/Resources/Compatibility/ToggleButtons.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Compatibility/RadioButtons.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Compatibility/BrushesNames.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>

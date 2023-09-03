@@ -29,7 +29,7 @@
   </ResourceDictionary.MergedDictionaries>
 
   <ControlTheme x:Key="MaterialCircleClockTimeFormatRadioButton" TargetType="RadioButton"
-                BasedOn="MaterialButtonlikeRadioButton">
+                BasedOn="{StaticResource MaterialButtonlikeRadioButton}">
     <Setter Property="Padding" Value="8" />
     <Setter Property="TextBlock.FontWeight" Value="Medium" />
 
