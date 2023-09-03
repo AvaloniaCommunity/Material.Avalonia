@@ -18,75 +18,69 @@
         <ResourceInclude Source="avares://Material.Styles/Controls/Scroller.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Controls/SideSheet.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Controls/SnackbarHost.axaml" />
-
-        
-        
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Window.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ThemeVariantScope.axaml" />
-
         <!-- Seems like we cant reference something from other projects... -->
         <!-- I think what we need to move ripple to this project -->
         <ResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
+        
+        <!-- Avalonia controls -->
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AdornerLayer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DatePicker.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Calendar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBox.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBoxItem.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContextMenu.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Carousel.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBoxItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentControl.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContextMenu.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DatePicker.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/EmbeddableControlRoot.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FlyoutPresenter.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/GridSplitter.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RepeatButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ItemsControl.axaml" />
-
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Label.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Menu.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuFlyoutPresenter.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuScrollViewer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NativeMenuBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NumericUpDown.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/OverlayPopupHost.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PopupRoot.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TimePicker.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml" />
-
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuFlyoutPresenter.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuScrollViewer.axaml" />
-
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RepeatButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SelectableTextBlock.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Separator.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SplitView.axaml" />
-
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStrip.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStripItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ThemeVariantScope.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TimePicker.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToolTip.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TransitioningContentControl.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Window.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/WindowNotificationManager.axaml" />
       </ResourceDictionary.MergedDictionaries>
       <SolidColorBrush x:Key="MaterialLightBackgroundBrush" Color="#FFFAFAFA" />
