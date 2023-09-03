@@ -125,7 +125,7 @@
                 BasedOn="{StaticResource MaterialButton}" />
 
 
-  <ControlTheme x:Key="OutlineButton"
+  <ControlTheme x:Key="MaterialOutlineButton"
                 BasedOn="{StaticResource MaterialButton}"
                 TargetType="Button">
 
@@ -167,7 +167,7 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="FlatButton"
+  <ControlTheme x:Key="MaterialFlatButton"
                 BasedOn="{StaticResource MaterialButton}"
                 TargetType="Button">
 
@@ -198,7 +198,7 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="IconButton"
+  <ControlTheme x:Key="MaterialIconButton"
                 BasedOn="{StaticResource MaterialButton}"
                 TargetType="Button">
 

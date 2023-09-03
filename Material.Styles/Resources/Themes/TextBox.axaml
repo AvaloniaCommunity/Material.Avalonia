@@ -94,7 +94,7 @@
   <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="8,0" Offset="4,-8" />
 
   <ControlTheme x:Key="ClearTextBoxButton"
-                BasedOn="{StaticResource FlatButton}"
+                BasedOn="{StaticResource MaterialFlatButton}"
                 TargetType="Button">
     <Setter Property="Height" Value="32" />
     <Setter Property="Width" Value="32" />
@@ -461,8 +461,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox"
-                BasedOn="{StaticResource MaterialTextBox}">
-  </ControlTheme>
+                BasedOn="{StaticResource MaterialTextBox}" />
 
   <!-- Filled text field https://material.io/components/text-fields#filled-text-field -->
 

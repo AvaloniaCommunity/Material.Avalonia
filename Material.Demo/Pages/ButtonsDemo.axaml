@@ -54,23 +54,23 @@
                 </Style>
             </StackPanel.Styles>
             <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons0">
-                <Button Theme="{StaticResource OutlineButton}" Classes="light" Content="Light" ToolTip.Tip='Button with classes "Light" and "Outline"' />
+              <Button Theme="{StaticResource MaterialOutlineButton}" Classes="light" Content="Light" ToolTip.Tip='Button with classes "Light" and "Outline"' />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons1">
-                <Button Theme="{StaticResource OutlineButton}" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"' />
+              <Button Theme="{StaticResource MaterialOutlineButton}" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"' />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons2">
-                <Button Theme="{StaticResource OutlineButton}" Classes="dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"' />
+              <Button Theme="{StaticResource MaterialOutlineButton}" Classes="dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"' />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons3">
-                <Button Theme="{StaticResource OutlineButton}" Classes="accent" Content="Accent"
-                        ToolTip.Tip='Button with classes "Accent" and "Outline"' />
+              <Button Theme="{StaticResource MaterialOutlineButton}" Classes="accent" Content="Accent"
+                      ToolTip.Tip='Button with classes "Accent" and "Outline"' />
             </showMeTheXaml:XamlDisplay>
 
             <showMeTheXaml:XamlDisplay UniqueId="OutlineButtons4">
-                <Button Theme="{StaticResource OutlineButton}" Content="Custom corner radius"
-                        ToolTip.Tip='Outline button with customized corner radius (16dp).'
-                        CornerRadius="16" />
+              <Button Theme="{StaticResource MaterialOutlineButton}" Content="Custom corner radius"
+                      ToolTip.Tip='Outline button with customized corner radius (16dp).'
+                      CornerRadius="16" />
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 
@@ -180,10 +180,10 @@
                 </Style>
             </StackPanel.Styles>
             <showMeTheXaml:XamlDisplay UniqueId="FlatButtons0">
-                <Button Theme="{StaticResource FlatButton}" Content="Default" ToolTip.Tip='Regular button with class "Flat"' />
+              <Button Theme="{StaticResource MaterialFlatButton}" Content="Default" ToolTip.Tip='Regular button with class "Flat"' />
             </showMeTheXaml:XamlDisplay>
             <showMeTheXaml:XamlDisplay UniqueId="FlatButtons1">
-                <Button Theme="{StaticResource FlatButton}" Classes="accent" Content="Accent" ToolTip.Tip='Button with classes "Accent" and "Flat"' />
+              <Button Theme="{StaticResource MaterialFlatButton}" Classes="accent" Content="Accent" ToolTip.Tip='Button with classes "Accent" and "Flat"' />
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
 

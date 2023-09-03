@@ -32,12 +32,12 @@
     </Setter>
 
     <Style Selector="^ /template/ Button#PART_PageUpButton">
-      <Setter Property="Theme" Value="{StaticResource FlatButton}" />
+      <Setter Property="Theme" Value="{StaticResource MaterialFlatButton}" />
       <Setter Property="TemplatedControl.CornerRadius" Value="0" />
     </Style>
 
     <Style Selector="^ /template/ Button#PART_PageDownButton">
-      <Setter Property="Theme" Value="{StaticResource FlatButton}" />
+      <Setter Property="Theme" Value="{StaticResource MaterialFlatButton}" />
       <Setter Property="TemplatedControl.CornerRadius" Value="0" />
     </Style>
 

@@ -27,7 +27,7 @@
             <StackPanel.Styles>
                 <Style Selector="Button">
                     <Setter Property="Margin" Value="4" />
-                    <Setter Property="Theme" Value="{StaticResource FlatButton}"/>
+                    <Setter Property="Theme" Value="{StaticResource MaterialFlatButton}" />
                 </Style>
             </StackPanel.Styles>
             <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
