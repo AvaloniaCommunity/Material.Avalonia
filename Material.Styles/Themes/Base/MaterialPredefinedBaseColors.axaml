@@ -146,4 +146,18 @@
                        Color="{StaticResource MaterialDataGridRowHoverBackgroundColor}" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
+
+  <Color x:Key="MaterialLightBackgroundColor">#FFFAFAFA</Color>
+  <Color x:Key="MaterialLightForegroundColor">#DD000000</Color>
+  <Color x:Key="MaterialDarkBackgroundColor">#FF303030</Color>
+  <Color x:Key="MaterialDarkForegroundColor">#FFFAFAFA</Color>
+  <Color x:Key="MaterialDarkSeparatorBackgroundColor">#1F000000</Color>
+  <Color x:Key="MaterialLightSeparatorBackgroundColor">#1FFFFFFF</Color>
+
+  <SolidColorBrush x:Key="MaterialLightBackgroundBrush" Color="{StaticResource MaterialLightBackgroundColor}" />
+  <SolidColorBrush x:Key="MaterialLightForegroundBrush" Color="{StaticResource MaterialLightForegroundColor}" />
+  <SolidColorBrush x:Key="MaterialDarkBackgroundBrush" Color="{StaticResource MaterialDarkBackgroundColor}" />
+  <SolidColorBrush x:Key="MaterialDarkForegroundBrush" Color="{StaticResource MaterialDarkForegroundColor}" />
+  <SolidColorBrush x:Key="MaterialDarkSeparatorBackgroundBrush" Color="{StaticResource MaterialDarkSeparatorBackgroundColor}" />
+  <SolidColorBrush x:Key="MaterialLightSeparatorBackgroundBrush" Color="{StaticResource MaterialLightSeparatorBackgroundColor}" />
 </ResourceDictionary>
