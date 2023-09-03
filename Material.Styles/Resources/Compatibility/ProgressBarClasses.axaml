@@ -5,14 +5,20 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+          <ControlTheme x:Key="LinearProgressBar" TargetType="ProgressBar"
+                        BasedOn="{StaticResource MaterialProgressBar}" />
+
+          <ControlTheme x:Key="CircularProgressBar" TargetType="ProgressBar"
+                        BasedOn="{StaticResource MaterialCircularProgressBar}" />
         </ResourceDictionary>
     </Styles.Resources>
     
     <Style Selector="ProgressBar.circular">
-        <Setter Property="Theme" Value="{StaticResource CircularProgressBar}" />
+      <Setter Property="Theme" Value="{StaticResource MaterialCircularProgressBar}" />
     </Style>
     
     <Style Selector="ProgressBar.Circular">
-        <Setter Property="Theme" Value="{StaticResource CircularProgressBar}" />
+      <Setter Property="Theme" Value="{StaticResource MaterialCircularProgressBar}" />
     </Style>
 </Styles>

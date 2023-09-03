@@ -51,34 +51,34 @@
 
           <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="Circular" HorizontalAlignment="Center" />
-                <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar0">
+            <showMeTheXaml:XamlDisplay UniqueId="MaterialCircularProgressBar0">
                     <ProgressBar Classes="circular" Value="30" Margin="4" />
                 </showMeTheXaml:XamlDisplay>
-                <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar1">
+            <showMeTheXaml:XamlDisplay UniqueId="MaterialCircularProgressBar1">
                     <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center">
                         <ProgressBar Classes="circular" Value="60" />
                     </controls:Card>
                 </showMeTheXaml:XamlDisplay>
-                <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar2">
+            <showMeTheXaml:XamlDisplay UniqueId="MaterialCircularProgressBar2">
                     <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center">
                         <ProgressBar Classes="circular" IsIndeterminate="True" />
                     </controls:Card>
                 </showMeTheXaml:XamlDisplay>
-                <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar3">
+            <showMeTheXaml:XamlDisplay UniqueId="MaterialCircularProgressBar3">
                     <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center">
                         <ProgressBar Classes="circular" Value="{Binding Progress}" />
                     </controls:Card>
                 </showMeTheXaml:XamlDisplay>
-                <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar4">
+            <showMeTheXaml:XamlDisplay UniqueId="MaterialCircularProgressBar4">
                   <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center">
                     <ProgressBar Classes="circular" Height="100" Width="100" Value="{Binding Progress}" />
                   </controls:Card>
                 </showMeTheXaml:XamlDisplay>
-                <showMeTheXaml:XamlDisplay UniqueId="CircularProgressBar5">
+            <showMeTheXaml:XamlDisplay UniqueId="MaterialCircularProgressBar5">
                     <controls:Card CornerRadius="24" Padding="4" Margin="4" HorizontalAlignment="Center"
                                  VerticalAlignment="Center"
                                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center">

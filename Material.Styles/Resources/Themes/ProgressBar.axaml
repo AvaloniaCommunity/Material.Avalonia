@@ -24,9 +24,9 @@
           <ProgressBar Orientation="Vertical" IsIndeterminate="True" />
         </UniformGrid>
 
-        <ProgressBar Theme="{StaticResource CircularProgressBar}" Value="30" />
-        <ProgressBar Theme="{StaticResource CircularProgressBar}" Value="30" ShowProgressText="True" />
-        <ProgressBar Theme="{StaticResource CircularProgressBar}" IsIndeterminate="True" />
+        <ProgressBar Theme="{StaticResource MaterialCircularProgressBar}" Value="30" />
+        <ProgressBar Theme="{StaticResource MaterialCircularProgressBar}" Value="30" ShowProgressText="True" />
+        <ProgressBar Theme="{StaticResource MaterialCircularProgressBar}" IsIndeterminate="True" />
       </StackPanel>
     </Border>
   </Design.PreviewWith>
@@ -36,14 +36,14 @@
   <converters:ProgressBarIntermediateOffsetConverter x:Key="IntermediateOffsetConverter" />
   <avaloniaConverters:StringFormatConverter x:Key="StringFormatConverter" />
 
-  <ControlTheme x:Key="ProgressBarBase"
+  <ControlTheme x:Key="MaterialProgressBarBase"
                 TargetType="ProgressBar">
     <Setter Property="BorderBrush" Value="{x:Null}" />
     <Setter Property="BorderThickness" Value="0" />
   </ControlTheme>
 
-  <ControlTheme x:Key="LinearProgressBar"
-                BasedOn="{StaticResource ProgressBarBase}"
+  <ControlTheme x:Key="MaterialProgressBar"
+                BasedOn="{StaticResource MaterialProgressBarBase}"
                 TargetType="ProgressBar">
     <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
@@ -292,12 +292,12 @@
 
   <!-- Use Linear progress indicator as default theme -->
   <ControlTheme x:Key="{x:Type ProgressBar}"
-                BasedOn="{StaticResource LinearProgressBar}"
+                BasedOn="{StaticResource MaterialProgressBar}"
                 TargetType="ProgressBar" />
 
   <!-- Circular progress indicator -->
-  <ControlTheme x:Key="CircularProgressBar"
-                BasedOn="{StaticResource ProgressBarBase}"
+  <ControlTheme x:Key="MaterialCircularProgressBar"
+                BasedOn="{StaticResource MaterialProgressBarBase}"
                 TargetType="ProgressBar">
     <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="Background" Value="Transparent" />
