@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-#pragma warning disable CS8603 // Possible null reference return.
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace Numerge
 {
@@ -13,7 +10,7 @@ namespace Numerge
     public class MergeConfiguration
     {
         [DataMember]
-        public List<PackageConfiguration> Packages { get; set; }
+        public List<PackageContfiguration> Packages { get; set; }
         
         public static MergeConfiguration Load(Stream s)
         {
@@ -32,7 +29,7 @@ namespace Numerge
     }
 
     [DataContract]
-    public class PackageConfiguration
+    public class PackageContfiguration
     {
         [DataMember]
         public string Id { get; set; }

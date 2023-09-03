@@ -14,9 +14,16 @@ namespace Numerge
         public static bool Merge(string directory, string output,
             MergeConfiguration configuration, INumergeLogger logger)
         {
+            return MergeCore(directory, output, configuration, logger, "*.nupkg", allowMissing: false)
+                && MergeCore(directory, output, configuration, logger, "*.snupkg", allowMissing: true);
+        }
+
+        static bool MergeCore(string directory, string output,
+            MergeConfiguration configuration, INumergeLogger logger, string searchPattern, bool allowMissing)
+        {
             try
             {
-                var packages = Directory.EnumerateFiles(directory, "*.nupkg").Select(p => new LoadedPackage(p))
+                var packages = Directory.EnumerateFiles(directory, searchPattern).Select(p => new LoadedPackage(p))
                     .ToDictionary(p => p.Spec.Id);
 
                 foreach (var p in packages.Values)
@@ -26,7 +33,11 @@ namespace Numerge
                 {
                     logger.Info($"Processing {config.Id}");
                     if (!packages.TryGetValue(config.Id, out var package))
+                    {
+                        if (allowMissing)
+                            continue;
                         throw new MergeAbortedException($"Package {config.Id} not found");
+                    }
 
                     var mergeConfigs = config.Merge?.ToList() ?? new List<PackageMergeConfiguration>();
                     if (config.MergeAll)
@@ -44,7 +55,11 @@ namespace Numerge
                     {
                         logger.Info($"Merging {mergeConfig.Id}");
                         if (!packages.TryGetValue(mergeConfig.Id, out var victim))
+                        {
+                            if (allowMissing)
+                                continue;
                             throw new MergeAbortedException($"Package {mergeConfig.Id} not found");
+                        }
                         
                         package.MergeContents(logger, victim, mergeConfig);
                         foreach (var p in packages.Values)

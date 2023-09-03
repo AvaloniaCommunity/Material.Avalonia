@@ -12,7 +12,6 @@ using static Numerge.Constants;
 // ReSharper disable StringLiteralTypo
 // ReSharper disable InconsistentNaming
 // ReSharper disable CommentTypo
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
 
 namespace Numerge
 {
