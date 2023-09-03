@@ -128,8 +128,7 @@
 
 
   <!-- RadioButton but looks like buttons -->
-  <!-- TODO: Better naming, improve this variant -->
-  <ControlTheme x:Key="RadioButton" TargetType="RadioButton"
+  <ControlTheme x:Key="MaterialButtonlikeRadioButton" TargetType="RadioButton"
                 BasedOn="{StaticResource {x:Type RadioButton}}">
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="BorderThickness" Value="0" />

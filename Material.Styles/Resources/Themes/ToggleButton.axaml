@@ -96,7 +96,7 @@
   <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton"
                 BasedOn="{StaticResource MaterialToggleButton}" />
 
-  <ControlTheme x:Key="FlatToggleButton" TargetType="ToggleButton"
+  <ControlTheme x:Key="MaterialFlatToggleButton" TargetType="ToggleButton"
                 BasedOn="{StaticResource MaterialToggleButton}">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
@@ -121,7 +121,7 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="OutlineToggleButton"
+  <ControlTheme x:Key="MaterialOutlineToggleButton"
                 BasedOn="{StaticResource MaterialToggleButton}"
                 TargetType="ToggleButton">
     <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -149,7 +149,7 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="IconToggleButton" TargetType="ToggleButton"
+  <ControlTheme x:Key="MaterialIconToggleButton" TargetType="ToggleButton"
                 BasedOn="{StaticResource MaterialToggleButton}">
     <Setter Property="Padding" Value="12" />
     <Setter Property="CornerRadius" Value="24" />

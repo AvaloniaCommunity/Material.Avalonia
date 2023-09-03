@@ -149,7 +149,7 @@
                     <controls:Card Padding="0" InsideClipping="True">
                       <controls:Card.Styles>
                         <Style Selector="RadioButton">
-                          <Setter Property="Theme" Value="{StaticResource RadioButton}" />
+                          <Setter Property="Theme" Value="MaterialButtonlikeRadioButton" />
                         </Style>
                       </controls:Card.Styles>
                       <StackPanel Orientation="Horizontal">
@@ -171,7 +171,7 @@
                     <controls:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
                       <controls:Card.Styles>
                         <Style Selector="RadioButton">
-                          <Setter Property="Theme" Value="{StaticResource RadioButton}" />
+                          <Setter Property="Theme" Value="MaterialButtonlikeRadioButton" />
                         </Style>
                       </controls:Card.Styles>
                       <StackPanel Orientation="Horizontal">

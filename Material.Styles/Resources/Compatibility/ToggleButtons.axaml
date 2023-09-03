@@ -1,0 +1,15 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <ControlTheme x:Key="FlatToggleButton" TargetType="ToggleButton"
+                BasedOn="{StaticResource MaterialFlatToggleButton}" />
+
+  <ControlTheme x:Key="OutlineToggleButton" TargetType="ToggleButton"
+                BasedOn="{StaticResource MaterialOutlineToggleButton}" />
+
+  <ControlTheme x:Key="IconToggleButton" TargetType="ToggleButton"
+                BasedOn="{StaticResource MaterialIconToggleButton}" />
+</ResourceDictionary>
