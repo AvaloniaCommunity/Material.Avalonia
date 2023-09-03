@@ -1,6 +1,5 @@
 ﻿using System;
 using Avalonia.Controls;
-using Avalonia.Threading;
 using Material.Colors;
 using Material.Styles.Themes.Base;
 

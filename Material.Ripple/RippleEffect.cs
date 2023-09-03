@@ -13,11 +13,11 @@ namespace Material.Ripple {
             AvaloniaProperty.Register<RippleEffect, bool>(nameof(UseTransitions));
         private bool _isCancelled;
 
-        private Ripple _last;
+        private Ripple? _last;
         private byte _pointers;
 
         // ReSharper disable once InconsistentNaming
-        private Canvas PART_RippleCanvasRoot;
+        private Canvas PART_RippleCanvasRoot = null!;
 
         public RippleEffect() {
             AddHandler(LostFocusEvent, LostFocusHandler);
@@ -101,7 +101,7 @@ namespace Material.Ripple {
             base.OnApplyTemplate(e);
 
             // Find canvas host
-            PART_RippleCanvasRoot = e.NameScope.Find<Canvas>(nameof(PART_RippleCanvasRoot));
+            PART_RippleCanvasRoot = e.NameScope.Find<Canvas>(nameof(PART_RippleCanvasRoot))!;
         }
 
         private Ripple CreateRipple(PointerPressedEventArgs e, bool center) {

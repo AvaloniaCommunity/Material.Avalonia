@@ -10,6 +10,7 @@ using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 using Serilog;
+// ReSharper disable AllUnderscoreLocalParameterName
 
 [GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
     OnPushBranches = new[] { "master" },
@@ -95,7 +96,7 @@ partial class Build : NukeBuild {
                     new NumergeNukeLogger()))
                 throw new Exception("Package merge failed");
         });
-    
+
     Target PublishNugetPackages => _ => _
         .OnlyWhenDynamic(() => Parameters.NugetApiKey is not null)
         .DependsOn(CreateNugetPackages)

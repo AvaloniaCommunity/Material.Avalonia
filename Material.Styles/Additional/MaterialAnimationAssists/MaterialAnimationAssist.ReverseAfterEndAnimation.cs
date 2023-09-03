@@ -52,5 +52,5 @@ public static partial class MaterialAnimationAssist {
         }
     }
 
-    private sealed record ReverseAfterEndAnimationData(CancellationTokenSource CancellationTokenSource, Animation? ReversedAnimation) { }
+    private sealed record ReverseAfterEndAnimationData(CancellationTokenSource CancellationTokenSource, Animation? ReversedAnimation);
 }

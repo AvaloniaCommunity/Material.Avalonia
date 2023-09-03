@@ -9,7 +9,7 @@ namespace Material.Styles.Converters;
 public class TimePickerTextConverter : IMultiValueConverter {
     public static TimePickerTextConverter Instance { get; } = new();
     /// <inheritdoc />
-    public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {
+    public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {
         if (values[0] is not TimeSpan timeSpan)
             return string.Empty;
 
@@ -26,7 +26,7 @@ public class TimePickerTextConverter : IMultiValueConverter {
                 _                                          => throw new ArgumentOutOfRangeException()
             };
         }
-        
+
         return DateTime.MinValue.Add(timeSpan).ToString(formatString, CultureInfo.InvariantCulture);
     }
 }

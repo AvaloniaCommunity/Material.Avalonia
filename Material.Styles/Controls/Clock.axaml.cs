@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using Avalonia;
@@ -45,20 +44,18 @@ public class Clock : TemplatedControl {
     /// </summary>
     public static readonly StyledProperty<string> TimeSeparatorProperty =
         AvaloniaProperty.Register<Clock, string>(nameof(TimeSeparator), ":");
-    private RadioButton _amSelectorRadioButton = null!;
+    private Carousel _carousel = null!;
 
 
     private NumericUpDown _hoursTextBox = null!;
     private List<NumericUpDown> _inputBoxes = null!;
     internal bool _isUpdating;
     private NumericUpDown _minutesTextBox = null!;
-    private RadioButton _pmSelectorRadioButton = null!;
     private NumericUpDown _secondsTextBox = null!;
     private NumericUpDown _selectedInputBox = null!;
-    private Carousel _carousel = null!;
 
     static Clock() {
-        SelectedTimeProperty.Changed.AddClassHandler<Clock>((o, args) => o.UpdateSelectedTime());
+        SelectedTimeProperty.Changed.AddClassHandler<Clock>((o, _) => o.UpdateSelectedTime());
     }
 
     /// <summary>
@@ -103,11 +100,8 @@ public class Clock : TemplatedControl {
         _inputBoxes = new List<NumericUpDown>() { _hoursTextBox, _minutesTextBox, _secondsTextBox };
         _selectedInputBox = _hoursTextBox;
 
-        _amSelectorRadioButton = e.NameScope.Find<RadioButton>("PART_AmSelector")!;
-        _pmSelectorRadioButton = e.NameScope.Find<RadioButton>("PART_PmSelector")!;
-
         _carousel = e.NameScope.Find<Carousel>("PART_CircleClockCarousel")!;
-        
+
         foreach (var circleClockPicker in _carousel.Items
                      .OfType<CircleClockPicker>()) {
             circleClockPicker.PointerReleased += CircleClockPickerOnPointerReleased;
@@ -120,7 +114,7 @@ public class Clock : TemplatedControl {
         OnSelectedInputBoxChange();
         UpdateSelectedTime();
     }
-    
+
     private void CircleClockPickerOnPointerReleased(object sender, PointerReleasedEventArgs e) {
         var circleClockPicker = (CircleClockPicker)sender;
         if (circleClockPicker.Value is null) {
@@ -131,7 +125,7 @@ public class Clock : TemplatedControl {
             .Where(x => x.IsVisible)
             .SkipWhile(x => x != _selectedInputBox)
             .Skip(1)
-            .DefaultIfEmpty( _inputBoxes[0] )
+            .DefaultIfEmpty(_inputBoxes[0])
             .First();
 
         // Setting focus to numeric up down TextBox
@@ -148,13 +142,11 @@ public class Clock : TemplatedControl {
     }
 
     private void OnSelectedInputBoxChange() {
-        foreach (var inputBox in _inputBoxes!) {
-            inputBox.Classes.Remove("active");
-        }
+        foreach (var inputBox in _inputBoxes) inputBox.Classes.Remove("active");
 
         _selectedInputBox.Classes.Add("active");
 
-        _carousel!.SelectedIndex = _inputBoxes.IndexOf(_selectedInputBox);
+        _carousel.SelectedIndex = _inputBoxes.IndexOf(_selectedInputBox);
     }
 
     private void UpdateSelectedTime() {
@@ -179,15 +171,14 @@ public class Clock : TemplatedControl {
     }
 }
 public static class ClockInternals {
-    public static TimeFormatToCellShiftConverter TimeFormatToCellShiftConverterInstance { get; } = new();
     public static readonly AttachedProperty<int?> HoursProperty =
-        AvaloniaProperty.RegisterAttached<Clock, int?>("Hours", typeof(ClockInternals), defaultBindingMode:BindingMode.TwoWay);
+        AvaloniaProperty.RegisterAttached<Clock, int?>("Hours", typeof(ClockInternals), defaultBindingMode: BindingMode.TwoWay);
 
     public static readonly AttachedProperty<int?> MinutesProperty =
-        AvaloniaProperty.RegisterAttached<Clock, int?>("Minutes", typeof(ClockInternals), defaultBindingMode:BindingMode.TwoWay);
+        AvaloniaProperty.RegisterAttached<Clock, int?>("Minutes", typeof(ClockInternals), defaultBindingMode: BindingMode.TwoWay);
 
-    public static readonly AttachedProperty<int?> SecondsProperty = 
-        AvaloniaProperty.RegisterAttached<Clock, int?>("Seconds", typeof(ClockInternals), defaultBindingMode:BindingMode.TwoWay);
+    public static readonly AttachedProperty<int?> SecondsProperty =
+        AvaloniaProperty.RegisterAttached<Clock, int?>("Seconds", typeof(ClockInternals), defaultBindingMode: BindingMode.TwoWay);
 
     public static readonly AttachedProperty<bool> IsAmProperty =
         AvaloniaProperty.RegisterAttached<Clock, bool>("IsAm", typeof(ClockInternals));
@@ -197,6 +188,7 @@ public static class ClockInternals {
         SecondsProperty.Changed.AddClassHandler<Clock>(OnValuesChanged);
         IsAmProperty.Changed.AddClassHandler<Clock>(OnValuesChanged);
     }
+    public static TimeFormatToCellShiftConverter TimeFormatToCellShiftConverterInstance { get; } = new();
 
     private static void OnValuesChanged(Clock clock, AvaloniaPropertyChangedEventArgs args) {
         if (clock._isUpdating) {
@@ -207,7 +199,7 @@ public static class ClockInternals {
         if (GetMinutes(clock) is not { } minutes) return;
         var seconds = GetSeconds(clock);
         if (clock.CanSelectSeconds && seconds is null) return;
-        
+
         if (clock.TimeFormat == TimeFormat.TwelveHour) {
             hours = ConvertTo24FormattedHours(hours, GetIsAm(clock));
         }
@@ -264,10 +256,10 @@ public static class ClockInternals {
 
     public static bool IsAm(int twentyFourFormattedHours)
         => twentyFourFormattedHours < 12;
-    
+
     public sealed class TimeFormatToCellShiftConverter : IValueConverter {
         /// <inheritdoc />
-        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture) {
+        public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture) {
             return value switch {
                 TimeFormat.TwelveHour     => 1,
                 TimeFormat.TwentyFourHour => 0,
@@ -275,7 +267,7 @@ public static class ClockInternals {
             };
         }
         /// <inheritdoc />
-        public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) {
+        public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) {
             throw new NotSupportedException();
         }
     }

@@ -129,7 +129,7 @@ namespace Material.Styles.Themes {
             }
         }
 
-        protected override ITheme? ProvideInitialTheme() {
+        protected override ITheme ProvideInitialTheme() {
             _isLoaded = true;
             return _theme;
         }

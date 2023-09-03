@@ -1,4 +1,3 @@
-#nullable enable
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Threading;

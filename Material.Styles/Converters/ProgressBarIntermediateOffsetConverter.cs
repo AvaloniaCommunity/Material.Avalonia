@@ -10,7 +10,7 @@ public sealed class ProgressBarIntermediateOffsetConverter : IValueConverter {
         return (double)value! * System.Convert.ToDouble(parameter, NumberFormatInfo.InvariantInfo);
     }
     /// <inheritdoc />
-    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) {
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) {
         throw new NotSupportedException();
     }
 }
