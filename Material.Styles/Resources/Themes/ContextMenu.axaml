@@ -16,7 +16,6 @@
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}">
-
           <ScrollViewer Name="PART_ScrollViewer">
             <ItemsPresenter Name="PART_ItemsPresenter"
                             ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -27,12 +26,7 @@
 
     <Style Selector="^ /template/ Border#PART_RootBorder">
       <Setter Property="CornerRadius" Value="4" />
-      <Setter Property="Margin" Value="8" />
       <Setter Property="assists:ShadowAssist.ShadowDepth" Value="2" />
-    </Style>
-
-    <Style Selector="^ /template/ Border#PART_RootBorder /template/ Border#PART_BackgroundBorder">
-      <Setter Property="IsHitTestVisible" Value="False" />
     </Style>
 
     <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
