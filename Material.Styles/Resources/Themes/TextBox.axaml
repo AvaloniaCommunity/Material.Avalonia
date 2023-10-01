@@ -421,7 +421,7 @@
 
     <!-- Disabled state -->
 
-    <Style Selector="^:disabled /template/ DockPanel#PART_RootPanel">
+    <Style Selector="^:disabled /template/ Grid#PART_RootGrid">
       <Setter Property="Opacity" Value="0.5" />
     </Style>
 
@@ -478,19 +478,7 @@
       <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
     </Style>
 
-    <!-- <Style Selector="^.dense:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder"> -->
-    <!--   <Setter Property="Margin" Value="12,14,1,1" /> -->
-    <!-- </Style> -->
-    <!-- -->
-    <!-- <Style Selector="^.dense[UseFloatingWatermark=False] /template/ Panel#PART_TextContainer"> -->
-    <!--   <Setter Property="Margin" Value="12,14,4,1" /> -->
-    <!-- </Style> -->
-
     <!-- Disabled state -->
-
-    <Style Selector="^:disabled /template/ DockPanel#PART_RootPanel">
-      <Setter Property="Opacity" Value="0.5" />
-    </Style>
 
     <Style Selector="^:disabled /template/ Border#PART_RootBorder">
       <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxDisabledBackgroundBrush}" />
@@ -548,10 +536,6 @@
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
       <Setter Property="Margin" Value="0 -6 0 0" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
-    </Style>
-
-    <Style Selector="^.dense:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="10,18,0,0" />
     </Style>
 
     <!-- Invalid state -->
