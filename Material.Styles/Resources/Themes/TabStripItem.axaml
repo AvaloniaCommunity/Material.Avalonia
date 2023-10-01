@@ -43,7 +43,7 @@
 
     <Style Selector="^:selected">
       <Setter Property="assists:TabControlAssist.TabHeaderForeground"
-              Value="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabControl}}" />
+              Value="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabStrip}}" />
     </Style>
 
     <Style Selector="^:selected /template/ Border#border">
@@ -66,6 +66,5 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem"
-                BasedOn="{StaticResource MaterialTabStripItem}">
-  </ControlTheme>
+                BasedOn="{StaticResource MaterialTabStripItem}" />
 </ResourceDictionary>
