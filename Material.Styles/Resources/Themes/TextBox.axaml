@@ -369,7 +369,7 @@
     <!-- Default behaviour for TextFields -->
     <Style Selector="^ /template/ Grid#PART_ContentGrid">
       <Setter Property="MinHeight" Value="48" />
-      <Setter Property="Margin" Value="-16 -8 -12 0" />
+      <Setter Property="Margin" Value="-16 0 -12 0" />
     </Style>
 
     <Style Selector="^ /template/ Border#PART_ContentBorder">
