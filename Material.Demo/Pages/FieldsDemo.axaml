@@ -6,7 +6,6 @@
              xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.FieldsDemo">
@@ -17,7 +16,7 @@
     <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
         <StackPanel.Styles>
             <Style Selector="TextBox">
-                <Setter Property="Margin" Value="0"></Setter>
+                <Setter Property="Margin" Value="0" />
             </Style>
         </StackPanel.Styles>
         <TextBlock Classes="Headline4 Subheadline" Text="Classic fields" />
@@ -38,7 +37,17 @@
                                  wpf:TextFieldAssist.Label="Classic TextBox" />
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes1">
-                        <TextBox UseFloatingWatermark="False" Watermark="No floating label" />
+                      <TextBox UseFloatingWatermark="False" Watermark="No floating label">
+                        <TextBox.InnerLeftContent>
+                          <avalonia:MaterialIcon
+                            Width="20"
+                            Height="20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Foreground="Red"
+                            Kind="KeyVariant" />
+                        </TextBox.InnerLeftContent>
+                      </TextBox>
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes2">
                         <TextBox UseFloatingWatermark="True" Classes="revealPasswordButton"
@@ -52,7 +61,17 @@
                         <TextBox UseFloatingWatermark="True"
                                  wpf:TextFieldAssist.Label="Text field with validation" 
                                  wpf:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"
-                                 Text="{Binding Numerics}"/>
+                                 Text="{Binding Numerics}">
+                          <TextBox.InnerLeftContent>
+                            <avalonia:MaterialIcon
+                              Width="20"
+                              Height="20"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Bottom"
+                              Foreground="Red"
+                              Kind="KeyVariant" />
+                          </TextBox.InnerLeftContent>
+                        </TextBox>
                     </showMeTheXaml:XamlDisplay>
                     <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes5">
                         <TextBox UseFloatingWatermark="True" IsEnabled="False"
@@ -69,8 +88,8 @@
                         </Style>
                     </StackPanel.Styles>
                     <showMeTheXaml:XamlDisplay UniqueId="MultilineFields0">
-                        <TextBox Classes="Floating" AcceptsReturn="True" MaxHeight="100" TextWrapping="Wrap" wpf:TextFieldAssist.Label="Multiline Test" UseFloatingWatermark="True"
-                                 Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
+                      <TextBox Classes="Floating" AcceptsReturn="True" MaxHeight="150" TextWrapping="Wrap" wpf:TextFieldAssist.Label="Multiline Test" UseFloatingWatermark="True"
+                               Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
  adipiscing elit, sed do eiusmod tempor incididunt ut labore
  et dolore magna aliqua. The quick brown fox jumps over the 
  lazy dog. War and peace. Keep going. Go on. For how long? 

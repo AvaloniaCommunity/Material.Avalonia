@@ -113,9 +113,6 @@
   <ControlTheme x:Key="ClearTextBoxButton"
                 BasedOn="{StaticResource MaterialFlatButton}"
                 TargetType="Button">
-    <Setter Property="Height" Value="32" />
-    <Setter Property="Width" Value="32" />
-    <Setter Property="Margin" Value="0, 0, 4, 0" />
     <Setter Property="Padding" Value="4" />
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="HorizontalAlignment" Value="Center" />
@@ -123,7 +120,8 @@
     <Setter Property="ToolTip.Tip" Value="Click to clear field" />
     <Setter Property="Content">
       <Template>
-        <controls:MaterialInternalIcon Kind="Close" Width="NaN" Height="NaN" />
+        <controls:MaterialInternalIcon Kind="Close"
+                                       Width="16" Height="16" />
       </Template>
     </Setter>
   </ControlTheme>
@@ -131,9 +129,6 @@
   <ControlTheme x:Key="RevealTextMaskToggleButtonTheme"
                 BasedOn="{StaticResource MaterialFlatToggleButton}"
                 TargetType="ToggleButton">
-    <Setter Property="Height" Value="32" />
-    <Setter Property="Width" Value="32" />
-    <Setter Property="Margin" Value="0, 0, 4, 0" />
     <Setter Property="Padding" Value="4" />
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="HorizontalAlignment" Value="Center" />
@@ -145,7 +140,8 @@
                  Might I should rework it later. For now it just works -->
       <Setter Property="Content">
         <Template>
-          <controls:MaterialInternalIcon Kind="EyeOffOutline" Width="NaN" Height="NaN" />
+          <controls:MaterialInternalIcon Kind="EyeOffOutline"
+                                         Width="16" Height="16" />
         </Template>
       </Setter>
     </Style>
@@ -154,7 +150,8 @@
       <Setter Property="ToolTip.Tip" Value="Click to hide content of field" />
       <Setter Property="Content">
         <Template>
-          <controls:MaterialInternalIcon Kind="EyeOutline" Width="NaN" Height="NaN" />
+          <controls:MaterialInternalIcon Kind="EyeOutline"
+                                         Width="16" Height="16" />
         </Template>
       </Setter>
     </Style>
@@ -345,6 +342,14 @@
 
     <Style Selector="^:pointerover /template/ controls|MaterialUnderline#PART_Underline">
       <Setter Property="IsHovered" Value="True" />
+    </Style>
+
+    <Style Selector="^ /template/ ContentControl#PART_LeftContentControl">
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="^ /template/ ContentControl#PART_RightContentControl">
+      <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
     <!-- Transitions -->
