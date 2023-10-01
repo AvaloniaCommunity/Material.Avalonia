@@ -236,7 +236,8 @@
                        FontFamily="{TemplateBinding FontFamily}"
                        FontSize="{TemplateBinding FontSize}"
                        FontStyle="{TemplateBinding FontStyle}"
-                       FontWeight="{TemplateBinding FontWeight}" />
+                       FontWeight="{TemplateBinding FontWeight}"
+                       Margin="{Binding #PART_ScrollViewer.Margin}" />
 
             <ScrollViewer Name="PART_ScrollViewer"
                           Grid.Row="0" Grid.Column="2"
@@ -263,96 +264,12 @@
             </ScrollViewer>
           </Grid>
 
-          <controls:MaterialUnderline Name="PART_Underline" Grid.Row="1" />
+          <controls:MaterialUnderline Name="PART_Underline" Grid.Row="1"
+                                      Margin="0 -1 0 0" />
 
           <DataValidationErrors Name="PART_DataValidation" Grid.Row="2"
                                 Errors="{TemplateBinding (DataValidationErrors.Errors)}" />
         </Grid>
-        <!-- <Border Name="PART_RootBorder" -->
-        <!--         Background="{TemplateBinding Background}" -->
-        <!--         BorderBrush="{TemplateBinding BorderBrush}" -->
-        <!--         BorderThickness="{TemplateBinding BorderThickness}" -->
-        <!--         CornerRadius="{TemplateBinding CornerRadius}"> -->
-        <!--   <DockPanel Name="PART_RootPanel"> -->
-        <!--     <TextBlock Name="PART_HintsText" -->
-        <!--                DockPanel.Dock="Bottom" -->
-        <!--                IsVisible="{TemplateBinding (assists:TextFieldAssist.Hints), -->
-        <!--                                Converter={x:Static StringConverters.IsNotNullOrEmpty}}" -->
-        <!--                Text="{TemplateBinding (assists:TextFieldAssist.Hints)}" -->
-        <!--                TextTrimming="CharacterEllipsis" /> -->
-        <!-- -->
-        <!--     <DataValidationErrors Name="PART_DataValidation" -->
-        <!--                           Errors="{TemplateBinding (DataValidationErrors.Errors)}"> -->
-        <!--       <Panel Name="PART_TextFieldPanel"> -->
-        <!--         <Border Name="PART_ContentBorder"> -->
-        <!--           <Border.Styles> -->
-        <!--             <Style Selector="TextBox.outline[UseFloatingWatermark=True] /template/ -->
-        <!--                                                  Border#PART_ContentBorder"> -->
-        <!--               <Setter Property="Clip"> -->
-        <!--                 <MultiBinding Converter="{StaticResource RectangleHollowGeometry}" -->
-        <!--                               ConverterParameter="{StaticResource OutlineTextBoxClippingParameter}" -->
-        <!--                               RelativeSource="{RelativeSource AncestorType=TextBox}"> -->
-        <!--                   <Binding ElementName="PART_TextFieldPanel" Path="Bounds" /> -->
-        <!--                   <Binding ElementName="PART_LabelRootBorder" Path="Bounds" /> -->
-        <!--                   <Binding ElementName="PART_LabelRootBorder" Path="RenderTransform" /> -->
-        <!--                 </MultiBinding> -->
-        <!--               </Setter> -->
-        <!--             </Style> -->
-        <!--           </Border.Styles> -->
-        <!--         </Border> -->
-        <!-- -->
-        <!--         <DockPanel Name="PART_InnerPanel"> -->
-        <!--           <ContentControl Name="PART_LeftContentControl" -->
-        <!--                           Content="{TemplateBinding InnerLeftContent}" /> -->
-        <!--           <ContentControl Name="PART_RightContentControl" -->
-        <!--                           Content="{TemplateBinding InnerRightContent}" /> -->
-        <!--           <Panel Name="PART_TextContainer"> -->
-        <!--             <Border Name="PART_LabelRootBorder"> -->
-        <!--               <TextBlock Name="PART_LabelText" -->
-        <!--                          Text="{TemplateBinding (assists:TextFieldAssist.Label)}" /> -->
-        <!--             </Border> -->
-        <!-- -->
-        <!--             <TextBlock Name="PART_WatermarkText" -->
-        <!--                        Text="{TemplateBinding Watermark}" -->
-        <!--                        FontFamily="{TemplateBinding FontFamily}" -->
-        <!--                        FontSize="{TemplateBinding FontSize}" -->
-        <!--                        FontStyle="{TemplateBinding FontStyle}" -->
-        <!--                        FontWeight="{TemplateBinding FontWeight}" /> -->
-        <!-- -->
-        <!--             <ScrollViewer Name="PART_ScrollViewer" -->
-        <!--                           HorizontalScrollBarVisibility="{TemplateBinding  -->
-        <!--                                           (ScrollViewer.HorizontalScrollBarVisibility)}" -->
-        <!-- -->
-        <!--                           VerticalScrollBarVisibility="{TemplateBinding  -->
-        <!--                                           (ScrollViewer.VerticalScrollBarVisibility)}"> -->
-        <!--               <TextPresenter Name="PART_TextPresenter" -->
-        <!--                              CaretBrush="{TemplateBinding CaretBrush}" -->
-        <!--                              CaretIndex="{TemplateBinding CaretIndex}" -->
-        <!--                              TextBlock.FontFamily="{TemplateBinding FontFamily}" -->
-        <!--                              TextBlock.FontSize="{TemplateBinding FontSize}" -->
-        <!--                              TextBlock.FontStyle="{TemplateBinding FontStyle}" -->
-        <!--                              TextBlock.FontWeight="{TemplateBinding FontWeight}" -->
-        <!--                              TextBlock.Foreground="{TemplateBinding Foreground}" -->
-        <!--                              InputMethod.IsInputMethodEnabled="{TemplateBinding  -->
-        <!--                                                        InputMethod.IsInputMethodEnabled}" -->
-        <!--                              PasswordChar="{TemplateBinding PasswordChar}" -->
-        <!--                              RevealPassword="{TemplateBinding RevealPassword}" -->
-        <!--                              SelectionBrush="{TemplateBinding SelectionBrush}" -->
-        <!--                              SelectionStart="{TemplateBinding SelectionStart}" -->
-        <!--                              SelectionEnd="{TemplateBinding SelectionEnd}" -->
-        <!--                              SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}" -->
-        <!--                              Text="{TemplateBinding Text, Mode=TwoWay}" -->
-        <!--                              TextAlignment="{TemplateBinding TextAlignment}" -->
-        <!--                              TextWrapping="{TemplateBinding TextWrapping}" /> -->
-        <!--             </ScrollViewer> -->
-        <!--           </Panel> -->
-        <!--         </DockPanel> -->
-        <!-- -->
-        <!--         <controls:MaterialUnderline Name="PART_Underline" /> -->
-        <!--       </Panel> -->
-        <!--     </DataValidationErrors> -->
-        <!--   </DockPanel> -->
-        <!-- </Border> -->
       </ControlTemplate>
     </Setter>
 
@@ -368,7 +285,6 @@
 
     <!-- Default behaviour for TextFields -->
     <Style Selector="^ /template/ Grid#PART_ContentGrid">
-      <Setter Property="MinHeight" Value="48" />
       <Setter Property="Margin" Value="-16 0 -12 0" />
     </Style>
 
@@ -376,7 +292,6 @@
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="BorderBrush" Value="Transparent" />
       <Setter Property="BorderThickness" Value="1" />
-      <Setter Property="Margin" Value="-1" />
     </Style>
 
     <Style Selector="^ /template/ TextBlock#PART_HintsText">
@@ -387,11 +302,14 @@
     <Style Selector="^ /template/ TextBlock#PART_WatermarkText">
       <Setter Property="IsVisible" Value="False" />
       <Setter Property="Opacity" Value="0.5" />
-      <Setter Property="Margin" Value="0 20 0 0" />
     </Style>
 
     <Style Selector="^ /template/ ScrollViewer#PART_ScrollViewer">
-      <Setter Property="Margin" Value="0 20 0 0" />
+      <Setter Property="Margin" Value="0 8 0 8" />
+    </Style>
+
+    <Style Selector="^:has-label /template/ ScrollViewer#PART_ScrollViewer">
+      <Setter Property="Margin" Value="0 20 0 8" />
     </Style>
 
     <Style Selector="^:empty[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ TextBlock#PART_WatermarkText,
@@ -401,7 +319,7 @@
 
     <Style Selector="^ /template/ Border#PART_LabelRootBorder">
       <Setter Property="RenderTransformOrigin" Value="0,0" />
-      <Setter Property="Margin" Value="0,16,1,1" />
+      <Setter Property="Margin" Value="0,16,0,-16" />
       <Setter Property="RenderTransform" Value="scale(1)" />
       <Setter Property="VerticalAlignment" Value="Top" />
       <Setter Property="HorizontalAlignment" Value="Left" />
@@ -492,7 +410,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 8 0 0" />
+      <Setter Property="Margin" Value="0 8 0 -16" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
 
@@ -529,16 +447,16 @@
     </Style>
 
     <Style Selector="^ /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0,16,0,0" />
+      <Setter Property="Margin" Value="0,16,0,-16" />
       <Setter Property="RenderTransform" Value="scale(1)" />
     </Style>
 
-    <!-- <Style Selector="^ /template/ Panel#PART_TextContainer"> -->
-    <!--   <Setter Property="Margin" Value="12,20,4,1" /> -->
-    <!-- </Style> -->
+    <Style Selector="^ /template/ ScrollViewer#PART_ScrollViewer">
+      <Setter Property="Margin" Value="0 14 0 14" />
+    </Style>
 
-    <Style Selector="^[UseFloatingWatermark=True] /template/ Panel#PART_TextContainer">
-      <Setter Property="VerticalAlignment" Value="Center" />
+    <Style Selector="^:has-label /template/ ScrollViewer#PART_ScrollViewer">
+      <Setter Property="Margin" Value="0 20 0 8" />
     </Style>
 
     <!-- Feedbacks -->
@@ -547,24 +465,12 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 8 0 0" />
+      <Setter Property="Margin" Value="0 8 0 -16" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
 
     <Style Selector="^:focus-within /template/ Border#PART_ContentBorder">
       <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
-    </Style>
-
-    <!-- Default filled text field -->
-
-    <Style Selector="^ /template/ Panel#PART_TextFieldPanel">
-      <Setter Property="MinHeight" Value="56" />
-    </Style>
-
-    <!-- Filled dense text field -->
-
-    <Style Selector="^.dense /template/ Panel#PART_TextFieldPanel">
-      <Setter Property="MinHeight" Value="48" />
     </Style>
 
     <!-- <Style Selector="^.dense:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder"> -->
@@ -588,9 +494,8 @@
 
   <!-- Outlined text field https://material.io/components/text-fields#outlined-text-field -->
 
-  <ControlTheme x:Key="OutlineTextBox"
-                BasedOn="{StaticResource MaterialTextBox}"
-                TargetType="TextBox">
+  <ControlTheme x:Key="OutlineTextBox" TargetType="TextBox"
+                BasedOn="{StaticResource MaterialTextBox}">
     <Setter Property="internal:MaterialInternalAttachedProperties.UseClippingForBorder" Value="True" />
 
     <Style Selector="^ /template/ Grid#PART_ContentGrid">
@@ -616,17 +521,8 @@
       <Setter Property="Margin" Value="0 16 0 16" />
     </Style>
 
-    <Style Selector="^ /template/ TextBlock#PART_WatermarkText">
-      <Setter Property="Margin" Value="0 16 0 0" />
-    </Style>
-
-    <Style Selector="^ /template/ Panel#PART_TextContainer">
-      <Setter Property="Margin" Value="12,12,8,2" />
-      <Setter Property="VerticalAlignment" Value="Center" />
-    </Style>
-
-    <Style Selector="^ /template/ DockPanel#PART_InnerPanel > ContentControl#PART_RightContentControl">
-      <Setter Property="Margin" Value="0,8,0,0" />
+    <Style Selector="^:has-label /template/ ScrollViewer#PART_ScrollViewer">
+      <Setter Property="Margin" Value="0 16 0 16" />
     </Style>
 
     <!-- Feedbacks -->
@@ -645,12 +541,12 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 -6 1 1" />
+      <Setter Property="Margin" Value="0 -6 0 0" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
 
     <Style Selector="^.dense:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="10,18,1,1" />
+      <Setter Property="Margin" Value="10,18,0,0" />
     </Style>
 
     <!-- Invalid state -->
@@ -669,11 +565,6 @@
 
     <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
       <Setter Property="IsVisible" Value="False" />
-    </Style>
-
-    <Style Selector="^ /template/ Panel#PART_TextContainer">
-      <Setter Property="Margin" Value="4,0" />
-      <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
     <!-- Fix Strange transitions source -->
