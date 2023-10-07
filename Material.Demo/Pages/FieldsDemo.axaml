@@ -25,7 +25,7 @@
       <StackPanel Orientation="Horizontal">
         <StackPanel.Styles>
           <Style Selector="TextBox">
-            <Setter Property="Width" Value="240" />
+            <Setter Property="Width" Value="260" />
           </Style>
         </StackPanel.Styles>
         <StackPanel Orientation="Vertical">
@@ -101,8 +101,7 @@
       <StackPanel Orientation="Horizontal">
         <StackPanel.Styles>
           <Style Selector="TextBox">
-            <Setter Property="Width" Value="240" />
-            <Setter Property="UseFloatingWatermark" Value="True" />
+            <Setter Property="Width" Value="260" />
           </Style>
         </StackPanel.Styles>
         <StackPanel Orientation="Vertical">
@@ -186,7 +185,7 @@
       <StackPanel Orientation="Horizontal">
         <StackPanel.Styles>
           <Style Selector="TextBox">
-            <Setter Property="Width" Value="240" />
+            <Setter Property="Width" Value="260" />
           </Style>
         </StackPanel.Styles>
         <StackPanel Orientation="Vertical">
