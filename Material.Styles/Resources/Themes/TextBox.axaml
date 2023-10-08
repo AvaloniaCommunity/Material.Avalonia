@@ -4,7 +4,6 @@
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:extensions="clr-namespace:Material.Styles.Controls.Extensions"
-                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
                     xmlns:internal="clr-namespace:Material.Styles.Assists.Internal">
   <ResourceDictionary.MergedDictionaries>
     <!-- Used for suppressing warning in IDE -->
@@ -108,7 +107,7 @@
   </MenuFlyout>
 
   <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="4,0" />
+  <Thickness x:Key="OutlineTextBoxClippingParameter">4 0</Thickness>
 
   <ControlTheme x:Key="ClearTextBoxButton"
                 BasedOn="{StaticResource MaterialFlatButton}"

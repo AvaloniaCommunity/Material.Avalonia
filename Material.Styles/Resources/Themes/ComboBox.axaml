@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
-                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
   <Design.PreviewWith>
@@ -28,7 +27,7 @@
 
 
   <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="4,0" />
+  <Thickness x:Key="OutlineTextBoxClippingParameter">4 0</Thickness>
 
   <!-- TODO: Rework combobox styles-->
   <!-- Default -->
