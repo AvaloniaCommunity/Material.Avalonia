@@ -13,13 +13,10 @@ namespace Material.Styles.Converters {
     /// </summary>
     public class RectHollowClipConverter : IMultiValueConverter {
         public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {
-            double hOffset = 4, vOffset = -8;
             var t = new Thickness(2);
 
             if (parameter is RectHollowClipParameter param) {
                 t = param.Margin;
-                hOffset = param.Offset.X;
-                vOffset = param.Offset.Y;
             }
 
             Rect main = default;
@@ -45,8 +42,12 @@ namespace Material.Styles.Converters {
                 var m1 = main.BottomRight;
 
                 // Hollow zone
-                var h0 = Multiply(hollow.TopLeft - new Point(t.Left - hOffset, t.Top - vOffset), s);
-                var h1 = Multiply(hollow.BottomRight + new Point(t.Right + hOffset, t.Bottom + vOffset), s);
+                // var h0 = hollow.TopLeft;
+                var h0 = new Point(hollow.TopLeft.X - t.Left, hollow.TopLeft.Y - t.Top);
+                // var h0 = hollow.TopLeft - new Point(t.Left - hOffset, t.Top - vOffset);
+                var h1 = hollow.Position + Multiply(new Point(hollow.Size.Width, hollow.Size.Height), s) + new Point(t.Right, t.Bottom);
+
+                // var h1 = hollow.BottomRight;
 
                 // Create geometry
                 var outerGeometry = new StreamGeometry();

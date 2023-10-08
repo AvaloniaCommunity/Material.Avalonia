@@ -108,7 +108,7 @@
   </MenuFlyout>
 
   <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="4,0" Offset="4,-8" />
+  <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="4,0" />
 
   <ControlTheme x:Key="ClearTextBoxButton"
                 BasedOn="{StaticResource MaterialFlatButton}"
