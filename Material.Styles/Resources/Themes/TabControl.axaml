@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists">
   <ResourceDictionary.MergedDictionaries>
@@ -26,17 +26,7 @@
                 CornerRadius="{TemplateBinding CornerRadius}">
           <DockPanel Name="PART_RootPanel">
             <Panel Name="PART_TabsPanel">
-              <ItemsPresenter Name="PART_ItemsPresenter">
-                <ItemsPresenter.ItemsPanel>
-                  <ItemsPanelTemplate>
-                    <UniformGrid Name="PART_TabContainer"
-                                 HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
-                                 VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
-                                 Background="Transparent"
-                                 ZIndex="1" />
-                  </ItemsPanelTemplate>
-                </ItemsPresenter.ItemsPanel>
-              </ItemsPresenter>
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
 
               <Rectangle Name="PART_Separator"
                          Fill="{TemplateBinding assists:TabControlAssist.TabHeaderInactiveBrush}" />
@@ -50,6 +40,18 @@
         </Border>
       </ControlTemplate>
     </Setter>
+
+    <Style Selector="^TabControl">
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <UniformGrid Name="PART_TabContainer"
+                       HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
+                       VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
+                       Background="{TemplateBinding Background}"
+                       ZIndex="1" />
+        </ItemsPanelTemplate>
+      </Setter>
+    </Style>
 
     <Style Selector="^ /template/ Rectangle#PART_Separator">
       <Setter Property="Fill" Value="{DynamicResource MaterialBodyLightBrush}" />
