@@ -17,6 +17,15 @@
             Value="{DynamicResource MaterialBodyLightBrush}" />
     <Setter Property="assists:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
     <Setter Property="Background" Value="Transparent" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <UniformGrid Name="PART_TabContainer"
+                     HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
+                     VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
+                     Background="{TemplateBinding Background}"
+                     ZIndex="1" />
+      </ItemsPanelTemplate>
+    </Setter>
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_RootBorder"
@@ -40,18 +49,6 @@
         </Border>
       </ControlTemplate>
     </Setter>
-
-    <Style Selector="^TabControl">
-      <Setter Property="ItemsPanel">
-        <ItemsPanelTemplate>
-          <UniformGrid Name="PART_TabContainer"
-                       HorizontalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderHorizontalAlignment}"
-                       VerticalAlignment="{TemplateBinding assists:TabControlAssist.TabHeaderVerticalAlignment}"
-                       Background="{TemplateBinding Background}"
-                       ZIndex="1" />
-        </ItemsPanelTemplate>
-      </Setter>
-    </Style>
 
     <Style Selector="^ /template/ Rectangle#PART_Separator">
       <Setter Property="Fill" Value="{DynamicResource MaterialBodyLightBrush}" />

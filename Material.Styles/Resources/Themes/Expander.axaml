@@ -103,7 +103,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="MaterialExpander" TargetType="Expander">
-    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+    <Setter Property="TextBlock.TextAlignment" Value="Start" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="CornerRadius" Value="4" />
     <!-- Content transition will not work
