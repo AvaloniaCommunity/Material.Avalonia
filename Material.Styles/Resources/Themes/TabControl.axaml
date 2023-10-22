@@ -58,14 +58,6 @@
       <Setter Property="ZIndex" Value="1" />
     </Style>
 
-    <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
-      <Setter Property="ItemsPanel">
-        <ItemsPanelTemplate>
-          <UniformGrid Name="PART_TabContainer" />
-        </ItemsPanelTemplate>
-      </Setter>
-    </Style>
-
     <Style Selector="^ /template/ UniformGrid#PART_TabContainer">
       <Setter Property="HorizontalAlignment" Value="Center" />
       <Setter Property="VerticalAlignment" Value="Center" />
