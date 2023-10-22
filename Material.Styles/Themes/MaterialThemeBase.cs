@@ -26,6 +26,8 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
 
     private IReadOnlyTheme _currentTheme = new ReadOnlyTheme();
     private Task? _currentThemeUpdateTask;
+
+    private IResourceDictionary? _internalResources;
     private bool _isResourcedAccessed;
 
     /// <summary>
@@ -51,6 +53,25 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             _currentTheme = newTheme;
             SetAndRaise(CurrentThemeProperty, ref _currentTheme, newTheme);
             StartUpdatingTheme(oldTheme, newTheme);
+            Owner?.NotifyHostedResourcesChanged(ResourcesChangedEventArgs.Empty);
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets a dictionary of style resources.
+    /// </summary>
+    internal IResourceDictionary InternalResources {
+        get => _internalResources ?? (Resources = new ResourceDictionary());
+        set {
+            value = value ?? throw new ArgumentNullException(nameof(InternalResources));
+
+            var currentOwner = Owner;
+
+            if (currentOwner is not null) _internalResources?.RemoveOwner(currentOwner);
+
+            _internalResources = value;
+
+            if (currentOwner is not null) _internalResources.AddOwner(currentOwner);
         }
     }
 
@@ -112,12 +133,18 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
         };
 
     bool IResourceNode.TryGetResource(object key, ThemeVariant? theme, out object? value) {
+        return TryGetResource(key, theme, out value);
+    }
+
+    protected new virtual bool TryGetResource(object key, ThemeVariant? theme, out object? value) {
         if (!_isResourcedAccessed) {
             _isResourcedAccessed = true;
             OnResourcedAccessed();
         }
 
-        return base.TryGetResource(key, theme, out value);
+        if (base.TryGetResource(key, theme, out value)) return true;
+
+        return InternalResources.TryGetResource(key, theme, out value);
     }
 
     /// <summary>
@@ -143,7 +170,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
         var initialTheme = ProvideInitialTheme();
         if (initialTheme != null) {
             var newTheme = new ReadOnlyTheme(initialTheme);
-            var defaultThemeDictionary = (ResourceDictionary)Resources.ThemeDictionaries[ThemeVariant.Default];
+            var defaultThemeDictionary = (ResourceDictionary)InternalResources.ThemeDictionaries[ThemeVariant.Default];
             UpdateSolidColorBrush(null, newTheme, defaultThemeDictionary, InvokeImmediately).Wait();
             var oldTheme = _currentTheme;
             _currentTheme = newTheme;
@@ -172,7 +199,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
                 Func<Action, DispatcherPriority, Task> contextSync = Owner is null && Dispatcher.UIThread.CheckAccess()
                     ? InvokeImmediately
                     : (action, priority) => Dispatcher.UIThread.InvokeAsync(action, priority).GetTask();
-                var defaultThemeDictionary = (ResourceDictionary)Resources.ThemeDictionaries[ThemeVariant.Default];
+                var defaultThemeDictionary = (ResourceDictionary)InternalResources.ThemeDictionaries[ThemeVariant.Default];
                 var task = UpdateSolidColorBrush(oldTheme, newTheme, defaultThemeDictionary, contextSync);
 
                 _currentThemeUpdateTask = task;
