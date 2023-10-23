@@ -2,7 +2,7 @@
                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                           xmlns:themes="clr-namespace:Material.Styles.Themes"
                           x:Class="Material.Styles.Themes.MaterialThemeBase">
-  <themes:MaterialThemeBase.Resources>
+  <themes:MaterialThemeBase.InternalResources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <MergeResourceInclude Source="avares://Material.Styles/Themes/Base/MaterialPredefinedBaseColors.axaml" />
@@ -12,7 +12,7 @@
         <ResourceDictionary x:Key="Default" />
       </ResourceDictionary.ThemeDictionaries>
     </ResourceDictionary>
-  </themes:MaterialThemeBase.Resources>
+  </themes:MaterialThemeBase.InternalResources>
 
   <StyleInclude Source="avares://Material.Styles/MaterialToolKit.xaml" />
   <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/Index.axaml" />

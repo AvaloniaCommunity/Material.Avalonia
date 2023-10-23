@@ -4,12 +4,27 @@
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:grammars="clr-namespace:TextMateSharp.Grammars;assembly=TextMateSharp.Grammars"
+             xmlns:avaloniaEdit="clr-namespace:ShowMeTheXaml.Avalonia.AvaloniaEdit;assembly=ShowMeTheXaml.Avalonia.AvaloniaEdit"
              x:Class="Material.Demo.App">
   <Application.Resources>
     <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
   </Application.Resources>
   <Application.Styles>
-    <themes:MaterialTheme PrimaryColor="Purple" SecondaryColor="Indigo" />
+    <themes:MaterialTheme PrimaryColor="Purple" SecondaryColor="Indigo">
+      <themes:MaterialTheme.Resources>
+        <ResourceDictionary>
+          <ResourceDictionary.ThemeDictionaries>
+            <ResourceDictionary x:Key="{x:Static themes:Theme.MaterialLight}">
+              <grammars:ThemeName x:Key="AvaloniaEditThemeName">Light</grammars:ThemeName>
+            </ResourceDictionary>
+            <ResourceDictionary x:Key="{x:Static themes:Theme.MaterialDark}">
+              <grammars:ThemeName x:Key="AvaloniaEditThemeName">SolarizedDark</grammars:ThemeName>
+            </ResourceDictionary>
+          </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+      </themes:MaterialTheme.Resources>
+    </themes:MaterialTheme>
 
     <avalonia:MaterialIconStyles />
     <dialogHostAvalonia:DialogHostStyles />
@@ -24,6 +39,7 @@
       <Setter Property="VerticalAlignment" Value="Stretch" />
       <Setter Property="ClipToBounds" Value="False" />
       <Setter Property="Background" Value="Transparent" />
+      <Setter Property="avaloniaEdit:XamlDisplayAvaloniaEdit.CodeHighlightThemeName" Value="{DynamicResource AvaloniaEditThemeName}" />
     </Style>
 
     <Style Selector="showMeTheXaml|XamlDisplay /template/ Popup#XamlPopup > Border">

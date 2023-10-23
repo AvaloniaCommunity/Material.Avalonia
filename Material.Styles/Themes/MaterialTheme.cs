@@ -2,6 +2,7 @@ using System;
 using System.Reactive;
 using System.Reactive.Linq;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using Material.Colors;
@@ -14,7 +15,7 @@ namespace Material.Styles.Themes {
     /// <remarks>
     /// You need to setup all these properties: <see cref="BaseTheme"/>, <see cref="PrimaryColor"/>, <see cref="SecondaryColor"/>
     /// </remarks>
-    public class MaterialTheme : MaterialThemeBase, IDisposable {
+    public class MaterialTheme : MaterialThemeBase, IDisposable, IResourceNode {
         public static readonly StyledProperty<BaseThemeMode> BaseThemeProperty =
             AvaloniaProperty.Register<MaterialTheme, BaseThemeMode>(nameof(BaseTheme));
 
@@ -89,6 +90,11 @@ namespace Material.Styles.Themes {
             RegisterActualThemeObservable();
         }
 
+        protected override bool TryGetResource(object key, ThemeVariant? theme, out object? value) {
+            return base.TryGetResource(key, theme, out value)
+                || base.TryGetResource(key, ActualBaseTheme.GetVariantFromMaterialBaseThemeMode(), out value);
+        }
+
         private void RegisterActualThemeObservable() {
             _baseThemeChangeObservable?.Dispose();
 
@@ -113,20 +119,11 @@ namespace Material.Styles.Themes {
 
         private BaseThemeMode GetActualBaseTheme(BaseThemeMode mode, ThemeVariant? variant) {
             return mode switch {
-                BaseThemeMode.Inherit => GetBaseThemeFromVariant(variant) ?? BaseThemeMode.Light,
+                BaseThemeMode.Inherit => variant.GetMaterialBaseThemeModeFromVariant() ?? BaseThemeMode.Light,
                 BaseThemeMode.Light   => BaseThemeMode.Light,
                 BaseThemeMode.Dark    => BaseThemeMode.Dark,
                 _                     => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
             };
-
-            static BaseThemeMode? GetBaseThemeFromVariant(ThemeVariant? variant) {
-                while (true) {
-                    if (variant is null) return null;
-                    if (variant == ThemeVariant.Light) return BaseThemeMode.Light;
-                    if (variant == ThemeVariant.Dark) return BaseThemeMode.Dark;
-                    variant = variant.InheritVariant;
-                }
-            }
         }
 
         protected override ITheme ProvideInitialTheme() {
