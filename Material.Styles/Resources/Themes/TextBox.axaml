@@ -305,7 +305,7 @@
     </Style>
 
     <Style Selector="^:has-label /template/ ScrollViewer#PART_ScrollViewer">
-      <Setter Property="Margin" Value="0 20 0 8" />
+      <Setter Property="Margin" Value="0 16 0 8" />
     </Style>
 
     <Style Selector="^:empty[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ TextBlock#PART_WatermarkText,
@@ -414,7 +414,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 8 0 -16" />
+      <Setter Property="Margin" Value="0 0 0 -16" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
 
@@ -467,7 +467,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 8 0 -16" />
+      <Setter Property="Margin" Value="0 6 0 -16" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
 
