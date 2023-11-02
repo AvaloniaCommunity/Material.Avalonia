@@ -339,6 +339,11 @@
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       </Style>
 
+      <Style Selector="^ /template/ ContentControl#PART_LeftContentControl,
+                       ^ /template/ ContentControl#PART_RightContentControl">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      </Style>
+
       <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
         <Setter Property="IsActive" Value="True" />
       </Style>
@@ -379,6 +384,15 @@
       </Style>
 
       <Style Selector="^ /template/ TextBlock#PART_LabelText">
+        <Setter Property="Transitions">
+          <Transitions>
+            <BrushTransition Duration="0:0:0.12" Property="Foreground" Easing="LinearEasing" />
+          </Transitions>
+        </Setter>
+      </Style>
+
+      <Style Selector="^ /template/ ContentControl#PART_LeftContentControl,
+                       ^ /template/ ContentControl#PART_RightContentControl">
         <Setter Property="Transitions">
           <Transitions>
             <BrushTransition Duration="0:0:0.12" Property="Foreground" Easing="LinearEasing" />
