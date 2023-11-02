@@ -31,6 +31,46 @@
         </ControlTemplate>
       </Setter.Value>
     </Setter>
+
+    <Style Selector="^[Mode=Standard]">
+      <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    </Style>
+
+    <Style Selector="^[Mode=Inverted]">
+      <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPaperBrush}" />
+    </Style>
+
+    <Style Selector="^[Mode=PrimaryLight]">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[Mode=PrimaryMid]">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[Mode=PrimaryDark]">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[Mode=Accent]">
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[Mode=Light]">
+      <Setter Property="Background" Value="{DynamicResource MaterialLightBackgroundBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[Mode=Dark]">
+      <Setter Property="Background" Value="{DynamicResource MaterialDarkBackgroundBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialDarkForegroundBrush}" />
+    </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type controls:ColorZone}" TargetType="controls:ColorZone"
