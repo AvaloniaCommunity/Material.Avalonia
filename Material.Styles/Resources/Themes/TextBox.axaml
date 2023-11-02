@@ -185,86 +185,91 @@
     <Setter Property="InputMethod.IsInputMethodEnabled" Value="True" />
     <Setter Property="assists:TextFieldAssist.Watermark" Value="{Binding $self.Watermark}" />
     <Setter Property="assists:TextFieldAssist.UseFloatingLabel" Value="{Binding $self.UseFloatingWatermark}" />
+    <Setter Property="ClipToBounds" Value="True" />
     <Setter Property="Template">
       <ControlTemplate>
         <Grid Name="PART_RootGrid"
               RowDefinitions="* Auto Auto">
 
-          <Grid Name="PART_ContentGrid"
-                ColumnDefinitions="16 Auto * Auto 12">
-            <Border Name="PART_ContentBorder"
-                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"
-                    Classes.use-clipping="{TemplateBinding internal:MaterialInternalAttachedProperties.UseClippingForBorder}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-              <Border.Styles>
-                <Style Selector="TextBox:has-label /template/ Border.use-clipping">
-                  <Setter Property="Clip">
-                    <MultiBinding Converter="{StaticResource RectangleHollowGeometry}"
-                                  ConverterParameter="{StaticResource OutlineTextBoxClippingParameter}"
-                                  RelativeSource="{RelativeSource AncestorType=TextBox}">
-                      <Binding ElementName="PART_ContentBorder" Path="Bounds" />
-                      <Binding ElementName="PART_LabelRootBorder" Path="Bounds" />
-                      <Binding ElementName="PART_LabelRootBorder" Path="RenderTransform" />
-                    </MultiBinding>
-                  </Setter>
-                </Style>
-              </Border.Styles>
-            </Border>
+          <Border Name="PART_ContentGridBorder"
+                  ClipToBounds="{TemplateBinding ClipToBounds}"
+                  CornerRadius="{TemplateBinding CornerRadius}">
+            <Grid Name="PART_ContentGrid"
+                  ColumnDefinitions="16 Auto * Auto 12">
+              <Border Name="PART_ContentBorder"
+                      Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"
+                      Classes.use-clipping="{TemplateBinding internal:MaterialInternalAttachedProperties.UseClippingForBorder}"
+                      Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      CornerRadius="{TemplateBinding CornerRadius}">
+                <Border.Styles>
+                  <Style Selector="TextBox:has-label /template/ Border.use-clipping">
+                    <Setter Property="Clip">
+                      <MultiBinding Converter="{StaticResource RectangleHollowGeometry}"
+                                    ConverterParameter="{StaticResource OutlineTextBoxClippingParameter}"
+                                    RelativeSource="{RelativeSource AncestorType=TextBox}">
+                        <Binding ElementName="PART_ContentBorder" Path="Bounds" />
+                        <Binding ElementName="PART_LabelRootBorder" Path="Bounds" />
+                        <Binding ElementName="PART_LabelRootBorder" Path="RenderTransform" />
+                      </MultiBinding>
+                    </Setter>
+                  </Style>
+                </Border.Styles>
+              </Border>
 
-            <ContentControl Name="PART_LeftContentControl"
-                            Grid.Row="0" Grid.Column="1"
-                            Content="{TemplateBinding InnerLeftContent}"
-                            IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}"
-                            Margin="0 0 8 0" />
+              <ContentControl Name="PART_LeftContentControl"
+                              Grid.Row="0" Grid.Column="1"
+                              Content="{TemplateBinding InnerLeftContent}"
+                              IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}"
+                              ClipToBounds="False" />
 
-            <ContentControl Name="PART_RightContentControl"
-                            Grid.Row="0" Grid.Column="3"
-                            Content="{TemplateBinding InnerRightContent}"
-                            IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}"
-                            Margin="8 0 0 0" />
+              <ContentControl Name="PART_RightContentControl"
+                              Grid.Row="0" Grid.Column="3"
+                              Content="{TemplateBinding InnerRightContent}"
+                              IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}"
+                              ClipToBounds="False" />
 
-            <Border Name="PART_LabelRootBorder"
-                    Grid.Row="0" Grid.Column="2">
-              <TextBlock Name="PART_LabelText"
-                         Text="{TemplateBinding (assists:TextFieldAssist.Label)}" />
-            </Border>
+              <Border Name="PART_LabelRootBorder"
+                      Grid.Row="0" Grid.Column="2">
+                <TextBlock Name="PART_LabelText"
+                           Text="{TemplateBinding (assists:TextFieldAssist.Label)}" />
+              </Border>
 
-            <TextBlock Name="PART_WatermarkText"
-                       Grid.Row="0" Grid.Column="2"
-                       Text="{TemplateBinding (assists:TextFieldAssist.Watermark)}"
-                       FontFamily="{TemplateBinding FontFamily}"
-                       FontSize="{TemplateBinding FontSize}"
-                       FontStyle="{TemplateBinding FontStyle}"
-                       FontWeight="{TemplateBinding FontWeight}"
-                       Margin="{Binding #PART_ScrollViewer.Margin}" />
+              <TextBlock Name="PART_WatermarkText"
+                         Grid.Row="0" Grid.Column="2"
+                         Text="{TemplateBinding (assists:TextFieldAssist.Watermark)}"
+                         FontFamily="{TemplateBinding FontFamily}"
+                         FontSize="{TemplateBinding FontSize}"
+                         FontStyle="{TemplateBinding FontStyle}"
+                         FontWeight="{TemplateBinding FontWeight}"
+                         Margin="{Binding #PART_ScrollViewer.Margin}" />
 
-            <ScrollViewer Name="PART_ScrollViewer"
-                          Grid.Row="0" Grid.Column="2"
-                          HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                          VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-              <TextPresenter Name="PART_TextPresenter"
-                             CaretBrush="{TemplateBinding CaretBrush}"
-                             CaretIndex="{TemplateBinding CaretIndex}"
-                             TextBlock.FontFamily="{TemplateBinding FontFamily}"
-                             TextBlock.FontSize="{TemplateBinding FontSize}"
-                             TextBlock.FontStyle="{TemplateBinding FontStyle}"
-                             TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                             TextBlock.Foreground="{TemplateBinding Foreground}"
-                             InputMethod.IsInputMethodEnabled="{TemplateBinding InputMethod.IsInputMethodEnabled}"
-                             PasswordChar="{TemplateBinding PasswordChar}"
-                             RevealPassword="{TemplateBinding RevealPassword}"
-                             SelectionBrush="{TemplateBinding SelectionBrush}"
-                             SelectionStart="{TemplateBinding SelectionStart}"
-                             SelectionEnd="{TemplateBinding SelectionEnd}"
-                             SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                             Text="{TemplateBinding Text, Mode=TwoWay}"
-                             TextAlignment="{TemplateBinding TextAlignment}"
-                             TextWrapping="{TemplateBinding TextWrapping}" />
-            </ScrollViewer>
-          </Grid>
+              <ScrollViewer Name="PART_ScrollViewer"
+                            Grid.Row="0" Grid.Column="2"
+                            HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                            VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                <TextPresenter Name="PART_TextPresenter"
+                               CaretBrush="{TemplateBinding CaretBrush}"
+                               CaretIndex="{TemplateBinding CaretIndex}"
+                               TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                               TextBlock.FontSize="{TemplateBinding FontSize}"
+                               TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                               TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                               TextBlock.Foreground="{TemplateBinding Foreground}"
+                               InputMethod.IsInputMethodEnabled="{TemplateBinding InputMethod.IsInputMethodEnabled}"
+                               PasswordChar="{TemplateBinding PasswordChar}"
+                               RevealPassword="{TemplateBinding RevealPassword}"
+                               SelectionBrush="{TemplateBinding SelectionBrush}"
+                               SelectionStart="{TemplateBinding SelectionStart}"
+                               SelectionEnd="{TemplateBinding SelectionEnd}"
+                               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                               Text="{TemplateBinding Text, Mode=TwoWay}"
+                               TextAlignment="{TemplateBinding TextAlignment}"
+                               TextWrapping="{TemplateBinding TextWrapping}" />
+              </ScrollViewer>
+            </Grid>
+          </Border>
 
           <controls:MaterialUnderline Name="PART_Underline" Grid.Row="1"
                                       Margin="0 -1 0 0" />
@@ -345,10 +350,20 @@
 
     <Style Selector="^ /template/ ContentControl#PART_LeftContentControl">
       <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Margin" Value="0 0 8 0" />
     </Style>
 
     <Style Selector="^ /template/ ContentControl#PART_RightContentControl">
       <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Margin" Value="8 0 0 0" />
+    </Style>
+
+    <Style Selector="^[(assists|TextBoxAssist.CompensateInnerLeftContentMargin)=True] /template/ ContentControl#PART_LeftContentControl">
+      <Setter Property="Margin" Value="-0 -24 0 -24" />
+    </Style>
+
+    <Style Selector="^[(assists|TextBoxAssist.CompensateInnerRightContentMargin)=True] /template/ ContentControl#PART_RightContentControl">
+      <Setter Property="Margin" Value="0 -24 -0 -24" />
     </Style>
 
     <!-- Transitions -->
@@ -443,7 +458,7 @@
                 BasedOn="{StaticResource MaterialTextBox}">
     <Setter Property="CornerRadius" Value="4,4,0,0" />
     <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
-    
+
     <Style Selector="^ /template/ Grid#PART_ContentGrid">
       <Setter Property="Margin" Value="0" />
     </Style>
@@ -459,6 +474,14 @@
 
     <Style Selector="^:has-label /template/ ScrollViewer#PART_ScrollViewer">
       <Setter Property="Margin" Value="0 20 0 8" />
+    </Style>
+
+    <Style Selector="^[(assists|TextBoxAssist.CompensateInnerLeftContentMargin)=True] /template/ ContentControl#PART_LeftContentControl">
+      <Setter Property="Margin" Value="-16 -24 0 -24" />
+    </Style>
+
+    <Style Selector="^[(assists|TextBoxAssist.CompensateInnerRightContentMargin)=True] /template/ ContentControl#PART_RightContentControl">
+      <Setter Property="Margin" Value="0 -24 -12 -24" />
     </Style>
 
     <!-- Feedbacks -->
