@@ -75,7 +75,7 @@
       </StackPanel>
       <StackPanel>
         <TextBlock Classes="Headline6 Subheadline2" Text="Multi-Line fields" />
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Vertical">
           <StackPanel.Styles>
             <Style Selector="TextBox.Floating">
               <Setter Property="Width" Value="360" />
@@ -90,6 +90,21 @@
  Not long. Lorem ipsum dolor sit amet, consectetur adipiscing 
  elit, sed do eiusmod tempor incididunt ut labore et dolore magna
  aliqua." />
+          </showMeTheXaml:XamlDisplay>
+          <TextBlock Classes="Headline6 Subheadline2" Text="Limits and counters" />
+          <showMeTheXaml:XamlDisplay UniqueId="CharacterCounterTextBoxes0">
+            <TextBox Text="Only characters count displayed"
+                     wpf:TextBoxAssist.CharacterCounterMode="OnlyCounter" />
+          </showMeTheXaml:XamlDisplay>
+          <showMeTheXaml:XamlDisplay UniqueId="CharacterCounterTextBoxes1">
+            <TextBox Text="Count and limit"
+                     MaxLength="30"
+                     wpf:TextBoxAssist.CharacterCounterMode="CounterSlashLimit" />
+          </showMeTheXaml:XamlDisplay>
+          <showMeTheXaml:XamlDisplay UniqueId="CharacterCounterTextBoxes2">
+            <TextBox Text="Remaining..."
+                     MaxLength="30"
+                     wpf:TextBoxAssist.CharacterCounterMode="RemainingAlways" />
           </showMeTheXaml:XamlDisplay>
         </StackPanel>
       </StackPanel>

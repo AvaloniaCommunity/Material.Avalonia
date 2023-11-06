@@ -21,11 +21,16 @@
       <TextBox Watermark="Watermark" assists:TextFieldAssist.Label="Label with watermark" />
       <TextBox Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating with watermark" />
       <TextBox UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
+      <TextBox assists:TextBoxAssist.CharacterCounterMode="OnlyCounter" Watermark="Watermark floating" UseFloatingWatermark="True" />
+      <TextBox assists:TextBoxAssist.CharacterCounterMode="OnlyLimit" Watermark="Watermark" assists:TextFieldAssist.Label="Label with watermark" />
+      <TextBox assists:TextBoxAssist.CharacterCounterMode="RemainingAlways" Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating with watermark" />
+      <TextBox assists:TextBoxAssist.CharacterCounterMode="CounterSlashLimit" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
+      <TextBox assists:TextBoxAssist.CharacterCounterMode="RemainingIfCloseToLimit" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
       <TextBox Theme="{StaticResource FilledTextBox}" Watermark="pWatermark" />
       <TextBox Theme="{StaticResource FilledTextBox}" Watermark="Watermark floating" UseFloatingWatermark="True" />
       <TextBox Theme="{StaticResource FilledTextBox}" Watermark="Watermark" assists:TextFieldAssist.Label="Label with watermark" />
       <TextBox Theme="{StaticResource FilledTextBox}" Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating with watermark" />
-      <TextBox Theme="{StaticResource FilledTextBox}" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
+      <TextBox Theme="{StaticResource FilledTextBox}" MaxLength="" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
       <TextBox Watermark="Watermark" Theme="{StaticResource OutlineTextBox}" />
       <TextBox Watermark="Watermark" UseFloatingWatermark="True" Theme="{StaticResource OutlineTextBox}" />
       <TextBox Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label" Theme="{StaticResource OutlineTextBox}" />
@@ -33,6 +38,7 @@
   </Design.PreviewWith>
 
   <converters:GetPlatformHotkeyConfigServiceConverter x:Key="GetPlatformHotkeyConfig" />
+  <converters:CharacterCounterModeToTextConverter x:Key="CharacterCounterModeToTextConverter" />
 
   <StreamGeometry x:Key="TextBoxClearButtonData">M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>
   <StreamGeometry x:Key="PasswordBoxRevealButtonData">M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z</StreamGeometry>
@@ -274,6 +280,17 @@
           <controls:MaterialUnderline Name="PART_Underline" Grid.Row="1"
                                       Margin="0 -1 0 0" />
 
+          <TextBlock Name="PART_CharactersCounter" Grid.Row="2"
+                     HorizontalAlignment="Right">
+            <TextBlock.Text>
+              <MultiBinding Converter="{StaticResource CharacterCounterModeToTextConverter}">
+                <TemplateBinding Property="assists:TextBoxAssist.CharacterCounterMode" />
+                <TemplateBinding Property="Text" />
+                <TemplateBinding Property="MaxLength" />
+              </MultiBinding>
+            </TextBlock.Text>
+          </TextBlock>
+
           <DataValidationErrors Name="PART_DataValidation" Grid.Row="2"
                                 Errors="{TemplateBinding (DataValidationErrors.Errors)}" />
         </Grid>
@@ -311,6 +328,12 @@
 
     <Style Selector="^:has-label /template/ ScrollViewer#PART_ScrollViewer">
       <Setter Property="Margin" Value="0 16 0 8" />
+    </Style>
+
+    <Style Selector="^ /template/ TextBlock#PART_CharactersCounter">
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="Margin" Value="0,2,4,0" />
+      <Setter Property="Opacity" Value="0.56" />
     </Style>
 
     <Style Selector="^:empty[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ TextBlock#PART_WatermarkText,
@@ -361,6 +384,14 @@
     <Style Selector="^ /template/ ContentControl#PART_RightContentControl">
       <Setter Property="VerticalAlignment" Value="Center" />
       <Setter Property="Margin" Value="8 0 0 0" />
+    </Style>
+
+    <Style Selector="^[(assists|TextBoxAssist.CharacterCounterMode)=Hidden] /template/ TextBlock#PART_CharactersCounter">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^[(DataValidationErrors.HasErrors)=True] /template/ TextBlock#PART_CharactersCounter">
+      <Setter Property="Opacity" Value="0" />
     </Style>
 
     <Style Selector="^[(assists|TextBoxAssist.CompensateInnerLeftContentMargin)=True] /template/ ContentControl#PART_LeftContentControl">

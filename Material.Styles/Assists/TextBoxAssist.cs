@@ -5,6 +5,12 @@ namespace Material.Styles.Assists;
 
 public static class TextBoxAssist {
     /// <summary>
+    /// Allows to define remaining characters display
+    /// </summary>
+    public static readonly AttachedProperty<CharacterCounterMode> CharacterCounterModeProperty =
+        AvaloniaProperty.RegisterAttached<TextBox, CharacterCounterMode>("CharacterCounterMode", typeof(TextBoxAssist));
+
+    /// <summary>
     /// Allows to compensate TextBox margins to allow InnerRightContent to be displayed without TextBox padding
     /// </summary>
     public static readonly AttachedProperty<bool> CompensateInnerRightContentMarginProperty =
@@ -15,6 +21,20 @@ public static class TextBoxAssist {
     /// </summary>
     public static readonly AttachedProperty<bool> CompensateInnerLeftContentMarginProperty =
         AvaloniaProperty.RegisterAttached<TextBox, bool>("CompensateInnerLeftContentMargin", typeof(TextBoxAssist));
+
+    /// <summary>
+    /// Gets the <see cref="CharacterCounterModeProperty"/>
+    /// </summary>
+    public static CharacterCounterMode GetCharacterCounterMode(TextBox element) {
+        return element.GetValue(CharacterCounterModeProperty);
+    }
+
+    /// <summary>
+    /// Sets the <see cref="CharacterCounterModeProperty"/>
+    /// </summary>
+    public static void SetCharacterCounterMode(TextBox element, CharacterCounterMode value) {
+        element.SetValue(CharacterCounterModeProperty, value);
+    }
 
     /// <summary>
     /// Gets the <see cref="CompensateInnerRightContentMarginProperty"/>
