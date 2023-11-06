@@ -307,7 +307,9 @@
             </controls:ColorZone>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="SoloFields3">
-            <TextBox BorderBrush="{Binding $self.Foreground}" BorderThickness="1" Classes="solo" Theme="{StaticResource SoloTextBox}"
+            <TextBox Theme="{StaticResource SoloTextBox}"
+                     BorderBrush="{Binding $self.Foreground}" BorderThickness="1"
+                     ClipToBounds="False"
                      Watermark="Search field"
                      CornerRadius="32" Margin="8">
               <TextBox.InnerLeftContent>
@@ -319,7 +321,9 @@
             </TextBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="SoloFields4">
-            <TextBox BorderBrush="Black" Margin="8" BorderThickness="1" Classes="solo" Theme="{StaticResource SoloTextBox}"
+            <TextBox Theme="{StaticResource SoloTextBox}"
+                     BorderBrush="Black" Margin="8" BorderThickness="1"
+                     ClipToBounds="False"
                      Watermark="No container but use border instead" />
           </showMeTheXaml:XamlDisplay>
         </StackPanel>
