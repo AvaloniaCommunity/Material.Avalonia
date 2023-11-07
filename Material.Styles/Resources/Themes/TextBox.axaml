@@ -26,14 +26,14 @@
       <TextBox assists:TextBoxAssist.CharacterCounterMode="RemainingAlways" Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating with watermark" />
       <TextBox assists:TextBoxAssist.CharacterCounterMode="CounterSlashLimit" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
       <TextBox assists:TextBoxAssist.CharacterCounterMode="RemainingIfCloseToLimit" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
-      <TextBox Theme="{StaticResource FilledTextBox}" Watermark="pWatermark" />
-      <TextBox Theme="{StaticResource FilledTextBox}" Watermark="Watermark floating" UseFloatingWatermark="True" />
-      <TextBox Theme="{StaticResource FilledTextBox}" Watermark="Watermark" assists:TextFieldAssist.Label="Label with watermark" />
-      <TextBox Theme="{StaticResource FilledTextBox}" Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating with watermark" />
-      <TextBox Theme="{StaticResource FilledTextBox}" MaxLength="" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
-      <TextBox Watermark="Watermark" Theme="{StaticResource OutlineTextBox}" />
-      <TextBox Watermark="Watermark" UseFloatingWatermark="True" Theme="{StaticResource OutlineTextBox}" />
-      <TextBox Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label" Theme="{StaticResource OutlineTextBox}" />
+      <TextBox Theme="{StaticResource MaterialFilledTextBox}" Watermark="pWatermark" />
+      <TextBox Theme="{StaticResource MaterialFilledTextBox}" Watermark="Watermark floating" UseFloatingWatermark="True" />
+      <TextBox Theme="{StaticResource MaterialFilledTextBox}" Watermark="Watermark" assists:TextFieldAssist.Label="Label with watermark" />
+      <TextBox Theme="{StaticResource MaterialFilledTextBox}" Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating with watermark" />
+      <TextBox Theme="{StaticResource MaterialFilledTextBox}" MaxLength="" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label floating" />
+      <TextBox Watermark="Watermark" Theme="{StaticResource MaterialOutlineTextBox}" />
+      <TextBox Watermark="Watermark" UseFloatingWatermark="True" Theme="{StaticResource MaterialOutlineTextBox}" />
+      <TextBox Watermark="Watermark" UseFloatingWatermark="True" assists:TextFieldAssist.Label="Label" Theme="{StaticResource MaterialOutlineTextBox}" />
     </StackPanel>
   </Design.PreviewWith>
 
@@ -113,7 +113,7 @@
   </MenuFlyout>
 
   <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <Thickness x:Key="OutlineTextBoxClippingParameter">4 0</Thickness>
+  <Thickness x:Key="MaterialOutlineTextBoxClippingParameter">4 0</Thickness>
 
   <ControlTheme x:Key="ClearTextBoxButton"
                 BasedOn="{StaticResource MaterialFlatButton}"
@@ -213,7 +213,7 @@
                   <Style Selector="TextBox:has-label /template/ Border.use-clipping">
                     <Setter Property="Clip">
                       <MultiBinding Converter="{StaticResource RectangleHollowGeometry}"
-                                    ConverterParameter="{StaticResource OutlineTextBoxClippingParameter}"
+                                    ConverterParameter="{StaticResource MaterialOutlineTextBoxClippingParameter}"
                                     RelativeSource="{RelativeSource AncestorType=TextBox}">
                         <Binding ElementName="PART_ContentBorder" Path="Bounds" />
                         <Binding ElementName="PART_LabelRootBorder" Path="Bounds" />
@@ -499,7 +499,7 @@
 
   <!-- Filled text field https://material.io/components/text-fields#filled-text-field -->
 
-  <ControlTheme x:Key="FilledTextBox" TargetType="TextBox"
+  <ControlTheme x:Key="MaterialFilledTextBox" TargetType="TextBox"
                 BasedOn="{StaticResource MaterialTextBox}">
     <Setter Property="CornerRadius" Value="4,4,0,0" />
     <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
@@ -552,7 +552,7 @@
 
   <!-- Outlined text field https://material.io/components/text-fields#outlined-text-field -->
 
-  <ControlTheme x:Key="OutlineTextBox" TargetType="TextBox"
+  <ControlTheme x:Key="MaterialOutlineTextBox" TargetType="TextBox"
                 BasedOn="{StaticResource MaterialTextBox}">
     <Setter Property="internal:MaterialInternalAttachedProperties.UseClippingForBorder" Value="True" />
     <Setter Property="CornerRadius" Value="4" />
@@ -610,7 +610,7 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="SoloTextBox"
+  <ControlTheme x:Key="MaterialSoloTextBox"
                 BasedOn="{StaticResource MaterialTextBox}"
                 TargetType="TextBox">
     <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">

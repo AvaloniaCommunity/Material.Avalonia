@@ -27,7 +27,7 @@
 
 
   <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <Thickness x:Key="OutlineTextBoxClippingParameter">4 0</Thickness>
+  <Thickness x:Key="MaterialOutlineTextBoxClippingParameter">4 0</Thickness>
 
   <!-- TODO: Rework combobox styles-->
   <!-- Default -->
