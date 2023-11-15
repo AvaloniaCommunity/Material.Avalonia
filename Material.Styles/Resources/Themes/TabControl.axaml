@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assists="clr-namespace:Material.Styles.Assists">
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
   <ResourceDictionary.MergedDictionaries>
     <ResourceInclude Source="avares://Material.Styles/Controls/Scroller.axaml" />
     <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
@@ -150,77 +151,65 @@
   <!-- BUG: Fix ScrollableTabControl theme -->
   <!-- TODO: Still need support for TabControlAssist.TabHeader*Alignment -->
   <!-- Scrollable tab control -->
-  <!-- <ControlTheme x:Key="ScrollableTabControl" -->
-  <!--               BasedOn="{StaticResource {x:Type TabControl}}" -->
-  <!--               TargetType="TabControl"> -->
-  <!--   <Setter Property="Template"> -->
-  <!--     <ControlTemplate> -->
-  <!--       <Border Name="PART_RootBorder" -->
-  <!--               Background="{TemplateBinding Background}" -->
-  <!--               BorderBrush="{TemplateBinding BorderBrush}" -->
-  <!--               BorderThickness="{TemplateBinding BorderThickness}" -->
-  <!--               CornerRadius="{TemplateBinding CornerRadius}"> -->
-  <!--         <DockPanel Name="PART_RootPanel"> -->
-  <!--           <Panel Name="{x:Static naming:PartNames.PartTabsPanel}"> -->
-  <!--             <controls:Scroller Name="PART_ScrollViewer" -->
-  <!--                                Theme="{StaticResource TabControlScroller}" /> -->
-  <!-- -->
-  <!--             <Rectangle Name="{x:Static naming:PartNames.PartSeparator}" /> -->
-  <!--           </Panel> -->
-  <!-- -->
-  <!--           <ContentPresenter Name="PART_ContentPresenter" -->
-  <!--                             Margin="{TemplateBinding Padding}" -->
-  <!--                             Content="{TemplateBinding SelectedContent}" -->
-  <!--                             ContentTemplate="{TemplateBinding ContentTemplate}" /> -->
-  <!--         </DockPanel> -->
-  <!--       </Border> -->
-  <!--     </ControlTemplate> -->
-  <!--   </Setter> -->
-  <!-- -->
-  <!--   <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer"> -->
-  <!--     <Setter Property="controls:Scroller.HandleMouseWheel" Value="True" /> -->
-  <!--   </Style> -->
-  <!-- -->
-  <!--   <Style Selector="^[TabStripPlacement=Top]"> -->
-  <!--     <Style Selector="^ /template/ UniformGrid#PART_TabContainer"> -->
-  <!--       <Setter Property="Control.Margin" Value="40, 0" /> -->
-  <!--     </Style> -->
-  <!-- -->
-  <!--     <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer"> -->
-  <!--       <Setter Property="controls:Scroller.Orientation" Value="Horizontal" /> -->
-  <!--     </Style> -->
-  <!--   </Style> -->
-  <!-- -->
-  <!--   <Style Selector="^[TabStripPlacement=Bottom]"> -->
-  <!--     <Style Selector="^ /template/ UniformGrid#PART_TabContainer"> -->
-  <!--       <Setter Property="Control.Margin" Value="40, 0" /> -->
-  <!--     </Style> -->
-  <!-- -->
-  <!--     <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer"> -->
-  <!--       <Setter Property="controls:Scroller.Orientation" Value="Horizontal" /> -->
-  <!--     </Style> -->
-  <!--   </Style> -->
-  <!-- -->
-  <!--   <Style Selector="^[TabStripPlacement=Left]"> -->
-  <!--     <Style Selector="^ /template/ UniformGrid#PART_TabContainer"> -->
-  <!--       <Setter Property="Control.Margin" Value="0, 40" /> -->
-  <!--     </Style> -->
-  <!-- -->
-  <!--     <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer"> -->
-  <!--       <Setter Property="controls:Scroller.Orientation" Value="Vertical" /> -->
-  <!--     </Style> -->
-  <!--   </Style> -->
-  <!-- -->
-  <!--   <Style Selector="^[TabStripPlacement=Right]"> -->
-  <!--     <Style Selector="^ /template/ UniformGrid#PART_TabContainer"> -->
-  <!--       <Setter Property="Control.Margin" Value="0, 40" /> -->
-  <!--     </Style> -->
-  <!-- -->
-  <!--     <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer"> -->
-  <!--       <Setter Property="controls:Scroller.Orientation" Value="Vertical" /> -->
-  <!--     </Style> -->
-  <!--   </Style> -->
-  <!-- </ControlTheme> -->
+  <ControlTheme x:Key="ScrollableTabControl"
+                BasedOn="{StaticResource {x:Type TabControl}}"
+                TargetType="TabControl">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <DockPanel Name="PART_RootPanel">
+            <Panel Name="PART_TabsPanel">
+              <controls:Scroller Name="PART_ScrollViewer"
+                                 Theme="{StaticResource TabControlScroller}">
+                <controls:Scroller.Content>
+                  <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </controls:Scroller.Content>
+              </controls:Scroller>
+
+              <Rectangle Name="PART_Separator" />
+            </Panel>
+
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Margin="{TemplateBinding Padding}"
+                              Content="{TemplateBinding SelectedContent}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+      <Setter Property="controls:Scroller.HandleMouseWheel" Value="True" />
+    </Style>
+
+    <Style Selector="^[TabStripPlacement=Top]">
+      <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+        <Setter Property="controls:Scroller.Orientation" Value="Horizontal" />
+      </Style>
+    </Style>
+
+    <Style Selector="^[TabStripPlacement=Bottom]">
+      <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+        <Setter Property="controls:Scroller.Orientation" Value="Horizontal" />
+      </Style>
+    </Style>
+
+    <Style Selector="^[TabStripPlacement=Left]">
+      <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+        <Setter Property="controls:Scroller.Orientation" Value="Vertical" />
+      </Style>
+    </Style>
+
+    <Style Selector="^[TabStripPlacement=Right]">
+      <Style Selector="^ /template/ controls|Scroller#PART_ScrollViewer">
+        <Setter Property="controls:Scroller.Orientation" Value="Vertical" />
+      </Style>
+    </Style>
+  </ControlTheme>
 
   <!-- Experimental: Bottom navigation implementation -->
   <!-- TODO: Change TabItem styles  -->

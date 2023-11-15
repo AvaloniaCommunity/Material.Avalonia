@@ -9,10 +9,13 @@
   <ControlTheme x:Key="TabControlScroller" TargetType="controls:Scroller">
     <Setter Property="ScrollSpeed" Value="50" />
     <Setter Property="SmallScrollMultiplier" Value="0.5" />
+    <Setter Property="VerticalScrollBarVisibility" Value="Hidden" />
+    <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Panel Name="PART_RootPanel">
-          <ScrollContentPresenter Name="PART_ContentPresenter"
+        <Grid Name="PART_RootPanel"
+              ColumnDefinitions="Auto * Auto">
+          <ScrollContentPresenter Name="PART_ContentPresenter" Grid.Column="1"
                                   Padding="{TemplateBinding Padding}">
             <ScrollContentPresenter.GestureRecognizers>
               <ScrollGestureRecognizer
@@ -21,13 +24,13 @@
             </ScrollContentPresenter.GestureRecognizers>
           </ScrollContentPresenter>
 
-          <Button Name="PART_PageUpButton"
-                  IsEnabled="{TemplateBinding controls:Scroller.CanScrollToStart}"
+          <Button Name="PART_PageUpButton" Grid.Column="0"
+                  IsVisible="{TemplateBinding controls:Scroller.CanScrollToStart}"
                   Command="{Binding $parent[controls:Scroller].ScrollPageBackOnce}" />
-          <Button Name="PART_PageDownButton"
-                  IsEnabled="{TemplateBinding controls:Scroller.CanScrollToEnd}"
+          <Button Name="PART_PageDownButton" Grid.Column="2"
+                  IsVisible="{TemplateBinding controls:Scroller.CanScrollToEnd}"
                   Command="{Binding $parent[controls:Scroller].ScrollPageForwardOnce}" />
-        </Panel>
+        </Grid>
       </ControlTemplate>
     </Setter>
 

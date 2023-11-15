@@ -2,9 +2,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
-using Avalonia.Controls.Primitives;
 using Avalonia.Input;
-using Avalonia.Interactivity;
 using Avalonia.Layout;
 
 namespace Material.Styles.Controls {
@@ -12,8 +10,7 @@ namespace Material.Styles.Controls {
     /// A customized ScrollViewer that designed for scrolling in TabControl and Breadcrumbs.
     /// Suitable for single orientation scrolls (horizontally or vertically, for standard scroll: <see cref="ScrollViewer"/>)
     /// </summary>
-    /// TODO: Complete component modification
-    public sealed class Scroller : ContentControl, IScrollable, IScrollAnchorProvider {
+    public sealed class Scroller : ScrollViewer {
         /// <summary>
         /// Defines the <see cref="Orientation"/> property.
         /// </summary>
@@ -44,33 +41,6 @@ namespace Material.Styles.Controls {
         public static readonly DirectProperty<Scroller, bool> CanVerticallyScrollProperty =
             AvaloniaProperty.RegisterDirect<Scroller, bool>(nameof(CanVerticallyScroll),
                 o => o.CanVerticallyScroll);
-
-        /// <summary>
-        /// Defines the <see cref="Extent"/> property.
-        /// </summary>
-        public static readonly StyledProperty<Size> ExtentProperty =
-            AvaloniaProperty.Register<Scroller, Size>(nameof(Extent));
-
-        /// <summary>
-        /// Defines the <see cref="Offset"/> property.
-        /// </summary>
-        public static readonly StyledProperty<Vector> OffsetProperty =
-            AvaloniaProperty.Register<Scroller, Vector>(nameof(Offset),
-                coerce: CoerceOffset);
-
-        /// <summary>
-        /// Defines the <see cref="Viewport"/> property.
-        /// </summary>
-        public static readonly StyledProperty<Size> ViewportProperty =
-            AvaloniaProperty.Register<Scroller, Size>(nameof(Viewport));
-
-        /// <summary>
-        /// Defines the <see cref="ScrollChanged"/> event.
-        /// </summary>
-        public static readonly RoutedEvent<ScrollChangedEventArgs> ScrollChangedEvent =
-            RoutedEvent.Register<Scroller, ScrollChangedEventArgs>(
-                nameof(ScrollChanged),
-                RoutingStrategies.Bubble);
 
         /// <summary>
         /// Defines the <see cref="CanScrollToStart"/> property.
@@ -161,55 +131,6 @@ namespace Material.Styles.Controls {
             private set => SetAndRaise(CanScrollToEndProperty, ref _canScrollToEnd, value);
         }
 
-        /// <summary>
-        /// Gets a value indicating whether the viewer can scroll horizontally.
-        /// </summary>
-        public bool CanHorizontallyScroll => Orientation == Orientation.Horizontal;
-
-        /// <summary>
-        /// Gets a value indicating whether the viewer can scroll vertically.
-        /// </summary>
-        public bool CanVerticallyScroll => Orientation == Orientation.Vertical;
-
-        /// <summary>
-        /// Gets the extent of the scrollable content.
-        /// </summary>
-        public Size Extent {
-            get => GetValue(ExtentProperty);
-            private set => SetValue(ExtentProperty, value);
-        }
-
-        /// <summary>
-        /// Gets or sets the current scroll offset.
-        /// </summary>
-        public Vector Offset {
-            get => GetValue(OffsetProperty);
-            set => SetValue(OffsetProperty, value);
-        }
-
-        /// <summary>
-        /// Gets the size of the viewport on the scrollable content.
-        /// </summary>
-        public Size Viewport {
-            get => GetValue(ViewportProperty);
-            private set => SetValue(ViewportProperty, value);
-        }
-
-        /// <inheritdoc/>
-        public Control? CurrentAnchor => Presenter is IScrollAnchorProvider scrollAnchorProvider
-            ? scrollAnchorProvider.CurrentAnchor
-            : null;
-
-        /// <inheritdoc/>
-        public void RegisterAnchorCandidate(Control element) {
-            (Presenter as IScrollAnchorProvider)?.RegisterAnchorCandidate(element);
-        }
-
-        /// <inheritdoc/>
-        public void UnregisterAnchorCandidate(Control element) {
-            (Presenter as IScrollAnchorProvider)?.UnregisterAnchorCandidate(element);
-        }
-
         /// <inheritdoc />
         protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
             base.OnPropertyChanged(change);
@@ -218,14 +139,6 @@ namespace Material.Styles.Controls {
                                                     || change.Property == OffsetProperty
                                                     || change.Property == ExtentProperty))
                 CalculatedPropertiesChanged();
-        }
-
-        /// <summary>
-        /// Occurs when changes are detected to the scroll position, extent, or viewport size.
-        /// </summary>
-        public event EventHandler<ScrollChangedEventArgs> ScrollChanged {
-            add => AddHandler(ScrollChangedEvent, value);
-            remove => RemoveHandler(ScrollChangedEvent, value);
         }
 
         public void ScrollBackOnce() {
@@ -284,91 +197,6 @@ namespace Material.Styles.Controls {
             }
         }
 
-        /// <summary>
-        /// Scrolls the content up once with <see cref="ScrollSpeed"/>.
-        /// </summary>
-        public void LineUp() {
-            Offset -= new Vector(0, ScrollSpeed);
-        }
-
-        /// <summary>
-        /// Scrolls the content down once with <see cref="ScrollSpeed"/>.
-        /// </summary>
-        public void LineDown() {
-            Offset += new Vector(0, ScrollSpeed);
-        }
-
-        /// <summary>
-        /// Scrolls the content left once with <see cref="ScrollSpeed"/>.
-        /// </summary>
-        public void LineLeft() {
-            Offset -= new Vector(ScrollSpeed, 0);
-        }
-
-        /// <summary>
-        /// Scrolls the content right once with <see cref="ScrollSpeed"/>.
-        /// </summary>
-        public void LineRight() {
-            Offset += new Vector(ScrollSpeed, 0);
-        }
-
-
-        /// <summary>
-        /// Scrolls the content up once with <see cref="ScrollSpeed"/>.
-        /// </summary>
-        public void PageUp() {
-            Offset -= new Vector(0, Viewport.Height);
-        }
-
-        /// <summary>
-        /// Scrolls the content down once with <see cref="ScrollSpeed"/>.
-        /// </summary>
-        public void PageDown() {
-            Offset += new Vector(0, Viewport.Height);
-        }
-
-        /// <summary>
-        /// Scrolls the content left once with <see cref="ScrollSpeed"/>.
-        /// </summary>
-        public void PageLeft() {
-            Offset -= new Vector(Viewport.Width, 0);
-        }
-
-        /// <summary>
-        /// Scrolls the content right once with <see cref="ScrollSpeed"/>.
-        /// </summary>
-        public void PageRight() {
-            Offset += new Vector(Viewport.Width, 0);
-        }
-
-        /// <summary>
-        /// Scrolls to the top-left corner of the content.
-        /// </summary>
-        public void ScrollToHome() {
-            Offset = new Vector(double.NegativeInfinity, double.NegativeInfinity);
-        }
-
-        /// <summary>
-        /// Scrolls to the bottom-left corner of the content.
-        /// </summary>
-        public void ScrollToEnd() {
-            Offset = new Vector(double.NegativeInfinity, double.PositiveInfinity);
-        }
-
-        protected override bool RegisterContentPresenter(ContentPresenter presenter) {
-            _childSubscription?.Dispose();
-            _childSubscription = null;
-
-            if (!base.RegisterContentPresenter(presenter))
-                return false;
-
-            // BUG: Obsolete API?
-            // _childSubscription = Presenter?
-            //     .GetObservable(ContentPresenter.ChildProperty)
-            //     .Subscribe(ChildChanged);
-            return true;
-        }
-
         protected override void OnPointerWheelChanged(PointerWheelEventArgs e) {
             var isHandle = HandleMouseWheel;
 
@@ -415,19 +243,6 @@ namespace Material.Styles.Controls {
                     CanScrollToEnd = offset.Y < Extent.Height - Viewport.Height;
                     break;
             }
-        }
-
-        /// <summary>
-        /// Called when a change in scrolling state is detected, such as a change in scroll
-        /// position, extent, or viewport size.
-        /// </summary>
-        /// <param name="e">The event args.</param>
-        /// <remarks>
-        /// If you override this method, call `base.OnScrollChanged(ScrollChangedEventArgs)` to
-        /// ensure that this event is raised.
-        /// </remarks>
-        private void OnScrollChanged(ScrollChangedEventArgs e) {
-            RaiseEvent(e);
         }
 
         private void OnLayoutUpdated(object sender, EventArgs e) => RaiseScrollChanged();
