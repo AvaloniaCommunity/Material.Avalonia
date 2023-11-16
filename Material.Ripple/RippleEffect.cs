@@ -1,24 +1,24 @@
-﻿using System.Threading.Tasks;
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media;
+using Avalonia.Rendering.Composition;
 using Avalonia.Threading;
 
 namespace Material.Ripple {
     public class RippleEffect : ContentControl {
-        public static readonly StyledProperty<bool> UseTransitionsProperty =
-            AvaloniaProperty.Register<RippleEffect, bool>(nameof(UseTransitions));
+
         private bool _isCancelled;
 
-        private Ripple? _last;
+        private CompositionContainerVisual? _container;
+        private CompositionCustomVisual? _last;
         private byte _pointers;
-
-        // ReSharper disable once InconsistentNaming
-        private Canvas PART_RippleCanvasRoot = null!;
-
+        
+        static RippleEffect() {
+            BackgroundProperty.OverrideDefaultValue<RippleEffect>(Brushes.Transparent);
+        }
+        
         public RippleEffect() {
             AddHandler(LostFocusEvent, LostFocusHandler);
             AddHandler(PointerReleasedEvent, PointerReleasedHandler);
@@ -26,36 +26,61 @@ namespace Material.Ripple {
             AddHandler(PointerCaptureLostEvent, PointerCaptureLostHandler);
         }
 
-        public bool UseTransitions {
-            get => GetValue(UseTransitionsProperty);
-            set => SetValue(UseTransitionsProperty, value);
+        protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e) {
+            base.OnAttachedToVisualTree(e);
+
+            var thisVisual = ElementComposition.GetElementVisual(this)!;
+            _container = thisVisual.Compositor.CreateContainerVisual();
+            _container.Size = new Vector(Bounds.Width, Bounds.Height);
+            ElementComposition.SetElementChildVisual(this, _container);
+        }
+
+        protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e) {
+            base.OnDetachedFromVisualTree(e);
+
+            _container = null;
+            ElementComposition.SetElementChildVisual(this, null);
+        }
+
+        protected override void OnSizeChanged(SizeChangedEventArgs e) {
+            base.OnSizeChanged(e);
+
+            if (_container is { } container) {
+                var newSize = new Vector(e.NewSize.Width, e.NewSize.Height);
+                if (newSize != default) {
+                    container.Size = newSize;
+                    foreach (var child in container.Children) {
+                        child.Size = newSize;
+                    }
+                }
+            }
         }
 
         private void PointerPressedHandler(object sender, PointerPressedEventArgs e) {
             var (x, y) = e.GetPosition(this);
-            if (x < 0 || x > Bounds.Width || y < 0 || y > Bounds.Height) {
+            if (_container is null || x < 0 || x > Bounds.Width || y < 0 || y > Bounds.Height) {
                 return;
             }
             _isCancelled = false;
-            Dispatcher.UIThread.InvokeAsync(delegate {
-                if (!IsAllowedRaiseRipple)
-                    return;
 
-                if (_pointers != 0)
-                    return;
+            if (!IsAllowedRaiseRipple)
+                return;
 
-                // Only first pointer can arrive a ripple
-                _pointers++;
-                var r = CreateRipple(e, RaiseRippleCenter);
-                _last = r;
+            if (_pointers != 0)
+                return;
 
-                // Attach ripple instance to canvas
-                PART_RippleCanvasRoot.Children.Add(r);
-                r.RunFirstStep();
-                if (_isCancelled) {
-                    RemoveLastRipple();
-                }
-            }, DispatcherPriority.Render);
+            // Only first pointer can arrive a ripple
+            _pointers++;
+            var r = CreateRipple(x, y, RaiseRippleCenter);
+            _last = r;
+
+            // Attach ripple instance to canvas
+            _container.Children.Add(r);
+            r.SendHandlerMessage(RippleHandler.FirstStepMessage);
+
+            if (_isCancelled) {
+                RemoveLastRipple();
+            }
         }
 
         private void LostFocusHandler(object sender, RoutedEventArgs e) {
@@ -85,44 +110,43 @@ namespace Material.Ripple {
             _last = null;
         }
 
-        private void OnReleaseHandler(Ripple r) {
+        private void OnReleaseHandler(CompositionCustomVisual r) {
             // Fade out ripple
-            r.RunSecondStep();
-
-            void RemoveRippleTask(Task arg1, object arg2) {
-                Dispatcher.UIThread.InvokeAsync(delegate { PART_RippleCanvasRoot.Children.Remove(r); }, DispatcherPriority.Render);
-            }
+            r.SendHandlerMessage(RippleHandler.SecondStepMessage);
 
             // Remove ripple from canvas to finalize ripple instance
-            Task.Delay(Ripple.Duration).ContinueWith(RemoveRippleTask, null);
+            var container = _container;
+            DispatcherTimer.RunOnce(() => {
+                container?.Children.Remove(r);
+            }, Ripple.Duration, DispatcherPriority.Render);
         }
 
-        protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
-            base.OnApplyTemplate(e);
-
-            // Find canvas host
-            PART_RippleCanvasRoot = e.NameScope.Find<Canvas>(nameof(PART_RippleCanvasRoot))!;
-        }
-
-        private Ripple CreateRipple(PointerPressedEventArgs e, bool center) {
+        private CompositionCustomVisual CreateRipple(double x, double y, bool center) {
             var w = Bounds.Width;
             var h = Bounds.Height;
             var t = UseTransitions;
 
-            var r = new Ripple(w, h, t) {
-                Fill = RippleFill
-            };
+            if (center) {
+                x = w / 2;
+                y = h / 2;
+            }
+            
+            var handler = new RippleHandler(
+                RippleFill.ToImmutable(),
+                Ripple.Easing,
+                Ripple.Duration,
+                RippleOpacity,
+                x, y, w, h, t);
 
-            if (center) r.Margin = new Thickness(w / 2, h / 2, 0, 0);
-            else r.SetupInitialValues(e, this);
-
-            return r;
+            var visual = ElementComposition.GetElementVisual(this)!.Compositor.CreateCustomVisual(handler);
+            visual.Size = new Vector(Bounds.Width, Bounds.Height);
+            return visual;
         }
 
         #region Styled properties
 
         public static readonly StyledProperty<IBrush> RippleFillProperty =
-            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), inherits: true);
+            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), inherits: true, defaultValue: Brushes.White);
 
         public IBrush RippleFill {
             get => GetValue(RippleFillProperty);
@@ -130,7 +154,7 @@ namespace Material.Ripple {
         }
 
         public static readonly StyledProperty<double> RippleOpacityProperty =
-            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), inherits: true);
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(RippleOpacity), inherits: true, defaultValue: 0.6);
 
         public double RippleOpacity {
             get => GetValue(RippleOpacityProperty);
@@ -146,13 +170,21 @@ namespace Material.Ripple {
         }
 
         public static readonly StyledProperty<bool> IsAllowedRaiseRippleProperty =
-            AvaloniaProperty.Register<RippleEffect, bool>(nameof(IsAllowedRaiseRipple));
+            AvaloniaProperty.Register<RippleEffect, bool>(nameof(IsAllowedRaiseRipple), defaultValue: true);
 
         public bool IsAllowedRaiseRipple {
             get => GetValue(IsAllowedRaiseRippleProperty);
             set => SetValue(IsAllowedRaiseRippleProperty, value);
         }
 
+        public static readonly StyledProperty<bool> UseTransitionsProperty =
+            AvaloniaProperty.Register<RippleEffect, bool>(nameof(UseTransitions), defaultValue: true);
+
+        public bool UseTransitions {
+            get => GetValue(UseTransitionsProperty);
+            set => SetValue(UseTransitionsProperty, value);
+        }
+        
         #endregion Styled properties
     }
 }
