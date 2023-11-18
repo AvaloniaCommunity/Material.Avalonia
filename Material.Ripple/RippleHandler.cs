@@ -4,23 +4,22 @@ using Avalonia.Animation.Easings;
 using Avalonia.Media;
 using Avalonia.Rendering.Composition;
 
-namespace Material.Ripple; 
+namespace Material.Ripple;
 
 internal class RippleHandler : CompositionCustomVisualHandler {
-    private TimeSpan _animationElapsed;
-    private TimeSpan? _lastServerTime;
-    private TimeSpan? _secondStepStart;
+    public static readonly object FirstStepMessage = new(), SecondStepMessage = new();
 
     private readonly IImmutableBrush _brush;
     private readonly Point _center;
-    private readonly Easing _easing;
     private readonly TimeSpan _duration;
-    private readonly double _opacity;
-    private readonly bool _transitions;
-
-    public static readonly object FirstStepMessage = new(), SecondStepMessage = new();
+    private readonly Easing _easing;
 
     private readonly double _maxRadius;
+    private readonly double _opacity;
+    private readonly bool _transitions;
+    private TimeSpan _animationElapsed;
+    private TimeSpan? _lastServerTime;
+    private TimeSpan? _secondStepStart;
 
     public RippleHandler(
         IImmutableBrush brush,
@@ -37,7 +36,7 @@ internal class RippleHandler : CompositionCustomVisualHandler {
         _transitions = transitions;
         _center = new Point(positionX, positionY);
 
-        _maxRadius = Math.Sqrt(Math.Pow(outerWidth, 2) + Math.Pow(outerHeight, 2)) / 2;
+        _maxRadius = Math.Sqrt(Math.Pow(outerWidth, 2) + Math.Pow(outerHeight, 2));
     }
 
     public override void OnRender(ImmediateDrawingContext drawingContext) {
@@ -73,7 +72,7 @@ internal class RippleHandler : CompositionCustomVisualHandler {
             _secondStepStart = _animationElapsed;
         }
     }
-    
+
     public override void OnAnimationFrameUpdate() {
         if (_animationElapsed >= _duration) return;
         Invalidate();
