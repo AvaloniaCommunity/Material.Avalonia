@@ -148,7 +148,7 @@
   <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl"
                 BasedOn="{StaticResource MaterialTabControl}" />
 
-  <!-- BUG: Fix ScrollableTabControl theme -->
+
   <!-- TODO: Still need support for TabControlAssist.TabHeader*Alignment -->
   <!-- Scrollable tab control -->
   <ControlTheme x:Key="ScrollableTabControl"
