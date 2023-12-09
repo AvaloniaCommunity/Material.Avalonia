@@ -128,7 +128,6 @@
     <Setter Property="Padding" Value="4" />
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="HorizontalAlignment" Value="Center" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="ToolTip.Tip" Value="Click to clear field" />
     <Setter Property="Content">
       <Template>
@@ -144,7 +143,6 @@
     <Setter Property="Padding" Value="4" />
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="HorizontalAlignment" Value="Center" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
 
     <Style Selector="^:unchecked">
       <Setter Property="ToolTip.Tip" Value="Click to reveal content of field" />
