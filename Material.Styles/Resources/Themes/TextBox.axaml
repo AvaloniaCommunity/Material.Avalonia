@@ -46,7 +46,8 @@
 
   <ContextMenu x:Key="DefaultTextBoxContextMenu"
                Name="TextBoxContextMenu"
-               WindowManagerAddShadowHint="False">
+               WindowManagerAddShadowHint="False"
+               Cursor="Arrow">
 
     <MenuItem Name="TextBoxContextMenuCutItem"
               Header="Cut"
@@ -79,8 +80,14 @@
               Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll, Size=24}" />
   </ContextMenu>
 
+  <ControlTheme x:Key="MaterialTextBoxFlyoutPresenter" TargetType="MenuFlyoutPresenter"
+                BasedOn="{StaticResource {x:Type MenuFlyoutPresenter}}">
+    <Setter Property="Cursor" Value="Arrow" />
+  </ControlTheme>
+
   <MenuFlyout x:Key="DefaultTextBoxMenuFlyout"
-              Placement="Bottom">
+              Placement="Bottom"
+              FlyoutPresenterTheme="{StaticResource MaterialTextBoxFlyoutPresenter}">
     <MenuItem Name="TextBoxMenuFlyoutCutItem"
               Header="Cut"
               Command="{Binding $parent[TextBox].Cut}"

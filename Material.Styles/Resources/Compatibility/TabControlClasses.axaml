@@ -8,8 +8,7 @@
     </ResourceDictionary>
   </Styles.Resources>
 
-  <!-- BUG: Fix ScrollableTabControl theme -->
-  <!-- <Style Selector="TabControl.Scrollable, TabControl.scrollable"> -->
-  <!-- <Setter Property="Control.Theme" Value="{StaticResource ScrollableTabControl}"/> -->
-  <!-- </Style> -->
+  <Style Selector="TabControl.Scrollable, TabControl.scrollable">
+    <Setter Property="Control.Theme" Value="{StaticResource ScrollableTabControl}" />
+  </Style>
 </Styles>

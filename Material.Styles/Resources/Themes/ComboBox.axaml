@@ -92,6 +92,7 @@
 
             <Panel Name="PART_PopupContainer">
               <Popup Name="PART_Popup"
+                     IsLightDismissEnabled="True"
                      IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}">
                 <controls:Card Name="PART_Card"
                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
