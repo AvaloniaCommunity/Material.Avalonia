@@ -588,6 +588,14 @@
       <Setter Property="Margin" Value="0 16 0 16" />
     </Style>
 
+    <Style Selector="^[(assists|TextBoxAssist.CompensateInnerLeftContentMargin)=True] /template/ ContentControl#PART_LeftContentControl">
+      <Setter Property="Margin" Value="-16 -24 0 -24" />
+    </Style>
+
+    <Style Selector="^[(assists|TextBoxAssist.CompensateInnerRightContentMargin)=True] /template/ ContentControl#PART_RightContentControl">
+      <Setter Property="Margin" Value="0 -24 -12 -24" />
+    </Style>
+
     <!-- Feedbacks -->
 
     <Style Selector="^:focus-within">
