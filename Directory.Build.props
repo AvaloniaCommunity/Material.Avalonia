@@ -14,8 +14,8 @@
     <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>3.1.1</Version>
-    <PackageReleaseNotes>https://github.com/AvaloniaCommunity/Material.Avalonia/releases/tag/v3.1.1</PackageReleaseNotes>
+    <Version>3.1.2</Version>
+    <PackageReleaseNotes>https://github.com/AvaloniaCommunity/Material.Avalonia/releases/tag/v3.1.2</PackageReleaseNotes>
 
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
   </PropertyGroup>
