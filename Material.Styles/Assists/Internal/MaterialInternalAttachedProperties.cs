@@ -11,7 +11,7 @@ namespace Material.Styles.Assists.Internal;
 /// </remarks>
 public static class MaterialInternalAttachedProperties {
     public static readonly AttachedProperty<bool> UseClippingForBorderProperty
-        = AvaloniaProperty.RegisterAttached<TextBox, bool>("UseClippingForBorder", typeof(MaterialInternalAttachedProperties));
+        = AvaloniaProperty.RegisterAttached<TextBox, bool>("UseClippingForBorder", typeof(MaterialInternalAttachedProperties), inherits: true);
 
     public static bool GetUseClippingForBorder(TextBox element) {
         return element.GetValue(UseClippingForBorderProperty);

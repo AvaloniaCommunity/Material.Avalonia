@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:assists="clr-namespace:Material.Styles.Assists">
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:internal="clr-namespace:Material.Styles.Assists.Internal">
   <Design.PreviewWith>
     <Border Padding="20">
       <StackPanel Spacing="20">
@@ -162,6 +163,11 @@
   <!-- Outline -->
   <ControlTheme x:Key="OutlineNumericUpDown" TargetType="NumericUpDown"
                 BasedOn="{StaticResource MaterialNumericUpDown}">
+    <Setter Property="internal:MaterialInternalAttachedProperties.UseClippingForBorder" Value="True" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
+    
     <Style Selector="^ /template/ TextBox#PART_TextBox">
       <Setter Property="Theme" Value="{StaticResource MaterialOutlineTextBox}" />
     </Style>
