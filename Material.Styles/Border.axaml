@@ -1,0 +1,10 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style Selector="Border:not(.no-transitions)">
+    <Setter Property="Transitions">
+      <Transitions>
+        <BoxShadowsTransition Property="BoxShadow" Duration="0:0:0.35" />
+      </Transitions>
+    </Setter>
+  </Style>
+</Styles>
