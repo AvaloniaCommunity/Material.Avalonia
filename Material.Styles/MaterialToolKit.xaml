@@ -87,5 +87,5 @@
   </Styles.Resources>
 
   <StyleInclude Source="avares://Material.Styles/Border.axaml" />
-  <StyleInclude Source="avares://Material.Styles/UserControl.xaml" />
+  <StyleInclude Source="avares://Material.Styles/UserControl.axaml" />
 </Styles>
