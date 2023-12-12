@@ -120,7 +120,9 @@
   </MenuFlyout>
 
   <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <Thickness x:Key="MaterialOutlineTextBoxClippingParameter">4 0</Thickness>
+  <!-- Here is 0 because cursor clipping problems -->
+  <!-- We also have `Padding 4 0` and `Margin -4 x` on PART_LabelRootBorder -->
+  <Thickness x:Key="MaterialOutlineTextBoxClippingParameter">0</Thickness>
 
   <ControlTheme x:Key="ClearTextBoxButton"
                 BasedOn="{StaticResource MaterialFlatButton}"
@@ -242,7 +244,9 @@
                               ClipToBounds="False" />
 
               <Border Name="PART_LabelRootBorder"
-                      Grid.Row="0" Grid.Column="2">
+                      Grid.Row="0" Grid.Column="2"
+                      Background="Transparent"
+                      Padding="4 0">
                 <TextBlock Name="PART_LabelText"
                            Text="{TemplateBinding (assists:TextFieldAssist.Label)}" />
               </Border>
@@ -348,7 +352,7 @@
 
     <Style Selector="^ /template/ Border#PART_LabelRootBorder">
       <Setter Property="RenderTransformOrigin" Value="0,0" />
-      <Setter Property="Margin" Value="0,16,0,-16" />
+      <Setter Property="Margin" Value="-4,16,-4,-16" />
       <Setter Property="RenderTransform" Value="scale(1)" />
       <Setter Property="VerticalAlignment" Value="Top" />
       <Setter Property="HorizontalAlignment" Value="Left" />
@@ -479,7 +483,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 0 0 -16" />
+      <Setter Property="Margin" Value="-4 0 -4 -16" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
 
@@ -514,7 +518,7 @@
     </Style>
 
     <Style Selector="^ /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0,16,0,-16" />
+      <Setter Property="Margin" Value="-4,16, -4,-16" />
       <Setter Property="RenderTransform" Value="scale(1)" />
     </Style>
 
@@ -540,7 +544,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 6 0 -16" />
+      <Setter Property="Margin" Value="-4 6 -4 -16" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
 
@@ -604,7 +608,7 @@
     </Style>
 
     <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 16 0 0" />
+      <Setter Property="Margin" Value="-4 16 -4 0" />
       <Setter Property="RenderTransform" Value="scale(1)" />
     </Style>
 
@@ -612,7 +616,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="0 -6 0 0" />
+      <Setter Property="Margin" Value="-4 -6 -4 0" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
 
