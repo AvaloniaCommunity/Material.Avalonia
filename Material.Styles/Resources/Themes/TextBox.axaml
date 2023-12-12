@@ -483,6 +483,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Grid.ColumnSpan" Value="2" />
       <Setter Property="Margin" Value="-4 0 -4 -16" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
@@ -544,6 +545,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Grid.ColumnSpan" Value="2" />
       <Setter Property="Margin" Value="-4 6 -4 -16" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
@@ -616,6 +618,7 @@
                      ^:focus-within /template/ Border#PART_LabelRootBorder,
                      ^:not(:empty) /template/ Border#PART_LabelRootBorder,
                      ^[(assists|TextFieldAssist.UseFloatingLabel)=True]:not(:watermark-as-label) /template/ Border#PART_LabelRootBorder">
+      <Setter Property="Grid.ColumnSpan" Value="2" />
       <Setter Property="Margin" Value="-4 -6 -4 0" />
       <Setter Property="RenderTransform" Value="scale(0.75)" />
     </Style>
