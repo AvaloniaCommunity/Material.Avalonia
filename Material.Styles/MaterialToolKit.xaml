@@ -86,6 +86,5 @@
     </ResourceDictionary>
   </Styles.Resources>
 
-  <StyleInclude Source="avares://Material.Styles/Border.axaml" />
   <StyleInclude Source="avares://Material.Styles/UserControl.axaml" />
 </Styles>
