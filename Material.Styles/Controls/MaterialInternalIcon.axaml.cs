@@ -17,10 +17,6 @@ namespace Material.Styles.Controls {
 
         private Geometry? _data;
 
-        static MaterialInternalIcon() {
-            KindProperty.Changed.Subscribe(args => (args.Sender as MaterialInternalIcon)?.UpdateData());
-        }
-
         /// <summary>
         /// Gets or sets the icon to display.
         /// </summary>
@@ -46,6 +42,13 @@ namespace Material.Styles.Controls {
         protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
             base.OnApplyTemplate(e);
             UpdateData();
+        }
+
+        /// <inheritdoc />
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
+            base.OnPropertyChanged(change);
+
+            if (change.Property == KindProperty) UpdateData();
         }
 
         private void UpdateData() {
