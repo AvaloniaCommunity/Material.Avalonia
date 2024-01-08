@@ -26,12 +26,11 @@ namespace Material.Styles.Themes {
             AvaloniaProperty.RegisterDirect<MaterialTheme, BaseThemeMode>(
                 nameof(ActualBaseTheme),
                 o => o.ActualBaseTheme);
+        private readonly ITheme _theme = new Theme();
 
         private BaseThemeMode _actualBaseTheme;
-        private IDisposable? _baseThemeChangeObservable;
         private bool _isLoaded;
         private IThemeVariantHost? _lastThemeVariantHost;
-        private ITheme _theme = new Theme();
         private IDisposable? _themeUpdateDisposable;
 
         /// <summary>
@@ -63,7 +62,7 @@ namespace Material.Styles.Themes {
         }
 
         public void Dispose() {
-            _themeUpdateDisposable.Dispose();
+            _themeUpdateDisposable?.Dispose();
         }
 
         private void OnOwnerChanged(object sender, EventArgs e) {
@@ -114,8 +113,6 @@ namespace Material.Styles.Themes {
         }
 
         private void RegisterActualThemeObservable() {
-            _baseThemeChangeObservable?.Dispose();
-
             if (_lastThemeVariantHost is not null) _lastThemeVariantHost.ActualThemeVariantChanged -= HostOnActualThemeVariantChanged;
 
             _lastThemeVariantHost = Owner as IThemeVariantHost;
