@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Globalization;
 using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Media;
-using Avalonia.Styling;
+using Material.Styles.Internal;
 
 namespace Material.Styles.Assists {
     public static class ShadowProvider {
@@ -68,62 +66,35 @@ namespace Material.Styles.Assists {
             DarkenProperty.Changed.Subscribe(DarkenPropertyChangedCallback);
         }
 
-        private static void ShadowDepthChangedCallback(AvaloniaPropertyChangedEventArgs args) {
-            if (args.Sender is Border border)
-                border.BoxShadow =
-                    (args.NewValue as ShadowDepth? ?? ShadowDepth.Depth0)
-                    .ToBoxShadows();
-        }
-
         public static void SetShadowDepth(AvaloniaObject element, ShadowDepth value)
             => element.SetValue(ShadowDepthProperty, value);
 
         public static ShadowDepth GetShadowDepth(AvaloniaObject element)
             => element.GetValue<ShadowDepth>(ShadowDepthProperty);
 
-        private static void DarkenPropertyChangedCallback(AvaloniaPropertyChangedEventArgs obj) {
-            if (obj.Sender is not Border border)
-                return;
-
-            var boxShadow = border.BoxShadow;
-
-            var targetBoxShadows = (bool?)obj.NewValue == true
-                ? GetShadowDepth(border).ToBoxShadows(Color.FromArgb(255, 0, 0, 0))
-                : GetShadowDepth(border).ToBoxShadows();
-
-            if (!border.Classes.Contains("no-transitions")) {
-                var animation = new Animation { Duration = TimeSpan.FromMilliseconds(350), FillMode = FillMode.Both };
-                animation.Children.Add(
-                    new KeyFrame {
-                        Cue = Cue.Parse("0%", CultureInfo.CurrentCulture),
-                        Setters = {
-                            new Setter {
-                                Property = Border.BoxShadowProperty,
-                                Value = boxShadow
-                            }
-                        }
-                    });
-                animation.Children.Add(
-                    new KeyFrame {
-                        Cue = Cue.Parse("100%", CultureInfo.CurrentCulture),
-                        Setters = {
-                            new Setter {
-                                Property = Border.BoxShadowProperty,
-                                Value = targetBoxShadows
-                            }
-                        }
-                    });
-                animation.RunAsync(border);
-            }
-            else {
-                border.SetValue(Border.BoxShadowProperty, targetBoxShadows);
-            }
-        }
-
         public static void SetDarken(AvaloniaObject element, bool value)
             => element.SetValue(DarkenProperty, value);
 
         public static bool GetDarken(AvaloniaObject element)
             => element.GetValue<bool>(DarkenProperty);
+
+        private static void ShadowDepthChangedCallback(AvaloniaPropertyChangedEventArgs args) {
+            if (args.Sender is Border border) {
+                border.BoxShadow =
+                    (args.NewValue as ShadowDepth? ?? ShadowDepth.Depth0)
+                    .ToBoxShadows();
+            }
+        }
+
+        private static void DarkenPropertyChangedCallback(AvaloniaPropertyChangedEventArgs obj) {
+            if (obj.Sender is not Border border)
+                return;
+
+            var targetBoxShadows = (bool?)obj.NewValue == true
+                ? GetShadowDepth(border).ToBoxShadows(Avalonia.Media.Colors.Black)
+                : GetShadowDepth(border).ToBoxShadows();
+
+            border.SetValue(Border.BoxShadowProperty, targetBoxShadows);
+        }
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
@@ -12,6 +11,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.Threading;
+using Material.Styles.Internal;
 
 namespace Material.Styles.Themes;
 
@@ -22,20 +22,23 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             o => o.CurrentTheme,
             (o, v) => o.CurrentTheme = v);
 
-    private CancellationTokenSource? _currentCancellationTokenSource;
-
+    private readonly IServiceProvider? _serviceProvider;
+    private readonly LightweightSubject<MaterialThemeBase> _themeChangedEndSubject = new();
     private IReadOnlyTheme _currentTheme = new ReadOnlyTheme();
     private Task? _currentThemeUpdateTask;
 
     private IResourceDictionary? _internalResources;
     private bool _isResourcedAccessed;
 
+
+    private CancellationTokenSource? _themeUpdateCancellationTokenSource;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
     /// </summary>
     /// <param name="serviceProvider">The parent's service provider.</param>
     public MaterialThemeBase(IServiceProvider? serviceProvider) {
-        AvaloniaXamlLoader.Load(serviceProvider, this);
+        _serviceProvider = serviceProvider;
     }
 
     /// <summary>
@@ -78,15 +81,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
     public IObservable<IReadOnlyTheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
 
     public IObservable<MaterialThemeBase> ThemeChangedEndObservable =>
-        Observable.FromEvent<EventHandler, MaterialThemeBase>(
-            conversion => delegate(object sender, EventArgs _) {
-                if (sender is not MaterialThemeBase theme)
-                    return;
-
-                conversion(theme);
-            },
-            h => ThemeChangedEnd += h,
-            h => ThemeChangedEnd -= h);
+        _themeChangedEndSubject;
 
     private static IReadOnlyDictionary<string, Func<IReadOnlyTheme, Color>> UpdatableColors =>
         new Dictionary<string, Func<IReadOnlyTheme, Color>> {
@@ -170,6 +165,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
 
     private void OnResourcedAccessed() {
         var initialTheme = ProvideInitialTheme();
+        AvaloniaXamlLoader.Load(_serviceProvider, this);
         if (initialTheme != null) {
             var newTheme = new ReadOnlyTheme(initialTheme);
             var defaultThemeDictionary = (ResourceDictionary)InternalResources.ThemeDictionaries[ThemeVariant.Default];
@@ -182,11 +178,11 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
 
     private void StartUpdatingTheme(IReadOnlyTheme oldTheme, IReadOnlyTheme newTheme) {
         Task.Run(async () => {
-            _currentCancellationTokenSource?.Cancel();
-            _currentCancellationTokenSource?.Dispose();
+            _themeUpdateCancellationTokenSource?.Cancel();
+            _themeUpdateCancellationTokenSource?.Dispose();
 
             var currentToken = new CancellationTokenSource();
-            _currentCancellationTokenSource = currentToken;
+            _themeUpdateCancellationTokenSource = currentToken;
 
             if (_currentThemeUpdateTask != null) await _currentThemeUpdateTask;
             if (!currentToken.IsCancellationRequested) {
@@ -208,6 +204,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
 
                 await task.ContinueWith(delegate {
                     ThemeChangedEnd?.Invoke(this, EventArgs.Empty);
+                    _themeChangedEndSubject.OnNext(this);
                 }, CancellationToken.None);
             }
         });

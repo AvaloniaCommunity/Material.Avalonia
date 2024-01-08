@@ -85,6 +85,6 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>
-  
-  <StyleInclude Source="avares://Material.Styles/UserControl.xaml" />
+
+  <StyleInclude Source="avares://Material.Styles/UserControl.axaml" />
 </Styles>
