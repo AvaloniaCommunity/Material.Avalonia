@@ -22,21 +22,23 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             o => o.CurrentTheme,
             (o, v) => o.CurrentTheme = v);
 
-    private CancellationTokenSource? _currentCancellationTokenSource;
-
+    private readonly IServiceProvider? _serviceProvider;
+    private readonly LightweightSubject<MaterialThemeBase> _themeChangedEndSubject = new();
     private IReadOnlyTheme _currentTheme = new ReadOnlyTheme();
     private Task? _currentThemeUpdateTask;
 
     private IResourceDictionary? _internalResources;
     private bool _isResourcedAccessed;
-    private LightweightSubject<MaterialThemeBase> _themeChangedEndSubject = new();
+
+
+    private CancellationTokenSource? _themeUpdateCancellationTokenSource;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
     /// </summary>
     /// <param name="serviceProvider">The parent's service provider.</param>
     public MaterialThemeBase(IServiceProvider? serviceProvider) {
-        AvaloniaXamlLoader.Load(serviceProvider, this);
+        _serviceProvider = serviceProvider;
     }
 
     /// <summary>
@@ -163,6 +165,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
 
     private void OnResourcedAccessed() {
         var initialTheme = ProvideInitialTheme();
+        AvaloniaXamlLoader.Load(_serviceProvider, this);
         if (initialTheme != null) {
             var newTheme = new ReadOnlyTheme(initialTheme);
             var defaultThemeDictionary = (ResourceDictionary)InternalResources.ThemeDictionaries[ThemeVariant.Default];
@@ -175,11 +178,11 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
 
     private void StartUpdatingTheme(IReadOnlyTheme oldTheme, IReadOnlyTheme newTheme) {
         Task.Run(async () => {
-            _currentCancellationTokenSource?.Cancel();
-            _currentCancellationTokenSource?.Dispose();
+            _themeUpdateCancellationTokenSource?.Cancel();
+            _themeUpdateCancellationTokenSource?.Dispose();
 
             var currentToken = new CancellationTokenSource();
-            _currentCancellationTokenSource = currentToken;
+            _themeUpdateCancellationTokenSource = currentToken;
 
             if (_currentThemeUpdateTask != null) await _currentThemeUpdateTask;
             if (!currentToken.IsCancellationRequested) {

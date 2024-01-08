@@ -97,9 +97,9 @@ namespace Material.Styles.Themes {
                 return;
             }
 
-            if (change.Property == PrimaryColorProperty) {
+            if (change.Property == SecondaryColorProperty) {
                 var color = change.GetNewValue<SecondaryColor>();
-                _theme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialColor)color]);
+                _theme.SetSecondaryColor(SwatchHelper.Lookup[(MaterialColor)color]);
                 EnqueueThemeUpdate();
                 return;
             }
@@ -117,6 +117,7 @@ namespace Material.Styles.Themes {
 
             _lastThemeVariantHost = Owner as IThemeVariantHost;
             if (_lastThemeVariantHost is not null) _lastThemeVariantHost.ActualThemeVariantChanged += HostOnActualThemeVariantChanged;
+            SetupActualTheme();
         }
 
         private void HostOnActualThemeVariantChanged(object sender, EventArgs e) {
