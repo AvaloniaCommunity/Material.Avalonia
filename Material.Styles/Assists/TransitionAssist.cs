@@ -1,11 +1,9 @@
-﻿using System;
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Data;
+using Material.Styles.Internal;
 
-namespace Material.Styles.Assists
-{
-    public static class TransitionAssist
-    {
+namespace Material.Styles.Assists {
+    public static class TransitionAssist {
         /// <summary>
         ///     Allows transitions to be disabled where supported.  Note this is an inheritable property.
         /// </summary>
@@ -13,10 +11,8 @@ namespace Material.Styles.Assists
             AvaloniaProperty.RegisterAttached<AvaloniaObject, bool>(
                 "DisableTransitions", typeof(TransitionAssist), false, true, BindingMode.TwoWay);
 
-        static TransitionAssist()
-        {
-            DisableTransitionsProperty.Changed.Subscribe(args =>
-            {
+        static TransitionAssist() {
+            DisableTransitionsProperty.Changed.Subscribe(args => {
                 if (args.Sender is not StyledElement styledElement) return;
                 styledElement.Classes.Set("no-transitions", args.NewValue.Value);
 

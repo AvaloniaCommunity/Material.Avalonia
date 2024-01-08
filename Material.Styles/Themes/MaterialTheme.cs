@@ -1,8 +1,5 @@
 using System;
-using System.Reactive;
-using System.Reactive.Linq;
 using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using Material.Colors;
@@ -15,7 +12,7 @@ namespace Material.Styles.Themes {
     /// <remarks>
     /// You need to setup all these properties: <see cref="BaseTheme"/>, <see cref="PrimaryColor"/>, <see cref="SecondaryColor"/>
     /// </remarks>
-    public class MaterialTheme : MaterialThemeBase, IDisposable, IResourceNode {
+    public class MaterialTheme : MaterialThemeBase, IDisposable {
         public static readonly StyledProperty<BaseThemeMode> BaseThemeProperty =
             AvaloniaProperty.Register<MaterialTheme, BaseThemeMode>(nameof(BaseTheme));
 
@@ -29,36 +26,18 @@ namespace Material.Styles.Themes {
             AvaloniaProperty.RegisterDirect<MaterialTheme, BaseThemeMode>(
                 nameof(ActualBaseTheme),
                 o => o.ActualBaseTheme);
-        private readonly IDisposable _themeUpdaterDisposable;
+        private readonly ITheme _theme = new Theme();
 
         private BaseThemeMode _actualBaseTheme;
-        private IDisposable? _baseThemeChangeObservable;
         private bool _isLoaded;
-        private ITheme _theme = new Theme();
+        private IThemeVariantHost? _lastThemeVariantHost;
+        private IDisposable? _themeUpdateDisposable;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MaterialTheme"/> class.
         /// </summary>
         /// <param name="serviceProvider">The XAML service provider.</param>
         public MaterialTheme(IServiceProvider serviceProvider) : base(serviceProvider) {
-            var baseThemeObservable = this.GetObservable(ActualBaseThemeProperty)
-                .Do(mode => _theme = _theme.SetBaseTheme(mode.GetBaseTheme()))
-                .Select(_ => Unit.Default);
-            var primaryColorObservable = this.GetObservable(PrimaryColorProperty)
-                .Do(color => _theme = _theme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialColor)color]))
-                .Select(_ => Unit.Default);
-            var secondaryColorObservable = this.GetObservable(SecondaryColorProperty)
-                .Do(color => _theme = _theme.SetSecondaryColor(SwatchHelper.Lookup[(MaterialColor)color]))
-                .Select(_ => Unit.Default);
-
-            _themeUpdaterDisposable = baseThemeObservable
-                .Merge(primaryColorObservable)
-                .Merge(secondaryColorObservable)
-                .Where(_ => _isLoaded)
-                .Throttle(TimeSpan.FromMilliseconds(100))
-                .ObserveOn(new AvaloniaSynchronizationContext())
-                .Subscribe(_ => CurrentTheme = _theme);
-
             OwnerChanged += OnOwnerChanged;
         }
 
@@ -83,7 +62,7 @@ namespace Material.Styles.Themes {
         }
 
         public void Dispose() {
-            _themeUpdaterDisposable.Dispose();
+            _themeUpdateDisposable?.Dispose();
         }
 
         private void OnOwnerChanged(object sender, EventArgs e) {
@@ -95,35 +74,65 @@ namespace Material.Styles.Themes {
                 || base.TryGetResource(key, ActualBaseTheme.GetVariantFromMaterialBaseThemeMode(), out value);
         }
 
-        private void RegisterActualThemeObservable() {
-            _baseThemeChangeObservable?.Dispose();
+        /// <inheritdoc />
+        protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
+            base.OnPropertyChanged(change);
 
-            var themeVariantHost = Owner as IThemeVariantHost;
-            var themeVariantObservable = themeVariantHost != null
-                ? Observable.FromEvent<EventHandler, Unit>(action => (_, _) => { action(Unit.Default); },
-                        handler => themeVariantHost.ActualThemeVariantChanged += handler,
-                        handler => themeVariantHost.ActualThemeVariantChanged -= handler)
-                    .Select(_ => Unit.Default)
-                : Observable.Empty<Unit>();
+            if (change.Property == BaseThemeProperty) {
+                SetupActualTheme();
+                return;
+            }
 
-            var targetBaseObservable = this.GetObservable(BaseThemeProperty)
-                .Select(_ => Unit.Default);
+            if (change.Property == ActualBaseThemeProperty) {
+                var baseTheme = change.GetNewValue<BaseThemeMode>().GetBaseTheme();
+                _theme.SetBaseTheme(baseTheme);
+                EnqueueThemeUpdate();
+                return;
+            }
 
-            _baseThemeChangeObservable = Observable.Return(Unit.Default)
-                .Merge(themeVariantObservable)
-                .Merge(targetBaseObservable)
-                .Subscribe(_ => {
-                    ActualBaseTheme = GetActualBaseTheme(BaseTheme, themeVariantHost?.ActualThemeVariant);
-                });
+            if (change.Property == PrimaryColorProperty) {
+                var color = change.GetNewValue<PrimaryColor>();
+                _theme.SetPrimaryColor(SwatchHelper.Lookup[(MaterialColor)color]);
+                EnqueueThemeUpdate();
+                return;
+            }
+
+            if (change.Property == SecondaryColorProperty) {
+                var color = change.GetNewValue<SecondaryColor>();
+                _theme.SetSecondaryColor(SwatchHelper.Lookup[(MaterialColor)color]);
+                EnqueueThemeUpdate();
+                return;
+            }
         }
 
-        private BaseThemeMode GetActualBaseTheme(BaseThemeMode mode, ThemeVariant? variant) {
-            return mode switch {
-                BaseThemeMode.Inherit => variant.GetMaterialBaseThemeModeFromVariant() ?? BaseThemeMode.Light,
+        private void EnqueueThemeUpdate() {
+            if (!_isLoaded) return;
+
+            _themeUpdateDisposable?.Dispose();
+            _themeUpdateDisposable = DispatcherTimer.RunOnce(() => CurrentTheme = _theme, TimeSpan.FromMilliseconds(100));
+        }
+
+        private void RegisterActualThemeObservable() {
+            if (_lastThemeVariantHost is not null) _lastThemeVariantHost.ActualThemeVariantChanged -= HostOnActualThemeVariantChanged;
+
+            _lastThemeVariantHost = Owner as IThemeVariantHost;
+            if (_lastThemeVariantHost is not null) _lastThemeVariantHost.ActualThemeVariantChanged += HostOnActualThemeVariantChanged;
+            SetupActualTheme();
+        }
+
+        private void HostOnActualThemeVariantChanged(object sender, EventArgs e) {
+            SetupActualTheme();
+        }
+
+        private void SetupActualTheme() {
+            var materialBaseThemeModeFromVariant = BaseTheme switch {
+                BaseThemeMode.Inherit => (_lastThemeVariantHost?.ActualThemeVariant).GetMaterialBaseThemeModeFromVariant() ?? BaseThemeMode.Light,
                 BaseThemeMode.Light   => BaseThemeMode.Light,
                 BaseThemeMode.Dark    => BaseThemeMode.Dark,
-                _                     => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
+                _                     => throw new ArgumentOutOfRangeException(nameof(BaseTheme), BaseTheme, null)
             };
+
+            ActualBaseTheme = materialBaseThemeModeFromVariant;
         }
 
         protected override ITheme ProvideInitialTheme() {

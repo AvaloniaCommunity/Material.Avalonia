@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reactive.Disposables;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -32,6 +31,16 @@ public class CircleClockPicker : TemplatedControl {
 
     public static readonly StyledProperty<int> CellShiftNumberProperty =
         AvaloniaProperty.Register<CircleClockPicker, int>(nameof(CellShiftNumber));
+    private readonly Dictionary<int, CircleClockPickerCell> _cachedAccessors = new();
+    private Panel? _cellPanel;
+
+    private bool _isDragging;
+    private Control? _pointer;
+    private Control? _pointerPin;
+
+    private int? _value;
+
+    static CircleClockPicker() { }
 
     public int? Value {
         get => _value;
@@ -73,13 +82,8 @@ public class CircleClockPicker : TemplatedControl {
 
     public event EventHandler? AfterDrag;
 
-    static CircleClockPicker() { }
-
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e) {
         base.OnApplyTemplate(e);
-
-        _subscription?.Dispose();
-        _subscription = null;
 
         var pointer = e.NameScope.Find<Control>("PART_Pointer");
         var canvas = e.NameScope.Find<Canvas>("PART_CellPanel");
@@ -89,21 +93,27 @@ public class CircleClockPicker : TemplatedControl {
         _pointerPin = pointerPin;
         _cellPanel = canvas;
 
-        _subscription = new CompositeDisposable {
-            MinimumProperty.Changed.Subscribe(OnNext),
-            MaximumProperty.Changed.Subscribe(OnNext),
-            StepFrequencyProperty.Changed.Subscribe(OnNext),
-            FirstLabelOverrideProperty.Changed.Subscribe(OnNext),
-            RadiusMultiplierProperty.Changed.Subscribe(OnNext),
-            BoundsProperty.Changed.Subscribe(OnCanvasResize)
-        };
-
         UpdateCellPanel();
         AdjustPointer();
         UpdateVisual(_value);
     }
 
-    private void OnCanvasResize(AvaloniaPropertyChangedEventArgs<Rect> obj) {
+    /// <inheritdoc />
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change) {
+        base.OnPropertyChanged(change);
+        if (change.Property == MinimumProperty ||
+            change.Property == MaximumProperty ||
+            change.Property == StepFrequencyProperty ||
+            change.Property == FirstLabelOverrideProperty ||
+            change.Property == RadiusMultiplierProperty) {
+            OnNext(change);
+            return;
+        }
+
+        if (change.Property == BoundsProperty) OnCanvasResize(change);
+    }
+
+    private void OnCanvasResize(AvaloniaPropertyChangedEventArgs obj) {
         if (!ReferenceEquals(obj.Sender, _cellPanel))
             return;
 
@@ -139,15 +149,6 @@ public class CircleClockPicker : TemplatedControl {
         _isDragging = false;
         AfterDrag?.Invoke(this, EventArgs.Empty);
     }
-
-    private bool _isDragging;
-    private Control? _pointer;
-    private Control? _pointerPin;
-    private Panel? _cellPanel;
-    private readonly Dictionary<int, CircleClockPickerCell> _cachedAccessors = new();
-    private IDisposable? _subscription;
-
-    private int? _value;
 
     private void ProcessPointerEvent(Point point) {
         var halfSize = (float)(Bounds.Width / 2);

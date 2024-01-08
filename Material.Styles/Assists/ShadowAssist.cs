@@ -2,6 +2,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
+using Material.Styles.Internal;
 
 namespace Material.Styles.Assists {
     public static class ShadowProvider {
