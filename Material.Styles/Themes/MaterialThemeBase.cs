@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia;
@@ -12,6 +11,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.Threading;
+using Material.Styles.Internal;
 
 namespace Material.Styles.Themes;
 
@@ -29,6 +29,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
 
     private IResourceDictionary? _internalResources;
     private bool _isResourcedAccessed;
+    private LightweightSubject<MaterialThemeBase> _themeChangedEndSubject = new();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MaterialThemeBase"/> class.
@@ -78,15 +79,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
     public IObservable<IReadOnlyTheme> CurrentThemeChanged => this.GetObservable(CurrentThemeProperty);
 
     public IObservable<MaterialThemeBase> ThemeChangedEndObservable =>
-        Observable.FromEvent<EventHandler, MaterialThemeBase>(
-            conversion => delegate(object sender, EventArgs _) {
-                if (sender is not MaterialThemeBase theme)
-                    return;
-
-                conversion(theme);
-            },
-            h => ThemeChangedEnd += h,
-            h => ThemeChangedEnd -= h);
+        _themeChangedEndSubject;
 
     private static IReadOnlyDictionary<string, Func<IReadOnlyTheme, Color>> UpdatableColors =>
         new Dictionary<string, Func<IReadOnlyTheme, Color>> {
@@ -208,6 +201,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
 
                 await task.ContinueWith(delegate {
                     ThemeChangedEnd?.Invoke(this, EventArgs.Empty);
+                    _themeChangedEndSubject.OnNext(this);
                 }, CancellationToken.None);
             }
         });
