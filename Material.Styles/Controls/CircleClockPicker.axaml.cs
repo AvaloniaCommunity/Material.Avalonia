@@ -114,9 +114,6 @@ public class CircleClockPicker : TemplatedControl {
     }
 
     private void OnCanvasResize(AvaloniaPropertyChangedEventArgs obj) {
-        if (!ReferenceEquals(obj.Sender, _cellPanel))
-            return;
-
         UpdateCellPanel();
         AdjustPointer();
     }
