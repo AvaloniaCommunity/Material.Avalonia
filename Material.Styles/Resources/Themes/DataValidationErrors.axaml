@@ -1,9 +1,11 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:system="clr-namespace:System;assembly=netstandard">
+                    xmlns:system="clr-namespace:System;assembly=netstandard"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
   <DataTemplate x:Key="DataValidationErrorTemplate">
-    <ItemsControl ItemsSource="{Binding }"
-                  TextBlock.Foreground="{DynamicResource MaterialValidationErrorBrush}">
+    <ItemsControl ItemsSource="{Binding }">
       <ItemsControl.DataTemplates>
         <!-- Due to technical issues, the font size will be changed implicitly and its
               unable to change by styles or external way except code-behind or replace error template -->
@@ -49,9 +51,61 @@
     <Style Selector="^ /template/ ContentControl#PART_ErrorPresenter">
       <Setter Property="DockPanel.Dock" Value="Bottom" />
       <Setter Property="Margin" Value="0,3,0,0" />
+      <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialValidationErrorBrush}" />
+      <Setter Property="TextBlock.FontSize" Value="{Binding $parent[DataValidationErrors].(assists:DataValidationErrorsAssist.FontSize)}" />
     </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type DataValidationErrors}" TargetType="DataValidationErrors"
                 BasedOn="{StaticResource MaterialDataValidationErrors}" />
+
+  <ControlTheme x:Key="MaterialSimpleHintsDataValidationErrors" TargetType="DataValidationErrors">
+    <Setter Property="ErrorTemplate" Value="{StaticResource DataValidationErrorTemplate}" />
+
+    <Setter Property="Cursor" Value="Arrow" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            IsVisible="{Binding !#PART_ErrorsGrid.IsVisible}" />
+
+          <TextBlock Name="PART_AlwaysAllocatedTextBlock"
+                     Opacity="0"
+                     Text="{TemplateBinding (assists:DataValidationErrorsAssist.AlwaysAllocatedLines), Converter={x:Static converters:WhitespaceLineBreaksConverter.Instance}}"
+                     IsVisible="{Binding !!(assists:DataValidationErrorsAssist.AlwaysAllocatedLines), RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                     TextElement.FontSize="{TemplateBinding (assists:DataValidationErrorsAssist.FontSize)}" />
+
+          <Grid Name="PART_ErrorsGrid" ColumnDefinitions="* Auto"
+                IsVisible="{TemplateBinding DataValidationErrors.Errors, Converter={x:Static converters:MaterialCollectionConverters.IsNotNullOrNullOrEmpty}}"
+                TextElement.Foreground="{DynamicResource MaterialValidationErrorColorBrush}">
+            <TextBlock Name="PART_ErrorsTextBlock"
+                       Grid.Column="0"
+                       Text="{TemplateBinding (DataValidationErrors.Errors), Converter={x:Static converters:MaterialCollectionConverters.First}}"
+                       TextElement.FontSize="{TemplateBinding (assists:DataValidationErrorsAssist.FontSize)}" />
+            <controls:MaterialInternalIcon Name="PART_ErrorsIcon"
+                                           Grid.Column="1" VerticalAlignment="Center"
+                                           Height="NaN" Width="NaN"
+                                           MaxHeight="{Binding #PART_ErrorsTextBlock.Bounds.Height}"
+                                           Kind="Alert"
+                                           ToolTip.VerticalOffset="1">
+              <ToolTip.Tip>
+                <ContentControl Name="PART_ErrorPresenter"
+                                Content="{TemplateBinding (DataValidationErrors.Errors)}"
+                                ContentTemplate="{TemplateBinding ErrorTemplate}" />
+              </ToolTip.Tip>
+            </controls:MaterialInternalIcon>
+          </Grid>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ ContentControl#PART_ErrorPresenter">
+      <Setter Property="TextBlock.FontSize" Value="{Binding $parent[DataValidationErrors].(assists:DataValidationErrorsAssist.FontSize)}" />
+    </Style>
+  </ControlTheme>
 </ResourceDictionary>

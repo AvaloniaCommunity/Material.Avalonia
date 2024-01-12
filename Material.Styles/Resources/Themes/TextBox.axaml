@@ -198,6 +198,8 @@
     <Setter Property="InputMethod.IsInputMethodEnabled" Value="True" />
     <Setter Property="assists:TextFieldAssist.Watermark" Value="{Binding $self.Watermark}" />
     <Setter Property="assists:TextFieldAssist.UseFloatingLabel" Value="{Binding $self.UseFloatingWatermark}" />
+    <Setter Property="assists:TextFieldAssist.HintsSize" Value="{Binding $self.(assists:DataValidationErrorsAssist.FontSize)}" />
+    <Setter Property="assists:DataValidationErrorsAssist.FontSize" Value="{Binding $self.(assists:TextFieldAssist.HintsSize)}" />
     <Setter Property="ClipToBounds" Value="True" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -289,19 +291,25 @@
           <controls:MaterialUnderline Name="PART_Underline" Grid.Row="1"
                                       Margin="0 -1 0 0" />
 
-          <TextBlock Name="PART_CharactersCounter" Grid.Row="2"
-                     HorizontalAlignment="Right">
-            <TextBlock.Text>
-              <MultiBinding Converter="{StaticResource CharacterCounterModeToTextConverter}">
-                <TemplateBinding Property="assists:TextBoxAssist.CharacterCounterMode" />
-                <TemplateBinding Property="Text" />
-                <TemplateBinding Property="MaxLength" />
-              </MultiBinding>
-            </TextBlock.Text>
-          </TextBlock>
 
           <DataValidationErrors Name="PART_DataValidation" Grid.Row="2"
-                                Errors="{TemplateBinding (DataValidationErrors.Errors)}" />
+                                Theme="{StaticResource MaterialSimpleHintsDataValidationErrors}"
+                                Errors="{TemplateBinding (DataValidationErrors.Errors)}">
+            <Grid ColumnDefinitions="* Auto">
+              <TextBlock Name="PART_HintsText" Grid.Column="0"
+                         Text="{TemplateBinding (assists:TextFieldAssist.Hints)}" />
+
+              <TextBlock Name="PART_CharactersCounter" Grid.Column="1">
+                <TextBlock.Text>
+                  <MultiBinding Converter="{StaticResource CharacterCounterModeToTextConverter}">
+                    <TemplateBinding Property="assists:TextBoxAssist.CharacterCounterMode" />
+                    <TemplateBinding Property="Text" />
+                    <TemplateBinding Property="MaxLength" />
+                  </MultiBinding>
+                </TextBlock.Text>
+              </TextBlock>
+            </Grid>
+          </DataValidationErrors>
         </Grid>
       </ControlTemplate>
     </Setter>
@@ -321,11 +329,6 @@
       <Setter Property="Margin" Value="-16 0 -12 0" />
     </Style>
 
-    <Style Selector="^ /template/ TextBlock#PART_HintsText">
-      <Setter Property="Margin" Value="0,3,0,0" />
-      <Setter Property="FontSize" Value="12" />
-    </Style>
-
     <Style Selector="^ /template/ TextBlock#PART_WatermarkText">
       <Setter Property="IsVisible" Value="False" />
       <Setter Property="Opacity" Value="0.5" />
@@ -339,9 +342,17 @@
       <Setter Property="Margin" Value="0 16 0 8" />
     </Style>
 
+    <Style Selector="^ /template/ DataValidationErrors#PART_DataValidation">
+      <Setter Property="Margin" Value="0 2 0 0" />
+    </Style>
+
+    <Style Selector="^ /template/ TextBlock#PART_HintsText">
+      <Setter Property="FontSize" Value="{TemplateBinding (assists:TextFieldAssist.HintsSize)}" />
+    </Style>
+
     <Style Selector="^ /template/ TextBlock#PART_CharactersCounter">
-      <Setter Property="FontSize" Value="12" />
-      <Setter Property="Margin" Value="0,2,4,0" />
+      <Setter Property="FontSize" Value="{TemplateBinding (assists:TextFieldAssist.HintsSize)}" />
+      <Setter Property="Margin" Value="0,0,4,0" />
       <Setter Property="Opacity" Value="0.56" />
     </Style>
 
@@ -468,12 +479,6 @@
       <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
         <Setter Property="IdleBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
         <Setter Property="ActiveBrush" Value="{DynamicResource MaterialValidationErrorBrush}" />
-      </Style>
-
-      <!-- TODO: Animate fading effect between hints text and validation error text -->
-      <Style Selector="^ /template/ TextBlock#PART_HintsText">
-        <Setter Property="Opacity" Value="0" />
-        <Setter Property="IsVisible" Value="False" />
       </Style>
     </Style>
 
