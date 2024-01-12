@@ -58,14 +58,21 @@
                  BorderThickness="{TemplateBinding BorderThickness}"
                  BorderBrush="{TemplateBinding BorderBrush}"
                  Background="{TemplateBinding Background}"
-                 assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
                  Watermark="{TemplateBinding Watermark}"
                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                  IsReadOnly="{TemplateBinding IsReadOnly}"
                  InputMethod.IsInputMethodEnabled="{TemplateBinding InputMethod.IsInputMethodEnabled}"
                  ContextFlyout="{TemplateBinding ContextFlyout}"
                  Text="{TemplateBinding Text}"
-                 AcceptsReturn="False" TextWrapping="NoWrap" />
+                 AcceptsReturn="False" TextWrapping="NoWrap"
+                 assists:TextFieldAssist.Hints="{TemplateBinding assists:TextFieldAssist.Hints}"
+                 assists:TextFieldAssist.HintsSize="{TemplateBinding assists:TextFieldAssist.HintsSize}"
+                 assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                 assists:TextFieldAssist.Watermark="{TemplateBinding assists:TextFieldAssist.Watermark}"
+                 assists:TextFieldAssist.UseFloatingLabel="{TemplateBinding assists:TextFieldAssist.UseFloatingLabel}"
+                 assists:DataValidationErrorsAssist.FontSize="{TemplateBinding assists:DataValidationErrorsAssist.FontSize}"
+                 assists:DataValidationErrorsAssist.MaxLines="{TemplateBinding assists:DataValidationErrorsAssist.MaxLines}"
+                 assists:DataValidationErrorsAssist.AlwaysAllocatedLines="{TemplateBinding assists:DataValidationErrorsAssist.AlwaysAllocatedLines}" />
       </ControlTemplate>
     </Setter>
 
@@ -86,7 +93,6 @@
                    BorderThickness="{TemplateBinding BorderThickness}"
                    BorderBrush="{TemplateBinding BorderBrush}"
                    Background="{TemplateBinding Background}"
-                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
                    Watermark="{TemplateBinding Watermark}"
                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                    IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -94,7 +100,15 @@
                    ContextFlyout="{TemplateBinding ContextFlyout}"
                    Text="{TemplateBinding Text}"
                    AcceptsReturn="False" TextWrapping="NoWrap"
-                   assists:TextBoxAssist.CompensateInnerLeftContentMargin="True">
+                   assists:TextBoxAssist.CompensateInnerLeftContentMargin="True"
+                   assists:TextFieldAssist.Hints="{TemplateBinding assists:TextFieldAssist.Hints}"
+                   assists:TextFieldAssist.HintsSize="{TemplateBinding assists:TextFieldAssist.HintsSize}"
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                   assists:TextFieldAssist.Watermark="{TemplateBinding assists:TextFieldAssist.Watermark}"
+                   assists:TextFieldAssist.UseFloatingLabel="{TemplateBinding assists:TextFieldAssist.UseFloatingLabel}"
+                   assists:DataValidationErrorsAssist.FontSize="{TemplateBinding assists:DataValidationErrorsAssist.FontSize}"
+                   assists:DataValidationErrorsAssist.MaxLines="{TemplateBinding assists:DataValidationErrorsAssist.MaxLines}"
+                   assists:DataValidationErrorsAssist.AlwaysAllocatedLines="{TemplateBinding assists:DataValidationErrorsAssist.AlwaysAllocatedLines}">
             <TextBox.InnerLeftContent>
               <ButtonSpinner Name="PART_Spinner"
                              Foreground="{Binding $parent[NumericUpDown].Foreground}"
@@ -121,7 +135,6 @@
                    BorderThickness="{TemplateBinding BorderThickness}"
                    BorderBrush="{TemplateBinding BorderBrush}"
                    Background="{TemplateBinding Background}"
-                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
                    Watermark="{TemplateBinding Watermark}"
                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                    IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -129,7 +142,15 @@
                    ContextFlyout="{TemplateBinding ContextFlyout}"
                    Text="{TemplateBinding Text}"
                    AcceptsReturn="False" TextWrapping="NoWrap"
-                   assists:TextBoxAssist.CompensateInnerRightContentMargin="True">
+                   assists:TextBoxAssist.CompensateInnerRightContentMargin="True"
+                   assists:TextFieldAssist.Hints="{TemplateBinding assists:TextFieldAssist.Hints}"
+                   assists:TextFieldAssist.HintsSize="{TemplateBinding assists:TextFieldAssist.HintsSize}"
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                   assists:TextFieldAssist.Watermark="{TemplateBinding assists:TextFieldAssist.Watermark}"
+                   assists:TextFieldAssist.UseFloatingLabel="{TemplateBinding assists:TextFieldAssist.UseFloatingLabel}"
+                   assists:DataValidationErrorsAssist.FontSize="{TemplateBinding assists:DataValidationErrorsAssist.FontSize}"
+                   assists:DataValidationErrorsAssist.MaxLines="{TemplateBinding assists:DataValidationErrorsAssist.MaxLines}"
+                   assists:DataValidationErrorsAssist.AlwaysAllocatedLines="{TemplateBinding assists:DataValidationErrorsAssist.AlwaysAllocatedLines}">
             <TextBox.InnerRightContent>
               <ButtonSpinner Name="PART_Spinner"
                              Foreground="{Binding $parent[NumericUpDown].Foreground}"
@@ -167,7 +188,7 @@
     <Setter Property="CornerRadius" Value="4" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
-    
+
     <Style Selector="^ /template/ TextBox#PART_TextBox">
       <Setter Property="Theme" Value="{StaticResource MaterialOutlineTextBox}" />
     </Style>
