@@ -344,7 +344,7 @@
     </Style>
 
     <Style Selector="^ /template/ DataValidationErrors#PART_DataValidation">
-      <Setter Property="Margin" Value="0 2 0 0" />
+      <Setter Property="Margin" Value="2 2 2 0" />
     </Style>
 
     <Style Selector="^ /template/ TextBlock#PART_HintsText">
@@ -353,7 +353,6 @@
 
     <Style Selector="^ /template/ TextBlock#PART_CharactersCounter">
       <Setter Property="FontSize" Value="{TemplateBinding (assists:TextFieldAssist.HintsSize)}" />
-      <Setter Property="Margin" Value="0,0,4,0" />
       <Setter Property="Opacity" Value="0.56" />
     </Style>
 
@@ -409,10 +408,6 @@
 
     <Style Selector="^[(assists|TextBoxAssist.CharacterCounterMode)=Hidden] /template/ TextBlock#PART_CharactersCounter">
       <Setter Property="IsVisible" Value="False" />
-    </Style>
-
-    <Style Selector="^[(DataValidationErrors.HasErrors)=True] /template/ TextBlock#PART_CharactersCounter">
-      <Setter Property="Opacity" Value="0" />
     </Style>
 
     <Style Selector="^[(assists|TextBoxAssist.CompensateInnerLeftContentMargin)=True] /template/ ContentControl#PART_LeftContentControl">

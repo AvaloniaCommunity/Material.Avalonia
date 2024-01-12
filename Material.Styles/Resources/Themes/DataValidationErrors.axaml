@@ -72,7 +72,7 @@
                             ContentTemplate="{TemplateBinding ContentTemplate}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            IsVisible="{Binding !#PART_ErrorsGrid.IsVisible}" />
+                            Opacity="{Binding !#PART_ErrorsGrid.IsVisible}" />
 
           <TextBlock Name="PART_AlwaysAllocatedTextBlock"
                      Opacity="0"
