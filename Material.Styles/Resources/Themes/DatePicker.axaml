@@ -57,7 +57,7 @@
           <Panel Name="PART_PopupContainer">
             <Popup Name="PART_CalendarPopup"
                    IsOpen="{Binding #CalendarButton.IsChecked, Mode=TwoWay}">
-              <controls:Card Name="PART_Card">
+              <controls:Card Name="PART_Card" Padding="8">
                 <Calendar
                   SelectedDate="{TemplateBinding SelectedDate, 
                                     Mode=TwoWay, Converter={x:Static converters:DateTimeOffsetConverter.Instance}}" />
