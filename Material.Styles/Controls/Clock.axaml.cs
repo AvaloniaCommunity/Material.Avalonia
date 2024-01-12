@@ -162,8 +162,13 @@ public class Clock : TemplatedControl {
 
         var time = SelectedTime.Value;
         var isAm = ClockInternals.IsAm(time.Hours);
+        var hours = TimeFormat switch {
+            TimeFormat.TwelveHour     => ClockInternals.ConvertTo12FormattedHours(time.Hours),
+            TimeFormat.TwentyFourHour => time.Hours,
+            _                         => throw new ArgumentOutOfRangeException()
+        };
         ClockInternals.SetIsAm(this, isAm);
-        ClockInternals.SetHours(this, ClockInternals.ConvertTo12FormattedHours(time.Hours));
+        ClockInternals.SetHours(this, hours);
         ClockInternals.SetMinutes(this, time.Minutes);
         ClockInternals.SetSeconds(this, time.Seconds);
 
