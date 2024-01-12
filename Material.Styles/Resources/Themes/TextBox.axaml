@@ -297,7 +297,8 @@
                                 Errors="{TemplateBinding (DataValidationErrors.Errors)}">
             <Grid ColumnDefinitions="* Auto">
               <TextBlock Name="PART_HintsText" Grid.Column="0"
-                         Text="{TemplateBinding (assists:TextFieldAssist.Hints)}" />
+                         Text="{TemplateBinding (assists:TextFieldAssist.Hints)}"
+                         IsVisible="{TemplateBinding (assists:TextFieldAssist.Hints), Converter={x:Static ObjectConverters.IsNotNull}}" />
 
               <TextBlock Name="PART_CharactersCounter" Grid.Column="1">
                 <TextBlock.Text>
