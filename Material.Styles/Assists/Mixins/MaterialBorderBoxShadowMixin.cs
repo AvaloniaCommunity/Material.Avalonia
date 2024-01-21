@@ -9,7 +9,7 @@ namespace Material.Styles.Assists.Mixins;
 /// Adds BoxShadows transitions for any control, which has enabled animations.
 /// </summary>
 public static class MaterialBorderBoxShadowMixin {
-    public static BoxShadowsTransition TargetTransition { get; set; } = new() { Property = Border.BoxShadowProperty, Duration = TimeSpan.FromMilliseconds(3500) };
+    public static BoxShadowsTransition TargetTransition { get; set; } = new() { Property = Border.BoxShadowProperty, Duration = TimeSpan.FromMilliseconds(350) };
 
     /// <summary>
     /// Initializes BoxShadows transitions for specified control.
