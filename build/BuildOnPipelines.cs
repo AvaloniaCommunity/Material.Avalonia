@@ -8,6 +8,7 @@ using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.IO;
 using Nuke.Common.Tooling;
+using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitHub;
 using Octokit;
 using Octokit.Internal;
@@ -41,6 +42,7 @@ partial class Build {
     Target AppendNightlyVersionIfNeeded => _ => _
         .Unlisted()
         .DependsOn(FetchNuget)
+        .Before(CreateIntermediateNugetPackages)
         .OnlyWhenDynamic(() => Parameters.ShouldPublishNugetPackages)
         .Executes(() => {
             var isVersionPublished = Parameters.NugetPackages
@@ -52,6 +54,18 @@ partial class Build {
                 Log.Information("Found already published version {Version}. Appending .{NightlyNumber}-nightly tag", Parameters.Version, Parameters.NightlyHeight);
                 Parameters.Version += $".{Parameters.NightlyHeight}-nightly";
             }
+        });
+
+    Target PublishNugetPackages => _ => _
+        .OnlyWhenDynamic(() => Parameters.NugetApiKey is not null)
+        .OnlyWhenDynamic(() => Parameters.ShouldPublishNugetPackages)
+        .DependsOn(PackNugetPackages)
+        .Executes(() => {
+            DotNetTasks.DotNetNuGetPush(s => s
+                .SetSource(Parameters.NugetFeedUrl)
+                .SetApiKey(Parameters.NugetApiKey)
+                .SetTargetPath(NugetRoot / "*.nupkg")
+                .EnableSkipDuplicate());
         });
 
     Target PublishRelease => _ => _

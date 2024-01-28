@@ -6,10 +6,11 @@ using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 // ReSharper disable AllUnderscoreLocalParameterName
+// ReSharper disable InconsistentNaming
 
 [GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
     OnPushBranches = ["master"],
-    InvokedTargets = [nameof(PublishNugetPackages)],
+    InvokedTargets = [nameof(PublishNugetPackages), nameof(AppendNightlyVersionIfNeeded)],
     ImportSecrets = [nameof(NuGetApiKey)])]
 [GitHubActions("release", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
     OnPushTags = ["*"],
@@ -44,7 +45,6 @@ partial class Build : NukeBuild {
 
     Target CreateIntermediateNugetPackages => _ => _
         .DependsOn(Compile)
-        .DependsOn(AppendNightlyVersionIfNeeded)
         .Executes(() => {
             DotNetTasks.DotNetPack(s => s
                 .SetProject(Solution)
@@ -90,18 +90,6 @@ partial class Build : NukeBuild {
                 var binaryFile = (DemoDir / "Material.Demo" + fileExtension).ToFileInfo();
                 binaryFile.MoveTo(DemoDir / $"Material.Demo_{rid}{fileExtension}");
             }
-        });
-
-
-    Target PublishNugetPackages => _ => _
-        .OnlyWhenDynamic(() => Parameters.NugetApiKey is not null)
-        .DependsOn(PackNugetPackages)
-        .Executes(() => {
-            DotNetTasks.DotNetNuGetPush(s => s
-                .SetSource(Parameters.NugetFeedUrl)
-                .SetApiKey(Parameters.NugetApiKey)
-                .SetTargetPath(NugetRoot / "*.nupkg")
-                .EnableSkipDuplicate());
         });
 
     /// Support plugins are available for:
