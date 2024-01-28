@@ -82,11 +82,9 @@
           "items": {
             "type": "string",
             "enum": [
-              "AppendNightlyVersionIfNeeded",
               "Clean",
               "Compile",
               "CreateIntermediateNugetPackages",
-              "FetchNuget",
               "PackDemoApp",
               "PackNugetPackages",
               "PublishNugetPackages",
@@ -104,11 +102,9 @@
           "items": {
             "type": "string",
             "enum": [
-              "AppendNightlyVersionIfNeeded",
               "Clean",
               "Compile",
               "CreateIntermediateNugetPackages",
-              "FetchNuget",
               "PackDemoApp",
               "PackNugetPackages",
               "PublishNugetPackages",

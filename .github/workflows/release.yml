@@ -42,13 +42,13 @@ jobs:
         env:
           NuGetApiKey: ${{ secrets.NUGET_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 'Publish: demo'
-        uses: actions/upload-artifact@v3
-        with:
-          name: demo
-          path: artifacts/demo
       - name: 'Publish: nuget'
         uses: actions/upload-artifact@v3
         with:
           name: nuget
           path: artifacts/nuget
+      - name: 'Publish: demo'
+        uses: actions/upload-artifact@v3
+        with:
+          name: demo
+          path: artifacts/demo

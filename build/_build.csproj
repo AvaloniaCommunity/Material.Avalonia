@@ -14,8 +14,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MinVer">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="NuGet.Protocol" />
     <PackageReference Include="Nuke.Common" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageDownload Include="minver-cli" Version="[4.3.0]" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerDefaultPreReleaseIdentifiers>nightly</MinVerDefaultPreReleaseIdentifiers>
+  </PropertyGroup>
 </Project>

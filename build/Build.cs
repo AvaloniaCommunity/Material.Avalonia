@@ -4,13 +4,16 @@ using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
+using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
+using Nuke.Common.Tools.MinVer;
+using Serilog;
 // ReSharper disable AllUnderscoreLocalParameterName
 // ReSharper disable InconsistentNaming
 
 [GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
-    OnPushBranches = ["master"],
-    InvokedTargets = [nameof(PublishNugetPackages), nameof(AppendNightlyVersionIfNeeded)],
+    OnPushBranches = ["master", "release/*"],
+    InvokedTargets = [nameof(PublishNugetPackages)],
     ImportSecrets = [nameof(NuGetApiKey)])]
 [GitHubActions("release", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
     OnPushTags = ["*"],
@@ -19,6 +22,7 @@ using Nuke.Common.Tools.DotNet;
     ImportSecrets = [nameof(NuGetApiKey)],
     EnableGitHubToken = true)]
 partial class Build : NukeBuild {
+    [MinVer] MinVer MinVer = null!;
     [GitRepository] readonly GitRepository Repository = null!;
     [Solution] readonly Solution Solution = null!;
     BuildParameters Parameters { get; set; } = null!;
@@ -102,6 +106,15 @@ partial class Build : NukeBuild {
 
     /// <inheritdoc />
     protected override void OnBuildInitialized() {
+        MinVer = MinVerTasks.MinVer(s => s
+                .DisableProcessLogOutput()
+                .SetTagPrefix("v")
+                .SetDefaultPreReleasePhase("nightly"))
+            .Result;
+
         Parameters = new BuildParameters(this);
+
+        Log.Information("Building version {Version} of Material.Avalonia ({Configuration}) using version {NukeVersion} of Nuke",
+            Parameters.Version, Parameters.Configuration, typeof(NukeBuild).Assembly.GetName().Version!.ToString());
     }
 }

@@ -1,11 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
-using NuGet.Protocol.Core.Types;
 using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
-using Nuke.Common.IO;
 
 public partial class Build {
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
@@ -45,10 +40,11 @@ public partial class Build {
             IsMasterBranch = StringComparer.OrdinalIgnoreCase.Equals(MasterBranch, RepositoryBranch);
             IsReleasable = Configuration.Release == Configuration;
 
-            ShouldPublishNugetPackages = IsRunningOnGitHubActions && IsMasterBranch && IsReleasable;
+            ShouldPublishNugetPackages = IsRunningOnGitHubActions && IsMasterBranch && IsReleasable
+                && (b.MinVer.MinVerPreRelease is null || !b.MinVer.MinVerPreRelease.EndsWith(".0"));
 
             // VERSION
-            Version = b.ForceVersion ?? GetVersion();
+            Version = b.ForceVersion ?? b.MinVer.Version;
         }
         public Configuration Configuration { get; }
         public string MainRepo { get; }
@@ -64,12 +60,6 @@ public partial class Build {
         public bool ShouldPublishNugetPackages { get; set; }
         public string NugetFeedUrl { get; set; }
         public string? NugetApiKey { get; set; }
-        public IEnumerable<IPackageSearchMetadata> NugetPackages { get; set; } = null!;
         public bool IsReleaseToPublish { get; set; }
-
-        static string GetVersion() {
-            var xdoc = XDocument.Load(RootDirectory / "Directory.Build.props");
-            return xdoc.Descendants().First(x => x.Name.LocalName == "Version").Value;
-        }
     }
 }
