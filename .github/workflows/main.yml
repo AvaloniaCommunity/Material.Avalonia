@@ -34,8 +34,8 @@ jobs:
             .nuke/temp
             ~/.nuget/packages
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj', '**/Directory.Packages.props') }}
-      - name: 'Run: PublishNugetPackages'
-        run: ./build.cmd PublishNugetPackages
+      - name: 'Run: PublishNugetPackages, AppendNightlyVersionIfNeeded'
+        run: ./build.cmd PublishNugetPackages AppendNightlyVersionIfNeeded
         env:
           NuGetApiKey: ${{ secrets.NUGET_API_KEY }}
       - name: 'Publish: nuget'

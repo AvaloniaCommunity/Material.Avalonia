@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -14,8 +15,6 @@ using Octokit;
 using Octokit.Internal;
 using Serilog;
 partial class Build {
-    [LocalPath("gh")] readonly Tool GHActions = null!;
-
     Target FetchNuget => _ => _
         .Unlisted()
         .OnlyWhenDynamic(() => Parameters.ShouldPublishNugetPackages)
@@ -75,18 +74,25 @@ partial class Build {
         .Triggers(PublishNugetPackages)
         .Executes(async () => {
             var releaseVersion = NuGetVersion.Parse(GitHubActions.Instance.RefName.TrimStart('v'));
+            var tagName = $"v{releaseVersion}";
             Parameters.Version = releaseVersion.ToString();
 
-            GHActions.Invoke($"release delete --yes {releaseVersion}");
-
+            var (owner, name) = (Repository.GetGitHubOwner(), Repository.GetGitHubName());
             var credentials = new Credentials(GitHubActions.Instance.Token);
             GitHubTasks.GitHubClient = new GitHubClient(
                 new ProductHeaderValue(nameof(NukeBuild)),
                 new InMemoryCredentialStore(credentials));
 
-            var (owner, name) = (Repository.GetGitHubOwner(), Repository.GetGitHubName());
+            try {
+                var oldRelease = await GitHubTasks.GitHubClient.Repository.Release.Get(owner, name, tagName);
+                await GitHubTasks.GitHubClient.Repository.Release.Delete(owner, name, oldRelease.Id);
+            }
+            catch (Exception _) {
+                // ignored
+            }
+
             var newRelease = new NewRelease(releaseVersion.ToString()) {
-                Name = $"v{releaseVersion}",
+                Name = tagName,
                 GenerateReleaseNotes = true
             };
             var release = await GitHubTasks.GitHubClient.Repository.Release.Create(owner, name, newRelease);
