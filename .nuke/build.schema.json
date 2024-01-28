@@ -86,9 +86,11 @@
               "Clean",
               "Compile",
               "CreateIntermediateNugetPackages",
-              "CreateNugetPackages",
               "FetchNuget",
-              "PublishNugetPackages"
+              "PackDemoApp",
+              "PackNugetPackages",
+              "PublishNugetPackages",
+              "PublishRelease"
             ]
           }
         },
@@ -106,9 +108,11 @@
               "Clean",
               "Compile",
               "CreateIntermediateNugetPackages",
-              "CreateNugetPackages",
               "FetchNuget",
-              "PublishNugetPackages"
+              "PackDemoApp",
+              "PackNugetPackages",
+              "PublishNugetPackages",
+              "PublishRelease"
             ]
           }
         },
