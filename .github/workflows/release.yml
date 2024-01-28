@@ -22,7 +22,6 @@ on:
             - '*'
 
 permissions:
-    deployments: write
     contents: write
 
 jobs:

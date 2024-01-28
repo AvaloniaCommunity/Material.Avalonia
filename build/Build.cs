@@ -13,7 +13,7 @@ using Nuke.Common.Tools.DotNet;
     ImportSecrets = [nameof(NuGetApiKey)])]
 [GitHubActions("release", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
     OnPushTags = ["*"],
-    WritePermissions = [GitHubActionsPermissions.Deployments, GitHubActionsPermissions.Contents],
+    WritePermissions = [GitHubActionsPermissions.Contents],
     InvokedTargets = [nameof(PublishRelease)],
     ImportSecrets = [nameof(NuGetApiKey)])]
 partial class Build : NukeBuild {
