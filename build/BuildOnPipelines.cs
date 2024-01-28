@@ -60,7 +60,8 @@ partial class Build {
         .DependsOn(FetchNuget, PackDemoApp)
         .Triggers(PublishNugetPackages)
         .Executes(async () => {
-            var releaseVersion = NuGetVersion.Parse(GitHubActions.Instance.RefName);
+            var releaseVersion = NuGetVersion.Parse(GitHubActions.Instance.RefName.TrimStart('v'));
+            Parameters.Version = releaseVersion.ToString();
 
             GHActions.Invoke($"release delete --yes {releaseVersion}");
 
