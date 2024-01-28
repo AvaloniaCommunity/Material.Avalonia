@@ -16,7 +16,8 @@ using Nuke.Common.Tools.DotNet;
     OnPushTags = ["*"],
     WritePermissions = [GitHubActionsPermissions.Contents],
     InvokedTargets = [nameof(PublishRelease)],
-    ImportSecrets = [nameof(NuGetApiKey)])]
+    ImportSecrets = [nameof(NuGetApiKey)],
+    EnableGitHubToken = true)]
 partial class Build : NukeBuild {
     [GitRepository] readonly GitRepository Repository = null!;
     [Solution] readonly Solution Solution = null!;
