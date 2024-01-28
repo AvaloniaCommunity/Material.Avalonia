@@ -41,6 +41,7 @@ jobs:
         run: ./build.cmd PublishRelease
         env:
           NuGetApiKey: ${{ secrets.NUGET_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Publish: demo'
         uses: actions/upload-artifact@v3
         with:
