@@ -5,6 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Material.Demo.Pages;
 using Material.Dialog;
 using Material.Dialog.Enums;
 using Material.Dialog.Icons;
@@ -31,7 +32,8 @@ namespace Material.Demo.ViewModels {
                 new DialogDemoItemViewModel("Login dialog", LoginDialog),
                 new DialogDemoItemViewModel("Folder rename dialog", FolderNameDialog),
                 new DialogDemoItemViewModel("Time picker", TimePickerDialog),
-                new DialogDemoItemViewModel("Date picker", DatePickerDialog)
+                new DialogDemoItemViewModel("Date picker", DatePickerDialog),
+                new DialogDemoItemViewModel("Custom dialog", CustomDialog),
             };
         }
 
@@ -267,5 +269,22 @@ namespace Material.Demo.ViewModels {
             yield return $"TimeSpan: {r.ToString("d")}";
             _previousDatePickerResult = r;
         }
+        
+        private async IAsyncEnumerable<string> CustomDialog() {
+            // Open asset stream using assets.Open method.
+            await using var icon = AssetLoader.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
+
+            var dialog = DialogHelper.CreateCustomDialog(new CustomDialogBuilderParams()
+            {
+                Content = new CustomDialogContentDemo(),
+                StartupLocation = WindowStartupLocation.CenterOwner,
+                Borderless = false,
+            });
+            
+            var result = await dialog.ShowDialog(_window);
+
+            yield return $"Result: {result.GetResult}";
+        }
+        
     }
 }
