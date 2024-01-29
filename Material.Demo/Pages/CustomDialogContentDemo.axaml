@@ -6,5 +6,9 @@
              d:DesignHeight="450"
              d:DesignWidth="800"
              mc:Ignorable="d">
-    <TextBox Text="This should use all the available space!" />
+    <Grid Margin="5"
+          Background="LightGray"
+          RowDefinitions="Auto,*">
+        <TextBox Text="This should use all the available space!" />
+    </Grid>
 </UserControl>
