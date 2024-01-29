@@ -21,7 +21,7 @@ namespace Material.Demo.Pages {
         }
 
         private void OpenDialogWithView(object? sender, RoutedEventArgs e) {
-            DialogHost.Show(this.Resources["Sample2View"]!, "MainDialogHost");
+            DialogHost.Show(Resources["Sample2View"]!, "MainDialogHost");
         }
 
         private void OpenDialogWithModel(object? sender, RoutedEventArgs e) {
@@ -30,8 +30,7 @@ namespace Material.Demo.Pages {
         }
 
         private void OpenMoreDialogHostExamples(object? sender, RoutedEventArgs e) {
-            Process.Start(new ProcessStartInfo()
-                { FileName = "https://github.com/AvaloniaUtils/DialogHost.Avalonia", UseShellExecute = true });
+            Process.Start(new ProcessStartInfo { FileName = "https://github.com/AvaloniaUtils/DialogHost.Avalonia", UseShellExecute = true });
         }
     }
 }

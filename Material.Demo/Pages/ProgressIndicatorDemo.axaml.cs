@@ -5,20 +5,19 @@ using Avalonia.Controls;
 
 namespace Material.Demo.Pages {
     public partial class ProgressIndicatorDemo : UserControl {
-        private int caseProgress;
-
         private readonly Context context;
         private readonly Timer timer;
+        private int caseProgress;
 
         public ProgressIndicatorDemo() {
-            this.InitializeComponent();
+            InitializeComponent();
 
             timer = new Timer(1000);
             timer.Elapsed += Timer_Elapsed;
 
-            this.DataContext = context = new Context();
+            DataContext = context = new Context();
 
-            this.AttachedToVisualTree += ProgressIndicatorDemo_AttachedToVisualTree;
+            AttachedToVisualTree += ProgressIndicatorDemo_AttachedToVisualTree;
         }
 
         private void ProgressIndicatorDemo_AttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e) {
@@ -56,7 +55,7 @@ namespace Material.Demo.Pages {
         }
 
         public class Context : INotifyPropertyChanged {
-            private double m_Progress = 0;
+            private double m_Progress;
 
             public double Progress {
                 get => m_Progress;

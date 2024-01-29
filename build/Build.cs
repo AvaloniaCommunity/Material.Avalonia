@@ -7,6 +7,7 @@ using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.MinVer;
+using Numerge;
 using Serilog;
 // ReSharper disable AllUnderscoreLocalParameterName
 // ReSharper disable InconsistentNaming
@@ -22,9 +23,9 @@ using Serilog;
     ImportSecrets = [nameof(NuGetApiKey)],
     EnableGitHubToken = true)]
 partial class Build : NukeBuild {
-    [MinVer] MinVer MinVer = null!;
     [GitRepository] readonly GitRepository Repository = null!;
     [Solution] readonly Solution Solution = null!;
+    [MinVer] MinVer MinVer = null!;
     BuildParameters Parameters { get; set; } = null!;
 
     AbsolutePath ArtifactsDir => RootDirectory / "artifacts";
@@ -64,9 +65,9 @@ partial class Build : NukeBuild {
         .DependsOn(CreateIntermediateNugetPackages)
         .Produces(NugetRoot / "*.nupkg")
         .Executes(() => {
-            var config = Numerge.MergeConfiguration.LoadFile(RootDirectory / "build" / "numerge.config.json");
+            var config = MergeConfiguration.LoadFile(RootDirectory / "build" / "numerge.config.json");
             NugetRoot.CreateOrCleanDirectory();
-            if (!Numerge.NugetPackageMerger.Merge(NugetIntermediateRoot, NugetRoot, config,
+            if (!NugetPackageMerger.Merge(NugetIntermediateRoot, NugetRoot, config,
                     new NumergeNukeLogger()))
                 throw new Exception("Package merge failed");
         });

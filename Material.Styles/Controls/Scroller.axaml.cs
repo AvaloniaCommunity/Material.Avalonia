@@ -72,7 +72,6 @@ namespace Material.Styles.Controls {
         private bool _canScrollToEnd;
         private bool _canScrollToStart;
 
-        private IDisposable? _childSubscription;
         private Size _oldExtent;
         private Vector _oldOffset;
         private Size _oldViewport;

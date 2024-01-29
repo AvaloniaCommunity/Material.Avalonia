@@ -7,29 +7,23 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Material.Dialog;
 using Material.Dialog.Enums;
+using Material.Dialog.Icons;
 
-namespace Material.Demo.ViewModels
-{
-    public class DialogDemoViewModel : ViewModelBase
-    {
-        private TimeSpan _previousTimePickerResult = TimeSpan.Zero;
-        private DateTime _previousDatePickerResult = DateTime.Now;
+namespace Material.Demo.ViewModels {
+    public class DialogDemoViewModel : ViewModelBase {
         private readonly MainWindow? _window;
+        private DateTime _previousDatePickerResult = DateTime.Now;
+        private TimeSpan _previousTimePickerResult = TimeSpan.Zero;
 
-        public DialogDemoItemViewModel[] StandaloneDialogItems { get; }
-
-        public DialogDemoViewModel()
-        {
-            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime app)
-            {
-                if(app.MainWindow is not MainWindow w)
+        public DialogDemoViewModel() {
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime app) {
+                if (app.MainWindow is not MainWindow w)
                     return;
 
                 _window = w;
             }
-            
-            StandaloneDialogItems = new[]
-            {
+
+            StandaloneDialogItems = new[] {
                 new DialogDemoItemViewModel("Simple Dialog", Dialog1),
                 new DialogDemoItemViewModel("Dialog with confirmation", Dialog2),
                 new DialogDemoItemViewModel("Dialog with confirmation (content-only)", Dialog3),
@@ -41,10 +35,10 @@ namespace Material.Demo.ViewModels
             };
         }
 
-        private async IAsyncEnumerable<string> Dialog1()
-        {
-            var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams
-            {
+        public DialogDemoItemViewModel[] StandaloneDialogItems { get; } = Array.Empty<DialogDemoItemViewModel>();
+
+        private async IAsyncEnumerable<string> Dialog1() {
+            var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
                 ContentHeader = "Welcome to use Material.Avalonia",
                 SupportingText = "Enjoy Material Design in AvaloniaUI!",
                 StartupLocation = WindowStartupLocation.CenterOwner
@@ -53,24 +47,19 @@ namespace Material.Demo.ViewModels
             yield return $"Result: {result.GetResult}";
         }
 
-        private async IAsyncEnumerable<string> Dialog2()
-        {
-            var result = await DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams()
-            {
+        private async IAsyncEnumerable<string> Dialog2() {
+            var result = await DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
                 ContentHeader = "Confirm action",
                 SupportingText = "Are you sure to DELETE 20 FILES?",
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 NegativeResult = new DialogResult("cancel"),
-                DialogHeaderIcon = Dialog.Icons.DialogIconKind.Help,
-                DialogButtons = new[]
-                {
-                    new DialogButton
-                    {
+                DialogHeaderIcon = DialogIconKind.Help,
+                DialogButtons = new[] {
+                    new DialogButton {
                         Content = "CANCEL",
                         Result = "cancel"
                     },
-                    new DialogButton
-                    {
+                    new DialogButton {
                         Content = "DELETE",
                         Result = "delete"
                     }
@@ -79,25 +68,20 @@ namespace Material.Demo.ViewModels
             yield return $"Result: {result.GetResult}";
         }
 
-        private async IAsyncEnumerable<string> Dialog3()
-        {
-            var result = await DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams
-            {
+        private async IAsyncEnumerable<string> Dialog3() {
+            var result = await DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
                 ContentHeader = "Confirm action",
                 SupportingText = "Are you sure to DELETE 20 FILES?",
-                DialogHeaderIcon = Dialog.Icons.DialogIconKind.Help,
+                DialogHeaderIcon = DialogIconKind.Help,
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 NegativeResult = new DialogResult("cancel"),
                 Borderless = true,
-                DialogButtons = new[]
-                {
-                    new DialogButton
-                    {
+                DialogButtons = new[] {
+                    new DialogButton {
                         Content = "CANCEL",
                         Result = "cancel"
                     },
-                    new DialogButton
-                    {
+                    new DialogButton {
                         Content = "DELETE",
                         Result = "delete"
                     }
@@ -106,36 +90,30 @@ namespace Material.Demo.ViewModels
 
             yield return $"Result: {result.GetResult}";
 
-            if (result.GetResult == "delete")
-            {
-                await DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams
-                {
+            if (result.GetResult == "delete") {
+                await DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
                     ContentHeader = "Result",
                     SupportingText = "20 files has deleted.",
                     StartupLocation = WindowStartupLocation.CenterOwner,
-                    DialogHeaderIcon = Dialog.Icons.DialogIconKind.Success,
+                    DialogHeaderIcon = DialogIconKind.Success,
                     Borderless = true,
                 }).ShowDialog(_window);
             }
         }
 
-        private async IAsyncEnumerable<string> Dialog4()
-        {
+        private async IAsyncEnumerable<string> Dialog4() {
             // Open asset stream using assets.Open method.
             await using var icon = AssetLoader.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
 
-            var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams
-            {
+            var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
                 ContentHeader = "Welcome to use Material.Avalonia",
                 SupportingText = "Enjoy Material Design in AvaloniaUI!",
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 Borderless = true,
                 // Create Image control
                 DialogIcon = new Bitmap(icon),
-                NeutralDialogButtons = new[]
-                {
-                    new DialogButton
-                    {
+                NeutralDialogButtons = new[] {
+                    new DialogButton {
                         Content = "READ MORE...",
                         Result = "read_more"
                     }
@@ -146,28 +124,23 @@ namespace Material.Demo.ViewModels
             yield return $"Result: {result.GetResult}";
         }
 
-        private async IAsyncEnumerable<string> LoginDialog()
-        {
-            var result = await DialogHelper.CreateTextFieldDialog(new TextFieldDialogBuilderParams
-            {
+        private async IAsyncEnumerable<string> LoginDialog() {
+            var result = await DialogHelper.CreateTextFieldDialog(new TextFieldDialogBuilderParams {
                 ContentHeader = "Authentication required.",
                 SupportingText = "Please login before any action.",
                 StartupLocation = WindowStartupLocation.CenterOwner,
-                DialogHeaderIcon = Dialog.Icons.DialogIconKind.Blocked,
+                DialogHeaderIcon = DialogIconKind.Blocked,
                 Borderless = true,
                 Width = 400,
-                TextFields = new[]
-                {
-                    new TextFieldBuilderParams
-                    {
+                TextFields = new[] {
+                    new TextFieldBuilderParams {
                         HelperText = "* Required",
                         Classes = "outline",
                         Label = "Account",
                         MaxCountChars = 24,
                         Validater = ValidateAccount,
                     },
-                    new TextFieldBuilderParams
-                    {
+                    new TextFieldBuilderParams {
                         HelperText = "* Required",
                         Classes = "outline",
                         Label = "Password",
@@ -176,16 +149,13 @@ namespace Material.Demo.ViewModels
                         Validater = ValidatePassword
                     }
                 },
-                DialogButtons = new[]
-                {
-                    new DialogButton
-                    {
+                DialogButtons = new[] {
+                    new DialogButton {
                         Content = "CANCEL",
                         Result = "cancel",
                         IsNegative = true
                     },
-                    new DialogButton
-                    {
+                    new DialogButton {
                         Content = "LOGIN",
                         Result = "login",
                         IsPositive = true
@@ -202,31 +172,25 @@ namespace Material.Demo.ViewModels
             yield return $"Password: {result.GetFieldsResult()[1].Text}";
         }
 
-        private Tuple<bool, string> ValidateAccount(string text)
-        {
+        private Tuple<bool, string> ValidateAccount(string text) {
             var result = text.Length > 5;
             return new Tuple<bool, string>(result, result ? "" : "Too few account name.");
         }
 
-        private Tuple<bool, string> ValidatePassword(string text)
-        {
+        private Tuple<bool, string> ValidatePassword(string text) {
             var result = text.Length >= 1;
             return new Tuple<bool, string>(result, result ? "" : "Field should be filled.");
         }
 
 
-        private async IAsyncEnumerable<string> FolderNameDialog()
-        {
-            var result = await DialogHelper.CreateTextFieldDialog(new TextFieldDialogBuilderParams()
-            {
+        private async IAsyncEnumerable<string> FolderNameDialog() {
+            var result = await DialogHelper.CreateTextFieldDialog(new TextFieldDialogBuilderParams {
                 ContentHeader = "Rename folder",
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 Borderless = true,
                 Width = 400,
-                TextFields = new TextFieldBuilderParams[]
-                {
-                    new()
-                    {
+                TextFields = new TextFieldBuilderParams[] {
+                    new() {
                         Label = "Folder name",
                         MaxCountChars = 256,
                         Validater = ValidatePassword,
@@ -234,16 +198,13 @@ namespace Material.Demo.ViewModels
                         HelperText = "* Required"
                     }
                 },
-                DialogButtons = new[]
-                {
-                    new DialogButton
-                    {
+                DialogButtons = new[] {
+                    new DialogButton {
                         Content = "CANCEL",
                         Result = "cancel",
                         IsNegative = true
                     },
-                    new DialogButton
-                    {
+                    new DialogButton {
                         Content = "RENAME",
                         Result = "rename",
                         IsPositive = true
@@ -253,23 +214,18 @@ namespace Material.Demo.ViewModels
 
             yield return $"Result: {result.GetResult}";
 
-            if (result.GetResult == "rename")
-            {
+            if (result.GetResult == "rename") {
                 yield return $"Folder name: {result.GetFieldsResult()[0].Text}";
             }
         }
 
-        private async IAsyncEnumerable<string> TimePickerDialog()
-        {
-            var result = await DialogHelper.CreateTimePicker(new TimePickerDialogBuilderParams
-            {
+        private async IAsyncEnumerable<string> TimePickerDialog() {
+            var result = await DialogHelper.CreateTimePicker(new TimePickerDialogBuilderParams {
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 ImplicitValue = _previousTimePickerResult,
-                DialogButtons = new[]
-                {
-                    new DialogButton
-                    {
+                DialogButtons = new[] {
+                    new DialogButton {
                         Content = "CONFIRM",
                         Result = "confirm",
                         IsPositive = true
@@ -287,17 +243,13 @@ namespace Material.Demo.ViewModels
             _previousTimePickerResult = r;
         }
 
-        private async IAsyncEnumerable<string> DatePickerDialog()
-        {
-            var result = await DialogHelper.CreateDatePicker(new DatePickerDialogBuilderParams
-            {
+        private async IAsyncEnumerable<string> DatePickerDialog() {
+            var result = await DialogHelper.CreateDatePicker(new DatePickerDialogBuilderParams {
                 Borderless = true,
                 StartupLocation = WindowStartupLocation.CenterOwner,
                 ImplicitValue = _previousDatePickerResult,
-                DialogButtons = new[]
-                {
-                    new DialogButton
-                    {
+                DialogButtons = new[] {
+                    new DialogButton {
                         Content = "CONFIRM",
                         Result = "confirm",
                         IsPositive = true

@@ -32,7 +32,7 @@ namespace Material.Demo.ViewModels {
             get => _kinds ?? _materialIconKinds.Value;
             set {
                 _kinds = value;
-                OnPropertyChanged(nameof(Kinds));
+                OnPropertyChanged();
             }
         }
 
@@ -40,7 +40,7 @@ namespace Material.Demo.ViewModels {
             get => _selectedGroup;
             set {
                 _selectedGroup = value;
-                OnPropertyChanged(nameof(SelectedGroup));
+                OnPropertyChanged();
             }
         }
 
@@ -48,7 +48,7 @@ namespace Material.Demo.ViewModels {
             get => _searchText;
             set {
                 _searchText = value;
-                OnPropertyChanged(nameof(SearchText));
+                OnPropertyChanged();
             }
         }
 
@@ -56,7 +56,7 @@ namespace Material.Demo.ViewModels {
 
         public RelayCommand CopyToClipboardCommand { get; }
 
-        private async void DoSearchAsync(object args) {
+        private async void DoSearchAsync(object? args) {
             if (string.IsNullOrWhiteSpace(SearchText))
                 Kinds = _materialIconKinds.Value;
             else {

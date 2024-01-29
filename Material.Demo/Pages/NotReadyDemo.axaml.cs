@@ -3,7 +3,7 @@
 namespace Material.Demo.Pages {
     public partial class NotReadyDemo : UserControl {
         public NotReadyDemo() {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

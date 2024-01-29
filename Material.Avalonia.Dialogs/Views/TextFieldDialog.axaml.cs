@@ -18,7 +18,7 @@ namespace Material.Dialog.Views {
         public TextFieldDialogResult Result { get; set; }
 
         public TextFieldDialogResult GetResult() {
-            if (!(DataContext is TextFieldDialogViewModel viewModel))
+            if (DataContext is not TextFieldDialogViewModel viewModel)
                 return null;
 
             return viewModel.DialogResult switch {

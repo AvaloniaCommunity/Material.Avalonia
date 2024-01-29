@@ -14,9 +14,9 @@ namespace Material.Demo.Models {
 
     // Data context for SideSheet demo page
     public class SideSheetDemoViewModel : ViewModelBase {
-        private readonly SideSheetData _information = new SideSheetData();
+        private readonly SideSheetData _information = new();
 
-        private bool _sideInfoOpened = false;
+        private bool _sideInfoOpened;
         public SideSheetData Information => _information;
 
         public bool SideInfoOpened {

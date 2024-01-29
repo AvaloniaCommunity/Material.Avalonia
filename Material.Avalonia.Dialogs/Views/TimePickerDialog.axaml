@@ -1,9 +1,5 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:main="clr-namespace:Material.Dialog"
-        xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
-        xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         xmlns:converters="clr-namespace:Material.Dialog.Converters"
         xmlns:controls="clr-namespace:Material.Dialog.Controls"
@@ -32,7 +28,7 @@
         <ScrollViewer Name="PART_ScrollView">
             <StackPanel Name="PART_ContentPanel">
                 <StackPanel Margin="0,24,0,0" >
-                    <Border></Border>
+                  <Border />
                 </StackPanel>            
             </StackPanel>
         </ScrollViewer>

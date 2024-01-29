@@ -22,6 +22,5 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type TabStrip}" TargetType="TabStrip"
-                BasedOn="{StaticResource MaterialTabStrip}">
-  </ControlTheme>
+                BasedOn="{StaticResource MaterialTabStrip}" />
 </ResourceDictionary>

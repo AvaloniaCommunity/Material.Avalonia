@@ -1,13 +1,10 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
+﻿using Avalonia.Controls;
 using Avalonia.Dialogs;
 using Material.Dialog;
 using Material.Styles.Assists;
 
 namespace Material.Demo.Pages {
     public partial class Home : UserControl {
-
         public Home() {
             // Sadly I don't have much time to update this listing
             // and doesn't get updated after any changes
@@ -58,16 +55,14 @@ namespace Material.Demo.Pages {
 
         public void OpenProjectRepoLink() => GlobalCommand.OpenProjectRepoLink();
 
-        public void SwitchTransition()
-        {
+        public void SwitchTransition() {
             var window = TopLevel.GetTopLevel(this);
             var state = !TransitionAssist.GetDisableTransitions(window!);
             TransitionAssist.SetDisableTransitions(window!, state);
             DialogHelper.DisableTransitions = state;
         }
 
-        public void ShowAboutAvaloniaUI()
-        {
+        public void ShowAboutAvaloniaUI() {
             var window = TopLevel.GetTopLevel(this) as Window;
             new AboutAvaloniaDialog().ShowDialog(window!);
         }

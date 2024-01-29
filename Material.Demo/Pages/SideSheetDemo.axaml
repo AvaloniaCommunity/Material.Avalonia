@@ -2,7 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:pages="clr-namespace:Material.Demo.Pages"
              xmlns:models="clr-namespace:Material.Demo.Models"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
@@ -28,7 +27,7 @@
                 <DataTemplate DataType="models:SideSheetData">
                     <StackPanel>
                         <TextBlock Classes="Headline6" Text="{CompiledBinding ContentHeader}"/>
-                        <TextBlock Text="{CompiledBinding ImportantInfos}" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Text="{CompiledBinding ImportantInfos}" TextWrapping="Wrap" />
                     </StackPanel>
                 </DataTemplate>
             </controls:SideSheet.SideSheetContentTemplate>

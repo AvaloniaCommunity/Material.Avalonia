@@ -6,7 +6,6 @@
              xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.FieldsDemo">
@@ -17,7 +16,7 @@
     <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
         <StackPanel.Styles>
             <Style Selector="TextBox">
-                <Setter Property="Margin" Value="0"></Setter>
+              <Setter Property="Margin" Value="0" />
             </Style>
         </StackPanel.Styles>
         <TextBlock Classes="Headline4 Subheadline" Text="Classic fields" />

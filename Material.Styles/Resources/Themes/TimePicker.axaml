@@ -2,8 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters"
-                    xmlns:system="clr-namespace:System;assembly=netstandard">
+                    xmlns:converters="clr-namespace:Material.Styles.Converters">
   <Design.PreviewWith>
     <StackPanel Margin="20 20 200 1000">
       <TimePicker />

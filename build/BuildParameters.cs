@@ -1,7 +1,6 @@
 using System;
 using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
-
 public partial class Build {
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
@@ -41,7 +40,7 @@ public partial class Build {
             IsReleasable = Configuration.Release == Configuration;
 
             ShouldPublishNugetPackages = IsRunningOnGitHubActions && IsMasterBranch && IsReleasable
-                && (b.MinVer.MinVerPreRelease is null || !b.MinVer.MinVerPreRelease.EndsWith(".0"));
+                                      && (b.MinVer.MinVerPreRelease is null || !b.MinVer.MinVerPreRelease.EndsWith(".0"));
 
             // VERSION
             Version = b.ForceVersion ?? b.MinVer.Version;

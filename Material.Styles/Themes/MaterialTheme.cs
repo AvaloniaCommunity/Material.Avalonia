@@ -101,7 +101,6 @@ namespace Material.Styles.Themes {
                 var color = change.GetNewValue<SecondaryColor>();
                 _theme.SetSecondaryColor(SwatchHelper.Lookup[(MaterialColor)color]);
                 EnqueueThemeUpdate();
-                return;
             }
         }
 

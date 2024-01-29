@@ -5,7 +5,7 @@ using Material.Demo.Models;
 namespace Material.Demo.Pages {
     public partial class SideSheetDemo : UserControl {
         public SideSheetDemo() {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private void CloseSideInfoButton_OnClick(object? sender, RoutedEventArgs e) {

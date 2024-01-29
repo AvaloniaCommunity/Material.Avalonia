@@ -3,7 +3,7 @@
 namespace Material.Demo.Pages {
     public partial class TabsDemo : UserControl {
         public TabsDemo() {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

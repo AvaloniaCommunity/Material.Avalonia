@@ -87,7 +87,7 @@ namespace Material.Demo {
         }
 
         private void MaterialIcon_OnPointerPressed(object? sender, PointerPressedEventArgs e) {
-            var materialTheme = Application.Current.LocateMaterialTheme<MaterialTheme>();
+            var materialTheme = Application.Current!.LocateMaterialTheme<MaterialTheme>();
             materialTheme.BaseTheme = materialTheme.BaseTheme == BaseThemeMode.Light ? BaseThemeMode.Dark : BaseThemeMode.Light;
         }
     }
