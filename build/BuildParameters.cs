@@ -32,19 +32,21 @@ public partial class Build {
             if (IsRunningOnGitHubActions) {
                 RepositoryName = $"{GitHubActions.Instance.ServerUrl}/{GitHubActions.Instance.Repository}";
                 RepositoryBranch = GitHubActions.Instance.Ref;
-                NightlyHeight = GitHubActions.Instance.RunNumber;
+                IsReleasableBranch = StringComparer.OrdinalIgnoreCase.Equals(MasterBranch, RepositoryBranch)
+                                  || GitHubActions.Instance.Ref.StartsWith("refs/heads/release/")
+                                  || StringComparer.OrdinalIgnoreCase.Equals(GitHubActions.Instance.RefType, "tag");
             }
 
             IsMainRepo = StringComparer.OrdinalIgnoreCase.Equals(MainRepo, RepositoryName);
-            IsMasterBranch = StringComparer.OrdinalIgnoreCase.Equals(MasterBranch, RepositoryBranch);
             IsReleasable = Configuration.Release == Configuration;
 
-            ShouldPublishNugetPackages = IsRunningOnGitHubActions && IsMasterBranch && IsReleasable
+            ShouldPublishNugetPackages = IsRunningOnGitHubActions && IsReleasableBranch && IsReleasable
                                       && (b.MinVer.MinVerPreRelease is null || !b.MinVer.MinVerPreRelease.EndsWith(".0"));
 
             // VERSION
             Version = b.ForceVersion ?? b.MinVer.Version;
         }
+
         public Configuration Configuration { get; }
         public string MainRepo { get; }
         public string MasterBranch { get; }
@@ -52,13 +54,11 @@ public partial class Build {
         public string RepositoryName { get; } = null!;
         public bool IsRunningOnGitHubActions { get; }
         public bool IsMainRepo { get; }
-        public bool IsMasterBranch { get; }
+        public bool IsReleasableBranch { get; }
         public bool IsReleasable { get; }
         public string Version { get; set; }
-        public long NightlyHeight { get; }
         public bool ShouldPublishNugetPackages { get; set; }
         public string NugetFeedUrl { get; set; }
         public string? NugetApiKey { get; set; }
-        public bool IsReleaseToPublish { get; set; }
     }
 }

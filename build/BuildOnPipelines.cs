@@ -67,7 +67,7 @@ partial class Build {
 
             var nuget = NuGet.Protocol.Core.Types.Repository.Factory.GetCoreV3(Parameters.NugetFeedUrl);
             foreach (var nugetArtifact in nugetArtifacts) {
-                var packageName = nugetArtifact.Name.Split(Parameters.Version)[0];
+                var packageName = nugetArtifact.Name.Split(Parameters.Version)[0].TrimEnd('.');
                 await HideOutdatedPackages(nuget, releaseVersion, packageName);
             }
             return;
