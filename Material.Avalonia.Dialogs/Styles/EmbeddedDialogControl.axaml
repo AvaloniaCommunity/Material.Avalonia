@@ -25,7 +25,12 @@
                                               Content="{CompiledBinding DialogIcon}"
                                               ContentTemplate="{StaticResource DialogHeaderIconTemplate}"
                                               IsVisible="{CompiledBinding !!DialogIcon}" />
-
+                            <DockPanel.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                                    <CompiledBinding Converter="{x:Static ObjectConverters.IsNotNull}" Path="DialogIcon" />
+                                    <CompiledBinding Converter="{x:Static StringConverters.IsNotNullOrEmpty}" Path="ContentHeader" />
+                                </MultiBinding>
+                            </DockPanel.IsVisible>
                             <TextBlock Name="{x:Static naming:PartNames.PartHeaderText}"
                                        Classes="Headline6"
                                        IsVisible="{CompiledBinding !!ContentHeader.Length}"
