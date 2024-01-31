@@ -14,6 +14,17 @@ using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitHub;
 using Octokit;
 using Octokit.Internal;
+
+// [GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
+//     OnPushBranches = ["master", "release/*"],
+//     InvokedTargets = [nameof(PublishNugetPackages)],
+//     ImportSecrets = [nameof(NuGetApiKey)])]
+// [GitHubActions("release", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
+//     OnPushTags = ["*"],
+//     WritePermissions = [GitHubActionsPermissions.Contents],
+//     InvokedTargets = [nameof(PublishRelease)],
+//     ImportSecrets = [nameof(NuGetApiKey)],
+//     EnableGitHubToken = true)]
 partial class Build {
     Target PublishNugetPackages => _ => _
         .OnlyWhenDynamic(() => Parameters.NugetApiKey is not null)
@@ -84,7 +95,7 @@ partial class Build {
 
                 var outdatedVersions = parametersNugetPackages
                     .Where(metadata => metadata.Identity.HasVersion)
-                    .Where(metadata => metadata.Identity.Version.IsPrerelease)
+                    .Where(metadata => metadata.Identity.Version.IsNightly())
                     .Where(metadata => metadata.Identity.Version < nuGetVersion);
                 foreach (var outdatedVersion in outdatedVersions) {
                     var packageUpdateResource = await sourceRepository.GetResourceAsync<PackageUpdateResource>();
