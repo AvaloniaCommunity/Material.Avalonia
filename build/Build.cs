@@ -1,6 +1,5 @@
 using System;
 using Nuke.Common;
-using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
@@ -12,16 +11,6 @@ using Serilog;
 // ReSharper disable AllUnderscoreLocalParameterName
 // ReSharper disable InconsistentNaming
 
-[GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
-    OnPushBranches = ["master", "release/*"],
-    InvokedTargets = [nameof(PublishNugetPackages)],
-    ImportSecrets = [nameof(NuGetApiKey)])]
-[GitHubActions("release", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
-    OnPushTags = ["*"],
-    WritePermissions = [GitHubActionsPermissions.Contents],
-    InvokedTargets = [nameof(PublishRelease)],
-    ImportSecrets = [nameof(NuGetApiKey)],
-    EnableGitHubToken = true)]
 partial class Build : NukeBuild {
     [GitRepository] readonly GitRepository Repository = null!;
     [Solution] readonly Solution Solution = null!;
