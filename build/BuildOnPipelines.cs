@@ -14,6 +14,7 @@ using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitHub;
 using Octokit;
 using Octokit.Internal;
+using Serilog;
 
 [GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = false,
     OnPushBranches = ["master", "release/*"],
@@ -54,6 +55,7 @@ partial class Build {
                 new InMemoryCredentialStore(credentials));
 
             try {
+                Log.Information("Deleting old release {TagName}", tagName);
                 var oldRelease = await GitHubTasks.GitHubClient.Repository.Release.Get(owner, name, tagName);
                 await GitHubTasks.GitHubClient.Repository.Release.Delete(owner, name, oldRelease.Id);
             }
@@ -61,6 +63,7 @@ partial class Build {
                 // ignored
             }
 
+            Log.Information("Creating new release {TagName}", tagName);
             var newRelease = new NewRelease(Parameters.Version.ToString()) {
                 Name = tagName,
                 GenerateReleaseNotes = true
@@ -69,6 +72,7 @@ partial class Build {
             var nugetArtifacts = NugetRoot.GetFiles("*.nupkg").ToImmutableArray();
             var artifacts = nugetArtifacts.Concat(DemoDir.GetFiles());
             foreach (var artifactPath in artifacts) {
+                Log.Information("Uploading new release {TagName} asset: {AssetName}", tagName, artifactPath.Name);
                 await using var fileStream = File.OpenRead(artifactPath);
                 var releaseAssetUpload = new ReleaseAssetUpload(artifactPath.Name, "application/octet-stream", fileStream, null);
                 await GitHubTasks.GitHubClient.Repository.Release.UploadAsset(release, releaseAssetUpload);
@@ -82,6 +86,7 @@ partial class Build {
             return;
 
             async Task HideOutdatedPackages(SourceRepository sourceRepository, NuGetVersion nuGetVersion, string packageName) {
+                Log.Information("Retrieving nightly packages version for {PackageName} to hide", packageName);
                 var resource = await sourceRepository.GetResourceAsync<PackageMetadataResource>();
                 var parametersNugetPackages = await resource.GetMetadataAsync(
                     packageName,
@@ -96,10 +101,13 @@ partial class Build {
                     .Where(metadata => metadata.Identity.Version.IsNightly())
                     .Where(metadata => metadata.Identity.Version < nuGetVersion);
                 foreach (var outdatedVersion in outdatedVersions) {
+                    Log.Information("Hiding previous nightly version {Version}", outdatedVersion.Identity.Version.ToString());
                     var packageUpdateResource = await sourceRepository.GetResourceAsync<PackageUpdateResource>();
-                    await packageUpdateResource.Delete(packageName, outdatedVersion.Identity.ToString(),
+                    await packageUpdateResource.Delete(packageName, outdatedVersion.Identity.Version.ToString(),
                         _ => Parameters.NugetApiKey, _ => true, false, NugetLogger.Instance);
                 }
+                
+                Log.Information("All previous nightly version for {PackageName} was hidden", packageName);
             }
         });
 }

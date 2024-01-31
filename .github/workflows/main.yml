@@ -23,6 +23,8 @@ on:
             - 'release/*'
         tags-ignore:
             - "*"
+        paths:
+            - "Material.**"
 
 jobs:
     ubuntu-latest:
