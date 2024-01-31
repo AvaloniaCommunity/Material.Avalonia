@@ -1,11 +1,14 @@
 using System;
+using System.Linq;
 using Nuke.Common;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
+using Nuke.Common.Tools.Git;
 using Nuke.Common.Tools.MinVer;
+using Nuke.Common.Utilities;
 using Numerge;
 using Serilog;
 // ReSharper disable AllUnderscoreLocalParameterName
@@ -41,13 +44,25 @@ partial class Build : NukeBuild {
     Target CreateIntermediateNugetPackages => _ => _
         .DependsOn(Compile)
         .Executes(() => {
-            DotNetTasks.DotNetPack(s => s
-                .SetProject(Solution)
-                .SetConfiguration(Configuration)
-                .SetVersion(Parameters.Version.ToString())
-                .SetOutputDirectory(NugetIntermediateRoot)
-                .EnableDeterministic()
-                .EnableDeterministicSourcePaths());
+            DotNetTasks.DotNetPack(s => {
+                s = s
+                    .SetProject(Solution)
+                    .SetConfiguration(Configuration)
+                    .SetVersion(Parameters.Version.ToString())
+                    .SetOutputDirectory(NugetIntermediateRoot)
+                    .EnableDeterministic()
+                    .EnableDeterministicSourcePaths();
+
+                if (Parameters.Version.IsNightly()) {
+                    var commitMessage = GitTasks.Git("show -s --format=%s")
+                        .Select(o => o.Text)
+                        .Join("\n");
+
+                    s = s.SetPackageReleaseNotes($"Nightly version for commit {Repository.Commit}.\n{commitMessage}");
+                }
+                
+                return s;
+            });
         });
 
     Target PackNugetPackages => _ => _
