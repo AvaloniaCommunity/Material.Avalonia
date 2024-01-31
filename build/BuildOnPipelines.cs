@@ -15,16 +15,16 @@ using Nuke.Common.Tools.GitHub;
 using Octokit;
 using Octokit.Internal;
 
-// [GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
-//     OnPushBranches = ["master", "release/*"],
-//     InvokedTargets = [nameof(PublishNugetPackages)],
-//     ImportSecrets = [nameof(NuGetApiKey)])]
-// [GitHubActions("release", GitHubActionsImage.UbuntuLatest, AutoGenerate = true,
-//     OnPushTags = ["*"],
-//     WritePermissions = [GitHubActionsPermissions.Contents],
-//     InvokedTargets = [nameof(PublishRelease)],
-//     ImportSecrets = [nameof(NuGetApiKey)],
-//     EnableGitHubToken = true)]
+[GitHubActions("main", GitHubActionsImage.UbuntuLatest, AutoGenerate = false,
+    OnPushBranches = ["master", "release/*"],
+    InvokedTargets = [nameof(PublishNugetPackages)],
+    ImportSecrets = [nameof(NuGetApiKey)])]
+[GitHubActions("release", GitHubActionsImage.UbuntuLatest, AutoGenerate = false,
+    OnPushTags = ["*"],
+    WritePermissions = [GitHubActionsPermissions.Contents],
+    InvokedTargets = [nameof(PublishRelease)],
+    ImportSecrets = [nameof(NuGetApiKey)],
+    EnableGitHubToken = true)]
 partial class Build {
     Target PublishNugetPackages => _ => _
         .OnlyWhenDynamic(() => Parameters.NugetApiKey is not null)

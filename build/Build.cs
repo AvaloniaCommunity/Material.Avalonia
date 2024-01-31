@@ -35,7 +35,7 @@ partial class Build : NukeBuild {
             DotNetTasks.DotNetBuild(_ => _
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
-                .SetVersion(Parameters.Version));
+                .SetVersion(Parameters.Version.ToString()));
         });
 
     Target CreateIntermediateNugetPackages => _ => _
@@ -44,7 +44,7 @@ partial class Build : NukeBuild {
             DotNetTasks.DotNetPack(s => s
                 .SetProject(Solution)
                 .SetConfiguration(Configuration)
-                .SetVersion(Parameters.Version)
+                .SetVersion(Parameters.Version.ToString())
                 .SetOutputDirectory(NugetIntermediateRoot)
                 .EnableDeterministic()
                 .EnableDeterministicSourcePaths());
@@ -72,7 +72,7 @@ partial class Build : NukeBuild {
                 DotNetTasks.DotNetPublish(s => s
                     .SetProject(Solution.GetProject("Material.Demo"))
                     .SetConfiguration("Release")
-                    .SetVersion(Parameters.Version)
+                    .SetVersion(Parameters.Version.ToString())
                     .SetOutput(DemoDir)
                     .SetProperty("IncludeNativeLibrariesForSelfExtract", "true")
                     .SetProperty("IncludeAllContentForSelfExtract", "true")
