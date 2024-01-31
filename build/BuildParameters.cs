@@ -1,4 +1,5 @@
 using System;
+using NuGet.Versioning;
 using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
 public partial class Build {
@@ -44,7 +45,7 @@ public partial class Build {
                                       && (b.MinVer.MinVerPreRelease is null || !b.MinVer.MinVerPreRelease.EndsWith(".0"));
 
             // VERSION
-            Version = b.ForceVersion ?? b.MinVer.Version;
+            Version = new NuGetVersion(b.ForceVersion ?? b.MinVer.Version);
         }
 
         public Configuration Configuration { get; }
@@ -56,7 +57,7 @@ public partial class Build {
         public bool IsMainRepo { get; }
         public bool IsReleasableBranch { get; }
         public bool IsReleasable { get; }
-        public string Version { get; set; }
+        public NuGetVersion Version { get; set; }
         public bool ShouldPublishNugetPackages { get; set; }
         public string NugetFeedUrl { get; set; }
         public string? NugetApiKey { get; set; }

@@ -45,9 +45,7 @@ partial class Build {
         .DependsOn(PackDemoApp)
         .DependsOn(PublishNugetPackages)
         .Executes(async () => {
-            var releaseVersion = NuGetVersion.Parse(GitHubActions.Instance.RefName.TrimStart('v'));
-            var tagName = $"v{releaseVersion}";
-            Parameters.Version = releaseVersion.ToString();
+            var tagName = $"v{Parameters.Version}";
 
             var (owner, name) = (Repository.GetGitHubOwner(), Repository.GetGitHubName());
             var credentials = new Credentials(GitHubActions.Instance.Token);
@@ -63,7 +61,7 @@ partial class Build {
                 // ignored
             }
 
-            var newRelease = new NewRelease(releaseVersion.ToString()) {
+            var newRelease = new NewRelease(Parameters.Version.ToString()) {
                 Name = tagName,
                 GenerateReleaseNotes = true
             };
@@ -78,8 +76,8 @@ partial class Build {
 
             var nuget = NuGet.Protocol.Core.Types.Repository.Factory.GetCoreV3(Parameters.NugetFeedUrl);
             foreach (var nugetArtifact in nugetArtifacts) {
-                var packageName = nugetArtifact.Name.Split(Parameters.Version)[0].TrimEnd('.');
-                await HideOutdatedPackages(nuget, releaseVersion, packageName);
+                var packageName = nugetArtifact.Name.Split(Parameters.Version.ToString())[0].TrimEnd('.');
+                await HideOutdatedPackages(nuget, Parameters.Version, packageName);
             }
             return;
 
