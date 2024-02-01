@@ -7,40 +7,68 @@
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              x:Class="Material.Demo.Pages.ScrollViewerDemo">
-    <StackPanel Margin="16, 0">
-        <StackPanel.Styles>
-            <Style Selector="controls|Card">
-                <Setter Property="Margin" Value="8" />
-            </Style>
-        </StackPanel.Styles>
-        <TextBlock Classes="Headline4 Subheadline" Text="ScrollViewer" />
+  <StackPanel Margin="16, 0">
+    <StackPanel.Styles>
+      <Style Selector="controls|Card">
+        <Setter Property="Margin" Value="8" />
+      </Style>
+    </StackPanel.Styles>
+    <TextBlock Classes="Headline4 Subheadline" Text="ScrollViewer" />
 
-        <WrapPanel HorizontalAlignment="Stretch">
+    <WrapPanel HorizontalAlignment="Stretch">
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Material" />
+        <showMeTheXaml:XamlDisplay UniqueId="ScrollViewerDefault">
+          <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                          VerticalScrollBarVisibility="Visible">
+              <pages:Home />
+            </ScrollViewer>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
 
-            <StackPanel>
-                <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer (standard mode)" />
-                <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer1">
-                    <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
-                        <ScrollViewer HorizontalScrollBarVisibility="Visible"
-                                      VerticalScrollBarVisibility="Visible">
-                            <pages:Home />
-                        </ScrollViewer>
-                    </controls:Card>
-                </showMeTheXaml:XamlDisplay>
-            </StackPanel>
-            
-            <StackPanel>
-                <TextBlock Classes="Headline6 Subheadline2" Text="ScrollViewer (No auto-hide mode)" />
-                <showMeTheXaml:XamlDisplay UniqueId="ScrollViewer0">
-                    <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
-                        <ScrollViewer HorizontalScrollBarVisibility="Visible"
-                                      VerticalScrollBarVisibility="Visible"
-                                      Classes="classic no-auto-hide">
-                            <pages:Home />
-                        </ScrollViewer>
-                    </controls:Card>
-                </showMeTheXaml:XamlDisplay>
-            </StackPanel>
-        </WrapPanel>
-    </StackPanel>
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Material (No auto-hide mode)" />
+        <showMeTheXaml:XamlDisplay UniqueId="ScrollViewerDefaultNoAutoHide">
+          <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                          VerticalScrollBarVisibility="Visible"
+                          Classes="no-auto-hide">
+              <pages:Home />
+            </ScrollViewer>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+    </WrapPanel>
+    
+    <WrapPanel HorizontalAlignment="Stretch">
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Modern" />
+        <showMeTheXaml:XamlDisplay UniqueId="ScrollViewerModern">
+          <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                          VerticalScrollBarVisibility="Visible"
+                          Theme="{StaticResource MaterialModernScrollViewer}">
+              <pages:Home />
+            </ScrollViewer>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Modern (No auto-hide mode)" />
+        <showMeTheXaml:XamlDisplay UniqueId="ScrollViewerModernNoAutoHide">
+          <controls:Card Width="400" Height="300" VerticalAlignment="Top" Padding="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                          VerticalScrollBarVisibility="Visible"
+                          Theme="{StaticResource MaterialModernScrollViewer}"
+                          Classes="no-auto-hide">
+              <pages:Home />
+            </ScrollViewer>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+    </WrapPanel>
+  </StackPanel>
 </UserControl>

@@ -72,17 +72,17 @@
 
   <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer"
                 BasedOn="{StaticResource MaterialScrollViewer}" />
-
-
-  <ControlTheme x:Key="NoAutoHideScrollViewer"
+  
+  <!-- Modern -->
+  <ControlTheme x:Key="MaterialModernScrollViewer"
                 BasedOn="{StaticResource MaterialScrollViewer}"
                 TargetType="ScrollViewer">
     <Style Selector="^ /template/ ScrollBar">
-      <Setter Property="AllowAutoHide" Value="False" />
+      <Setter Property="Theme" Value="{StaticResource MaterialModernScrollBar}" />
     </Style>
     
     <Style Selector="^ /template/ Rectangle#PART_CornerFillRectangle">
-      <Setter Property="Opacity" Value="0.7" />
+      <Setter Property="IsVisible" Value="False" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>
