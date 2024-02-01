@@ -58,6 +58,16 @@
     <Style Selector="^ /template/ Rectangle#PART_CornerFillRectangle">
       <Setter Property="Opacity" Value="0" />
     </Style>
+    
+    <Style Selector="^.no-auto-hide">
+      <Style Selector="^ /template/ ScrollBar">
+        <Setter Property="AllowAutoHide" Value="False" />
+      </Style>
+    
+      <Style Selector="^ /template/ Rectangle#PART_CornerFillRectangle">
+        <Setter Property="Opacity" Value="0.7" />
+      </Style>
+    </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer"
