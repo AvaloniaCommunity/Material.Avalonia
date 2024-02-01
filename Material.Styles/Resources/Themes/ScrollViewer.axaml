@@ -38,6 +38,9 @@
                      Name="PART_VerticalScrollBar"
                      Orientation="Vertical"
                      ClipToBounds="False" />
+          <Rectangle Grid.Row="1" Grid.Column="1"
+                     Name="PART_CornerFillRectangle"
+                     Fill="{DynamicResource MaterialSelectionBrush}" />
         </Grid>
       </ControlTemplate>
     </Setter>
@@ -51,6 +54,10 @@
       <Setter Property="HorizontalAlignment" Value="Right" />
       <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
     </Style>
+    
+    <Style Selector="^ /template/ Rectangle#PART_CornerFillRectangle">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer"
@@ -60,42 +67,12 @@
   <ControlTheme x:Key="NoAutoHideScrollViewer"
                 BasedOn="{StaticResource MaterialScrollViewer}"
                 TargetType="ScrollViewer">
-    <Setter Property="Template">
-      <ControlTemplate>
-        <Grid ColumnDefinitions="*, Auto"
-              RowDefinitions="*, Auto">
-          <ScrollContentPresenter Grid.Row="0"
-                                  Grid.Column="0"
-                                  Name="PART_ContentPresenter"
-                                  Background="{TemplateBinding Background}"
-                                  Padding="{TemplateBinding Padding}"
-                                  HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
-                                  VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}"
-                                  HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
-                                  VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}">
-            <ScrollContentPresenter.GestureRecognizers>
-              <ScrollGestureRecognizer
-                CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
-                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}" />
-            </ScrollContentPresenter.GestureRecognizers>
-          </ScrollContentPresenter>
-
-          <ScrollBar Grid.Row="1" Grid.Column="0"
-                     Name="PART_HorizontalScrollBar"
-                     Orientation="Horizontal"
-                     ClipToBounds="False"
-                     AllowAutoHide="False" />
-          <ScrollBar Grid.Row="0" Grid.Column="1"
-                     Name="PART_VerticalScrollBar"
-                     Orientation="Vertical"
-                     ClipToBounds="False"
-                     AllowAutoHide="False" />
-
-          <Rectangle Grid.Row="1" Grid.Column="1"
-                     Fill="{DynamicResource MaterialSelectionBrush}"
-                     Opacity="0.7" />
-        </Grid>
-      </ControlTemplate>
-    </Setter>
+    <Style Selector="^ /template/ ScrollBar">
+      <Setter Property="AllowAutoHide" Value="False" />
+    </Style>
+    
+    <Style Selector="^ /template/ Rectangle#PART_CornerFillRectangle">
+      <Setter Property="Opacity" Value="0.7" />
+    </Style>
   </ControlTheme>
 </ResourceDictionary>
