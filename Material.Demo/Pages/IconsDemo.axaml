@@ -11,7 +11,8 @@
              xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Material.Demo.Pages.IconsDemo">
+             x:Class="Material.Demo.Pages.IconsDemo"
+             x:DataType="viewModels:IconsDemoViewModel">
     <UserControl.Resources>
         <converters:StringJoinConverter x:Key="StringJoinConverter"
                                         Separator="{x:Static system:Environment.NewLine}" />

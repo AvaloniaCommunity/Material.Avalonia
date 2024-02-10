@@ -5,7 +5,9 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
-             x:Class="Material.Demo.Pages.ProgressIndicatorDemo">
+             xmlns:viewModels="clr-namespace:Material.Demo.ViewModels"
+             x:Class="Material.Demo.Pages.ProgressIndicatorDemo"
+             x:DataType="viewModels:ProgressIndicatorDemoViewModel">
     <StackPanel Margin="16, 0">
         <TextBlock Classes="Headline4 Subheadline" Text="Progress Indicator" />
         <WrapPanel>

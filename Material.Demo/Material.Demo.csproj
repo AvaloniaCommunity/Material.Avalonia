@@ -6,8 +6,6 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <AvaloniaVersion>11.0.9</AvaloniaVersion>
     <IsPackable>false</IsPackable>
-
-    <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
 
   <ItemGroup>
