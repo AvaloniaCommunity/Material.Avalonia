@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <AvaloniaVersion>11.1.999-cibuild0043160-beta</AvaloniaVersion>
+    <AvaloniaVersion>11.0.9</AvaloniaVersion>
     <IsPackable>false</IsPackable>
 
     <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
@@ -34,9 +34,4 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**"/>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Commands\"/>
-  </ItemGroup>
-
 </Project>
