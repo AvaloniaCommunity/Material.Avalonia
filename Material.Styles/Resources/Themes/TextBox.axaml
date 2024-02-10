@@ -25,27 +25,28 @@
   <ContextMenu x:Key="DefaultTextBoxContextMenu"
                Name="TextBoxContextMenu"
                WindowManagerAddShadowHint="False"
-               Cursor="Arrow">
+               Cursor="Arrow"
+               x:DataType="system:Object">
 
     <MenuItem Name="TextBoxContextMenuCutItem"
               Header="Cut"
-              Command="{Binding $parent[TextBox].Cut}"
-              IsEnabled="{Binding $parent[TextBox].CanCut}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
+              Command="{CompiledBinding $parent[TextBox].Cut}"
+              IsEnabled="{CompiledBinding $parent[TextBox].CanCut}"
+              InputGesture="{CompiledBinding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut, Size=24}" />
 
     <MenuItem Name="TextBoxContextMenuCopyItem"
               Header="Copy"
-              Command="{Binding $parent[TextBox].Copy}"
-              IsEnabled="{Binding $parent[TextBox].CanCopy}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
+              Command="{CompiledBinding $parent[TextBox].Copy}"
+              IsEnabled="{CompiledBinding $parent[TextBox].CanCopy}"
+              InputGesture="{CompiledBinding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy, Size=24}" />
 
     <MenuItem Name="TextBoxContextMenuPasteItem"
               Header="Paste"
-              Command="{Binding $parent[TextBox].Paste}"
-              IsEnabled="{Binding $parent[TextBox].CanPaste}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
+              Command="{CompiledBinding $parent[TextBox].Paste}"
+              IsEnabled="{CompiledBinding $parent[TextBox].CanPaste}"
+              InputGesture="{CompiledBinding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste, Size=24}" />
 
     <Separator />
@@ -53,8 +54,8 @@
     <!-- ReSharper disable once MarkupAttributeTypo -->
     <MenuItem Name="TextBoxContextMenuSelectAllItem"
               Header="Select All"
-              Command="{Binding $parent[TextBox].SelectAll}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
+              Command="{CompiledBinding $parent[TextBox].SelectAll}"
+              InputGesture="{CompiledBinding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll, Size=24}" />
   </ContextMenu>
 
@@ -65,26 +66,27 @@
 
   <MenuFlyout x:Key="DefaultTextBoxMenuFlyout"
               Placement="Bottom"
-              FlyoutPresenterTheme="{StaticResource MaterialTextBoxFlyoutPresenter}">
+              FlyoutPresenterTheme="{StaticResource MaterialTextBoxFlyoutPresenter}"
+              x:DataType="system:Object">
     <MenuItem Name="TextBoxMenuFlyoutCutItem"
               Header="Cut"
-              Command="{Binding $parent[TextBox].Cut}"
-              IsEnabled="{Binding $parent[TextBox].CanCut}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
+              Command="{CompiledBinding $parent[TextBox].Cut}"
+              IsEnabled="{CompiledBinding $parent[TextBox].CanCut}"
+              InputGesture="{CompiledBinding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut, Size=24}" />
 
     <MenuItem Name="TextBoxMenuFlyoutCopyItem"
               Header="Copy"
-              Command="{Binding $parent[TextBox].Copy}"
-              IsEnabled="{Binding $parent[TextBox].CanCopy}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
+              Command="{CompiledBinding $parent[TextBox].Copy}"
+              IsEnabled="{CompiledBinding $parent[TextBox].CanCopy}"
+              InputGesture="{CompiledBinding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy, Size=24}" />
 
     <MenuItem Name="TextBoxMenuFlyoutPasteItem"
               Header="Paste"
-              Command="{Binding $parent[TextBox].Paste}"
-              IsEnabled="{Binding $parent[TextBox].CanPaste}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
+              Command="{CompiledBinding $parent[TextBox].Paste}"
+              IsEnabled="{CompiledBinding $parent[TextBox].CanPaste}"
+              InputGesture="{CompiledBinding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste, Size=24}" />
 
     <Separator />
@@ -92,8 +94,8 @@
     <!-- ReSharper disable once MarkupAttributeTypo -->
     <MenuItem Name="TextBoxMenuFlyoutSelectAllItem"
               Header="Select All"
-              Command="{Binding $parent[TextBox].SelectAll}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
+              Command="{CompiledBinding $parent[TextBox].SelectAll}"
+              InputGesture="{CompiledBinding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll, Size=24}" />
   </MenuFlyout>
 
@@ -153,13 +155,13 @@
   <Template x:Key="ClearTextBoxButtonTemplate">
     <Button Name="PART_ClearButton"
             Theme="{StaticResource ClearTextBoxButton}"
-            Command="{Binding $parent[TextBox].Clear}" />
+            Command="{CompiledBinding $parent[TextBox].Clear}" />
   </Template>
 
   <Template x:Key="RevealTextMaskToggleButtonTemplate">
     <ToggleButton Name="PART_PasswordRevealToggle"
                   Theme="{StaticResource RevealTextMaskToggleButtonTheme}"
-                  IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}" />
+                  IsChecked="{CompiledBinding $parent[TextBox].RevealPassword, Mode=TwoWay}" />
   </Template>
 
   <!-- Standard text field theme https://material.io/archive/guidelines/components/text-fields.html -->

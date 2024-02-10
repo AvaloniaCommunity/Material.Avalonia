@@ -49,7 +49,7 @@
 
 
     <Style Selector="^[IsActive=True] /template/ Rectangle#PART_ActiveIndicator">
-      <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+      <Setter Property="Width" Value="{CompiledBinding $parent[Control].Bounds.Width}" />
     </Style>
 
     <Style Selector="^[IsHovered=True] /template/ Rectangle#PART_BaseBorder">

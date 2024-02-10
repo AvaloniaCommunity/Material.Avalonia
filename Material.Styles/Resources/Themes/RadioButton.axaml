@@ -25,9 +25,9 @@
                   BorderBrush="{TemplateBinding BorderBrush}"
                   BorderThickness="{TemplateBinding BorderThickness}">
             <DockPanel Name="PART_RootPanel">
-              <Viewbox Width="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+              <Viewbox Width="{CompiledBinding RelativeSource={RelativeSource TemplatedParent}, 
                             Path=(assists:SelectionControlAssist.Size)}"
-                       Height="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                       Height="{CompiledBinding RelativeSource={RelativeSource TemplatedParent}, 
                             Path=(assists:SelectionControlAssist.Size)}"
                        Stretch="Uniform" VerticalAlignment="Center" ClipToBounds="False">
                 <Panel Name="PART_InnerPanel">

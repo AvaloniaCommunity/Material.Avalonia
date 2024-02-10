@@ -46,8 +46,8 @@
 
                     <Button Grid.Column="3" Grid.Row="1"
                             Theme="{StaticResource MaterialFlatButton}"
-                            Content="{Binding Button}"
-                            Command="{Binding Command}"
+                            Content="{CompiledBinding Button}"
+                            Command="{CompiledBinding Command}"
                             IsVisible="{CompiledBinding !!Command}" />
                   </Grid>
                 </controls:Card>

@@ -6,7 +6,7 @@
   <ControlTheme x:Key="MaterialTabStripItem" TargetType="TabStripItem">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="assists:TabControlAssist.TabHeaderForeground"
-            Value="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveBrush),
+            Value="{CompiledBinding Path=(assists:TabControlAssist.TabHeaderInactiveBrush),
                  RelativeSource={RelativeSource AncestorType=TabStrip}}" />
     <Setter Property="Template">
       <Setter.Value>
@@ -16,7 +16,7 @@
                 MinHeight="48" MinWidth="90"
                 Background="{TemplateBinding Background}">
             <ripple:RippleEffect
-              RippleFill="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush),
+              RippleFill="{CompiledBinding Path=(assists:TabControlAssist.TabHeaderHighlightBrush),
                             RelativeSource={RelativeSource AncestorType=TabStrip}}">
               <ContentPresenter Name="PART_HeaderContent"
                                 Background="{TemplateBinding Background}"
@@ -26,10 +26,10 @@
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                 Content="{TemplateBinding Content}"
-                                TextBlock.Foreground="{Binding Path=(assists:TabControlAssist.TabHeaderForeground), RelativeSource={RelativeSource TemplatedParent}}" />
+                                TextBlock.Foreground="{CompiledBinding Path=(assists:TabControlAssist.TabHeaderForeground), RelativeSource={RelativeSource TemplatedParent}}" />
             </ripple:RippleEffect>
             <Border Name="PART_BackgroundBorder"
-                    Background="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabStrip}}"
+                    Background="{CompiledBinding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabStrip}}"
                     Height="2" Width="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
           </Grid>
         </ControlTemplate>
@@ -42,7 +42,7 @@
 
     <Style Selector="^:selected">
       <Setter Property="assists:TabControlAssist.TabHeaderForeground"
-              Value="{Binding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabStrip}}" />
+              Value="{CompiledBinding Path=(assists:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource AncestorType=TabStrip}}" />
     </Style>
 
     <Style Selector="^:selected /template/ Border#PART_BackgroundBorder">
@@ -52,7 +52,7 @@
             <Setter Property="Width" Value="0" />
           </KeyFrame>
           <KeyFrame Cue="100%">
-            <Setter Property="Width" Value="{Binding $parent[Control].Bounds.Width}" />
+            <Setter Property="Width" Value="{CompiledBinding $parent[Control].Bounds.Width}" />
           </KeyFrame>
         </Animation>
       </Setter>
@@ -60,7 +60,7 @@
 
     <Style Selector="^:not(:selected) /template/ ContentPresenter#PART_HeaderContent">
       <Setter Property="Opacity"
-              Value="{Binding Path=(assists:TabControlAssist.TabHeaderInactiveOpacity), RelativeSource={RelativeSource AncestorType=TabStrip}}" />
+              Value="{CompiledBinding Path=(assists:TabControlAssist.TabHeaderInactiveOpacity), RelativeSource={RelativeSource AncestorType=TabStrip}}" />
       <Setter Property="Margin" Value="24,12,24,12" />
       <Setter Property="HorizontalAlignment" Value="Center" />
       <Setter Property="VerticalAlignment" Value="Center" />

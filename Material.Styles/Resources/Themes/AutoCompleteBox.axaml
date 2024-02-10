@@ -17,7 +17,7 @@
                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}" />
 
           <Popup Name="PART_Popup"
-                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                 MinWidth="{CompiledBinding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                  MaxHeight="{TemplateBinding MaxDropDownHeight}"
                  PlacementTarget="{TemplateBinding}"
                  IsLightDismissEnabled="True">

@@ -10,15 +10,15 @@
       </Border>
       <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
         <controls:Clock CanSelectSeconds="False" TimeFormat="TwelveHour"
-                        SelectedTime="{Binding #MainClock.SelectedTime}" />
+                        SelectedTime="{CompiledBinding #MainClock.SelectedTime}" />
       </Border>
       <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
         <controls:Clock CanSelectSeconds="True" TimeFormat="TwentyFourHour"
-                        SelectedTime="{Binding #MainClock.SelectedTime}" />
+                        SelectedTime="{CompiledBinding #MainClock.SelectedTime}" />
       </Border>
       <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center">
         <controls:Clock CanSelectSeconds="False" TimeFormat="TwentyFourHour"
-                        SelectedTime="{Binding #MainClock.SelectedTime}" />
+                        SelectedTime="{CompiledBinding #MainClock.SelectedTime}" />
       </Border>
     </UniformGrid>
   </Design.PreviewWith>
@@ -34,7 +34,7 @@
     <Setter Property="TextBlock.FontWeight" Value="Medium" />
 
     <Style Selector="^:not(:checked)">
-      <Setter Property="Foreground" Value="{Binding Foreground, 
+      <Setter Property="Foreground" Value="{CompiledBinding Foreground, 
       RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=controls:Clock}}" />
     </Style>
   </ControlTheme>
@@ -95,13 +95,13 @@
                              Grid.Row="0"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
                              Content="AM"
-                             IsChecked="{Binding !!(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                             IsChecked="{CompiledBinding !!(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                 <Rectangle Grid.Row="1" Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                 <RadioButton x:Name="PART_PmSelector"
                              Grid.Row="2"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
                              Content="PM"
-                             IsChecked="{Binding !(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                             IsChecked="{CompiledBinding !(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
               </Grid>
             </Border>
           </Grid>

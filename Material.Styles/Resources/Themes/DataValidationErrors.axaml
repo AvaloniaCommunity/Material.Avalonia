@@ -1,8 +1,12 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:system="clr-namespace:System;assembly=netstandard">
+                    xmlns:system="clr-namespace:System;assembly=netstandard"
+                    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=netstandard">
   <DataTemplate x:Key="DataValidationErrorTemplate">
-    <ItemsControl ItemsSource="{Binding }"
+    <DataTemplate.DataType>
+      <x:Type TypeName="generic:IEnumerable" x:TypeArguments="system:Object"/>
+    </DataTemplate.DataType>
+    <ItemsControl ItemsSource="{CompiledBinding }"
                   TextBlock.Foreground="{DynamicResource MaterialValidationErrorBrush}">
       <ItemsControl.DataTemplates>
         <!-- Due to technical issues, the font size will be changed implicitly and its
@@ -10,13 +14,13 @@
         <DataTemplate DataType="system:Exception">
           <TextBlock Name="PART_ErrorText"
                      FontSize="12"
-                     Text="{Binding Message}"
+                     Text="{CompiledBinding Message}"
                      TextWrapping="Wrap" />
         </DataTemplate>
         <DataTemplate DataType="system:Object">
           <TextBlock Name="PART_ErrorText"
                      FontSize="12"
-                     Text="{Binding }"
+                     Text="{CompiledBinding }"
                      TextWrapping="Wrap" />
         </DataTemplate>
       </ItemsControl.DataTemplates>

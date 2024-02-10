@@ -56,7 +56,7 @@
           </TextBox>
           <Panel Name="PART_PopupContainer">
             <Popup Name="PART_CalendarPopup"
-                   IsOpen="{Binding #CalendarButton.IsChecked, Mode=TwoWay}">
+                   IsOpen="{CompiledBinding #CalendarButton.IsChecked, Mode=TwoWay}">
               <controls:Card Name="PART_Card" Padding="8">
                 <Calendar
                   SelectedDate="{TemplateBinding SelectedDate, 

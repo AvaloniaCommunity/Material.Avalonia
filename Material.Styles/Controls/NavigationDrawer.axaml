@@ -38,7 +38,7 @@
               <Border.Styles>
                 <Style Selector="controls|NavigationDrawer /template/ Border#PART_LeftDrawerBorder">
                   <Setter Property="Margin"
-                          Value="{Binding $self.Width, 
+                          Value="{CompiledBinding $self.Width, 
                                         Converter={StaticResource MarginCreator}, 
                                         ConverterParameter={StaticResource LeftMarginCreatorParam}}" />
                 </Style>
@@ -56,7 +56,7 @@
               <Border.Styles>
                 <Style Selector="controls|NavigationDrawer /template/ Border#PART_RightDrawerBorder">
                   <Setter Property="Margin"
-                          Value="{Binding $self.Width, 
+                          Value="{CompiledBinding $self.Width, 
                                         Converter={StaticResource MarginCreator}, 
                                         ConverterParameter={StaticResource RightMarginCreatorParam}}" />
                 </Style>

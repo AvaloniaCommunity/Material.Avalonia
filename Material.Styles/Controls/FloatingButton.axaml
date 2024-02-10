@@ -25,7 +25,7 @@
     <Setter Property="Padding" Value="16" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
     <Setter Property="assists:ButtonAssist.HoverColor"
-            Value="{Binding Foreground, Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
+            Value="{CompiledBinding Foreground, Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
     <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#000000" />
     <Setter Property="TextBlock.FontWeight" Value="Medium" />
     <Setter Property="TextBlock.FontSize" Value="14" />
@@ -171,8 +171,8 @@
   </Style>
   
   <Style Selector="cc|FloatingButton[IsExtended=true] /template/ Grid#TemplateRoot">
-    <Setter Property="Width" Value="{Binding #ContentBorder.Bounds.Width}" /> 
-    <Setter Property="Height" Value="{Binding #ContentBorder.Bounds.Height}" /> 
+    <Setter Property="Width" Value="{CompiledBinding #ContentBorder.Bounds.Width}" /> 
+    <Setter Property="Height" Value="{CompiledBinding #ContentBorder.Bounds.Height}" /> 
   </Style-->
 
 

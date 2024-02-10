@@ -19,17 +19,17 @@
                                   Padding="{TemplateBinding Padding}">
             <ScrollContentPresenter.GestureRecognizers>
               <ScrollGestureRecognizer
-                CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
-                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}" />
+                CanHorizontallyScroll="{CompiledBinding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                CanVerticallyScroll="{CompiledBinding CanVerticallyScroll, ElementName=PART_ContentPresenter}" />
             </ScrollContentPresenter.GestureRecognizers>
           </ScrollContentPresenter>
 
           <Button Name="PART_PageUpButton" Grid.Column="0"
                   IsVisible="{TemplateBinding controls:Scroller.CanScrollToStart}"
-                  Command="{Binding $parent[controls:Scroller].ScrollPageBackOnce}" />
+                  Command="{CompiledBinding $parent[controls:Scroller].ScrollPageBackOnce}" />
           <Button Name="PART_PageDownButton" Grid.Column="2"
                   IsVisible="{TemplateBinding controls:Scroller.CanScrollToEnd}"
-                  Command="{Binding $parent[controls:Scroller].ScrollPageForwardOnce}" />
+                  Command="{CompiledBinding $parent[controls:Scroller].ScrollPageForwardOnce}" />
         </Grid>
       </ControlTemplate>
     </Setter>

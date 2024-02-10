@@ -46,7 +46,7 @@
           </TextBox>
           <Panel Name="PART_PopupContainer">
             <Popup Name="PART_TimePickerPopup"
-                   IsOpen="{Binding #PART_TimePickerPopupButton.IsChecked, Mode=TwoWay}">
+                   IsOpen="{CompiledBinding #PART_TimePickerPopupButton.IsChecked, Mode=TwoWay}">
               <controls:Card Name="PART_Card" Padding="8">
                 <controls:Clock Name="PART_Clock"
                                 SelectedTime="{TemplateBinding SelectedTime, Mode=TwoWay}"

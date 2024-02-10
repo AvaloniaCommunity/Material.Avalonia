@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
   <Design.PreviewWith>
     <Border Margin="40" BorderThickness="1" BorderBrush="Black">
       <StackPanel Orientation="Horizontal">
@@ -11,7 +12,7 @@
 
             <controls:SideSheet Width="400" Height="200"
                                 SideSheetDirection="Left"
-                                SideSheetOpened="{Binding ElementName=LeftToggler, Path=IsChecked, Mode=TwoWay}"
+                                SideSheetOpened="{CompiledBinding ElementName=LeftToggler, Path=IsChecked, Mode=TwoWay}"
                                 SideSheetHeader="Left side sheet"
                                 Padding="8">
               <controls:SideSheet.SideSheetContent>
@@ -29,7 +30,7 @@
         <Border>
           <StackPanel>
             <controls:SideSheet Width="400" Height="200"
-                                SideSheetOpened="{Binding ElementName=toggler, Path=IsChecked, Mode=TwoWay}"
+                                SideSheetOpened="{CompiledBinding ElementName=toggler, Path=IsChecked, Mode=TwoWay}"
                                 SideSheetHeader="Right side sheet"
                                 Padding="8">
               <controls:SideSheet.SideSheetContent>
@@ -62,7 +63,7 @@
     <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="SideSheetHeaderTemplate">
       <DataTemplate>
-        <TextBlock Classes="Headline6" Text="{Binding}" />
+        <TextBlock Classes="Headline6" Text="{CompiledBinding ., DataType={x:Type system:Object}}" />
       </DataTemplate>
     </Setter>
     <Setter Property="Template">
@@ -130,7 +131,7 @@
 
     <Style Selector="^:left:closed /template/ Border#PART_SideSheet">
       <Setter Property="Margin"
-              Value="{Binding $self.Width, 
+              Value="{CompiledBinding $self.Width, 
                 Converter={StaticResource MarginCreator}, 
                 ConverterParameter={StaticResource LeftMarginCreatorParam}}" />
     </Style>
@@ -141,7 +142,7 @@
 
     <Style Selector="^:right:closed /template/ Border#PART_SideSheet">
       <Setter Property="Margin"
-              Value="{Binding $self.Width, 
+              Value="{CompiledBinding $self.Width, 
                 Converter={StaticResource MarginCreator}, 
                 ConverterParameter={StaticResource RightMarginCreatorParam}}" />
     </Style>

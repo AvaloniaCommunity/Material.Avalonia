@@ -3,7 +3,8 @@
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
   <Design.PreviewWith>
     <Border Padding="20" Width="360">
       <StackPanel VerticalAlignment="Center">
@@ -97,7 +98,7 @@
                      IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}">
                 <controls:Card Name="PART_Card"
                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                               MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
+                               MinWidth="{CompiledBinding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                   <ScrollViewer Name="PART_ScrollViewer">
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -163,7 +164,7 @@
     <Setter Property="Padding" Value="16,8" />
     <Setter Property="Template">
       <ControlTemplate>
-        <StackPanel>
+        <StackPanel Name="PART_TemplateRoot">
           <ToggleButton Classes="NoFeedback TransparentBack"
                         MinHeight="48" BorderThickness="0"
                         HorizontalContentAlignment="Stretch"
@@ -243,11 +244,11 @@
           </ToggleButton>
           <Popup Name="PART_Popup"
                  IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                 MinWidth="{CompiledBinding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                  VerticalOffset="0"
                  Margin="0"
                  WindowManagerAddShadowHint="False"
-                 PlacementTarget="{Binding ElementName=templateRoot}"
+                 PlacementTarget="{CompiledBinding ElementName=PART_TemplateRoot, DataType={x:Type system:Object}}"
                  IsLightDismissEnabled="True"
                  UseLayoutRounding="True"
                  ClipToBounds="False">
@@ -255,8 +256,7 @@
                            Margin="4,0,4,4"
                            CornerRadius="0,0,8,8"
                            Padding="0">
-              <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
-                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
+              <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
                             MinHeight="1">
                 <ItemsPresenter Name="PART_ItemsPresenter"
                                 ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -312,7 +312,7 @@
                 <TextBlock Name="floatingWatermark" Classes="Subtitle1"
                            HorizontalAlignment="Stretch" Margin="4,2"
                            Foreground="{TemplateBinding BorderBrush}"
-                           Opacity="{Binding ElementName=PART_Border, Path=Opacity}"
+                           Opacity="{CompiledBinding ElementName=PART_Border, Path=Opacity}"
                            Text="{TemplateBinding (assists:ComboBoxAssist.Label)}" />
               </Border>
               <Grid ColumnDefinitions="*,Auto">
@@ -343,11 +343,11 @@
           </Grid>
           <Popup Name="PART_Popup"
                  IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                 MinWidth="{CompiledBinding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                  VerticalOffset="0"
                  Margin="0"
                  WindowManagerAddShadowHint="False"
-                 PlacementTarget="{Binding ElementName=templateRoot}"
+                 PlacementTarget="{CompiledBinding ElementName=PART_RootBorder, DataType={x:Type system:Object}}"
                  IsLightDismissEnabled="True"
                  UseLayoutRounding="True"
                  ClipToBounds="False">

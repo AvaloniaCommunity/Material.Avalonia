@@ -126,27 +126,27 @@
             <Animation Duration="0:0:2" IterationCount="INFINITE">
               <KeyFrame Cue="0%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=-0.1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=-0.1}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0.1" />
               </KeyFrame>
               <KeyFrame Cue="35%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.45}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.45}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0.6" />
               </KeyFrame>
               <KeyFrame Cue="60%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="1" />
               </KeyFrame>
               <KeyFrame Cue="90%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0" />
               </KeyFrame>
               <KeyFrame Cue="100%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0" />
               </KeyFrame>
             </Animation>
@@ -157,32 +157,32 @@
             <Animation Duration="0:0:2" IterationCount="INFINITE">
               <KeyFrame Cue="0%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0" />
               </KeyFrame>
               <KeyFrame Cue="50%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0" />
               </KeyFrame>
               <KeyFrame Cue="70%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0.7" />
               </KeyFrame>
               <KeyFrame Cue="90%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.95}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.95}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0.2" />
               </KeyFrame>
               <KeyFrame Cue="95%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0" />
               </KeyFrame>
               <KeyFrame Cue="100%">
                 <Setter Property="TranslateTransform.X"
-                        Value="{Binding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Width, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleX" Value="0" />
               </KeyFrame>
             </Animation>
@@ -196,28 +196,28 @@
             <Animation Duration="0:0:2" IterationCount="INFINITE">
               <KeyFrame Cue="0%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=-0.1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=-0.1}" />
 
                 <Setter Property="ScaleTransform.ScaleY" Value="0.1" />
               </KeyFrame>
               <KeyFrame Cue="35%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.45}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.45}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0.6" />
               </KeyFrame>
               <KeyFrame Cue="60%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0.1" />
               </KeyFrame>
               <KeyFrame Cue="90%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0" />
               </KeyFrame>
               <KeyFrame Cue="100%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0" />
               </KeyFrame>
             </Animation>
@@ -228,32 +228,32 @@
             <Animation Duration="0:0:2" IterationCount="INFINITE">
               <KeyFrame Cue="0%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0" />
               </KeyFrame>
               <KeyFrame Cue="50%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0" />
               </KeyFrame>
               <KeyFrame Cue="70%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0.7" />
               </KeyFrame>
               <KeyFrame Cue="90%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.95}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=0.95}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0.2" />
               </KeyFrame>
               <KeyFrame Cue="95%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="ScaleTransform.ScaleY" Value="0" />
               </KeyFrame>
               <KeyFrame Cue="100%">
                 <Setter Property="TranslateTransform.Y"
-                        Value="{Binding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
+                        Value="{CompiledBinding $parent[ProgressBar].Bounds.Height, Converter={StaticResource IntermediateOffsetConverter}, ConverterParameter=1}" />
                 <Setter Property="Height" Value="0" />
               </KeyFrame>
             </Animation>

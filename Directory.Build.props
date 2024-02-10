@@ -30,5 +30,8 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
   </ItemGroup>
-
+  
+  <PropertyGroup>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
 </Project>

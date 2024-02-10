@@ -13,7 +13,7 @@
       <ControlTemplate>
         <Panel Name="PART_RootPanel">
           <Ellipse Name="PART_HoverEffect"
-                   Width="{Binding $self.Bounds.Height}" />
+                   Width="{CompiledBinding $self.Bounds.Height}" />
           <ContentPresenter Name="PART_ContentPresenter"
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"

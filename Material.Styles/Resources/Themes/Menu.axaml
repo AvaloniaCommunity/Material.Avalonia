@@ -18,7 +18,7 @@
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="Padding" Value="16 0" />
-    <Setter Property="Foreground" Value="{Binding $parent[Menu].Foreground}" />
+    <Setter Property="Foreground" Value="{CompiledBinding $parent[Menu].Foreground}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_RootBorder"
