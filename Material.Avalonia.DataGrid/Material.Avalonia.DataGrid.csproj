@@ -4,6 +4,8 @@
     <Description>DataGrid styles library of Material.Avalonia.</Description>
     <PackageTags>avalonia xaml material design theme datagrid colour color ui ux material-design google-material</PackageTags>
     <PackageIcon>FavIcon.png</PackageIcon>
+
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
