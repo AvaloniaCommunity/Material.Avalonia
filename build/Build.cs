@@ -85,7 +85,7 @@ partial class Build : NukeBuild {
 
             void PublishFor(string rid, string fileExtension = "") {
                 DotNetTasks.DotNetPublish(s => s
-                    .SetProject(Solution.GetProject("Material.Demo"))
+                    .SetProject(Solution.GetProject("Material.Avalonia.Demo.Desktop"))
                     .SetConfiguration("Release")
                     .SetVersion(Parameters.Version.ToString())
                     .SetOutput(DemoDir)
@@ -97,7 +97,7 @@ partial class Build : NukeBuild {
                     .EnablePublishSingleFile()
                     .SetRuntime(rid));
 
-                var binaryFile = (DemoDir / "Material.Demo" + fileExtension).ToFileInfo();
+                var binaryFile = (DemoDir / "Material.Avalonia.Demo.Desktop" + fileExtension).ToFileInfo();
                 binaryFile.MoveTo(DemoDir / $"Material.Demo_{rid}{fileExtension}");
             }
         });

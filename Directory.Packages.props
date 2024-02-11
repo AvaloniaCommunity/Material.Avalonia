@@ -15,13 +15,15 @@
     <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Microsoft.NET.WebAssembly.Threading" Version="8.0.0" />
     <!--For Material.Styles-->
     <PackageVersion Include="System.Reactive" Version="6.0.0" />
     <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.2.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <!--For Material.Demo-->
+    <!--For Material.Avalonia.Demo-->
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1" />
     <PackageVersion Include="DialogHost.Avalonia" Version="0.7.6" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />

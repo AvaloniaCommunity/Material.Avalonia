@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <WasmMainJSPath>AppBundle\main.js</WasmMainJSPath>
+    <OutputType>Exe</OutputType>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IsPackable>false</IsPackable>
+
+    <RunAOTCompilation>true</RunAOTCompilation>
+    <WasmEnableSIMD>true</WasmEnableSIMD>
+    <MSBuildEnableWorkloadResolver>true</MSBuildEnableWorkloadResolver>
+    <WasmRuntimeAssetsLocation>./</WasmRuntimeAssetsLocation>
+
+    <AvaloniaVersion>11.0.9</AvaloniaVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <WasmExtraFilesToDeploy Include="AppBundle\**"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Browser"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Material.Avalonia.Demo\Material.Avalonia.Demo.csproj"/>
+  </ItemGroup>
+</Project>

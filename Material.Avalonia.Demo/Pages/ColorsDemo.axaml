@@ -1,0 +1,135 @@
+<UserControl x:Class="Material.Avalonia.Demo.Pages.ColorsDemo"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:extensions="clr-namespace:Material.Avalonia.Demo.Extensions"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+  <StackPanel Margin="16,0,16,32">
+    <StackPanel.Styles>
+      <!--  Icons are too small, use next style to let them bigger  -->
+      <Style Selector="icons|MaterialIcon">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+      </Style>
+    </StackPanel.Styles>
+    <TextBlock Classes="Headline4 Subheadline" Text="Colors" />
+    <Grid ColumnDefinitions="*,15,*">
+      <StackPanel>
+        <TextBlock Classes="Headline5 Subheadline" Text="Primary colors" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Red" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Red}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Pink" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Pink}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Purple" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Purple}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="DeepPurple" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt DeepPurple}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Indigo" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Indigo}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Blue" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Blue}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="LightBlue" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt LightBlue}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Cyan" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Cyan}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Teal" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Teal}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Green" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Green}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="LightGreen" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt LightGreen}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Lime" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Lime}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Yellow" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Yellow}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Amber" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Amber}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Orange" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Orange}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="DeepOrange" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt DeepOrange}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Brown" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Brown}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Grey" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt Grey}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="BlueGrey" />
+        <Canvas Height="10" Background="{extensions:PrimaryColorExt BlueGrey}" />
+      </StackPanel>
+
+      <StackPanel Grid.Column="2">
+        <TextBlock Classes="Headline5 Subheadline" Text="Secondary colors" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Red" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Red}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Pink" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Pink}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Purple" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Purple}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="DeepPurple" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt DeepPurple}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Indigo" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Indigo}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Blue" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Blue}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="LightBlue" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt LightBlue}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Cyan" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Cyan}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Teal" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Teal}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Green" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Green}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="LightGreen" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt LightGreen}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Lime" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Lime}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Yellow" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Yellow}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Amber" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Amber}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Orange" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt Orange}" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="DeepOrange" />
+        <Canvas Height="10" Background="{extensions:SecondaryColorExt DeepOrange}" />
+      </StackPanel>
+    </Grid>
+  </StackPanel>
+</UserControl>

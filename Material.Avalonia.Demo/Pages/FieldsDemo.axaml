@@ -1,0 +1,359 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="2300"
+             xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:viewModels="clr-namespace:Material.Avalonia.Demo.ViewModels"
+             x:Class="Material.Avalonia.Demo.Pages.FieldsDemo"
+             x:DataType="viewModels:TextFieldsViewModel">
+    <UserControl.Resources>
+        <system:String x:Key="TextFieldTip1">Only numerics in this field</system:String>
+    </UserControl.Resources>
+    
+    <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
+        <StackPanel.Styles>
+            <Style Selector="TextBox">
+              <Setter Property="Margin" Value="0" />
+            </Style>
+        </StackPanel.Styles>
+        <TextBlock Classes="Headline4 Subheadline" Text="Classic fields" />
+
+        <WrapPanel HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="TextBox">
+                        <Setter Property="Width" Value="240" />
+                    </Style>
+                </StackPanel.Styles>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="Headline6 Subheadline2"
+                               Text="Single-Line fields" />
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes0">
+                        <TextBox UseFloatingWatermark="True"
+                                 Watermark="Type something..."
+                                 wpf:TextFieldAssist.Label="Classic TextBox" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes1">
+                        <TextBox UseFloatingWatermark="False" Watermark="No floating label" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes2">
+                        <TextBox UseFloatingWatermark="True" Classes="revealPasswordButton"
+                                 wpf:TextFieldAssist.Label="Password" PasswordChar="*" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes3">
+                        <TextBox UseFloatingWatermark="True" Classes="clearButton"
+                                 wpf:TextFieldAssist.Label="Text field" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes4">
+                        <TextBox UseFloatingWatermark="True"
+                                 wpf:TextFieldAssist.Label="Text field with validation" 
+                                 wpf:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"
+                                 Text="{Binding Numerics}"/>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineTextBoxes5">
+                        <TextBox UseFloatingWatermark="True" IsEnabled="False"
+                                 wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!" />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Classes="Headline6 Subheadline2" Text="Multi-Line fields" />
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Styles>
+                        <Style Selector="TextBox.Floating">
+                            <Setter Property="Width" Value="360" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <showMeTheXaml:XamlDisplay UniqueId="MultilineFields0">
+                        <TextBox Classes="Floating" AcceptsReturn="True" MaxHeight="100" TextWrapping="Wrap" wpf:TextFieldAssist.Label="Multiline Test" UseFloatingWatermark="True"
+                                 Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
+ adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ et dolore magna aliqua. The quick brown fox jumps over the 
+ lazy dog. War and peace. Keep going. Go on. For how long? 
+ Not long. Lorem ipsum dolor sit amet, consectetur adipiscing 
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+ aliqua." />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+
+        <TextBlock Classes="Headline4 Subheadline" Text="Filled fields" />
+
+        <WrapPanel HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="TextBox">
+                        <Setter Property="Width" Value="240" />
+                        <Setter Property="UseFloatingWatermark" Value="True" />
+                    </Style>
+                </StackPanel.Styles>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields" />
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields0">
+                        <TextBox UseFloatingWatermark="True" Theme="{StaticResource FilledTextBox}"
+                                 wpf:TextFieldAssist.Label="Filled TextBox" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields1">
+                        <TextBox UseFloatingWatermark="False" Theme="{StaticResource FilledTextBox}" Watermark="No floating label" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields2">
+                        <TextBox UseFloatingWatermark="True" Classes="filled revealPasswordButton" Theme="{StaticResource FilledTextBox}"
+                                 wpf:TextFieldAssist.Label="Password"
+                                 PasswordChar="*" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields3">
+                        <TextBox UseFloatingWatermark="True" Classes="filled clearButton" Theme="{StaticResource FilledTextBox}"
+                                 wpf:TextFieldAssist.Label="Text field" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields4">
+                        <TextBox UseFloatingWatermark="True" Classes="filled" Theme="{StaticResource FilledTextBox}"
+                                 wpf:TextFieldAssist.Label="Text field with validation"
+                                 wpf:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"
+                                 Text="{Binding Numerics}" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineFields5">
+                        <TextBox UseFloatingWatermark="True" Classes="filled" Theme="{StaticResource FilledTextBox}" IsEnabled="False"
+                                 wpf:TextFieldAssist.Label="Disabled Field"
+                                 Text="Hello World!" />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields (dense)" />
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineDenseFields0">
+                        <TextBox Classes="filled dense" Theme="{StaticResource FilledTextBox}" UseFloatingWatermark="False" Watermark="No floating label" />
+
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineDenseFields1">
+                        <TextBox UseFloatingWatermark="True" Classes="filled dense" Theme="{StaticResource FilledTextBox}"
+                                 wpf:TextFieldAssist.Label="Filled dense TextBox" />
+
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineDenseFields2">
+                        <TextBox UseFloatingWatermark="True" Classes="filled dense clearButton" Theme="{StaticResource FilledTextBox}"
+                                 wpf:TextFieldAssist.Label="Dense field with clear button" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineDenseFields3">
+                        <TextBox UseFloatingWatermark="True" Classes="filled dense revealPasswordButton" Theme="{StaticResource FilledTextBox}"
+                                 wpf:TextFieldAssist.Label="Password"
+                                 PasswordChar="*" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SingleLineDenseFields4">
+                        <TextBox UseFloatingWatermark="True" Classes="filled dense" Theme="{StaticResource FilledTextBox}" IsEnabled="False"
+                                 wpf:TextFieldAssist.Label="Disabled Field"
+                                 Text="Hello World!" />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Classes="Headline6 Subheadline2" Text="Multi-Line fields" />
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Styles>
+                        <Style Selector="TextBox">
+                            <Setter Property="Width" Value="380" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <showMeTheXaml:XamlDisplay UniqueId="MultilineFields1">
+                        <TextBox UseFloatingWatermark="True"
+                                 wpf:TextFieldAssist.Label="Multiline textfield"
+                                 Classes="filled" Theme="{StaticResource FilledTextBox}"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 MaxHeight="100"
+                                 Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
+ adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ et dolore magna aliqua. The quick brown fox jumps over the 
+ lazy dog. War and peace. Keep going. Go on. For how long? 
+ Not long. Lorem ipsum dolor sit amet, consectetur adipiscing 
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+ aliqua." />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+
+        <TextBlock Classes="Headline4 Subheadline" Text="Outline fields" />
+
+        <WrapPanel HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="TextBox">
+                        <Setter Property="Width" Value="240" />
+                    </Style>
+                </StackPanel.Styles>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields" />
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields0">
+                        <TextBox UseFloatingWatermark="True" Classes="outline" Theme="{StaticResource OutlineTextBox}"
+                                 wpf:TextFieldAssist.Label="Outline TextBox" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields1">
+                        <TextBox UseFloatingWatermark="False" Classes="outline" Theme="{StaticResource OutlineTextBox}" Watermark="No floating label" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields2">
+                        <TextBox UseFloatingWatermark="True" Classes="outline revealPasswordButton" Theme="{StaticResource OutlineTextBox}"
+                                 wpf:TextFieldAssist.Label="Password" PasswordChar="*" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields3">
+                        <TextBox UseFloatingWatermark="True" Classes="outline clearButton" Theme="{StaticResource OutlineTextBox}"
+                                 wpf:TextFieldAssist.Label="Text field" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields4">
+                        <TextBox UseFloatingWatermark="True" Classes="outline" Theme="{StaticResource OutlineTextBox}"
+                                 wpf:TextFieldAssist.Label="Text field with validation"
+                                 wpf:TextFieldAssist.Hints="{StaticResource TextFieldTip1}"
+                                 Text="{Binding Numerics}"/>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineFields5">
+                        <TextBox UseFloatingWatermark="True" Classes="outline" Theme="{StaticResource OutlineTextBox}" IsEnabled="False"
+                                 wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!" />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="Headline6 Subheadline2" Text="Single-Line fields (dense)" />
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineDenseFields0">
+                        <TextBox UseFloatingWatermark="False" Classes="outline dense" Theme="{StaticResource OutlineTextBox}" Watermark="No floating label" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineDenseFields1">
+                        <TextBox UseFloatingWatermark="True" Classes="outline dense" Theme="{StaticResource OutlineTextBox}"
+                                 wpf:TextFieldAssist.Label="Outline dense TextBox" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineDenseFields2">
+                        <TextBox UseFloatingWatermark="True" Classes="outline dense clearButton" Theme="{StaticResource OutlineTextBox}"
+                                 wpf:TextFieldAssist.Label="Dense field with clear button" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineDenseFields3">
+                        <TextBox UseFloatingWatermark="True" Classes="outline dense revealPasswordButton" Theme="{StaticResource OutlineTextBox}"
+                                 wpf:TextFieldAssist.Label="Password" PasswordChar="*" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineSinglelineDenseFields4">
+                        <TextBox UseFloatingWatermark="True" Classes="outline dense" Theme="{StaticResource OutlineTextBox}" IsEnabled="False"
+                                 wpf:TextFieldAssist.Label="Disabled Field" Text="Hello World!" />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Classes="Headline6 Subheadline2" Text="Multi-Line fields" />
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Styles>
+                        <Style Selector="TextBox">
+                            <Setter Property="Margin" Value="8" />
+                            <Setter Property="Width" Value="380" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <showMeTheXaml:XamlDisplay UniqueId="OutlineMultilineFields0">
+                        <TextBox UseFloatingWatermark="True"
+                                 wpf:TextFieldAssist.Label="Multiline textfield"
+                                 Classes="outline" Theme="{StaticResource OutlineTextBox}"
+                                 MaxHeight="100"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 Text="Multiline. Lorem ipsum dolor sit amet, consectetur 
+ adipiscing elit, sed do eiusmod tempor incididunt ut labore
+ et dolore magna aliqua. The quick brown fox jumps over the 
+ lazy dog. War and peace. Keep going. Go on. For how long? 
+ Not long. Lorem ipsum dolor sit amet, consectetur adipiscing 
+ elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+ aliqua." />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+
+        <WrapPanel HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="TextBox">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Width" Value="300" />
+                    </Style>
+                </StackPanel.Styles>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="Headline6 Subheadline2" Text="Solo fields" />
+                    <showMeTheXaml:XamlDisplay UniqueId="SoloFields0">
+                        <controls:Card Padding="0" Margin="8">
+                            <TextBox Classes="solo" Theme="{StaticResource SoloTextBox}" Watermark="Solo field with Card">
+                                <TextBox.InnerRightContent>
+                                    <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}"
+                                            Content="{avalonia:MaterialIconExt Search, Size=24}" />
+                                </TextBox.InnerRightContent>
+                            </TextBox>
+                        </controls:Card>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SoloFields1">
+                        <controls:ColorZone Padding="0" Margin="8">
+                            <TextBox Classes="solo" Theme="{StaticResource SoloTextBox}" Watermark="or with ColorZone">
+                                <TextBox.InnerRightContent>
+                                    <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}"
+                                            Content="{avalonia:MaterialIconExt Search, Size=24}" />
+                                </TextBox.InnerRightContent>
+                            </TextBox>
+                        </controls:ColorZone>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SoloFields2">
+                        <controls:ColorZone Padding="0" Margin="8">
+                            <TextBox Watermark="Search field" Classes="solo" Theme="{StaticResource SoloTextBox}" Margin="0">
+                                <TextBox.InnerRightContent>
+                                    <Button Width="{Binding $self.Bounds.Height}" Classes="Flat"
+                                            Foreground="{DynamicResource MaterialCardBackgroundBrush}">
+                                        <avalonia:MaterialIcon Kind="Magnify" Width="20" Height="20" />
+                                    </Button>
+                                </TextBox.InnerRightContent>
+                            </TextBox>
+                        </controls:ColorZone>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SoloFields3">
+                        <TextBox BorderBrush="{Binding $self.Foreground}" BorderThickness="1" Classes="solo" Theme="{StaticResource SoloTextBox}"
+                                 Watermark="Search field"
+                                 CornerRadius="32" Margin="8">
+                            <TextBox.InnerLeftContent>
+                                <Border Height="{Binding $parent[TextBox].Height}" Width="{Binding $self.Bounds.Height}">
+                                    <avalonia:MaterialIcon HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                           Kind="Magnify" Width="20" Height="20" />
+                                </Border>
+                            </TextBox.InnerLeftContent>
+                        </TextBox>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="SoloFields4">
+                        <TextBox BorderBrush="Black" Margin="8" BorderThickness="1" Classes="solo" Theme="{StaticResource SoloTextBox}"
+                                 Watermark="No container but use border instead" />
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+        
+        <WrapPanel HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="NumericUpDown">
+                        <Setter Property="Margin" Value="0" />
+                        <Setter Property="Width" Value="300" />
+                    </Style>
+                </StackPanel.Styles>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Classes="Headline6 Subheadline2" Text="Numeric Up Down" />
+                    <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown0">
+                        <NumericUpDown Watermark="Enter text"
+                                       wpf:TextFieldAssist.Hints="Here is the hint"
+                                       wpf:TextFieldAssist.Label="Cool label" />
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown1">
+                        <NumericUpDown ButtonSpinnerLocation="Left"/>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="NumericUpDown2">
+                      <NumericUpDown
+                        Theme="{StaticResource OutlineNumericUpDown}"
+                        ButtonSpinnerLocation="Left"/>
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+        
+        
+    </StackPanel>
+</UserControl>

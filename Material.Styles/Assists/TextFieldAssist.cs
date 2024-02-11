@@ -26,7 +26,7 @@ namespace Material.Styles.Assists
             element.GetValue<string?>(LabelProperty);
 
         // Use throw DataValidationException in property of view model instead of those things
-        // Example can be found in dev-branch -> /Material.Demo/ViewModels/TextFieldsViewModel.cs
+        // Example can be found in dev-branch -> /Material.Avalonia.Demo.Desktop/ViewModels/TextFieldsViewModel.cs
 
         /*
         
