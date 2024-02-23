@@ -20,14 +20,14 @@
             Name="SideSheet"
             Width="500" Height="560" BorderBrush="Black" BorderThickness="1"
             SideSheetDirection="Right"
-            SideSheetOpened="{CompiledBinding SideInfoOpened}"
-            SideSheetContent="{CompiledBinding Information}"
-            SideSheetHeader="{CompiledBinding Information.Header}">
+            SideSheetOpened="{Binding SideInfoOpened}"
+            SideSheetContent="{Binding Information}"
+            SideSheetHeader="{Binding Information.Header}">
             <controls:SideSheet.SideSheetContentTemplate>
                 <DataTemplate DataType="models:SideSheetData">
                     <StackPanel>
-                        <TextBlock Classes="Headline6" Text="{CompiledBinding ContentHeader}"/>
-                        <TextBlock Text="{CompiledBinding ImportantInfos}" TextWrapping="Wrap" />
+                        <TextBlock Classes="Headline6" Text="{Binding ContentHeader}"/>
+                        <TextBlock Text="{Binding ImportantInfos}" TextWrapping="Wrap" />
                     </StackPanel>
                 </DataTemplate>
             </controls:SideSheet.SideSheetContentTemplate>

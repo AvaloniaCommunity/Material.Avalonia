@@ -20,7 +20,7 @@
     <Setter Property="Padding" Value="16 8" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
     <Setter Property="assists:ButtonAssist.HoverColor"
-            Value="{CompiledBinding Foreground,
+            Value="{Binding Foreground,
                               Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
     <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#000000" />
     <Setter Property="TextBlock.FontWeight" Value="Medium" />
@@ -180,7 +180,7 @@
     <Setter Property="Padding" Value="16 6" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialBodyBrush}" />
-    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{CompiledBinding $self.Foreground}" />
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{Binding $self.Foreground}" />
 
     <!-- Colour variants -->
 

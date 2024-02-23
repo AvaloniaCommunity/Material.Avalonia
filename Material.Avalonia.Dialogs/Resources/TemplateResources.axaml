@@ -12,12 +12,12 @@
     <RecyclingElementFactory x:Key="DialogHeaderIconTemplate" SelectTemplateKey="DialogHeaderIconTemplate_OnSelectTemplateKey">
         <RecyclingElementFactory.Templates>
             <DataTemplate DataType="icons:DialogIconViewModel" x:Key="DialogIcon">
-                <icons1:DialogIcon Kind="{CompiledBinding Kind}"/>
+                <icons1:DialogIcon Kind="{Binding Kind}"/>
             </DataTemplate>
             
             <DataTemplate DataType="icons:ImageIconViewModel" x:Key="DialogImageIcon">
-                <Image Source="{CompiledBinding Bitmap}"
-                       Stretch="{CompiledBinding Stretch}"/>
+                <Image Source="{Binding Bitmap}"
+                       Stretch="{Binding Stretch}"/>
             </DataTemplate>
         </RecyclingElementFactory.Templates>
     </RecyclingElementFactory>
@@ -25,8 +25,8 @@
     <DataTemplate x:Key="DialogButtonTemplate" DataType="elements:DialogButtonViewModel">
         <!-- ReSharper disable once Xaml.StyleClassNotFound -->
         <Button Classes="Flat"
-                Content="{CompiledBinding Content, FallbackValue='NULL'}"
-                Command="{CompiledBinding Command}"
-                CommandParameter="{CompiledBinding }"/>
+                Content="{Binding Content, FallbackValue='NULL'}"
+                Command="{Binding Command}"
+                CommandParameter="{Binding }"/>
     </DataTemplate>
 </ResourceDictionary>

@@ -22,7 +22,7 @@
           <ItemsControl Name="PART_SnackbarHostItemsContainer"
                         HorizontalAlignment="{TemplateBinding SnackbarHorizontalAlignment}"
                         VerticalAlignment="{TemplateBinding SnackbarVerticalAlignment}"
-                        ItemsSource="{CompiledBinding $parent[controls:SnackbarHost].SnackbarModels}">
+                        ItemsSource="{Binding $parent[controls:SnackbarHost].SnackbarModels}">
             <ItemsControl.ItemsPanel>
               <ItemsPanelTemplate>
                 <ReversibleStackPanel />
@@ -33,12 +33,12 @@
                 <controls:Card Padding="0" Margin="8" Width="344">
                   <Grid ColumnDefinitions="16,*,8,Auto,8" RowDefinitions="6,Auto,6" Margin="0, 8">
                     <ContentPresenter Grid.Column="1" Grid.Row="1"
-                                      Content="{CompiledBinding Content,
+                                      Content="{Binding Content,
                                         Converter={x:Static converters:WrapContentIntoContentPresenterConverter.Instance}}">
                       <ContentPresenter.DataTemplates>
                         <DataTemplate DataType="system:String">
                           <TextBlock Name="PART_SnackbarSupportingText"
-                                     Text="{CompiledBinding}"
+                                     Text="{Binding}"
                                      Theme="{StaticResource MaterialSnackbarHostSupportingTextBlock}" />
                         </DataTemplate>
                       </ContentPresenter.DataTemplates>
@@ -46,9 +46,9 @@
 
                     <Button Grid.Column="3" Grid.Row="1"
                             Theme="{StaticResource MaterialFlatButton}"
-                            Content="{CompiledBinding Button}"
-                            Command="{CompiledBinding Command}"
-                            IsVisible="{CompiledBinding !!Command}" />
+                            Content="{Binding Button}"
+                            Command="{Binding Command}"
+                            IsVisible="{Binding !!Command}" />
                   </Grid>
                 </controls:Card>
               </DataTemplate>

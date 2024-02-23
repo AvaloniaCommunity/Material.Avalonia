@@ -5,9 +5,9 @@
         xmlns:controls="clr-namespace:Material.Dialog.Controls"
         x:Class="Material.Dialog.Views.TimePickerDialog"
         SizeToContent="WidthAndHeight"
-        Title="{CompiledBinding WindowTitle}"
+        Title="{Binding WindowTitle}"
         CanResize="False"
-        WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
+        WindowStartupLocation="{Binding WindowStartupLocation}"
         HorizontalContentAlignment="Stretch"
         x:DataType="viewModels:TimePickerDialogViewModel">
     <Window.Resources>

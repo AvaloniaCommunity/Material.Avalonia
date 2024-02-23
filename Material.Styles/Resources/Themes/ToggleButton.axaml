@@ -17,7 +17,7 @@
     <Setter Property="Padding" Value="16 4 16 4" />
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="assists:ButtonAssist.HoverColor"
-            Value="{CompiledBinding Foreground,
+            Value="{Binding Foreground,
                       Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
     <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="Template">

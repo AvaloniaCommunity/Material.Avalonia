@@ -15,8 +15,8 @@
             <StackPanel Name="PART_ContentPanel">
                 <TextBlock Name="PART_SupportingText"
                            Classes="Body1"
-                           IsVisible="{CompiledBinding !!ContentMessage.Length}"
-                           Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}"/>              
+                           IsVisible="{Binding !!ContentMessage.Length}"
+                           Text="{Binding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}"/>              
             </StackPanel>
         </ScrollViewer>
     </controls:EmbeddedDialogControl>
