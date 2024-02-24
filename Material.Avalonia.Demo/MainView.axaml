@@ -6,7 +6,7 @@
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              xmlns:models="clr-namespace:Material.Avalonia.Demo.Models"
-             xmlns:pages1="clr-namespace:Material.Avalonia.Demo.Pages"
+             xmlns:pages="clr-namespace:Material.Avalonia.Demo.Pages"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Material.Avalonia.Demo.MainView">
   <UserControl.Styles>
@@ -149,67 +149,67 @@
                   </Style>
                 </Carousel.Styles>
                 <!-- Main page -->
-                <pages1:Home />
+                <pages:Home />
 
                 <!-- Buttons -->
-                <pages1:ButtonsDemo />
+                <pages:ButtonsDemo />
 
                 <!-- Toggles -->
-                <pages1:TogglesDemo />
+                <pages:TogglesDemo />
 
                 <!-- Fields -->
-                <pages1:FieldsDemo />
+                <pages:FieldsDemo />
 
                 <!-- ComboBoxes -->
-                <pages1:ComboBoxesDemo />
+                <pages:ComboBoxesDemo />
 
                 <!-- Icons -->
-                <pages1:IconsDemo />
+                <pages:IconsDemo />
 
                 <!-- Colors -->
-                <pages1:ColorsDemo />
+                <pages:ColorsDemo />
 
                 <!-- Sliders -->
-                <pages1:SlidersDemo />
+                <pages:SlidersDemo />
 
                 <!-- Progress indicators -->
-                <pages1:ProgressIndicatorDemo />
+                <pages:ProgressIndicatorDemo />
 
                 <!-- Lists -->
-                <pages1:ListsDemo />
+                <pages:ListsDemo />
 
                 <!-- Expanders -->
-                <pages1:ExpandersDemo />
+                <pages:ExpandersDemo />
 
                 <!-- ColorZones -->
-                <pages1:ColorZonesDemo />
+                <pages:ColorZonesDemo />
 
                 <!-- Dialogs -->
-                <pages1:DialogDemo />
+                <pages:DialogDemo />
 
                 <!-- ScrollViewer -->
-                <pages1:ScrollViewerDemo />
+                <pages:ScrollViewerDemo />
 
                 <!-- SideSheet -->
-                <pages1:SideSheetDemo />
+                <pages:SideSheetDemo />
 
                 <!-- TabControls -->
-                <pages1:TabsDemo />
+                <pages:TabsDemo />
 
                 <!-- TreeViews -->
-                <pages1:TreeViewsDemo />
+                <pages:TreeViewsDemo />
 
                 <!-- Card -->
-                <pages1:CardsDemo />
+                <pages:CardsDemo />
 
                 <!-- Typography -->
-                <pages1:TypographyDemo />
+                <pages:TypographyDemo />
 
                 <!-- Pickers -->
-                <pages1:DateTimePickerDemo />
+                <pages:DateTimePickerDemo />
 
                 <!-- Shadows -->
-                <pages1:NotReadyDemo />
+                <pages:NotReadyDemo />
               </Carousel>
             </Border>
           </ScrollViewer>

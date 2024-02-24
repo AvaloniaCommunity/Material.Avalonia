@@ -1,9 +1,8 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:pages="clr-namespace:Material.Demo.Pages"
-             xmlns:pages1="clr-namespace:Material.Avalonia.Demo.Pages"
+             xmlns:pages="clr-namespace:Material.Avalonia.Demo.Pages"
              x:Class="Material.Avalonia.Demo.Pages.Home"
-             x:DataType="pages1:Home">
+             x:DataType="pages:Home">
     <!--UserControl.Resources>
       <conv:EnumDescriptionConverter x:Key="GetDescription"/>
     </UserControl.Resources-->

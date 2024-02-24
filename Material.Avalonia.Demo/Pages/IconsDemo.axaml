@@ -3,7 +3,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-             xmlns:demo="clr-namespace:Material.Demo"
              xmlns:system="clr-namespace:System;assembly=System.Runtime.Extensions"
              xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
