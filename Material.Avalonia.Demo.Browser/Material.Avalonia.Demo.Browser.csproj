@@ -8,9 +8,7 @@
     <IsPackable>false</IsPackable>
 
     <RunAOTCompilation>true</RunAOTCompilation>
-    <WasmEnableSIMD>true</WasmEnableSIMD>
-    <MSBuildEnableWorkloadResolver>true</MSBuildEnableWorkloadResolver>
-    <WasmRuntimeAssetsLocation>./</WasmRuntimeAssetsLocation>
+    <WasmBuildNative>true</WasmBuildNative>
 
     <AvaloniaVersion>11.0.9</AvaloniaVersion>
   </PropertyGroup>
