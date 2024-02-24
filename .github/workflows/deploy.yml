@@ -28,7 +28,7 @@ jobs:
             -   name: 'Install workload: wasm-tools'
                 run: dotnet workload install wasm-tools
             -   name: 'Publish Material.Avalonia.Demo.Browser'
-                run: dotnet publish Material.Avalonia/Material.Avalonia.Demo.Browser/Material.Avalonia.Demo.Browser.csproj -c Release --output _site
+                run: dotnet publish Material.Avalonia/Material.Avalonia/Material.Avalonia.Demo.Browser/Material.Avalonia.Demo.Browser.csproj -c Release --output _site
             -   name: Fix permissions
                 run: |
                     chmod -c -R +rX "_site/" | while read line; do
