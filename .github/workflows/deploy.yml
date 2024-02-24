@@ -1,0 +1,62 @@
+name: Deploy demo to static pages
+
+on:
+    push:
+        branches:
+            - master
+            - wasm-demo
+
+jobs:
+    # Build job
+    build:
+        name: "Builds a Material.Avalonia.Demo.Browser"
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v3
+                with:
+                    fetch-depth: 0
+            -   uses: actions/setup-dotnet@v4
+                with:
+                    dotnet-version: 8
+            -   name: 'Cache: .nuke/temp, ~/.nuget/packages'
+                uses: actions/cache@v3
+                with:
+                    path: |
+                        .nuke/temp
+                        ~/.nuget/packages
+                    key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj', '**/Directory.Packages.props') }}
+            -   name: 'Install workload: wasm-tools'
+                run: dotnet workload install wasm-tools
+            -   name: 'Publish Material.Avalonia.Demo.Browser'
+                run: dotnet publish Material.Avalonia/Material.Avalonia.Demo.Browser/Material.Avalonia.Demo.Browser.csproj -c Release --output _site
+            -   name: Fix permissions
+                run: |
+                    chmod -c -R +rX "_site/" | while read line; do
+                      echo "::warning title=Invalid file permissions automatically fixed::$line"
+                    done
+            -   name: Upload Pages artifact
+                uses: actions/upload-pages-artifact@v3
+                with:
+                    path: '_site/'
+                        
+    # Deploy job
+    deploy:
+        # Add a dependency to the build job
+        needs: build
+        
+        # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+        permissions:
+            pages: write      # to deploy to Pages
+            id-token: write   # to verify the deployment originates from an appropriate source
+        
+        # Deploy to the github-pages environment
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        
+        # Specify runner + deployment step
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Deploy to GitHub Pages
+                id: deployment
+                uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
