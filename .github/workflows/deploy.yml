@@ -28,16 +28,16 @@ jobs:
             -   name: 'Install workload: wasm-tools'
                 run: dotnet workload install wasm-tools
             -   name: 'Publish Material.Avalonia.Demo.Browser'
-                run: dotnet publish Material.Avalonia.Demo.Browser/Material.Avalonia.Demo.Browser.csproj -c Release --output _site
+                run: dotnet publish Material.Avalonia.Demo.Browser/Material.Avalonia.Demo.Browser.csproj -c Release
             -   name: Fix permissions
                 run: |
-                    chmod -c -R +rX "_site/" | while read line; do
+                    chmod -c -R +rX "Material.Avalonia.Demo.Browser/bin/Release/net8.0/browser-wasm/AppBundle/" | while read line; do
                       echo "::warning title=Invalid file permissions automatically fixed::$line"
                     done
             -   name: Upload Pages artifact
                 uses: actions/upload-pages-artifact@v3
                 with:
-                    path: '_site/'
+                    path: 'Material.Avalonia.Demo.Browser/bin/Release/net8.0/browser-wasm/AppBundle/'
                         
     # Deploy job
     deploy:
