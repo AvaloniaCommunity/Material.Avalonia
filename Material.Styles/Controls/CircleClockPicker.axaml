@@ -9,7 +9,7 @@
       <ControlTemplate>
         <Panel Name="PART_RootPanel">
           <Ellipse Name="PART_CircleBackground"
-                   Width="{CompiledBinding $self.Bounds.Height}" />
+                   Width="{Binding $self.Bounds.Height}" />
 
           <Ellipse Name="PART_PointerCenter" />
 

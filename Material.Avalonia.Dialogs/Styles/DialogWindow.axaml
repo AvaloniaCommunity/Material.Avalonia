@@ -4,7 +4,7 @@
     <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/EmbeddedDialogControl.axaml"/>
 
     <Style Selector="Window" x:DataType="viewModels:DialogWindowViewModel">
-        <Setter Property="Title" Value="{CompiledBinding WindowTitle}" />
-        <Setter Property="WindowStartupLocation" Value="{CompiledBinding WindowStartupLocation}" />
+        <Setter Property="Title" Value="{Binding WindowTitle}" />
+        <Setter Property="WindowStartupLocation" Value="{Binding WindowStartupLocation}" />
     </Style>
 </Styles>

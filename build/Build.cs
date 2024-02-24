@@ -95,6 +95,7 @@ partial class Build : NukeBuild {
                     .SetProperty("DebugType", "none")
                     .EnableSelfContained()
                     .EnablePublishSingleFile()
+                    .SetProperty("PublishAot", false)
                     .SetRuntime(rid));
 
                 var binaryFile = (DemoDir / "Material.Avalonia.Demo.Desktop" + fileExtension).ToFileInfo();

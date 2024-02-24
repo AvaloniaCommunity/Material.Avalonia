@@ -121,13 +121,13 @@
 
     <Style Selector="^ /template/ Border#Thumb">
       <Setter Property="Background"
-              Value="{CompiledBinding RelativeSource={RelativeSource TemplatedParent}, 
+              Value="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                 Path=(assists:ToggleSwitchAssist.SwitchThumbOffBackground)}" />
     </Style>
 
     <Style Selector="^ /template/ Border#PART_TrackSwitch">
       <Setter Property="Background"
-              Value="{CompiledBinding RelativeSource={RelativeSource TemplatedParent},
+              Value="{Binding RelativeSource={RelativeSource TemplatedParent},
                 Path=(assists:ToggleSwitchAssist.SwitchTrackOffBackground)}" />
     </Style>
 
@@ -139,13 +139,13 @@
 
     <Style Selector="^:checked /template/ Border#Thumb">
       <Setter Property="Background"
-              Value="{CompiledBinding RelativeSource={RelativeSource TemplatedParent}, 
+              Value="{Binding RelativeSource={RelativeSource TemplatedParent}, 
                     Path=(assists:ToggleSwitchAssist.SwitchThumbOnBackground)}" />
     </Style>
 
     <Style Selector="^:checked /template/ Border#PART_TrackSwitch">
       <Setter Property="Background"
-              Value="{CompiledBinding RelativeSource={RelativeSource TemplatedParent},
+              Value="{Binding RelativeSource={RelativeSource TemplatedParent},
                     Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}" />
     </Style>
 
@@ -174,7 +174,7 @@
     <Style Selector="^ /template/ Ellipse#RippleThumb">
       <Setter Property="Opacity" Value="0" />
       <Setter Property="Fill"
-              Value="{CompiledBinding RelativeSource={RelativeSource TemplatedParent},
+              Value="{Binding RelativeSource={RelativeSource TemplatedParent},
                     Path=(assists:ToggleSwitchAssist.SwitchThumbOffBackground)}" />
     </Style>
 
@@ -188,7 +188,7 @@
 
     <Style Selector="^:checked /template/ Ellipse#RippleThumb">
       <Setter Property="Fill"
-              Value="{CompiledBinding RelativeSource={RelativeSource TemplatedParent},
+              Value="{Binding RelativeSource={RelativeSource TemplatedParent},
                     Path=(assists:ToggleSwitchAssist.SwitchThumbOnBackground)}" />
     </Style>
   </ControlTheme>

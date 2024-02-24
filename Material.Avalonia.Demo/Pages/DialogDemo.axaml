@@ -34,22 +34,22 @@
             <StackPanel Grid.Column="1" >
                 <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
 
-                <ItemsControl ItemsSource="{CompiledBinding StandaloneDialogItems}">
+                <ItemsControl ItemsSource="{Binding StandaloneDialogItems}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="viewModels:DialogDemoItemViewModel" >
                             <DockPanel Margin="8" >
                                 <Button DockPanel.Dock="Top"
                                         Classes="flat"
-                                        Content="{CompiledBinding Header}"
-                                        Command="{CompiledBinding Command}" />
+                                        Content="{Binding Header}"
+                                        Command="{Binding Command}" />
                                 <TextBlock Margin="8"
                                            HorizontalAlignment="Center"
                                            TextWrapping="Wrap"
 
                                            DockPanel.Dock="Bottom"
 
-                                           Text="{CompiledBinding Result}"
-                                           IsVisible="{CompiledBinding Result,
+                                           Text="{Binding Result}"
+                                           IsVisible="{Binding Result,
                                                  Converter={x:Static StringConverters.IsNotNullOrEmpty},
                                                  FallbackValue=False}" />
                             </DockPanel>

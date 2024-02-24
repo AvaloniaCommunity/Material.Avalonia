@@ -29,7 +29,7 @@
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Center"
                         RenderTransform="{x:Null}"
-                        Command="{CompiledBinding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
+                        Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
                         Theme="{StaticResource MaterialEmptyRepeatButton}">
             <RepeatButton.IsVisible>
               <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
@@ -56,7 +56,7 @@
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Center"
                         RenderTransform="{x:Null}"
-                        Command="{CompiledBinding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
+                        Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
                         Theme="{StaticResource MaterialEmptyRepeatButton}">
             <RepeatButton.IsVisible>
               <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
@@ -80,8 +80,8 @@
           <ScrollContentPresenter Name="PART_ContentPresenter">
             <ScrollContentPresenter.GestureRecognizers>
               <ScrollGestureRecognizer
-                CanHorizontallyScroll="{CompiledBinding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
-                CanVerticallyScroll="{CompiledBinding CanVerticallyScroll, ElementName=PART_ContentPresenter}" />
+                CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}" />
             </ScrollContentPresenter.GestureRecognizers>
           </ScrollContentPresenter>
         </DockPanel>

@@ -7,8 +7,8 @@
 
   <MenuFlyout x:Key="SelectableTextBlockContextFlyout" Placement="Bottom">
     <MenuItem x:Name="SelectableTextBlockContextFlyoutCopyItem" Header="Copy"
-              Command="{CompiledBinding $parent[SelectableTextBlock].Copy}"
-              IsEnabled="{CompiledBinding $parent[SelectableTextBlock].CanCopy}" InputGesture="{x:Static TextBox.CopyGesture}" />
+              Command="{Binding $parent[SelectableTextBlock].Copy}"
+              IsEnabled="{Binding $parent[SelectableTextBlock].CanCopy}" InputGesture="{x:Static TextBox.CopyGesture}" />
   </MenuFlyout>
 
   <ControlTheme x:Key="MaterialSelectableTextBlock" TargetType="SelectableTextBlock">

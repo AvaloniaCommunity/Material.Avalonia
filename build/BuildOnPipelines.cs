@@ -64,7 +64,7 @@ partial class Build {
             }
 
             Log.Information("Creating new release {TagName}", tagName);
-            var newRelease = new NewRelease(Parameters.Version.ToString()) {
+            var newRelease = new NewRelease(tagName) {
                 Name = tagName,
                 GenerateReleaseNotes = true
             };

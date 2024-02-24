@@ -11,7 +11,7 @@
     <Style Selector="^ /template/ RepeatButton#PART_IncreaseButton">
       <Setter Property="Content">
         <Template>
-          <Path Fill="{CompiledBinding $parent[ButtonSpinner].Foreground}"
+          <Path Fill="{Binding $parent[ButtonSpinner].Foreground}"
                 Width="8"
                 Height="4"
                 Stretch="Uniform"
@@ -24,7 +24,7 @@
     <Style Selector="^ /template/ RepeatButton#PART_DecreaseButton">
       <Setter Property="Content">
         <Template>
-          <Path Fill="{CompiledBinding $parent[ButtonSpinner].Foreground}"
+          <Path Fill="{Binding $parent[ButtonSpinner].Foreground}"
                 Width="8"
                 Height="4"
                 Stretch="Uniform"

@@ -12,7 +12,7 @@
 
             <controls:SideSheet Width="400" Height="200"
                                 SideSheetDirection="Left"
-                                SideSheetOpened="{CompiledBinding ElementName=LeftToggler, Path=IsChecked, Mode=TwoWay}"
+                                SideSheetOpened="{Binding ElementName=LeftToggler, Path=IsChecked, Mode=TwoWay}"
                                 SideSheetHeader="Left side sheet"
                                 Padding="8">
               <controls:SideSheet.SideSheetContent>
@@ -30,7 +30,7 @@
         <Border>
           <StackPanel>
             <controls:SideSheet Width="400" Height="200"
-                                SideSheetOpened="{CompiledBinding ElementName=toggler, Path=IsChecked, Mode=TwoWay}"
+                                SideSheetOpened="{Binding ElementName=toggler, Path=IsChecked, Mode=TwoWay}"
                                 SideSheetHeader="Right side sheet"
                                 Padding="8">
               <controls:SideSheet.SideSheetContent>
@@ -63,7 +63,7 @@
     <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="SideSheetHeaderTemplate">
       <DataTemplate>
-        <TextBlock Classes="Headline6" Text="{CompiledBinding ., DataType={x:Type system:Object}}" />
+        <TextBlock Classes="Headline6" Text="{Binding ., DataType={x:Type system:Object}}" />
       </DataTemplate>
     </Setter>
     <Setter Property="Template">
@@ -131,7 +131,7 @@
 
     <Style Selector="^:left:closed /template/ Border#PART_SideSheet">
       <Setter Property="Margin"
-              Value="{CompiledBinding $self.Width, 
+              Value="{Binding $self.Width, 
                 Converter={StaticResource MarginCreator}, 
                 ConverterParameter={StaticResource LeftMarginCreatorParam}}" />
     </Style>
@@ -142,7 +142,7 @@
 
     <Style Selector="^:right:closed /template/ Border#PART_SideSheet">
       <Setter Property="Margin"
-              Value="{CompiledBinding $self.Width, 
+              Value="{Binding $self.Width, 
                 Converter={StaticResource MarginCreator}, 
                 ConverterParameter={StaticResource RightMarginCreatorParam}}" />
     </Style>

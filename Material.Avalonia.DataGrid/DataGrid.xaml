@@ -109,7 +109,7 @@
   </Style>
 
   <Style Selector="DataGridRow">
-    <Setter Property="Background" Value="{CompiledBinding $parent[DataGrid].RowBackground}" />
+    <Setter Property="Background" Value="{Binding $parent[DataGrid].RowBackground}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border x:Name="RowBorder"
@@ -180,7 +180,7 @@
 
           <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,1,0,1">
             <TextBlock Name="PART_PropertyNameElement" Margin="4,0,0,0" IsVisible="{TemplateBinding IsPropertyNameVisible}" />
-            <TextBlock Margin="4,0,0,0" Text="{CompiledBinding Key, DataType=collections:DataGridCollectionViewGroup}" />
+            <TextBlock Margin="4,0,0,0" Text="{Binding Key, DataType=collections:DataGridCollectionViewGroup}" />
             <TextBlock Name="PART_ItemCountElement" Margin="4,0,0,0" IsVisible="{TemplateBinding IsItemCountVisible}" />
           </StackPanel>
 

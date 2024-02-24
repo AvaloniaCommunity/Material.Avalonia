@@ -98,7 +98,7 @@
                      IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}">
                 <controls:Card Name="PART_Card"
                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                               MinWidth="{CompiledBinding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
+                               MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                   <ScrollViewer Name="PART_ScrollViewer">
                     <ItemsPresenter Name="PART_ItemsPresenter"
                                     ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -244,11 +244,11 @@
           </ToggleButton>
           <Popup Name="PART_Popup"
                  IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                 MinWidth="{CompiledBinding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                  VerticalOffset="0"
                  Margin="0"
                  WindowManagerAddShadowHint="False"
-                 PlacementTarget="{CompiledBinding ElementName=PART_TemplateRoot, DataType={x:Type system:Object}}"
+                 PlacementTarget="{Binding ElementName=PART_TemplateRoot, DataType={x:Type system:Object}}"
                  IsLightDismissEnabled="True"
                  UseLayoutRounding="True"
                  ClipToBounds="False">
@@ -312,7 +312,7 @@
                 <TextBlock Name="floatingWatermark" Classes="Subtitle1"
                            HorizontalAlignment="Stretch" Margin="4,2"
                            Foreground="{TemplateBinding BorderBrush}"
-                           Opacity="{CompiledBinding ElementName=PART_Border, Path=Opacity}"
+                           Opacity="{Binding ElementName=PART_Border, Path=Opacity}"
                            Text="{TemplateBinding (assists:ComboBoxAssist.Label)}" />
               </Border>
               <Grid ColumnDefinitions="*,Auto">
@@ -343,11 +343,11 @@
           </Grid>
           <Popup Name="PART_Popup"
                  IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
-                 MinWidth="{CompiledBinding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                  VerticalOffset="0"
                  Margin="0"
                  WindowManagerAddShadowHint="False"
-                 PlacementTarget="{CompiledBinding ElementName=PART_RootBorder, DataType={x:Type system:Object}}"
+                 PlacementTarget="{Binding ElementName=PART_RootBorder, DataType={x:Type system:Object}}"
                  IsLightDismissEnabled="True"
                  UseLayoutRounding="True"
                  ClipToBounds="False">

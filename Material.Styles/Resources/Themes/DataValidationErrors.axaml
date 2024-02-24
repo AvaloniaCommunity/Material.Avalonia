@@ -6,7 +6,7 @@
     <DataTemplate.DataType>
       <x:Type TypeName="generic:IEnumerable" x:TypeArguments="system:Object"/>
     </DataTemplate.DataType>
-    <ItemsControl ItemsSource="{CompiledBinding }"
+    <ItemsControl ItemsSource="{Binding }"
                   TextBlock.Foreground="{DynamicResource MaterialValidationErrorBrush}">
       <ItemsControl.DataTemplates>
         <!-- Due to technical issues, the font size will be changed implicitly and its
@@ -14,13 +14,13 @@
         <DataTemplate DataType="system:Exception">
           <TextBlock Name="PART_ErrorText"
                      FontSize="12"
-                     Text="{CompiledBinding Message}"
+                     Text="{Binding Message}"
                      TextWrapping="Wrap" />
         </DataTemplate>
         <DataTemplate DataType="system:Object">
           <TextBlock Name="PART_ErrorText"
                      FontSize="12"
-                     Text="{CompiledBinding }"
+                     Text="{Binding }"
                      TextWrapping="Wrap" />
         </DataTemplate>
       </ItemsControl.DataTemplates>
