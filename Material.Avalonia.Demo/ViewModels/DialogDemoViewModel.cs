@@ -23,9 +23,10 @@ public class DialogDemoViewModel : ViewModelBase {
                 return;
 
             _window = w;
+            IsDialogsAvailable = true;
         }
 
-        StandaloneDialogItems = new[] {
+        StandaloneDialogItems = [
             new DialogDemoItemViewModel("Simple Dialog", Dialog1),
             new DialogDemoItemViewModel("Dialog with confirmation", Dialog2),
             new DialogDemoItemViewModel("Dialog with confirmation (content-only)", Dialog3),
@@ -34,13 +35,16 @@ public class DialogDemoViewModel : ViewModelBase {
             new DialogDemoItemViewModel("Folder rename dialog", FolderNameDialog),
             new DialogDemoItemViewModel("Time picker", TimePickerDialog),
             new DialogDemoItemViewModel("Date picker", DatePickerDialog),
-            new DialogDemoItemViewModel("Custom dialog", CustomDialog),
-        };
+            new DialogDemoItemViewModel("Custom dialog", CustomDialog)
+        ];
     }
+
+    public bool IsDialogsAvailable { get; }
 
     public DialogDemoItemViewModel[] StandaloneDialogItems { get; } = Array.Empty<DialogDemoItemViewModel>();
 
     private async IAsyncEnumerable<string> Dialog1() {
+        if (_window == null) yield break;
         var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
             ContentHeader = "Welcome to use Material.Avalonia",
             SupportingText = "Enjoy Material Design in AvaloniaUI!",
@@ -51,6 +55,7 @@ public class DialogDemoViewModel : ViewModelBase {
     }
 
     private async IAsyncEnumerable<string> Dialog2() {
+        if (_window == null) yield break;
         var result = await DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
             ContentHeader = "Confirm action",
             SupportingText = "Are you sure to DELETE 20 FILES?",
@@ -72,6 +77,7 @@ public class DialogDemoViewModel : ViewModelBase {
     }
 
     private async IAsyncEnumerable<string> Dialog3() {
+        if (_window == null) yield break;
         var result = await DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
             ContentHeader = "Confirm action",
             SupportingText = "Are you sure to DELETE 20 FILES?",
@@ -105,6 +111,7 @@ public class DialogDemoViewModel : ViewModelBase {
     }
 
     private async IAsyncEnumerable<string> Dialog4() {
+        if (_window == null) yield break;
         // Open asset stream using assets.Open method.
         await using var icon = AssetLoader.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
 
@@ -128,6 +135,7 @@ public class DialogDemoViewModel : ViewModelBase {
     }
 
     private async IAsyncEnumerable<string> LoginDialog() {
+        if (_window == null) yield break;
         var result = await DialogHelper.CreateTextFieldDialog(new TextFieldDialogBuilderParams {
             ContentHeader = "Authentication required.",
             SupportingText = "Please login before any action.",
@@ -187,6 +195,7 @@ public class DialogDemoViewModel : ViewModelBase {
 
 
     private async IAsyncEnumerable<string> FolderNameDialog() {
+        if (_window == null) yield break;
         var result = await DialogHelper.CreateTextFieldDialog(new TextFieldDialogBuilderParams {
             ContentHeader = "Rename folder",
             StartupLocation = WindowStartupLocation.CenterOwner,
@@ -223,6 +232,7 @@ public class DialogDemoViewModel : ViewModelBase {
     }
 
     private async IAsyncEnumerable<string> TimePickerDialog() {
+        if (_window == null) yield break;
         var result = await DialogHelper.CreateTimePicker(new TimePickerDialogBuilderParams {
             Borderless = true,
             StartupLocation = WindowStartupLocation.CenterOwner,
@@ -247,6 +257,7 @@ public class DialogDemoViewModel : ViewModelBase {
     }
 
     private async IAsyncEnumerable<string> DatePickerDialog() {
+        if (_window == null) yield break;
         var result = await DialogHelper.CreateDatePicker(new DatePickerDialogBuilderParams {
             Borderless = true,
             StartupLocation = WindowStartupLocation.CenterOwner,
@@ -270,21 +281,20 @@ public class DialogDemoViewModel : ViewModelBase {
         yield return $"TimeSpan: {r.ToString("d")}";
         _previousDatePickerResult = r;
     }
-        
+
     private async IAsyncEnumerable<string> CustomDialog() {
+        if (_window == null) yield break;
         // Open asset stream using assets.Open method.
         await using var icon = AssetLoader.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
 
-        var dialog = DialogHelper.CreateCustomDialog(new CustomDialogBuilderParams()
-        {
+        var dialog = DialogHelper.CreateCustomDialog(new CustomDialogBuilderParams() {
             Content = new CustomDialogContentDemo(),
             StartupLocation = WindowStartupLocation.CenterOwner,
             Borderless = false,
         });
-            
+
         var result = await dialog.ShowDialog(_window);
 
         yield return $"Result: {result.GetResult}";
     }
-        
 }
