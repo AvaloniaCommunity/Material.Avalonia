@@ -16,9 +16,9 @@ namespace Material.Styles.Commands {
             _model = model;
         }
 
-        public bool CanExecute(object parameter) => true;
+        public bool CanExecute(object? parameter) => true;
 
-        public void Execute(object parameter) {
+        public void Execute(object? parameter) {
             try {
                 _model.Button?.Action?.Invoke();
                 _host.SnackbarModels.Remove(_model);

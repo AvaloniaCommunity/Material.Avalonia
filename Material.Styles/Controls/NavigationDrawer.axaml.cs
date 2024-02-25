@@ -320,7 +320,7 @@ namespace Material.Styles.Controls
             ContentMargin = new Thickness(left, 0, right, 0);
         }
 
-        private void PART_Scrim_Pressed(object sender, RoutedEventArgs e)
+        private void PART_Scrim_Pressed(object? sender, RoutedEventArgs e)
         {
             LeftDrawerOpened = false;
             RightDrawerOpened = false;
