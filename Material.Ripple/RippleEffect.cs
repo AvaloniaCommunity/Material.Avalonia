@@ -56,7 +56,7 @@ namespace Material.Ripple {
             }
         }
 
-        private void PointerPressedHandler(object sender, PointerPressedEventArgs e) {
+        private void PointerPressedHandler(object? sender, PointerPressedEventArgs e) {
             var (x, y) = e.GetPosition(this);
             if (_container is null || x < 0 || x > Bounds.Width || y < 0 || y > Bounds.Height) {
                 return;
@@ -83,17 +83,17 @@ namespace Material.Ripple {
             }
         }
 
-        private void LostFocusHandler(object sender, RoutedEventArgs e) {
+        private void LostFocusHandler(object? sender, RoutedEventArgs e) {
             _isCancelled = true;
             RemoveLastRipple();
         }
 
-        private void PointerReleasedHandler(object sender, PointerReleasedEventArgs e) {
+        private void PointerReleasedHandler(object? sender, PointerReleasedEventArgs e) {
             _isCancelled = true;
             RemoveLastRipple();
         }
 
-        private void PointerCaptureLostHandler(object sender, PointerCaptureLostEventArgs e) {
+        private void PointerCaptureLostHandler(object? sender, PointerCaptureLostEventArgs e) {
             _isCancelled = true;
             RemoveLastRipple();
         }
