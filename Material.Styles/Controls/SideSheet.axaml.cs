@@ -172,7 +172,7 @@ namespace Material.Styles.Controls
             base.OnDetachedFromVisualTree(e);
         }
 
-        private void PART_Scrim_Pressed(object sender, RoutedEventArgs e)
+        private void PART_Scrim_Pressed(object? sender, RoutedEventArgs e)
         {
             SideSheetOpened = false;
         }

@@ -59,7 +59,7 @@ namespace Material.Styles.Controls {
                 Data = Geometry.Parse(data);
 
             else
-                Data = null;
+                throw new InvalidOperationException($"There is no path data for icon kind {Kind}");
         }
     }
 }

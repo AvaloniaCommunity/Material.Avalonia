@@ -107,9 +107,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             { "MaterialColumnHeaderBrush", theme => theme.ColumnHeader },
             { "MaterialCheckBoxOffBrush", theme => theme.CheckBoxOff },
             { "MaterialCheckBoxDisabledBrush", theme => theme.CheckBoxDisabled },
-            // Workaround for TextBlock text color does not changing: https://github.com/AvaloniaCommunity/Material.Avalonia/issues/262
-            // Comment should be removed when https://github.com/AvaloniaUI/Avalonia/issues/12408 fixed
-            // { "MaterialTextBoxBorderBrush", theme => theme.TextBoxBorder },
+            { "MaterialTextBoxBorderBrush", theme => theme.TextBoxBorder },
             { "MaterialDividerBrush", theme => theme.Divider },
             { "MaterialSelectionBrush", theme => theme.Selection },
             { "MaterialToolForegroundBrush", theme => theme.ToolForeground },

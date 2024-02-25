@@ -65,7 +65,7 @@ namespace Material.Styles.Themes {
             _themeUpdateDisposable?.Dispose();
         }
 
-        private void OnOwnerChanged(object sender, EventArgs e) {
+        private void OnOwnerChanged(object? sender, EventArgs e) {
             RegisterActualThemeObservable();
         }
 
@@ -119,7 +119,7 @@ namespace Material.Styles.Themes {
             SetupActualTheme();
         }
 
-        private void HostOnActualThemeVariantChanged(object sender, EventArgs e) {
+        private void HostOnActualThemeVariantChanged(object? sender, EventArgs e) {
             SetupActualTheme();
         }
 
