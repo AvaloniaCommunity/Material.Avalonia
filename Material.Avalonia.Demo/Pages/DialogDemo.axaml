@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              xmlns:viewModels="clr-namespace:Material.Avalonia.Demo.ViewModels"
+             xmlns:pages="clr-namespace:Material.Avalonia.Demo.Pages"
              x:Class="Material.Avalonia.Demo.Pages.DialogDemo"
              x:DataType="viewModels:DialogDemoViewModel">
   <UserControl.Resources>
@@ -34,8 +35,7 @@
       <StackPanel Grid.Column="1">
         <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
 
-        <TextBlock Theme="{StaticResource Body1TextBlock}"
-                   IsVisible="{Binding !IsDialogsAvailable}">
+        <TextBlock IsVisible="{Binding !IsDialogsAvailable}">
           Standalone dialogs not available due to running in non-desktop environment.
           <LineBreak />
           e.g. you can't open another window while running in browser
@@ -45,10 +45,12 @@
           <ItemsControl.ItemTemplate>
             <DataTemplate DataType="viewModels:DialogDemoItemViewModel">
               <DockPanel Margin="8">
+                <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
                 <Button DockPanel.Dock="Top"
                         Classes="flat"
                         Content="{Binding Header}"
-                        Command="{Binding Command}" />
+                        Command="{Binding Command}"
+                        IsEnabled="{Binding $parent[pages:DialogDemo].((viewModels:DialogDemoViewModel)DataContext).IsDialogsAvailable}"/>
                 <TextBlock Margin="8"
                            HorizontalAlignment="Center"
                            TextWrapping="Wrap"
