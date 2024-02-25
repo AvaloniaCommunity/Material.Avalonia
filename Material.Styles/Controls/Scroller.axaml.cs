@@ -244,7 +244,7 @@ namespace Material.Styles.Controls {
             }
         }
 
-        private void OnLayoutUpdated(object sender, EventArgs e) => RaiseScrollChanged();
+        private void OnLayoutUpdated(object? sender, EventArgs e) => RaiseScrollChanged();
 
         private void RaiseScrollChanged() {
             var extentDelta = new Vector(Extent.Width - _oldExtent.Width, Extent.Height - _oldExtent.Height);

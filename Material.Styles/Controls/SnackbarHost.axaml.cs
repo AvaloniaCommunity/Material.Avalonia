@@ -132,7 +132,7 @@ namespace Material.Styles.Controls {
 
             // If duration is TimeSpan.Zero, dont expire it.
             if (model.Duration != TimeSpan.Zero) {
-                void OnExpired(object sender, ElapsedEventArgs args) {
+                void OnExpired(object? sender, ElapsedEventArgs args) {
                     if (sender is not Timer timer)
                         return;
 
