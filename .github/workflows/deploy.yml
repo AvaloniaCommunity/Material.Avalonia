@@ -6,6 +6,9 @@ on:
             - master
             - wasm-demo
 
+env:
+    PUBLISH_DIR: Material.Avalonia.Demo.Browser/bin/Release/net8.0/browser-wasm/AppBundle/
+
 jobs:
     # Build job
     build:
@@ -31,13 +34,18 @@ jobs:
                 run: dotnet publish Material.Avalonia.Demo.Browser/Material.Avalonia.Demo.Browser.csproj -c Release
             -   name: Fix permissions
                 run: |
-                    chmod -c -R +rX "Material.Avalonia.Demo.Browser/bin/Release/net8.0/browser-wasm/AppBundle/" | while read line; do
-                      echo "::warning title=Invalid file permissions automatically fixed::$line"
+                    chmod -c -R +rX "${{ env.PUBLISH_DIR }}" | while read line; do
+                      echo "::info title=Invalid file permissions automatically fixed::$line"
                     done
+            -   name: Rewrite base href
+                uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
+                with:
+                    html_path: ${{ env.PUBLISH_DIR }}/index.html
+                    base_href: /Material.Avalonia/
             -   name: Upload Pages artifact
                 uses: actions/upload-pages-artifact@v3
                 with:
-                    path: 'Material.Avalonia.Demo.Browser/bin/Release/net8.0/browser-wasm/AppBundle/'
+                    path: ${{ env.PUBLISH_DIR }}
                         
     # Deploy job
     deploy:
