@@ -7,10 +7,10 @@
     <AvaloniaVersion>11.0.9</AvaloniaVersion>
     <IsPackable>false</IsPackable>
 
-    <PublishAot>true</PublishAot>
+<!--    <PublishAot>true</PublishAot>-->
 
-    <IsTrimmable>true</IsTrimmable>
-    <TrimMode>link</TrimMode>
+<!--    <IsTrimmable>true</IsTrimmable>-->
+<!--    <TrimMode>link</TrimMode>-->
     <!--These can help when debugging weird exceptions especially when reflection is involved. See https://github.com/dotnet/corert/blob/master/Documentation/using-corert/optimizing-corert.md -->
     <!--RootAllApplicationAssemblies: False -> TrimMode:link See https://github.com/dotnet/runtimelab/issues/597 and https://github.com/dotnet/runtimelab/blob/feature/NativeAOT/docs/using-nativeaot/optimizing.md -->
     <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
