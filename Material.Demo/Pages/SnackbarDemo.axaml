@@ -1,0 +1,39 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             x:Class="Material.Demo.Pages.SnackbarDemo">
+  <StackPanel VerticalAlignment="Top">
+    <showMeTheXaml:XamlDisplay UniqueId="Snackbar1">
+      <controls:Card Height="200">
+        <controls:SnackbarHost x:Name="SnackbarHost1" HostName="{Binding $self.Name}">
+          <StackPanel>
+            <TextBlock>Content in SnackbarHost</TextBlock>
+            <Button Click="SnackbarHost1Button_OnClick">Show Snackbar</Button>
+          </StackPanel>
+        </controls:SnackbarHost>
+      </controls:Card>
+    </showMeTheXaml:XamlDisplay>
+  <showMeTheXaml:XamlDisplay UniqueId="Snackbar2">
+    <controls:Card Height="200">
+      <dialogHost:DialogHost>
+        <controls:SnackbarHost x:Name="SnackbarHost2" HostName="{Binding $self.Name}">
+          <StackPanel>
+            <TextBlock>Content in SnackbarHost</TextBlock>
+            <TextBlock>
+              <Run>Snackbar action clicked </Run>
+              <Run x:Name="ActionCount">0</Run>
+              <Run> times</Run>
+            </TextBlock>
+            <Button Click="SnackbarHost2Button_OnClick">Show Snackbar with action</Button>
+          </StackPanel>
+        </controls:SnackbarHost>
+      </dialogHost:DialogHost>
+    </controls:Card>
+  </showMeTheXaml:XamlDisplay>
+  </StackPanel>
+</UserControl>
