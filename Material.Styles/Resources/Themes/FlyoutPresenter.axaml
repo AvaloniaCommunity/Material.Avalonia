@@ -6,8 +6,6 @@
   <ControlTheme x:Key="MaterialFlyoutPresenter" TargetType="FlyoutPresenter">
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
-    <Setter Property="Background" Value="{DynamicResource MaterialToolTipBackgroundBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="Padding" Value="8" />
     <Setter Property="MaxWidth" Value="{DynamicResource FlyoutThemeMaxWidth}" />
     <Setter Property="MaxHeight" Value="{DynamicResource FlyoutThemeMaxHeight}" />
@@ -41,4 +39,10 @@
 
   <ControlTheme x:Key="{x:Type FlyoutPresenter}" TargetType="FlyoutPresenter"
                 BasedOn="{StaticResource MaterialFlyoutPresenter}" />
+  
+  <ControlTheme x:Key="MaterialInvertedFlyoutPresenter" TargetType="FlyoutPresenter"
+                BasedOn="{StaticResource MaterialFlyoutPresenter}">
+    <Setter Property="Background" Value="{DynamicResource MaterialToolTipBackgroundBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPaperBrush}" />
+  </ControlTheme>
 </ResourceDictionary>
