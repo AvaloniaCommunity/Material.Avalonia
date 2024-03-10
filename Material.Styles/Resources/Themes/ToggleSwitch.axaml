@@ -149,6 +149,12 @@
                     Path=(assists:ToggleSwitchAssist.SwitchTrackOnBackground)}" />
     </Style>
 
+    <!-- Left-right handle variant -->
+
+    <Style Selector="^.LeftHeader /template/ DockPanel#PART_RootPanel > Viewbox">
+				<Setter Property="DockPanel.Dock" Value="Right" />
+    </Style>
+
     <!-- Accent variant -->
 
     <Style Selector="^.accent">
