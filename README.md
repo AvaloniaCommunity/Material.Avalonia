@@ -8,7 +8,9 @@
 Customizable Material Design implementation for [AvaloniaUI](http://avaloniaui.net/) framework.
 
 ![](https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/master/wiki/images/demo-screenshots/1.png)
-###### [More screenshots](https://github.com/AvaloniaUtils/material.avalonia/wiki/Screenshots-of-Demo)
+-  [More screenshots](https://github.com/AvaloniaUtils/material.avalonia/wiki/Screenshots-of-Demo)
+- [Live demo in your browser](https://avaloniacommunity.github.io/Material.Avalonia/)  
+  Currently, in the alpha stage, many things can be broken. 
 
 # ![][icon] Overview
 This library is a collection of styles and controls to help you customize your Avalonia application with Material Design theme.

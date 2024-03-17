@@ -1,0 +1,57 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             x:Class="Material.Avalonia.Demo.Pages.ComboBoxesDemo">
+    <StackPanel Margin="16, 0" HorizontalAlignment="Stretch">
+        <TextBlock Classes="Headline4 Subheadline" Text="ComboBoxes" />
+
+        <WrapPanel HorizontalAlignment="Stretch">
+            <StackPanel>
+                <TextBlock Classes="Headline6 Subheadline2" Text="Standard comboboxes" />
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Styles>
+                        <Style Selector="ComboBox">
+                            <Setter Property="Width" Value="180" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes0">
+                        <ComboBox PlaceholderText="Select a Item">
+                            <TextBlock Text="Item 1" />
+                            <TextBlock Text="Item 2" />
+                            <TextBlock Text="Item 3" />
+                            <TextBlock Text="Item 4" />
+                        </ComboBox>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes1">
+                        <ComboBox PlaceholderText="Select a Item">
+                            <TextBlock Text="Item 1" />
+                            <TextBlock Text="Item 2" />
+                            <TextBlock Text="Item 3" />
+                            <TextBlock Text="Item 4" />
+                        </ComboBox>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes2">
+                        <ComboBox Theme="{StaticResource MaterialFilledComboBox}">
+                            <TextBlock Text="Item 1" />
+                            <TextBlock Text="Item 2" />
+                            <TextBlock Text="Item 3" />
+                            <TextBlock Text="Item 4" />
+                        </ComboBox>
+                    </showMeTheXaml:XamlDisplay>
+                    <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes3">
+                        <ComboBox Theme="{StaticResource MaterialOutlineComboBox}" assist:ComboBoxAssist.Label="ComboBox">
+                            <TextBlock Text="Item 1" />
+                            <TextBlock Text="Item 2" />
+                            <TextBlock Text="Item 3" />
+                            <TextBlock Text="Item 4" />
+                        </ComboBox>
+                    </showMeTheXaml:XamlDisplay>
+                </StackPanel>
+            </StackPanel>
+        </WrapPanel>
+    </StackPanel>
+</UserControl>

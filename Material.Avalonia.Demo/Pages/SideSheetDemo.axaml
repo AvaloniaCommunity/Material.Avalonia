@@ -1,0 +1,45 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:models="clr-namespace:Material.Avalonia.Demo.Models"
+             xmlns:pages="clr-namespace:Material.Avalonia.Demo.Pages"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
+             x:Class="Material.Avalonia.Demo.Pages.SideSheetDemo"
+             x:DataType="models:SideSheetDemoViewModel">
+    <UserControl.DataContext>
+        <models:SideSheetDemoViewModel />
+    </UserControl.DataContext>
+
+    <StackPanel Margin="16, 0">
+        <TextBlock Classes="Headline4 Subheadline" Text="Side sheets" />
+
+        <controls:SideSheet
+            Name="SideSheet"
+            Width="500" Height="560" BorderBrush="Black" BorderThickness="1"
+            SideSheetDirection="Right"
+            SideSheetOpened="{Binding SideInfoOpened}"
+            SideSheetContent="{Binding Information}"
+            SideSheetHeader="{Binding Information.Header}">
+            <controls:SideSheet.SideSheetContentTemplate>
+                <DataTemplate DataType="models:SideSheetData">
+                    <StackPanel>
+                        <TextBlock Classes="Headline6" Text="{Binding ContentHeader}"/>
+                        <TextBlock Text="{Binding ImportantInfos}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </DataTemplate>
+            </controls:SideSheet.SideSheetContentTemplate>
+            <Panel>
+                <pages:Home />
+                <Button Classes="Icon" Width="36" Height="36"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Content="{avalonia:MaterialIconExt MenuOpen, Size=20}"
+                        IsVisible="{Binding !#SideSheet.SideSheetOpened}"
+                        Click="OpenSideInfoButton_OnClick" />
+            </Panel>
+        </controls:SideSheet>
+    </StackPanel>
+</UserControl>
