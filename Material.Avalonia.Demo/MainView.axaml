@@ -75,6 +75,7 @@
                 <ListBoxItem>Expanders</ListBoxItem>
                 <ListBoxItem>ColorZones</ListBoxItem>
                 <ListBoxItem>Dialogs</ListBoxItem>
+                <ListBoxItem>Snackbar</ListBoxItem>
                 <ListBoxItem>ScrollViewer</ListBoxItem>
                 <ListBoxItem>SideSheet</ListBoxItem>
                 <ListBoxItem>TabControls</ListBoxItem>
@@ -186,6 +187,9 @@
 
                 <!-- Dialogs -->
                 <pages:DialogDemo />
+                
+                <!-- Snackbar -->
+                <pages:SnackbarDemo/>
 
                 <!-- ScrollViewer -->
                 <pages:ScrollViewerDemo />

@@ -30,7 +30,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
               <DataTemplate DataType="models:SnackbarModel">
-                <controls:Card Padding="0" Margin="8" Width="344">
+                <controls:Card Padding="0" Margin="8" MinWidth="344">
                   <Grid ColumnDefinitions="16,*,8,Auto,8" RowDefinitions="6,Auto,6" Margin="0, 8">
                     <ContentPresenter Grid.Column="1" Grid.Row="1"
                                       Content="{Binding Content,
@@ -38,6 +38,7 @@
                       <ContentPresenter.DataTemplates>
                         <DataTemplate DataType="system:String">
                           <TextBlock Name="PART_SnackbarSupportingText"
+                                     VerticalAlignment="Center"
                                      Text="{Binding}"
                                      Theme="{StaticResource MaterialSnackbarHostSupportingTextBlock}" />
                         </DataTemplate>
