@@ -175,12 +175,14 @@
   <Template x:Key="ClearTextBoxButtonTemplate">
     <Button Name="PART_ClearButton"
             Theme="{StaticResource ClearTextBoxButton}"
+            Foreground="{Binding $parent[ContentControl].Foreground}"
             Command="{Binding $parent[TextBox].Clear}" />
   </Template>
 
   <Template x:Key="RevealTextMaskToggleButtonTemplate">
     <ToggleButton Name="PART_PasswordRevealToggle"
                   Theme="{StaticResource RevealTextMaskToggleButtonTheme}"
+                  Foreground="{Binding $parent[ContentControl].Foreground}"
                   IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}" />
   </Template>
 
