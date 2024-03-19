@@ -4,7 +4,7 @@
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
-                    xmlns:generic="clr-namespace:System.Collections;assembly=netstandard">
+                    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=netstandard">
   <DataTemplate x:Key="DataValidationErrorTemplate">
     <DataTemplate.DataType>
       <x:Type TypeName="generic:IEnumerable" x:TypeArguments="system:Object"/>

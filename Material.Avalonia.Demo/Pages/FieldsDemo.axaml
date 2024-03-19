@@ -8,7 +8,9 @@
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
-             x:Class="Material.Demo.Pages.FieldsDemo">
+             xmlns:viewModels="clr-namespace:Material.Avalonia.Demo.ViewModels"
+             x:Class="Material.Avalonia.Demo.Pages.FieldsDemo"
+             x:DataType="viewModels:TextFieldsViewModel">
   <UserControl.Resources>
     <system:String x:Key="TextFieldTip1">Only numerics in this field</system:String>
   </UserControl.Resources>

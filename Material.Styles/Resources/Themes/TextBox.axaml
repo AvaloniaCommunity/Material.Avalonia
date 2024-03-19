@@ -4,7 +4,8 @@
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:extensions="clr-namespace:Material.Styles.Controls.Extensions"
-                    xmlns:internal="clr-namespace:Material.Styles.Assists.Internal">
+                    xmlns:internal="clr-namespace:Material.Styles.Assists.Internal"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
   <ResourceDictionary.MergedDictionaries>
     <!-- Used for suppressing warning in IDE -->
     <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
