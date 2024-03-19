@@ -22,10 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true" />
-  </ItemGroup>
-
-  <ItemGroup>
     <AvaloniaResource Include="Assets\**"/>
   </ItemGroup>
 </Project>

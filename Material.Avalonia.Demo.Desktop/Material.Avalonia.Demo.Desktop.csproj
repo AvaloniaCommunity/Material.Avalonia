@@ -26,4 +26,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia.Demo\Material.Avalonia.Demo.csproj"/>
   </ItemGroup>
+
+  <ItemGroup>
+    <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true" />
+  </ItemGroup>
 </Project>
