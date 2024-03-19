@@ -22,7 +22,7 @@
           <ItemsControl Name="PART_SnackbarHostItemsContainer"
                         HorizontalAlignment="{TemplateBinding SnackbarHorizontalAlignment}"
                         VerticalAlignment="{TemplateBinding SnackbarVerticalAlignment}"
-                        ItemsSource="{CompiledBinding $parent[controls:SnackbarHost].SnackbarModels}">
+                        ItemsSource="{Binding $parent[controls:SnackbarHost].SnackbarModels}">
             <ItemsControl.ItemsPanel>
               <ItemsPanelTemplate>
                 <ReversibleStackPanel />
@@ -30,15 +30,16 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
               <DataTemplate DataType="models:SnackbarModel">
-                <controls:Card Padding="0" Margin="8" Width="344">
+                <controls:Card Padding="0" Margin="8" MinWidth="344">
                   <Grid ColumnDefinitions="16,*,8,Auto,8" RowDefinitions="6,Auto,6" Margin="0, 8">
                     <ContentPresenter Grid.Column="1" Grid.Row="1"
-                                      Content="{CompiledBinding Content,
+                                      Content="{Binding Content,
                                         Converter={x:Static converters:WrapContentIntoContentPresenterConverter.Instance}}">
                       <ContentPresenter.DataTemplates>
                         <DataTemplate DataType="system:String">
                           <TextBlock Name="PART_SnackbarSupportingText"
-                                     Text="{CompiledBinding}"
+                                     VerticalAlignment="Center"
+                                     Text="{Binding}"
                                      Theme="{StaticResource MaterialSnackbarHostSupportingTextBlock}" />
                         </DataTemplate>
                       </ContentPresenter.DataTemplates>
@@ -48,7 +49,7 @@
                             Theme="{StaticResource MaterialFlatButton}"
                             Content="{Binding Button}"
                             Command="{Binding Command}"
-                            IsVisible="{CompiledBinding !!Command}" />
+                            IsVisible="{Binding !!Command}" />
                   </Grid>
                 </controls:Card>
               </DataTemplate>

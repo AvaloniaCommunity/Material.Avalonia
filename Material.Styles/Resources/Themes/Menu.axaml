@@ -36,7 +36,7 @@
                                   Margin="{TemplateBinding Padding}">
                   <ContentPresenter.DataTemplates>
                     <DataTemplate DataType="system:String">
-                      <AccessText Text="{CompiledBinding }" />
+                      <AccessText Text="{Binding }" />
                     </DataTemplate>
                   </ContentPresenter.DataTemplates>
                 </ContentPresenter>

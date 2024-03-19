@@ -2,7 +2,7 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-    <AvaloniaVersion>11.0.0</AvaloniaVersion>
+    <AvaloniaVersion>11.0.9</AvaloniaVersion>
     <ShowMeTheXamlVersion>1.4.1</ShowMeTheXamlVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -15,20 +15,23 @@
     <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Microsoft.NET.WebAssembly.Threading" Version="8.0.0" />
     <!--For Material.Styles-->
     <PackageVersion Include="System.Reactive" Version="6.0.0" />
     <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.2.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
-    <!--For Material.Demo-->
+    <!--For Material.Avalonia.Demo-->
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1" />
     <PackageVersion Include="DialogHost.Avalonia" Version="0.7.6" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
     <!--For _build-->
-    <PackageVersion Include="Nuke.Common" Version="7.0.2" />
+    <PackageVersion Include="Nuke.Common" Version="8.0.0" />
+    <PackageVersion Include="MinVer" Version="4.3.0" />
     <PackageVersion Include="NuGet.Protocol" Version="6.7.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
   </ItemGroup>

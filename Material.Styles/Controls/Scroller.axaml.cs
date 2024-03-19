@@ -72,7 +72,6 @@ namespace Material.Styles.Controls {
         private bool _canScrollToEnd;
         private bool _canScrollToStart;
 
-        private IDisposable? _childSubscription;
         private Size _oldExtent;
         private Vector _oldOffset;
         private Size _oldViewport;
@@ -245,7 +244,7 @@ namespace Material.Styles.Controls {
             }
         }
 
-        private void OnLayoutUpdated(object sender, EventArgs e) => RaiseScrollChanged();
+        private void OnLayoutUpdated(object? sender, EventArgs e) => RaiseScrollChanged();
 
         private void RaiseScrollChanged() {
             var extentDelta = new Vector(Extent.Width - _oldExtent.Width, Extent.Height - _oldExtent.Height);

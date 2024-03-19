@@ -13,7 +13,7 @@
                   BorderThickness="{TemplateBinding BorderThickness}">
             <Viewbox>
               <Canvas Width="24" Height="24">
-                <Path Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}}"
+                <Path Data="{Binding $parent[controls:MaterialInternalIcon].Data}"
                       Fill="{TemplateBinding Foreground}" />
               </Canvas>
             </Viewbox>

@@ -1,0 +1,225 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             xmlns:assist="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             x:Class="Material.Avalonia.Demo.Pages.TogglesDemo">
+    <StackPanel Margin="16, 0">
+        <TextBlock Classes="Headline4 Subheadline" Text="Toggles" />
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Regular toggles" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="RegularToggles0">
+                <ToggleSwitch Content="Switch me!" ToolTip.Tip='Regular toggle switch without any classes.' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RegularToggles1">
+                <ToggleSwitch Content="Switch me too!" IsChecked="True" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RegularToggles2">
+                <ToggleSwitch Content="You can't switch me!" IsEnabled="False" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RegularToggles3">
+                <ToggleSwitch Content="Accent color" IsChecked="True" Classes="accent" />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Regular toggles (Left content alignmented)" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="ToggleSwitch">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="RegularTogglesLeft0">
+                <ToggleSwitch Classes="LeftHeader" Content="Switch me!"
+                              ToolTip.Tip='ToggleSwitch with classes "LeftHeader"' />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RegularTogglesLeft1">
+                <ToggleSwitch Classes="LeftHeader" Content="Switch me too!" IsChecked="True" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RegularTogglesLeft2">
+                <ToggleSwitch Classes="LeftHeader" Content="You can't switch me!" IsEnabled="False" />
+            </showMeTheXaml:XamlDisplay>
+
+        </StackPanel>
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="Checkboxes" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="Checkboxes0">
+                <CheckBox Content="This is checkbox!" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Checkboxes1">
+                <CheckBox Content="This is checkbox!" IsChecked="True" />
+            </showMeTheXaml:XamlDisplay>
+          <showMeTheXaml:XamlDisplay UniqueId="Checkboxes7">
+            <CheckBox Content="Indeterminate" IsChecked="{x:Null}" />
+          </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Checkboxes2">
+                <CheckBox Content="Uncheckable" IsChecked="False" IsEnabled="False" />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="Checkboxes3">
+                <CheckBox Content="This is checkbox!" Classes="accent" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Checkboxes4">
+                <CheckBox Content="This is checkbox!" Classes="accent" IsChecked="True"
+                          assist:SelectionControlAssist.Size="24" />
+            </showMeTheXaml:XamlDisplay>
+          <showMeTheXaml:XamlDisplay UniqueId="Checkboxes8">
+            <CheckBox Content="Indeterminate" Classes="accent" IsChecked="{x:Null}"/>
+          </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="Checkboxes5">
+                <CheckBox Content="Uncheckable" IsChecked="{x:Null}" IsEnabled="False" />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="RadioButton" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="RadioButtons0">
+                <RadioButton GroupName="1" Content="This is radiobutton!" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RadioButtons1">
+                <RadioButton GroupName="1" Content="This is radiobutton!" IsChecked="True" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RadioButtons2">
+                <RadioButton GroupName="1" Content="Uncheckable" IsChecked="False" IsEnabled="False" />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+                <Style Selector="showMeTheXaml|XamlDisplay">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+            </StackPanel.Styles>
+            <showMeTheXaml:XamlDisplay UniqueId="RadioButtons3">
+                <RadioButton Classes="accent" GroupName="2" Content="This is radiobutton!" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RadioButtons4">
+                <RadioButton Classes="accent" GroupName="2" Content="This is radiobutton!" IsChecked="True" />
+            </showMeTheXaml:XamlDisplay>
+            <showMeTheXaml:XamlDisplay UniqueId="RadioButtons5">
+                <RadioButton Classes="accent" GroupName="2" Content="Uncheckable" IsChecked="False" IsEnabled="False" />
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+
+
+        <TextBlock Classes="Headline6 Subheadline2" Text="RadioButton (button-like)" />
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Styles>
+              <Style Selector="RadioButton">
+                    <Setter Property="ToolTip.Tip"
+                            Value='RadioButton with "RadioButton" theme in StackPanel container with Card widget' />
+                </Style>
+              <Style Selector="RadioButton.accent">
+                    <Setter Property="ToolTip.Tip"
+                            Value='RadioButton with "RadioButton" theme and "Accent" class in StackPanel container with Card widget' />
+                </Style>
+                <Style Selector="avalonia|MaterialIcon">
+                    <Setter Property="Width" Value="24" />
+                    <Setter Property="Height" Value="24" />
+                </Style>
+            </StackPanel.Styles>
+            <StackPanel Orientation="Vertical">
+                <showMeTheXaml:XamlDisplay UniqueId="RadioButtonsCard0">
+                    <controls:Card Padding="0" InsideClipping="True">
+                      <controls:Card.Styles>
+                        <Style Selector="RadioButton">
+                          <Setter Property="Theme" Value="{StaticResource MaterialButtonlikeRadioButton}" />
+                        </Style>
+                      </controls:Card.Styles>
+                      <StackPanel Orientation="Horizontal">
+                        <RadioButton GroupName="3"
+                                     Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}" />
+                        <RadioButton GroupName="3"
+                                     Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}"
+                                     IsChecked="True" />
+                        <RadioButton GroupName="3"
+                                     Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}"
+                                     IsEnabled="False" />
+                        <RadioButton GroupName="3"
+                                     Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}" />
+                        </StackPanel>
+                    </controls:Card>
+                </showMeTheXaml:XamlDisplay>
+
+                <showMeTheXaml:XamlDisplay UniqueId="RadioButtonsCard1">
+                    <controls:Card Padding="0" InsideClipping="True" Margin="0,16,0,0">
+                      <controls:Card.Styles>
+                        <Style Selector="RadioButton">
+                          <Setter Property="Theme" Value="{StaticResource MaterialButtonlikeRadioButton}" />
+                        </Style>
+                      </controls:Card.Styles>
+                      <StackPanel Orientation="Horizontal">
+                        <RadioButton Classes="accent" GroupName="4"
+                                     Content="{avalonia:MaterialIconExt Kind=FormatAlignLeft}" />
+                        <RadioButton Classes="accent" GroupName="4"
+                                     Content="{avalonia:MaterialIconExt Kind=FormatAlignCenter}" IsChecked="True" />
+                        <RadioButton Classes="accent" GroupName="4"
+                                     Content="{avalonia:MaterialIconExt Kind=FormatAlignRight}" IsEnabled="False" />
+                        <RadioButton Classes="accent" GroupName="4"
+                                     Content="{avalonia:MaterialIconExt Kind=FormatAlignJustify}" />
+                        </StackPanel>
+                    </controls:Card>
+                </showMeTheXaml:XamlDisplay>
+            </StackPanel>
+        </StackPanel>
+        
+        <TextBlock Classes="Headline6 Subheadline2" Text="ToggleButtons" />
+        <StackPanel Orientation="Horizontal">
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons0">
+                <ToggleButton>ToggleButton</ToggleButton>
+            </showMeTheXaml:XamlDisplay>
+
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons1">
+                <ToggleButton Classes="NoFeedback">NoFeedback</ToggleButton>
+            </showMeTheXaml:XamlDisplay>
+            
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons2">
+                <ToggleButton IsEnabled="False">Disabled</ToggleButton>
+            </showMeTheXaml:XamlDisplay>
+            
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons3">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 8 0" Text="Icon:"/>
+                    <ToggleButton Classes="Icon">
+                        <avalonia:MaterialIcon Kind="Globe" />
+                    </ToggleButton>
+                </StackPanel>
+            </showMeTheXaml:XamlDisplay>
+            
+            <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons4">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 8 0" Text="Icon NoFeedback:"/>
+                    <ToggleButton Classes="Icon NoFeedback">
+                        <avalonia:MaterialIcon Kind="Globe" />
+                    </ToggleButton>
+                </StackPanel>
+            </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

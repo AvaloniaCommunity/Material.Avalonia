@@ -1,0 +1,6 @@
+<dataGrid:MaterialDataGridStyles xmlns="https://github.com/avaloniaui"
+                                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                 xmlns:dataGrid="clr-namespace:Material.Avalonia.DataGrid"
+                                 x:Class="Material.Avalonia.DataGrid.MaterialDataGridStyles">
+  <StyleInclude Source="avares://Material.Avalonia.DataGrid/DataGrid.xaml" />
+</dataGrid:MaterialDataGridStyles>

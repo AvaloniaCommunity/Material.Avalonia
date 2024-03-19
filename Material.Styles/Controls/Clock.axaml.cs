@@ -97,7 +97,7 @@ public class Clock : TemplatedControl {
         _hoursTextBox = e.NameScope.Find<NumericUpDown>("PART_HoursBox")!;
         _minutesTextBox = e.NameScope.Find<NumericUpDown>("PART_MinutesBox")!;
         _secondsTextBox = e.NameScope.Find<NumericUpDown>("PART_SecondsBox")!;
-        _inputBoxes = new List<NumericUpDown>() { _hoursTextBox, _minutesTextBox, _secondsTextBox };
+        _inputBoxes = new List<NumericUpDown> { _hoursTextBox, _minutesTextBox, _secondsTextBox };
         _selectedInputBox = _hoursTextBox;
 
         _carousel = e.NameScope.Find<Carousel>("PART_CircleClockCarousel")!;
@@ -115,8 +115,8 @@ public class Clock : TemplatedControl {
         UpdateSelectedTime();
     }
 
-    private void CircleClockPickerOnPointerReleased(object sender, PointerReleasedEventArgs e) {
-        var circleClockPicker = (CircleClockPicker)sender;
+    private void CircleClockPickerOnPointerReleased(object? sender, PointerReleasedEventArgs e) {
+        var circleClockPicker = (CircleClockPicker)sender!;
         if (circleClockPicker.Value is null) {
             return;
         }
@@ -136,8 +136,8 @@ public class Clock : TemplatedControl {
             ?.Focus();
     }
 
-    private void InputBoxOnGotFocusHandler(object sender, GotFocusEventArgs e) {
-        _selectedInputBox = (NumericUpDown)sender;
+    private void InputBoxOnGotFocusHandler(object? sender, GotFocusEventArgs e) {
+        _selectedInputBox = (NumericUpDown)sender!;
         OnSelectedInputBoxChange();
     }
 

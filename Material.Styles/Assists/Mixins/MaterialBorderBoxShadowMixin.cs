@@ -26,17 +26,20 @@ public static class MaterialBorderBoxShadowMixin {
         if (transitions is null) return;
 
         var disableTransitions = args.GetNewValue<bool>();
-        if (disableTransitions)
-            transitions.Remove(TargetTransition);
-        else
-            transitions.Add(TargetTransition);
+        ToggleTransitions(transitions, disableTransitions);
     }
 
     private static void OnTransitionCollectionChanged<TControl>(TControl control, AvaloniaPropertyChangedEventArgs args)
         where TControl : Control {
         var disableTransitions = (bool)control.GetValue(TransitionAssist.DisableTransitionsProperty)!;
-        if (disableTransitions) return;
+        if (args.NewValue is Transitions transitions)
+            ToggleTransitions(transitions, disableTransitions);
+    }
 
-        if (args.NewValue is Transitions transitions && !transitions.Contains(TargetTransition)) transitions.Add(TargetTransition);
+    private static void ToggleTransitions(Transitions transitions, bool disableTransitions) {
+        if (disableTransitions)
+            transitions.Remove(TargetTransition);
+        else if (!transitions.Contains(TargetTransition))
+            transitions.Add(TargetTransition);
     }
 }

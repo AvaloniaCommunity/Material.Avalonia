@@ -1,0 +1,73 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:viewModels="clr-namespace:Material.Avalonia.Demo.ViewModels"
+             xmlns:pages="clr-namespace:Material.Avalonia.Demo.Pages"
+             x:Class="Material.Avalonia.Demo.Pages.DialogDemo"
+             x:DataType="viewModels:DialogDemoViewModel">
+  <UserControl.Resources>
+    <!-- ReSharper disable once Xaml.RedundantResource -->
+    <StackPanel x:Key="Sample2View">
+      <ProgressBar Classes="Circle" IsIndeterminate="True" />
+      <Button Margin="0 16 0 0"
+              Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHost:DialogHost}, Path=CloseDialogCommand}">
+        CLOSE
+      </Button>
+    </StackPanel>
+  </UserControl.Resources>
+
+  <StackPanel Margin="16, 0">
+    <TextBlock Classes="Headline4 Subheadline" Text="Dialogs" />
+    <Grid ColumnDefinitions="*, *">
+
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="DialogHost" />
+        <StackPanel>
+          <TextBlock TextWrapping="Wrap" Text="Top level dialog with custom corner radius, using OpenDialog, passing content via the Parameter. You can pass a view model, provided a corresponding DataTemplate can be found in the scope of the root DialogHost." />
+          <StackPanel Spacing="8">
+            <Button Classes="flat" Click="OpenDialogWithView">PASS VIEW</Button>
+            <Button Classes="flat" Click="OpenDialogWithModel">PASS MODEL</Button>
+            <Button Classes="flat" Click="OpenMoreDialogHostExamples">MORE EXAMPLES</Button>
+          </StackPanel>
+        </StackPanel>
+      </StackPanel>
+
+      <StackPanel Grid.Column="1">
+        <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
+
+        <TextBlock IsVisible="{Binding !IsDialogsAvailable}">
+          Standalone dialogs not available due to running in non-desktop environment.
+          <LineBreak />
+          e.g. you can't open another window while running in browser
+        </TextBlock>
+
+        <ItemsControl ItemsSource="{Binding StandaloneDialogItems}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate DataType="viewModels:DialogDemoItemViewModel">
+              <DockPanel Margin="8">
+                <!-- ReSharper disable once Xaml.PossibleNullReferenceException -->
+                <Button DockPanel.Dock="Top"
+                        Classes="flat"
+                        Content="{Binding Header}"
+                        Command="{Binding Command}"
+                        IsEnabled="{Binding $parent[pages:DialogDemo].((viewModels:DialogDemoViewModel)DataContext).IsDialogsAvailable}"/>
+                <TextBlock Margin="8"
+                           HorizontalAlignment="Center"
+                           TextWrapping="Wrap"
+
+                           DockPanel.Dock="Bottom"
+
+                           Text="{Binding Result}"
+                           IsVisible="{Binding Result,
+                                                 Converter={x:Static StringConverters.IsNotNullOrEmpty},
+                                                 FallbackValue=False}" />
+              </DockPanel>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+    </Grid>
+  </StackPanel>
+
+
+</UserControl>

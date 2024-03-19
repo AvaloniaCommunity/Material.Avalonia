@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
   <Design.PreviewWith>
     <Border Padding="20" Width="360">
       <StackPanel VerticalAlignment="Center">
@@ -162,7 +163,7 @@
     <Setter Property="Padding" Value="16,8" />
     <Setter Property="Template">
       <ControlTemplate>
-        <StackPanel>
+        <StackPanel Name="PART_TemplateRoot">
           <ToggleButton Classes="NoFeedback TransparentBack"
                         MinHeight="48" BorderThickness="0"
                         HorizontalContentAlignment="Stretch"
@@ -246,7 +247,7 @@
                  VerticalOffset="0"
                  Margin="0"
                  WindowManagerAddShadowHint="False"
-                 PlacementTarget="{Binding ElementName=templateRoot}"
+                 PlacementTarget="{Binding ElementName=PART_TemplateRoot, DataType={x:Type system:Object}}"
                  IsLightDismissEnabled="True"
                  UseLayoutRounding="True"
                  ClipToBounds="False">
@@ -254,8 +255,7 @@
                            Margin="4,0,4,4"
                            CornerRadius="0,0,8,8"
                            Padding="0">
-              <ScrollViewer Background="{Binding Background, ElementName=PART_Popup}"
-                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
+              <ScrollViewer MaxHeight="{TemplateBinding MaxDropDownHeight}"
                             MinHeight="1">
                 <ItemsPresenter Name="PART_ItemsPresenter"
                                 ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -346,7 +346,7 @@
                  VerticalOffset="0"
                  Margin="0"
                  WindowManagerAddShadowHint="False"
-                 PlacementTarget="{Binding ElementName=templateRoot}"
+                 PlacementTarget="{Binding ElementName=PART_RootBorder, DataType={x:Type system:Object}}"
                  IsLightDismissEnabled="True"
                  UseLayoutRounding="True"
                  ClipToBounds="False">

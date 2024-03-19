@@ -15,8 +15,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock"
-                BasedOn="{StaticResource MaterialTextBlock}">
-  </ControlTheme>
+                BasedOn="{StaticResource MaterialTextBlock}" />
 
 
   <ControlTheme x:Key="CaptionTextBlock"

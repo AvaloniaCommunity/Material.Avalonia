@@ -2,7 +2,6 @@
   <Import Project="SourceLink.props" Condition="'$(DisableSourceLink)' == ''"/>
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>NU5104, NU1507</NoWarn>
@@ -14,8 +13,8 @@
     <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>3.2.1</Version>
-    <PackageReleaseNotes>https://github.com/AvaloniaCommunity/Material.Avalonia/releases/tag/v3.2.1</PackageReleaseNotes>
+    <Version>3.2.2</Version>
+    <PackageReleaseNotes>https://github.com/AvaloniaCommunity/Material.Avalonia/releases/tag/v$(Version)</PackageReleaseNotes>
 
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
   </PropertyGroup>
@@ -30,5 +29,13 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
   </ItemGroup>
-
+  
+  <PropertyGroup>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+  <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+  </PropertyGroup>
 </Project>

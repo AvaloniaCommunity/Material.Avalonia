@@ -18,22 +18,22 @@
             <StackPanel Name="PART_ContentPanel">
                 <TextBlock Name="PART_SupportingText"
                            Classes="Body1"
-                           IsVisible="{CompiledBinding !!ContentMessage.Length}"
-                           Text="{CompiledBinding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
+                           IsVisible="{Binding !!ContentMessage.Length}"
+                           Text="{Binding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
 
                 <ItemsControl Name="PART_Fields"
-                              ItemsSource="{CompiledBinding TextFields}">
+                              ItemsSource="{Binding TextFields}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="textField:TextFieldViewModel">
                             <TextBox Name="PART_Field"
-                                     PasswordChar="{CompiledBinding MaskChar}"
+                                     PasswordChar="{Binding MaskChar}"
                                      HorizontalAlignment="Stretch"
-                                     MaxLength="{CompiledBinding MaxCountChars}"
-                                     Text="{CompiledBinding Text, Mode=TwoWay}"
-                                     Watermark="{CompiledBinding PlaceholderText}"
+                                     MaxLength="{Binding MaxCountChars}"
+                                     Text="{Binding Text, Mode=TwoWay}"
+                                     Watermark="{Binding PlaceholderText}"
                                      UseFloatingWatermark="True"
-                                     wpf:TextFieldAssist.Hints="{CompiledBinding AssistiveText}"
-                                     wpf:TextFieldAssist.Label="{CompiledBinding Label}" />
+                                     wpf:TextFieldAssist.Hints="{Binding AssistiveText}"
+                                     wpf:TextFieldAssist.Label="{Binding Label}" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

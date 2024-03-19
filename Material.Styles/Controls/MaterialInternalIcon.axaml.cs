@@ -28,7 +28,7 @@ namespace Material.Styles.Controls {
         /// <summary>
         /// Gets the icon path data for the current <see cref="Kind"/>.
         /// </summary>
-        public Geometry? Data {
+        public Geometry Data {
             get {
                 _data = _data switch {
                     null => Geometry.Parse(IconsDataSet.UnknownIconData),
@@ -59,7 +59,7 @@ namespace Material.Styles.Controls {
                 Data = Geometry.Parse(data);
 
             else
-                Data = null;
+                throw new InvalidOperationException($"There is no path data for icon kind {Kind}");
         }
     }
 }

@@ -27,7 +27,7 @@ public static partial class MaterialAnimationAssist {
             _ = animation.RunAsync(control, cancellationTokenSource.Token);
 
             // Creating reversed animation
-            var reversedAnimation = new Animation() {
+            var reversedAnimation = new Animation {
                 Delay = animation.Delay, Duration = animation.Duration, Easing = animation.Easing, FillMode = animation.FillMode,
                 IterationCount = new IterationCount(1), SpeedRatio = animation.SpeedRatio
             };

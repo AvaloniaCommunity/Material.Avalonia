@@ -3,8 +3,12 @@
                     xmlns:system="clr-namespace:System;assembly=netstandard"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:generic="clr-namespace:System.Collections;assembly=netstandard">
   <DataTemplate x:Key="DataValidationErrorTemplate">
+    <DataTemplate.DataType>
+      <x:Type TypeName="generic:IEnumerable" x:TypeArguments="system:Object"/>
+    </DataTemplate.DataType>
     <ItemsControl ItemsSource="{Binding }">
       <ItemsControl.DataTemplates>
         <!-- Due to technical issues, the font size will be changed implicitly and its

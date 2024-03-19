@@ -16,7 +16,7 @@ namespace Material.Dialog.Views {
         public void SetNegativeResult(DialogResult result) => Result.Result = result.GetResult;
 
         public void AttachViewModel(TimePickerDialogViewModel vm) {
-            this.DataContext = vm;
+            DataContext = vm;
         }
     }
 }

@@ -1,12 +1,13 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
   <ControlTheme x:Key="MaterialCalendarItem" TargetType="CalendarItem">
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="VerticalAlignment" Value="Stretch" />
     <Setter Property="DayTitleTemplate">
       <Template>
-        <TextBlock Text="{Binding}"
+        <TextBlock Text="{Binding ., DataType={x:Type system:Object}}"
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Stretch"
                    TextAlignment="Center"

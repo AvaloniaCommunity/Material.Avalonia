@@ -47,7 +47,8 @@
   <ContextMenu x:Key="DefaultTextBoxContextMenu"
                Name="TextBoxContextMenu"
                WindowManagerAddShadowHint="False"
-               Cursor="Arrow">
+               Cursor="Arrow"
+               x:DataType="system:Object">
 
     <MenuItem Name="TextBoxContextMenuCutItem"
               Header="Cut"
@@ -87,7 +88,8 @@
 
   <MenuFlyout x:Key="DefaultTextBoxMenuFlyout"
               Placement="Bottom"
-              FlyoutPresenterTheme="{StaticResource MaterialTextBoxFlyoutPresenter}">
+              FlyoutPresenterTheme="{StaticResource MaterialTextBoxFlyoutPresenter}"
+              x:DataType="system:Object">
     <MenuItem Name="TextBoxMenuFlyoutCutItem"
               Header="Cut"
               Command="{Binding $parent[TextBox].Cut}"

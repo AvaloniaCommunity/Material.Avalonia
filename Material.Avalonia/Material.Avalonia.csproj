@@ -5,6 +5,8 @@
     <PackageTags>avalonia xaml material design theme colour color ui ux material-design google-material</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>FavIcon.png</PackageIcon>
+
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>

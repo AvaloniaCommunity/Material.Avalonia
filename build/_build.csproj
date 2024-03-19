@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace></RootNamespace>
     <NoWarn>CS0649;CS0169;NU5104;NU1507</NoWarn>
     <NukeRootDirectory>..</NukeRootDirectory>
@@ -10,11 +10,24 @@
     <NukeTelemetryVersion>1</NukeTelemetryVersion>
     <NukeDefaultExcludes>True</NukeDefaultExcludes>
     <NukeExcludeLogs>True</NukeExcludeLogs>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MinVer">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="NuGet.Protocol" />
     <PackageReference Include="Nuke.Common" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageDownload Include="minver-cli" Version="[4.3.0]" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerDefaultPreReleaseIdentifiers>nightly</MinVerDefaultPreReleaseIdentifiers>
+  </PropertyGroup>
 </Project>

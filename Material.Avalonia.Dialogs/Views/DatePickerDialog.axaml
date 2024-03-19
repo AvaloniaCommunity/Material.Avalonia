@@ -1,15 +1,12 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:main="clr-namespace:Material.Dialog"
-        xmlns:material="clr-namespace:Material.Styles;assembly=Material.Styles"
-        xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
         xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         xmlns:converters="clr-namespace:Material.Dialog.Converters"
         x:Class="Material.Dialog.Views.DatePickerDialog"
         SizeToContent="WidthAndHeight" CanResize="False"
         HorizontalContentAlignment="Stretch"
-        Title="{CompiledBinding WindowTitle}"
-        WindowStartupLocation="{CompiledBinding WindowStartupLocation}"
+        Title="{Binding WindowTitle}"
+        WindowStartupLocation="{Binding WindowStartupLocation}"
         x:DataType="viewModels:DatePickerDialogViewModel">
     <Window.Resources>
         <ResourceDictionary>

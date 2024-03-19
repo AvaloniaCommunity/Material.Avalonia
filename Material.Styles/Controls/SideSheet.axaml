@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
                     xmlns:converters="clr-namespace:Material.Styles.Converters"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
   <Design.PreviewWith>
     <Border Margin="40" BorderThickness="1" BorderBrush="Black">
       <StackPanel Orientation="Horizontal">
@@ -62,7 +63,7 @@
     <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="SideSheetHeaderTemplate">
       <DataTemplate>
-        <TextBlock Classes="Headline6" Text="{Binding}" />
+        <TextBlock Classes="Headline6" Text="{Binding ., DataType={x:Type system:Object}}" />
       </DataTemplate>
     </Setter>
     <Setter Property="Template">

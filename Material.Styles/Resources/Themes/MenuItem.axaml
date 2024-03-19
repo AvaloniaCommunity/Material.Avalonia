@@ -91,7 +91,7 @@
                     <ContentPresenter.DataTemplates>
                       <DataTemplate DataType="system:String">
                         <AccessText Name="PART_MenuItemText"
-                                    Text="{CompiledBinding }">
+                                    Text="{Binding }">
                           <AccessText.Styles>
                             <Style Selector="AccessText">
                               <Setter Property="FontSize" Value="16" />

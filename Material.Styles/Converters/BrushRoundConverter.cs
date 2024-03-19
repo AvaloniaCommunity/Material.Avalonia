@@ -16,7 +16,7 @@ namespace Material.Styles.Converters
 
         public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (value is not SolidColorBrush solidColorBrush)
+            if (value is not ISolidColorBrush solidColorBrush)
                 return BindingOperations.DoNothing;
 
             var color = solidColorBrush.Color;

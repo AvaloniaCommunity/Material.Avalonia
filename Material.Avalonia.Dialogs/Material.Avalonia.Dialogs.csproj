@@ -4,6 +4,8 @@
     <Description>Material.Dialog provide some essential material dialogs for use.</Description>
     <PackageTags>avalonia xaml material design theme dialogs colour color ui ux material-design google-material</PackageTags>
     <PackageIcon>FavIcon.png</PackageIcon>
+
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>

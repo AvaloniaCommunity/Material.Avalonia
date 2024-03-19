@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <Description>Ripple component library of Material.Avalonia.</Description>
+
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
   </PropertyGroup>
 
 </Project>

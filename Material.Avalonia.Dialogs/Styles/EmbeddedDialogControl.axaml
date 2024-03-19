@@ -18,31 +18,36 @@
                 <Border Name="PART_RootBorder"
                         Background="{DynamicResource MaterialCardBackgroundBrush}" >
                     <DockPanel Name="PART_RootPanel"
-                               Width="{CompiledBinding Width}"
-                               MaxWidth="{CompiledBinding MaxWidth}" >
+                               Width="{Binding Width}"
+                               MaxWidth="{Binding MaxWidth}" >
                         <DockPanel Name="{x:Static naming:PartNames.PartHeaderPanel}">
                             <ContentPresenter Name="{x:Static naming:PartNames.PartHeaderIcon}"
-                                              Content="{CompiledBinding DialogIcon}"
+                                              Content="{Binding DialogIcon}"
                                               ContentTemplate="{StaticResource DialogHeaderIconTemplate}"
-                                              IsVisible="{CompiledBinding !!DialogIcon}" />
-
+                                              IsVisible="{Binding !!DialogIcon}" />
+                            <DockPanel.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                                    <CompiledBinding Converter="{x:Static ObjectConverters.IsNotNull}" Path="DialogIcon" />
+                                    <CompiledBinding Converter="{x:Static StringConverters.IsNotNullOrEmpty}" Path="ContentHeader" />
+                                </MultiBinding>
+                            </DockPanel.IsVisible>
                             <TextBlock Name="{x:Static naming:PartNames.PartHeaderText}"
                                        Classes="Headline6"
-                                       IsVisible="{CompiledBinding !!ContentHeader.Length}"
-                                       Text="{CompiledBinding ContentHeader, FallbackValue='DIALOG_HEADER_NULL'}" />
+                                       IsVisible="{Binding !!ContentHeader.Length}"
+                                       Text="{Binding ContentHeader, FallbackValue='DIALOG_HEADER_NULL'}" />
                         </DockPanel>
 
                         <DockPanel Name="{x:Static naming:PartNames.PartButtonsPanel}">
                             
                             <ItemsControl Name="{x:Static naming:PartNames.PartNeutralButtonPlacement}"
                                           DockPanel.Dock="Left"
-                                          ItemsSource="{CompiledBinding NeutralDialogButton}"
+                                          ItemsSource="{Binding NeutralDialogButton}"
                                           ItemTemplate="{StaticResource DialogButtonTemplate}"
                                           ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
 
                             <ItemsControl Name="{x:Static naming:PartNames.PartButtonPlacement}"
                                           DockPanel.Dock="Right"
-                                          ItemsSource="{CompiledBinding DialogButtons}"
+                                          ItemsSource="{Binding DialogButtons}"
                                           ItemTemplate="{StaticResource DialogButtonTemplate}"
                                           ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
                         </DockPanel>
