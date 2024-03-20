@@ -16,6 +16,7 @@
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="AvaloniaEdit.TextMate" Version="11.0.6" />
     <PackageVersion Include="Microsoft.NET.WebAssembly.Threading" Version="8.0.0" />
     <!--For Material.Styles-->
     <PackageVersion Include="System.Reactive" Version="6.0.0" />
