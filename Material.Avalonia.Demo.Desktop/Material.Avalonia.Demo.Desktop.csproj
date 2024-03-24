@@ -27,7 +27,9 @@
     <ProjectReference Include="..\Material.Avalonia.Demo\Material.Avalonia.Demo.csproj"/>
   </ItemGroup>
 
+  <!--Since Material.Avalonia.DataGrid included as a ProjectReference, auto-imports doesn't work properly-->
   <ItemGroup>
-    <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true" />
+    <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true"/>
+    <TrimmerRootAssembly Include="Material.Avalonia.DataGrid"/>
   </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@ public class ProgressIndicatorDemoViewModel : ViewModelBase {
     public ProgressIndicatorDemoViewModel() {
         _timer = new Timer(1000);
         _timer.Elapsed += Timer_Elapsed;
+        _timer.Start();
     }
 
     public double Progress {
