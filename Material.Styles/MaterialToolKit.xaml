@@ -23,6 +23,7 @@
         <ResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
         
         <!-- Avalonia controls -->
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AccessText.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AdornerLayer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
