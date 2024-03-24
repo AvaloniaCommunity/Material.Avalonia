@@ -43,7 +43,6 @@ partial class Build {
         .Unlisted()
         .OnlyWhenDynamic(() => Parameters.NugetApiKey is not null)
         .OnlyWhenDynamic(() => Parameters.ShouldPublishNugetPackages)
-        .DependsOn(PackDemoApp)
         .DependsOn(PublishNugetPackages)
         .Executes(async () => {
             var tagName = $"v{Parameters.Version}";
@@ -70,8 +69,7 @@ partial class Build {
             };
             var release = await GitHubTasks.GitHubClient.Repository.Release.Create(owner, name, newRelease);
             var nugetArtifacts = NugetRoot.GetFiles("*.nupkg").ToImmutableArray();
-            var artifacts = nugetArtifacts.Concat(DemoDir.GetFiles());
-            foreach (var artifactPath in artifacts) {
+            foreach (var artifactPath in nugetArtifacts) {
                 Log.Information("Uploading new release {TagName} asset: {AssetName}", tagName, artifactPath.Name);
                 await using var fileStream = File.OpenRead(artifactPath);
                 var releaseAssetUpload = new ReleaseAssetUpload(artifactPath.Name, "application/octet-stream", fileStream, null);
