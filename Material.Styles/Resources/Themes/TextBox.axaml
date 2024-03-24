@@ -329,6 +329,10 @@
         <Setter Property="Text" Value="{Binding $parent[TextBox].Watermark}" />
       </Style>
     </Style>
+    
+    <Style Selector="^ /template/ ScrollViewer#PART_ScrollViewer">
+      <Setter Property="Theme" Value="{StaticResource MaterialModernScrollViewer}" />
+    </Style>
 
     <!-- Default behaviour for TextFields -->
     <Style Selector="^ /template/ Grid#PART_ContentGrid">
