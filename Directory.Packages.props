@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <AvaloniaVersion>11.0.9</AvaloniaVersion>
-    <ShowMeTheXamlVersion>1.4.1</ShowMeTheXamlVersion>
+    <ShowMeTheXamlVersion>1.5.0</ShowMeTheXamlVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" />
@@ -16,7 +16,6 @@
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="AvaloniaEdit.TextMate" Version="11.0.6" />
     <PackageVersion Include="Microsoft.NET.WebAssembly.Threading" Version="8.0.0" />
     <!--For Material.Styles-->
     <PackageVersion Include="System.Reactive" Version="6.0.0" />
