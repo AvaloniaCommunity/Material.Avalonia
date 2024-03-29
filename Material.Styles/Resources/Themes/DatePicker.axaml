@@ -9,8 +9,6 @@
     </StackPanel>
   </Design.PreviewWith>
 
-  <x:String x:Key="MaterialDatePickerNotSelectedText">Not selected</x:String>
-
   <ControlTheme x:Key="MaterialDatePicker" TargetType="DatePicker">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
@@ -39,7 +37,7 @@
               <MultiBinding Converter="{x:Static converters:DatePickerTextConverter.Instance}">
                 <TemplateBinding Property="SelectedDate" />
                 <TemplateBinding Property="assists:DatePickerAssist.DateTimeFormat" />
-                <DynamicResource ResourceKey="MaterialDatePickerNotSelectedText" />
+                <DynamicResource ResourceKey="StringDatePickerNotSelectedText" />
               </MultiBinding>
             </TextBox.Text>
             <TextBox.InnerRightContent>
