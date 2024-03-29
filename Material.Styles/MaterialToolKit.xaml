@@ -4,6 +4,9 @@
   <Styles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
+        <!-- Localization -->
+        <ResourceInclude Source="avares://Material.Styles/InvariantResources.xaml" />
+        
         <!-- Material.Avalonia controls -->
         <ResourceInclude Source="avares://Material.Styles/Controls/Card.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Controls/CircleClockPicker.axaml" />

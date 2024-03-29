@@ -49,7 +49,7 @@
             <NumericUpDown x:Name="PART_HoursBox"
                            Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
                            Classes="time-input" Focusable="False"
-                           assists:TextFieldAssist.Hints="Hour"
+                           assists:TextFieldAssist.Hints="{DynamicResource StringClockHourHintText}"
                            ShowButtonSpinner="False" ClipValueToMinMax="True"
                            FormatString="0"
                            Minimum="{TemplateBinding TimeFormat, Converter={x:Static converters:AmPmRangeConverter.MinimumInstance}}"
@@ -63,7 +63,7 @@
             <NumericUpDown x:Name="PART_MinutesBox"
                            Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"
                            Classes="time-input" Focusable="False"
-                           assists:TextFieldAssist.Hints="Minute"
+                           assists:TextFieldAssist.Hints="{DynamicResource StringClockMinuteHintText}"
                            ShowButtonSpinner="False" ClipValueToMinMax="True"
                            FormatString="0"
                            Minimum="0" Maximum="59"
@@ -78,7 +78,7 @@
                            Grid.Row="0" Grid.Column="4"
                            Classes="time-input" Focusable="False"
                            IsVisible="{TemplateBinding CanSelectSeconds}"
-                           assists:TextFieldAssist.Hints="Second"
+                           assists:TextFieldAssist.Hints="{DynamicResource StringClockSecondsHintText}"
                            ShowButtonSpinner="False" ClipValueToMinMax="True"
                            FormatString="0"
                            Minimum="0" Maximum="59"
@@ -94,13 +94,13 @@
                 <RadioButton x:Name="PART_AmSelector"
                              Grid.Row="0"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
-                             Content="AM"
+                             Content="{DynamicResource StringClockAmButtonText}"
                              IsChecked="{Binding !!(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                 <Rectangle Grid.Row="1" Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                 <RadioButton x:Name="PART_PmSelector"
                              Grid.Row="2"
                              Theme="{StaticResource MaterialCircleClockTimeFormatRadioButton}"
-                             Content="PM"
+                             Content="{DynamicResource StringClockPmButtonText}"
                              IsChecked="{Binding !(controls:ClockInternals.IsAm), Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
               </Grid>
             </Border>
