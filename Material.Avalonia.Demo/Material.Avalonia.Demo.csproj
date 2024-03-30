@@ -24,4 +24,10 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**"/>
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Styles\ShowMeTheXamlStyles.XamlDisplayAvaloniaEditThemeBehavior.cs">
+      <DependentUpon>ShowMeTheXamlStyles.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

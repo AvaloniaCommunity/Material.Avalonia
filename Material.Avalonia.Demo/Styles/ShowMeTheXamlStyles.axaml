@@ -3,7 +3,8 @@
         xmlns:avaloniaEdit="https://github.com/avaloniaui/avaloniaedit"
         xmlns:avaloniaEdit1="clr-namespace:ShowMeTheXaml.Avalonia.AvaloniaEdit;assembly=ShowMeTheXaml.Avalonia.AvaloniaEdit"
         xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
-        xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles">
+        xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+        xmlns:styles="clr-namespace:Material.Avalonia.Demo.Styles">
   <StyleInclude Source="avares://ShowMeTheXaml.Avalonia.AvaloniaEdit/XamlDisplayStyles.axaml" />
 
   <Style Selector="showMeTheXaml|XamlDisplay">
@@ -38,7 +39,7 @@
                                        Background="{Binding $parent[showMeTheXaml:XamlDisplay].Background}">
                 <Interaction.Behaviors>
                   <avaloniaEdit1:CustomizeEditorBehavior />
-                  <avaloniaEdit1:XamlDisplayAvaloniaEditThemeBehavior />
+                  <styles:CustomXamlDisplayAvaloniaEditThemeBehavior />
                 </Interaction.Behaviors>
               </avaloniaEdit:TextEditor>
             </ScrollViewer>
@@ -98,7 +99,7 @@
                 <avaloniaEdit1:CustomizeEditorBehavior />
                 <avaloniaEdit1:XamlDisplayAvaloniaEditTextBindingBehavior
                   MarkupTextEditor="{Binding ElementName=MarkupTextEditor}" />
-                <avaloniaEdit1:XamlDisplayAvaloniaEditThemeBehavior />
+                <styles:CustomXamlDisplayAvaloniaEditThemeBehavior />
               </Interaction.Behaviors>
             </avaloniaEdit:TextEditor>
           </ScrollViewer>
