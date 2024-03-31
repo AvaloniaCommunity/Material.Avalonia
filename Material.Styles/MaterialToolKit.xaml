@@ -35,6 +35,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CaptionButtons.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Carousel.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBox.axaml" />
