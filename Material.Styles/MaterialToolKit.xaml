@@ -60,6 +60,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NumericUpDown.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/OverlayPopupHost.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PathIcon.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PopupRoot.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
