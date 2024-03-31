@@ -63,6 +63,8 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PopupRoot.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RefreshContainer.xaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RefreshVisualizer.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RepeatButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
