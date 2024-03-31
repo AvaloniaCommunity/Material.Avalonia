@@ -82,6 +82,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ThemeVariantScope.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TimePicker.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TitleBar.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToolTip.axaml" />
