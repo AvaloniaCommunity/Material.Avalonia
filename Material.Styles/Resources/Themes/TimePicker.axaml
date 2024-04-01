@@ -14,7 +14,6 @@
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Padding" Value="0" />
-    <Setter Property="assists:TextFieldAssist.Label" Value="Time" />
     <Setter Property="MinWidth" Value="120" />
 
     <Setter Property="Template">

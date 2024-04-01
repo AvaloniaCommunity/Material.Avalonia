@@ -5,18 +5,20 @@
     <TargetFramework>net8.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>false</IsPackable>
-
+    
+    <AvaloniaVersion>11.0.9</AvaloniaVersion>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <PublishAot>true</PublishAot>
     <IsTrimmable>true</IsTrimmable>
     <TrimMode>link</TrimMode>
     <!--These can help when debugging weird exceptions especially when reflection is involved. See https://github.com/dotnet/corert/blob/master/Documentation/using-corert/optimizing-corert.md -->
     <!--RootAllApplicationAssemblies: False -> TrimMode:link See https://github.com/dotnet/runtimelab/issues/597 and https://github.com/dotnet/runtimelab/blob/feature/NativeAOT/docs/using-nativeaot/optimizing.md -->
     <IlcGenerateCompleteTypeMetadata>false</IlcGenerateCompleteTypeMetadata>
-    <IlcGenerateStackTraceData Condition="'$(Configuration.toUpper())' != 'DEBUG'">false</IlcGenerateStackTraceData>
+    <IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
     <IlcDisableUnhandledExceptionExperience>true</IlcDisableUnhandledExceptionExperience>
-    <StripSymbols Condition="'$(Configuration.toUpper())' != 'DEBUG'">true</StripSymbols>
-    
-    <AvaloniaVersion>11.0.9</AvaloniaVersion>
+    <StripSymbols>true</StripSymbols>
   </PropertyGroup>
   
   <ItemGroup>

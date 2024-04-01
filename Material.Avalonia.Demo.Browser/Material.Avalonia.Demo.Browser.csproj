@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia.Browser"/>
+    <PackageReference Include="TextMateSharp.Wasm"/>
   </ItemGroup>
 
   <ItemGroup>

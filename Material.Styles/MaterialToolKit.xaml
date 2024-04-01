@@ -4,6 +4,9 @@
   <Styles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
+        <!-- Localization -->
+        <ResourceInclude Source="avares://Material.Styles/InvariantResources.xaml" />
+        
         <!-- Material.Avalonia controls -->
         <ResourceInclude Source="avares://Material.Styles/Controls/Card.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Controls/CircleClockPicker.axaml" />
@@ -23,6 +26,7 @@
         <ResourceInclude Source="avares://Material.Ripple/Theme.axaml" />
         
         <!-- Avalonia controls -->
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AccessText.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AdornerLayer.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/AutoCompleteBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
@@ -31,6 +35,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CaptionButtons.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Carousel.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBox.axaml" />
@@ -56,9 +61,12 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NumericUpDown.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/OverlayPopupHost.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PathIcon.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/PopupRoot.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ProgressBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RadioButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RefreshContainer.xaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RefreshVisualizer.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/RepeatButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollViewer.axaml" />
@@ -74,6 +82,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ThemeVariantScope.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TimePicker.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TitleBar.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToolTip.axaml" />

@@ -1,0 +1,143 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters"
+                    xmlns:themes="clr-namespace:Material.Styles.Themes"
+                    x:ClassModifier="internal">
+  <x:Double x:Key="ButtonHoveredOpacity">0.12</x:Double>
+  <x:Double x:Key="ButtonPressedOpacity">0.26</x:Double>
+  <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
+
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="20">
+        <ThemeVariantScope RequestedThemeVariant="{x:Static themes:Theme.MaterialDark}">
+          <Border Background="{DynamicResource MaterialPaperBrush}">
+            <CaptionButtons Height="24" />
+          </Border>
+        </ThemeVariantScope>
+        <ThemeVariantScope RequestedThemeVariant="Light">
+          <CaptionButtons Height="24" />
+        </ThemeVariantScope>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="MaterialCaptionButton" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialBodyBrush}" />
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{Binding $self.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+    <Setter Property="Padding" Value="8 0"></Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_HoverEffect" />
+          <ripple:RippleEffect Name="PART_Ripple"
+                               RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
+                               RippleOpacity="{StaticResource ButtonPressedOpacity}">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Background="Transparent"
+                              Content="{TemplateBinding Content}"
+                              Margin="{TemplateBinding Padding}"/>
+          </ripple:RippleEffect>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_HoverEffect">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^ /template/ Border#PART_HoverEffect">
+      <Setter Property="Background" Value="{TemplateBinding assists:ButtonAssist.HoverColor}" />
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+    <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
+  </ControlTheme>
+  
+  <ControlTheme x:Key="MaterialCloseCaptionButton" TargetType="Button"
+                BasedOn="{StaticResource MaterialCaptionButton}">
+    <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="MaterialCaptionButtons" TargetType="CaptionButtons">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel VerticalAlignment="Stretch" TextElement.FontSize="10" Orientation="Horizontal">
+          <Button x:Name="PART_FullScreenButton"
+                  Theme="{StaticResource MaterialCaptionButton}"
+                  IsVisible="False">
+            <Viewbox Width="11" Margin="2">
+              <Path Name="FullScreenButtonPath"
+                    Stretch="UniformToFill"
+                    Fill="{TemplateBinding Foreground}"
+                    Data="M5,5H10V7H7V10H5V5M14,5H19V10H17V7H14V5M17,14H19V19H14V17H17V14M10,17V19H5V14H7V17H10Z" />
+            </Viewbox>
+          </Button>
+          <Button x:Name="PART_MinimizeButton"
+                  Theme="{StaticResource MaterialCaptionButton}"
+                  AutomationProperties.Name="Minimize">
+            <Viewbox Width="11" Margin="2">
+              <Path Stretch="UniformToFill"
+                    Fill="{TemplateBinding Foreground}"
+                    Data="M20,14H4V10H20" />
+            </Viewbox>
+          </Button>
+          <Button x:Name="PART_RestoreButton"
+                  Theme="{StaticResource MaterialCaptionButton}"
+                  AutomationProperties.Name="Maximize">
+            <Viewbox Width="11" Margin="2">
+              <Path Name="RestoreButtonPath"
+                    Stretch="UniformToFill"
+                    Fill="{TemplateBinding Foreground}"
+                    Data="M4,4H20V20H4V4M6,8V18H18V8H6Z" />
+            </Viewbox>
+          </Button>
+          <Button x:Name="PART_CloseButton"
+                  assists:ButtonAssist.HoverColor="{DynamicResource MaterialValidationErrorBrush}"
+                  Theme="{StaticResource MaterialCloseCaptionButton}"
+                  AutomationProperties.Name="Close">
+            <Viewbox Width="11" Margin="2">
+              <Path Stretch="UniformToFill"
+                    Fill="{TemplateBinding Foreground}"
+                    Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+            </Viewbox>
+          </Button>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+    <!-- Restore -->
+    <Style Selector="^:maximized /template/ Path#RestoreButtonPath">
+      <Setter Property="Data" Value="M4,8H8V4H20V16H16V20H4V8M16,8V14H18V6H10V8H16M6,12V18H14V12H6Z" />
+    </Style>
+    <!-- Fullscreen exit -->
+    <Style Selector="^:fullscreen /template/ Path#FullScreenButtonPath">
+      <Setter Property="Data" Value="M14,14H19V16H16V19H14V14M5,14H10V19H8V16H5V14M8,5H10V10H5V8H8V5M19,8V10H14V5H16V8H19Z" />
+    </Style>
+    <Style Selector="^:fullscreen /template/ Button#PART_FullScreenButton">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:fullscreen /template/ Button#PART_RestoreButton">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:fullscreen /template/ Button#PART_MinimizeButton">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^ /template/ Button#PART_RestoreButton:disabled">
+      <Setter Property="Opacity" Value="0.2" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type CaptionButtons}" TargetType="CaptionButtons"
+                BasedOn="{StaticResource MaterialCaptionButtons}" />
+</ResourceDictionary>
