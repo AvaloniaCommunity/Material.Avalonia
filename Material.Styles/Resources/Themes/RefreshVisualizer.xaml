@@ -3,9 +3,8 @@
                     xmlns:system="clr-namespace:System;assembly=netstandard"
                     x:ClassModifier="internal">
   <system:Double x:Key="RefreshVisualizerIndicatorSize">24</system:Double>
-  
-  <ControlTheme x:Key="{x:Type RefreshVisualizer}"
-                TargetType="RefreshVisualizer">
+
+  <ControlTheme x:Key="MaterialRefreshVisualizer" TargetType="RefreshVisualizer">
     <Setter Property="IsTabStop" Value="False" />
     <Setter Property="IsHitTestVisible" Value="False" />
     <Setter Property="Height" Value="100" />
@@ -27,4 +26,7 @@
       </ControlTemplate>
     </Setter>
   </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type RefreshVisualizer}" TargetType="RefreshVisualizer"
+                BasedOn="{StaticResource MaterialRefreshVisualizer}" />
 </ResourceDictionary>
