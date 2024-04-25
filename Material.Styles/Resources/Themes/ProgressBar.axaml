@@ -53,7 +53,8 @@
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding CornerRadius}">
+                CornerRadius="{TemplateBinding CornerRadius}"
+                ClipToBounds="True">
           <Panel Name="PART_RootPanel">
             <Rectangle Name="PART_IndeterminateFirst"
                        IsVisible="{TemplateBinding IsIndeterminate}"
