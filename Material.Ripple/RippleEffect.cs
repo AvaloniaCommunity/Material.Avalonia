@@ -136,6 +136,7 @@ namespace Material.Ripple {
                 Ripple.Easing,
                 Ripple.Duration,
                 RippleOpacity,
+                CornerRadius,
                 x, y, w, h, t);
 
             var visual = ElementComposition.GetElementVisual(this)!.Compositor.CreateCustomVisual(handler);
