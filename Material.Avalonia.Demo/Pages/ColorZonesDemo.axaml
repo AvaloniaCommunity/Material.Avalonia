@@ -21,7 +21,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo1">
                 <controls:ColorZone Height="56" Padding="12">
                     <Grid ColumnDefinitions="Auto,24,*">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
                 </controls:ColorZone>
@@ -33,7 +33,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo2">
                 <controls:ColorZone Height="56" Padding="12" Mode="Inverted">
                     <Grid ColumnDefinitions="Auto,24,*">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
                 </controls:ColorZone>
@@ -45,7 +45,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo3">
                 <controls:ColorZone Height="56" Padding="12" Mode="Dark">
                     <Grid ColumnDefinitions="Auto,24,*">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
                 </controls:ColorZone>
@@ -57,7 +57,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo4">
                 <controls:ColorZone Height="56" Padding="12" Mode="Light">
                     <Grid ColumnDefinitions="Auto,24,*">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
                 </controls:ColorZone>
@@ -69,7 +69,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo5">
                 <controls:ColorZone Height="56" Padding="12" Mode="PrimaryLight">
                     <Grid ColumnDefinitions="Auto,24,*">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
                 </controls:ColorZone>
@@ -81,7 +81,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo6">
                 <controls:ColorZone Height="56" Padding="12" Mode="PrimaryMid">
                     <Grid ColumnDefinitions="Auto,24,*">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
                 </controls:ColorZone>
@@ -93,7 +93,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo7">
                 <controls:ColorZone Height="56" Padding="12" Mode="PrimaryDark">
                     <Grid ColumnDefinitions="Auto,24,*">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
                 </controls:ColorZone>
@@ -105,7 +105,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo8">
                 <controls:ColorZone Height="56" Padding="12" Mode="Accent">
                     <Grid ColumnDefinitions="Auto,24,*">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                     </Grid>
                 </controls:ColorZone>
@@ -118,7 +118,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneAdvDemo1">
                 <controls:ColorZone Height="56" Padding="12">
                     <Grid ColumnDefinitions="Auto,24,*,24,Auto">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                         
                         <ReversibleStackPanel Grid.Column="4" Margin="0" Orientation="Horizontal">
@@ -134,7 +134,7 @@
             <showMeTheXaml:XamlDisplay UniqueId="ColorZoneAdvDemo2">
                 <controls:ColorZone Height="56" Padding="12">
                     <Grid ColumnDefinitions="Auto,24,*,*,24,Auto">
-                        <ToggleButton Grid.Column="0" Classes="Flat TransparentBack" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                        <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
                         <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
                         
                         <Panel Grid.Column="3" VerticalAlignment="Center">
