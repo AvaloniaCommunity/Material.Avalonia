@@ -14,20 +14,15 @@
         <ToggleButton Classes="dark">Dark</ToggleButton>
 
         <ToggleButton IsEnabled="False">Disabled</ToggleButton>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}">Outline</ToggleButton>
 
-        <StackPanel Orientation="Horizontal">
-          <TextBlock VerticalAlignment="Center" Margin="0 0 8 0" Text="Icon:" />
-          <ToggleButton Classes="Icon">
-            <controls:MaterialInternalIcon Kind="Clock" />
-          </ToggleButton>
-        </StackPanel>
+        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}" Classes="accent">Accent</ToggleButton>
+        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}" Classes="light">Light</ToggleButton>
+        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}" Classes="dark">Dark</ToggleButton>
 
-        <StackPanel Orientation="Horizontal">
-          <TextBlock VerticalAlignment="Center" Margin="0 0 8 0" Text="Icon NoFeedback:" />
-          <ToggleButton Classes="Icon NoFeedback">
-            <controls:MaterialInternalIcon Kind="Clock" />
-          </ToggleButton>
-        </StackPanel>
+        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}" IsEnabled="False">Disabled</ToggleButton>
       </StackPanel>
       <StackPanel Orientation="Horizontal" Spacing="8">
         <ToggleButton Theme="{StaticResource MaterialFlatToggleButton}">Flat</ToggleButton>
@@ -39,22 +34,23 @@
         <ToggleButton Theme="{StaticResource MaterialFlatToggleButton}" IsEnabled="False">Disabled</ToggleButton>
       </StackPanel>
       <StackPanel Orientation="Horizontal" Spacing="8">
-        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}">Flat</ToggleButton>
+        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}">
+          <controls:MaterialInternalIcon Kind="Clock" />
+        </ToggleButton>
 
-        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}" Classes="accent">Accent</ToggleButton>
-        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}" Classes="light">Light</ToggleButton>
-        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}" Classes="dark">Dark</ToggleButton>
+        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}" Classes="accent">
+          <controls:MaterialInternalIcon Kind="Clock" />
+        </ToggleButton>
+        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}" Classes="light">
+          <controls:MaterialInternalIcon Kind="Clock" />
+        </ToggleButton>
+        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}" Classes="dark">
+          <controls:MaterialInternalIcon Kind="Clock" />
+        </ToggleButton>
 
-        <ToggleButton Theme="{StaticResource MaterialOutlineToggleButton}" IsEnabled="False">Disabled</ToggleButton>
-      </StackPanel>
-      <StackPanel Orientation="Horizontal" Spacing="8">
-        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}">Flat</ToggleButton>
-
-        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}" Classes="accent">Accent</ToggleButton>
-        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}" Classes="light">Light</ToggleButton>
-        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}" Classes="dark">Dark</ToggleButton>
-
-        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}" IsEnabled="False">Disabled</ToggleButton>
+        <ToggleButton Theme="{StaticResource MaterialIconToggleButton}" IsEnabled="False">
+          <controls:MaterialInternalIcon Kind="Clock" />
+        </ToggleButton>
       </StackPanel>
     </StackPanel>
   </Design.PreviewWith>
