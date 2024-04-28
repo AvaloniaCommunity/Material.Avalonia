@@ -235,5 +235,16 @@
         </ToggleButton>
       </showMeTheXaml:XamlDisplay>
     </WrapPanel>
+
+    <StackPanel>
+      <showMeTheXaml:XamlDisplay UniqueId="ToggleButtons10">
+        <ToggleButton Theme="{StaticResource MaterialFlatButton}">
+          <TextBlock>
+            <Run>Button's ControlThemes if you don't want pressed state: </Run>
+            <Run Text="{Binding $parent[ToggleButton].IsChecked}"></Run>
+          </TextBlock>
+        </ToggleButton>
+      </showMeTheXaml:XamlDisplay>
+    </StackPanel>
   </StackPanel>
 </UserControl>
