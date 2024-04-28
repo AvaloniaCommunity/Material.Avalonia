@@ -9,20 +9,15 @@
   <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
   <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
 
-  <ControlTheme x:Key="MaterialButton" TargetType="Button">
+  <ControlTheme x:Key="MaterialButtonBase" TargetType="Button">
     <Setter Property="CornerRadius" Value="4" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16 8" />
-    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
     <Setter Property="assists:ButtonAssist.HoverColor"
-            Value="{Binding Foreground,
-                              Converter={StaticResource BrushRoundConverter}, RelativeSource={RelativeSource Self}}" />
-    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="#000000" />
+            Value="{Binding $self.Foreground, Converter={StaticResource BrushRoundConverter}}" />
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{Binding $self.Foreground}" />
     <Setter Property="TextBlock.FontWeight" Value="Medium" />
     <Setter Property="TextBlock.FontSize" Value="14" />
     <Setter Property="BorderThickness" Value="0" />
@@ -122,16 +117,38 @@
     </Style>
   </ControlTheme>
 
+  <ControlTheme x:Key="MaterialButton" TargetType="Button"
+                BasedOn="{StaticResource MaterialButtonBase}">
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+    </Style>
+  </ControlTheme>
+
   <ControlTheme x:Key="{x:Type Button}" TargetType="Button"
                 BasedOn="{StaticResource MaterialButton}" />
 
-
   <ControlTheme x:Key="MaterialOutlineButton"
-                BasedOn="{StaticResource MaterialButton}"
+                BasedOn="{StaticResource MaterialButtonBase}"
                 TargetType="Button">
-
-    <Setter Property="HorizontalContentAlignment" Value="Center" />
-    <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
@@ -140,7 +157,6 @@
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
 
     <!-- Colour variants -->
-
 
     <Style Selector="^.accent">
       <Setter Property="Background" Value="Transparent" />
@@ -169,14 +185,12 @@
   </ControlTheme>
 
   <ControlTheme x:Key="MaterialFlatButton"
-                BasedOn="{StaticResource MaterialButton}"
+                BasedOn="{StaticResource MaterialButtonBase}"
                 TargetType="Button">
-
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="Padding" Value="16 6" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
     <Setter Property="assists:ButtonAssist.HoverColor" Value="{DynamicResource MaterialBodyBrush}" />
@@ -184,6 +198,11 @@
 
     <!-- Colour variants -->
 
+    <Style Selector="^.primary">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    </Style>
 
     <Style Selector="^.accent">
       <Setter Property="Background" Value="Transparent" />

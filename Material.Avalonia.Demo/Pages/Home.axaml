@@ -33,13 +33,13 @@
                 </Style>
             </StackPanel.Styles>
             <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
-                <Button Content="PROJECT LINK" Command="{Binding Path=OpenProjectRepoLink}" />
-                <Button Content="USE DARK THEME" Command="{Binding Path=UseMaterialUIDarkTheme}" />
-                <Button Content="USE LIGHT THEME" Command="{Binding Path=UseMaterialUILightTheme}" />
+                <Button Content="PROJECT LINK" Classes="primary" Command="{Binding Path=OpenProjectRepoLink}" />
+                <Button Content="USE DARK THEME" Classes="primary" Command="{Binding Path=UseMaterialUIDarkTheme}" />
+                <Button Content="USE LIGHT THEME" Classes="primary" Command="{Binding Path=UseMaterialUILightTheme}" />
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
-                <Button Content="SWITCH TRANSITIONS" Command="{Binding Path=SwitchTransition}" />
-                <Button Content="ABOUT AVALONIAUI" Command="{Binding Path=ShowAboutAvaloniaUI}" />
+                <Button Content="SWITCH TRANSITIONS" Classes="primary" Command="{Binding Path=SwitchTransition}" />
+                <Button Content="ABOUT AVALONIAUI" Classes="primary" Command="{Binding Path=ShowAboutAvaloniaUI}" />
             </WrapPanel>
         </StackPanel>
         <!-- Features listing is disabled. -->
