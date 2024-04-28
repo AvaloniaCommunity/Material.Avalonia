@@ -165,7 +165,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <StackPanel Name="PART_TemplateRoot">
-          <ToggleButton Classes="NoFeedback TransparentBack"
+          <ToggleButton Classes="no-ripple"
                         MinHeight="48" BorderThickness="0"
                         HorizontalContentAlignment="Stretch"
                         IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
