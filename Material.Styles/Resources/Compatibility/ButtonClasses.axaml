@@ -22,19 +22,11 @@
     <Setter Property="Theme" Value="{StaticResource MaterialOutlineButton}" />
   </Style>
 
-  <Style Selector="Button.icon">
-    <Setter Property="Theme" Value="{StaticResource MaterialIconButton}" />
-  </Style>
-
   <Style Selector="Button.Flat">
     <Setter Property="Theme" Value="{StaticResource MaterialFlatButton}" />
   </Style>
 
   <Style Selector="Button.Outline">
     <Setter Property="Theme" Value="{StaticResource MaterialOutlineButton}" />
-  </Style>
-
-  <Style Selector="Button.Icon">
-    <Setter Property="Theme" Value="{StaticResource MaterialIconButton}" />
   </Style>
 </Styles>

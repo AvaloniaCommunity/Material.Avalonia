@@ -115,6 +115,13 @@
     <Style Selector="^:disabled /template/ Border#PART_RootBorder">
       <Setter Property="Opacity" Value="{StaticResource ButtonDisabledOpacity}" />
     </Style>
+    
+    <Style Selector="^.icon">
+      <Setter Property="Padding" Value="12" />
+      <Setter Property="CornerRadius" Value="24" />
+      <Setter Property="Height" Value="48" />
+      <Setter Property="Width" Value="48" />
+    </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="MaterialButton" TargetType="Button"

@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:system="clr-namespace:System;assembly=netstandard">
+                    xmlns:system="clr-namespace:System;assembly=netstandard"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
   <Design.PreviewWith>
     <StackPanel Spacing="10" Margin="8">
       <RepeatButton Theme="{StaticResource MaterialEmptyRepeatButton}" Foreground="Black">Empty just displays content</RepeatButton>
@@ -21,11 +22,15 @@
         <RepeatButton Theme="{StaticResource MaterialFlatRepeatButton}" Classes="no-ripple">No ripple</RepeatButton>
       </StackPanel>
       <StackPanel Orientation="Horizontal" Spacing="10">
-        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}">Default</RepeatButton>
-        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}" Classes="accent">Accent</RepeatButton>
-        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}" Classes="light">Light</RepeatButton>
-        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}" Classes="dark">Dark</RepeatButton>
-        <RepeatButton Theme="{StaticResource MaterialIconRepeatButton}" Classes="no-ripple">No ripple</RepeatButton>
+        <RepeatButton Classes="icon">
+          <controls:MaterialInternalIcon Kind="Clock" />
+        </RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialFlatRepeatButton}" Classes="icon">
+          <controls:MaterialInternalIcon Kind="Clock" />
+        </RepeatButton>
+        <RepeatButton Theme="{StaticResource MaterialOutlineRepeatButton}" Classes="icon">
+          <controls:MaterialInternalIcon Kind="Clock" />
+        </RepeatButton>
       </StackPanel>
       <StackPanel Orientation="Horizontal" Spacing="10">
         <RepeatButton Theme="{StaticResource MaterialOutlineRepeatButton}">Default</RepeatButton>
@@ -66,6 +71,13 @@
       <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
       <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
+    </Style>
+    
+    <Style Selector="^.icon">
+      <Setter Property="Padding" Value="12" />
+      <Setter Property="CornerRadius" Value="24" />
+      <Setter Property="Height" Value="48" />
+      <Setter Property="Width" Value="48" />
     </Style>
   </ControlTheme>
 
