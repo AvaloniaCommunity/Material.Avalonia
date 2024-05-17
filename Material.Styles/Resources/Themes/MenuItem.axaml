@@ -52,6 +52,12 @@
   </Design.PreviewWith>
   
   <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
+  
+  <ControlTheme x:Key="MaterialMenuItemStringAccessText" TargetType="AccessText"
+                BasedOn="{StaticResource MaterialAccessText}">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontWeight" Value="Regular" />
+  </ControlTheme>
 
   <ControlTheme x:Key="MaterialMenuItem" TargetType="MenuItem">
     <Setter Property="Height" Value="48" />
@@ -91,13 +97,8 @@
                     <ContentPresenter.DataTemplates>
                       <DataTemplate DataType="system:String">
                         <AccessText Name="PART_MenuItemText"
-                                    Text="{Binding }">
-                          <AccessText.Styles>
-                            <Style Selector="AccessText">
-                              <Setter Property="FontSize" Value="16" />
-                              <Setter Property="FontWeight" Value="Regular" />
-                            </Style>
-                          </AccessText.Styles>
+                                    Text="{Binding }"
+                                    Theme="{StaticResource MaterialMenuItemStringAccessText}">
                         </AccessText>
                       </DataTemplate>
                     </ContentPresenter.DataTemplates>
