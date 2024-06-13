@@ -133,6 +133,7 @@
     <Style Selector="^ /template/ NumericUpDown.time-input">
       <Setter Property="Theme" Value="{StaticResource OutlineNumericUpDown}" />
       <Setter Property="Width" Value="96" />
+      <Setter Property="FontSize" Value="32" />
       <Style Selector="^.active">
         <Setter Property="Background" Value="{DynamicResource MaterialDividerBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
@@ -145,8 +146,14 @@
       <Setter Property="Width" Value="20" />
     </Style>
 
-    <Style Selector="^[TimeFormat=TwentyFourHour] /template/ Border#PART_AmPmSelector">
-      <Setter Property="IsVisible" Value="False" />
+    <Style Selector="^[TimeFormat=TwentyFourHour]">
+      <Style Selector="^ /template/ Border#PART_AmPmSelector">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+
+      <Style Selector="^ /template/ NumericUpDown.time-input">
+        <Setter Property="FontSize" Value="20" />
+      </Style>
     </Style>
   </ControlTheme>
 
