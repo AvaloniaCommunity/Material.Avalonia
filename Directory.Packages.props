@@ -31,7 +31,7 @@
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="TextMateSharp.Wasm" Version="1.0.56" />
     <!--For _build-->
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <PackageVersion Include="Numerge.MSBuild" Version="0.1.7" />
   </ItemGroup>
 </Project>
