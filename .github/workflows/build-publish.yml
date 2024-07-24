@@ -6,10 +6,8 @@ on:
             - master
             - main
             - release/**
-        paths:
-            - Material.**
-            - Directory.**
-            - SourceLink.**
+        paths-ignore:
+            - Material.Avalonia.Demo*/**
         tags:
             - v**
 
