@@ -20,16 +20,6 @@
           "IgnoreMissingFrameworkDependencies": true
         }
       ]
-    },
-    {
-      "Id": "Material.Avalonia.DataGrid",
-      "MergeAll": false,
-      "Merge": []
-    },
-    {
-      "Id": "Material.Avalonia.Dialogs",
-      "MergeAll": false,
-      "Merge": []
     }
   ]
 }
