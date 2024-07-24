@@ -17,4 +17,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Numerge.MSBuild"/>
+  </ItemGroup>
 </Project>

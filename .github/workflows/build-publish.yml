@@ -1,0 +1,21 @@
+name: Build and publish
+
+on:
+    push:
+        branches:
+            - master
+            - main
+            - release/**
+        paths:
+            - Material.**
+        tags:
+            - v**
+
+jobs:
+    build-and-test:
+        uses: SKProCH/CommonWorkflows/.github/workflows/build-publish.yml@main
+        secrets:
+            NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        with:
+            publish-nightly: ${{ github.ref_type != 'tag' && (github.ref == 'master' || github.ref == 'main') }}
+            dotnet-version: 8

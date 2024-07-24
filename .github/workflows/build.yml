@@ -1,0 +1,17 @@
+name: Build and publish
+
+on:
+    push:
+        branches:
+            - !master
+            - !main
+            - !release/**
+
+jobs:
+    build-and-test:
+        uses: SKProCH/CommonWorkflows/.github/workflows/build-publish.yml@main
+        secrets:
+            NUGET_KEY: "NONE"
+        with:
+            only-build: true
+            dotnet-version: 8
