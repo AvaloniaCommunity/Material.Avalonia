@@ -17,5 +17,5 @@ jobs:
         secrets:
             NUGET_KEY: ${{ secrets.NUGET_KEY }}
         with:
-            publish-nightly: ${{ github.ref_type != 'tag' && (github.ref == 'master' || github.ref == 'main') }}
+            publish-nightly: ${{ github.ref_type != 'tag' && (github.ref_name == 'master' || github.ref_name == 'main') }}
             dotnet-version: 8
