@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+                    xmlns:internal="clr-namespace:Material.Styles.Assists.Internal">
   <Design.PreviewWith>
     <Border Padding="20">
       <StackPanel Spacing="20">
@@ -34,128 +34,148 @@
     </Border>
   </Design.PreviewWith>
 
-  <ControlTheme x:Key="MaterialOnlyPresenterTextBox" TargetType="TextBox"
-                BasedOn="{StaticResource MaterialTextBox}">
+  <ControlTheme x:Key="MaterialNumericUpDown" TargetType="NumericUpDown">
+    <Setter Property="Cursor" Value="IBeam" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
+    <Setter Property="TextBlock.FontSize" Value="16" />
+    <Setter Property="TextBlock.FontFamily" Value="{StaticResource MaterialDesignFonts}" />
+    <Setter Property="TextBlock.FontWeight" Value="Normal" />
+    <Setter Property="InputMethod.IsInputMethodEnabled" Value="True" />
+    <Setter Property="assists:TextFieldAssist.Watermark" Value="{Binding $self.Watermark}" />
+    <Setter Property="ClipToBounds" Value="True" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Panel Name="PART_TextFieldPanel">
-          <DockPanel Name="PART_InnerPanel">
-            <Panel Name="PART_TextContainer">
-              <TextBlock Name="PART_PlaceholderText"
-                         Text="{TemplateBinding Watermark}"
-                         FontFamily="{TemplateBinding FontFamily}"
-                         FontSize="{TemplateBinding FontSize}"
-                         FontStyle="{TemplateBinding FontStyle}"
-                         FontWeight="{TemplateBinding FontWeight}" />
-              <TextPresenter Name="PART_TextPresenter"
-                             CaretBrush="{TemplateBinding CaretBrush}"
-                             CaretIndex="{TemplateBinding CaretIndex}"
-                             TextBlock.FontFamily="{TemplateBinding FontFamily}"
-                             TextBlock.FontSize="{TemplateBinding FontSize}"
-                             TextBlock.FontStyle="{TemplateBinding FontStyle}"
-                             TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                             TextBlock.Foreground="{TemplateBinding Foreground}"
-                             InputMethod.IsInputMethodEnabled="{TemplateBinding 
-                                                               InputMethod.IsInputMethodEnabled}"
-                             PasswordChar="{TemplateBinding PasswordChar}"
-                             RevealPassword="{TemplateBinding RevealPassword}"
-                             SelectionBrush="{TemplateBinding SelectionBrush}"
-                             SelectionStart="{TemplateBinding SelectionStart}"
-                             SelectionEnd="{TemplateBinding SelectionEnd}"
-                             SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                             Text="{TemplateBinding Text, Mode=TwoWay}"
-                             TextAlignment="{TemplateBinding TextAlignment}"
-                             TextWrapping="{TemplateBinding TextWrapping}"
-                             Background="Transparent" />
-            </Panel>
-          </DockPanel>
-        </Panel>
+        <TextBox Name="PART_TextBox"
+                 Cursor="{TemplateBinding Cursor}"
+                 TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                 TextBlock.FontSize="{TemplateBinding FontSize}"
+                 TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                 TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                 TextBlock.Foreground="{TemplateBinding Foreground}"
+                 BorderThickness="{TemplateBinding BorderThickness}"
+                 BorderBrush="{TemplateBinding BorderBrush}"
+                 Background="{TemplateBinding Background}"
+                 Watermark="{TemplateBinding Watermark}"
+                 DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                 IsReadOnly="{TemplateBinding IsReadOnly}"
+                 InputMethod.IsInputMethodEnabled="{TemplateBinding InputMethod.IsInputMethodEnabled}"
+                 ContextFlyout="{TemplateBinding ContextFlyout}"
+                 Text="{TemplateBinding Text}"
+                 AcceptsReturn="False" TextWrapping="NoWrap"
+                 assists:TextFieldAssist.Hints="{TemplateBinding assists:TextFieldAssist.Hints}"
+                 assists:TextFieldAssist.HintsSize="{TemplateBinding assists:TextFieldAssist.HintsSize}"
+                 assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                 assists:TextFieldAssist.Watermark="{TemplateBinding assists:TextFieldAssist.Watermark}"
+                 assists:TextFieldAssist.UseFloatingLabel="{TemplateBinding assists:TextFieldAssist.UseFloatingLabel}"
+                 assists:DataValidationErrorsAssist.FontSize="{TemplateBinding assists:DataValidationErrorsAssist.FontSize}"
+                 assists:DataValidationErrorsAssist.MaxLines="{TemplateBinding assists:DataValidationErrorsAssist.MaxLines}"
+                 assists:DataValidationErrorsAssist.AlwaysAllocatedLines="{TemplateBinding assists:DataValidationErrorsAssist.AlwaysAllocatedLines}" />
       </ControlTemplate>
     </Setter>
-  </ControlTheme>
 
-  <ControlTheme x:Key="FilledNumericUpDown" TargetType="NumericUpDown">
-    <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
-    <Setter Property="BorderBrush" Value="Transparent" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <DockPanel Name="PART_RootPanel">
-          <TextBlock Name="PART_HintsText"
-                     DockPanel.Dock="Bottom"
-                     IsVisible="{TemplateBinding (assists:TextFieldAssist.Hints),
-                                       Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                     Text="{TemplateBinding (assists:TextFieldAssist.Hints)}"
-                     TextTrimming="CharacterEllipsis" />
-          <Border Name="PART_RootBorder"
-                  ClipToBounds="True"
-                  CornerRadius="4,4,0,0"
-                  Margin="{TemplateBinding Padding}"
-                  Background="{TemplateBinding Background}"
-                  BorderBrush="{TemplateBinding BorderBrush}"
-                  BorderThickness="{TemplateBinding BorderThickness}">
+    <Style Selector="^ /template/ TextBox#PART_TextBox">
+      <Setter Property="Theme" Value="{StaticResource MaterialTextBox}" />
+    </Style>
 
-            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Style Selector="^[ShowButtonSpinner=True][ButtonSpinnerLocation=Left]">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <TextBox Name="PART_TextBox"
+                   Cursor="{TemplateBinding Cursor}"
+                   TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                   TextBlock.FontSize="{TemplateBinding FontSize}"
+                   TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                   TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                   TextBlock.Foreground="{TemplateBinding Foreground}"
+                   BorderThickness="{TemplateBinding BorderThickness}"
+                   BorderBrush="{TemplateBinding BorderBrush}"
+                   Background="{TemplateBinding Background}"
+                   Watermark="{TemplateBinding Watermark}"
+                   DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                   IsReadOnly="{TemplateBinding IsReadOnly}"
+                   InputMethod.IsInputMethodEnabled="{TemplateBinding InputMethod.IsInputMethodEnabled}"
+                   ContextFlyout="{TemplateBinding ContextFlyout}"
+                   Text="{TemplateBinding Text}"
+                   AcceptsReturn="False" TextWrapping="NoWrap"
+                   assists:TextBoxAssist.CompensateInnerLeftContentMargin="True"
+                   assists:TextFieldAssist.Hints="{TemplateBinding assists:TextFieldAssist.Hints}"
+                   assists:TextFieldAssist.HintsSize="{TemplateBinding assists:TextFieldAssist.HintsSize}"
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                   assists:TextFieldAssist.Watermark="{TemplateBinding assists:TextFieldAssist.Watermark}"
+                   assists:TextFieldAssist.UseFloatingLabel="{TemplateBinding assists:TextFieldAssist.UseFloatingLabel}"
+                   assists:DataValidationErrorsAssist.FontSize="{TemplateBinding assists:DataValidationErrorsAssist.FontSize}"
+                   assists:DataValidationErrorsAssist.MaxLines="{TemplateBinding assists:DataValidationErrorsAssist.MaxLines}"
+                   assists:DataValidationErrorsAssist.AlwaysAllocatedLines="{TemplateBinding assists:DataValidationErrorsAssist.AlwaysAllocatedLines}">
+            <TextBox.InnerLeftContent>
               <ButtonSpinner Name="PART_Spinner"
-                             Foreground="{TemplateBinding Foreground}"
+                             Foreground="{Binding $parent[NumericUpDown].Foreground}"
                              BorderThickness="0"
                              BorderBrush="Transparent"
                              HorizontalContentAlignment="Stretch"
                              VerticalContentAlignment="Stretch"
-                             AllowSpin="{TemplateBinding AllowSpin}"
-                             ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
-                             ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
-                <TextBox Name="PART_TextBox" Margin="8 0"
-                         BorderThickness="0" VerticalAlignment="Center"
-                         TextBlock.FontFamily="{TemplateBinding FontFamily}"
-                         TextBlock.FontSize="{TemplateBinding FontSize}"
-                         TextBlock.FontStyle="{TemplateBinding FontStyle}"
-                         TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                         TextBlock.Foreground="{TemplateBinding Foreground}"
-                         assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
-                         Watermark="{TemplateBinding Watermark}"
-                         DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                         IsReadOnly="{TemplateBinding IsReadOnly}"
-                         Text="{TemplateBinding Text}"
-                         AcceptsReturn="False" TextWrapping="NoWrap"
-                         Theme="{StaticResource MaterialOnlyPresenterTextBox}" />
-              </ButtonSpinner>
-              <controls:MaterialUnderline Classes="MirrorY"
-                                          VerticalAlignment="Bottom"
-                                          Name="Underline" />
-            </Grid>
-          </Border>
-        </DockPanel>
-      </ControlTemplate>
-    </Setter>
-
-    <Style Selector="^:pointerover /template/ controls|MaterialUnderline#Underline">
-      <Setter Property="IsHovered" Value="True" />
+                             AllowSpin="{Binding $parent[NumericUpDown].AllowSpin}" />
+            </TextBox.InnerLeftContent>
+          </TextBox>
+        </ControlTemplate>
+      </Setter>
     </Style>
-
-    <Style Selector="^:focus-within /template/ controls|MaterialUnderline#Underline">
-      <Setter Property="IsActive" Value="True" />
-    </Style>
-
-    <Style Selector="^ /template/ Border#PART_RootBorder">
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
-      <Setter Property="MinHeight" Value="48" />
-    </Style>
-
-    <Style Selector="^ /template/ TextBlock#PART_HintsText">
-      <Setter Property="VerticalAlignment" Value="Bottom" />
-      <Setter Property="Margin" Value="0,3,0,0" />
-      <Setter Property="FontSize" Value="12" />
-    </Style>
-
-    <Style Selector="^ /template/ controls|MaterialUnderline#PART_Underline">
-      <Setter Property="Transitions">
-        <Transitions>
-          <BrushTransition Duration="0:0:0.25" Property="ActiveBrush" Easing="LinearEasing" />
-        </Transitions>
+    <Style Selector="^[ShowButtonSpinner=True][ButtonSpinnerLocation=Right]">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <TextBox Name="PART_TextBox"
+                   Cursor="{TemplateBinding Cursor}"
+                   TextBlock.FontFamily="{TemplateBinding FontFamily}"
+                   TextBlock.FontSize="{TemplateBinding FontSize}"
+                   TextBlock.FontStyle="{TemplateBinding FontStyle}"
+                   TextBlock.FontWeight="{TemplateBinding FontWeight}"
+                   TextBlock.Foreground="{TemplateBinding Foreground}"
+                   BorderThickness="{TemplateBinding BorderThickness}"
+                   BorderBrush="{TemplateBinding BorderBrush}"
+                   Background="{TemplateBinding Background}"
+                   Watermark="{TemplateBinding Watermark}"
+                   DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                   IsReadOnly="{TemplateBinding IsReadOnly}"
+                   InputMethod.IsInputMethodEnabled="{TemplateBinding InputMethod.IsInputMethodEnabled}"
+                   ContextFlyout="{TemplateBinding ContextFlyout}"
+                   Text="{TemplateBinding Text}"
+                   AcceptsReturn="False" TextWrapping="NoWrap"
+                   assists:TextBoxAssist.CompensateInnerRightContentMargin="True"
+                   assists:TextFieldAssist.Hints="{TemplateBinding assists:TextFieldAssist.Hints}"
+                   assists:TextFieldAssist.HintsSize="{TemplateBinding assists:TextFieldAssist.HintsSize}"
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                   assists:TextFieldAssist.Watermark="{TemplateBinding assists:TextFieldAssist.Watermark}"
+                   assists:TextFieldAssist.UseFloatingLabel="{TemplateBinding assists:TextFieldAssist.UseFloatingLabel}"
+                   assists:DataValidationErrorsAssist.FontSize="{TemplateBinding assists:DataValidationErrorsAssist.FontSize}"
+                   assists:DataValidationErrorsAssist.MaxLines="{TemplateBinding assists:DataValidationErrorsAssist.MaxLines}"
+                   assists:DataValidationErrorsAssist.AlwaysAllocatedLines="{TemplateBinding assists:DataValidationErrorsAssist.AlwaysAllocatedLines}">
+            <TextBox.InnerRightContent>
+              <ButtonSpinner Name="PART_Spinner"
+                             Foreground="{Binding $parent[NumericUpDown].Foreground}"
+                             BorderThickness="0"
+                             BorderBrush="Transparent"
+                             HorizontalContentAlignment="Stretch"
+                             VerticalContentAlignment="Stretch"
+                             AllowSpin="{Binding $parent[NumericUpDown].AllowSpin}" />
+            </TextBox.InnerRightContent>
+          </TextBox>
+        </ControlTemplate>
       </Setter>
     </Style>
   </ControlTheme>
+
+  <ControlTheme x:Key="FilledNumericUpDown" TargetType="NumericUpDown"
+                BasedOn="{StaticResource MaterialNumericUpDown}">
+    <Setter Property="CornerRadius" Value="4,4,0,0" />
+    <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
+
+    <Style Selector="^ /template/ TextBox#PART_TextBox">
+      <Setter Property="Theme" Value="{StaticResource MaterialFilledTextBox}" />
+    </Style>
+  </ControlTheme>
+
 
   <!-- Default theme -->
   <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown"
@@ -163,93 +183,14 @@
 
   <!-- Outline -->
   <ControlTheme x:Key="OutlineNumericUpDown" TargetType="NumericUpDown"
-                BasedOn="{StaticResource FilledNumericUpDown}">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Template">
-      <ControlTemplate>
-        <DockPanel Name="PART_RootPanel">
-          <TextBlock Name="PART_HintsText"
-                     DockPanel.Dock="Bottom"
-                     IsVisible="{TemplateBinding (assists:TextFieldAssist.Hints),
-                                       Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                     Text="{TemplateBinding (assists:TextFieldAssist.Hints)}"
-                     TextTrimming="CharacterEllipsis" />
+                BasedOn="{StaticResource MaterialNumericUpDown}">
+    <Setter Property="internal:MaterialInternalAttachedProperties.UseClippingForBorder" Value="True" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
 
-          <Panel Name="PART_TextFieldPanel">
-            <Border Name="PART_BackgroundTextField"
-                    Background="{TemplateBinding Background}" />
-            <ButtonSpinner Name="PART_Spinner"
-                           Foreground="{TemplateBinding Foreground}"
-                           BorderThickness="0"
-                           BorderBrush="Transparent"
-                           HorizontalContentAlignment="Stretch"
-                           VerticalContentAlignment="Stretch"
-                           AllowSpin="{TemplateBinding AllowSpin}"
-                           ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
-                           ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}">
-              <TextBox Name="PART_TextBox" Margin="8 0"
-                       BorderThickness="0" VerticalAlignment="Center"
-                       TextBlock.FontFamily="{TemplateBinding FontFamily}"
-                       TextBlock.FontSize="{TemplateBinding FontSize}"
-                       TextBlock.FontStyle="{TemplateBinding FontStyle}"
-                       TextBlock.FontWeight="{TemplateBinding FontWeight}"
-                       TextBlock.Foreground="{TemplateBinding Foreground}"
-                       assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
-                       Watermark="{TemplateBinding Watermark}"
-                       DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                       IsReadOnly="{TemplateBinding IsReadOnly}"
-                       Text="{TemplateBinding Text}"
-                       AcceptsReturn="False" TextWrapping="NoWrap"
-                       Theme="{StaticResource MaterialOnlyPresenterTextBox}" />
-            </ButtonSpinner>
-          </Panel>
-        </DockPanel>
-      </ControlTemplate>
-    </Setter>
-
-    <!-- Default behaviour -->
-
-    <Style Selector="^ /template/ Border#PART_BackgroundTextField">
-      <Setter Property="CornerRadius" Value="4" />
-      <Setter Property="BorderThickness" Value="1" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
-    </Style>
-
-    <Style Selector="^ /template/ Panel#PART_TextContainer">
-      <Setter Property="Margin" Value="12,12,8,2" />
-      <Setter Property="VerticalAlignment" Value="Center" />
-    </Style>
-
-    <Style Selector="^ /template/ DockPanel#PART_InnerPanel > ContentControl#PART_RightContentControl">
-      <Setter Property="Margin" Value="0,8,0,0" />
-    </Style>
-
-    <!-- Feedbacks -->
-
-    <Style Selector="^:focus-within /template/ Border#PART_BackgroundTextField">
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-      <Setter Property="BorderThickness" Value="2" />
-    </Style>
-
-    <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="10,22,1,1" />
-      <Setter Property="RenderTransform" Value="scale(1)" />
-    </Style>
-
-    <Style Selector="^:focus-within:not(:empty) /template/ Border#PART_LabelRootBorder,
-                         ^:focus-within /template/ Border#PART_LabelRootBorder,
-                         ^:not(:empty) /template/ Border#PART_LabelRootBorder">
-      <Setter Property="Margin" Value="14,2,1,1" />
-      <Setter Property="RenderTransform" Value="scale(0.75)" />
-    </Style>
-
-    <Style Selector="^ /template/ Border#PART_BackgroundTextField">
-      <Setter Property="Transitions">
-        <Transitions>
-          <BrushTransition Duration="0:0:0.25" Property="BorderBrush" Easing="LinearEasing" />
-          <ThicknessTransition Duration="0:0:0.25" Property="BorderThickness" Easing="CircularEaseOut" />
-        </Transitions>
-      </Setter>
+    <Style Selector="^ /template/ TextBox#PART_TextBox">
+      <Setter Property="Theme" Value="{StaticResource MaterialOutlineTextBox}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>
