@@ -53,6 +53,9 @@
   
   <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
   
+  <Thickness x:Key="HorizontalMenuFlyoutItemMargin">2,0,2,0</Thickness>
+  <Thickness x:Key="HorizontalMenuFlyoutItemThemePaddingNarrow">8,4,8,7</Thickness>
+  
   <ControlTheme x:Key="MaterialMenuItemStringAccessText" TargetType="AccessText"
                 BasedOn="{StaticResource MaterialAccessText}">
     <Setter Property="FontSize" Value="16" />
@@ -183,4 +186,10 @@
   <!-- Default style -->
   <ControlTheme x:Key="{x:Type MenuItem}" TargetType="MenuItem"
                 BasedOn="{StaticResource MaterialMenuItem}" />
+  
+  <ControlTheme x:Key="MaterialHorizontalMenuItem" TargetType="MenuItem"
+                BasedOn="{StaticResource MaterialMenuItem}">
+    <Setter Property="Padding" Value="{DynamicResource HorizontalMenuFlyoutItemThemePaddingNarrow}" />
+    <Setter Property="Margin" Value="{DynamicResource HorizontalMenuFlyoutItemMargin}" />
+  </ControlTheme>
 </ResourceDictionary>

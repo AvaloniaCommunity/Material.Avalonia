@@ -80,6 +80,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStripItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextSelectionHandle.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ThemeVariantScope.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TimePicker.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TitleBar.xaml" />
