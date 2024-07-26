@@ -1,9 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ResourceDictionary.MergedDictionaries>
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
-  </ResourceDictionary.MergedDictionaries>
-
   <ControlTheme x:Key="MaterialDefaultFontFamily"
                 TargetType="Control">
     <Setter Property="TextBlock.FontFamily" Value="{StaticResource MaterialDesignFonts}" />

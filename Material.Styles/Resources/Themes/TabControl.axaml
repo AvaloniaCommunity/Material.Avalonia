@@ -2,11 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <ResourceDictionary.MergedDictionaries>
-    <ResourceInclude Source="avares://Material.Styles/Controls/Scroller.axaml" />
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
-  </ResourceDictionary.MergedDictionaries>
-
   <!-- Fixed tab control -->
   <!-- TODO: Make active indicator moved and resized by tab item bounds -->
   <!-- TODO: Better layouts -->
