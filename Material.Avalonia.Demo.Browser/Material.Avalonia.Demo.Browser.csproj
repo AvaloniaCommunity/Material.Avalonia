@@ -9,7 +9,7 @@
     <RunAOTCompilation>true</RunAOTCompilation>
     <WasmBuildNative>true</WasmBuildNative>
 
-    <AvaloniaVersion>11.2.999-cibuild0047028-alpha</AvaloniaVersion>
+    <AvaloniaVersion>11.1.0</AvaloniaVersion>
   </PropertyGroup>
 
   <ItemGroup>

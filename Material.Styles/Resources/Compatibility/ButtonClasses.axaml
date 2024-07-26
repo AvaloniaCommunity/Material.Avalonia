@@ -2,9 +2,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Styles.Resources>
     <ResourceDictionary>
-      <ResourceDictionary.MergedDictionaries>
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
-      </ResourceDictionary.MergedDictionaries>
       <ControlTheme x:Key="OutlineButton" TargetType="Button"
                     BasedOn="{StaticResource MaterialOutlineButton}" />
       <ControlTheme x:Key="FlatButton" TargetType="Button"

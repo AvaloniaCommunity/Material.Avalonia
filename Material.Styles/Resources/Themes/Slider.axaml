@@ -3,9 +3,6 @@
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:converters="clr-namespace:Material.Styles.Converters">
-  <ResourceDictionary.MergedDictionaries>
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml" />
-  </ResourceDictionary.MergedDictionaries>
   <!-- Used for discrete slider thumb -->
   <converters:AutoCorrectPositionConverter x:Key="AutoCorrectPositionConverter" />
 

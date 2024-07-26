@@ -5,8 +5,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>false</IsPackable>
-    
-    <AvaloniaVersion>11.0.9</AvaloniaVersion>
+
+    <AvaloniaVersion>11.1.0</AvaloniaVersion>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">

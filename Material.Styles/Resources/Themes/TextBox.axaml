@@ -7,15 +7,6 @@
                     xmlns:extensions="clr-namespace:Material.Styles.Controls.Extensions"
                     xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters">
 
-  <ResourceDictionary.MergedDictionaries>
-    <!-- Used for suppressing warning in IDE -->
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
-    <ResourceInclude Source="avares://Material.Styles/Controls/MaterialUnderline.axaml" />
-  </ResourceDictionary.MergedDictionaries>
-
   <converters:GetPlatformHotkeyConfigServiceConverter x:Key="GetPlatformHotkeyConfig" />
 
   <StreamGeometry x:Key="TextBoxClearButtonData">M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>

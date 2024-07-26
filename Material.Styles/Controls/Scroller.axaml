@@ -1,10 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
-  <ResourceDictionary.MergedDictionaries>
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Button.axaml" />
-  </ResourceDictionary.MergedDictionaries>
-
   <!-- Internal component ! Dont use it simply as like other controls!! -->
   <ControlTheme x:Key="TabControlScroller" TargetType="controls:Scroller">
     <Setter Property="ScrollSpeed" Value="50" />
