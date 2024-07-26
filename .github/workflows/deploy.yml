@@ -6,6 +6,10 @@ on:
             - master
             - wasm-demo
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 env:
     PUBLISH_DIR: Material.Avalonia.Demo.Browser/bin/Release/net8.0-browser/browser-wasm/AppBundle/
 
@@ -46,7 +50,7 @@ jobs:
                 uses: actions/upload-pages-artifact@v3
                 with:
                     path: ${{ env.PUBLISH_DIR }}
-                        
+    
     # Deploy job
     deploy:
         name: "Deploy Material.Avalonia.Demo.Browser to GitHub Pages"
