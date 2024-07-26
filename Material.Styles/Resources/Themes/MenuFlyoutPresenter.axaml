@@ -38,5 +38,14 @@
 
   <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter"
                 BasedOn="{StaticResource MaterialMenuFlyoutPresenter}" />
-
+  
+  <ControlTheme x:Key="MaterialHorizontalMenuFlyoutPresenter" TargetType="MenuFlyoutPresenter"  BasedOn="{StaticResource MaterialMenuFlyoutPresenter}">
+    <Setter Property="MinWidth" Value="32" />
+    <Setter Property="Padding" Value="8, 0" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Orientation="Horizontal"/>
+      </ItemsPanelTemplate>
+    </Setter>
+  </ControlTheme>
 </ResourceDictionary>

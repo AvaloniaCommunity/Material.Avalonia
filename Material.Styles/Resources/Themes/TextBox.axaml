@@ -55,39 +55,33 @@
     <Setter Property="Cursor" Value="Arrow" />
   </ControlTheme>
 
-  <MenuFlyout x:Key="DefaultTextBoxMenuFlyout"
-              Placement="Bottom"
-              FlyoutPresenterTheme="{StaticResource MaterialTextBoxFlyoutPresenter}"
-              x:DataType="system:Object">
-    <MenuItem Name="TextBoxMenuFlyoutCutItem"
-              Header="{DynamicResource StringTextFlyoutCutText}"
-              Command="{Binding $parent[TextBox].Cut}"
-              IsEnabled="{Binding $parent[TextBox].CanCut}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}"
+  <MenuFlyout x:Key="DefaultTextBoxMenuFlyout" FlyoutPresenterTheme="{StaticResource MaterialTextBoxFlyoutPresenter}" x:DataType="system:Object">
+    <MenuItem Name="TextBoxMenuFlyoutCutItem" Header="{DynamicResource StringTextFlyoutCutText}" 
+              Command="{Binding $parent[TextBox].Cut}" IsEnabled="{Binding $parent[TextBox].CanCut}" InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=cut}" 
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCut, Size=24}" />
-
-    <MenuItem Name="TextBoxMenuFlyoutCopyItem"
-              Header="{DynamicResource StringTextFlyoutCopyText}"
-              Command="{Binding $parent[TextBox].Copy}"
-              IsEnabled="{Binding $parent[TextBox].CanCopy}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
+    <MenuItem Name="TextBoxMenuFlyoutCopyItem" Header="{DynamicResource StringTextFlyoutCopyText}"
+              Command="{Binding $parent[TextBox].Copy}" IsEnabled="{Binding $parent[TextBox].CanCopy}" InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=copy}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentCopy, Size=24}" />
-
-    <MenuItem Name="TextBoxMenuFlyoutPasteItem"
-              Header="{DynamicResource StringTextFlyoutPasteText}"
-              Command="{Binding $parent[TextBox].Paste}"
-              IsEnabled="{Binding $parent[TextBox].CanPaste}"
-              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}"
+    <MenuItem Name="TextBoxMenuFlyoutPasteItem" Header="{DynamicResource StringTextFlyoutPasteText}"
+              Command="{Binding $parent[TextBox].Paste}" IsEnabled="{Binding $parent[TextBox].CanPaste}"
+              InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=paste}" 
               Icon="{extensions:MaterialInternalIcon Kind=MaterialContentPaste, Size=24}" />
-
     <Separator />
-
-    <!-- ReSharper disable once MarkupAttributeTypo -->
-    <MenuItem Name="TextBoxMenuFlyoutSelectAllItem"
-              Header="{DynamicResource StringTextFlyoutSelectAllText}"
+    <MenuItem Name="TextBoxMenuFlyoutSelectAllItem" Header="{DynamicResource StringTextFlyoutSelectAllText}"
               Command="{Binding $parent[TextBox].SelectAll}"
               InputGesture="{Binding Converter={StaticResource GetPlatformHotkeyConfig}, ConverterParameter=selectall}"
               Icon="{extensions:MaterialInternalIcon Kind=MaterialSelectAll, Size=24}" />
+  </MenuFlyout>
+
+  <MenuFlyout x:Key="HorizontalTextBoxMenuFlyout" FlyoutPresenterTheme="{StaticResource MaterialHorizontalMenuFlyoutPresenter}" ItemContainerTheme="{StaticResource MaterialHorizontalMenuItem}" x:DataType="system:Object">
+    <MenuItem x:Name="HorizontalTextBoxContextFlyoutCutItem" Header="{DynamicResource StringTextFlyoutCutText}" 
+              Command="{Binding $parent[TextBox].Cut}" IsEnabled="{Binding $parent[TextBox].CanCut}" IsVisible="{Binding $parent[TextBox].CanCut}" />
+    <MenuItem x:Name="HorizontalTextBoxContextFlyoutCopyItem" Header="{DynamicResource StringTextFlyoutCopyText}" 
+              Command="{Binding $parent[TextBox].Copy}" IsEnabled="{Binding $parent[TextBox].CanCopy}" IsVisible="{Binding $parent[TextBox].CanCopy}" />
+    <MenuItem x:Name="HorizontalTextBoxContextFlyoutPasteItem" Header="{DynamicResource StringTextFlyoutPasteText}" 
+              Command="{Binding $parent[TextBox].Paste}" IsEnabled="{Binding $parent[TextBox].CanPaste}" />
+    <MenuItem x:Name="HorizontalTextBoxMenuFlyoutSelectAllItem" Header="{DynamicResource StringTextFlyoutSelectAllText}"
+              Command="{Binding $parent[TextBox].SelectAll}" />
   </MenuFlyout>
 
   <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
@@ -162,7 +156,7 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="SelectionBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
-    <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
+    <Setter Property="ContextFlyout" Value="{OnFormFactor Desktop={StaticResource DefaultTextBoxMenuFlyout}, Mobile={StaticResource HorizontalTextBoxMenuFlyout}}" />
     <Setter Property="CaretBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="FontSize" Value="16" />
     <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}" />
