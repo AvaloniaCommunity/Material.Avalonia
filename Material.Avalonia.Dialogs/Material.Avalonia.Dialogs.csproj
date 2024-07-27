@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Material.Styles\Material.Styles.csproj"/>
+    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj"/>
   </ItemGroup>
 
 </Project>
