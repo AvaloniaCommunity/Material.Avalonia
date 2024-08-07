@@ -113,7 +113,7 @@ public class DialogDemoViewModel : ViewModelBase {
     private async IAsyncEnumerable<string> Dialog4() {
         if (_window == null) yield break;
         // Open asset stream using assets.Open method.
-        await using var icon = AssetLoader.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
+        await using var icon = AssetLoader.Open(new Uri("avares://Material.Avalonia.Demo/Assets/avalonia-logo.png"));
 
         var dialog = DialogHelper.CreateAlertDialog(new AlertDialogBuilderParams {
             ContentHeader = "Welcome to use Material.Avalonia",
@@ -285,7 +285,7 @@ public class DialogDemoViewModel : ViewModelBase {
     private async IAsyncEnumerable<string> CustomDialog() {
         if (_window == null) yield break;
         // Open asset stream using assets.Open method.
-        await using var icon = AssetLoader.Open(new Uri("avares://Material.Demo/Assets/avalonia-logo.png"));
+        await using var icon = AssetLoader.Open(new Uri("avares://Material.Avalonia.Demo/Assets/avalonia-logo.png"));
 
         var dialog = DialogHelper.CreateCustomDialog(new CustomDialogBuilderParams() {
             Content = new CustomDialogContentDemo(),
