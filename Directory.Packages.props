@@ -25,7 +25,7 @@
     </PackageVersion>
     <!--For Material.Avalonia.Demo-->
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1" />
-    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.6" />
+    <PackageVersion Include="DialogHost.Avalonia" Version="0.8.1" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
