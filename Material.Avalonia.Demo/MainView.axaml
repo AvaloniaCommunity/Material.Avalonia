@@ -7,7 +7,6 @@
              xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              xmlns:models="clr-namespace:Material.Avalonia.Demo.Models"
              xmlns:pages="clr-namespace:Material.Avalonia.Demo.Pages"
-             xmlns:pages1="clr-namespace:Material.Demo.Pages"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Material.Avalonia.Demo.MainView">
   <UserControl.Styles>
@@ -191,7 +190,7 @@
                 <pages:DialogDemo />
                 
                 <!-- Snackbar -->
-                <pages1:SnackbarDemo />
+                <pages:SnackbarDemo />
 
                 <!-- ScrollViewer -->
                 <pages:ScrollViewerDemo />

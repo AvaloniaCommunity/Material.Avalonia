@@ -8,21 +8,20 @@ namespace Material.Dialog.Commands {
     /// If you want to use this one, you should copy all whole code and paste them to your new RelayCommand.cs source file.
     /// </summary>
     public class MaterialDialogRelayCommand : ICommand {
-        private readonly Func<object, bool> canExecute;
-        private readonly Action<object> execute;
+        private readonly Func<object?, bool>? canExecute;
+        private readonly Action<object?> execute;
 
-        public MaterialDialogRelayCommand(Action<object> execute, Func<object, bool> canExecute = null) {
+        public MaterialDialogRelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null) {
             this.execute = execute;
             this.canExecute = canExecute;
         }
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
 
-        public bool CanExecute(object parameter) {
-            var result = canExecute == null || canExecute(parameter);
-            return result;
+        public bool CanExecute(object? parameter) {
+            return canExecute == null || canExecute(parameter);
         }
 
-        public void Execute(object parameter) {
+        public void Execute(object? parameter) {
             execute(parameter);
         }
 
@@ -32,7 +31,7 @@ namespace Material.Dialog.Commands {
 
             if (handler != null) {
                 // Call CanExecute via Dispatcher.UIThread.Post to prevent CanExecute can't be called from other thread.
-                Dispatcher.UIThread.Post(delegate { handler?.Invoke(this, new EventArgs()); });
+                Dispatcher.UIThread.Post(delegate { handler?.Invoke(this, EventArgs.Empty); });
             }
         }
     }

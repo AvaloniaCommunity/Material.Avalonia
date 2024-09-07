@@ -24,7 +24,7 @@ internal abstract class LightweightObservableBase<T> : IObservable<T> {
 
         //Dispatcher.UIThread.VerifyAccess();
 
-        var first = false;
+        bool first;
 
         for (;;) {
             if (Volatile.Read(ref _observers) == null) {

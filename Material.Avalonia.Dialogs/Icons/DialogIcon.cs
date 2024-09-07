@@ -53,18 +53,15 @@ namespace Material.Dialog.Icons {
         }
 
         private void UpdateData() {
-            string data = null;
-            DialogIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out data);
-            var g = StreamGeometry.Parse(data);
+            if (DialogIconsDataFactory.DataIndex.Value?.TryGetValue(Kind, out var data) != true) return;
+            var g = StreamGeometry.Parse(data!);
             Data = g;
         }
 
         private void UpdateColor() {
-            if (UseRecommendColor) {
-                string color = null;
-                DialogIconsDataFactory.RecommendColorIndex.Value?.TryGetValue(Kind, out color);
-                Foreground = SolidColorBrush.Parse(color);
-            }
+            if (!UseRecommendColor) return;
+            if (DialogIconsDataFactory.RecommendColorIndex.Value?.TryGetValue(Kind, out var color) != true) return;
+            Foreground = SolidColorBrush.Parse(color!);
         }
     }
 }

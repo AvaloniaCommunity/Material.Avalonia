@@ -46,9 +46,9 @@ namespace Material.Dialog.ViewModels.Elements
             }
         }
 
-        private ICommand _command;
+        private ICommand? _command;
 
-        public ICommand Command
+        public ICommand? Command
         {
             get => _command;
             set

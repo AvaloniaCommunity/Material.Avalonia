@@ -8,19 +8,19 @@ namespace Material.Dialog {
         // ReSharper disable once InconsistentNaming
         internal TimeSpan _timeSpan;
 
-        internal string Result;
+        internal string? _result;
         public DateTimePickerDialogResult() { }
 
         public DateTimePickerDialogResult(string result, TimeSpan time) {
-            Result = result;
+            _result = result;
             _timeSpan = time;
         }
 
         public DateTimePickerDialogResult(string result, DateTime date) {
-            Result = result;
+            _result = result;
             _dateTime = date;
         }
-        public string GetResult => Result;
+        public string? GetResult => _result;
 
         /// <summary>
         /// Get results of TimePicker.

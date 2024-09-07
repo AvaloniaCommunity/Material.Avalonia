@@ -101,8 +101,7 @@
                       <DataTemplate DataType="system:String">
                         <AccessText Name="PART_MenuItemText"
                                     Text="{Binding }"
-                                    Theme="{StaticResource MaterialMenuItemStringAccessText}">
-                        </AccessText>
+                                    Theme="{StaticResource MaterialMenuItemStringAccessText}" />
                       </DataTemplate>
                     </ContentPresenter.DataTemplates>
                   </ContentPresenter>
