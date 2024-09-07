@@ -79,7 +79,8 @@
                     Padding="{TemplateBinding SideSheetPadding}">
               <StackPanel Name="PART_SideSheetPanel">
                 <DockPanel Name="PART_HeaderPanel">
-                  <Button Name="PART_CloseButton" DockPanel.Dock="Right" Classes="icon"
+                  <Button Name="PART_CloseButton" DockPanel.Dock="Right" 
+                          Theme="{StaticResource MaterialIconButton}"
                           IsVisible="{TemplateBinding SideSheetCanClose}">
                     <controls:MaterialInternalIcon Name="PART_Icon" Kind="Close" />
                   </Button>
