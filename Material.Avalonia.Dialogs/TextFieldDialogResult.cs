@@ -2,20 +2,21 @@
 {
     public class TextFieldDialogResult : DialogResult
     {
+        internal TextFieldResult[] _fieldsResult;
+
+        internal string? _result;
+
         public TextFieldDialogResult()
         {
         }
 
         public TextFieldDialogResult(string result, TextFieldResult[] fieldsResult)
         {
-            this.result = result;
-            this.fieldsResult = fieldsResult;
+            this._result = result;
+            this._fieldsResult = fieldsResult;
         }
 
-        internal string result;
-        public string GetResult => result;
-
-        internal TextFieldResult[] fieldsResult;
-        public TextFieldResult[] GetFieldsResult() => fieldsResult;
+        public override string? GetResult => _result;
+        public TextFieldResult[] GetFieldsResult() => _fieldsResult;
     }
 }

@@ -6,7 +6,7 @@
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
-             x:Class="Material.Demo.Pages.SnackbarDemo">
+             x:Class="Material.Avalonia.Demo.Pages.SnackbarDemo">
   <StackPanel VerticalAlignment="Top">
     <showMeTheXaml:XamlDisplay UniqueId="Snackbar1">
       <controls:Card Height="200">

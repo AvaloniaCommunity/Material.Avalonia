@@ -18,7 +18,7 @@ internal static class BaseThemeModeExtensions {
         }
     }
 
-    public static ThemeVariant? GetVariantFromMaterialBaseThemeMode(this BaseThemeMode variant) {
+    public static ThemeVariant GetVariantFromMaterialBaseThemeMode(this BaseThemeMode variant) {
         return variant switch {
             BaseThemeMode.Light => Theme.MaterialLight,
             BaseThemeMode.Dark  => Theme.MaterialDark,

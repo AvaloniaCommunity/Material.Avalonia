@@ -19,7 +19,7 @@ namespace Material.Dialog.Views {
         }
 
         public void SetNegativeResult(DialogResult result) {
-            Result.Result = result.GetResult;
+            Result._result = result.GetResult;
         }
 
         public void AttachViewModel(DatePickerDialogViewModel vm) {

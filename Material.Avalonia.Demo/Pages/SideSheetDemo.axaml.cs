@@ -9,14 +9,6 @@ public partial class SideSheetDemo : UserControl {
         InitializeComponent();
     }
 
-    private void CloseSideInfoButton_OnClick(object? sender, RoutedEventArgs e) {
-        var vm = DataContext as SideSheetDemoViewModel;
-        if (vm == null)
-            return;
-
-        vm.SideInfoOpened = false;
-    }
-
     private void OpenSideInfoButton_OnClick(object? sender, RoutedEventArgs e) {
         var vm = DataContext as SideSheetDemoViewModel;
         if (vm == null)

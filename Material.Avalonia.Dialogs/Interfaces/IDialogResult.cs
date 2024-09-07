@@ -2,6 +2,6 @@
 {
     public interface IDialogResult
     {
-        string GetResult { get; }
+        string? GetResult { get; }
     }
 }

@@ -30,7 +30,7 @@ namespace Material.Dialog.Views {
             };
         }
 
-        public void SetNegativeResult(DialogResult result) => Result.result = result.GetResult;
+        public void SetNegativeResult(DialogResult result) => Result._result = result.GetResult;
 
         private void TextFieldDialog_Closed(object sender, EventArgs e) {
             Opened -= TextFieldDialog_Opened;

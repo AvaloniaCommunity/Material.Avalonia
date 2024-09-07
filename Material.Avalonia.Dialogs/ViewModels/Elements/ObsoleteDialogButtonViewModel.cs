@@ -11,12 +11,12 @@ namespace Material.Dialog.ViewModels.Elements
             Command = new MaterialDialogRelayCommand(OnExecuteCommandHandler, CanExecuteCommandHandler);
         }
 
-        private bool CanExecuteCommandHandler(object arg)
+        private bool CanExecuteCommandHandler(object? arg)
         {
             return true;
         }
 
-        private void OnExecuteCommandHandler(object obj)
+        private void OnExecuteCommandHandler(object? obj)
         {
             if (Parent is null)
                 return;

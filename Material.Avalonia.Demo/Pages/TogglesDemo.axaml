@@ -241,7 +241,7 @@
         <ToggleButton Theme="{StaticResource MaterialFlatButton}">
           <TextBlock>
             <Run>Button's ControlThemes if you don't want pressed state: </Run>
-            <Run Text="{Binding $parent[ToggleButton].IsChecked}"></Run>
+            <Run Text="{Binding $parent[ToggleButton].IsChecked}" />
           </TextBlock>
         </ToggleButton>
       </showMeTheXaml:XamlDisplay>

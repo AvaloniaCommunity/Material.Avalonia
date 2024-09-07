@@ -2,7 +2,7 @@
 
 namespace Material.Dialog {
     public class DialogResult : IDialogResult {
-        private string result;
+        private string? result;
 
 
         public DialogResult() { }
@@ -16,6 +16,6 @@ namespace Material.Dialog {
         /// </summary>
         public static DialogResult NoResult { get; private set; } = new() { result = "none" };
 
-        public virtual string GetResult => result;
+        public virtual string? GetResult => result;
     }
 }
