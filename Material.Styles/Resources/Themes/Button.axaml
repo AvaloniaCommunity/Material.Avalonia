@@ -117,6 +117,9 @@
     </Style>
     
     <Style Selector="^.icon">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
+      
       <Setter Property="Padding" Value="12" />
       <Setter Property="CornerRadius" Value="24" />
       <Setter Property="Height" Value="48" />
