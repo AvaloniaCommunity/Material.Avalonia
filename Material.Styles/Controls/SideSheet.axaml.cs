@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
+using Avalonia.Data;
 using Avalonia.Interactivity;
 using Avalonia.Metadata;
 using Material.Styles.Enums;
@@ -22,7 +23,7 @@ namespace Material.Styles.Controls
             AvaloniaProperty.Register<SideSheet, IDataTemplate>(nameof(SideSheetContentTemplate));
 
         public static readonly StyledProperty<bool> SideSheetOpenedProperty =
-            AvaloniaProperty.Register<SideSheet, bool>(nameof(SideSheetOpened));
+            AvaloniaProperty.Register<SideSheet, bool>(nameof(SideSheetOpened), defaultBindingMode: BindingMode.TwoWay);
 
         public static readonly StyledProperty<double> SideSheetWidthProperty =
             AvaloniaProperty.Register<SideSheet, double>(nameof(SideSheetWidth));
