@@ -32,6 +32,9 @@
     <PackageVersion Include="TextMateSharp.Wasm" Version="1.0.56" />
     <!--For _build-->
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
-    <PackageVersion Include="Numerge.MSBuild" Version="0.1.9" />
+    <PackageVersion Include="Numerge.MSBuild" Version="0.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageVersion>
   </ItemGroup>
 </Project>
