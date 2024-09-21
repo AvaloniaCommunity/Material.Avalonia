@@ -20,7 +20,7 @@ namespace Material.Dialog.Bases
         /// Get window content. It most used for show dialog from other places.
         /// </summary>
         /// <returns>The content of dialog window.</returns>
-        public object GetContent() => _window.Content;
+        public object GetContent() => _window.Content!;
 
         /// <summary>
         /// Get window itself.
@@ -52,7 +52,7 @@ namespace Material.Dialog.Bases
         {
             var tcs = new TaskCompletionSource<TResult>();
 
-            void OnceHandler(object sender, EventArgs args)
+            void OnceHandler(object? sender, EventArgs args)
             {
                 tcs.TrySetResult(_window.GetResult());
                 _window.Closed -= OnceHandler;

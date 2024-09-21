@@ -16,23 +16,26 @@ internal class RippleHandler : CompositionCustomVisualHandler {
 
     private readonly double _maxRadius;
     private readonly double _opacity;
+    private readonly RoundedRect _cornerRadiusRect;
     private readonly bool _transitions;
     private TimeSpan _animationElapsed;
     private TimeSpan? _lastServerTime;
     private TimeSpan? _secondStepStart;
 
-    public RippleHandler(
-        IImmutableBrush brush,
+    public RippleHandler(IImmutableBrush brush,
         Easing easing,
         TimeSpan duration,
         double opacity,
+        CornerRadius cornerRadius,
         double positionX, double positionY,
         double outerWidth, double outerHeight, bool transitions) {
-
         _brush = brush;
         _easing = easing;
         _duration = duration;
         _opacity = opacity;
+        _cornerRadiusRect = new RoundedRect(new Rect(0, 0, outerWidth, outerHeight), 
+            cornerRadius.BottomLeft, cornerRadius.BottomRight,
+            cornerRadius.BottomRight, cornerRadius.BottomLeft);
         _transitions = transitions;
         _center = new Point(positionX, positionY);
 
@@ -57,8 +60,10 @@ internal class RippleHandler : CompositionCustomVisualHandler {
             }
         }
 
-        using (drawingContext.PushOpacity(currentOpacity, default)) {
-            drawingContext.DrawEllipse(_brush, null, _center, currentRadius, currentRadius);
+        using (drawingContext.PushClip(_cornerRadiusRect)) {
+            using (drawingContext.PushOpacity(currentOpacity, default)) {
+                drawingContext.DrawEllipse(_brush, null, _center, currentRadius, currentRadius);
+            }
         }
     }
 

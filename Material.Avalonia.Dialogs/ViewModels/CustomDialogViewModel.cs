@@ -5,9 +5,9 @@ namespace Material.Dialog.ViewModels
 {
     public class CustomDialogViewModel : DialogWindowViewModel
     {
-        private object _content;
+        private object? _content;
 
-        public object Content
+        public object? Content
         {
             get => _content;
             set
@@ -17,9 +17,9 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        private IDataTemplate _contentTemplate;
+        private IDataTemplate? _contentTemplate;
 
-        public IDataTemplate ContentTemplate
+        public IDataTemplate? ContentTemplate
         {
             get => _contentTemplate;
             set

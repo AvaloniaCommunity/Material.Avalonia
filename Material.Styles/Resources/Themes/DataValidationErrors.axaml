@@ -38,9 +38,10 @@
       <ControlTemplate>
         <DockPanel Name="PART_RootPanel">
           <ContentControl Name="PART_ErrorPresenter"
-                          Content="{TemplateBinding (DataValidationErrors.Errors)}"
-                          ContentTemplate="{TemplateBinding ErrorTemplate}"
-                          IsVisible="{TemplateBinding (DataValidationErrors.HasErrors)}" />
+                            DataContext="{TemplateBinding Owner}"
+                            Content="{Binding (DataValidationErrors.Errors)}"
+                            ContentTemplate="{TemplateBinding ErrorTemplate}"
+                            IsVisible="{Binding (DataValidationErrors.HasErrors)}" />
 
           <ContentPresenter Name="PART_ContentPresenter"
                             Margin="{TemplateBinding Padding}"

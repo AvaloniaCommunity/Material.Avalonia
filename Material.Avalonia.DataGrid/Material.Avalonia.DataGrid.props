@@ -2,6 +2,6 @@
   <ItemGroup>
     <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true"/>
     <!--To exclude this library from trimming-->
-    <TrimmerRootAssembly Include="Material.Avalonia.DataGrid"/>
+    <TrimmerRootAssembly Include="Material.Avalonia.DataGrid" RootMode="library"/>
   </ItemGroup>
 </Project>

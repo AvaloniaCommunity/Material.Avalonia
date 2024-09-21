@@ -30,7 +30,7 @@
     <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{Binding $self.Foreground}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="VerticalAlignment" Value="Stretch" />
-    <Setter Property="Padding" Value="8 0"></Setter>
+    <Setter Property="Padding" Value="8 0" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>

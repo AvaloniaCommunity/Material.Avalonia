@@ -36,9 +36,9 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        private string _contentHeader;
+        private string? _contentHeader;
 
-        public string ContentHeader
+        public string? ContentHeader
         {
             get => _contentHeader;
             set
@@ -48,9 +48,9 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        private string _contentMessage;
+        private string? _contentMessage;
 
-        public string ContentMessage
+        public string? ContentMessage
         {
             get => _contentMessage;
             set

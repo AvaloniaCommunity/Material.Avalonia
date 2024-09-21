@@ -1,10 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=netstandard">
-  <ResourceDictionary.MergedDictionaries>
-    <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ScrollBar.axaml" />
-  </ResourceDictionary.MergedDictionaries>
-
   <system:Double x:Key="ScrollBarThickness">16</system:Double>
   <system:Double x:Key="ScrollBarThumbMinimizedThickness">4</system:Double>
 
@@ -19,6 +15,7 @@
                                   Name="PART_ContentPresenter"
                                   Background="{TemplateBinding Background}"
                                   Padding="{TemplateBinding Padding}"
+                                  ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}"
                                   HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
                                   VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}"
                                   HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
@@ -26,8 +23,8 @@
             <ScrollContentPresenter.GestureRecognizers>
               <ScrollGestureRecognizer
                 CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
-                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}" 
-                IsScrollInertiaEnabled="{Binding IsScrollInertiaEnabled, RelativeSource={RelativeSource TemplatedParent}}"/>
+                CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
+                IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}" />
             </ScrollContentPresenter.GestureRecognizers>
           </ScrollContentPresenter>
 
@@ -55,16 +52,16 @@
       <Setter Property="HorizontalAlignment" Value="Right" />
       <Setter Property="Width" Value="{DynamicResource ScrollBarThickness}" />
     </Style>
-    
+
     <Style Selector="^ /template/ Rectangle#PART_CornerFillRectangle">
       <Setter Property="Opacity" Value="0" />
     </Style>
-    
+
     <Style Selector="^.no-auto-hide">
       <Style Selector="^ /template/ ScrollBar">
         <Setter Property="AllowAutoHide" Value="False" />
       </Style>
-    
+
       <Style Selector="^ /template/ Rectangle#PART_CornerFillRectangle">
         <Setter Property="Opacity" Value="0.7" />
       </Style>
@@ -73,7 +70,7 @@
 
   <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer"
                 BasedOn="{StaticResource MaterialScrollViewer}" />
-  
+
   <!-- Modern -->
   <ControlTheme x:Key="MaterialModernScrollViewer"
                 BasedOn="{StaticResource MaterialScrollViewer}"
@@ -81,7 +78,7 @@
     <Style Selector="^ /template/ ScrollBar">
       <Setter Property="Theme" Value="{StaticResource MaterialModernScrollBar}" />
     </Style>
-    
+
     <Style Selector="^ /template/ Rectangle#PART_CornerFillRectangle">
       <Setter Property="IsVisible" Value="False" />
     </Style>

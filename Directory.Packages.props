@@ -2,8 +2,8 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-    <AvaloniaVersion>11.0.9</AvaloniaVersion>
-    <ShowMeTheXamlVersion>1.5.0</ShowMeTheXamlVersion>
+    <AvaloniaVersion>11.1.0</AvaloniaVersion>
+    <ShowMeTheXamlVersion>1.5.1</ShowMeTheXamlVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" />
@@ -12,7 +12,7 @@
     <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="11.0.9" />
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
@@ -25,15 +25,12 @@
     </PackageVersion>
     <!--For Material.Avalonia.Demo-->
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1" />
-    <PackageVersion Include="DialogHost.Avalonia" Version="0.7.6" />
+    <PackageVersion Include="DialogHost.Avalonia" Version="0.8.1" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="TextMateSharp.Wasm" Version="1.0.56" />
     <!--For _build-->
-    <PackageVersion Include="Nuke.Common" Version="8.0.0" />
-    <PackageVersion Include="MinVer" Version="4.3.0" />
-    <PackageVersion Include="NuGet.Protocol" Version="6.7.0" />
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
   </ItemGroup>
 </Project>

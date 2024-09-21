@@ -43,9 +43,8 @@
             </TextBox.Text>
             <TextBox.InnerRightContent>
               <ToggleButton Name="CalendarButton"
-                            Classes="Icon"
-                            Width="36"
-                            Height="36"
+                            Theme="{StaticResource MaterialFlatToggleButton}"
+                            Width="36" Height="36"
                             Margin="8 8 8 6">
                 <controls:MaterialInternalIcon Kind="Calendar"
                                                Width="20"

@@ -79,14 +79,14 @@ namespace Material.Dialog.ViewModels
 
         public MaterialDialogRelayCommand SubmitCommand { get; }
 
-        private bool CanPressButton(object args)
+        private bool CanPressButton(object? args)
         {
             return ValidateFields();
         }
 
-        private async void OnPressButton(object args)
+        private async void OnPressButton(object? args)
         {
-            if (!(args is DialogButtonViewModel button))
+            if (args is not DialogButtonViewModel button)
                 return;
 
             await Dispatcher.UIThread.InvokeAsync(() =>
@@ -97,7 +97,7 @@ namespace Material.Dialog.ViewModels
 
                 var result = new TextFieldDialogResult
                 {
-                    result = resultButtonId
+                    _result = resultButtonId
                 };
 
                 var fields = new List<TextFieldResult>();
@@ -105,7 +105,7 @@ namespace Material.Dialog.ViewModels
                 foreach (var item in TextFields)
                     fields.Add(new TextFieldResult {Text = item.Text});
 
-                result.fieldsResult = fields.ToArray();
+                result._fieldsResult = fields.ToArray();
                 button.Parent.DialogResult = result;
 
                 Window.Close();

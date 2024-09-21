@@ -5,7 +5,6 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using Material.Styles.Controls;
 using Material.Styles.Models;
@@ -15,8 +14,6 @@ using Material.Styles.Themes.Base;
 namespace Material.Avalonia.Demo;
 
 public partial class MainView : UserControl {
-    private readonly List<SnackbarModel> helloSnackBars = new();
-
     public MainView() {
         InitializeComponent();
         DrawerList.PointerReleased += DrawerSelectionChanged;

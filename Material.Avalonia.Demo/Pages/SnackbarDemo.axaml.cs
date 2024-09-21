@@ -5,7 +5,7 @@ using Avalonia.Threading;
 using Material.Styles.Controls;
 using Material.Styles.Models;
 
-namespace Material.Demo.Pages;
+namespace Material.Avalonia.Demo.Pages;
 
 public partial class SnackbarDemo : UserControl {
     private int _actionCount;

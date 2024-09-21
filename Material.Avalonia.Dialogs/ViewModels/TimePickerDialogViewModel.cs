@@ -136,18 +136,18 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        public TimePickerDialogViewModel(TimePickerDialog dialog) : base(dialog)
-        {
+        public TimePickerDialogViewModel(TimePickerDialog dialog) : base(dialog) {
+            _window = dialog;
             ButtonClick = new MaterialDialogRelayCommand(OnPressButton, CanPressButton);
         }
 
 
-        public bool CanPressButton(object args)
+        public bool CanPressButton(object? args)
         {
             return true;
         }
 
-        public async void OnPressButton(object args)
+        public async void OnPressButton(object? args)
         {
             var button = args as DialogButton;
             if (button is null)

@@ -9,7 +9,7 @@ namespace Material.Dialog.Resources
     public class TemplateResources : ResourceDictionary
     {
         // ReSharper disable UnusedMember.Local
-        private void DialogButtonTemplate_OnSelectTemplateKey(object sender, SelectTemplateEventArgs e)
+        private void DialogButtonTemplate_OnSelectTemplateKey(object _, SelectTemplateEventArgs e)
         {
             e.TemplateKey = e.DataContext switch
             {

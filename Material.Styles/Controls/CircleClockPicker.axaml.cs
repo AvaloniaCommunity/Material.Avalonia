@@ -113,12 +113,12 @@ public class CircleClockPicker : TemplatedControl {
         if (change.Property == BoundsProperty) OnCanvasResize(change);
     }
 
-    private void OnCanvasResize(AvaloniaPropertyChangedEventArgs obj) {
+    private void OnCanvasResize(AvaloniaPropertyChangedEventArgs _) {
         UpdateCellPanel();
         AdjustPointer();
     }
 
-    private void OnNext(EventArgs a) {
+    private void OnNext(EventArgs _) {
         UpdateCellPanel();
         AdjustPointer();
     }
