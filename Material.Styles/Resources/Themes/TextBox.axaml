@@ -179,8 +179,7 @@
                        Text="{TemplateBinding (assists:TextFieldAssist.Hints)}"
                        TextTrimming="CharacterEllipsis" />
 
-            <DataValidationErrors Name="PART_DataValidation"
-                                  Errors="{TemplateBinding (DataValidationErrors.Errors)}">
+            <DataValidationErrors Name="PART_DataValidation">
               <Panel Name="PART_TextFieldPanel">
                 <Border Name="PART_BackgroundTextField">
                   <Border.Styles>
