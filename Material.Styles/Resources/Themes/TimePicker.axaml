@@ -22,7 +22,8 @@
           <!-- TODO: Make TextBox writeable -->
           <!-- TODO: allow use different text boxes style-->
           <TextBox Name="PART_DisplayTextBox"
-                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}">
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                   assists:TextBoxAssist.CompensateInnerRightContentMargin="True">
             <TextBox.Text>
               <MultiBinding Converter="{x:Static converters:TimePickerTextConverter.Instance}">
                 <TemplateBinding Property="SelectedTime" />
