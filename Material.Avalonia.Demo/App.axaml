@@ -1,10 +1,10 @@
-﻿<Application xmlns="https://github.com/avaloniaui"
+﻿<Application x:Class="Material.Avalonia.Demo.App"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
-             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
              xmlns:grammars="clr-namespace:TextMateSharp.Grammars;assembly=TextMateSharp.Grammars"
-             x:Class="Material.Avalonia.Demo.App">
+             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles">
   <Application.Resources>
     <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
   </Application.Resources>
@@ -24,6 +24,25 @@
       </themes:MaterialTheme.Resources>
     </themes:MaterialTheme>
 
+    <!--
+      If you would prefer to use custom primary and second colors you can use the ColorTheme
+    -->
+    <!--<themes:ColorTheme PrimaryColor="#4BEB59" SecondaryColor="#04C9F0" />-->
+
+    <!--
+      If you need different colors for light and dark theme, the ColorTheme supports
+      individual resources for light and dark theme.
+    -->
+    <!--<themes:ColorTheme>
+      <themes:ColorTheme.Palettes>
+        <themes:ColorThemeResources x:Key="Dark"
+                                    PrimaryColor="#4BEB59"
+                                    SecondaryColor="#04C9F0" />
+        <themes:ColorThemeResources x:Key="Light"
+                                    PrimaryColor="#29964A"
+                                    SecondaryColor="#0271A4" />
+      </themes:ColorTheme.Palettes>
+    </themes:ColorTheme>-->
     <avalonia:MaterialIconStyles />
     <dialogHostAvalonia:DialogHostStyles />
 
