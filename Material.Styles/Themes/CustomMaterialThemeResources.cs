@@ -2,7 +2,7 @@
 
 namespace Material.Styles.Themes;
 
-public class ColorThemeResources {
+public class CustomMaterialThemeResources {
     public Color? PrimaryColor { get; set; }
 
     public Color? SecondaryColor { get; set; }

@@ -25,24 +25,24 @@
     </themes:MaterialTheme>
 
     <!--
-      If you would prefer to use custom primary and second colors you can use the ColorTheme
+      If you would prefer to use custom primary and second colors you can use the CustomMaterialTheme
     -->
-    <!--<themes:ColorTheme PrimaryColor="#4BEB59" SecondaryColor="#04C9F0" />-->
+    <!--<themes:CustomMaterialTheme PrimaryColor="#4BEB59" SecondaryColor="#04C9F0" />-->
 
     <!--
-      If you need different colors for light and dark theme, the ColorTheme supports
+      If you need different colors for light and dark theme, the CustomMaterialTheme supports
       individual resources for light and dark theme.
     -->
-    <!--<themes:ColorTheme>
-      <themes:ColorTheme.Palettes>
-        <themes:ColorThemeResources x:Key="Dark"
+    <!--<themes:CustomMaterialTheme>
+      <themes:CustomMaterialTheme.Palettes>
+        <themes:CustomMaterialThemeResources x:Key="Dark"
                                     PrimaryColor="#4BEB59"
                                     SecondaryColor="#04C9F0" />
-        <themes:ColorThemeResources x:Key="Light"
+        <themes:CustomMaterialThemeResources x:Key="Light"
                                     PrimaryColor="#29964A"
                                     SecondaryColor="#0271A4" />
-      </themes:ColorTheme.Palettes>
-    </themes:ColorTheme>-->
+      </themes:CustomMaterialTheme.Palettes>
+    </themes:CustomMaterialTheme>-->
     <avalonia:MaterialIconStyles />
     <dialogHostAvalonia:DialogHostStyles />
 

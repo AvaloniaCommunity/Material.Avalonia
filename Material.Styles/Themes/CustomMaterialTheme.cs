@@ -10,7 +10,7 @@ using Material.Styles.Themes.Base;
 
 namespace Material.Styles.Themes;
 
-public class ColorTheme : MaterialThemeBase, IDisposable {
+public class CustomMaterialTheme : MaterialThemeBase, IDisposable {
 
     public static readonly StyledProperty<Color?> PrimaryColorProperty =
         AvaloniaProperty.Register<MaterialTheme, Color?>(nameof(PrimaryColor));
@@ -25,14 +25,14 @@ public class ColorTheme : MaterialThemeBase, IDisposable {
     private IDisposable? _themeUpdateDisposable;
     private bool _disposedValue;
 
-    public IDictionary<ThemeVariant, ColorThemeResources> Palettes { get; }
+    public IDictionary<ThemeVariant, CustomMaterialThemeResources> Palettes { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MaterialTheme"/> class.
     /// </summary>
     /// <param name="serviceProvider">The XAML service provider.</param>
-    public ColorTheme(IServiceProvider serviceProvider) : base(serviceProvider) {
-        var palettes = new AvaloniaDictionary<ThemeVariant, ColorThemeResources>(2);
+    public CustomMaterialTheme(IServiceProvider serviceProvider) : base(serviceProvider) {
+        var palettes = new AvaloniaDictionary<ThemeVariant, CustomMaterialThemeResources>(2);
         palettes.ForEachItem(
             (key, x) => {
                 if (Owner is not null) {
@@ -41,7 +41,7 @@ public class ColorTheme : MaterialThemeBase, IDisposable {
 
                 if (key != ThemeVariant.Dark && key != ThemeVariant.Light) {
                     throw new InvalidOperationException(
-                        $"{nameof(ColorTheme)}.{nameof(ColorTheme.Palettes)} only supports Light and Dark variants.");
+                        $"{nameof(CustomMaterialTheme)}.{nameof(CustomMaterialTheme.Palettes)} only supports Light and Dark variants.");
                 }
             },
             (_, x) => {
