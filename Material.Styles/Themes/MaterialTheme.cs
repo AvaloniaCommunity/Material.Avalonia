@@ -13,8 +13,6 @@ namespace Material.Styles.Themes {
     /// You need to setup all these properties: <see cref="BaseTheme"/>, <see cref="PrimaryColor"/>, <see cref="SecondaryColor"/>
     /// </remarks>
     public class MaterialTheme : MaterialThemeBase, IDisposable {
-        public static readonly StyledProperty<BaseThemeMode> BaseThemeProperty =
-            AvaloniaProperty.Register<MaterialTheme, BaseThemeMode>(nameof(BaseTheme));
 
         public static readonly StyledProperty<PrimaryColor> PrimaryColorProperty =
             AvaloniaProperty.Register<MaterialTheme, PrimaryColor>(nameof(PrimaryColor));
@@ -22,13 +20,8 @@ namespace Material.Styles.Themes {
         public static readonly StyledProperty<SecondaryColor> SecondaryColorProperty =
             AvaloniaProperty.Register<MaterialTheme, SecondaryColor>(nameof(SecondaryColor));
 
-        public static readonly DirectProperty<MaterialTheme, BaseThemeMode> ActualBaseThemeProperty =
-            AvaloniaProperty.RegisterDirect<MaterialTheme, BaseThemeMode>(
-                nameof(ActualBaseTheme),
-                o => o.ActualBaseTheme);
         private readonly ITheme _theme = new Theme();
 
-        private BaseThemeMode _actualBaseTheme;
         private bool _isLoaded;
         private IThemeVariantHost? _lastThemeVariantHost;
         private IDisposable? _themeUpdateDisposable;
@@ -39,16 +32,6 @@ namespace Material.Styles.Themes {
         /// <param name="serviceProvider">The XAML service provider.</param>
         public MaterialTheme(IServiceProvider serviceProvider) : base(serviceProvider) {
             OwnerChanged += OnOwnerChanged;
-        }
-
-        public BaseThemeMode BaseTheme {
-            get => GetValue(BaseThemeProperty);
-            set => SetValue(BaseThemeProperty, value);
-        }
-
-        public BaseThemeMode ActualBaseTheme {
-            get => _actualBaseTheme;
-            private set => SetAndRaise(ActualBaseThemeProperty, ref _actualBaseTheme, value);
         }
 
         public PrimaryColor PrimaryColor {

@@ -12,10 +12,20 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using Material.Styles.Internal;
+using Material.Styles.Themes.Base;
 
 namespace Material.Styles.Themes;
 
 public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
+
+    public static readonly StyledProperty<BaseThemeMode> BaseThemeProperty =
+        AvaloniaProperty.Register<MaterialThemeBase, BaseThemeMode>(nameof(BaseTheme));
+
+    public static readonly DirectProperty<MaterialThemeBase, BaseThemeMode> ActualBaseThemeProperty =
+        AvaloniaProperty.RegisterDirect<MaterialThemeBase, BaseThemeMode>(
+            nameof(ActualBaseTheme),
+            o => o.ActualBaseTheme);
+
     public static readonly DirectProperty<MaterialThemeBase, IReadOnlyTheme> CurrentThemeProperty =
         AvaloniaProperty.RegisterDirect<MaterialThemeBase, IReadOnlyTheme>(
             nameof(CurrentTheme),
@@ -25,6 +35,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
     private readonly IServiceProvider? _serviceProvider;
     private readonly LightweightSubject<MaterialThemeBase> _themeChangedEndSubject = new();
     private IReadOnlyTheme _currentTheme = new ReadOnlyTheme();
+    private BaseThemeMode _actualBaseTheme;
     private Task? _currentThemeUpdateTask;
 
     private IResourceDictionary? _internalResources;
@@ -39,6 +50,16 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
     /// <param name="serviceProvider">The parent's service provider.</param>
     public MaterialThemeBase(IServiceProvider? serviceProvider) {
         _serviceProvider = serviceProvider;
+    }
+
+    public BaseThemeMode BaseTheme {
+        get => GetValue(BaseThemeProperty);
+        set => SetValue(BaseThemeProperty, value);
+    }
+
+    public BaseThemeMode ActualBaseTheme {
+        get => _actualBaseTheme;
+        protected set => SetAndRaise(ActualBaseThemeProperty, ref _actualBaseTheme, value);
     }
 
     /// <summary>

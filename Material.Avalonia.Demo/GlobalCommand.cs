@@ -7,8 +7,8 @@ namespace Material.Avalonia.Demo;
 
 public static class GlobalCommand
 {
-    private static readonly MaterialTheme MaterialThemeStyles =
-        Application.Current!.LocateMaterialTheme<MaterialTheme>();
+    private static readonly MaterialThemeBase MaterialThemeStyles =
+        Application.Current!.LocateMaterialTheme<MaterialThemeBase>();
 
     public static void UseMaterialUIDarkTheme()
     {
