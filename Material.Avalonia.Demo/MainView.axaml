@@ -64,26 +64,26 @@
                 </ListBox.Styles>
                 <ListBoxItem>Home</ListBoxItem>
                 <ListBoxItem>Buttons</ListBoxItem>
-                <ListBoxItem>Toggles</ListBoxItem>
-                <ListBoxItem>Fields</ListBoxItem>
-                <ListBoxItem>ComboBoxes</ListBoxItem>
-                <ListBoxItem>Material Icons</ListBoxItem>
-                <ListBoxItem>Colors</ListBoxItem>
-                <ListBoxItem>Sliders</ListBoxItem>
-                <ListBoxItem>Progress indicators</ListBoxItem>
-                <ListBoxItem>Lists</ListBoxItem>
-                <ListBoxItem>Expanders</ListBoxItem>
-                <ListBoxItem>ColorZones</ListBoxItem>
-                <ListBoxItem>Dialogs</ListBoxItem>
-                <ListBoxItem>Snackbar</ListBoxItem>
-                <ListBoxItem>ScrollViewer</ListBoxItem>
-                <ListBoxItem>SideSheet</ListBoxItem>
-                <ListBoxItem>TabControls</ListBoxItem>
-                <ListBoxItem>TreeViews</ListBoxItem>
                 <ListBoxItem>Card</ListBoxItem>
-                <ListBoxItem>Typography</ListBoxItem>
+                <ListBoxItem>ColorZones</ListBoxItem>
+                <ListBoxItem>Colors</ListBoxItem>
+                <ListBoxItem>ComboBoxes</ListBoxItem>
                 <ListBoxItem>Date/Time pickers</ListBoxItem>
+                <ListBoxItem>Dialogs</ListBoxItem>
+                <ListBoxItem>Expanders</ListBoxItem>
+                <ListBoxItem>Fields</ListBoxItem>
+                <ListBoxItem>Lists</ListBoxItem>
+                <ListBoxItem>Material Icons</ListBoxItem>
+                <ListBoxItem>Progress indicators</ListBoxItem>
+                <ListBoxItem>ScrollViewer</ListBoxItem>
                 <ListBoxItem>Shadows</ListBoxItem>
+                <ListBoxItem>SideSheet</ListBoxItem>
+                <ListBoxItem>Sliders</ListBoxItem>
+                <ListBoxItem>Snackbar</ListBoxItem>
+                <ListBoxItem>TabControls</ListBoxItem>
+                <ListBoxItem>Toggles</ListBoxItem>
+                <ListBoxItem>TreeViews</ListBoxItem>
+                <ListBoxItem>Typography</ListBoxItem>
               </ListBox>
             </StackPanel>
           </ScrollViewer>
