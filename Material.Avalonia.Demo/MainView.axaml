@@ -64,26 +64,26 @@
                 </ListBox.Styles>
                 <ListBoxItem>Home</ListBoxItem>
                 <ListBoxItem>Buttons</ListBoxItem>
-                <ListBoxItem>Toggles</ListBoxItem>
-                <ListBoxItem>Fields</ListBoxItem>
-                <ListBoxItem>ComboBoxes</ListBoxItem>
-                <ListBoxItem>Material Icons</ListBoxItem>
-                <ListBoxItem>Colors</ListBoxItem>
-                <ListBoxItem>Sliders</ListBoxItem>
-                <ListBoxItem>Progress indicators</ListBoxItem>
-                <ListBoxItem>Lists</ListBoxItem>
-                <ListBoxItem>Expanders</ListBoxItem>
-                <ListBoxItem>ColorZones</ListBoxItem>
-                <ListBoxItem>Dialogs</ListBoxItem>
-                <ListBoxItem>Snackbar</ListBoxItem>
-                <ListBoxItem>ScrollViewer</ListBoxItem>
-                <ListBoxItem>SideSheet</ListBoxItem>
-                <ListBoxItem>TabControls</ListBoxItem>
-                <ListBoxItem>TreeViews</ListBoxItem>
                 <ListBoxItem>Card</ListBoxItem>
-                <ListBoxItem>Typography</ListBoxItem>
+                <ListBoxItem>ColorZones</ListBoxItem>
+                <ListBoxItem>Colors</ListBoxItem>
+                <ListBoxItem>ComboBoxes</ListBoxItem>
                 <ListBoxItem>Date/Time pickers</ListBoxItem>
-                <ListBoxItem>Shadows</ListBoxItem>
+                <ListBoxItem>Dialogs</ListBoxItem>
+                <ListBoxItem>Expanders</ListBoxItem>
+                <ListBoxItem>Fields</ListBoxItem>
+                <ListBoxItem>Lists</ListBoxItem>
+                <ListBoxItem>Material Icons</ListBoxItem>
+                <ListBoxItem>Progress indicators</ListBoxItem>
+                <ListBoxItem>ScrollViewer</ListBoxItem>
+                <!-- <ListBoxItem>Shadows</ListBoxItem> -->
+                <ListBoxItem>SideSheet</ListBoxItem>
+                <ListBoxItem>Sliders</ListBoxItem>
+                <ListBoxItem>Snackbar</ListBoxItem>
+                <ListBoxItem>TabControls</ListBoxItem>
+                <ListBoxItem>Toggles</ListBoxItem>
+                <ListBoxItem>TreeViews</ListBoxItem>
+                <ListBoxItem>Typography</ListBoxItem>
               </ListBox>
             </StackPanel>
           </ScrollViewer>
@@ -155,66 +155,66 @@
 
                 <!-- Buttons -->
                 <pages:ButtonsDemo />
-
-                <!-- Toggles -->
-                <pages:TogglesDemo />
-
-                <!-- Fields -->
-                <pages:FieldsDemo />
-
-                <!-- ComboBoxes -->
-                <pages:ComboBoxesDemo />
-
-                <!-- Icons -->
-                <pages:IconsDemo />
-
-                <!-- Colors -->
-                <pages:ColorsDemo />
-
-                <!-- Sliders -->
-                <pages:SlidersDemo />
-
-                <!-- Progress indicators -->
-                <pages:ProgressIndicatorDemo />
-
-                <!-- Lists -->
-                <pages:ListsDemo />
-
-                <!-- Expanders -->
-                <pages:ExpandersDemo />
-
+                
+                <!-- Card -->
+                <pages:CardsDemo />
+                
                 <!-- ColorZones -->
                 <pages:ColorZonesDemo />
-
+                
+                <!-- Colors -->
+                <pages:ColorsDemo />
+                
+                <!-- ComboBoxes -->
+                <pages:ComboBoxesDemo />
+                
+                <!-- Pickers -->
+                <pages:DateTimePickerDemo />
+                
                 <!-- Dialogs -->
                 <pages:DialogDemo />
                 
-                <!-- Snackbar -->
-                <pages:SnackbarDemo />
-
+                <!-- Expanders -->
+                <pages:ExpandersDemo />
+                
+                <!-- Fields -->
+                <pages:FieldsDemo />
+                
+                <!-- Lists -->
+                <pages:ListsDemo />
+                
+                <!-- Icons -->
+                <pages:IconsDemo />
+                
+                <!-- Progress indicators -->
+                <pages:ProgressIndicatorDemo />
+                
                 <!-- ScrollViewer -->
                 <pages:ScrollViewerDemo />
-
+                
+                <!-- Shadows -->
+                <!-- <pages:NotReadyDemo /> -->
+                
                 <!-- SideSheet -->
                 <pages:SideSheetDemo />
-
+                
+                <!-- Sliders -->
+                <pages:SlidersDemo />
+                
+                <!-- Snackbar -->
+                <pages:SnackbarDemo />
+                
                 <!-- TabControls -->
                 <pages:TabsDemo />
 
+                <!-- Toggles -->
+                <pages:TogglesDemo />
+                
                 <!-- TreeViews -->
                 <pages:TreeViewsDemo />
 
-                <!-- Card -->
-                <pages:CardsDemo />
-
                 <!-- Typography -->
                 <pages:TypographyDemo />
-
-                <!-- Pickers -->
-                <pages:DateTimePickerDemo />
-
-                <!-- Shadows -->
-                <pages:NotReadyDemo />
               </Carousel>
             </Border>
           </ScrollViewer>
