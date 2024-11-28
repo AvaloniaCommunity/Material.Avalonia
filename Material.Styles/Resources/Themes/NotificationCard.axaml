@@ -73,6 +73,26 @@
         </KeyFrame>
       </Animation>
     </ControlTheme.Animations>
+
+    <!--  Colour variants  -->
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+    </Style>
+
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard"
