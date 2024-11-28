@@ -11,6 +11,7 @@
     <Setter Property="Width" Value="350" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="RenderTransformOrigin" Value="50%,75%" />
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
