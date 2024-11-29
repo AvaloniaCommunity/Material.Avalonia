@@ -5,7 +5,6 @@ using Avalonia;
 using Avalonia.Data.Converters;
 using Avalonia.Media;
 using Avalonia.Media.Transformation;
-using Material.Styles.Converters.Parameters;
 
 namespace Material.Styles.Converters {
     /// <summary>
@@ -13,19 +12,12 @@ namespace Material.Styles.Converters {
     /// </summary>
     public class RectHollowClipConverter : IMultiValueConverter {
         public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {
-            double hOffset = 4, vOffset = -8;
-            var t = new Thickness(2);
+            var margin = new Thickness(2);
 
-            if (parameter is RectHollowClipParameter param) {
-                t = param.Margin;
-                hOffset = param.Offset.X;
-                vOffset = param.Offset.Y;
-            }
+            if (parameter is Thickness param) margin = param;
 
             Rect main = default;
             Rect hollow = default;
-
-            Geometry result;
 
             try {
                 var s = new Point(1, 1);
@@ -35,40 +27,38 @@ namespace Material.Styles.Converters {
                     hollow = inner;
                 }
 
-                if (values.Count == 3 && values[2] is TransformOperations transform) {
-                    if (Matrix.TryDecomposeTransform(transform.Value, out var d))
-                        s = new Point(d.Scale.X, d.Scale.Y);
-                }
+                if (values.Count > 2
+                 && values[2] is TransformOperations transform
+                 && Matrix.TryDecomposeTransform(transform.Value, out var d))
+                    s = new Point(d.Scale.X, d.Scale.Y);
 
-                // Base zone
-                var m0 = main.TopLeft;
-                var m1 = main.BottomRight;
-
-                // Hollow zone
-                var h0 = Multiply(hollow.TopLeft - new Point(t.Left - hOffset, t.Top - vOffset), s);
-                var h1 = Multiply(hollow.BottomRight + new Point(t.Right + hOffset, t.Bottom + vOffset), s);
+                var hollowTransformed = new Rect(
+                    hollow.TopLeft.X - margin.Left,
+                    hollow.TopLeft.Y - margin.Top,
+                    hollow.Size.Width * s.X + margin.Left + margin.Right,
+                    hollow.Size.Height * s.Y + margin.Top + margin.Bottom);
 
                 // Create geometry
                 var outerGeometry = new StreamGeometry();
                 var innerGeometry = new StreamGeometry();
 
                 using (var ctx = outerGeometry.Open()) {
-                    ctx.BeginFigure(m0, true);
-                    ctx.LineTo(new Point(m1.X, m0.Y));
-                    ctx.LineTo(new Point(m1.X, m1.Y));
-                    ctx.LineTo(new Point(m0.X, m1.Y));
+                    ctx.BeginFigure(main.TopLeft, true);
+                    ctx.LineTo(main.TopRight);
+                    ctx.LineTo(main.BottomRight);
+                    ctx.LineTo(main.BottomLeft);
                     ctx.EndFigure(true);
                 }
 
                 using (var ctx = innerGeometry.Open()) {
-                    ctx.BeginFigure(new Point(h0.X, h0.Y), true);
-                    ctx.LineTo(new Point(h1.X, h0.Y));
-                    ctx.LineTo(new Point(h1.X, h1.Y));
-                    ctx.LineTo(new Point(h0.X, h1.Y));
+                    ctx.BeginFigure(hollowTransformed.TopLeft, true);
+                    ctx.LineTo(hollowTransformed.TopRight);
+                    ctx.LineTo(hollowTransformed.BottomRight);
+                    ctx.LineTo(hollowTransformed.BottomLeft);
                     ctx.EndFigure(true);
                 }
 
-                result = new CombinedGeometry(GeometryCombineMode.Xor, innerGeometry, outerGeometry);
+                return new CombinedGeometry(GeometryCombineMode.Xor, innerGeometry, outerGeometry);
             }
             catch {
                 var m0 = main.TopLeft;
@@ -84,14 +74,8 @@ namespace Material.Styles.Converters {
                 ctx.LineTo(new Point(m0.X, m1.Y));
                 ctx.EndFigure(true);
 
-                result = outerGeometry;
+                return outerGeometry;
             }
-
-            return result;
-        }
-
-        private static Point Multiply(Point p, Point s) {
-            return new Point(p.X * s.X, p.Y * s.Y);
         }
     }
 }

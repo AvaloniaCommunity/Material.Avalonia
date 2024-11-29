@@ -32,7 +32,8 @@
           <!-- TODO: Make TextBox writeable -->
           <!-- TODO: allow use different text boxes style-->
           <TextBox Name="DisplayTextBox"
-                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}">
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                   assists:TextBoxAssist.CompensateInnerRightContentMargin="True">
             <TextBox.Text>
               <MultiBinding Converter="{x:Static converters:DatePickerTextConverter.Instance}">
                 <TemplateBinding Property="SelectedDate" />
