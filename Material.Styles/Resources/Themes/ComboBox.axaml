@@ -160,7 +160,6 @@
                 BasedOn="{StaticResource MaterialComboBox}">
     <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
-    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
     <Setter Property="Padding" Value="16,8" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -283,7 +282,6 @@
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
-    <Setter Property="FontFamily" Value="avares://Material.Styles/Fonts/Roboto#Roboto" />
     <Setter Property="Padding" Value="16,8" />
     <Setter Property="Template">
       <ControlTemplate>

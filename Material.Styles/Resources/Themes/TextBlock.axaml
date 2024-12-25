@@ -1,14 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="MaterialDefaultFontFamily"
-                TargetType="Control">
-    <Setter Property="TextBlock.FontFamily" Value="{StaticResource MaterialDesignFonts}" />
-  </ControlTheme>
-
   <ControlTheme x:Key="MaterialTextBlock"
-                TargetType="TextBlock">
-    <Setter Property="FontFamily" Value="{StaticResource MaterialDesignFonts}" />
-  </ControlTheme>
+                TargetType="TextBlock" />
 
   <ControlTheme x:Key="{x:Type TextBlock}" TargetType="TextBlock"
                 BasedOn="{StaticResource MaterialTextBlock}" />
