@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ControlTheme x:Key="MaterialWindow" TargetType="Window">
-    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontFamily" Value="{DynamicResource MaterialDesignFonts}" />
+    <Setter Property="FontSize" Value="{DynamicResource MaterialDesignFontSize}" />
     <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
-    <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
-    <Setter Property="TextElement.FontWeight" Value="Regular" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
