@@ -1,11 +1,58 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
         xmlns:collections="clr-namespace:Avalonia.Collections;assembly=Avalonia.Controls.DataGrid">
   <!--TODO: Validation and Focus-->
 
   <Styles.Resources>
     <Thickness x:Key="DataGridTextColumnCellTextBlockMargin">0</Thickness>
   </Styles.Resources>
+
+  <Style Selector="ToggleButton#PART_ExpanderButton">
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="CornerRadius" Value="16" />
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Margin" Value="4,0,0,0" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate>
+          <Border Background="Transparent"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  ClipToBounds="True">
+            <ripple:RippleEffect Name="PART_Ripple"
+                                 RippleFill="{TemplateBinding Foreground,
+                                             Converter={StaticResource BrushRoundConverter}}">
+              <Panel Name="PART_InnerPanel" Width="24" Height="24">
+                <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                      Name="ExpandPath"
+                      Fill="{TemplateBinding Foreground}"
+                      Stroke="{TemplateBinding Foreground}" />
+              </Panel>
+            </ripple:RippleEffect>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+
+    <Style Selector="^:not(.no-transitions) /template/ Panel#PART_InnerPanel">
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Duration="0:0:0.25" Property="RenderTransform" Easing="CircularEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+
+    <Style Selector="^ /template/ Panel#PART_InnerPanel">
+      <Setter Property="RenderTransform" Value="rotate(0deg)" />
+    </Style>
+
+    <!-- Rotate the arrow to 45 degrees when group expanded -->
+    <Style Selector="^:checked /template/ Panel#PART_InnerPanel">
+      <Setter Property="RenderTransform" Value="rotate(45deg)" />
+    </Style>
+  </Style>
 
   <Style Selector="DataGridCell">
     <Setter Property="Background" Value="Transparent" />
@@ -167,11 +214,11 @@
 
   <Style Selector="DataGridRowGroupHeader">
     <Setter Property="Background" Value="{DynamicResource ThemeControlMidHighBrush}" />
-    <Setter Property="Height" Value="20" />
     <Setter Property="Template">
       <ControlTemplate>
         <DataGridFrozenGrid Name="Root"
                             Background="{TemplateBinding Background}"
+                            MinHeight="52"
                             ColumnDefinitions="Auto,Auto,Auto,Auto"
                             RowDefinitions="Auto,*,Auto">
 
@@ -191,23 +238,50 @@
     </Setter>
   </Style>
 
-  <Style Selector="DataGridRowGroupHeader /template/ ToggleButton#ExpanderButton">
+  <Style Selector="DataGridRowGroupHeader /template/ ToggleButton#PART_ExpanderButton">
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="CornerRadius" Value="16" />
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Margin" Value="4,0,0,0" />
     <Setter Property="Template">
-      <ControlTemplate>
-        <Border Grid.Column="0" Width="20" Height="20" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
-          <Path Fill="{TemplateBinding Foreground}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Data="M 0 2 L 4 6 L 0 10 Z" />
-        </Border>
-      </ControlTemplate>
+      <Setter.Value>
+        <ControlTemplate>
+          <Border Background="Transparent"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  ClipToBounds="True">
+            <ripple:RippleEffect Name="PART_Ripple"
+                                 RippleFill="{TemplateBinding Foreground,
+                                             Converter={StaticResource BrushRoundConverter}}">
+              <Panel Name="PART_InnerPanel" Width="24" Height="24">
+                <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                      Name="ExpandPath"
+                      Fill="{TemplateBinding Foreground}"
+                      Stroke="{TemplateBinding Foreground}" />
+              </Panel>
+            </ripple:RippleEffect>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
     </Setter>
-  </Style>
 
-  <Style Selector="DataGridRowGroupHeader /template/ ToggleButton#ExpanderButton:checked /template/ Path">
-    <Setter Property="RenderTransform">
-      <RotateTransform Angle="90" />
-    </Setter>
+    <Style Selector="^:not(.no-transitions) /template/ Panel#PART_InnerPanel">
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Duration="0:0:0.25" Property="RenderTransform" Easing="CircularEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+
+    <Style Selector="^ /template/ Panel#PART_InnerPanel">
+      <Setter Property="RenderTransform" Value="rotate(0deg)" />
+    </Style>
+
+    <!-- Rotate the arrow to 45 degrees when group expanded -->
+    <Style Selector="^:checked /template/ Panel#PART_InnerPanel">
+      <Setter Property="RenderTransform" Value="rotate(45deg)" />
+    </Style>
   </Style>
 
   <Style Selector="DataGrid">
