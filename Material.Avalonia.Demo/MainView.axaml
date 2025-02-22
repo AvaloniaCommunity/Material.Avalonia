@@ -184,7 +184,7 @@
                 <pages:ListsDemo />
                 
                 <!-- Icons -->
-                <pages:IconsDemo />
+                <pages:IconsDemo ScrollViewer.VerticalScrollBarVisibility="Disabled" />
                 
                 <!-- Progress indicators -->
                 <pages:ProgressIndicatorDemo />

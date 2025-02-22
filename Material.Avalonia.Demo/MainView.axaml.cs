@@ -35,7 +35,7 @@ public partial class MainView : UserControl {
             PageCarousel.SelectedIndex = listBox.SelectedIndex;
             mainScroller.Offset = Vector.Zero;
             mainScroller.VerticalScrollBarVisibility =
-                listBox.SelectedIndex == 5 ? ScrollBarVisibility.Disabled : ScrollBarVisibility.Auto;
+                ((Control)PageCarousel.SelectedItem!).GetValue(ScrollViewer.VerticalScrollBarVisibilityProperty);
         }
         catch {
             // ignored
