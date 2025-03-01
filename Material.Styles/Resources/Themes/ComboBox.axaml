@@ -50,63 +50,66 @@
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
-          <Panel Name="PART_RootPanel">
-            <Grid ColumnDefinitions="*, Auto">
-              <Panel Grid.Column="0">
-                <Border Name="PART_BackgroundField" />
+          <DataValidationErrors Name="PART_DataValidation">
+            <Panel Name="PART_RootPanel">
+              <Grid ColumnDefinitions="*, Auto">
+                <Panel Grid.Column="0">
+                  <Border Name="PART_BackgroundField" />
 
-                <Panel Name="PART_InnerPanel" HorizontalAlignment="Left">
-                  <TextBlock Name="PART_PlaceholderText"
-                             Text="{TemplateBinding PlaceholderText}"
-                             Foreground="{TemplateBinding PlaceholderForeground}" />
+                  <Panel Name="PART_InnerPanel" HorizontalAlignment="Left">
+                    <TextBlock Name="PART_PlaceholderText"
+                               Text="{TemplateBinding PlaceholderText}"
+                               Foreground="{TemplateBinding PlaceholderForeground}" />
 
-                  <ContentPresenter Name="PART_ContentPresenter"
-                                    Content="{TemplateBinding SelectionBoxItem}"
-                                    ContentTemplate="{TemplateBinding ItemTemplate}" />
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Content="{TemplateBinding SelectionBoxItem}"
+                                      ContentTemplate="{TemplateBinding ItemTemplate}" />
+                  </Panel>
+
+                  <Border Name="PART_LabelRootBorder">
+                    <TextBlock Name="PART_LabelText"
+                               Text="{TemplateBinding (assists:ComboBoxAssist.Label)}" />
+                  </Border>
                 </Panel>
 
-                <Border Name="PART_LabelRootBorder">
-                  <TextBlock Name="PART_LabelText"
-                             Text="{TemplateBinding (assists:ComboBoxAssist.Label)}" />
+                <Border Name="splitBorder"
+                        Grid.Column="1"
+                        Margin="16 8"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        BorderBrush="Transparent"
+                        BorderThickness="0">
+                  <Path Name="arrow"
+                        Width="8" Height="8"
+                        Stretch="Uniform"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Data="M7,10L12,15L17,10H7Z"
+                        Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
                 </Border>
+              </Grid>
+
+
+              <controls:MaterialUnderline Name="PART_Underline"
+                                          Theme="{StaticResource MaterialUnderlineY}" />
+
+              <Panel Name="PART_PopupContainer">
+                <Popup Name="PART_Popup"
+                       IsLightDismissEnabled="True"
+                       IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}">
+                  <controls:Card Name="PART_Card"
+                                 MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
+                    <ScrollViewer Name="PART_ScrollViewer">
+                      <ItemsPresenter Name="PART_ItemsPresenter"
+                                      ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </ScrollViewer>
+                  </controls:Card>
+                </Popup>
               </Panel>
-
-              <Border Name="splitBorder"
-                      Grid.Column="1"
-                      Margin="16 8"
-                      HorizontalAlignment="Right"
-                      VerticalAlignment="Center"
-                      BorderBrush="Transparent"
-                      BorderThickness="0">
-                <Path Name="arrow"
-                      Width="8" Height="8"
-                      Stretch="Uniform"
-                      HorizontalAlignment="Right"
-                      VerticalAlignment="Center"
-                      Data="M7,10L12,15L17,10H7Z"
-                      Fill="{DynamicResource MaterialTextBoxBorderBrush}" />
-              </Border>
-            </Grid>
-
-
-            <controls:MaterialUnderline Name="PART_Underline"
-                                        Theme="{StaticResource MaterialUnderlineY}" />
-
-            <Panel Name="PART_PopupContainer">
-              <Popup Name="PART_Popup"
-                     IsLightDismissEnabled="True"
-                     IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}">
-                <controls:Card Name="PART_Card"
-                               MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                               MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
-                  <ScrollViewer Name="PART_ScrollViewer">
-                    <ItemsPresenter Name="PART_ItemsPresenter"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
-                  </ScrollViewer>
-                </controls:Card>
-              </Popup>
             </Panel>
-          </Panel>
+
+          </DataValidationErrors>
         </Border>
       </ControlTemplate>
     </Setter>
