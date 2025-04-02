@@ -13,7 +13,7 @@
       <ControlTemplate>
         <Border Name="PART_RootBorder"
                 Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderThickness}"
+                BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
                 CornerRadius="{TemplateBinding CornerRadius}">
           <Rectangle Name="PART_Content" Fill="{TemplateBinding Foreground}" />
