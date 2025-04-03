@@ -45,8 +45,7 @@
                            Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
                            Classes="time-input" Focusable="False"
                            assists:TextFieldAssist.Hints="{DynamicResource StringClockHourHintText}"
-                           ShowButtonSpinner="False" ClipValueToMinMax="True"
-                           FormatString="0"
+                           ClipValueToMinMax="True"
                            Minimum="{TemplateBinding TimeFormat, Converter={x:Static converters:AmPmRangeConverter.MinimumInstance}}"
                            Maximum="{TemplateBinding TimeFormat, Converter={x:Static converters:AmPmRangeConverter.MaximumInstance}}"
                            Value="{TemplateBinding controls:ClockInternals.Hours, Converter={x:Static converters:Int32ToDecimalConverter.Instance}, Mode=TwoWay}" />
@@ -59,9 +58,7 @@
                            Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"
                            Classes="time-input" Focusable="False"
                            assists:TextFieldAssist.Hints="{DynamicResource StringClockMinuteHintText}"
-                           ShowButtonSpinner="False" ClipValueToMinMax="True"
-                           FormatString="0"
-                           Minimum="0" Maximum="59"
+                           ClipValueToMinMax="True" Minimum="0" Maximum="59"
                            Value="{TemplateBinding controls:ClockInternals.Minutes, Converter={x:Static converters:Int32ToDecimalConverter.Instance}, Mode=TwoWay}" />
             <TextBlock x:Name="PART_MinutesSecondsSeparator"
                        Grid.Row="0" Grid.Column="3"
@@ -74,9 +71,7 @@
                            Classes="time-input" Focusable="False"
                            IsVisible="{TemplateBinding CanSelectSeconds}"
                            assists:TextFieldAssist.Hints="{DynamicResource StringClockSecondsHintText}"
-                           ShowButtonSpinner="False" ClipValueToMinMax="True"
-                           FormatString="0"
-                           Minimum="0" Maximum="59"
+                           ClipValueToMinMax="True" Minimum="0" Maximum="59"
                            Value="{TemplateBinding controls:ClockInternals.Seconds, Converter={x:Static converters:Int32ToDecimalConverter.Instance}, Mode=TwoWay}" />
 
             <Border x:Name="PART_AmPmSelector" Grid.Row="0" Grid.Column="5"
@@ -128,6 +123,9 @@
     <Style Selector="^ /template/ NumericUpDown.time-input">
       <Setter Property="Theme" Value="{StaticResource OutlineNumericUpDown}" />
       <Setter Property="Width" Value="96" />
+      <Setter Property="FontSize" Value="30" />
+      <Setter Property="FormatString" Value="0" />
+      <Setter Property="ShowButtonSpinner" Value="False" />
       <Style Selector="^.active">
         <Setter Property="Background" Value="{DynamicResource MaterialDividerBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />

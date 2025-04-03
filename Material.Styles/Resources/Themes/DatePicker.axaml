@@ -55,8 +55,7 @@
             <Popup Name="PART_CalendarPopup"
                    IsOpen="{Binding #CalendarButton.IsChecked, Mode=TwoWay}">
               <controls:Card Name="PART_Card" Padding="8">
-                <Calendar
-                  SelectedDate="{TemplateBinding SelectedDate, 
+                <Calendar SelectedDate="{TemplateBinding SelectedDate, 
                                     Mode=TwoWay, Converter={x:Static converters:DateTimeOffsetConverter.Instance}}" />
               </controls:Card>
             </Popup>
@@ -89,8 +88,8 @@
       <Setter Property="SelectionMode" Value="MultipleRange" />
     </Style>
   </ControlTheme>
-  
+
   <!-- Default theme -->
-  <ControlTheme x:Key="{x:Type DatePicker}" TargetType="DatePicker" 
+  <ControlTheme x:Key="{x:Type DatePicker}" TargetType="DatePicker"
                 BasedOn="{StaticResource MaterialDatePicker}" />
 </ResourceDictionary>
