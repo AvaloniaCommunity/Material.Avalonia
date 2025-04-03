@@ -59,6 +59,7 @@
                   <Panel Name="PART_InnerPanel" HorizontalAlignment="Left">
                     <TextBlock Name="PART_PlaceholderText"
                                Text="{TemplateBinding PlaceholderText}"
+                               VerticalAlignment="Center"
                                Foreground="{TemplateBinding PlaceholderForeground}" />
 
                     <ContentPresenter Name="PART_ContentPresenter"
