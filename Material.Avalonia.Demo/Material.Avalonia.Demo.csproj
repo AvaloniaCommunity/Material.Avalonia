@@ -6,23 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Controls.DataGrid"/>
-    <PackageReference Include="Avalonia.Diagnostics"/>
-    <PackageReference Include="Avalonia.Themes.Simple"/>
-    <PackageReference Include="Material.Icons.Avalonia"/>
-    <PackageReference Include="DialogHost.Avalonia"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia.AvaloniaEdit"/>
-    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" PrivateAssets="all"/>
+    <PackageReference Include="Avalonia.Controls.DataGrid" />
+    <PackageReference Include="Avalonia.Diagnostics" />
+    <PackageReference Include="Avalonia.Themes.Simple" />
+    <PackageReference Include="Material.Icons.Avalonia" />
+    <PackageReference Include="DialogHost.Avalonia" />
+    <PackageReference Include="ShowMeTheXaml.Avalonia" />
+    <PackageReference Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" />
+    <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj"/>
+    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.Avalonia.Dialogs\Material.Avalonia.Dialogs.csproj" />
     <ProjectReference Include="..\Material.Avalonia.DataGrid\Material.Avalonia.DataGrid.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <AvaloniaResource Include="Assets\**"/>
+    <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
   <ItemGroup>

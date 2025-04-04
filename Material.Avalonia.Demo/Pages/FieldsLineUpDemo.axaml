@@ -1,0 +1,216 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:wpf="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:viewModels="clr-namespace:Material.Avalonia.Demo.ViewModels"
+             x:DataType="viewModels:FieldsLineUpDemoViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Material.Avalonia.Demo.Pages.FieldsLineUpDemo" Padding="32">
+  <UserControl.DataContext>
+    <viewModels:FieldsLineUpDemoViewModel/>
+  </UserControl.DataContext>
+  <StackPanel>
+    <Grid RowDefinitions="auto, *">
+      <Grid.Styles>
+        <Style Selector="TextBox">
+          <Setter Property="Theme" Value="{StaticResource FilledTextBox}" />
+          <Setter Property="Margin" Value="2" />
+        </Style>
+      </Grid.Styles>
+      <controls:ColorZone Mode="PrimaryMid">
+          <TextBlock Classes="Headline6" Text="Options"/>
+      </controls:ColorZone>
+
+      <WrapPanel Grid.Row="1">
+        <StackPanel>
+          <TextBox wpf:TextFieldAssist.Label="wpf:TextFieldAssist.Label"
+                   Text="{Binding AssistLabel}"
+                   Margin="0 2" />
+          <TextBox wpf:TextFieldAssist.Label="Watermark"
+                   Text="{Binding Watermark}"
+                   Margin="0 2" />
+        </StackPanel>
+      </WrapPanel>
+      
+    </Grid>
+    <Grid x:Name="FieldsLineUpGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Grid.Styles>
+        <!--TextBlocks-->
+        <Style Selector="TextBlock">
+          <Setter Property="HorizontalAlignment" Value="Center" />
+          <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <!--TextBoxes-->
+        <Style Selector="TextBox">
+          <Setter Property="Text" Value="Text" />
+          <Setter Property="wpf:TextFieldAssist.Label"  Value="{Binding AssistLabel}" />
+          <Setter Property="Watermark"  Value="{Binding Watermark}" />
+        </Style>
+        <!--ComboBoxes-->
+        <Style Selector="ComboBox">
+          <Setter Property="ItemsSource" Value="{Binding ComboBoxItems}" />
+        </Style>
+      </Grid.Styles>
+      <Grid.RowDefinitions>
+       <RowDefinition Height="Auto" />
+       <RowDefinition Height="Auto" />
+       <RowDefinition Height="Auto" />
+       <RowDefinition Height="Auto" />
+       <RowDefinition Height="Auto" />
+     </Grid.RowDefinitions>
+     <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="Auto" />
+       <ColumnDefinition MinWidth="100" />
+       <ColumnDefinition MinWidth="100" />
+       <ColumnDefinition MinWidth="100" />
+       <ColumnDefinition MinWidth="100" />
+       <ColumnDefinition MinWidth="100" />
+       <ColumnDefinition MinWidth="100" />
+       <ColumnDefinition MinWidth="100" />
+     </Grid.ColumnDefinitions>
+    
+     <TextBlock Grid.Row="1"
+                Grid.Column="0"
+                Text="Default" />
+     <TextBlock Grid.Row="2"
+                Grid.Column="0"
+                Text="Floating" />
+     <TextBlock Grid.Row="3"
+                Grid.Column="0"
+                Text="Filled" />
+     <TextBlock Grid.Row="4"
+                Grid.Column="0"
+                Text="Outlined" />
+
+     <TextBlock Grid.Row="0"
+                Grid.Column="1"
+                Text="TextField" />
+     <TextBlock Grid.Row="0"
+                Grid.Column="2"
+                Text="PasswordBox" />
+     <TextBlock Grid.Row="0"
+                Grid.Column="3"
+                Text="ComboBox" />
+     <TextBlock Grid.Row="0"
+                Grid.Column="4"
+                Text="DatePicker" />
+     <TextBlock Grid.Row="0"
+                Grid.Column="5"
+                Text="TimePicker" />
+     <TextBlock Grid.Row="0"
+                Grid.Column="6"
+                Text="NumericUpDown" />
+     <TextBlock Grid.Row="0"
+                Grid.Column="7"
+                Text="AutoSuggestBox " />
+
+     <TextBox Grid.Row="1" 
+              Grid.Column="1" 
+              wpf:TextFieldAssist.Label="{x:Null}"
+              />
+     <TextBox Grid.Row="2"
+              Grid.Column="1"
+              UseFloatingWatermark="True" />
+     <TextBox Grid.Row="3"
+              Grid.Column="1"
+              Theme="{StaticResource FilledTextBox}"
+              wpf:TextFieldAssist.Label="{Binding AssistLabel}" 
+              />
+     <TextBox Grid.Row="4"
+              Grid.Column="1"
+              Theme="{StaticResource OutlineTextBox}"
+              UseFloatingWatermark="True"
+              Classes="outline"
+              wpf:TextFieldAssist.Label="{Binding AssistLabel}" 
+              />
+
+     <TextBox Classes="revealPasswordButton"
+              Grid.Row="1"
+              Grid.Column="2"
+               />
+     <TextBox Classes="revealPasswordButton"
+              Grid.Row="2"
+              Grid.Column="2"
+              UseFloatingWatermark="True"/>
+     <TextBox Classes="revealPasswordButton"
+              Grid.Row="3"
+              Grid.Column="2"
+              Theme="{StaticResource FilledTextBox}" />
+     <TextBox Classes="revealPasswordButton"
+              Grid.Row="4"
+              Grid.Column="2"
+              Theme="{StaticResource OutlineTextBox}" />
+
+     <ComboBox Grid.Row="1"
+               Grid.Column="3" />
+     <ComboBox Grid.Row="2"
+               Grid.Column="3"
+               wpf:ComboBoxAssist.Label="{Binding AssistLabel}" />
+     <ComboBox Grid.Row="3"
+               Grid.Column="3"
+               wpf:ComboBoxAssist.Label="{Binding AssistLabel}"
+               Theme="{StaticResource MaterialFilledComboBox}" />
+     <ComboBox Grid.Row="4"
+               Grid.Column="3"
+               wpf:ComboBoxAssist.Label="{Binding AssistLabel}"
+               Theme="{StaticResource MaterialOutlineComboBox}" />
+
+     <DatePicker Grid.Row="1"
+                 Grid.Column="4" />
+     <DatePicker Grid.Row="2" 
+                 Grid.Column="4"
+                 wpf:TextFieldAssist.Label="{Binding AssistLabel}" />
+     <DatePicker Grid.Row="3"
+                 Grid.Column="4"
+                 wpf:TextFieldAssist.Label="{Binding AssistLabel}" />
+     <DatePicker Grid.Row="4"
+                 Grid.Column="4"
+                 wpf:TextFieldAssist.Label="{Binding AssistLabel}" />
+
+     <TimePicker Grid.Row="1"
+                 Grid.Column="5" />
+     <TimePicker Grid.Row="2"
+                 Grid.Column="5" />
+     <TimePicker Grid.Row="3"
+                 Grid.Column="5" />
+     <TimePicker Grid.Row="4"
+                 Grid.Column="5" />
+
+      <!--<NumericUpDown Watermark="Enter text"
+                         p1:TextFieldAssist.Hints="Here is the hint"
+                         p1:TextFieldAssist.Label="Cool label"
+                         xmlns:p1="clr-namespace:Material.Styles.Assists;assembly=Material.Styles" />-->
+
+      
+     <NumericUpDown Grid.Row="1"
+                    Grid.Column="6"
+                    wpf:TextFieldAssist.Label="{Binding AssistLabel}" />
+     <NumericUpDown Grid.Row="2"
+                    Grid.Column="6"
+                    wpf:TextFieldAssist.Label="{Binding AssistLabel}" />
+     <NumericUpDown Grid.Row="3"
+                    Grid.Column="6"
+                    wpf:TextFieldAssist.Label="{Binding AssistLabel}"
+                    Theme="{StaticResource FilledNumericUpDown}" />
+     <NumericUpDown Grid.Row="4"
+                    Grid.Column="6"
+                    wpf:TextFieldAssist.Label="{Binding AssistLabel}"
+                    Theme="{StaticResource OutlineNumericUpDown}" />
+
+     <!--<materialDesign:AutoSuggestBox Grid.Row="1" Grid.Column="7" />
+     <materialDesign:AutoSuggestBox Grid.Row="2"
+                                    Grid.Column="7"
+                                    Style="{StaticResource MaterialDesignFloatingHintAutoSuggestBox}" />
+     <materialDesign:AutoSuggestBox Grid.Row="3"
+                                    Grid.Column="7"
+                                    Style="{StaticResource MaterialDesignFilledAutoSuggestBox}" />
+     <materialDesign:AutoSuggestBox Grid.Row="4"
+                                    Grid.Column="7"
+                                    Style="{StaticResource MaterialDesignOutlinedAutoSuggestBox}" />-->
+
+    </Grid>
+  </StackPanel>
+</UserControl>
