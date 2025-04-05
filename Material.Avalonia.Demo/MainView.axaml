@@ -72,6 +72,7 @@
                 <ListBoxItem>Dialogs</ListBoxItem>
                 <ListBoxItem>Expanders</ListBoxItem>
                 <ListBoxItem>Fields</ListBoxItem>
+                <ListBoxItem>Fields line up</ListBoxItem>
                 <ListBoxItem>Lists</ListBoxItem>
                 <ListBoxItem>Material Icons</ListBoxItem>
                 <ListBoxItem>Progress indicators</ListBoxItem>
@@ -179,6 +180,9 @@
                 
                 <!-- Fields -->
                 <pages:FieldsDemo />
+
+                <!-- FieldsLline up -->
+                <pages:FieldsLineUpDemo />
                 
                 <!-- Lists -->
                 <pages:ListsDemo />
