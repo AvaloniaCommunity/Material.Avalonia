@@ -113,14 +113,12 @@
      <TextBox Grid.Row="3"
               Grid.Column="1"
               Theme="{StaticResource FilledTextBox}"
-              wpf:TextFieldAssist.Label="{Binding AssistLabel}" 
               />
      <TextBox Grid.Row="4"
               Grid.Column="1"
               Theme="{StaticResource OutlineTextBox}"
               UseFloatingWatermark="True"
               Classes="outline"
-              wpf:TextFieldAssist.Label="{Binding AssistLabel}" 
               />
 
      <TextBox Classes="revealPasswordButton"
@@ -136,10 +134,11 @@
               Grid.Row="3"
               Grid.Column="2"
               Theme="{StaticResource FilledTextBox}" />
-     <TextBox Classes="revealPasswordButton"
+     <TextBox Classes="revealPasswordButton outline"
               Grid.Row="4"
               Grid.Column="2"
-              Theme="{StaticResource OutlineTextBox}" />
+              Theme="{StaticResource OutlineTextBox}"
+              UseFloatingWatermark="True" />
 
      <ComboBox Grid.Row="1"
                Grid.Column="3" />
