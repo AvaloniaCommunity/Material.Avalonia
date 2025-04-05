@@ -69,7 +69,6 @@
        <ColumnDefinition MinWidth="100" />
        <ColumnDefinition MinWidth="100" />
        <ColumnDefinition MinWidth="100" />
-       <ColumnDefinition MinWidth="100" />
      </Grid.ColumnDefinitions>
     
      <TextBlock Grid.Row="1"
@@ -103,9 +102,6 @@
      <TextBlock Grid.Row="0"
                 Grid.Column="6"
                 Text="NumericUpDown" />
-     <TextBlock Grid.Row="0"
-                Grid.Column="7"
-                Text="AutoSuggestBox " />
 
      <TextBox Grid.Row="1" 
               Grid.Column="1" 
@@ -130,6 +126,7 @@
      <TextBox Classes="revealPasswordButton"
               Grid.Row="1"
               Grid.Column="2"
+              wpf:TextFieldAssist.Label="{x:Null}"
                />
      <TextBox Classes="revealPasswordButton"
               Grid.Row="2"
@@ -178,12 +175,6 @@
                  Grid.Column="5" />
      <TimePicker Grid.Row="4"
                  Grid.Column="5" />
-
-      <!--<NumericUpDown Watermark="Enter text"
-                         p1:TextFieldAssist.Hints="Here is the hint"
-                         p1:TextFieldAssist.Label="Cool label"
-                         xmlns:p1="clr-namespace:Material.Styles.Assists;assembly=Material.Styles" />-->
-
       
      <NumericUpDown Grid.Row="1"
                     Grid.Column="6"
@@ -199,17 +190,6 @@
                     Grid.Column="6"
                     wpf:TextFieldAssist.Label="{Binding AssistLabel}"
                     Theme="{StaticResource OutlineNumericUpDown}" />
-
-     <!--<materialDesign:AutoSuggestBox Grid.Row="1" Grid.Column="7" />
-     <materialDesign:AutoSuggestBox Grid.Row="2"
-                                    Grid.Column="7"
-                                    Style="{StaticResource MaterialDesignFloatingHintAutoSuggestBox}" />
-     <materialDesign:AutoSuggestBox Grid.Row="3"
-                                    Grid.Column="7"
-                                    Style="{StaticResource MaterialDesignFilledAutoSuggestBox}" />
-     <materialDesign:AutoSuggestBox Grid.Row="4"
-                                    Grid.Column="7"
-                                    Style="{StaticResource MaterialDesignOutlinedAutoSuggestBox}" />-->
 
     </Grid>
   </StackPanel>
