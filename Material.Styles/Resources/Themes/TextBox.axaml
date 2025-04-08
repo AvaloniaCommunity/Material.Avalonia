@@ -472,6 +472,9 @@
     </Style>
 
     <!-- Feedbacks -->
+    <Style Selector="^:not(:focus-within) /template/ TextBlock#PART_PlaceholderText">
+      <Setter Property="IsVisible" Value="False"/>
+    </Style>
 
     <Style Selector="^:empty:not(:focus-within) /template/ Border#PART_LabelRootBorder">
       <Setter Property="Margin" Value="12,18,1,1" />

@@ -122,19 +122,22 @@
               />
 
      <TextBox Classes="revealPasswordButton"
+              PasswordChar="*"
               Grid.Row="1"
               Grid.Column="2"
-              wpf:TextFieldAssist.Label="{x:Null}"
-               />
+              wpf:TextFieldAssist.Label="{x:Null}" />
      <TextBox Classes="revealPasswordButton"
+              PasswordChar="*"
               Grid.Row="2"
               Grid.Column="2"
-              UseFloatingWatermark="True"/>
+              UseFloatingWatermark="True" />
      <TextBox Classes="revealPasswordButton"
+              PasswordChar="*"
               Grid.Row="3"
               Grid.Column="2"
               Theme="{StaticResource FilledTextBox}" />
      <TextBox Classes="revealPasswordButton outline"
+              PasswordChar="*"
               Grid.Row="4"
               Grid.Column="2"
               Theme="{StaticResource OutlineTextBox}"
