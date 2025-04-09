@@ -281,14 +281,16 @@
       </Style.Animations>
     </Style>
 
-    <Style Selector="^:not(.no-transitions) /template/ Border#PART_Indicator">
-      <Setter Property="Transitions">
-        <Transitions>
-          <DoubleTransition Property="Width" Duration="0:0:0.25" Easing="CubicEaseOut" />
-          <DoubleTransition Property="Height" Duration="0:0:0.25" Easing="CubicEaseOut" />
-        </Transitions>
-      </Setter>
-    </Style>
+    <!-- Removed due to https://github.com/AvaloniaCommunity/Material.Avalonia/issues/445 -->
+    <!-- Until fixed in https://github.com/AvaloniaUI/Avalonia/issues/18616 -->
+    <!-- <Style Selector="^:not(.no-transitions) /template/ Border#PART_Indicator"> -->
+    <!--   <Setter Property="Transitions"> -->
+    <!--     <Transitions> -->
+    <!--       <DoubleTransition Property="Width" Duration="0:0:0.25" Easing="CubicEaseOut" /> -->
+    <!--       <DoubleTransition Property="Height" Duration="0:0:0.25" Easing="CubicEaseOut" /> -->
+    <!--     </Transitions> -->
+    <!--   </Setter> -->
+    <!-- </Style> -->
   </ControlTheme>
 
   <!-- Use Linear progress indicator as default theme -->
