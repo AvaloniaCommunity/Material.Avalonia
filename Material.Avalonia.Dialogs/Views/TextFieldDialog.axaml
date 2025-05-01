@@ -14,11 +14,12 @@
     </Window.Styles>
     
     <controls:EmbeddedDialogControl>
-        <ScrollViewer Name="PART_ScrollView" Padding="24, 0">
-            <StackPanel Name="PART_ContentPanel">
+        <ScrollViewer Name="PART_ScrollView" >
+            <StackPanel Name="PART_ContentPanel"
+                        Margin="24, 0">
                 <TextBlock Name="PART_SupportingText"
                            Classes="Body1"
-                           IsVisible="{Binding !!ContentMessage.Length}"
+                           IsVisible="{Binding ContentMessage, Converter={x:Static ObjectConverters.IsNotNull}}"
                            Text="{Binding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
 
                 <ItemsControl Name="PART_Fields"

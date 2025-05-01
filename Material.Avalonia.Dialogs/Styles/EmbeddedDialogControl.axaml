@@ -1,125 +1,126 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels" 
+        xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
         xmlns:controls="clr-namespace:Material.Dialog.Controls"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
-        xmlns:naming="clr-namespace:Material.Dialog.Resources.Naming">
-    <Styles.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Material.Avalonia.Dialogs/Resources/TemplateResources.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Styles.Resources>
+        xmlns:system="clr-namespace:System;assembly=netstandard">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Avalonia.Dialogs/Resources/TemplateResources.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
 
-    <Style Selector="controls|EmbeddedDialogControl" x:DataType="viewModels:DialogWindowViewModel" >
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Border Name="PART_RootBorder"
-                        Background="{DynamicResource MaterialCardBackgroundBrush}" >
-                    <DockPanel Name="PART_RootPanel"
-                               Width="{Binding Width}"
-                               MaxWidth="{Binding MaxWidth}" >
-                        <DockPanel Name="{x:Static naming:PartNames.PartHeaderPanel}">
-                            <ContentPresenter Name="{x:Static naming:PartNames.PartHeaderIcon}"
-                                              Content="{Binding DialogIcon}"
-                                              ContentTemplate="{StaticResource DialogHeaderIconTemplate}"
-                                              IsVisible="{Binding !!DialogIcon}" />
-                            <DockPanel.IsVisible>
-                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
-                                    <CompiledBinding Converter="{x:Static ObjectConverters.IsNotNull}" Path="DialogIcon" />
-                                    <CompiledBinding Converter="{x:Static StringConverters.IsNotNullOrEmpty}" Path="ContentHeader" />
-                                </MultiBinding>
-                            </DockPanel.IsVisible>
-                            <TextBlock Name="{x:Static naming:PartNames.PartHeaderText}"
-                                       Classes="Headline6"
-                                       IsVisible="{Binding !!ContentHeader.Length}"
-                                       Text="{Binding ContentHeader, FallbackValue='DIALOG_HEADER_NULL'}" />
-                        </DockPanel>
+  <Style Selector="controls|EmbeddedDialogControl"
+         x:DataType="viewModels:DialogWindowViewModel">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                Background="{DynamicResource MaterialCardBackgroundBrush}">
+          <DockPanel Name="PART_RootPanel"
+                     Width="{Binding Width, TargetNullValue={x:Static system:Double.NaN}}"
+                     MaxWidth="{Binding MaxWidth, TargetNullValue={x:Static system:Double.PositiveInfinity}}">
+            <DockPanel Name="PART_HeaderPanel">
+              <ContentControl Name="PART_HeaderIcon"
+                              Content="{Binding DialogIcon}"
+                              ContentTemplate="{StaticResource DialogHeaderIconTemplate}"
+                              IsVisible="{Binding DialogIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              <DockPanel.IsVisible>
+                <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                  <CompiledBinding Converter="{x:Static ObjectConverters.IsNotNull}" Path="DialogIcon" />
+                  <CompiledBinding Converter="{x:Static StringConverters.IsNotNullOrEmpty}" Path="ContentHeader" />
+                </MultiBinding>
+              </DockPanel.IsVisible>
+              <TextBlock Name="PART_HeaderText"
+                         Classes="Headline6"
+                         IsVisible="{Binding ContentHeader, Converter={x:Static ObjectConverters.IsNotNull}}"
+                         Text="{Binding ContentHeader, FallbackValue='DIALOG_HEADER_NULL'}" />
+            </DockPanel>
 
-                        <DockPanel Name="{x:Static naming:PartNames.PartButtonsPanel}">
-                            
-                            <ItemsControl Name="{x:Static naming:PartNames.PartNeutralButtonPlacement}"
-                                          DockPanel.Dock="Left"
-                                          ItemsSource="{Binding NeutralDialogButton}"
-                                          ItemTemplate="{StaticResource DialogButtonTemplate}"
-                                          ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
+            <DockPanel Name="PART_ButtonsPanel">
 
-                            <ItemsControl Name="{x:Static naming:PartNames.PartButtonPlacement}"
-                                          DockPanel.Dock="Right"
-                                          ItemsSource="{Binding DialogButtons}"
-                                          ItemTemplate="{StaticResource DialogButtonTemplate}"
-                                          ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
-                        </DockPanel>
+              <ItemsControl Name="PART_NeutralButtonPlacement"
+                            DockPanel.Dock="Left"
+                            ItemsSource="{Binding NeutralDialogButton}"
+                            ItemTemplate="{StaticResource DialogButtonTemplate}"
+                            ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
 
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          DockPanel.Dock="Left"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
-                    </DockPanel>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ Border#PART_RootBorder">
-        <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3"/>
-        <Setter Property="CornerRadius" Value="4"/>
-        <Setter Property="Margin" Value="32"/>
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ DockPanel#PART_HeaderPanel">
-        <Setter Property="Margin" Value="24,24,24,14"/>
-        <Setter Property="Dock" Value="Top"/>
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ ContentPresenter#PART_HeaderIcon">
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Height" Value="32"/>
-        <Setter Property="Margin" Value="0,0,8,0"/>
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ TextBlock#PART_HeaderText">
-        <Setter Property="VerticalAlignment" Value="Center"/>
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ DockPanel#PART_ButtonsPanel">
-        <Setter Property="Margin" Value="4,16,4,4"/>
-        <Setter Property="Dock" Value="Bottom"/>
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement">
-        <Setter Property="HorizontalAlignment" Value="Right"/>
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement Button,
+              <ItemsControl Name="PART_ButtonPlacement"
+                            DockPanel.Dock="Right"
+                            ItemsSource="{Binding DialogButtons}"
+                            ItemTemplate="{StaticResource DialogButtonTemplate}"
+                            ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
+            </DockPanel>
+
+            <ContentControl Name="PART_ContentHolder"
+                              DockPanel.Dock="Left"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ Border#PART_RootBorder">
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="CenterDepth3" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="Margin" Value="32" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ DockPanel#PART_HeaderPanel">
+    <Setter Property="Margin" Value="24,24,24,14" />
+    <Setter Property="Dock" Value="Top" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ ContentControl#PART_HeaderIcon">
+    <Setter Property="Width" Value="32" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Margin" Value="0,0,8,0" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ TextBlock#PART_HeaderText">
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ DockPanel#PART_ButtonsPanel">
+    <Setter Property="Margin" Value="4,16,4,4" />
+    <Setter Property="Dock" Value="Bottom" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement">
+    <Setter Property="HorizontalAlignment" Value="Right" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement Button,
                      controls|EmbeddedDialogControl /template/ ItemsControl#PART_NeutralButtonPlacement Button">
-        <Setter Property="Margin" Value="4"/>
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_NeutralButtonPlacement ItemsPresenter">
-        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
-    </Style>
-    
-    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement ItemsPresenter">
-        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
-    </Style>
-    
-    
-    <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > TextBlock#PART_SupportingText">
-        <Setter Property="Margin" Value="24,0"/>
-        <Setter Property="TextWrapping" Value="Wrap"/>
-    </Style>
-    
-    <!-- For TextField dialog -->
-    <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > ItemsControl#PART_TextFields">
-        <Setter Property="Margin" Value="24,4"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-    </Style>
-    
-    <!-- Origin contribution by dojo90
+    <Setter Property="Margin" Value="4" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_NeutralButtonPlacement ItemsPresenter">
+    <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement ItemsPresenter">
+    <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+  </Style>
+
+
+  <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > TextBlock#PART_SupportingText">
+    <Setter Property="Margin" Value="24,0" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
+  <!-- For TextField dialog -->
+  <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > ItemsControl#PART_TextFields">
+    <Setter Property="Margin" Value="24,4" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+
+  <!-- Origin contribution by dojo90
          https://github.com/AvaloniaCommunity/Material.Avalonia/pull/147 -->
-    <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > ItemsControl#PART_TextFields ItemsPresenter">
-        <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
-    </Style>
+  <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > ItemsControl#PART_TextFields ItemsPresenter">
+    <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+  </Style>
 </Styles>
