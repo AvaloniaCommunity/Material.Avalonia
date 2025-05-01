@@ -14,7 +14,6 @@
   <ControlTheme x:Key="MaterialHyperlinkButton" TargetType="HyperlinkButton">
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="TextBlock.TextDecorations" Value="Underline" />
-    <Setter Property="assists:ButtonAssist.IsClicked" Value="False"/>
     <Setter Property="Template">
       <ControlTemplate>
         <ContentPresenter x:Name="PART_ContentPresenter"

@@ -193,12 +193,9 @@
     </StackPanel>
 
     <TextBlock Classes="Headline6 Subheadline2" Text="Hyperlink buttons" />
-    <StackPanel Orientation="Horizontal">
-      <StackPanel.Styles>
-        <Style Selector="showMeTheXaml|XamlDisplay">
-          <Setter Property="Margin" Value="8" />
-        </Style>
-      </StackPanel.Styles>
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <!-- TODO: Emit notifications or something like that -->
+      <!-- Probably add one with link to docs? -->
       <showMeTheXaml:XamlDisplay UniqueId="HyperlinkButtons0">
         <HyperlinkButton Theme="{StaticResource MaterialHyperlinkButton}"
                          Content="A hyperlink!"
@@ -214,16 +211,7 @@
                          Command="{Binding #ButtonsDemoPageControl.OnHyperlink2Clicked}"/>
       </showMeTheXaml:XamlDisplay>
       
-      <!-- add assists:ButtonAssist.IsClicked="{x:Null}" to ignore memorise visited feature -->
       <showMeTheXaml:XamlDisplay UniqueId="HyperlinkButtons2">
-        <HyperlinkButton assists:ButtonAssist.IsClicked="{x:Null}"
-                         Theme="{StaticResource MaterialHyperlinkButton}"
-                         Content="Another hyperlink, but not to memorise visited!"
-                         ToolTip.Tip='I dont remember visited or not lol'
-                         Command="{Binding #ButtonsDemoPageControl.OnHyperlink2Clicked}"/>
-      </showMeTheXaml:XamlDisplay>
-      
-      <showMeTheXaml:XamlDisplay UniqueId="HyperlinkButtons3">
         <HyperlinkButton IsVisited="False"
                          IsEnabled="False"
                          Theme="{StaticResource MaterialHyperlinkButton}"
