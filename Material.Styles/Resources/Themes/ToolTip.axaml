@@ -8,6 +8,7 @@
     <Setter Property="HorizontalAlignment" Value="Center" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="Placement" Value="Pointer" />
+    <Setter Property="TextBlock.TextDecorations" Value="{x:Null}" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate>
