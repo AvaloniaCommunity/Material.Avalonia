@@ -245,7 +245,7 @@ namespace Material.Dialog
                     throw new ArgumentException("Do not wrap Bitmap object with Image control for now.");
 
                 case Control _:
-                    throw new ArgumentException("Custom view icon feature is currently unavailable.");
+                    throw new NotImplementedException("Custom view icon feature is currently unavailable.");
 
                 case DialogIconKind kind:
                 {
