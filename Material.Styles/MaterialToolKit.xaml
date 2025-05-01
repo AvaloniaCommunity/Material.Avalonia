@@ -48,6 +48,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FlyoutPresenter.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FontFamily.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/GridSplitter.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/HyperlinkButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ItemsControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Label.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />

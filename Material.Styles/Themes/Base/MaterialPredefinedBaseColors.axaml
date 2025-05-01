@@ -31,6 +31,9 @@
       <Color x:Key="MaterialTextAreaBorderColor">#BC000000</Color>
       <Color x:Key="MaterialTextAreaInactiveBorderColor">#0F000000</Color>
       <Color x:Key="MaterialDataGridRowHoverBackgroundColor">#0A000000</Color>
+      
+      <Color x:Key="MaterialHyperlinkColor">#FF1F50D0</Color>
+      <Color x:Key="MaterialHyperlinkVisitedColor">#FF681DA8</Color>
 
       <SolidColorBrush x:Key="MaterialValidationErrorColorBrush" Color="{StaticResource MaterialValidationErrorColor}" />
       <SolidColorBrush x:Key="MaterialBackgroundBrush" Color="{StaticResource MaterialBackgroundColor}" />
@@ -72,6 +75,11 @@
                        Color="{StaticResource MaterialTextAreaInactiveBorderColor}" />
       <SolidColorBrush x:Key="MaterialDataGridRowHoverBackgroundBrush"
                        Color="{StaticResource MaterialDataGridRowHoverBackgroundColor}" />
+      
+      <SolidColorBrush x:Key="MaterialHyperlinkBrush"
+                       Color="{StaticResource MaterialHyperlinkColor}"/>
+      <SolidColorBrush x:Key="MaterialHyperlinkVisitedBrush"
+                       Color="{StaticResource MaterialHyperlinkVisitedColor}"/>
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static themes:Theme.MaterialDark}">
@@ -103,6 +111,9 @@
       <Color x:Key="MaterialTextAreaBorderColor">#BCFFFFFF</Color>
       <Color x:Key="MaterialTextAreaInactiveBorderColor">#1AFFFFFF</Color>
       <Color x:Key="MaterialDataGridRowHoverBackgroundColor">#14FFFFFF</Color>
+      
+      <Color x:Key="MaterialHyperlinkColor">#FF7EAAFF</Color>
+      <Color x:Key="MaterialHyperlinkVisitedColor">#FFD19EFA</Color>
 
       <SolidColorBrush x:Key="MaterialValidationErrorColorBrush" Color="{StaticResource MaterialValidationErrorColor}" />
       <SolidColorBrush x:Key="MaterialBackgroundBrush" Color="{StaticResource MaterialBackgroundColor}" />
@@ -144,6 +155,11 @@
                        Color="{StaticResource MaterialTextAreaInactiveBorderColor}" />
       <SolidColorBrush x:Key="MaterialDataGridRowHoverBackgroundBrush"
                        Color="{StaticResource MaterialDataGridRowHoverBackgroundColor}" />
+      
+      <SolidColorBrush x:Key="MaterialHyperlinkBrush"
+                       Color="{StaticResource MaterialHyperlinkColor}"/>
+      <SolidColorBrush x:Key="MaterialHyperlinkVisitedBrush"
+                       Color="{StaticResource MaterialHyperlinkVisitedColor}"/>
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 

@@ -6,7 +6,9 @@
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
-             x:Class="Material.Avalonia.Demo.Pages.ButtonsDemo">
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             x:Class="Material.Avalonia.Demo.Pages.ButtonsDemo"
+             Name="ButtonsDemoPageControl">
   <StackPanel Margin="16, 0">
     <StackPanel.Styles>
       <Style Selector="Button">
@@ -190,5 +192,45 @@
       </showMeTheXaml:XamlDisplay>
     </StackPanel>
 
+    <TextBlock Classes="Headline6 Subheadline2" Text="Hyperlink buttons" />
+    <StackPanel Orientation="Horizontal">
+      <StackPanel.Styles>
+        <Style Selector="showMeTheXaml|XamlDisplay">
+          <Setter Property="Margin" Value="8" />
+        </Style>
+      </StackPanel.Styles>
+      <showMeTheXaml:XamlDisplay UniqueId="HyperlinkButtons0">
+        <HyperlinkButton Theme="{StaticResource MaterialHyperlinkButton}"
+                         Content="A hyperlink!"
+                         ToolTip.Tip='A simple hyperlink!' 
+                         Command="{Binding #ButtonsDemoPageControl.OnHyperlink1Clicked}"/>
+      </showMeTheXaml:XamlDisplay>
+      
+      <showMeTheXaml:XamlDisplay UniqueId="HyperlinkButtons1">
+        <HyperlinkButton IsVisited="False"
+                         Theme="{StaticResource MaterialHyperlinkButton}"
+                         Content="Another hyperlink!"
+                         ToolTip.Tip='Another hyperlink!'
+                         Command="{Binding #ButtonsDemoPageControl.OnHyperlink2Clicked}"/>
+      </showMeTheXaml:XamlDisplay>
+      
+      <!-- add assists:ButtonAssist.IsClicked="{x:Null}" to ignore memorise visited feature -->
+      <showMeTheXaml:XamlDisplay UniqueId="HyperlinkButtons2">
+        <HyperlinkButton assists:ButtonAssist.IsClicked="{x:Null}"
+                         Theme="{StaticResource MaterialHyperlinkButton}"
+                         Content="Another hyperlink, but not to memorise visited!"
+                         ToolTip.Tip='I dont remember visited or not lol'
+                         Command="{Binding #ButtonsDemoPageControl.OnHyperlink2Clicked}"/>
+      </showMeTheXaml:XamlDisplay>
+      
+      <showMeTheXaml:XamlDisplay UniqueId="HyperlinkButtons3">
+        <HyperlinkButton IsVisited="False"
+                         IsEnabled="False"
+                         Theme="{StaticResource MaterialHyperlinkButton}"
+                         Content="a disabled hyperlink"
+                         ToolTip.Tip='not clickable hyperlink'
+                         Command="{Binding #ButtonsDemoPageControl.OnHyperlink2Clicked}"/>
+      </showMeTheXaml:XamlDisplay>
+    </StackPanel>
   </StackPanel>
 </UserControl>
