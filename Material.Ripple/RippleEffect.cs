@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -56,9 +57,7 @@ namespace Material.Ripple {
         }
 
         private void PointerPressedHandler(object? sender, PointerPressedEventArgs e) {
-            var c = _container;
-
-            if (c is null)
+            if (_container is not {} c)
                 return;
 
             var (x, y) = e.GetPosition(this);
@@ -124,7 +123,7 @@ namespace Material.Ripple {
             var c = _container;
 
             if (c is null || nX < 0 || nX > 1 || nY < 0 || nY > 1)
-                return;
+                throw new ArgumentOutOfRangeException();
 
             lock (this) {
                 if (!IsAllowedRaiseRipple)
@@ -176,8 +175,8 @@ namespace Material.Ripple {
         #region Styled properties
 
         public static readonly StyledProperty<IBrush> RippleFillProperty =
-            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), inherits: true,
-                defaultValue: Brushes.White);
+            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), 
+                inherits: true, defaultValue: Brushes.White);
 
         public IBrush RippleFill {
             get => GetValue(RippleFillProperty);
