@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
@@ -8,17 +9,19 @@ using Avalonia.Threading;
 
 namespace Material.Ripple {
     public class RippleEffect : ContentControl {
-
         private bool _isCancelled;
 
         private CompositionContainerVisual? _container;
         private CompositionCustomVisual? _last;
         private byte _pointers;
-        
+
+        // TODO: new ripple system, which should deprecate _pointers such thing
+        private static object _lockObj = new();
+
         static RippleEffect() {
             BackgroundProperty.OverrideDefaultValue<RippleEffect>(Brushes.Transparent);
         }
-        
+
         public RippleEffect() {
             AddHandler(LostFocusEvent, LostFocusHandler);
             AddHandler(PointerReleasedEvent, PointerReleasedHandler);
@@ -57,30 +60,41 @@ namespace Material.Ripple {
         }
 
         private void PointerPressedHandler(object? sender, PointerPressedEventArgs e) {
-            var (x, y) = e.GetPosition(this);
-            if (_container is null || x < 0 || x > Bounds.Width || y < 0 || y > Bounds.Height) {
+            if (_container is not {} c)
                 return;
-            }
+
+            var (x, y) = e.GetPosition(this);
+
+            if (x < 0 || x > Bounds.Width || y < 0 || y > Bounds.Height)
+                return;
+
             _isCancelled = false;
 
             if (!IsAllowedRaiseRipple)
                 return;
 
-            if (_pointers != 0)
-                return;
-
-            // Only first pointer can arrive a ripple
-            _pointers++;
-            var r = CreateRipple(x, y, RaiseRippleCenter);
-            _last = r;
-
-            // Attach ripple instance to canvas
-            _container.Children.Add(r);
-            r.SendHandlerMessage(RippleHandler.FirstStepMessage);
+            CreateRippleInstancePrivate(c, x, y);
 
             if (_isCancelled) {
                 RemoveLastRipple();
             }
+        }
+
+        private void CreateRippleInstancePrivate(CompositionContainerVisual container,
+            double x, double y) {
+            // Only first pointer can arrive a ripple
+            if (_pointers != 0)
+                return;
+
+            lock (_lockObj) {
+                _pointers++;
+            }
+            var r = CreateRipple(x, y, RaiseRippleCenter);
+            _last = r;
+
+            // Attach ripple instance to canvas
+            container.Children.Add(r);
+            r.SendHandlerMessage(RippleHandler.FirstStepMessage);
         }
 
         private void LostFocusHandler(object? sender, RoutedEventArgs e) {
@@ -102,12 +116,36 @@ namespace Material.Ripple {
             if (_last == null)
                 return;
 
-            _pointers--;
+            lock (_lockObj) {
+                _pointers--;
+            }
 
             // This way to handle pointer released is pretty tricky
             // could have more better way to improve
             OnReleaseHandler(_last);
             _last = null;
+        }
+
+        public void RaiseRipple(double nX = 0.5, double nY = 0.5) {
+            if (!IsAllowedRaiseRipple)
+                return;
+
+            var x = nX * Bounds.Width;
+            var y = nY * Bounds.Height;
+
+            RaiseRippleAbsoluteCoord(x, y);
+        }
+
+        public void RaiseRippleAbsoluteCoord(double x, double y) {
+            
+            var c = _container;
+            
+            if (c is null || !Bounds.Contains(new Point(x, y)))
+                throw new ArgumentOutOfRangeException();
+            
+            CreateRippleInstancePrivate(c, x, y);
+
+            RemoveLastRipple();
         }
 
         private void OnReleaseHandler(CompositionCustomVisual r) {
@@ -130,7 +168,7 @@ namespace Material.Ripple {
                 x = w / 2;
                 y = h / 2;
             }
-            
+
             var handler = new RippleHandler(
                 RippleFill.ToImmutable(),
                 Ripple.Easing,
@@ -147,7 +185,8 @@ namespace Material.Ripple {
         #region Styled properties
 
         public static readonly StyledProperty<IBrush> RippleFillProperty =
-            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), inherits: true, defaultValue: Brushes.White);
+            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), 
+                inherits: true, defaultValue: Brushes.White);
 
         public IBrush RippleFill {
             get => GetValue(RippleFillProperty);
@@ -185,7 +224,7 @@ namespace Material.Ripple {
             get => GetValue(UseTransitionsProperty);
             set => SetValue(UseTransitionsProperty, value);
         }
-        
+
         #endregion Styled properties
     }
 }

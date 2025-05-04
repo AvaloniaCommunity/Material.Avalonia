@@ -45,7 +45,8 @@
                   MinWidth="{TemplateBinding MinWidth}">
               <Border Name="PART_HoverIndicator"
                       Background="{TemplateBinding assists:ButtonAssist.HoverColor}" />
-              <ripple:RippleEffect RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
+              <ripple:RippleEffect Name="PART_Ripple"
+                                   RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
                                    RippleOpacity="{StaticResource ButtonPressedOpacity}">
                 <ContentPresenter Name="PART_ContentPresenter"
                                   ContentTemplate="{TemplateBinding ContentTemplate}"
