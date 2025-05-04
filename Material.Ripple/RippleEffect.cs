@@ -15,6 +15,9 @@ namespace Material.Ripple {
         private CompositionCustomVisual? _last;
         private byte _pointers;
 
+        // TODO: new ripple system, which should deprecate _pointers such thing
+        private static object _lockObj = new();
+
         static RippleEffect() {
             BackgroundProperty.OverrideDefaultValue<RippleEffect>(Brushes.Transparent);
         }
@@ -83,7 +86,9 @@ namespace Material.Ripple {
             if (_pointers != 0)
                 return;
 
-            _pointers++;
+            lock (_lockObj) {
+                _pointers++;
+            }
             var r = CreateRipple(x, y, RaiseRippleCenter);
             _last = r;
 
@@ -111,7 +116,9 @@ namespace Material.Ripple {
             if (_last == null)
                 return;
 
-            _pointers--;
+            lock (_lockObj) {
+                _pointers--;
+            }
 
             // This way to handle pointer released is pretty tricky
             // could have more better way to improve
@@ -120,22 +127,25 @@ namespace Material.Ripple {
         }
 
         public void RaiseRipple(double nX = 0.5, double nY = 0.5) {
+            if (!IsAllowedRaiseRipple)
+                return;
+
+            var x = nX * Bounds.Width;
+            var y = nY * Bounds.Height;
+
+            RaiseRippleAbsoluteCoord(x, y);
+        }
+
+        public void RaiseRippleAbsoluteCoord(double x, double y) {
+            
             var c = _container;
-
-            if (c is null || nX < 0 || nX > 1 || nY < 0 || nY > 1)
+            
+            if (c is null || !Bounds.Contains(new Point(x, y)))
                 throw new ArgumentOutOfRangeException();
+            
+            CreateRippleInstancePrivate(c, x, y);
 
-            lock (this) {
-                if (!IsAllowedRaiseRipple)
-                    return;
-
-                var x = nX * Bounds.Width;
-                var y = nY * Bounds.Height;
-
-                CreateRippleInstancePrivate(c, x, y);
-
-                RemoveLastRipple();
-            }
+            RemoveLastRipple();
         }
 
         private void OnReleaseHandler(CompositionCustomVisual r) {
