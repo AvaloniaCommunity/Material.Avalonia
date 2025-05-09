@@ -313,7 +313,6 @@
                       RenderTransformOrigin="0, 0" Opacity="1">
                 <TextBlock Name="floatingWatermark" Classes="Subtitle1"
                            HorizontalAlignment="Stretch" Margin="4,2"
-                           Foreground="{TemplateBinding BorderBrush}"
                            Opacity="{Binding ElementName=PART_Border, Path=Opacity}"
                            Text="{TemplateBinding (assists:ComboBoxAssist.Label)}" />
               </Border>
