@@ -283,7 +283,7 @@
   <!-- Outline -->
   <ControlTheme x:Key="MaterialOutlineComboBox" TargetType="ComboBox"
                 BasedOn="{StaticResource MaterialComboBox}">
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
     <Setter Property="Padding" Value="16,8" />
