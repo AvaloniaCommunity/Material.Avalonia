@@ -402,6 +402,9 @@
     <Style Selector="^:focus-within">
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       <Setter Property="BorderThickness" Value="2" />
+      <Style Selector="^ /template/ TextBlock#floatingWatermark">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
+      </Style> 
     </Style>
   </ControlTheme>
 </ResourceDictionary>
