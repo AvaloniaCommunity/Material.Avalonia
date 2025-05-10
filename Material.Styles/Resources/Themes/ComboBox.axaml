@@ -283,7 +283,7 @@
   <!-- Outline -->
   <ControlTheme x:Key="MaterialOutlineComboBox" TargetType="ComboBox"
                 BasedOn="{StaticResource MaterialComboBox}">
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxMenuFlyout}" />
     <Setter Property="Padding" Value="16,8" />
@@ -313,7 +313,6 @@
                       RenderTransformOrigin="0, 0" Opacity="1">
                 <TextBlock Name="floatingWatermark" Classes="Subtitle1"
                            HorizontalAlignment="Stretch" Margin="4,2"
-                           Foreground="{TemplateBinding BorderBrush}"
                            Opacity="{Binding ElementName=PART_Border, Path=Opacity}"
                            Text="{TemplateBinding (assists:ComboBoxAssist.Label)}" />
               </Border>
@@ -379,6 +378,15 @@
       </Setter>
     </Style>
 
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_Border">
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Duration="0:0:0.25" Property="BorderBrush" Easing="LinearEasing" />
+          <ThicknessTransition Duration="0:0:0.25" Property="BorderThickness" Easing="CircularEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style> 
+
     <Style Selector="^ /template/ Grid#PART_RootBorder">
       <Setter Property="MinHeight" Value="52" />
     </Style>
@@ -403,6 +411,9 @@
     <Style Selector="^:focus-within">
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       <Setter Property="BorderThickness" Value="2" />
+      <Style Selector="^ /template/ TextBlock#floatingWatermark">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
+      </Style> 
     </Style>
   </ControlTheme>
 </ResourceDictionary>
