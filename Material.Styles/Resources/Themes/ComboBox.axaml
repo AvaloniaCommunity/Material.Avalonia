@@ -378,6 +378,15 @@
       </Setter>
     </Style>
 
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_Border">
+      <Setter Property="Transitions">
+        <Transitions>
+          <BrushTransition Duration="0:0:0.25" Property="BorderBrush" Easing="LinearEasing" />
+          <ThicknessTransition Duration="0:0:0.25" Property="BorderThickness" Easing="CircularEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style> 
+
     <Style Selector="^ /template/ Grid#PART_RootBorder">
       <Setter Property="MinHeight" Value="52" />
     </Style>
