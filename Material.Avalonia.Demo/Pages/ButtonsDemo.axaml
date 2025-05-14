@@ -217,6 +217,19 @@
                     InputGesture="Ctrl+A" />
           <MenuItem Header="Item 3" />
         </MenuFlyout>
+        
+        <MenuFlyout x:Key="SharedDownSplitButtonMenuFlyout"
+                    HorizontalOffset="8" VerticalOffset="-8"
+                    Placement="BottomEdgeAlignedRight">
+          <MenuItem Header="Item 1">
+            <MenuItem Header="Subitem 1" />
+            <MenuItem Header="Subitem 2" />
+            <MenuItem Header="Subitem 3" />
+          </MenuItem>
+          <MenuItem Header="Item 2"
+                    InputGesture="Ctrl+A" />
+          <MenuItem Header="Item 3" />
+        </MenuFlyout>
       </StackPanel.Resources>
       <StackPanel.Styles>
         <Style Selector="showMeTheXaml|XamlDisplay">
@@ -247,9 +260,9 @@
       
         <showMeTheXaml:XamlDisplay UniqueId="SplitButtons3">
           <SplitButton Theme="{StaticResource MaterialSplitButton}"
-                       Classes="up accent"
+                       Classes="down accent"
                        Content="Accent"
-                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedDownSplitButtonMenuFlyout}" />
         </showMeTheXaml:XamlDisplay>
       </StackPanel>
       
@@ -277,52 +290,80 @@
       
         <showMeTheXaml:XamlDisplay UniqueId="OutlineSplitButtons3">
           <SplitButton Theme="{StaticResource MaterialOutlineSplitButton}"
-                       Classes="up accent"
+                       Classes="down accent"
                        Content="Accent"
-                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedDownSplitButtonMenuFlyout}" />
         </showMeTheXaml:XamlDisplay>
       </StackPanel>
     </StackPanel>
     
     <TextBlock Classes="Headline6 Subheadline2" Text="DropDown buttons" />
     <StackPanel Orientation="Horizontal">
+      <StackPanel.Resources>
+        <MenuFlyout x:Key="SharedSplitButtonMenuFlyout"
+                    HorizontalOffset="8" VerticalOffset="-8"
+                    Placement="BottomEdgeAlignedRight">
+          <MenuItem Header="Item 1">
+            <MenuItem Header="Subitem 1" />
+            <MenuItem Header="Subitem 2" />
+            <MenuItem Header="Subitem 3" />
+          </MenuItem>
+          <MenuItem Header="Item 2"
+                    InputGesture="Ctrl+A" />
+          <MenuItem Header="Item 3" />
+        </MenuFlyout>
+      </StackPanel.Resources>
       <StackPanel.Styles>
         <Style Selector="showMeTheXaml|XamlDisplay">
           <Setter Property="Margin" Value="8" />
         </Style>
       </StackPanel.Styles>
       <showMeTheXaml:XamlDisplay UniqueId="DropDownButtons0">
-        <DropDownButton Theme="{StaticResource MaterialDropDownButton}" Classes="light" Content="Light" ToolTip.Tip='Button with classes "Light" and "Outline"' />
+        <DropDownButton Theme="{StaticResource MaterialDropDownButton}" Classes="light" Content="Light" Flyout="{StaticResource SharedSplitButtonMenuFlyout}" ToolTip.Tip='Button with classes "Light" and "Outline"' />
       </showMeTheXaml:XamlDisplay>
       <showMeTheXaml:XamlDisplay UniqueId="DropDownButtons1">
-        <DropDownButton Theme="{StaticResource MaterialDropDownButton}" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"' />
+        <DropDownButton Theme="{StaticResource MaterialDropDownButton}" Content="Mid (Default)" Flyout="{StaticResource SharedSplitButtonMenuFlyout}" ToolTip.Tip='Button with classes "Outline"' />
       </showMeTheXaml:XamlDisplay>
       <showMeTheXaml:XamlDisplay UniqueId="DropDownButtons2">
-        <DropDownButton Theme="{StaticResource MaterialDropDownButton}" Classes="dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"' />
+        <DropDownButton Theme="{StaticResource MaterialDropDownButton}" Classes="dark" Content="Dark" Flyout="{StaticResource SharedSplitButtonMenuFlyout}" ToolTip.Tip='Button with classes "Dark" and "Outline"' />
       </showMeTheXaml:XamlDisplay>
       <showMeTheXaml:XamlDisplay UniqueId="DropDownButtons3">
-        <DropDownButton Theme="{StaticResource MaterialDropDownButton}" Classes="accent" Content="Accent"
+        <DropDownButton Theme="{StaticResource MaterialDropDownButton}" Classes="accent" Content="Accent" Flyout="{StaticResource SharedSplitButtonMenuFlyout}"
                         ToolTip.Tip='Button with classes "Accent" and "Outline"' />
       </showMeTheXaml:XamlDisplay>
     </StackPanel>
     
     <StackPanel Orientation="Horizontal">
+      <StackPanel.Resources>
+        <MenuFlyout x:Key="SharedSplitButtonMenuFlyout"
+                    HorizontalOffset="8" VerticalOffset="-8"
+                    Placement="BottomEdgeAlignedRight">
+          <MenuItem Header="Item 1">
+            <MenuItem Header="Subitem 1" />
+            <MenuItem Header="Subitem 2" />
+            <MenuItem Header="Subitem 3" />
+          </MenuItem>
+          <MenuItem Header="Item 2"
+                    InputGesture="Ctrl+A" />
+          <MenuItem Header="Item 3" />
+        </MenuFlyout>
+      </StackPanel.Resources>
       <StackPanel.Styles>
         <Style Selector="showMeTheXaml|XamlDisplay">
           <Setter Property="Margin" Value="8" />
         </Style>
       </StackPanel.Styles>
       <showMeTheXaml:XamlDisplay UniqueId="OutlineDropDownButtons0">
-        <DropDownButton Theme="{StaticResource MaterialOutlineDropDownButton}" Classes="light" Content="Light" ToolTip.Tip='Button with classes "Light" and "Outline"' />
+        <DropDownButton Theme="{StaticResource MaterialOutlineDropDownButton}" Classes="light" Content="Light" Flyout="{StaticResource SharedSplitButtonMenuFlyout}" ToolTip.Tip='Button with classes "Light" and "Outline"' />
       </showMeTheXaml:XamlDisplay>
       <showMeTheXaml:XamlDisplay UniqueId="OutlineDropDownButtons1">
-        <DropDownButton Theme="{StaticResource MaterialOutlineDropDownButton}" Content="Mid (Default)" ToolTip.Tip='Button with classes "Outline"' />
+        <DropDownButton Theme="{StaticResource MaterialOutlineDropDownButton}" Content="Mid (Default)" Flyout="{StaticResource SharedSplitButtonMenuFlyout}" ToolTip.Tip='Button with classes "Outline"' />
       </showMeTheXaml:XamlDisplay>
       <showMeTheXaml:XamlDisplay UniqueId="OutlineDropDownButtons2">
-        <DropDownButton Theme="{StaticResource MaterialOutlineDropDownButton}" Classes="dark" Content="Dark" ToolTip.Tip='Button with classes "Dark" and "Outline"' />
+        <DropDownButton Theme="{StaticResource MaterialOutlineDropDownButton}" Classes="dark" Content="Dark" Flyout="{StaticResource SharedSplitButtonMenuFlyout}" ToolTip.Tip='Button with classes "Dark" and "Outline"' />
       </showMeTheXaml:XamlDisplay>
       <showMeTheXaml:XamlDisplay UniqueId="OutlineDropDownButtons3">
-        <DropDownButton Theme="{StaticResource MaterialOutlineDropDownButton}" Classes="accent" Content="Accent"
+        <DropDownButton Theme="{StaticResource MaterialOutlineDropDownButton}" Classes="accent" Content="Accent" Flyout="{StaticResource SharedSplitButtonMenuFlyout}"
                         ToolTip.Tip='Button with classes "Accent" and "Outline"' />
       </showMeTheXaml:XamlDisplay>
     </StackPanel>
