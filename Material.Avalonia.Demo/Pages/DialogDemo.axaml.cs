@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
+using Avalonia.Platform.Storage;
 using DialogHostAvalonia;
 using Material.Avalonia.Demo.Models;
 using Material.Avalonia.Demo.ViewModels;
@@ -32,5 +33,16 @@ public partial class DialogDemo : UserControl {
 
     private void OpenMoreDialogHostExamples(object? sender, RoutedEventArgs e) {
         Process.Start(new ProcessStartInfo { FileName = "https://github.com/AvaloniaUtils/DialogHost.Avalonia", UseShellExecute = true });
+    }
+
+    private async void FilePickerExampleButton_OnClick(object? sender, RoutedEventArgs e) {
+        var toplevel = TopLevel.GetTopLevel(this);
+        var folders = await toplevel!
+            .StorageProvider
+            .OpenFolderPickerAsync(new FolderPickerOpenOptions
+        {
+            Title = "Folder file",
+            SuggestedFileName = "FileName",
+        });
     }
 }
