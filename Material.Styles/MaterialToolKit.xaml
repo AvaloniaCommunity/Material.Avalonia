@@ -73,6 +73,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SelectableTextBlock.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Separator.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Slider.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SplitButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/SplitView.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabControl.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />

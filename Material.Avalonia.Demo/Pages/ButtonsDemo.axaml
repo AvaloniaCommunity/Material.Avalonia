@@ -191,6 +191,88 @@
         <Button Theme="{StaticResource MaterialFlatButton}" Classes="accent" Content="Accent" ToolTip.Tip='Button with classes "Accent" and "Flat"' />
       </showMeTheXaml:XamlDisplay>
     </StackPanel>
+    
+    <TextBlock Classes="Headline6 Subheadline2" Text="Split buttons" />
+    <StackPanel>
+      <StackPanel.Resources>
+        <MenuFlyout x:Key="SharedSplitButtonMenuFlyout"
+                    HorizontalOffset="8" VerticalOffset="8"
+                    Placement="TopEdgeAlignedRight">
+          <MenuItem Header="Item 1">
+            <MenuItem Header="Subitem 1" />
+            <MenuItem Header="Subitem 2" />
+            <MenuItem Header="Subitem 3" />
+          </MenuItem>
+          <MenuItem Header="Item 2"
+                    InputGesture="Ctrl+A" />
+          <MenuItem Header="Item 3" />
+        </MenuFlyout>
+      </StackPanel.Resources>
+      <StackPanel.Styles>
+        <Style Selector="showMeTheXaml|XamlDisplay">
+          <Setter Property="Margin" Value="8" />
+        </Style>
+      </StackPanel.Styles>
+      <StackPanel Orientation="Horizontal">
+        <showMeTheXaml:XamlDisplay UniqueId="SplitButtons0">
+          <SplitButton Theme="{StaticResource MaterialSplitButton}"
+                       Classes="up light"
+                       Content="Default"
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+        </showMeTheXaml:XamlDisplay>
+      
+        <showMeTheXaml:XamlDisplay UniqueId="SplitButtons1">
+          <SplitButton Theme="{StaticResource MaterialSplitButton}"
+                       Classes="up"
+                       Content="Default"
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+        </showMeTheXaml:XamlDisplay>
+      
+        <showMeTheXaml:XamlDisplay UniqueId="SplitButtons2">
+          <SplitButton Theme="{StaticResource MaterialSplitButton}"
+                       Classes="up dark"
+                       Content="Default"
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+        </showMeTheXaml:XamlDisplay>
+      
+        <showMeTheXaml:XamlDisplay UniqueId="SplitButtons3">
+          <SplitButton Theme="{StaticResource MaterialSplitButton}"
+                       Classes="up accent"
+                       Content="Default"
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+      
+      <StackPanel Orientation="Horizontal">
+        <showMeTheXaml:XamlDisplay UniqueId="OutlineSplitButtons0">
+          <SplitButton Theme="{StaticResource MaterialOutlineSplitButton}"
+                       Classes="up light"
+                       Content="Default"
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+        </showMeTheXaml:XamlDisplay>
+      
+        <showMeTheXaml:XamlDisplay UniqueId="OutlineSplitButtons1">
+          <SplitButton Theme="{StaticResource MaterialOutlineSplitButton}"
+                       Classes="up"
+                       Content="Default"
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+        </showMeTheXaml:XamlDisplay>
+      
+        <showMeTheXaml:XamlDisplay UniqueId="OutlineSplitButtons2">
+          <SplitButton Theme="{StaticResource MaterialOutlineSplitButton}"
+                       Classes="up dark"
+                       Content="Default"
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+        </showMeTheXaml:XamlDisplay>
+      
+        <showMeTheXaml:XamlDisplay UniqueId="OutlineSplitButtons3">
+          <SplitButton Theme="{StaticResource MaterialOutlineSplitButton}"
+                       Classes="up accent"
+                       Content="Default"
+                       ToolTip.Tip='Split button' Flyout="{StaticResource SharedSplitButtonMenuFlyout}" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+    </StackPanel>
 
     <TextBlock Classes="Headline6 Subheadline2" Text="Hyperlink buttons" />
     <StackPanel Orientation="Horizontal" Spacing="8">
