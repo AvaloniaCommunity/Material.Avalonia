@@ -43,6 +43,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContextMenu.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DatePicker.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DropDownButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/EmbeddableControlRoot.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/FlyoutPresenter.axaml" />
@@ -53,6 +54,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Label.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ListBoxItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ManagedFileChooser.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Menu.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuFlyoutPresenter.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuItem.axaml" />
