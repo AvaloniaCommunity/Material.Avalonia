@@ -17,7 +17,6 @@
     <Setter Property="CornerRadius" Value="4" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
-    <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16 8" />
     <Setter Property="assists:ButtonAssist.HoverColor"
             Value="{Binding $self.Foreground, Converter={StaticResource BrushRoundConverter}}" />
@@ -48,7 +47,7 @@
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="PART_PrimaryButton"
+            <Button Name="PART_PrimaryButton"
                     Grid.Column="0"
                     Theme="{StaticResource MaterialSplitButtonComponent}"
                     Content="{TemplateBinding Content}"
@@ -64,10 +63,10 @@
                     Padding="{TemplateBinding Padding}"
                     KeyboardNavigation.IsTabStop="False" />
 
-            <Border x:Name="SeparatorBorder"
+            <Border Name="SeparatorBorder"
                     Grid.Column="1" />
 
-            <Button x:Name="PART_SecondaryButton"
+            <Button Name="PART_SecondaryButton"
                     Grid.Column="2"
                     Theme="{StaticResource MaterialSplitButtonComponent}"
                     CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource RightCornerRadiusFilterConverter}}"
@@ -87,6 +86,10 @@
       </ControlTemplate>
     </Setter>
     
+    <Style Selector="^:disabled /template/ Button#PART_PrimaryButton">
+      <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+    
     <!-- Apply patch to icon of secondary button -->
     <Style Selector="^ /template/ Button#PART_SecondaryButton > Path#ExpandPath">
       <Setter Property="Fill" Value="{TemplateBinding TemplatedControl.Foreground}" />
@@ -96,6 +99,10 @@
     
     <Style Selector="^ /template/ Button#PART_SecondaryButton">
       <Setter Property="Padding" Value="4" />
+    </Style>
+    
+    <Style Selector="^:disabled /template/ Button#PART_SecondaryButton">
+      <Setter Property="IsHitTestVisible" Value="False" />
     </Style>
     
     <!-- popup direction variants -->
@@ -121,25 +128,25 @@
     <!-- Colour variants -->
     
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
     <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
 
     <Style Selector="^.light">
       <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
       <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
     </Style>
 
     <Style Selector="^.dark">
       <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPaperBrush}" />
       <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
     </Style>
 
     <Style Selector="^.accent">
       <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryDarkBrush}" />
       <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
     </Style>
 
@@ -158,6 +165,10 @@
 
     <Style Selector="^:checked:flyout-open /template/ Button">
       <Setter Property="Tag" Value="checked-flyout-open" />
+    </Style>
+    
+    <Style Selector="^:disabled /template/ Border#PART_RootBorder">
+      <Setter Property="Opacity" Value="{StaticResource ButtonDisabledOpacity}" />
     </Style>
   </ControlTheme>
   
