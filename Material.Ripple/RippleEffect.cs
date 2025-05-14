@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
@@ -13,10 +14,7 @@ namespace Material.Ripple {
 
         private CompositionContainerVisual? _container;
         private CompositionCustomVisual? _last;
-        private byte _pointers;
-
-        // TODO: new ripple system, which should deprecate _pointers such thing
-        private static object _lockObj = new();
+        private int _pointers;
 
         static RippleEffect() {
             BackgroundProperty.OverrideDefaultValue<RippleEffect>(Brushes.Transparent);
@@ -86,9 +84,8 @@ namespace Material.Ripple {
             if (_pointers != 0)
                 return;
 
-            lock (_lockObj) {
-                _pointers++;
-            }
+            Interlocked.Increment(ref _pointers);
+
             var r = CreateRipple(x, y, RaiseRippleCenter);
             _last = r;
 
@@ -116,9 +113,7 @@ namespace Material.Ripple {
             if (_last == null)
                 return;
 
-            lock (_lockObj) {
-                _pointers--;
-            }
+            Interlocked.Decrement(ref _pointers);
 
             // This way to handle pointer released is pretty tricky
             // could have more better way to improve
