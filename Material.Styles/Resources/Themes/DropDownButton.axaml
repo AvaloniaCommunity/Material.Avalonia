@@ -2,8 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
                     xmlns:assists="clr-namespace:Material.Styles.Assists">
-  <!-- Add Resources Here -->
-
   <ControlTheme x:Key="MaterialDropDownButton"
                 BasedOn="{StaticResource MaterialButtonBase}"
                 TargetType="DropDownButton">

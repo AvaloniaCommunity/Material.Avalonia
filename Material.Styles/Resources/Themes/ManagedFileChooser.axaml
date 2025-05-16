@@ -3,7 +3,6 @@
                     xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
                     xmlns:dialogs="clr-namespace:Avalonia.Dialogs;assembly=Avalonia.Dialogs"
                     xmlns:internal="clr-namespace:Avalonia.Dialogs.Internal;assembly=Avalonia.Dialogs">
-  <!-- TODO: make this file picker usable in DialogHost -->
   <ControlTheme x:Key="{x:Type dialogs:ManagedFileChooser}" TargetType="dialogs:ManagedFileChooser">
     <ControlTheme.Resources>
       <ResourceDictionary>
