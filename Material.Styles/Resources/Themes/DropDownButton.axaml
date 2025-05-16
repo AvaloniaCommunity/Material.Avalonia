@@ -1,0 +1,102 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists">
+  <ControlTheme x:Key="MaterialDropDownButton"
+                BasedOn="{StaticResource MaterialButtonBase}"
+                TargetType="DropDownButton">
+    <Setter Property="ClipToBounds" Value="False"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+          <Panel Name="PART_RootPanel">
+            <Border Name="PART_HoverEffect"
+                    Background="{TemplateBinding assists:ButtonAssist.HoverColor}"
+                    CornerRadius="{TemplateBinding CornerRadius}" />
+            <Border CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True">
+              <ripple:RippleEffect Name="PART_Ripple"
+                                   RippleFill="{TemplateBinding assists:ButtonAssist.ClickFeedbackColor}"
+                                   RippleOpacity="{StaticResource ButtonPressedOpacity}">
+                <Grid Name="PART_Grid" ColumnDefinitions="*, Auto">
+                  <ContentPresenter Name="PART_ContentPresenter"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Padding="{TemplateBinding Padding}"
+                                    RecognizesAccessKey="True"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+                  <Path Grid.Column="1"
+                        Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                        Width="24" Height="24"
+                        Name="ExpandPath"/>
+                </Grid>
+
+              </ripple:RippleEffect>
+            </Border>
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+    
+    <!-- Apply patch to icon -->
+    <Style Selector="^ /template/ Path#ExpandPath">
+      <Setter Property="Fill" Value="{TemplateBinding TemplatedControl.Foreground}" />
+      <Setter Property="Margin" Value="4"/>
+      <Setter Property="RenderTransform" Value="rotate(90deg)"/>
+    </Style>
+  </ControlTheme>
+  
+  <ControlTheme x:Key="MaterialOutlineDropDownButton"
+                BasedOn="{StaticResource MaterialDropDownButton}"
+                TargetType="DropDownButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Padding" Value="16 6" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
+
+    <!-- Colour variants -->
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+    </Style>
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+    </Style>
+
+
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    </Style>
+  </ControlTheme>
+  
+  <ControlTheme x:Key="{x:Type DropDownButton}"
+                BasedOn="{StaticResource MaterialDropDownButton}"
+                TargetType="DropDownButton"/>
+</ResourceDictionary>

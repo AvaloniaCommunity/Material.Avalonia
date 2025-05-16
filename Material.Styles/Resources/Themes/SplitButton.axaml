@@ -1,0 +1,216 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists">
+  <!-- Add Resources Here -->
+  <converters:CornerRadiusFilterConverter x:Key="TopCornerRadiusFilterConverter" Filter="TopLeft, TopRight" />
+  <converters:CornerRadiusFilterConverter x:Key="RightCornerRadiusFilterConverter" Filter="TopRight, BottomRight" />
+  <converters:CornerRadiusFilterConverter x:Key="BottomCornerRadiusFilterConverter" Filter="BottomLeft, BottomRight" />
+  <converters:CornerRadiusFilterConverter x:Key="LeftCornerRadiusFilterConverter" Filter="TopLeft, BottomLeft" />
+
+  <ControlTheme x:Key="MaterialSplitButtonComponent"
+                BasedOn="{StaticResource MaterialButtonBase}"
+                TargetType="Button">
+  </ControlTheme>
+
+  <ControlTheme x:Key="MaterialSplitButton" TargetType="SplitButton">
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Padding" Value="16 8" />
+    <Setter Property="assists:ButtonAssist.HoverColor"
+            Value="{Binding $self.Foreground, Converter={StaticResource BrushRoundConverter}}" />
+    <Setter Property="assists:ButtonAssist.ClickFeedbackColor" Value="{Binding $self.Foreground}" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="ClipToBounds" Value="False" />
+    
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
+    <Setter Property="Focusable" Value="True" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                assists:ShadowAssist.ShadowDepth="{TemplateBinding assists:ShadowAssist.ShadowDepth}">
+          <Border CornerRadius="{TemplateBinding CornerRadius}"
+                  ClipToBounds="True">
+          <Grid Name="PART_RootPanel">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Name="PART_PrimaryButton"
+                    Grid.Column="0"
+                    Theme="{StaticResource MaterialSplitButtonComponent}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    Command="{TemplateBinding Command}"
+                    CommandParameter="{TemplateBinding CommandParameter}"
+                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource LeftCornerRadiusFilterConverter}}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Focusable="False"
+                    Padding="{TemplateBinding Padding}"
+                    KeyboardNavigation.IsTabStop="False" />
+
+            <Border Name="SeparatorBorder"
+                    Grid.Column="1" />
+
+            <Button Name="PART_SecondaryButton"
+                    Grid.Column="2"
+                    Theme="{StaticResource MaterialSplitButtonComponent}"
+                    CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource RightCornerRadiusFilterConverter}}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Focusable="False"
+                    KeyboardNavigation.IsTabStop="False">
+              <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                    Width="24" Height="24"
+                    Name="ExpandPath"/>
+            </Button>
+          </Grid>
+          </Border>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    
+    <Style Selector="^:disabled /template/ Button#PART_PrimaryButton">
+      <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+    
+    <!-- Apply patch to icon of secondary button -->
+    <Style Selector="^ /template/ Button#PART_SecondaryButton > Path#ExpandPath">
+      <Setter Property="Fill" Value="{TemplateBinding TemplatedControl.Foreground}" />
+    </Style>
+    
+    <!-- Apply patch to secondary button -->
+    
+    <Style Selector="^ /template/ Button#PART_SecondaryButton">
+      <Setter Property="Padding" Value="4" />
+    </Style>
+    
+    <Style Selector="^:disabled /template/ Button#PART_SecondaryButton">
+      <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+    
+    <!-- popup direction variants -->
+    <!-- TODO: make flyout placement changeable by style (not sure yet possible or not) -->
+    
+    <!-- direction to up by default -->
+    <Style Selector="^">
+      <Setter Property="MenuFlyout.Placement" Value="RightEdgeAlignedTop"/>
+      
+      <Style Selector="^ /template/ Button#PART_SecondaryButton > Path#ExpandPath">
+        <Setter Property="RenderTransform" Value="rotate(-90deg)"/>
+      </Style>
+    </Style>
+    
+    <Style Selector="^.down">
+      <Setter Property="MenuFlyout.Placement" Value="RightEdgeAlignedBottom"/>
+      
+      <Style Selector="^ /template/ Button#PART_SecondaryButton > Path#ExpandPath">
+        <Setter Property="RenderTransform" Value="rotate(90deg)"/>
+      </Style>
+    </Style>
+    
+    <!-- Colour variants -->
+    
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth1" />
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPaperBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^ /template/ Border#SeparatorBorder">
+      <Setter Property="Width" Value="1" />
+      <Setter Property="Background" Value="{TemplateBinding BorderBrush}" />
+    </Style>
+
+    <Style Selector="^:flyout-open /template/ Button">
+      <Setter Property="Tag" Value="flyout-open" />
+    </Style>
+
+    <Style Selector="^:checked /template/ Button">
+      <Setter Property="Tag" Value="checked" />
+    </Style>
+
+    <Style Selector="^:checked:flyout-open /template/ Button">
+      <Setter Property="Tag" Value="checked-flyout-open" />
+    </Style>
+    
+    <Style Selector="^:disabled /template/ Border#PART_RootBorder">
+      <Setter Property="Opacity" Value="{StaticResource ButtonDisabledOpacity}" />
+    </Style>
+  </ControlTheme>
+  
+  <ControlTheme x:Key="MaterialOutlineSplitButton"
+                BasedOn="{StaticResource MaterialSplitButton}"
+                TargetType="SplitButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Padding" Value="16 6" />
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
+    
+    <!-- Colour variants -->
+
+    <Style Selector="^.accent">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+    </Style>
+
+    <Style Selector="^.light">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+    </Style>
+
+    <Style Selector="^.dark">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+    </Style>
+
+
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialBodyBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type SplitButton}"
+                BasedOn="{StaticResource MaterialSplitButton}"
+                TargetType="SplitButton" />
+</ResourceDictionary>

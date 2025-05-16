@@ -17,8 +17,14 @@
   </UserControl.Resources>
 
   <StackPanel Margin="16, 0">
+    <StackPanel.Styles>
+      <Style Selector="WrapPanel#ModulesRoot > StackPanel">
+        <Setter Property="MaxWidth" Value="360"/>
+      </Style>
+    </StackPanel.Styles>
+    
     <TextBlock Classes="Headline4 Subheadline" Text="Dialogs" />
-    <Grid ColumnDefinitions="*, *">
+    <WrapPanel Name="ModulesRoot">
 
       <StackPanel>
         <TextBlock Classes="Headline6 Subheadline2" Text="DialogHost" />
@@ -32,7 +38,7 @@
         </StackPanel>
       </StackPanel>
 
-      <StackPanel Grid.Column="1">
+      <StackPanel>
         <TextBlock Classes="Headline6 Subheadline2" Text="Standalone dialog" />
 
         <TextBlock IsVisible="{Binding !IsDialogsAvailable}">
@@ -66,7 +72,12 @@
           </ItemsControl.ItemTemplate>
         </ItemsControl>
       </StackPanel>
-    </Grid>
+      
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Managed file picker" />
+        <Button Classes="flat" Content="Example" Click="FilePickerExampleButton_OnClick"/>
+      </StackPanel>
+    </WrapPanel>
   </StackPanel>
 
 

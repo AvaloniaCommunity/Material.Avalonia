@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Avalonia;
+using Avalonia.Dialogs;
 using ShowMeTheXaml;
 
 namespace Material.Avalonia.Demo.Desktop {
@@ -15,6 +17,8 @@ namespace Material.Avalonia.Demo.Desktop {
         }
 
         // Avalonia configuration, don't remove; also used by visual designer.
+        // CA1416: only Desktop platform supported (Windows, Linux, macOS)
+        [SuppressMessage("Interoperability", "CA1416")]
         public static AppBuilder BuildAvaloniaApp() {
             return AppBuilder.Configure<App>()
                 .LogToTrace()
@@ -24,6 +28,7 @@ namespace Material.Avalonia.Demo.Desktop {
                     UseDBusMenu = true,
                     EnableIme = true
                 })
+                .UseManagedSystemDialogs()
                 .UseXamlDisplay();
         }
     }

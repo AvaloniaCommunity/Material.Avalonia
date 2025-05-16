@@ -4,6 +4,7 @@
   <x:Double x:Key="FlyoutThemeMaxWidth">456</x:Double>
   <x:Double x:Key="FlyoutThemeMaxHeight">758</x:Double>
   <ControlTheme x:Key="MaterialFlyoutPresenter" TargetType="FlyoutPresenter">
+    <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
     <Setter Property="Padding" Value="8" />
