@@ -1,7 +1,8 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
-        xmlns:controls="clr-namespace:Material.Dialog.Controls" >
+        xmlns:controls="clr-namespace:Material.Dialog.Controls"
+        xmlns:views="clr-namespace:Material.Dialog.Views">
     <Style Selector="Window">
         <Setter Property="CanResize" Value="False"/>
         <Setter Property="SizeToContent" Value="WidthAndHeight"/>
@@ -11,6 +12,7 @@
     <Style Selector="Window[SystemDecorations=None]">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
+        <Setter Property="Padding" Value="32"/>
     </Style>
     
     <Style Selector="Window[SystemDecorations=Full] controls|EmbeddedDialogControl /template/
@@ -19,5 +21,12 @@
         <Setter Property="CornerRadius" Value="0"/>
         <Setter Property="Margin" Value="0"/>
     </Style>
+  
+  <Style Selector="Window[SystemDecorations=Full] views|DialogControlView /template/
+                     Border#PART_RootBorder">
+    <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0"/>
+    <Setter Property="CornerRadius" Value="0"/>
+    <Setter Property="Margin" Value="0"/>
+  </Style>
     
 </Styles>

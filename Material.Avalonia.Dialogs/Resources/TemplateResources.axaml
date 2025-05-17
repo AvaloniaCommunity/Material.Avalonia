@@ -19,13 +19,21 @@
       <Image Source="{Binding Bitmap}"
              Stretch="{Binding Stretch}" />
     </DataTemplate>
+    
+    <DataTemplate DataType="icons:ControlIconViewModel">
+      <ContentControl Content="{Binding Control}"/>
+    </DataTemplate>
   </controls:CompositeDataTemplate>
 
   <DataTemplate x:Key="DialogButtonTemplate" DataType="elements:DialogButtonViewModel">
-    <!-- ReSharper disable once Xaml.StyleClassNotFound -->
-    <Button Classes="Flat"
-            Content="{Binding Content, FallbackValue='NULL'}"
+    <Button Content="{Binding Content, FallbackValue='NULL'}"
             Command="{Binding Command}"
+            CommandParameter="{Binding }" />
+  </DataTemplate>
+  
+  <DataTemplate x:Key="DialogBuilderButtonTemplate" DataType="elements:DialogBuilderButtonViewModel">
+    <Button Content="{Binding Content, FallbackValue='NULL'}"
+            
             CommandParameter="{Binding }" />
   </DataTemplate>
   
@@ -46,4 +54,17 @@
       </Setter.Value>
     </Setter>
   </ControlTheme>
+  
+  <controls:CompositeDataTemplate x:Key="DialogCommonElementTemplate">
+    <DataTemplate DataType="elements:TextBlockElement">
+      <SelectableTextBlock Name="PART_SupportingText"
+                           Theme="{StaticResource MaterialSelectableTextBlock}"
+                           Classes="Body1"
+                           Text="{Binding Path=Text}"/>         
+    </DataTemplate>
+    
+    <DataTemplate DataType="Control">
+      <ContentControl Content="{Binding}"/>
+    </DataTemplate>
+  </controls:CompositeDataTemplate>
 </ResourceDictionary>
