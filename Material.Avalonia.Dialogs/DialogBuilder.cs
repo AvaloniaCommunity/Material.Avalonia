@@ -170,6 +170,7 @@ public class DialogBuilder {
     /// Build the dialog control with attached parameters, also you will get an async accessor for access dialog state
     /// </summary>
     /// <returns>an dialog control and accessor to get dialog state asynchronously</returns>
+    [Obsolete("Use DialogObject instead. To get it use command Build()")]
     public Tuple<DialogObject, Func<CancellationToken, Task<object>>> BuildWithStateAccessor() {
 
         var (control, viewModel) = BuildDialogViewPrivate();
@@ -213,6 +214,7 @@ public class DialogBuilder {
     /// Build the standalone dialog window with attached parameters.
     /// </summary>
     /// <returns>dialog window instance</returns>
+    [Obsolete("Use DialogObject instead. To get it use command Build()")]
     public Window BuildWindow() {
         return BuildDialogWindowPrivate().Item1;
     }
@@ -254,6 +256,7 @@ public class DialogBuilder {
     /// <param name="cancellationToken">cancellation token that used for break state channel loop.</param>
     /// <param name="modifier">modifier procedure before it shows up.</param>
     /// <returns>An enumerable state channel that you can receive new dialog state</returns>
+    [Obsolete("Use DialogObject instead. To get it use command Build()")]
     public async IAsyncEnumerable<object?> BuildAndShowDialogAsync(Window owner,
         [EnumeratorCancellation] CancellationToken cancellationToken = default, Action<Window>? modifier = null) {
         var windowInst = BuildDialogWindowPrivate();
@@ -270,6 +273,7 @@ public class DialogBuilder {
     /// <param name="cancellationToken">cancellation token that used for break state channel loop.</param>
     /// <param name="modifier">modifier procedure before it shows up.</param>
     /// <returns>An enumerable state channel that you can receive new dialog state</returns>
+    [Obsolete("Use DialogObject instead. To get it use command Build()")]
     public async IAsyncEnumerable<object?> BuildAndShowAsync(Window? owner = null,
         [EnumeratorCancellation] CancellationToken cancellationToken = default, Action<Window>? modifier = null) {
         var windowInst = BuildDialogWindowPrivate();

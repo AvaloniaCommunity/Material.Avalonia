@@ -32,7 +32,13 @@ public class DialogObject
         action.Invoke(result);
     }
     
-    // Use custom API to show and close dialog
+    /// <summary>
+    /// Use custom dialog API or system to show and close dialog.
+    /// </summary>
+    /// <param name="showDialogDelegate">delegate to used for create and show dialog by your own way.</param>
+    /// <param name="closeDialogDelegate">delegate that used for close and providing return value to your own dialog system.</param>
+    /// <returns>final dialog result</returns>
+    /// <exception cref="ArgumentNullException">one or more arguments is null or invalid.</exception>
     public async Task<object?> ShowCustomAsync(
         Func<DialogControlView, Task<object?>> showDialogDelegate, 
         Action<object> closeDialogDelegate) {
@@ -45,6 +51,11 @@ public class DialogObject
         return await showDialogDelegate.Invoke(View);
     }
 
+    /// <summary>
+    /// Show standalone dialog and return final dialog result by dialog button.
+    /// </summary>
+    /// <param name="owner">owner window that used to cover up before dialog closed.</param>
+    /// <returns>final dialog result</returns>
     public async Task<object?> ShowDialogAsync(Window owner) {
         var window = ShowDialogPreparePrivate();
         window.Closed += WindowOnClosed;
