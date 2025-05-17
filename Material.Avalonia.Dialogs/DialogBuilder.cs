@@ -119,11 +119,15 @@ public class DialogBuilder {
     /// </summary>
     /// <param name="content">text or control</param>
     /// <param name="returnValue">object that you would want to use as a result</param>
-    public DialogBuilder NeutralButton(object content, object returnValue) {
+    /// <param name="handler">on click button handler</param>
+    public DialogBuilder NeutralButton(object content, object returnValue, Action<object>? handler = null) {
         _neutralButtons.Add(new() {
             Content = content,
             ReturnValue = returnValue,
-            ShouldClose = () => false
+            ShouldClose = () => {
+                handler?.Invoke(returnValue);
+                return false;
+            }
         });
 
         return this;
@@ -155,10 +159,10 @@ public class DialogBuilder {
     }
 
     /// <summary>
-    /// Build the dialog control with attached parameters.
+    /// Build the dialog with attached parameters.
     /// </summary>
-    /// <returns>dialog view control instance</returns>
-    public Control Build() {
+    /// <returns>dialog object instance</returns>
+    public DialogObject Build() {
         return BuildDialogViewPrivate().Item1;
     }
     
@@ -166,30 +170,41 @@ public class DialogBuilder {
     /// Build the dialog control with attached parameters, also you will get an async accessor for access dialog state
     /// </summary>
     /// <returns>an dialog control and accessor to get dialog state asynchronously</returns>
-    public Tuple<Control, Func<CancellationToken, Task<object>>> BuildWithStateAccessor() {
+    public Tuple<DialogObject, Func<CancellationToken, Task<object>>> BuildWithStateAccessor() {
 
         var (control, viewModel) = BuildDialogViewPrivate();
         
-        return new Tuple<Control, Func<CancellationToken, Task<object>>>(control, viewModel.State.DequeueAsync);
+        return new Tuple<DialogObject, Func<CancellationToken, Task<object>>>(control, viewModel.State.DequeueAsync);
     }
 
-    private Tuple<Control, DialogControlViewModel> BuildDialogViewPrivate() {
+    private Tuple<DialogObject, DialogControlViewModel> BuildDialogViewPrivate() {
+        var obj = new DialogObject();
+        
         var viewModel = new DialogControlViewModel {
             DialogHeader = new DialogHeaderViewModel {
                 Header = _titleText,
                 Icon = _titleView
             },
             Views = new AvaloniaList<object>(_elementSet),
-            Answers = new AvaloniaList<DialogBuilderButtonViewModel>(_negativeButtons.Union(_positiveButtons)),
+            Answers = new AvaloniaList<DialogBuilderButtonViewModel>(_negativeButtons
+                .Union(_positiveButtons)),
             AssistantButtons = new AvaloniaList<DialogBuilderButtonViewModel>(_neutralButtons)
         };
+        
         var view = new DialogControlView {
             Content = viewModel
         };
 
+        foreach (var button in viewModel.Answers.Union(viewModel.AssistantButtons)) {
+            button._closeCommandSourceInternal = obj.CloseDialogInternal;
+        }
+
         view.Styles.AddRange(_styleSet);
 
-        return new Tuple<Control, DialogControlViewModel>(view, viewModel);
+        obj.ViewModel = viewModel;
+        obj.View = view;
+
+        return new Tuple<DialogObject, DialogControlViewModel>(obj, viewModel);
     }
 
     private const string DialogViewCardName = "PART_DialogViewCard";

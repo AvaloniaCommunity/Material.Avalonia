@@ -33,7 +33,7 @@
   
   <DataTemplate x:Key="DialogBuilderButtonTemplate" DataType="elements:DialogBuilderButtonViewModel">
     <Button Content="{Binding Content, FallbackValue='NULL'}"
-            
+            Command="{Binding ExecuteCommand}"
             CommandParameter="{Binding }" />
   </DataTemplate>
   
