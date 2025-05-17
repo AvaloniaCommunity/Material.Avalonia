@@ -35,6 +35,10 @@ public class DialogBuilder {
     private readonly List<DialogBuilderButtonViewModel> _neutralButtons = new();
     private readonly List<DialogBuilderButtonViewModel> _negativeButtons = new();
 
+    /// <summary>
+    /// Set dialog content title text
+    /// </summary>
+    /// <param name="text">title text</param>
     public DialogBuilder SetTitle(string text) {
         _titleText = text;
         return this;
@@ -73,6 +77,10 @@ public class DialogBuilder {
         return this;
     }
 
+    /// <summary>
+    /// Append supporting text to dialog.
+    /// </summary>
+    /// <param name="text">supporting text</param>
     public DialogBuilder Text(string text) {
         _elementSet.Add(new TextBlockElement {
             Text = text
@@ -137,15 +145,27 @@ public class DialogBuilder {
         return this;
     }
 
+    /// <summary>
+    /// Add custom style to dialog for affecting decoration or visual style of controls or elements of dialog
+    /// </summary>
+    /// <param name="style">valid style instance</param>
     public DialogBuilder Style(IStyle style) {
         _styleSet.Add(style);
         return this;
     }
 
+    /// <summary>
+    /// Build the dialog control with attached parameters.
+    /// </summary>
+    /// <returns>dialog view control instance</returns>
     public Control Build() {
         return BuildDialogViewPrivate().Item1;
     }
     
+    /// <summary>
+    /// Build the dialog control with attached parameters, also you will get an async accessor for access dialog state
+    /// </summary>
+    /// <returns>an dialog control and accessor to get dialog state asynchronously</returns>
     public Tuple<Control, Func<CancellationToken, Task<object>>> BuildWithStateAccessor() {
 
         var (control, viewModel) = BuildDialogViewPrivate();
@@ -174,6 +194,10 @@ public class DialogBuilder {
 
     private const string DialogViewCardName = "PART_DialogViewCard";
 
+    /// <summary>
+    /// Build the standalone dialog window with attached parameters.
+    /// </summary>
+    /// <returns>dialog window instance</returns>
     public Window BuildWindow() {
         return BuildDialogWindowPrivate().Item1;
     }
