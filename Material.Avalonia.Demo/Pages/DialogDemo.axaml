@@ -14,6 +14,8 @@
         CLOSE
       </Button>
     </StackPanel>
+    
+    <StackPanel x:Key="DialogBuilderElementsPanel" Spacing="8"/>
   </UserControl.Resources>
 
   <StackPanel Margin="16, 0">
@@ -76,6 +78,18 @@
       <StackPanel>
         <TextBlock Classes="Headline6 Subheadline2" Text="Managed file picker" />
         <Button Classes="flat" Content="Example" Click="FilePickerExampleButton_OnClick"/>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Classes="Headline6 Subheadline2" Text="Dialog builder API (Beta)" />
+        <TextBlock TextWrapping="Wrap" Text="New Material.Dialog API for further use, which have designed to make it able to simple or complex use to create dialog view easily, and also deprecates dialog helper API at same time" />
+        
+        <ToggleSwitch Name="UseDialogHostSwitch"
+                      Content="Use DialogHost"
+                      />
+        <Button Content="Example" Click="DialogBuilderExample1Button_OnClick"/>
+        
+        <TextBlock Name="DialogBuilderResultText" Text=""/>
       </StackPanel>
     </WrapPanel>
   </StackPanel>

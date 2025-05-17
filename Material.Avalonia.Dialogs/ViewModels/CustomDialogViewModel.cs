@@ -29,7 +29,7 @@ namespace Material.Dialog.ViewModels
             }
         }
 
-        public CustomDialogViewModel(CustomDialog dialog) : base(dialog)
+        public CustomDialogViewModel(CustomDialog? dialog) : base(dialog)
         {
         }
     }

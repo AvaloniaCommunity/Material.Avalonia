@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Controls.ItemsRepeater"/>
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj"/>
   </ItemGroup>
 
