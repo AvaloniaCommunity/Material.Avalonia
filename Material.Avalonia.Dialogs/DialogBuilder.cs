@@ -153,7 +153,7 @@ public class DialogBuilder {
         return new Tuple<Control, Func<CancellationToken, Task<object>>>(control, viewModel.State.DequeueAsync);
     }
 
-    public Tuple<Control, DialogControlViewModel> BuildDialogViewPrivate() {
+    private Tuple<Control, DialogControlViewModel> BuildDialogViewPrivate() {
         var viewModel = new DialogControlViewModel {
             DialogHeader = new DialogHeaderViewModel {
                 Header = _titleText,
@@ -178,7 +178,7 @@ public class DialogBuilder {
         return BuildDialogWindowPrivate().Item1;
     }
 
-    public Tuple<Window, DialogControlViewModel> BuildDialogWindowPrivate() {
+    private Tuple<Window, DialogControlViewModel> BuildDialogWindowPrivate() {
         var dialogView = BuildDialogViewPrivate();
 
         var view = new Card {
