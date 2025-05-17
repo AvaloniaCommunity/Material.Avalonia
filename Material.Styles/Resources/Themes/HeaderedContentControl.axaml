@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type HeaderedContentControl}"
+                TargetType="HeaderedContentControl">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="PART_RootBorder"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Background="{TemplateBinding Background}"
+                Padding="{TemplateBinding Padding}">
+          <DockPanel Name="PART_RootPanel">
+            <ContentPresenter Name="PART_HeaderPresenter"
+                              Content="{TemplateBinding Header}"
+                              RecognizesAccessKey="True"
+                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              FontSize="{TemplateBinding FontSize}"
+                              FontWeight="{TemplateBinding FontWeight}"
+                              FontFamily="{TemplateBinding FontFamily}"
+                              FontStyle="{TemplateBinding FontStyle}"/>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              RecognizesAccessKey="True"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              FontSize="{TemplateBinding FontSize}"
+                              FontWeight="{TemplateBinding FontWeight}"
+                              FontFamily="{TemplateBinding FontFamily}"
+                              FontStyle="{TemplateBinding FontStyle}"/>
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    
+    <Style Selector="^ /template/ DockPanel#PART_RootPanel">
+      <Style Selector="^ > ContentPresenter#PART_HeaderPresenter">
+        <Setter Property="DockPanel.Dock" Value="Top"/>
+      </Style>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
