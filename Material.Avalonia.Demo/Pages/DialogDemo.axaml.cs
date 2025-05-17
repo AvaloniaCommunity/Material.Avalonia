@@ -78,7 +78,8 @@ public partial class DialogDemo : UserControl {
             .Text("Appended one line text")
             .Text("Appended second line text")
             .PositiveButton("Yay!", "good")
-            .NeutralButton("avaloniaUI is awesome!", "promo")
+            .NeutralButton("avaloniaUI is awesome!", "promo",
+                a => DialogBuilderResultText.Text = a.ToString())
             .Control(new Button {
                 Content = "Appended a button"
             });
@@ -122,42 +123,47 @@ public partial class DialogDemo : UserControl {
     {
         var useDialogHost = UseDialogHostSwitch.IsChecked ?? false;
 
+        var dialog = dialogBuilder.Build();
+        
         if (useDialogHost) {
-            var dialog = dialogBuilder.Build();
-            
-            // Somehow the dialog would non-closeable, this trick will make it able to close anyway
-            var wrapper = new HeaderedContentControl
-            {
-                Header = new Button {
-                    Command = DialogHost.CloseDialogCommandProperty.Getter.Invoke(
-                        this.FindLogicalAncestorOfType<DialogHost>() ?? throw new InvalidOperationException()),
-                    Content = "Force close"
-                },
-                Content = dialog
-            };
-            
-            return await DialogHost.Show(wrapper, "MainDialogHost");
+            return await dialog.ShowCustomAsync(async view => {
+                // Somehow the dialog would non-closeable, this trick will make it able to close anyway
+                var wrapper = new HeaderedContentControl {
+                    Header = new Button {
+                        Command = DialogHost.CloseDialogCommandProperty.Getter.Invoke(
+                            this.FindLogicalAncestorOfType<DialogHost>() ?? throw new InvalidOperationException()),
+                        Content = "Force close"
+                    },
+                    Content = view
+                };
+
+                return await DialogHost.Show(wrapper, "MainDialogHost");
+            }, a => DialogHost.Close("MainDialogHost", a));
         }
         
-        var window = default(Window);
+        var owner = default(Window);
         
         if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime app) {
             if (app.MainWindow is not MainWindow w)
                 return null;
 
-            window = w;
+            owner = w;
         }
 
-        var owner = window ?? throw new InvalidOperationException();
-        var lastState = default(object);
+        owner = owner ?? throw new InvalidOperationException();
 
+        return await dialog.ShowDialogAsync(owner);
+
+        //var lastState = default(object);
+
+        /*
         await foreach (var state in dialogBuilder.BuildAndShowDialogAsync(owner,
                            modifier: dialog => dialog.AttachDevTools())) {
             DialogBuilderResultText.Text = state?.ToString();
             lastState = state;
         }
 
-        return lastState;
+        return lastState;*/
     }
 
     private TopLevel GetToplevel() => TopLevel.GetTopLevel(this) ?? throw new InvalidOperationException();
