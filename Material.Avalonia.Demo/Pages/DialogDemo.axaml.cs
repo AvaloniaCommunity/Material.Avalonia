@@ -66,6 +66,21 @@ public partial class DialogDemo : UserControl {
     };
     
     private async void DialogBuilderExample1Button_OnClick(object? sender, RoutedEventArgs e) {
+
+        const string keepOpen = "chilling";
+        
+        bool shouldClose(object param) {
+
+            DialogBuilderResultText.Text = param.ToString();
+            
+            switch (param) {
+                case keepOpen:
+                    return false;
+                
+                default:
+                    return true;
+            }
+        }
         
         var dialogBuilder = new DialogBuilder()
             .SetTitle("Dialog builder API demo")
@@ -78,6 +93,8 @@ public partial class DialogDemo : UserControl {
             .Text("Appended one line text")
             .Text("Appended second line text")
             .PositiveButton("Yay!", "good")
+            .PositiveButton("Ok but I wanna chillin' here", keepOpen, shouldClose)
+            .NegativeButton("Boooo", "im_out", shouldClose)
             .NeutralButton("avaloniaUI is awesome!", "promo",
                 a => DialogBuilderResultText.Text = a.ToString())
             .Control(new Button {

@@ -104,7 +104,7 @@ public class DialogBuilder {
     /// <param name="content">text or control</param>
     /// <param name="returnValue">object that you would want to use as a result</param>
     /// <param name="shouldClose">you can use this parameter to blocking dialog get closed by some conditions</param>
-    public DialogBuilder PositiveButton(object content, object returnValue, Func<bool>? shouldClose = null) {
+    public DialogBuilder PositiveButton(object content, object returnValue, Func<object, bool>? shouldClose = null) {
         _positiveButtons.Add(new() {
             Content = content,
             ReturnValue = returnValue,
@@ -124,8 +124,8 @@ public class DialogBuilder {
         _neutralButtons.Add(new() {
             Content = content,
             ReturnValue = returnValue,
-            ShouldClose = () => {
-                handler?.Invoke(returnValue);
+            ShouldClose = a => {
+                handler?.Invoke(a);
                 return false;
             }
         });
@@ -139,7 +139,7 @@ public class DialogBuilder {
     /// <param name="content">text or control</param>
     /// <param name="returnValue">object that you would want to use as a result</param>
     /// <param name="shouldClose">you can use this parameter to blocking dialog get closed by some conditions</param>
-    public DialogBuilder NegativeButton(object content, object returnValue, Func<bool>? shouldClose = null) {
+    public DialogBuilder NegativeButton(object content, object returnValue, Func<object, bool>? shouldClose = null) {
         _negativeButtons.Add(new() {
             Content = content,
             ReturnValue = returnValue,

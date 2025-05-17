@@ -73,6 +73,8 @@
     </Style>
     
     <Style Selector="DockPanel#PART_ButtonsPanel">
+      <Setter Property="Margin" Value="8"/>
+      
       <Style Selector="^ > ItemsControl#PART_NeutralButtonPlacement">
         <Setter Property="DockPanel.Dock" Value="Left"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
