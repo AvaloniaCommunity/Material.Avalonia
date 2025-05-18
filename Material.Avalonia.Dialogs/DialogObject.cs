@@ -71,7 +71,9 @@ public partial class DialogObject
         var view = new Card {
             Name = DialogViewCardName,
             Content = View,
-            CornerRadius = new CornerRadius(8)
+            CornerRadius = new CornerRadius(8),
+            MinWidth = 24,
+            MinHeight = 24,
         };
 
         view.SetValue(ShadowAssist.ShadowDepthProperty, ShadowDepth.CenterDepth3, BindingPriority.Style);
@@ -79,9 +81,11 @@ public partial class DialogObject
 
         var window = new Window {
             Content = view,
-            SizeToContent = SizeToContent.WidthAndHeight,
+            CanResize = true,
             WindowStartupLocation = WindowStartupLocation.CenterOwner,
             SystemDecorations = SystemDecorations.None,
+            MinWidth = 64,
+            MinHeight = 64,
             Styles = {
                 new StyleInclude(new Uri("avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml")) {
                     Source = new Uri("avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml")
@@ -124,6 +128,36 @@ public partial class DialogObject
             return;
 
         var window = control.FindLogicalAncestorOfType<Window>();
+        
+        var p = e.GetPosition(control);
+        var resize = IsInResizeZone(control, p);
+
+        if (resize.HasValue) {
+            window?.BeginResizeDrag(resize.Value, e);
+            return;
+        }
+        
         window?.BeginMoveDrag(e);
+    }
+    
+    private WindowEdge? IsInResizeZone(Control c, Point p)
+    {
+        var b = c.Bounds;
+        const double s = 16;
+        var rT = b.Width - s;
+
+        if (p.X > rT && p.Y > s)
+            return WindowEdge.East;
+        
+        else if (p.X > rT && p.Y <= s)
+            return WindowEdge.NorthEast;
+        
+        else if (p.X > s && p.Y <= s)
+            return WindowEdge.North;
+        
+        else if (p.X <= s && p.Y <= s)
+            return WindowEdge.NorthWest;
+
+        return null;
     }
 }
