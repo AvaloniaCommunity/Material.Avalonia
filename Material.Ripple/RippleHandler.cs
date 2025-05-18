@@ -21,10 +21,12 @@ internal class RippleHandler : CompositionCustomVisualHandler {
     private TimeSpan _animationElapsed;
     private TimeSpan? _lastServerTime;
     private TimeSpan? _secondStepStart;
+    private readonly TimeSpan _fadeOutDuration;
 
     public RippleHandler(IImmutableBrush brush,
         Easing easing,
         TimeSpan duration,
+        TimeSpan fadeOutDuration,
         double opacity,
         CornerRadius cornerRadius,
         double positionX, double positionY,
@@ -40,6 +42,7 @@ internal class RippleHandler : CompositionCustomVisualHandler {
         _center = new Point(positionX, positionY);
 
         _maxRadius = Math.Sqrt(Math.Pow(outerWidth, 2) + Math.Pow(outerHeight, 2));
+        _fadeOutDuration = fadeOutDuration;
     }
 
     public override void OnRender(ImmediateDrawingContext drawingContext) {
@@ -57,7 +60,7 @@ internal class RippleHandler : CompositionCustomVisualHandler {
             // Fade-out starts when the second message is received
             if (_secondStepStart is { } secondStepStart) {
                 var timeSinceSecondStep = _animationElapsed - secondStepStart;
-                var fadeOutProgress = Math.Clamp((double)timeSinceSecondStep.Ticks / TimeSpan.FromSeconds(1).Ticks, 0, 1);
+                var fadeOutProgress = Math.Clamp((double)timeSinceSecondStep.Ticks / _fadeOutDuration.Ticks, 0, 1);
                 currentOpacity = _opacity * (1.0 - _easing.Ease(fadeOutProgress));
             }
         } else {
