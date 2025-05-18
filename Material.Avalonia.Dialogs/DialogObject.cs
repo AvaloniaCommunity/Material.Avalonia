@@ -56,10 +56,12 @@ public partial class DialogObject
     /// Show standalone dialog and return final dialog result by dialog button.
     /// </summary>
     /// <param name="owner">owner window that used to cover up before dialog closed.</param>
+    /// <param name="modifier">apply modifier to the dialog window</param>
     /// <returns>final dialog result</returns>
-    public async Task<object?> ShowDialogAsync(Window owner) {
+    public async Task<object?> ShowDialogAsync(Window owner, Action<Window>? modifier = null) {
         var window = ShowDialogPreparePrivate();
-
+        modifier?.Invoke(window);
+        
         ApplyDialogCloseDelegatePrivate(a => window.Close(a));
 
         return await window.ShowDialog<object>(owner);

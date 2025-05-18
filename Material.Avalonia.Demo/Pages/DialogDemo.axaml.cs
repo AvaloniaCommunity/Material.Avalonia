@@ -169,7 +169,10 @@ public partial class DialogDemo : UserControl {
 
         owner = owner ?? throw new InvalidOperationException();
 
-        return await dialog.ShowDialogAsync(owner);
+        return await dialog.ShowDialogAsync(owner, w => {
+            w.Width = 600;
+            w.AttachDevTools();
+        });
 
         //var lastState = default(object);
 
