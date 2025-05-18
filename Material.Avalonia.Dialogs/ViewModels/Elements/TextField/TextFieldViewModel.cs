@@ -5,14 +5,8 @@ namespace Material.Dialog.ViewModels.Elements.TextField
 {
     public class TextFieldViewModel : DialogViewModelBase
     {
-        private readonly TextFieldDialogViewModel _parent;
-
-        public TextFieldDialogViewModel Parent => _parent;
-
-        public TextFieldViewModel(TextFieldDialogViewModel parent, string? defaultText = default,
-            Func<string, Tuple<bool, string>>? validateHandler = null)
-        {
-            _parent = parent;
+        public TextFieldViewModel(string? defaultText = default,
+            Func<string, Tuple<bool, string>>? validateHandler = null) {
             _text = defaultText;
 
             ValidateHandler = validateHandler;

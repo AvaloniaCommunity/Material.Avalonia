@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:header="clr-namespace:Material.Dialog.ViewModels.Elements.Header">
+  <!-- Add Resources Here -->
+  <DataTemplate DataType="header:DialogHeaderViewModel"
+                x:Key="MaterialDialogHeaderTemplate">
+    <DockPanel Name="PART_HeaderPanel">
+      <ContentControl Name="PART_HeaderIcon"
+                      Content="{Binding Icon}"
+                      ContentTemplate="{StaticResource DialogHeaderIconTemplate}"
+                      IsVisible="{Binding Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+      
+      <DockPanel.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.Or}">
+          <CompiledBinding Converter="{x:Static ObjectConverters.IsNotNull}" Path="Icon" />
+          <CompiledBinding Converter="{x:Static StringConverters.IsNotNullOrEmpty}" Path="Header" />
+        </MultiBinding>
+      </DockPanel.IsVisible>
+      <SelectableTextBlock Name="PART_HeaderText"
+                 Classes="Headline6"
+                 IsVisible="{Binding Header, Converter={x:Static ObjectConverters.IsNotNull}}"
+                 Text="{Binding Header, FallbackValue='DIALOG_HEADER_NULL'}" />
+    </DockPanel>
+  </DataTemplate>
+</ResourceDictionary>

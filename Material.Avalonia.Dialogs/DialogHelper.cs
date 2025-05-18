@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Avalonia.Controls;
+using Avalonia.Layout;
 using Avalonia.Media.Imaging;
+using Avalonia.Styling;
 using Material.Dialog.Bases;
 using Material.Dialog.Enums;
+using Material.Dialog.Extensions;
 using Material.Dialog.Icons;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
@@ -14,6 +17,8 @@ using Material.Dialog.Views;
 
 namespace Material.Dialog
 {
+    
+    [Obsolete("Please consider to use DialogBuilder API instead. Those API will be deprecated and get removed.", false)]
     public class DialogHelper
     {
         public const string DIALOG_RESULT_OK = "ok";
@@ -78,9 +83,17 @@ namespace Material.Dialog
                     };
             }
         }
+        
+        [Obsolete("Please consider to use DialogBuilder API instead. Those API will be deprecated and get removed.", false)]
+        public static IDialogWindow<IDialogResult> CreateAlertDialog(AlertDialogBuilderParams @params) {
+            var builder = new DialogBuilder();
 
-        public static IDialogWindow<DialogResult> CreateAlertDialog(AlertDialogBuilderParams @params)
-        {
+            ApplyBaseParamsDialogBuilder(@params, builder);
+
+            return builder.Build().GetCompatObject();
+            
+            /*
+            
             var window = new AlertDialog();
             var context = new AlertDialogViewModel(window);
 
@@ -91,11 +104,110 @@ namespace Material.Dialog
 
             window.DataContext = context;
             SetupWindowParameters(window, @params);
-            return new DialogWindowBase<AlertDialog, DialogResult>(window);
+            return new DialogWindowBase<AlertDialog, DialogResult>(window);*/
         }
 
-        public static IDialogWindow<TextFieldDialogResult> CreateTextFieldDialog(TextFieldDialogBuilderParams @params)
+        private static void ApplyBaseParamsDialogBuilder(DialogWindowBuilderParamsBase @params, DialogBuilder builder) {
+            if (@params.DialogButtons == null || @params.DialogButtons.Length == 0)
+                @params.DialogButtons = CreateSimpleDialogButtons(DialogButtonsEnum.Ok);
+            
+            builder
+                .RequireNonNullPrivate(@params.ContentHeader, (b, v) => b.SetTitle(v))
+                .RequireNonNullPrivate(@params.DialogHeaderIcon, (b, v) => b.SetTitleIcon(v!.Value))
+                .RequireNonNullPrivate(@params.DialogIcon, (b, v) => {
+                    switch (v)
+                    {
+                        case Bitmap bitmap:
+                            b.SetTitleIcon(bitmap);
+                            break;
+
+                        case Image img:
+                            b.SetTitleIcon(img);
+                            break;
+
+                        case Control control:
+                            b.SetTitleIcon(control);
+                            break;
+
+                        case DialogIconKind kind:
+                            b.SetTitleIcon(kind);
+                            break;
+
+                        case null:
+                            break;
+
+                        default:
+                            throw new ArgumentException($"{v.GetType()} is a unknown or unsupported type.");
+                    }
+                })
+                .RequireNonNullPrivate(@params.SupportingText, (b, v) => b.Text(v))
+                .RequireNonNullPrivate(@params.NeutralDialogButtons, (b, v) => {
+                    foreach (var button in v) {
+                        b.NeutralButton(button.Content, new DialogResult (button.Result));
+                    }
+                })
+                .RequireNonNullPrivate(@params.DialogButtons, (b, v) => {
+                    foreach (var button in v) {
+                        if (button.IsPositive) {
+                            b.PositiveButton(button.Content, new DialogResult (button.Result));
+                            continue;
+                        }
+
+                        if (button.IsNegative) {
+                            b.NegativeButton(button.Content, new DialogResult (button.Result));
+                            continue;
+                        }
+
+                        b.PositiveButton(button.Content, new DialogResult (button.Result));
+                    }
+                })
+                .RequireNonNullPrivate(@params.Width, (b, v) => {
+                    b.Style(new Style(a => a.OfType(typeof(DialogControlView))) {
+                        Setters = {
+                            new Setter(Layoutable.WidthProperty, v)
+                        }
+                    });
+                })
+                .RequireNonNullPrivate(@params.MaxWidth, (b, v) => {
+                    b.Style(new Style(a => a.OfType(typeof(DialogControlView))) {
+                        Setters = {
+                            new Setter(Layoutable.MaxWidthProperty, v)
+                        }
+                    });
+                });
+        }
+
+        [Obsolete("Please consider to use DialogBuilder API instead. Those API will be deprecated and get removed.", false)]
+        public static IDialogWindow<IDialogResult> CreateTextFieldDialog(TextFieldDialogBuilderParams @params)
         {
+            var builder = new DialogBuilder();
+
+            ApplyBaseParamsDialogBuilder(@params, builder);
+            
+            DialogObject obj = null!;
+
+            void Trigger() {
+                foreach (var vm in obj.ViewModel.Answers) {
+                    if(vm == null)
+                        continue;
+                    
+                    vm.OnPropertyChanged();
+                }
+            }
+
+            foreach (var field in TextFieldsBuilder(Trigger, @params.TextFields)) {
+                builder.Control(new TextFieldDialogElement {
+                    Content = field
+                });
+            }
+            
+            obj = builder.Build();
+
+            return obj.GetCompatObject();
+            
+            /*
+            
+            
             var window = new TextFieldDialog();
             var context = new TextFieldDialogViewModel(window);
 
@@ -135,7 +247,7 @@ namespace Material.Dialog
             context.BindValidateHandler();
             window.DataContext = context;
             SetupWindowParameters(window, @params);
-            return new DialogWindowBase<TextFieldDialog, TextFieldDialogResult>(window);
+            //return new DialogWindowBase<TextFieldDialog, TextFieldDialogResult>(window);*/
         }
 
         /// <summary>
@@ -143,6 +255,7 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of picker.</returns>
+        [Obsolete("DO NOT USE IT ANYMORE", true)]
         public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(TimePickerDialogBuilderParams @params)
         {
             var window = new TimePickerDialog();
@@ -173,7 +286,7 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of picker.</returns>
-        //[Obsolete("This feature is still not ready for use! Please come back later!")]
+        [Obsolete("DO NOT USE IT ANYMORE", true)]
         public static IDialogWindow<DateTimePickerDialogResult> CreateDatePicker(DatePickerDialogBuilderParams @params)
         {
             var window = new DatePickerDialog();
@@ -203,20 +316,19 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of dialog.</returns>
-        public static IDialogWindow<DialogResult> CreateCustomDialog(CustomDialogBuilderParams @params)
+        [Obsolete("Please consider to use DialogBuilder API instead. Those API will be deprecated and get removed.", false)]
+        public static IDialogWindow<IDialogResult> CreateCustomDialog(CustomDialogBuilderParams @params)
         {
-            var window = new CustomDialog();
-            var context = new CustomDialogViewModel(window)
-            {
+            var builder = new DialogBuilder();
+
+            ApplyBaseParamsDialogBuilder(@params, builder);
+
+            builder.Control(new ContentControl {
                 Content = @params.Content,
                 ContentTemplate = @params.ContentTemplate
-            };
+            });
 
-            ApplyBaseParams(context, @params);
-
-            window.DataContext = context;
-            SetupWindowParameters(window, @params);
-            return new DialogWindowBase<CustomDialog, DialogResult>(window);
+            return builder.Build().GetCompatObject();
         }
 
         private static void ApplyBaseParams<T>(T input, DialogWindowBuilderParamsBase @params)
@@ -319,7 +431,7 @@ namespace Material.Dialog
             return result;
         }
 
-        private static TextFieldViewModel[] TextFieldsBuilder(TextFieldDialogViewModel parent,
+        private static TextFieldViewModel[] TextFieldsBuilder(Action fieldChangedTrigger,
             params TextFieldBuilderParams[] @params)
         {
             var len = @params.Length;
@@ -330,7 +442,10 @@ namespace Material.Dialog
 
                 try
                 {
-                    var model = new TextFieldViewModel(parent, param.DefaultText, param.Validater)
+                    var model = new TextFieldViewModel(param.DefaultText, s => {
+                        fieldChangedTrigger.Invoke();
+                        return param.Validater?.Invoke(s) ?? new Tuple<bool, string>(true, s);
+                    })
                     {
                         // but... I implemented an setter to TextFieldDialog for apply classes when showing dialog.
                         // Currently AvaloniaUI are not supported to binding classes.
