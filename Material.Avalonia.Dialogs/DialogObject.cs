@@ -10,11 +10,12 @@ using Avalonia.LogicalTree;
 using Avalonia.Markup.Xaml.Styling;
 using Material.Dialog.ViewModels;
 using Material.Dialog.Views;
+using Material.Styles.Assists;
 using Material.Styles.Controls;
 
 namespace Material.Dialog;
 
-public class DialogObject
+public partial class DialogObject
 {
     internal DialogControlViewModel ViewModel { get; set; }
     
@@ -58,11 +59,6 @@ public class DialogObject
     /// <returns>final dialog result</returns>
     public async Task<object?> ShowDialogAsync(Window owner) {
         var window = ShowDialogPreparePrivate();
-        window.Closed += WindowOnClosed;
-
-        void WindowOnClosed(object sender, EventArgs e) {
-            window.Closed -= WindowOnClosed;
-        }
 
         ApplyDialogCloseDelegatePrivate(a => window.Close(a));
 
@@ -78,6 +74,7 @@ public class DialogObject
             CornerRadius = new CornerRadius(8)
         };
 
+        view.SetValue(ShadowAssist.ShadowDepthProperty, ShadowDepth.CenterDepth3, BindingPriority.Style);
         view.SetValue(TemplatedControl.PaddingProperty, new Thickness(), BindingPriority.Style);
 
         var window = new Window {

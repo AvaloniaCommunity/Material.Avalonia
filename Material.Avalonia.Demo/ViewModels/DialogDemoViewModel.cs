@@ -33,8 +33,8 @@ public class DialogDemoViewModel : ViewModelBase {
             new DialogDemoItemViewModel("Dialog with bitmap icon", Dialog4),
             new DialogDemoItemViewModel("Login dialog", LoginDialog),
             new DialogDemoItemViewModel("Folder rename dialog", FolderNameDialog),
-            new DialogDemoItemViewModel("Time picker", TimePickerDialog),
-            new DialogDemoItemViewModel("Date picker", DatePickerDialog),
+            //new DialogDemoItemViewModel("Time picker", TimePickerDialog),
+            //new DialogDemoItemViewModel("Date picker", DatePickerDialog),
             new DialogDemoItemViewModel("Custom dialog", CustomDialog)
         ];
     }
@@ -178,9 +178,12 @@ public class DialogDemoViewModel : ViewModelBase {
 
         if (result.GetResult != "login")
             yield break;
+        
+        if(result is not TextFieldDialogResult f)
+            yield break;
 
-        yield return $"Account: {result.GetFieldsResult()[0].Text}";
-        yield return $"Password: {result.GetFieldsResult()[1].Text}";
+        yield return $"Account: {f.GetFieldsResult()[0].Text}";
+        yield return $"Password: {f.GetFieldsResult()[1].Text}";
     }
 
     private Tuple<bool, string> ValidateAccount(string text) {
@@ -225,12 +228,16 @@ public class DialogDemoViewModel : ViewModelBase {
         }).ShowDialog(_window);
 
         yield return $"Result: {result.GetResult}";
+        
+        if(result is not TextFieldDialogResult f)
+            yield break;
 
         if (result.GetResult == "rename") {
-            yield return $"Folder name: {result.GetFieldsResult()[0].Text}";
+            yield return $"Folder name: {f.GetFieldsResult()[0].Text}";
         }
     }
 
+    /*
     private async IAsyncEnumerable<string> TimePickerDialog() {
         if (_window == null) yield break;
         var result = await DialogHelper.CreateTimePicker(new TimePickerDialogBuilderParams {
@@ -280,7 +287,7 @@ public class DialogDemoViewModel : ViewModelBase {
         // ReSharper disable once SimplifyStringInterpolation
         yield return $"TimeSpan: {r.ToString("d")}";
         _previousDatePickerResult = r;
-    }
+    }*/
 
     private async IAsyncEnumerable<string> CustomDialog() {
         if (_window == null) yield break;
