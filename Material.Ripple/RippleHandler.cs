@@ -60,7 +60,7 @@ internal class RippleHandler : CompositionCustomVisualHandler {
             // Fade-out starts when the second message is received
             if (_secondStepStart is { } secondStepStart) {
                 var timeSinceSecondStep = _animationElapsed - secondStepStart;
-                var fadeOutProgress = Math.Clamp((double)timeSinceSecondStep.Ticks / _fadeOutDuration.Ticks, 0, 1);
+                var fadeOutProgress = Math.Min(Math.Max((double)timeSinceSecondStep.Ticks / _fadeOutDuration.Ticks, 0), 1);
                 currentOpacity = _opacity * (1.0 - _easing.Ease(fadeOutProgress));
             }
         } else {
