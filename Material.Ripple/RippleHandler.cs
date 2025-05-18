@@ -33,7 +33,7 @@ internal class RippleHandler : CompositionCustomVisualHandler {
         _easing = easing;
         _duration = duration;
         _opacity = opacity;
-        _cornerRadiusRect = new RoundedRect(new Rect(0, 0, outerWidth, outerHeight), 
+        _cornerRadiusRect = new RoundedRect(new Rect(0, 0, outerWidth, outerHeight),
             cornerRadius.BottomLeft, cornerRadius.BottomRight,
             cornerRadius.BottomRight, cornerRadius.BottomLeft);
         _transitions = transitions;
@@ -43,21 +43,25 @@ internal class RippleHandler : CompositionCustomVisualHandler {
     }
 
     public override void OnRender(ImmediateDrawingContext drawingContext) {
-        if (_lastServerTime.HasValue) _animationElapsed += (CompositionNow - _lastServerTime.Value);
-        _lastServerTime = CompositionNow;
+        OnUpdateTimerPrivate();
 
-        var currentRadius = _maxRadius;
+        double currentRadius;
         var currentOpacity = _opacity;
+        var animationProgress = Math.Min((double)_animationElapsed.Ticks / _duration.Ticks, 1.0);
+        var expandingStep = _easing.Ease(animationProgress);
 
         if (_transitions) {
-            var expandingStep = _easing.Ease((double)_animationElapsed.Ticks / _duration.Ticks);
-            currentRadius = _maxRadius * expandingStep;
-
+            // Expansion always continues
+            currentRadius = Math.Min(_maxRadius * expandingStep, _maxRadius);
+            
+            // Fade-out starts when the second message is received
             if (_secondStepStart is { } secondStepStart) {
-                var opacityStep = _easing.Ease((double)(_animationElapsed - secondStepStart).Ticks /
-                                               (_duration - secondStepStart).Ticks);
-                currentOpacity = _opacity - _opacity * opacityStep;
+                var timeSinceSecondStep = _animationElapsed - secondStepStart;
+                var fadeOutProgress = Math.Clamp((double)timeSinceSecondStep.Ticks / TimeSpan.FromSeconds(1).Ticks, 0, 1);
+                currentOpacity = _opacity * (1.0 - _easing.Ease(fadeOutProgress));
             }
+        } else {
+            currentRadius = _maxRadius;
         }
 
         using (drawingContext.PushClip(_cornerRadiusRect)) {
@@ -67,19 +71,39 @@ internal class RippleHandler : CompositionCustomVisualHandler {
         }
     }
 
+    private void OnUpdateTimerPrivate()
+    {
+        if (_lastServerTime.HasValue)
+            _animationElapsed += CompositionNow - _lastServerTime.Value;
+
+        _lastServerTime = CompositionNow;
+    }
+
     public override void OnMessage(object message) {
         if (message == FirstStepMessage) {
             _lastServerTime = null;
+            _animationElapsed = TimeSpan.Zero;
             _secondStepStart = null;
-            RegisterForNextAnimationFrameUpdate();
+            TriggerNextFrameUpdatePrivate();
         }
         else if (message == SecondStepMessage) {
+            // Record the time when the fade-out should begin
+            OnUpdateTimerPrivate();
             _secondStepStart = _animationElapsed;
+            TriggerNextFrameUpdatePrivate();
         }
     }
 
     public override void OnAnimationFrameUpdate() {
-        if (_animationElapsed >= _duration) return;
+        // Continue animation until the total duration has elapsed
+        if (_animationElapsed >= _duration && !_secondStepStart.HasValue) 
+            return;
+
+        TriggerNextFrameUpdatePrivate();
+    }
+
+    private void TriggerNextFrameUpdatePrivate()
+    {
         Invalidate();
         RegisterForNextAnimationFrameUpdate();
     }
