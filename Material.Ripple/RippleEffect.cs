@@ -168,6 +168,7 @@ namespace Material.Ripple {
                 RippleFill.ToImmutable(),
                 Ripple.Easing,
                 Ripple.Duration,
+                TimeSpan.FromSeconds(FadeOutDuration),
                 RippleOpacity,
                 CornerRadius,
                 x, y, w, h, t);
@@ -218,6 +219,14 @@ namespace Material.Ripple {
         public bool UseTransitions {
             get => GetValue(UseTransitionsProperty);
             set => SetValue(UseTransitionsProperty, value);
+        }
+        
+        public static readonly StyledProperty<double> FadeOutDurationProperty =
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(FadeOutDuration), defaultValue: 0.450, validate: v => v > 0.0);
+
+        public double FadeOutDuration {
+            get => GetValue(FadeOutDurationProperty);
+            set => SetValue(FadeOutDurationProperty, value);
         }
 
         #endregion Styled properties
