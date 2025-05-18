@@ -65,6 +65,9 @@ internal class RippleHandler : CompositionCustomVisualHandler {
             }
         } else {
             currentRadius = _maxRadius;
+
+            if (_secondStepStart != null)
+                currentOpacity = 0.0;
         }
 
         using (drawingContext.PushClip(_cornerRadiusRect)) {
@@ -98,11 +101,12 @@ internal class RippleHandler : CompositionCustomVisualHandler {
     }
 
     public override void OnAnimationFrameUpdate() {
-        // Continue animation until the total duration has elapsed
-        if (_animationElapsed >= _duration && !_secondStepStart.HasValue) 
-            return;
-
-        TriggerNextFrameUpdatePrivate();
+        // Continue animation until the expansion duration has elapsed OR the fade-out is complete
+        if ((!_secondStepStart.HasValue && _animationElapsed < _duration) ||
+            (_secondStepStart.HasValue && _animationElapsed < _secondStepStart + _fadeOutDuration))
+        {
+            TriggerNextFrameUpdatePrivate();
+        }
     }
 
     private void TriggerNextFrameUpdatePrivate()
