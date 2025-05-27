@@ -51,6 +51,15 @@
               <TextBlock Text="Item 4" />
             </ComboBox>
           </showMeTheXaml:XamlDisplay>
+          <showMeTheXaml:XamlDisplay UniqueId="ComboBoxesDense">
+            <ComboBox Theme="{StaticResource MaterialOutlineComboBox}" assist:ComboBoxAssist.Label="ComboBoxDense"
+                      Classes="dense">
+              <TextBlock Text="Item 1" />
+              <TextBlock Text="Item 2" />
+              <TextBlock Text="Item 3" />
+              <TextBlock Text="Item 4" />
+            </ComboBox>
+          </showMeTheXaml:XamlDisplay>
 
           <showMeTheXaml:XamlDisplay UniqueId="ComboBoxesError">
             <ComboBox PlaceholderText="Select a Item">
