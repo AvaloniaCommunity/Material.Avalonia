@@ -12,7 +12,8 @@ public interface IReadOnlyTheme {
     ColorPair SecondaryMid { get; }
     ColorPair SecondaryDark { get; }
 
-    Color ValidationError { get; }
+    ColorPair ValidationError { get; }
+
     Color Background { get; }
     Color Paper { get; }
     Color CardBackground { get; }

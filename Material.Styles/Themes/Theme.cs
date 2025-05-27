@@ -37,7 +37,7 @@ namespace Material.Styles.Themes {
         public ColorPair PrimaryMid { get; set; }
         public ColorPair PrimaryDark { get; set; }
 
-        public Color ValidationError { get; set; }
+        public ColorPair ValidationError { get; set; }
         public Color Background { get; set; }
         public Color Paper { get; set; }
         public Color CardBackground { get; set; }

@@ -11,7 +11,7 @@ namespace Material.Styles.Themes {
             SecondaryLight = baseTheme.SecondaryLight;
             SecondaryMid = baseTheme.SecondaryMid;
             SecondaryDark = baseTheme.SecondaryDark;
-            ValidationError = baseTheme.ValidationError;
+            ValidationError = baseTheme.ValidationError.Color;
             Background = baseTheme.Background;
             Paper = baseTheme.Paper;
             CardBackground = baseTheme.CardBackground;
@@ -47,7 +47,7 @@ namespace Material.Styles.Themes {
         public ColorPair SecondaryLight { get; set; }
         public ColorPair SecondaryMid { get; set; }
         public ColorPair SecondaryDark { get; set; }
-        public Color ValidationError { get; set; }
+        public ColorPair ValidationError { get; set; }
         public Color Background { get; set; }
         public Color Paper { get; set; }
         public Color CardBackground { get; set; }

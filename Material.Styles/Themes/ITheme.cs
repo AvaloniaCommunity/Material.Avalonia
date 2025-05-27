@@ -1,10 +1,8 @@
 ﻿using Avalonia.Media;
 using Material.Colors;
 
-namespace Material.Styles.Themes
-{
-    public interface ITheme : IReadOnlyTheme
-    {
+namespace Material.Styles.Themes {
+    public interface ITheme : IReadOnlyTheme {
         new ColorPair PrimaryLight { get; set; }
         new ColorPair PrimaryMid { get; set; }
         new ColorPair PrimaryDark { get; set; }
@@ -13,7 +11,7 @@ namespace Material.Styles.Themes
         new ColorPair SecondaryMid { get; set; }
         new ColorPair SecondaryDark { get; set; }
 
-        new Color ValidationError { get; set; }
+        new ColorPair ValidationError { get; set; }
         new Color Background { get; set; }
         new Color Paper { get; set; }
         new Color CardBackground { get; set; }
