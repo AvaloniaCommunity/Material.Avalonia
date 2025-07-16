@@ -63,6 +63,7 @@
                   </Style>
                 </ListBox.Styles>
                 <ListBoxItem>Home</ListBoxItem>
+                <ListBoxItem>Badges</ListBoxItem>
                 <ListBoxItem>Buttons</ListBoxItem>
                 <ListBoxItem>Card</ListBoxItem>
                 <ListBoxItem>ColorZones</ListBoxItem>
@@ -153,6 +154,9 @@
                 </Carousel.Styles>
                 <!-- Main page -->
                 <pages:Home />
+
+                <!-- Badges -->
+                <pages:BadgesDemo />
 
                 <!-- Buttons -->
                 <pages:ButtonsDemo />
