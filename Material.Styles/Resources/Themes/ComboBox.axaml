@@ -81,7 +81,7 @@
                         BorderBrush="Transparent"
                         BorderThickness="0">
                   <Path Name="arrow"
-                        Width="8" Height="8"
+                        Width="8" Height="4"
                         Stretch="Uniform"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
@@ -223,7 +223,7 @@
                           BorderBrush="Transparent"
                           BorderThickness="0">
                     <Path Name="arrow"
-                          Width="8" Height="8"
+                          Width="8" Height="4"
                           Stretch="Uniform"
                           HorizontalAlignment="Right"
                           VerticalAlignment="Center"
@@ -333,7 +333,7 @@
                         BorderBrush="Transparent"
                         BorderThickness="0">
                   <Path Name="arrow"
-                        Width="8" Height="8"
+                        Width="8" Height="4"
                         Stretch="Uniform"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
@@ -386,7 +386,7 @@
           <ThicknessTransition Duration="0:0:0.25" Property="BorderThickness" Easing="CircularEaseOut" />
         </Transitions>
       </Setter>
-    </Style> 
+    </Style>
 
     <Style Selector="^ /template/ Grid#PART_RootBorder">
       <Setter Property="MinHeight" Value="52" />
@@ -413,7 +413,7 @@
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       <Setter Property="BorderThickness" Value="2" />
       <Style Selector="^ /template/ TextBlock#floatingWatermark">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       </Style>
     </Style>
 
@@ -428,7 +428,7 @@
       <Setter Property="Margin" Value="6,8,6,0" />
     </Style>
     <Style Selector="^.dense:focus-within /template/ TextBlock#floatingWatermark">
-      <Setter Property="Margin" Value="0,2"/>
+      <Setter Property="Margin" Value="0,2" />
     </Style>
 
   </ControlTheme>
