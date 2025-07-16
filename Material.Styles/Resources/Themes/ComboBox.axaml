@@ -28,8 +28,8 @@
   </Design.PreviewWith>
 
 
-  <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="8,0" Offset="4,-8" />
+  <converters:RectHollowClipConverter x:Key="ComboBoxRectHollowClipConverter" />
+  <parameters:RectHollowClipParameter x:Key="OutlineComboBoxClippingParameter" Margin="8,0" Offset="4,-4" />
 
   <!-- TODO: Rework combobox styles-->
   <!-- Default -->
@@ -301,7 +301,8 @@
                       BorderThickness="{TemplateBinding BorderThickness}"
                       BorderBrush="{TemplateBinding BorderBrush}">
                 <Border.Clip>
-                  <MultiBinding Converter="{StaticResource RectangleHollowGeometry}">
+                  <MultiBinding Converter="{StaticResource ComboBoxRectHollowClipConverter}"
+                                ConverterParameter="{StaticResource OutlineComboBoxClippingParameter}">
                     <Binding ElementName="PART_Border" Path="Bounds" />
                     <Binding ElementName="watermarkRoot" Path="Bounds" />
                     <Binding ElementName="watermarkRoot" Path="RenderTransform" />

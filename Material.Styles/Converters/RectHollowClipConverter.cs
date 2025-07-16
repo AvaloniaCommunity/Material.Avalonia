@@ -13,7 +13,7 @@ namespace Material.Styles.Converters {
     /// </summary>
     public class RectHollowClipConverter : IMultiValueConverter {
         public object Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture) {
-            double hOffset = 4, vOffset = -4; // vOffset -8 was limiting ComboBox Outline (dense style) floating label by cutting in border when not present in border §not focused and nothing selected. See 
+            double hOffset = 4, vOffset = -8;
             var t = new Thickness(2);
 
             if (parameter is RectHollowClipParameter param) {
