@@ -65,6 +65,13 @@ public partial class Home : UserControl {
 
     public void ShowAboutAvaloniaUI() {
         var window = TopLevel.GetTopLevel(this) as Window;
-        new AboutAvaloniaDialog().ShowDialog(window!);
+
+        // this trick will enforce dialog view refreshing arrange glitch to normal
+        var dialog = new AboutAvaloniaDialog
+        {
+            Width = 0,
+            CanResize = false
+        };
+        dialog.ShowDialog(window!);
     }
 }
