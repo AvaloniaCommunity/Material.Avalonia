@@ -28,8 +28,8 @@
   </Design.PreviewWith>
 
 
-  <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="8,0" Offset="4,-8" />
+  <converters:RectHollowClipConverter x:Key="ComboBoxRectHollowClipConverter" />
+  <parameters:RectHollowClipParameter x:Key="OutlineComboBoxClippingParameter" Margin="8,0" Offset="4,-4" />
 
   <!-- TODO: Rework combobox styles-->
   <!-- Default -->
@@ -301,7 +301,8 @@
                       BorderThickness="{TemplateBinding BorderThickness}"
                       BorderBrush="{TemplateBinding BorderBrush}">
                 <Border.Clip>
-                  <MultiBinding Converter="{StaticResource RectangleHollowGeometry}">
+                  <MultiBinding Converter="{StaticResource ComboBoxRectHollowClipConverter}"
+                                ConverterParameter="{StaticResource OutlineComboBoxClippingParameter}">
                     <Binding ElementName="PART_Border" Path="Bounds" />
                     <Binding ElementName="watermarkRoot" Path="Bounds" />
                     <Binding ElementName="watermarkRoot" Path="RenderTransform" />
@@ -413,7 +414,22 @@
       <Setter Property="BorderThickness" Value="2" />
       <Style Selector="^ /template/ TextBlock#floatingWatermark">
         <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
-      </Style> 
+      </Style>
     </Style>
+
+    <!-- Dense overrides -->
+    <Style Selector="^.dense">
+      <Setter Property="Padding" Value="10,2" />
+    </Style>
+    <Style Selector="^.dense /template/ Grid#PART_RootBorder">
+      <Setter Property="MinHeight" Value="36" />
+    </Style>
+    <Style Selector="^.dense[SelectedIndex=-1]:not(:focus-within) /template/ Border#watermarkRoot">
+      <Setter Property="Margin" Value="6,8,6,0" />
+    </Style>
+    <Style Selector="^.dense:focus-within /template/ TextBlock#floatingWatermark">
+      <Setter Property="Margin" Value="0,2"/>
+    </Style>
+
   </ControlTheme>
 </ResourceDictionary>
