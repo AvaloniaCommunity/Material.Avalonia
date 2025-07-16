@@ -6,7 +6,7 @@
     <!--UserControl.Resources>
       <conv:EnumDescriptionConverter x:Key="GetDescription"/>
     </UserControl.Resources-->
-    <StackPanel Margin="16, 0" MaxWidth="600">
+    <StackPanel Margin="16, 0" MaxWidth="700">
         <StackPanel.Styles>
             <Style Selector="TextBlock.Content, TextBlock.Subheadline">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />

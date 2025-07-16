@@ -22,6 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Material.Avalonia.Demo\Material.Avalonia.Demo.csproj"/>
   </ItemGroup>
 

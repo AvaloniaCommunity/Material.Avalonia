@@ -29,7 +29,7 @@
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
-    <PackageVersion Include="TextMateSharp.Wasm" Version="1.0.56" />
+    <PackageVersion Include="TextMateSharp.Wasm" Version="1.0.60" />
     <!--For _build-->
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
   </ItemGroup>
