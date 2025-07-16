@@ -28,14 +28,7 @@
                 Spacing="16">
         <TextBlock Classes="Headline4 Subheadline" Text="Expanders" />
         
-        <ContentControl Content="{Binding}"
-                        ContentTemplate="{StaticResource LoremContentTemplate}"/>
-        
         <Expander Header="This is expander! Click me to expand the content."
-                  Content="{Binding }"
-                  ContentTemplate="{StaticResource LoremContentTemplate}"/>
-        
-        <Expander Header="This is another expander!"
                   Content="{Binding }"
                   ContentTemplate="{StaticResource LoremContentTemplate}"/>
         
