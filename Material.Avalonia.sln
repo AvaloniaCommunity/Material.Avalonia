@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{306F0023-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Material.Avalonia.Demo", "Material.Avalonia.Demo\Material.Avalonia.Demo.csproj", "{0A1A6ED0-B306-4EC7-9839-E1FCB2CC3485}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Material.Avalonia.TreeDataGrid", "Material.Avalonia.TreeDataGrid\Material.Avalonia.TreeDataGrid.csproj", "{5B6C95A6-5620-45C7-A1B8-B8EC5D9D70F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{0A1A6ED0-B306-4EC7-9839-E1FCB2CC3485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A1A6ED0-B306-4EC7-9839-E1FCB2CC3485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A1A6ED0-B306-4EC7-9839-E1FCB2CC3485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B6C95A6-5620-45C7-A1B8-B8EC5D9D70F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B6C95A6-5620-45C7-A1B8-B8EC5D9D70F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B6C95A6-5620-45C7-A1B8-B8EC5D9D70F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B6C95A6-5620-45C7-A1B8-B8EC5D9D70F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
