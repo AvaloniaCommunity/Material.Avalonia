@@ -348,11 +348,14 @@
                          Margin="{TemplateBinding Indent,
                          Converter={StaticResource MarginCreator}, 
                          ConverterParameter={StaticResource TreeItemContentMargin}}">
+                <Panel x:Name="PART_ExpanderPanel" 
+                       Width="40">
                   <ToggleButton x:Name="PART_ExpanderButton"
                                 DockPanel.Dock="Left"
                                 Focusable="False"
                                 IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
                                 IsVisible="{TemplateBinding ShowExpander}" />
+                </Panel>
                 
                 <Decorator DockPanel.Dock="Right"
                            x:Name="PART_Content" />
