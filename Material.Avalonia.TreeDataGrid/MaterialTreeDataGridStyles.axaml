@@ -5,6 +5,12 @@
   <treeDataGrid:MaterialTreeDataGridStyles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridCheckBoxCell.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridExpanderCell.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridTemplateCell.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridTextCell.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridRow.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridColumnHeader.axaml" />
         <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGrid.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
