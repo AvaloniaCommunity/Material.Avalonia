@@ -5,6 +5,8 @@ using Material.Dialog.Views;
 
 namespace Material.Dialog.ViewModels
 {
+    // TODO Fix DatePicker TimePicker dialogs https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470
+    [Obsolete("Currently unsupported - https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470")]
     public class TimePickerDialogViewModel : DialogWindowViewModel
     {
         private readonly TimePickerDialog _window;
