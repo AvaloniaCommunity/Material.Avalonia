@@ -1,0 +1,71 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type TreeDataGridRow}" TargetType="TreeDataGridRow">
+    <Setter Property="MinHeight" Value="52" />
+    <Setter Property="BorderBrush" Value="{Binding Path=$parent[TreeDataGrid].BorderBrush}" />
+    <Setter Property="BorderThickness" Value="0 0 0 1" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border x:Name="RowBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <Panel x:Name="PART_InnerPanel">
+            <Border x:Name="PART_BehaviourEffect" />
+            
+            <TreeDataGridCellsPresenter x:Name="PART_CellsPresenter"
+                                        ElementFactory="{TemplateBinding ElementFactory}"
+                                        Items="{TemplateBinding Columns}"
+                                        Rows="{TemplateBinding Rows}" />
+            
+            <Border x:Name="PART_HoverEffect" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Transitions -->
+    <Style Selector="^:not(.no-transitions)">
+      <Style Selector="^ /template/ Border#PART_BehaviourEffect">
+        <Setter Property="Transitions">
+          <Transitions>
+            <DoubleTransition Duration="0:0:0.25" Property="Opacity" Easing="LinearEasing" />
+          </Transitions>
+        </Setter>
+      </Style>
+      
+      <Style Selector="^ /template/ Border#PART_HoverEffect">
+        <Setter Property="Transitions">
+          <Transitions>
+            <DoubleTransition Duration="0:0:0.05" Property="Opacity" Easing="LinearEasing" />
+          </Transitions>
+        </Setter>
+      </Style>
+    </Style>
+    
+    <!-- Statements for transition elements -->
+
+    <!-- Default statement - behaviour effect border should have invisible (full-transparent) -->
+    <Style Selector="^ /template/ Border#PART_BehaviourEffect">
+      <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+    
+    <Style Selector="^ /template/ Border#PART_HoverEffect">
+      <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
+      <Setter Property="IsHitTestVisible" Value="False" />
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+    
+    <!-- Set behaviour effect highlight to semi-transparent barely visible when cursor hovering TreeViewItem -->
+    <Style Selector="^ /template/ Border#RowBorder:pointerover Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="0.05" />
+    </Style>
+
+    <!-- Set behaviour effect highlight to semi-transparent visible when user selected TreeViewItem -->
+    <Style Selector="^:selected /template/ Border#PART_BehaviourEffect">
+      <Setter Property="Opacity" Value="0.24" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

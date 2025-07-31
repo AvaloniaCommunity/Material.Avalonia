@@ -1,0 +1,18 @@
+<treeDataGrid:MaterialTreeDataGridStyles xmlns="https://github.com/avaloniaui"
+                                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                 xmlns:treeDataGrid="clr-namespace:Material.Avalonia.TreeDataGrid"
+                                 x:Class="Material.Avalonia.TreeDataGrid.MaterialTreeDataGridStyles">
+  <treeDataGrid:MaterialTreeDataGridStyles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridCheckBoxCell.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridExpanderCell.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridTemplateCell.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridTextCell.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridRow.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGridColumnHeader.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.TreeDataGrid/TreeDataGrid.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </treeDataGrid:MaterialTreeDataGridStyles.Resources>
+</treeDataGrid:MaterialTreeDataGridStyles>
