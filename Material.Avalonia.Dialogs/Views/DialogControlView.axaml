@@ -1,0 +1,135 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Material.Dialog.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Material.Dialog.Views.DialogControlView">
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Material.Avalonia.Dialogs/Resources/TemplateResources.axaml" />
+        <ResourceInclude Source="avares://Material.Avalonia.Dialogs/Styles/DialogHeader.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </UserControl.Resources>
+
+  <UserControl.ContentTemplate>
+    <DataTemplate DataType="viewModels:DialogControlViewModel">
+      <Grid RowDefinitions="Auto, *, Auto">
+        <ContentControl Grid.Row="0" Name="PART_HeaderControl"
+                        ContentTemplate="{StaticResource MaterialDialogHeaderTemplate}"
+                        Content="{Binding DialogHeader}" />
+        
+        <ScrollViewer Grid.Row="1" Name="PART_ContentViewer">
+          <ItemsControl Name="PART_ElementHolder"
+                        ItemsSource="{Binding Views}"
+                        ItemTemplate="{StaticResource DialogCommonElementTemplate}">
+            
+          </ItemsControl>
+        </ScrollViewer>
+        
+        <DockPanel Grid.Row="2" Name="PART_ButtonsPanel">
+
+          <ItemsControl Name="PART_NeutralButtonPlacement"
+                        ItemsSource="{Binding AssistantButtons}"
+                        ItemTemplate="{StaticResource DialogBuilderButtonTemplate}"
+                        ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
+
+          <ItemsControl Name="PART_ButtonPlacement"
+                        ItemsSource="{Binding Answers}"
+                        ItemTemplate="{StaticResource DialogBuilderButtonTemplate}"
+                        ItemsPanel="{StaticResource DialogButtonPlacementPanel}" />
+        </DockPanel>
+      </Grid>
+    </DataTemplate>
+  </UserControl.ContentTemplate>
+
+  <UserControl.Styles>
+    <Style Selector="ContentControl#PART_HeaderControl">
+      <Style Selector="^ > DockPanel#PART_HeaderPanel">
+        <Setter Property="Margin" Value="24,24,24,14" />
+        <Setter Property="Dock" Value="Top" />
+        
+        <Style Selector="^ > ContentControl#PART_HeaderIcon">
+          <Setter Property="Width" Value="32" />
+          <Setter Property="Height" Value="32" />
+          <Setter Property="Margin" Value="0,0,8,0" />
+        </Style>
+        
+        <Style Selector="^ > SelectableTextBlock#PART_HeaderText">
+          <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+      </Style>
+    </Style>
+    
+    <Style Selector="ItemsControl#PART_ElementHolder">
+      <Setter Property="Margin" Value="0,0,0,16"/>
+      
+      <Style Selector="^ SelectableTextBlock#PART_SupportingText">
+        <Setter Property="Margin" Value="24, 0"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+      </Style>
+    </Style>
+    
+    <Style Selector="DockPanel#PART_ButtonsPanel">
+      <Setter Property="Margin" Value="8"/>
+      
+      <Style Selector="^ > ItemsControl#PART_NeutralButtonPlacement">
+        <Setter Property="DockPanel.Dock" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+      </Style>
+      
+      <Style Selector="^ > ItemsControl#PART_ButtonPlacement">
+        <Setter Property="DockPanel.Dock" Value="Right"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+      </Style>
+      
+      <Style Selector="^ > ItemsControl Button">
+        <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
+        <Setter Property="Theme" Value="{StaticResource MaterialFlatButton}"/>
+      </Style>
+    </Style>
+
+    <!--
+    <Style Selector="controls|EmbeddedDialogControl /template/ DockPanel#PART_ButtonsPanel">
+      <Setter Property="Margin" Value="4,16,4,4" />
+      <Setter Property="Dock" Value="Bottom" />
+    </Style>
+
+    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+
+    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement Button,
+                           controls|EmbeddedDialogControl /template/ ItemsControl#PART_NeutralButtonPlacement Button">
+      <Setter Property="Margin" Value="4" />
+    </Style>
+
+    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_NeutralButtonPlacement ItemsPresenter">
+      <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+    </Style>
+
+    <Style Selector="controls|EmbeddedDialogControl /template/ ItemsControl#PART_ButtonPlacement ItemsPresenter">
+      <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+    </Style>
+
+
+    <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > TextBlock#PART_SupportingText">
+      <Setter Property="Margin" Value="24,0" />
+      <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    ~1~ For TextField dialog @1@
+    <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > ItemsControl#PART_TextFields">
+      <Setter Property="Margin" Value="24,4" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+
+    ~1~ Origin contribution by dojo90
+               https://github.com/AvaloniaCommunity/Material.Avalonia/pull/147 @1@
+    <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > ItemsControl#PART_TextFields ItemsPresenter">
+      <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+    </Style>-->
+  </UserControl.Styles>
+</UserControl>
