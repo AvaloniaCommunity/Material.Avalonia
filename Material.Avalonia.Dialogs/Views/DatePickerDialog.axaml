@@ -8,17 +8,19 @@
         Title="{Binding WindowTitle}"
         WindowStartupLocation="{Binding WindowStartupLocation}"
         x:DataType="viewModels:DatePickerDialogViewModel">
-    <Window.Resources>
-        <ResourceDictionary>
-            <converters:DateStringConverter x:Key="DateStringConverter" />
-        </ResourceDictionary>
-    </Window.Resources>
+  <!-- // TODO Fix DatePicker TimePicker dialogs https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470 -->
 
-    <Window.Styles>
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/DialogWindow.axaml" />
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml" />
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Icons/DialogIconStyle.axaml" />
-    </Window.Styles>
+  <Window.Resources>
+    <ResourceDictionary>
+      <converters:DateStringConverter x:Key="DateStringConverter" />
+    </ResourceDictionary>
+  </Window.Resources>
 
-    
+  <Window.Styles>
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/DialogWindow.axaml" />
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml" />
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Icons/DialogIconStyle.axaml" />
+  </Window.Styles>
+
+
 </Window>
