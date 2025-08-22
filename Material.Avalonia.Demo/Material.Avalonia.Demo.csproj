@@ -16,6 +16,7 @@
     <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Material.Avalonia.TreeDataGrid\Material.Avalonia.TreeDataGrid.csproj" />
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.Avalonia.Dialogs\Material.Avalonia.Dialogs.csproj" />
     <ProjectReference Include="..\Material.Avalonia.DataGrid\Material.Avalonia.DataGrid.csproj" />
