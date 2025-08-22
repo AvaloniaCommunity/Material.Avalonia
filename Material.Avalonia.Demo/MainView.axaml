@@ -84,6 +84,7 @@
                 <ListBoxItem>TabControls</ListBoxItem>
                 <ListBoxItem>Toggles</ListBoxItem>
                 <ListBoxItem>TreeViews</ListBoxItem>
+                <ListBoxItem>TreeDataGrids</ListBoxItem>
                 <ListBoxItem>Typography</ListBoxItem>
               </ListBox>
             </StackPanel>
@@ -216,6 +217,9 @@
                 
                 <!-- TreeViews -->
                 <pages:TreeViewsDemo />
+                
+                <!-- TreeDataGrids -->
+                <pages:TreeDataGridsDemo />
 
                 <!-- Typography -->
                 <pages:TypographyDemo />

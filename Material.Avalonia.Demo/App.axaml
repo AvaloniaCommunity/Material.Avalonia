@@ -47,5 +47,6 @@
     <dialogHostAvalonia:DialogHostStyles />
 
     <StyleInclude Source="Styles/ShowMeTheXamlStyles.axaml" />
+    <StyleInclude Source="avares://Material.Avalonia.TreeDataGrid/MaterialTreeDataGridStyles.axaml" />
   </Application.Styles>
 </Application>
