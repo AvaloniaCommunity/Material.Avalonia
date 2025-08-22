@@ -3,9 +3,9 @@ name: Build and publish
 on:
     push:
         branches:
-            - !master
-            - !main
-            - !release/**
+            - '!master'
+            - '!main'
+            - '!release/**'
 
 jobs:
     build-and-test:

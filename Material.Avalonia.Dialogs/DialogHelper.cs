@@ -143,6 +143,8 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of picker.</returns>
+        // TODO Fix DatePicker TimePicker dialogs https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470
+        [Obsolete("Currently unsupported - https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470")]
         public static IDialogWindow<DateTimePickerDialogResult> CreateTimePicker(TimePickerDialogBuilderParams @params)
         {
             var window = new TimePickerDialog();
@@ -173,7 +175,7 @@ namespace Material.Dialog
         /// </summary>
         /// <param name="params">Parameters of building dialog</param>
         /// <returns>Instance of picker.</returns>
-        //[Obsolete("This feature is still not ready for use! Please come back later!")]
+        [Obsolete("Currently unsupported - https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470")]
         public static IDialogWindow<DateTimePickerDialogResult> CreateDatePicker(DatePickerDialogBuilderParams @params)
         {
             var window = new DatePickerDialog();

@@ -1,8 +1,11 @@
+using System;
 using Avalonia.Controls;
 using Material.Dialog.Interfaces;
 using Material.Dialog.ViewModels;
 
 namespace Material.Dialog.Views {
+    // TODO Fix DatePicker TimePicker dialogs https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470
+    [Obsolete("Currently unsupported - https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470")]
     public partial class DatePickerDialog : Window, IDialogWindowResult<DateTimePickerDialogResult>, IHasNegativeResult {
         private DatePickerDialogViewModel viewModel;
 

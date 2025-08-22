@@ -10,7 +10,9 @@
         WindowStartupLocation="{Binding WindowStartupLocation}"
         HorizontalContentAlignment="Stretch"
         x:DataType="viewModels:TimePickerDialogViewModel">
-    <Window.Resources>
+  <!-- // TODO Fix DatePicker TimePicker dialogs https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470 -->
+  
+  <Window.Resources>
         <ResourceDictionary>
             <converters:PadNumbersConverter x:Key="PadNumbersConverter"/>
             <converters:StringToTransformConverter x:Key="StringToTransformConverter"/>

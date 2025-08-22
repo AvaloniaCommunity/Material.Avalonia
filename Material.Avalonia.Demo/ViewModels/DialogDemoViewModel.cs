@@ -33,8 +33,9 @@ public class DialogDemoViewModel : ViewModelBase {
             new DialogDemoItemViewModel("Dialog with bitmap icon", Dialog4),
             new DialogDemoItemViewModel("Login dialog", LoginDialog),
             new DialogDemoItemViewModel("Folder rename dialog", FolderNameDialog),
-            new DialogDemoItemViewModel("Time picker", TimePickerDialog),
-            new DialogDemoItemViewModel("Date picker", DatePickerDialog),
+            // TODO Fix DatePicker TimePicker dialogs https://github.com/AvaloniaCommunity/Material.Avalonia/issues/470
+            // new DialogDemoItemViewModel("Time picker", TimePickerDialog),
+            // new DialogDemoItemViewModel("Date picker", DatePickerDialog),
             new DialogDemoItemViewModel("Custom dialog", CustomDialog)
         ];
     }
