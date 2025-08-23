@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.Avalonia.Dialogs\Material.Avalonia.Dialogs.csproj" />
     <ProjectReference Include="..\Material.Avalonia.DataGrid\Material.Avalonia.DataGrid.csproj" />
+    <ProjectReference Include="..\Material.Avalonia.TreeDataGrid\Material.Avalonia.TreeDataGrid.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,10 @@
   <ItemGroup>
     <Compile Update="Styles\ShowMeTheXamlStyles.XamlDisplayAvaloniaEditThemeBehavior.cs">
       <DependentUpon>ShowMeTheXamlStyles.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\TreeDataGridsDemo.axaml.cs">
+      <DependentUpon>TreeDataGridDemo.axaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 </Project>

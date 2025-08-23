@@ -83,6 +83,7 @@
                 <ListBoxItem>Snackbar</ListBoxItem>
                 <ListBoxItem>TabControls</ListBoxItem>
                 <ListBoxItem>Toggles</ListBoxItem>
+                <ListBoxItem>TreeDataGrids</ListBoxItem>
                 <ListBoxItem>TreeViews</ListBoxItem>
                 <ListBoxItem>Typography</ListBoxItem>
               </ListBox>
@@ -213,6 +214,9 @@
 
                 <!-- Toggles -->
                 <pages:TogglesDemo />
+                
+                <!-- TreeDataGrids -->
+                <pages:TreeDataGridsDemo />
                 
                 <!-- TreeViews -->
                 <pages:TreeViewsDemo />
