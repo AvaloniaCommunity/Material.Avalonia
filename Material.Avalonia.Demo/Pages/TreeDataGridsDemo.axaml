@@ -15,75 +15,57 @@
     <!-- Content title -->
     <TextBlock Classes="Headline4 Subheadline" Text="TreeDataGrid" />
 
-    <Grid RowDefinitions="Auto Auto">
-      <!-- Demos -->
-      <showMeTheXaml:XamlDisplay UniqueId="TreeDataGrid0"
-                                 Grid.Row="0"
-                                 HorizontalAlignment="Left">
-        <controls:Card Classes="ChildDemo"
-                       Width="320"
-                       Height="320"
-                       Padding="0">
-          <Grid RowDefinitions="Auto, *">
-            <TextBlock Grid.Row="0" Grid.Column="0"
-                       Classes="Headline6" 
-                       Margin="8"
-                       Text="Operation systems tree: " />
+    <TextBlock Classes="Headline6 Subheadline2" Text="Operation systems tree" />
+    <!-- Demos -->
+    <showMeTheXaml:XamlDisplay UniqueId="TreeDataGrid0"
+                               Grid.Row="0"
+                               HorizontalAlignment="Left">
+      <controls:Card Classes="ChildDemo"
+                     Width="320"
+                     Height="320"
+                     Padding="0">
+        <TreeDataGrid x:Name="TreeDemo"
+                      Grid.Row="1" Grid.Column="0"
+                      x:DataType="viewModels:TreeDataGridsDemoViewModel"
+                      Source="{Binding OsTreeSource, Mode=OneWay}"
+                      ShowColumnHeaders="False"
+                      BorderBrush="Transparent">
+          <TreeDataGrid.Resources>
+            <DataTemplate x:Key="OsCell" x:DataType="treeDataGrid:OsItem">
+              <Grid ColumnDefinitions="Auto 8 *" VerticalAlignment="Center">
+                <avalonia:MaterialIcon Kind="{Binding Icon}" />
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Name}" />
+              </Grid>
+            </DataTemplate>
+          </TreeDataGrid.Resources>
+        </TreeDataGrid>
+      </controls:Card>
+    </showMeTheXaml:XamlDisplay>
 
-            <TreeDataGrid x:Name="TreeDemo"
-                          Grid.Row="1" Grid.Column="0"
-                          x:DataType="viewModels:TreeDataGridsDemoViewModel"
-                          Source="{Binding OsTreeSource, Mode=OneWay}"
-                          ShowColumnHeaders="False"
-                          BorderBrush="Transparent">
-              <TreeDataGrid.Resources>
-                <DataTemplate x:Key="OsCell" x:DataType="treeDataGrid:OsItem">
-                  <Grid ColumnDefinitions="Auto 8 *" VerticalAlignment="Center">
-                    <avalonia:MaterialIcon Kind="{Binding Icon}" />
-                    <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Name}" />
-                  </Grid>
-                </DataTemplate>
-              </TreeDataGrid.Resources>
-            </TreeDataGrid>
-          </Grid>
-        </controls:Card>
-      </showMeTheXaml:XamlDisplay>
-      
-      <showMeTheXaml:XamlDisplay UniqueId="TreeDataGrid1"
-                                 Margin="0 8"
-                                 Grid.Row="1"
-                                 HorizontalAlignment="Stretch">
-        <controls:Card Classes="ChildDemo"
-                       Height="400"
-                       Padding="0">
-          <Grid RowDefinitions="Auto, *">
-            <TextBlock Grid.Row="0" Grid.Column="0"
-                       Classes="Headline6" 
-                       Margin="8"
-                       Text="Countries table: " />
-
-            <DockPanel Grid.Row="1"
-                       Grid.Column="0">
-              <TreeDataGrid x:Name="TableDemo"
-                            x:DataType="viewModels:TreeDataGridsDemoViewModel"
-                            Source="{Binding CountriesSource}"
-                            AutoDragDropRows="True">
-                <TreeDataGrid.Resources>
-                  <DataTemplate x:Key="RegionCell" DataType="treeDataGrid:Country">
-                    <TextBlock Text="{Binding Region}"
-                               VerticalAlignment="Center"/>
-                  </DataTemplate>
-                  <DataTemplate x:Key="RegionEditCell" DataType="treeDataGrid:Country">
-                    <ComboBox ItemsSource="{x:Static treeDataGrid:Countries.Regions}"
-                              SelectedItem="{Binding Region}"/>
-                  </DataTemplate>
-                </TreeDataGrid.Resources>
-              </TreeDataGrid>
-            </DockPanel>
-          </Grid>
-        </controls:Card>
-      </showMeTheXaml:XamlDisplay>
-    </Grid>
+    <TextBlock Classes="Headline6 Subheadline2" Text="Countries table" />
+    <showMeTheXaml:XamlDisplay UniqueId="TreeDataGrid1"
+                               Margin="0 8"
+                               Grid.Row="1"
+                               HorizontalAlignment="Stretch">
+      <controls:Card Classes="ChildDemo"
+                     Height="400"
+                     Padding="0">
+        <TreeDataGrid x:Name="TableDemo"
+                      x:DataType="viewModels:TreeDataGridsDemoViewModel"
+                      Source="{Binding CountriesSource}"
+                      AutoDragDropRows="True">
+          <TreeDataGrid.Resources>
+            <DataTemplate x:Key="RegionCell" DataType="treeDataGrid:Country">
+              <TextBlock Text="{Binding Region}"
+                         VerticalAlignment="Center" />
+            </DataTemplate>
+            <DataTemplate x:Key="RegionEditCell" DataType="treeDataGrid:Country">
+              <ComboBox ItemsSource="{x:Static treeDataGrid:Countries.Regions}"
+                        SelectedItem="{Binding Region}" />
+            </DataTemplate>
+          </TreeDataGrid.Resources>
+        </TreeDataGrid>
+      </controls:Card>
+    </showMeTheXaml:XamlDisplay>
   </StackPanel>
 </UserControl>
-
