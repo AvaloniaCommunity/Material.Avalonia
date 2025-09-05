@@ -188,6 +188,14 @@
       <Setter Property="Opacity" Value="{StaticResource RippleHoveredOpacity}" />
     </Style>
 
+    <Style Selector="^:focus">
+      <Setter Property="FocusAdorner" Value="{x:Null}" />
+    </Style>
+    
+    <Style Selector="^:focus /template/ Ellipse#RippleThumb">
+      <Setter Property="Opacity" Value="{StaticResource RippleHoveredOpacity}" />
+    </Style>
+
     <Style Selector="^:pressed /template/ Ellipse#RippleThumb">
       <Setter Property="Opacity" Value="{StaticResource RipplePressedOpacity}" />
     </Style>
