@@ -153,6 +153,7 @@
   <!-- The template is compatible for filled and outline text field -->
   <ControlTheme x:Key="MaterialTextBox" TargetType="TextBox">
     <Setter Property="Cursor" Value="IBeam" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"></Setter>
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="SelectionBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="SelectionForegroundBrush" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
