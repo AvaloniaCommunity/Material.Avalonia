@@ -8,6 +8,7 @@
   <system:Double x:Key="RadioButtonPressedOpacity">0.26</system:Double>
 
   <ControlTheme x:Key="MaterialRadioButton" TargetType="RadioButton">
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Transparent" />
@@ -112,12 +113,8 @@
     <Style Selector="^:not(:disabled):pointerover /template/ Ellipse#PART_HoverEffect">
       <Setter Property="Opacity" Value="{StaticResource RadioButtonHoveredOpacity}" />
     </Style>
-
-    <Style Selector="^:focus">
-      <Setter Property="FocusAdorner" Value="{x:Null}" />
-    </Style>
-
-    <Style Selector="^:not(:disabled):focus /template/ Ellipse#PART_HoverEffect">
+    
+    <Style Selector="^:not(:disabled):focus-visible /template/ Ellipse#PART_HoverEffect">
       <Setter Property="Opacity" Value="{StaticResource RadioButtonHoveredOpacity}" />
     </Style>
 
@@ -150,6 +147,7 @@
             <Panel Name="PART_RootPanel">
               <Border Name="PART_FocusEffect"
                       Opacity="0"
+                      CornerRadius="2"
                       Background="{DynamicResource MaterialFlatButtonRippleBrush}"
                       IsHitTestVisible="False" />
 
@@ -177,18 +175,11 @@
       <Setter Property="IsHitTestVisible" Value="False" />
     </Style>
 
-    <Style Selector="^ /template/ Border#PART_FocusEffect">
-      <Setter Property="Opacity" Value="0" />
-      <Setter Property="Background" Value="{DynamicResource MaterialFlatButtonRippleBrush}" />
-      <Setter Property="IsHitTestVisible" Value="False" />
-      <Setter Property="CornerRadius" Value="2" />
-    </Style>
-
     <Style Selector="^ /template/ ripple|RippleEffect#PART_Ripple">
       <Setter Property="RippleFill" Value="{DynamicResource MaterialFlatButtonRippleBrush}" />
     </Style>
 
-    <Style Selector="^:focus /template/ Border#PART_FocusEffect">
+    <Style Selector="^:focus-visible /template/ Border#PART_FocusEffect">
       <Setter Property="Opacity" Value="0.12" />
     </Style>
 
@@ -221,8 +212,5 @@
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
 
-    <Style Selector="^:focus">
-      <Setter Property="FocusAdorner" Value="{x:Null}" />
-    </Style>
   </ControlTheme>
 </ResourceDictionary>

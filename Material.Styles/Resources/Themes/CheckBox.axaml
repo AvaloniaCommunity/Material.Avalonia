@@ -8,6 +8,7 @@
 
   <ControlTheme x:Key="MaterialCheckBox" TargetType="CheckBox">
     <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
     <Setter Property="assists:SelectionControlAssist.InnerForeground"
             Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
@@ -101,12 +102,8 @@
     <Style Selector="^:not(:disabled):pointerover /template/ Ellipse#PART_HoverEffect">
       <Setter Property="Opacity" Value="{StaticResource CheckBoxHoveredOpacity}" />
     </Style>
-
-    <Style Selector="^:focus">
-      <Setter Property="FocusAdorner" Value="{x:Null}" />
-    </Style>
-
-    <Style Selector="^:not(:disabled):focus /template/ Ellipse#PART_HoverEffect">
+    
+    <Style Selector="^:not(:disabled):focus-visible /template/ Ellipse#PART_HoverEffect">
       <Setter Property="Opacity" Value="{StaticResource CheckBoxHoveredOpacity}" />
     </Style>
 
