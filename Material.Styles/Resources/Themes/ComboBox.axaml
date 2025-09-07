@@ -35,6 +35,7 @@
   <!-- Default -->
   <ControlTheme x:Key="MaterialComboBox" TargetType="ComboBox">
     <Setter Property="Background" Value="Transparent" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"></Setter>
     <Setter Property="PlaceholderForeground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -169,6 +170,7 @@
       <ControlTemplate>
         <StackPanel Name="PART_TemplateRoot">
           <ToggleButton Classes="no-ripple"
+                        Focusable="False"
                         MinHeight="48" BorderThickness="0"
                         HorizontalContentAlignment="Stretch"
                         IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
@@ -276,6 +278,9 @@
     </Style>
     <Style Selector="^[IsDropDownOpen=false] /template/ TextBlock#floatingWatermark">
       <Setter Property="Margin" Value="10,20,1,1" />
+    </Style>
+    <Style Selector="^:focus-within /template/ controls|MaterialUnderline#Underline">
+      <Setter Property="IsActive" Value="True" />
     </Style>
   </ControlTheme>
 

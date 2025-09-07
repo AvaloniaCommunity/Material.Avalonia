@@ -56,6 +56,7 @@
 
   <ControlTheme x:Key="MaterialFlatToggleButton" TargetType="ToggleButton">
     <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"></Setter>
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="BorderThickness" Value="0" />
@@ -111,6 +112,11 @@
     </Style>
 
     <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+      <Setter Property="assists:ShadowAssist.Darken" Value="True" />
+    </Style>
+    
+    <Style Selector="^:not(:disabled):focus-visible /template/ Border#PART_HoverEffect">
       <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
       <Setter Property="assists:ShadowAssist.Darken" Value="True" />
     </Style>

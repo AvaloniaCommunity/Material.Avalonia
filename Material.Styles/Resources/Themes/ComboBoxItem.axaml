@@ -3,6 +3,7 @@
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
   <ControlTheme x:Key="MaterialComboBoxItem" TargetType="ComboBoxItem">
     <Setter Property="Padding" Value="16, 8" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"></Setter>
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -31,6 +32,12 @@
     </Style>
     <Style Selector="^:pressed /template/ Border#PointerOverBorder">
       <Setter Property="Opacity" Value="0.15" />
+    </Style>
+    <Style Selector="^:pointerover /template/ Border#PointerOverBorder">
+      <Setter Property="Opacity" Value="0.12" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#PointerOverBorder">
+      <Setter Property="Opacity" Value="0.12" />
     </Style>
   </ControlTheme>
 

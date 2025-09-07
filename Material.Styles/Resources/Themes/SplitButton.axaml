@@ -28,8 +28,8 @@
     
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
-    <Setter Property="Focusable" Value="True" />
+    <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+    <Setter Property="Focusable" Value="False" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_RootBorder"
@@ -59,9 +59,9 @@
                     VerticalAlignment="Stretch"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                    Focusable="False"
+                    Focusable="True"
                     Padding="{TemplateBinding Padding}"
-                    KeyboardNavigation.IsTabStop="False" />
+                    KeyboardNavigation.IsTabStop="True" />
 
             <Border Name="SeparatorBorder"
                     Grid.Column="1" />
@@ -74,8 +74,8 @@
                     VerticalContentAlignment="Center"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Focusable="False"
-                    KeyboardNavigation.IsTabStop="False">
+                    Focusable="True"
+                    KeyboardNavigation.IsTabStop="True">
               <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
                     Width="24" Height="24"
                     Name="ExpandPath"/>

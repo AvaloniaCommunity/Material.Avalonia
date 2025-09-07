@@ -13,6 +13,7 @@
     <Setter Property="CornerRadius" Value="4" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"></Setter>
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Padding" Value="16 8" />
     <Setter Property="assists:ButtonAssist.HoverColor"
@@ -108,6 +109,10 @@
       <Setter Property="Opacity" Value="0.24" />
     </Style>
 
+    <Style Selector="^:focus-visible /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="0.20" />
+    </Style>
+
     <Style Selector="^:pointerover /template/ Border#PART_RootBorder">
       <Setter Property="assists:ShadowAssist.Darken" Value="True" />
     </Style>
@@ -115,11 +120,11 @@
     <Style Selector="^:disabled /template/ Border#PART_RootBorder">
       <Setter Property="Opacity" Value="{StaticResource ButtonDisabledOpacity}" />
     </Style>
-    
+
     <Style Selector="^.icon">
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0" />
-      
+
       <Setter Property="Padding" Value="12" />
       <Setter Property="CornerRadius" Value="24" />
       <Setter Property="Height" Value="48" />

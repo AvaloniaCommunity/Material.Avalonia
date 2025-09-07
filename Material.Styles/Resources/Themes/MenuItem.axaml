@@ -65,6 +65,7 @@
     <Setter Property="Height" Value="48" />
     <Setter Property="MinWidth" Value="112" />
     <Setter Property="Padding" Value="0" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"/>
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
@@ -90,7 +91,6 @@
                   <ContentPresenter Name="PART_Icon"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-
                                     IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
                                     Content="{TemplateBinding Icon}" />
                   <ContentPresenter Name="PART_HeaderPresenter"
@@ -159,6 +159,10 @@
 
     <Style Selector="^:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter">
       <Setter Property="Opacity" Value="0.13" />
+    </Style>
+    
+    <Style Selector="^:not(.Menu):not(:disabled):focus-visible /template/ Border#PART_MenuItemHighlighter">
+      <Setter Property="Opacity" Value="0.07" />
     </Style>
 
     <Style Selector="^:not(.Menu):disabled">
