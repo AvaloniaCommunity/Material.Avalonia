@@ -4,6 +4,7 @@
   <ControlTheme x:Key="MaterialListBoxItem" TargetType="ListBoxItem">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"/>
     <Setter Property="Padding" Value="8" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -67,6 +68,10 @@
 
     <Style Selector="^:not(:disabled):pointerover /template/ Border#PART_HoverEffect">
       <Setter Property="Opacity" Value="0.05" />
+    </Style>
+    
+    <Style Selector="^:not(:disabled):focus-visible /template/ Border#PART_HoverEffect">
+      <Setter Property="Opacity" Value="0.07" />
     </Style>
 
     <Style Selector="^:selected /template/ Border#PART_HoverEffect">
