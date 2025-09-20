@@ -21,52 +21,52 @@
           </WrapPanel.Styles>
           <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes0">
             <ComboBox PlaceholderText="Select a Item">
-              <TextBlock Text="Item 1" />
-              <TextBlock Text="Item 2" />
-              <TextBlock Text="Item 3" />
-              <TextBlock Text="Item 4" />
+              <ComboBoxItem>Item 1</ComboBoxItem>
+              <ComboBoxItem>Item 2</ComboBoxItem>
+              <ComboBoxItem>Item 3</ComboBoxItem>
+              <ComboBoxItem>Item 4</ComboBoxItem>
             </ComboBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes1">
             <ComboBox PlaceholderText="Select a Item">
-              <TextBlock Text="Item 1" />
-              <TextBlock Text="Item 2" />
-              <TextBlock Text="Item 3" />
-              <TextBlock Text="Item 4" />
+              <ComboBoxItem>Item 1</ComboBoxItem>
+              <ComboBoxItem>Item 2</ComboBoxItem>
+              <ComboBoxItem>Item 3</ComboBoxItem>
+              <ComboBoxItem>Item 4</ComboBoxItem>
             </ComboBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes2">
             <ComboBox Theme="{StaticResource MaterialFilledComboBox}">
-              <TextBlock Text="Item 1" />
-              <TextBlock Text="Item 2" />
-              <TextBlock Text="Item 3" />
-              <TextBlock Text="Item 4" />
+              <ComboBoxItem>Item 1</ComboBoxItem>
+              <ComboBoxItem>Item 2</ComboBoxItem>
+              <ComboBoxItem>Item 3</ComboBoxItem>
+              <ComboBoxItem>Item 4</ComboBoxItem>
             </ComboBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="ComboBoxes3">
             <ComboBox Theme="{StaticResource MaterialOutlineComboBox}" assist:ComboBoxAssist.Label="ComboBox">
-              <TextBlock Text="Item 1" />
-              <TextBlock Text="Item 2" />
-              <TextBlock Text="Item 3" />
-              <TextBlock Text="Item 4" />
+              <ComboBoxItem>Item 1</ComboBoxItem>
+              <ComboBoxItem>Item 2</ComboBoxItem>
+              <ComboBoxItem>Item 3</ComboBoxItem>
+              <ComboBoxItem>Item 4</ComboBoxItem>
             </ComboBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="ComboBoxesDense">
             <ComboBox Theme="{StaticResource MaterialOutlineComboBox}" assist:ComboBoxAssist.Label="ComboBoxDense"
                       Classes="dense">
-              <TextBlock Text="Item 1" />
-              <TextBlock Text="Item 2" />
-              <TextBlock Text="Item 3" />
-              <TextBlock Text="Item 4" />
+              <ComboBoxItem>Item 1</ComboBoxItem>
+              <ComboBoxItem>Item 2</ComboBoxItem>
+              <ComboBoxItem>Item 3</ComboBoxItem>
+              <ComboBoxItem>Item 4</ComboBoxItem>
             </ComboBox>
           </showMeTheXaml:XamlDisplay>
 
           <showMeTheXaml:XamlDisplay UniqueId="ComboBoxesError">
             <ComboBox PlaceholderText="Select a Item">
-              <TextBlock Text="Item 1" />
-              <TextBlock Text="Item 2" />
-              <TextBlock Text="Item 3" />
-              <TextBlock Text="Item 4" />
+              <ComboBoxItem>Item 1</ComboBoxItem>
+              <ComboBoxItem>Item 2</ComboBoxItem>
+              <ComboBoxItem>Item 3</ComboBoxItem>
+              <ComboBoxItem>Item 4</ComboBoxItem>
               <DataValidationErrors.Error>
                 <system:Exception />
               </DataValidationErrors.Error>
