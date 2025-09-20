@@ -5,8 +5,6 @@
     <Setter Property="Padding" Value="16, 8" />
     <Setter Property="FocusAdorner" Value="{x:Null}"></Setter>
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="HorizontalAlignment" Value="Stretch" />
-    <Setter Property="HorizontalContentAlignment" Value="Left" />
     <Setter Property="Template">
       <ControlTemplate>
         <Grid>

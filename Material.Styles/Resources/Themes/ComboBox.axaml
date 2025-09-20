@@ -37,6 +37,7 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="FocusAdorner" Value="{x:Null}"></Setter>
     <Setter Property="PlaceholderForeground" Value="{DynamicResource MaterialBodyBrush}" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="VerticalAlignment" Value="Center" />
@@ -57,15 +58,18 @@
                 <Panel Grid.Column="0">
                   <Border Name="PART_BackgroundField" />
 
-                  <Panel Name="PART_InnerPanel" HorizontalAlignment="Left">
+                  <Panel Name="PART_InnerPanel">
                     <TextBlock Name="PART_PlaceholderText"
                                Text="{TemplateBinding PlaceholderText}"
                                VerticalAlignment="Center"
                                Foreground="{TemplateBinding PlaceholderForeground}" />
 
                     <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
                                       Content="{TemplateBinding SelectionBoxItem}"
-                                      ContentTemplate="{TemplateBinding ItemTemplate}" />
+                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                   </Panel>
 
                   <Border Name="PART_LabelRootBorder">
@@ -212,11 +216,11 @@
                 <Grid ColumnDefinitions="*,Auto">
                   <ContentPresenter Name="contentPresenter"
                                     BorderThickness="0" BorderBrush="Transparent"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    Padding="{TemplateBinding Padding}"
                                     Content="{TemplateBinding SelectionBoxItem}"
-                                    ContentTemplate="{TemplateBinding ItemTemplate}"
-                                    Margin="{TemplateBinding Padding}" />
+                                    ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                   <Border Name="splitBorder"
                           Grid.Column="1"
                           Margin="16"
@@ -324,12 +328,11 @@
               </Border>
               <Grid ColumnDefinitions="*,Auto">
                 <ContentPresenter Name="contentPresenter"
-                                  BorderThickness="0" BorderBrush="Transparent"
-                                  HorizontalAlignment="Left"
-                                  VerticalAlignment="Center"
+                                  Padding="{TemplateBinding Padding}"
                                   Content="{TemplateBinding SelectionBoxItem}"
-                                  ContentTemplate="{TemplateBinding ItemTemplate}"
-                                  Margin="{TemplateBinding Padding}" />
+                                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                 <Border Name="splitBorder"
                         Grid.Column="1"
                         Margin="16"
