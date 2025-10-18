@@ -291,7 +291,7 @@ namespace Material.Styles.Controls
             }
             else
             {
-                _isLeftDrawerDesktopExpanded = false;
+                _isLeftDrawerDesktopExpanded = true;
             }
 
             if (RightDrawerExpandThresholdWidth.HasValue)
@@ -308,7 +308,7 @@ namespace Material.Styles.Controls
             }
             else
             {
-                _isRightDrawerDesktopExpanded = false;
+                _isRightDrawerDesktopExpanded = true;
             }
         }
 
