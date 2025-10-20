@@ -28,14 +28,16 @@
   </Design.PreviewWith>
 
 
-  <converters:RectHollowClipConverter x:Key="RectangleHollowGeometry" />
-  <parameters:RectHollowClipParameter x:Key="OutlineTextBoxClippingParameter" Margin="8,0" Offset="4,-8" />
+  <converters:RectHollowClipConverter x:Key="ComboBoxRectHollowClipConverter" />
+  <parameters:RectHollowClipParameter x:Key="OutlineComboBoxClippingParameter" Margin="8,0" Offset="4,-4" />
 
   <!-- TODO: Rework combobox styles-->
   <!-- Default -->
   <ControlTheme x:Key="MaterialComboBox" TargetType="ComboBox">
     <Setter Property="Background" Value="Transparent" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"></Setter>
     <Setter Property="PlaceholderForeground" Value="{DynamicResource MaterialBodyBrush}" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="VerticalAlignment" Value="Center" />
@@ -56,15 +58,18 @@
                 <Panel Grid.Column="0">
                   <Border Name="PART_BackgroundField" />
 
-                  <Panel Name="PART_InnerPanel" HorizontalAlignment="Left">
+                  <Panel Name="PART_InnerPanel">
                     <TextBlock Name="PART_PlaceholderText"
                                Text="{TemplateBinding PlaceholderText}"
                                VerticalAlignment="Center"
                                Foreground="{TemplateBinding PlaceholderForeground}" />
 
                     <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
                                       Content="{TemplateBinding SelectionBoxItem}"
-                                      ContentTemplate="{TemplateBinding ItemTemplate}" />
+                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                   </Panel>
 
                   <Border Name="PART_LabelRootBorder">
@@ -81,7 +86,7 @@
                         BorderBrush="Transparent"
                         BorderThickness="0">
                   <Path Name="arrow"
-                        Width="8" Height="8"
+                        Width="8" Height="4"
                         Stretch="Uniform"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
@@ -169,6 +174,7 @@
       <ControlTemplate>
         <StackPanel Name="PART_TemplateRoot">
           <ToggleButton Classes="no-ripple"
+                        Focusable="False"
                         MinHeight="48" BorderThickness="0"
                         HorizontalContentAlignment="Stretch"
                         IsChecked="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
@@ -210,11 +216,11 @@
                 <Grid ColumnDefinitions="*,Auto">
                   <ContentPresenter Name="contentPresenter"
                                     BorderThickness="0" BorderBrush="Transparent"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    Padding="{TemplateBinding Padding}"
                                     Content="{TemplateBinding SelectionBoxItem}"
-                                    ContentTemplate="{TemplateBinding ItemTemplate}"
-                                    Margin="{TemplateBinding Padding}" />
+                                    ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                   <Border Name="splitBorder"
                           Grid.Column="1"
                           Margin="16"
@@ -223,7 +229,7 @@
                           BorderBrush="Transparent"
                           BorderThickness="0">
                     <Path Name="arrow"
-                          Width="8" Height="8"
+                          Width="8" Height="4"
                           Stretch="Uniform"
                           HorizontalAlignment="Right"
                           VerticalAlignment="Center"
@@ -277,6 +283,9 @@
     <Style Selector="^[IsDropDownOpen=false] /template/ TextBlock#floatingWatermark">
       <Setter Property="Margin" Value="10,20,1,1" />
     </Style>
+    <Style Selector="^:focus-within /template/ controls|MaterialUnderline#Underline">
+      <Setter Property="IsActive" Value="True" />
+    </Style>
   </ControlTheme>
 
 
@@ -301,7 +310,8 @@
                       BorderThickness="{TemplateBinding BorderThickness}"
                       BorderBrush="{TemplateBinding BorderBrush}">
                 <Border.Clip>
-                  <MultiBinding Converter="{StaticResource RectangleHollowGeometry}">
+                  <MultiBinding Converter="{StaticResource ComboBoxRectHollowClipConverter}"
+                                ConverterParameter="{StaticResource OutlineComboBoxClippingParameter}">
                     <Binding ElementName="PART_Border" Path="Bounds" />
                     <Binding ElementName="watermarkRoot" Path="Bounds" />
                     <Binding ElementName="watermarkRoot" Path="RenderTransform" />
@@ -318,12 +328,11 @@
               </Border>
               <Grid ColumnDefinitions="*,Auto">
                 <ContentPresenter Name="contentPresenter"
-                                  BorderThickness="0" BorderBrush="Transparent"
-                                  HorizontalAlignment="Left"
-                                  VerticalAlignment="Center"
+                                  Padding="{TemplateBinding Padding}"
                                   Content="{TemplateBinding SelectionBoxItem}"
-                                  ContentTemplate="{TemplateBinding ItemTemplate}"
-                                  Margin="{TemplateBinding Padding}" />
+                                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                 <Border Name="splitBorder"
                         Grid.Column="1"
                         Margin="16"
@@ -332,7 +341,7 @@
                         BorderBrush="Transparent"
                         BorderThickness="0">
                   <Path Name="arrow"
-                        Width="8" Height="8"
+                        Width="8" Height="4"
                         Stretch="Uniform"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
@@ -385,7 +394,7 @@
           <ThicknessTransition Duration="0:0:0.25" Property="BorderThickness" Easing="CircularEaseOut" />
         </Transitions>
       </Setter>
-    </Style> 
+    </Style>
 
     <Style Selector="^ /template/ Grid#PART_RootBorder">
       <Setter Property="MinHeight" Value="52" />
@@ -412,8 +421,23 @@
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
       <Setter Property="BorderThickness" Value="2" />
       <Style Selector="^ /template/ TextBlock#floatingWatermark">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}"/>
-      </Style> 
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      </Style>
     </Style>
+
+    <!-- Dense overrides -->
+    <Style Selector="^.dense">
+      <Setter Property="Padding" Value="10,2" />
+    </Style>
+    <Style Selector="^.dense /template/ Grid#PART_RootBorder">
+      <Setter Property="MinHeight" Value="36" />
+    </Style>
+    <Style Selector="^.dense[SelectedIndex=-1]:not(:focus-within) /template/ Border#watermarkRoot">
+      <Setter Property="Margin" Value="6,8,6,0" />
+    </Style>
+    <Style Selector="^.dense:focus-within /template/ TextBlock#floatingWatermark">
+      <Setter Property="Margin" Value="0,2" />
+    </Style>
+
   </ControlTheme>
 </ResourceDictionary>

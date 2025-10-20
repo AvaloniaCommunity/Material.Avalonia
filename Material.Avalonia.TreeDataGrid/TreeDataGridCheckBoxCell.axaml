@@ -1,0 +1,37 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type TreeDataGridCheckBoxCell}" TargetType="TreeDataGridCheckBoxCell">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border x:Name="CellBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}">
+          <CheckBox x:Name="PART_CheckBox"
+                    IsChecked="{TemplateBinding Value, Mode=TwoWay}"
+                    IsEnabled="{Binding !IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"
+                    IsThreeState="{TemplateBinding IsThreeState}">
+            <CheckBox.Styles>
+              <Style Selector="CheckBox /template/ DockPanel#PART_RootPanel">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+              </Style>
+            </CheckBox.Styles>
+          </CheckBox>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    
+    <Style Selector="^">
+      <Setter Property="Focusable" Value="False" />
+      <Setter Property="MinWidth" Value="56" />
+      <Setter Property="Padding" Value="8 6" />
+    </Style>
+    
+    <Style Selector="^ /template/ CheckBox#PART_CheckBox">
+      <Setter Property="Width" Value="40" />
+      <Setter Property="Padding" Value="0" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,120 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Material.Avalonia.TreeDataGrid.Converters">
+  <StreamGeometry x:Key="TreeDataGridSortIconPath">M436-148v-497.08L210.15-419.23 148-481l331-331 333 333-62.15 61.77L522-645.08V-148h-86Z</StreamGeometry>
+  <converters:TreeDataGridSourceColumnAlignmentToDockConverter x:Key="TreeDataGridSourceColumnAlignmentToDockConverter" />
+  
+  <ControlTheme x:Key="{x:Type TreeDataGridColumnHeader}" TargetType="TreeDataGridColumnHeader">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="MinHeight" Value="56" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialColumnHeaderBrush}" />
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border x:Name="DataGridBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="16 0 0 0">
+          <DockPanel LastChildFill="False">
+            <Panel DockPanel.Dock="Right"
+                   Margin="11 0 0 0"
+                   TabIndex="2">
+              <Rectangle Fill="{DynamicResource MaterialDividerBrush}"
+                         HorizontalAlignment="Right"
+                         Height="14"
+                         Width="2" />
+              <Thumb x:Name="PART_Resizer"
+                     DockPanel.Dock="Right"
+                     Background="Transparent"
+                     Cursor="SizeWestEast"
+                     IsVisible="{TemplateBinding CanUserResize}"
+                     Width="5">
+                <Thumb.Template>
+                  <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            VerticalAlignment="Stretch" />
+                  </ControlTemplate>
+                </Thumb.Template>
+              </Thumb>
+            </Panel>
+            
+            <ContentPresenter x:Name="PART_ContentPresenter"
+                              Content="{TemplateBinding Header}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              TabIndex="0">
+              <DockPanel.Dock>
+                <MultiBinding Converter="{StaticResource TreeDataGridSourceColumnAlignmentToDockConverter}">
+                  <Binding Path="$parent[TreeDataGrid].Source" />
+                  <Binding Path="$parent[TreeDataGridColumnHeader].ColumnIndex" />
+                </MultiBinding>
+              </DockPanel.Dock>
+              
+              <ContentPresenter.DataTemplates>
+                <DataTemplate DataType="x:String">
+                  <TextBlock Text="{Binding}"
+                             ToolTip.Tip="{Binding}"
+                             TextTrimming="CharacterEllipsis" />
+                </DataTemplate>
+              </ContentPresenter.DataTemplates>
+            </ContentPresenter>
+            
+            <Path x:Name="SortIcon"
+                  Fill="{TemplateBinding Foreground}"
+                  Opacity="0.6"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  Width="14"
+                  Margin="8 0"
+                  TabIndex="1"
+                  Stretch="Uniform"
+                  Data="{DynamicResource TreeDataGridSortIconPath}">
+              <DockPanel.Dock>
+                <MultiBinding Converter="{StaticResource TreeDataGridSourceColumnAlignmentToDockConverter}">
+                  <Binding Path="$parent[TreeDataGrid].Source" />
+                  <Binding Path="$parent[TreeDataGridColumnHeader].ColumnIndex" />
+                </MultiBinding>
+              </DockPanel.Dock>
+            </Path>
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Opacity" Value="0.8" />
+    </Style>
+    
+    <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    
+    <Style Selector="^:not(.no-transitions) /template/ Path#SortIcon">
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Duration="0:0:0.25" Property="RenderTransform" Easing="CircularEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+    
+    <Style Selector="^ /template/ Path#SortIcon">
+      <Setter Property="IsVisible" Value="False" />
+      <Setter Property="RenderTransformOrigin" Value="7,7" />
+      <Setter Property="RenderTransform" Value="rotate(90deg)" />
+    </Style>
+    
+    <Style Selector="^[SortDirection=Ascending] /template/ Path#SortIcon">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="RenderTransform" Value="rotate(0deg)" />
+    </Style>
+
+    <Style Selector="^[SortDirection=Descending] /template/ Path#SortIcon">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="RenderTransform" Value="rotate(180deg)" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

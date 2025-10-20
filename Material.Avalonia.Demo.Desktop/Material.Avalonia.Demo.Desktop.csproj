@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>false</IsPackable>
 
-    <AvaloniaVersion>11.2.3</AvaloniaVersion>
+    <AvaloniaVersion>11.3.2</AvaloniaVersion>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
@@ -32,6 +32,8 @@
   <!--Since Material.Avalonia.DataGrid included as a ProjectReference, auto-imports doesn't work properly-->
   <ItemGroup>
     <RuntimeHostConfigurationOption Include="MaterialThemeIncludeDataGrid" Value="true"/>
+    <RuntimeHostConfigurationOption Include="MaterialThemeIncludeTreeDataGrid" Value="true"/>
     <TrimmerRootAssembly Include="Material.Avalonia.DataGrid"/>
+    <TrimmerRootAssembly Include="Material.Avalonia.TreeDataGrid"/>
   </ItemGroup>
 </Project>

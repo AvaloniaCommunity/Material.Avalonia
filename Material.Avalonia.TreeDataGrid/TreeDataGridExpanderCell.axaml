@@ -1,0 +1,102 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters;assembly=Material.Styles"
+                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters;assembly=Material.Styles">
+  
+  <StreamGeometry x:Key="TreeDataGridItemChevronPathData">M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z</StreamGeometry>
+  <parameters:MarginMultiplyParameter x:Key="TreeItemContentMargin" LeftMultiplier="28" />
+  <converters:MarginMultiplyConverter x:Key="MarginCreator" />
+  
+  <ControlTheme x:Key="TreeDataGridExpandToggleButton" TargetType="ToggleButton">
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="CornerRadius" Value="16" />
+    <Setter Property="Margin" Value="8 0" />
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="Transparent"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                ClipToBounds="True">
+          <Panel x:Name="PART_InnerPanel"
+                 Width="24"
+                 Height="24">
+            <Path x:Name="ChevronPath"
+                  Data="{StaticResource TreeDataGridItemChevronPathData}"
+                  Fill="{TemplateBinding Foreground}"
+                  Stroke="{TemplateBinding Foreground}" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    
+    <Style Selector="^:not(.no-transitions) /template/ Panel#PART_InnerPanel">
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Duration="0:0:0.25" Property="RenderTransform" Easing="CircularEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+    
+    <Style Selector="^ /template/ Panel#PART_InnerPanel">
+      <Setter Property="RenderTransform" Value="rotate(0deg)" />
+    </Style>
+    
+    <Style Selector="^:checked /template/ Panel#PART_InnerPanel">
+      <Setter Property="RenderTransform" Value="rotate(45deg)" />
+    </Style>
+  </ControlTheme>
+  
+  <ControlTheme x:Key="{x:Type TreeDataGridExpanderCell}" TargetType="TreeDataGridExpanderCell">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border x:Name="PART_RootBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <Panel x:Name="PART_InnerPanel">
+            <ripple:RippleEffect x:Name="PART_Ripple">
+              <DockPanel x:Name="PART_ContentPanel"
+                         Margin="{TemplateBinding Indent,
+                         Converter={StaticResource MarginCreator}, 
+                         ConverterParameter={StaticResource TreeItemContentMargin}}">
+                <Panel x:Name="PART_ExpanderPanel" 
+                       Width="40">
+                  <ToggleButton x:Name="PART_ExpanderButton"
+                                DockPanel.Dock="Left"
+                                Focusable="False"
+                                IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+                                IsVisible="{TemplateBinding ShowExpander}" />
+                </Panel>
+                
+                <Decorator DockPanel.Dock="Right"
+                           x:Name="PART_Content" />
+              </DockPanel>
+            </ripple:RippleEffect>
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    
+    <Style Selector="^ /template/ ToggleButton#PART_ExpanderButton">
+      <Setter Property="Theme" Value="{StaticResource TreeDataGridExpandToggleButton}" />
+    </Style>
+    
+    <Style Selector="^ /template/ ripple|RippleEffect#PART_Ripple">
+      <Setter Property="RippleFill" Value="{DynamicResource MaterialBodyBrush}" />
+      <Setter Property="Focusable" Value="False" />
+    </Style>
+
+    <Style Selector="^:disabled /template/ Border#PART_RootBorder">
+      <Setter Property="Opacity" Value="0.56" />
+    </Style>
+
+    <Style Selector="^:empty /template/ ToggleButton#PART_ExpanderButton">
+      <Setter Property="Opacity" Value="0" />
+      <Setter Property="IsEnabled" Value="False" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

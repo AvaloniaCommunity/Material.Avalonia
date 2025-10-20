@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <FontFamily x:Key="MaterialDesignFonts">avares://Material.Styles/Fonts/Roboto#Roboto, $Default</FontFamily>
+  <FontFamily x:Key="MaterialDesignFonts">avares://Material.Styles/Fonts/Roboto#Roboto,fonts:OpenMoji#OpenMoji, $Default</FontFamily>
   <x:Double x:Key="MaterialDesignFontSize">14</x:Double>
 </ResourceDictionary>

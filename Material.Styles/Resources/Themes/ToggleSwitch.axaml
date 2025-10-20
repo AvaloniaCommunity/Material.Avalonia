@@ -7,6 +7,7 @@
 
   <ControlTheme x:Key="MaterialToggleSwitch" TargetType="ToggleSwitch">
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
     <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOnBackground"
             Value="{DynamicResource MaterialPrimaryLightBrush}" />
     <Setter Property="assists:ToggleSwitchAssist.SwitchTrackOffBackground"
@@ -185,6 +186,10 @@
     </Style>
 
     <Style Selector="^:pointerover /template/ Ellipse#RippleThumb">
+      <Setter Property="Opacity" Value="{StaticResource RippleHoveredOpacity}" />
+    </Style>
+    
+    <Style Selector="^:focus-visible /template/ Ellipse#RippleThumb">
       <Setter Property="Opacity" Value="{StaticResource RippleHoveredOpacity}" />
     </Style>
 

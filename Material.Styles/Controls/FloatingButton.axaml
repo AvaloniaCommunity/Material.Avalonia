@@ -18,6 +18,7 @@
 
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"/>
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
@@ -133,7 +134,14 @@
     <Style Selector="^:pointerover:not(.no-material) /template/ Border#PART_HoverIndicator">
       <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
     </Style>
-
+    
+    <Style Selector="^:pointerover:not(.no-material) /template/ Border#PART_ButtonRootBorder">
+      <Setter Property="assists:ShadowAssist.Darken" Value="True" />
+    </Style>
+    
+    <Style Selector="^:focus-visible:not(.no-material) /template/ Border#PART_HoverIndicator">
+      <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
+    </Style>
 
     <!-- Mini and extended style -->
 

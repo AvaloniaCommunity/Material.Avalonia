@@ -8,6 +8,7 @@
   <system:Double x:Key="RadioButtonPressedOpacity">0.26</system:Double>
 
   <ControlTheme x:Key="MaterialRadioButton" TargetType="RadioButton">
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Transparent" />
@@ -112,6 +113,10 @@
     <Style Selector="^:not(:disabled):pointerover /template/ Ellipse#PART_HoverEffect">
       <Setter Property="Opacity" Value="{StaticResource RadioButtonHoveredOpacity}" />
     </Style>
+    
+    <Style Selector="^:not(:disabled):focus-visible /template/ Ellipse#PART_HoverEffect">
+      <Setter Property="Opacity" Value="{StaticResource RadioButtonHoveredOpacity}" />
+    </Style>
 
     <!-- Accent -->
 
@@ -127,9 +132,8 @@
                 BasedOn="{StaticResource MaterialRadioButton}" />
 
 
-  <!-- RadioButton but looks like buttons -->
   <ControlTheme x:Key="MaterialButtonlikeRadioButton" TargetType="RadioButton"
-                BasedOn="{StaticResource {x:Type RadioButton}}">
+               BasedOn="{StaticResource {x:Type RadioButton}}">
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
@@ -141,6 +145,12 @@
         <ControlTemplate>
           <Border Name="PART_RootBorder">
             <Panel Name="PART_RootPanel">
+              <Border Name="PART_FocusEffect"
+                      Opacity="0"
+                      CornerRadius="2"
+                      Background="{DynamicResource MaterialFlatButtonRippleBrush}"
+                      IsHitTestVisible="False" />
+
               <ripple:RippleEffect Name="PART_Ripple">
                 <ContentPresenter Name="PART_ContentPresenter"
                                   BorderBrush="{TemplateBinding BorderBrush}"
@@ -169,6 +179,22 @@
       <Setter Property="RippleFill" Value="{DynamicResource MaterialFlatButtonRippleBrush}" />
     </Style>
 
+    <Style Selector="^:focus-visible /template/ Border#PART_FocusEffect">
+      <Setter Property="Opacity" Value="0.12" />
+    </Style>
+
+    <Style Selector="^:focus:checked /template/ Border#PART_FocusEffect">
+      <Setter Property="Opacity" Value="0.24" />
+    </Style>
+
+    <Style Selector="^:not(.no-transitions) /template/ Border#PART_FocusEffect">
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0.2" Easing="CircularEaseOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+
     <Style Selector="^:not(.no-transitions) /template/ Border#PART_BehaviourEffect">
       <Setter Property="Transitions">
         <Transitions>
@@ -185,5 +211,6 @@
       <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidBrush}" />
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialSecondaryMidBrush}" />
     </Style>
+
   </ControlTheme>
 </ResourceDictionary>

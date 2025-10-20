@@ -13,8 +13,6 @@
     <RepositoryUrl>https://github.com/AvaloniaCommunity/Material.Avalonia</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>3.2.2</Version>
-    <PackageReleaseNotes>https://github.com/AvaloniaCommunity/Material.Avalonia/releases/tag/v$(Version)</PackageReleaseNotes>
 
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
   </PropertyGroup>

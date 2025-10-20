@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <Description>TreeDataGrid styles library of Material.Avalonia.</Description>
+    <PackageTags>avalonia xaml material design theme treedatagrid colour color ui ux material-design google-material</PackageTags>
+    <PackageIcon>FavIcon.png</PackageIcon>
+
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../wiki/FavIcon.png" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Controls.TreeDataGrid" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="*.props">
+      <Pack>true</Pack>
+      <PackagePath>build\;buildTransitive\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+</Project>

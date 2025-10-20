@@ -33,7 +33,7 @@ jobs:
                         ~/.nuget/packages
                     key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj', '**/Directory.Packages.props') }}
             -   name: 'Install workload: wasm-tools'
-                run: dotnet workload install wasm-tools
+                run: dotnet workload restore
             -   name: 'Publish Material.Avalonia.Demo.Browser'
                 run: dotnet publish Material.Avalonia.Demo.Browser/Material.Avalonia.Demo.Browser.csproj -c Release
             -   name: Fix permissions

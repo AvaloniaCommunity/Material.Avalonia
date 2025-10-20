@@ -13,6 +13,7 @@
   <!-- actual control theme -->
   <ControlTheme x:Key="MaterialHyperlinkButton" TargetType="HyperlinkButton">
     <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="FocusAdorner" Value="{x:Null}"/>
     <Setter Property="TextBlock.TextDecorations" Value="Underline" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -37,6 +38,10 @@
     </Style>
 
     <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Opacity" Value="1"/>
+    </Style>
+    
+    <Style Selector="^:focus-visible /template/ ContentPresenter#PART_ContentPresenter">
       <Setter Property="Opacity" Value="1"/>
     </Style>
 
