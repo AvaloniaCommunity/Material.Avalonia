@@ -126,6 +126,14 @@
         </controls:Badged>
       </showMeTheXaml:XamlDisplay>
 
+      <showMeTheXaml:XamlDisplay UniqueId="BadgedButtonIncrement">
+        <controls:Badged x:Name="InteractiveBadged"
+                         BadgeContent="0">
+          <Button Content="CLICK ME"
+                  Click="OnIncrementBadgeClick" />
+        </controls:Badged>
+      </showMeTheXaml:XamlDisplay>
+
     </StackPanel>
     <!--#endregion-->
 
