@@ -95,7 +95,8 @@
                                     Content="{TemplateBinding Icon}" />
                   <ContentPresenter Name="PART_HeaderPresenter"
                                     VerticalAlignment="Center"
-                                    Content="{TemplateBinding Header}">
+                                    Content="{TemplateBinding Header}"
+                                    ContentTemplate="{TemplateBinding HeaderTemplate}">
                     <ContentPresenter.DataTemplates>
                       <DataTemplate DataType="system:String">
                         <AccessText Name="PART_MenuItemText"
