@@ -2,6 +2,7 @@ using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Material.Styles.Controls;
+using Material.Styles.Enums;
 
 namespace Material.Avalonia.Demo.Pages;
 

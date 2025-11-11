@@ -2,21 +2,9 @@ using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
+using Material.Styles.Enums;
 
 namespace Material.Styles.Controls;
-
-public enum BadgePlacement {
-    Left,
-    TopLeft,
-    Top,
-    TopRight,
-    Right,
-    BottomRight,
-    Bottom,
-    BottomLeft,
-    Center,
-}
-
 public class Badged : ContentControl {
     /// <summary>
     /// BadgeContent StyledProperty definition.
