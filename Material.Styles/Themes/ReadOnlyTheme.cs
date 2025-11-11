@@ -11,7 +11,7 @@ namespace Material.Styles.Themes {
             SecondaryLight = baseTheme.SecondaryLight;
             SecondaryMid = baseTheme.SecondaryMid;
             SecondaryDark = baseTheme.SecondaryDark;
-            ValidationError = baseTheme.ValidationError.Color;
+            ValidationError = baseTheme.ValidationError;
             Background = baseTheme.Background;
             Paper = baseTheme.Paper;
             CardBackground = baseTheme.CardBackground;
