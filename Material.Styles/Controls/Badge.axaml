@@ -1,0 +1,51 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+  <ControlTheme x:Key="MaterialBadge" TargetType="controls:Badge">
+    <Setter Property="CornerRadius" Value="9999" />
+    <Setter Property="Padding" Value="3 0" />
+    <Setter Property="MinHeight" Value="19" />
+    <Setter Property="MinWidth" Value="19" />
+    <Setter Property="Background" Value="{DynamicResource MaterialValidationErrorBrush}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorForegroundBrush}" />
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate>
+          <Border Width="{TemplateBinding Width}"
+                  Height="{TemplateBinding Height}"
+                  MinWidth="{TemplateBinding MinWidth}"
+                  MinHeight="{TemplateBinding MinHeight}"
+                  Padding="{TemplateBinding Padding}"
+                  HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                  VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                  Background="{TemplateBinding Background}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  IsHitTestVisible="False">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Content="{TemplateBinding Content}"
+                              FontSize="{TemplateBinding FontSize}"
+                              Foreground="{TemplateBinding Foreground}" />
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+
+    <Style Selector="^:content-hidden">
+      <Setter Property="MinWidth" Value="6" />
+      <Setter Property="MinHeight" Value="6" />
+      <Setter Property="Padding" Value="0" />
+      <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type controls:Badge}"
+                BasedOn="{StaticResource MaterialBadge}"
+                TargetType="controls:Badge" />
+</ResourceDictionary>

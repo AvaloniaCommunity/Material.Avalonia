@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Layout;
+using Avalonia.Media.Imaging;
 using Material.Dialog.Icons;
 
 namespace Material.Dialog.Bases
@@ -22,7 +23,7 @@ namespace Material.Dialog.Bases
 
         // TODO: Support custom control
         /// <summary>
-        /// Specify <see cref="Avalonia.Media.Imaging.Bitmap"/>, <see cref="Avalonia.Controls.Control"/> or <see cref="DialogIconKind"/> for dialog header icon.
+        /// Specify <see cref="Bitmap"/>, <see cref="Control"/> or <see cref="DialogIconKind"/> for dialog header icon.
         /// </summary>
         public object? DialogIcon = null;
 
