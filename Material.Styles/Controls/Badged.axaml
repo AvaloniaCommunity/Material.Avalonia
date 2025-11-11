@@ -3,8 +3,6 @@
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
   <ControlTheme x:Key="MaterialBadged" TargetType="controls:Badged">
-    <Setter Property="BadgeWidth" Value="NaN" />
-    <Setter Property="BadgeHeight" Value="NaN" />
     <Setter Property="BadgeBackground" Value="{DynamicResource MaterialValidationErrorBrush}" />
     <Setter Property="BadgeForeground" Value="{DynamicResource MaterialValidationErrorForegroundBrush}" />
     <Setter Property="BadgePlacement" Value="TopRight" />

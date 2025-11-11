@@ -1,3 +1,4 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
@@ -112,7 +113,7 @@ public class Badged : ContentControl {
     /// BadgeWidth StyledProperty definition.
     /// </summary>
     public static readonly StyledProperty<double> BadgeWidthProperty =
-        AvaloniaProperty.Register<Badged, double>(nameof(BadgeWidth));
+        AvaloniaProperty.Register<Badged, double>(nameof(BadgeWidth), double.NaN);
     /// <summary>
     /// Gets or sets the BadgeWidth property.
     /// </summary>
@@ -125,7 +126,7 @@ public class Badged : ContentControl {
     /// BadgeHeight StyledProperty definition.
     /// </summary>
     public static readonly StyledProperty<double> BadgeHeightProperty =
-        AvaloniaProperty.Register<Badged, double>(nameof(BadgeHeight));
+        AvaloniaProperty.Register<Badged, double>(nameof(BadgeHeight), double.NaN);
     /// <summary>
     /// Gets or sets the BadgeHeight property.
     /// </summary>
