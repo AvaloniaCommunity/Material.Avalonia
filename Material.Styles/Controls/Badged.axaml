@@ -7,7 +7,7 @@
     <Setter Property="BadgeForeground" Value="{DynamicResource MaterialValidationErrorForegroundBrush}" />
     <Setter Property="BadgePlacement" Value="TopRight" />
     <Setter Property="BadgeCornerRadius" Value="9999" />
-    <Setter Property="BadgeFontSize" Value="11" />
+    <Setter Property="BadgeFontSize" Value="{Binding $self.FontSize}" />
     <Setter Property="BadgeHasContent" Value="True" />
     <Setter Property="IsBadgeVisible" Value="True" />
     <Setter Property="Template">

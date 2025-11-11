@@ -3,15 +3,12 @@
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
   <ControlTheme x:Key="MaterialBadge" TargetType="controls:Badge">
-    <Setter Property="Width" Value="NaN" />
-    <Setter Property="Height" Value="NaN" />
     <Setter Property="CornerRadius" Value="9999" />
-    <Setter Property="Padding" Value="3" />
+    <Setter Property="Padding" Value="3 0" />
     <Setter Property="MinHeight" Value="19" />
     <Setter Property="MinWidth" Value="19" />
     <Setter Property="Background" Value="{DynamicResource MaterialValidationErrorBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorForegroundBrush}" />
-    <Setter Property="FontSize" Value="11" />
     <Setter Property="HorizontalAlignment" Value="Center" />
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="HasContent" Value="True" />
