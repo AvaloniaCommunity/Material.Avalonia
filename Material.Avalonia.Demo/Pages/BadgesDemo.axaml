@@ -8,8 +8,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
              Name="BadgesDemoPageControl"
-             d:DesignHeight="450"
-             d:DesignWidth="100"
+             d:DesignHeight="1000"
+             d:DesignWidth="800"
              mc:Ignorable="d">
   <StackPanel Margin="16,0,16,64" Spacing="16">
     <TextBlock Classes="Headline4 Subheadline" Text="Badges" />
@@ -19,7 +19,7 @@
     <StackPanel Orientation="Horizontal" Spacing="8">
 
       <showMeTheXaml:XamlDisplay UniqueId="SingleBadge">
-        <controls:Badge HasContent="False" />
+        <controls:Badge DisplayContent="False" />
       </showMeTheXaml:XamlDisplay>
 
       <showMeTheXaml:XamlDisplay UniqueId="SingleBadgeWithContent">
@@ -46,13 +46,13 @@
     <StackPanel Orientation="Horizontal" Spacing="8">
 
       <showMeTheXaml:XamlDisplay UniqueId="BadgedIconNoContent">
-        <controls:Badged BadgeHasContent="False">
+        <controls:Badged BadgeDisplayContent="False">
           <avalonia:MaterialIcon Kind="Bell" />
         </controls:Badged>
       </showMeTheXaml:XamlDisplay>
 
       <showMeTheXaml:XamlDisplay UniqueId="BadgedBigIconNoContent">
-        <controls:Badged BadgeHasContent="False">
+        <controls:Badged BadgeDisplayContent="False">
           <avalonia:MaterialIcon Width="24"
                                  Height="24"
                                  Kind="Bell" />
@@ -82,7 +82,7 @@
       </showMeTheXaml:XamlDisplay>
 
       <showMeTheXaml:XamlDisplay UniqueId="BadgedIconAndText">
-        <controls:Badged BadgeHasContent="False" BadgePlacement="Right">
+        <controls:Badged BadgeDisplayContent="False" BadgePlacement="Right">
           <StackPanel Margin="0,0,8,0"
                       Orientation="Horizontal"
                       Spacing="8">
@@ -96,7 +96,7 @@
     <StackPanel Orientation="Horizontal" Spacing="8">
 
       <showMeTheXaml:XamlDisplay UniqueId="BadgedButtonNoContent">
-        <controls:Badged BadgeHasContent="False"
+        <controls:Badged BadgeDisplayContent="False"
                          BadgeHeight="10"
                          BadgeWidth="10">
           <Button Content="NEWS" />
@@ -139,31 +139,7 @@
 
     <!--#region Badge Customizations-->
     <TextBlock Classes="Headline6" Text="Badge Customizations" />
-
-    <controls:Card Padding="0" HorizontalAlignment="Left">
-
-      <showMeTheXaml:XamlDisplay UniqueId="ConfigurableBadgedIcon">
-        <Viewbox Width="160" Height="160">
-          <controls:Badged MinHeight="64"
-                           BadgeContent="{Binding ElementName=badgeContentTextBox,
-                                                  Path=Text}"
-                           BadgeFontSize="{Binding ElementName=badgeFontSizeSlider,
-                                                   Path=Value}"
-                           BadgeHasContent="{Binding ElementName=badgeHasContentToggle,
-                                                     Path=IsChecked}"
-                           BadgePlacement="{Binding ElementName=badgePlacementSelector,
-                                                    Path=SelectedValue}"
-                           IsBadgeVisible="{Binding ElementName=badgeVisibleToggle,
-                                                    Path=IsChecked}">
-            <avalonia:MaterialIcon Width="32"
-                                   Height="32"
-                                   Kind="Bell" />
-          </controls:Badged>
-        </Viewbox>
-      </showMeTheXaml:XamlDisplay>
-
-    </controls:Card>
-
+    
     <WrapPanel Orientation="Horizontal">
       <ToggleSwitch x:Name="badgeVisibleToggle"
                     Margin="8"
@@ -176,11 +152,6 @@
                 VerticalAlignment="Center"
                 assists:ComboBoxAssist.Label="Badge Placement"
                 Theme="{StaticResource MaterialOutlineComboBox}" />
-      <ToggleSwitch x:Name="badgeHasContentToggle"
-                    Margin="8"
-                    VerticalAlignment="Center"
-                    Content="Badge Has Content"
-                    IsChecked="True" />
       <TextBox x:Name="badgeContentTextBox"
                MinWidth="160"
                Margin="8"
@@ -220,6 +191,57 @@
         </Grid>
       </Grid>
     </WrapPanel>
+
+    <WrapPanel Orientation="Horizontal">
+      <controls:Card Padding="0" HorizontalAlignment="Left">
+        <StackPanel>
+          <ToggleSwitch x:Name="badgeHasContentToggle"
+                        Margin="8"
+                        VerticalAlignment="Center"
+                        Content="BadgeDisplayContent"
+                        IsChecked="True" />
+
+          <showMeTheXaml:XamlDisplay UniqueId="ConfigurableBadgedIcon0">
+            <Viewbox Width="160" Height="160">
+              <controls:Badged MinHeight="64"
+                               BadgeContent="{Binding ElementName=badgeContentTextBox,
+                                                  Path=Text}"
+                               BadgeFontSize="{Binding ElementName=badgeFontSizeSlider,
+                                                   Path=Value}"
+                               BadgeDisplayContent="{Binding ElementName=badgeHasContentToggle,
+                                                     Path=IsChecked}"
+                               BadgePlacement="{Binding ElementName=badgePlacementSelector,
+                                                    Path=SelectedValue}"
+                               IsBadgeVisible="{Binding ElementName=badgeVisibleToggle,
+                                                    Path=IsChecked}">
+                <avalonia:MaterialIcon Width="32"
+                                       Height="32"
+                                       Kind="Bell" />
+              </controls:Badged>
+            </Viewbox>
+          </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+      </controls:Card>
+
+      <controls:Card Padding="0" HorizontalAlignment="Left" Margin="8 0 0 0">
+        <StackPanel>
+          <TextBlock TextAlignment="Center" Margin="0 10 0 9">BadgeDisplayContent auto</TextBlock>
+          <showMeTheXaml:XamlDisplay UniqueId="ConfigurableBadgedIcon1">
+            <Viewbox Width="160" Height="160">
+              <controls:Badged MinHeight="64"
+                               BadgeContent="{Binding ElementName=badgeContentTextBox, Path=Text}"
+                               BadgeFontSize="{Binding ElementName=badgeFontSizeSlider,  Path=Value}"
+                               BadgePlacement="{Binding ElementName=badgePlacementSelector, Path=SelectedValue}"
+                               IsBadgeVisible="{Binding ElementName=badgeVisibleToggle, Path=IsChecked}">
+                <avalonia:MaterialIcon Width="32"
+                                       Height="32"
+                                       Kind="Bell" />
+              </controls:Badged>
+            </Viewbox>
+          </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+      </controls:Card>
+    </WrapPanel>
     <!--#endregion-->
 
     <!--#region App Bar With Badge-->
@@ -257,7 +279,7 @@
                   <TextBlock Grid.Column="1" Text="Archive" />
                   <controls:Badge Grid.Column="2"
                                   Background="#0f0"
-                                  HasContent="False" />
+                                  DisplayContent="False" />
                 </Grid>
               </ListBoxItem>
               <ListBoxItem>
@@ -281,7 +303,7 @@
                               HorizontalAlignment="Left"
                               Theme="{StaticResource MaterialFlatButton}">
                   <ToggleButton.Content>
-                    <controls:Badged BadgeHasContent="False">
+                    <controls:Badged BadgeDisplayContent="False">
                       <avalonia:MaterialIcon Width="24"
                                              Height="24"
                                              Kind="HamburgerMenu" />
@@ -295,7 +317,7 @@
                 <controls:Badged Grid.Column="2"
                                  Margin="16"
                                  BadgeBackground="{DynamicResource MaterialSecondaryLightBrush}"
-                                 BadgeHasContent="False">
+                                 BadgeDisplayContent="False">
                   <ToggleButton Padding="0"
                                 CornerRadius="9999"
                                 Theme="{StaticResource MaterialFlatButton}">
@@ -333,7 +355,7 @@
             <TabItem>
               <TabItem.Header>
                 <StackPanel Orientation="Horizontal" Spacing="8">
-                  <controls:Badged BadgeHasContent="False">
+                  <controls:Badged BadgeDisplayContent="False">
                     <avalonia:MaterialIcon Kind="MessageDraw" />
                   </controls:Badged>
                   <TextBlock VerticalAlignment="Center" Text="Posts" />
@@ -368,7 +390,7 @@
                   <TextBlock VerticalAlignment="Center" Text="Feeds" />
                   <controls:Badge Grid.Column="1"
                                   HorizontalAlignment="Right"
-                                  HasContent="False" />
+                                  DisplayContent="False" />
                 </StackPanel>
               </TabItem.Header>
             </TabItem>

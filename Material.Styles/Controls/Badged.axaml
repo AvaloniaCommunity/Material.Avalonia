@@ -8,7 +8,6 @@
     <Setter Property="BadgePlacement" Value="TopRight" />
     <Setter Property="BadgeCornerRadius" Value="9999" />
     <Setter Property="BadgeFontSize" Value="{Binding $self.FontSize}" />
-    <Setter Property="BadgeHasContent" Value="True" />
     <Setter Property="IsBadgeVisible" Value="True" />
     <Setter Property="Template">
       <Setter.Value>
@@ -22,14 +21,14 @@
                             CornerRadius="{TemplateBinding BadgeCornerRadius}"
                             FontSize="{TemplateBinding BadgeFontSize}"
                             Foreground="{TemplateBinding BadgeForeground}"
-                            HasContent="{TemplateBinding BadgeHasContent}"
+                            DisplayContent="{TemplateBinding BadgeDisplayContent}"
                             IsVisible="{TemplateBinding IsBadgeVisible}" />
           </Grid>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
 
-    <Style Selector="^[BadgeHasContent=False] /template/ ContentPresenter">
+    <Style Selector="^[BadgeDisplayContent=False] /template/ ContentPresenter">
       <Setter Property="Margin" Value="2" />
     </Style>
 

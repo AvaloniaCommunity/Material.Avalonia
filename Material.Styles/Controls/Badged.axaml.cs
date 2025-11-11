@@ -74,14 +74,14 @@ public class Badged : ContentControl {
     /// <summary>
     /// BadgeHasContent StyledProperty definition.
     /// </summary>
-    public static readonly StyledProperty<bool> BadgeHasContentProperty =
-        AvaloniaProperty.Register<Badged, bool>(nameof(BadgeHasContent));
+    public static readonly StyledProperty<bool?> BadgeDisplayContentProperty =
+        AvaloniaProperty.Register<Badged, bool?>(nameof(BadgeDisplayContent));
     /// <summary>
     /// Gets or sets the BadgeHasContent property.
     /// </summary>
-    public bool BadgeHasContent {
-        get => GetValue(BadgeHasContentProperty);
-        set => SetValue(BadgeHasContentProperty, value);
+    public bool? BadgeDisplayContent {
+        get => GetValue(BadgeDisplayContentProperty);
+        set => SetValue(BadgeDisplayContentProperty, value);
     }
 
     /// <summary>

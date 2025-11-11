@@ -11,7 +11,6 @@
     <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorForegroundBrush}" />
     <Setter Property="HorizontalAlignment" Value="Center" />
     <Setter Property="VerticalAlignment" Value="Center" />
-    <Setter Property="HasContent" Value="True" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate>
@@ -25,21 +24,24 @@
                   Background="{TemplateBinding Background}"
                   CornerRadius="{TemplateBinding CornerRadius}"
                   IsHitTestVisible="False">
-            <ContentPresenter HorizontalAlignment="Center"
+            <ContentPresenter Name="PART_ContentPresenter"
+                              HorizontalAlignment="Center"
                               VerticalAlignment="Center"
                               Content="{TemplateBinding Content}"
                               FontSize="{TemplateBinding FontSize}"
-                              Foreground="{TemplateBinding Foreground}"
-                              IsVisible="{TemplateBinding HasContent}" />
+                              Foreground="{TemplateBinding Foreground}" />
           </Border>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
 
-    <Style Selector="^[HasContent=False]">
+    <Style Selector="^:content-hidden">
       <Setter Property="MinWidth" Value="6" />
       <Setter Property="MinHeight" Value="6" />
       <Setter Property="Padding" Value="0" />
+      <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
     </Style>
   </ControlTheme>
 
