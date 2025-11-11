@@ -169,6 +169,8 @@
   <Color x:Key="MaterialDarkForegroundColor">#FFFAFAFA</Color>
   <Color x:Key="MaterialDarkSeparatorBackgroundColor">#1F000000</Color>
   <Color x:Key="MaterialLightSeparatorBackgroundColor">#1FFFFFFF</Color>
+  
+  <Color x:Key="MaterialValidationErrorForegroundBrush">#000000</Color>
 
   <SolidColorBrush x:Key="MaterialLightBackgroundBrush" Color="{StaticResource MaterialLightBackgroundColor}" />
   <SolidColorBrush x:Key="MaterialLightForegroundBrush" Color="{StaticResource MaterialLightForegroundColor}" />

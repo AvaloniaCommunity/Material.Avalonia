@@ -11,7 +11,7 @@ namespace Material.Styles.Themes {
         new ColorPair SecondaryMid { get; set; }
         new ColorPair SecondaryDark { get; set; }
 
-        new ColorPair ValidationError { get; set; }
+        new Color ValidationError { get; set; }
         new Color Background { get; set; }
         new Color Paper { get; set; }
         new Color CardBackground { get; set; }

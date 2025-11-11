@@ -49,8 +49,8 @@ namespace Material.Styles.Themes {
             SetSolidColorBrush(resourceDictionary, "MaterialSecondaryDarkForegroundBrush",
                 theme.SecondaryDark.ForegroundColor);
 
-            SetSolidColorBrush(resourceDictionary, "MaterialValidationErrorBrush", theme.ValidationError.Color);
-            SetSolidColorBrush(resourceDictionary, "MaterialValidationErrorForegroundBrush", theme.ValidationError.ForegroundColor);
+            SetSolidColorBrush(resourceDictionary, "MaterialValidationErrorBrush", theme.ValidationError);
+            // SetSolidColorBrush(resourceDictionary, "MaterialValidationErrorForegroundBrush", theme.ValidationError.ForegroundColor);
 
             SetSolidColorBrush(resourceDictionary, "MaterialBackgroundBrush", theme.Background);
             SetSolidColorBrush(resourceDictionary, "MaterialPaperBrush", theme.Paper);
