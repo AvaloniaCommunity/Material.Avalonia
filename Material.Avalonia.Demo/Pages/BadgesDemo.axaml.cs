@@ -17,7 +17,6 @@ public partial class BadgesDemo : UserControl {
 
     private void OnIncrementBadgeClick(object? sender, RoutedEventArgs e) {
         _inboxCount++;
-        interactiveBadged.BadgeContent = _inboxCount.ToString();
+        InteractiveBadged.BadgeContent = _inboxCount.ToString();
     }
 }
-
