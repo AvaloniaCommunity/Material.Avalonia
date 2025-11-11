@@ -18,25 +18,23 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate>
-          <Panel>
-            <Border Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    MinWidth="{TemplateBinding MinWidth}"
-                    MinHeight="{TemplateBinding MinHeight}"
-                    Padding="{TemplateBinding Padding}"
-                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                    Background="{TemplateBinding Background}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    IsHitTestVisible="False">
-              <ContentPresenter HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Content="{TemplateBinding Content}"
-                                FontSize="{TemplateBinding FontSize}"
-                                Foreground="{TemplateBinding Foreground}"
-                                IsVisible="{TemplateBinding HasContent}" />
-            </Border>
-          </Panel>
+          <Border Width="{TemplateBinding Width}"
+                  Height="{TemplateBinding Height}"
+                  MinWidth="{TemplateBinding MinWidth}"
+                  MinHeight="{TemplateBinding MinHeight}"
+                  Padding="{TemplateBinding Padding}"
+                  HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                  VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                  Background="{TemplateBinding Background}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  IsHitTestVisible="False">
+            <ContentPresenter HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Content="{TemplateBinding Content}"
+                              FontSize="{TemplateBinding FontSize}"
+                              Foreground="{TemplateBinding Foreground}"
+                              IsVisible="{TemplateBinding HasContent}" />
+          </Border>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
