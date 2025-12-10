@@ -28,8 +28,13 @@ namespace Material.Styles.Converters
             if (values[2] is double maximum)
                 max = maximum;
 
-            var m = max - min;
-            return val / m * 360;
+            // normalize values so 'min' is 0
+            var normMin = min - min;
+            var normVal = val - min;
+            var normMax = max - min;
+
+            var m = normMax - normMin;
+            return normVal / m * 360;
         }
     }
 }
