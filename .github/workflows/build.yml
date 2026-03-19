@@ -14,4 +14,4 @@ jobs:
             NUGET_KEY: "NONE"
         with:
             only-build: true
-            dotnet-version: 8
+            dotnet-version: 10

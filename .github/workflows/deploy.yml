@@ -24,7 +24,7 @@ jobs:
                     fetch-depth: 0
             -   uses: actions/setup-dotnet@v4
                 with:
-                    dotnet-version: 8
+                    dotnet-version: 10
             -   name: 'Cache: .nuke/temp, ~/.nuget/packages'
                 uses: actions/cache@v3
                 with:
