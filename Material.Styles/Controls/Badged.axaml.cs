@@ -5,12 +5,28 @@ using Avalonia.Media;
 using Material.Styles.Enums;
 
 namespace Material.Styles.Controls;
+
 public class Badged : ContentControl {
+    /// <summary>
+    /// Defines the <see cref="BadgeColorMode"/> property.
+    /// </summary>
+    public static readonly StyledProperty<ColorZoneMode> BadgeColorModeProperty =
+        AvaloniaProperty.Register<Badged, ColorZoneMode>(nameof(BadgeColorMode), ColorZoneMode.Error);
+
+    /// <summary>
+    /// Gets or sets the badge color mode.
+    /// </summary>
+    public ColorZoneMode BadgeColorMode {
+        get => GetValue(BadgeColorModeProperty);
+        set => SetValue(BadgeColorModeProperty, value);
+    }
+    
     /// <summary>
     /// BadgeContent StyledProperty definition.
     /// </summary>
     public static readonly StyledProperty<object?> BadgeContentProperty =
         AvaloniaProperty.Register<Badged, object?>(nameof(BadgeContent));
+
     /// <summary>
     /// Gets or sets the BadgeContent property.
     /// </summary>
@@ -22,12 +38,13 @@ public class Badged : ContentControl {
     /// <summary>
     /// BadgeBackground StyledProperty definition.
     /// </summary>
-    public static readonly StyledProperty<Brush> BadgeBackgroundProperty =
-        AvaloniaProperty.Register<Badged, Brush>(nameof(BadgeBackground));
+    public static readonly StyledProperty<Brush?> BadgeBackgroundProperty =
+        AvaloniaProperty.Register<Badged, Brush?>(nameof(BadgeBackground));
+
     /// <summary>
     /// Gets or sets the BadgeBackground property.
     /// </summary>
-    public Brush BadgeBackground {
+    public Brush? BadgeBackground {
         get => GetValue(BadgeBackgroundProperty);
         set => SetValue(BadgeBackgroundProperty, value);
     }
@@ -35,12 +52,13 @@ public class Badged : ContentControl {
     /// <summary>
     /// BadgeForeground StyledProperty definition.
     /// </summary>
-    public static readonly StyledProperty<Brush> BadgeForegroundProperty =
-        AvaloniaProperty.Register<Badged, Brush>(nameof(BadgeForeground));
+    public static readonly StyledProperty<Brush?> BadgeForegroundProperty =
+        AvaloniaProperty.Register<Badged, Brush?>(nameof(BadgeForeground));
+
     /// <summary>
     /// Gets or sets the BadgeForeground property.
     /// </summary>
-    public Brush BadgeForeground {
+    public Brush? BadgeForeground {
         get => GetValue(BadgeForegroundProperty);
         set => SetValue(BadgeForegroundProperty, value);
     }
@@ -50,6 +68,7 @@ public class Badged : ContentControl {
     /// </summary>
     public static readonly StyledProperty<CornerRadius> BadgeCornerRadiusProperty =
         AvaloniaProperty.Register<Badged, CornerRadius>(nameof(BadgeCornerRadius));
+
     /// <summary>
     /// Gets or sets the BadgeCornerRadius property.
     /// </summary>
@@ -63,6 +82,7 @@ public class Badged : ContentControl {
     /// </summary>
     public static readonly StyledProperty<BadgePlacement> BadgePlacementProperty =
         AvaloniaProperty.Register<Badged, BadgePlacement>(nameof(BadgePlacement));
+
     /// <summary>
     /// Gets or sets the BadgePlacement property.
     /// </summary>
@@ -76,6 +96,7 @@ public class Badged : ContentControl {
     /// </summary>
     public static readonly StyledProperty<bool?> BadgeDisplayContentProperty =
         AvaloniaProperty.Register<Badged, bool?>(nameof(BadgeDisplayContent));
+
     /// <summary>
     /// Gets or sets the BadgeHasContent property.
     /// </summary>
@@ -89,6 +110,7 @@ public class Badged : ContentControl {
     /// </summary>
     public static readonly StyledProperty<bool> IsBadgeVisibleProperty =
         AvaloniaProperty.Register<Badged, bool>(nameof(IsBadgeVisible));
+
     /// <summary>
     /// Gets or sets the IsBadgeVisible property.
     /// </summary>
@@ -102,6 +124,7 @@ public class Badged : ContentControl {
     /// </summary>
     public static readonly StyledProperty<double> BadgeWidthProperty =
         AvaloniaProperty.Register<Badged, double>(nameof(BadgeWidth), double.NaN);
+
     /// <summary>
     /// Gets or sets the BadgeWidth property.
     /// </summary>
@@ -115,6 +138,7 @@ public class Badged : ContentControl {
     /// </summary>
     public static readonly StyledProperty<double> BadgeHeightProperty =
         AvaloniaProperty.Register<Badged, double>(nameof(BadgeHeight), double.NaN);
+
     /// <summary>
     /// Gets or sets the BadgeHeight property.
     /// </summary>
@@ -128,6 +152,7 @@ public class Badged : ContentControl {
     /// </summary>
     public static readonly StyledProperty<double> BadgeFontSizeProperty =
         AvaloniaProperty.Register<Badged, double>(nameof(BadgeFontSize));
+
     /// <summary>
     /// Gets or sets the BadgeFontSize property.
     /// </summary>

@@ -13,6 +13,9 @@ public partial class BadgesDemo : UserControl {
         InitializeComponent();
         badgePlacementSelector.ItemsSource = Enum.GetValues<BadgePlacement>();
         badgePlacementSelector.SelectedItem = BadgePlacement.TopRight;
+        
+        badgeColorModeSelector.ItemsSource = Enum.GetValues<ColorZoneMode>();
+        badgeColorModeSelector.SelectedItem = ColorZoneMode.Error;
     }
 
     private void OnIncrementBadgeClick(object? sender, RoutedEventArgs e) {

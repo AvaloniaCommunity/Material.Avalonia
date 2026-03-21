@@ -7,8 +7,6 @@
     <Setter Property="Padding" Value="3 0" />
     <Setter Property="MinHeight" Value="19" />
     <Setter Property="MinWidth" Value="19" />
-    <Setter Property="Background" Value="{DynamicResource MaterialValidationErrorBrush}" />
-    <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorForegroundBrush}" />
     <Setter Property="HorizontalAlignment" Value="Center" />
     <Setter Property="VerticalAlignment" Value="Center" />
     <Setter Property="Template">
@@ -42,6 +40,51 @@
       <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="IsVisible" Value="False" />
       </Style>
+    </Style>
+
+    <Style Selector="^[ColorMode=Standard]">
+      <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    </Style>
+
+    <Style Selector="^[ColorMode=Inverted]">
+      <Setter Property="Background" Value="{DynamicResource MaterialBodyBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPaperBrush}" />
+    </Style>
+
+    <Style Selector="^[ColorMode=PrimaryLight]">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryLightBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[ColorMode=PrimaryMid]">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[ColorMode=PrimaryDark]">
+      <Setter Property="Background" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[ColorMode=Accent]">
+      <Setter Property="Background" Value="{DynamicResource MaterialSecondaryMidBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[ColorMode=Light]">
+      <Setter Property="Background" Value="{DynamicResource MaterialLightBackgroundBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialLightForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[ColorMode=Dark]">
+      <Setter Property="Background" Value="{DynamicResource MaterialDarkBackgroundBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialDarkForegroundBrush}" />
+    </Style>
+
+    <Style Selector="^[ColorMode=Error]">
+      <Setter Property="Background" Value="{DynamicResource MaterialValidationErrorBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource MaterialValidationErrorForegroundBrush}" />
     </Style>
   </ControlTheme>
 

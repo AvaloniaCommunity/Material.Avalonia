@@ -23,15 +23,15 @@
       </showMeTheXaml:XamlDisplay>
 
       <showMeTheXaml:XamlDisplay UniqueId="SingleBadgeWithContent">
-        <controls:Badge Content="1" />
+        <controls:Badge Content="1" ColorMode="Accent" />
       </showMeTheXaml:XamlDisplay>
 
       <showMeTheXaml:XamlDisplay UniqueId="SingleBadgeWithLongContent">
-        <controls:Badge Content="999+" />
+        <controls:Badge Content="999+" ColorMode="Inverted" />
       </showMeTheXaml:XamlDisplay>
 
       <showMeTheXaml:XamlDisplay UniqueId="SingleBadgeWithIcon">
-        <controls:Badge Content="{avalonia:MaterialIconExt ExclamationBold}" />
+        <controls:Badge Content="{avalonia:MaterialIconExt ExclamationBold}" ColorMode="PrimaryLight" />
       </showMeTheXaml:XamlDisplay>
 
       <showMeTheXaml:XamlDisplay UniqueId="SingleManualSizedBadgeWithIcon">
@@ -52,7 +52,7 @@
       </showMeTheXaml:XamlDisplay>
 
       <showMeTheXaml:XamlDisplay UniqueId="BadgedBigIconNoContent">
-        <controls:Badged BadgeDisplayContent="False">
+        <controls:Badged BadgeDisplayContent="False" BadgeColorMode="PrimaryLight">
           <avalonia:MaterialIcon Width="24"
                                  Height="24"
                                  Kind="Bell" />
@@ -139,18 +139,19 @@
 
     <!--#region Badge Customizations-->
     <TextBlock Classes="Headline6" Text="Badge Customizations" />
-    
+
     <WrapPanel Orientation="Horizontal">
-      <ToggleSwitch x:Name="badgeVisibleToggle"
-                    Margin="8"
-                    VerticalAlignment="Center"
-                    Content="Badge Visible"
-                    IsChecked="True" />
       <ComboBox x:Name="badgePlacementSelector"
                 MinWidth="160"
                 Margin="8"
                 VerticalAlignment="Center"
                 assists:ComboBoxAssist.Label="Badge Placement"
+                Theme="{StaticResource MaterialOutlineComboBox}" />
+      <ComboBox x:Name="badgeColorModeSelector"
+                MinWidth="160"
+                Margin="8"
+                VerticalAlignment="Center"
+                assists:ComboBoxAssist.Label="Color Mode"
                 Theme="{StaticResource MaterialOutlineComboBox}" />
       <TextBox x:Name="badgeContentTextBox"
                MinWidth="160"
@@ -161,6 +162,11 @@
                Text="334"
                Theme="{StaticResource OutlineTextBox}"
                UseFloatingWatermark="True" />
+      <ToggleSwitch x:Name="badgeVisibleToggle"
+                    Margin="8"
+                    VerticalAlignment="Center"
+                    Content="Badge Visible"
+                    IsChecked="True" />
       <Grid MinWidth="240"
             Margin="8"
             RowDefinitions="auto,*">
@@ -204,16 +210,12 @@
           <showMeTheXaml:XamlDisplay UniqueId="ConfigurableBadgedIcon0">
             <Viewbox Width="160" Height="160">
               <controls:Badged MinHeight="64"
-                               BadgeContent="{Binding ElementName=badgeContentTextBox,
-                                                  Path=Text}"
-                               BadgeFontSize="{Binding ElementName=badgeFontSizeSlider,
-                                                   Path=Value}"
-                               BadgeDisplayContent="{Binding ElementName=badgeHasContentToggle,
-                                                     Path=IsChecked}"
-                               BadgePlacement="{Binding ElementName=badgePlacementSelector,
-                                                    Path=SelectedValue}"
-                               IsBadgeVisible="{Binding ElementName=badgeVisibleToggle,
-                                                    Path=IsChecked}">
+                               BadgeContent="{Binding ElementName=badgeContentTextBox, Path=Text}"
+                               BadgeFontSize="{Binding ElementName=badgeFontSizeSlider, Path=Value}"
+                               BadgeDisplayContent="{Binding ElementName=badgeHasContentToggle, Path=IsChecked}"
+                               BadgePlacement="{Binding ElementName=badgePlacementSelector, Path=SelectedValue}"
+                               IsBadgeVisible="{Binding ElementName=badgeVisibleToggle, Path=IsChecked}"
+                               BadgeColorMode="{Binding ElementName=badgeColorModeSelector, Path=SelectedValue}">
                 <avalonia:MaterialIcon Width="32"
                                        Height="32"
                                        Kind="Bell" />
@@ -232,7 +234,8 @@
                                BadgeContent="{Binding ElementName=badgeContentTextBox, Path=Text}"
                                BadgeFontSize="{Binding ElementName=badgeFontSizeSlider,  Path=Value}"
                                BadgePlacement="{Binding ElementName=badgePlacementSelector, Path=SelectedValue}"
-                               IsBadgeVisible="{Binding ElementName=badgeVisibleToggle, Path=IsChecked}">
+                               IsBadgeVisible="{Binding ElementName=badgeVisibleToggle, Path=IsChecked}"
+                               BadgeColorMode="{Binding ElementName=badgeColorModeSelector, Path=SelectedValue}">
                 <avalonia:MaterialIcon Width="32"
                                        Height="32"
                                        Kind="Bell" />
@@ -245,7 +248,7 @@
     <!--#endregion-->
 
     <!--#region App Bar With Badge-->
-    <TextBlock Classes="Headline6" Text="Changing Badge Colors" />
+    <TextBlock Classes="Headline6" Text="Custom Badge Colors" />
 
     <controls:Card Margin="0" Padding="0">
 

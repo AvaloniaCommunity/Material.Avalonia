@@ -3,8 +3,6 @@
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
   <ControlTheme x:Key="MaterialBadged" TargetType="controls:Badged">
-    <Setter Property="BadgeBackground" Value="{DynamicResource MaterialValidationErrorBrush}" />
-    <Setter Property="BadgeForeground" Value="{DynamicResource MaterialValidationErrorForegroundBrush}" />
     <Setter Property="BadgePlacement" Value="TopRight" />
     <Setter Property="BadgeCornerRadius" Value="9999" />
     <Setter Property="BadgeFontSize" Value="{Binding $self.FontSize}" />
@@ -21,6 +19,7 @@
                             CornerRadius="{TemplateBinding BadgeCornerRadius}"
                             FontSize="{TemplateBinding BadgeFontSize}"
                             Foreground="{TemplateBinding BadgeForeground}"
+                            ColorMode="{TemplateBinding BadgeColorMode}"
                             DisplayContent="{TemplateBinding BadgeDisplayContent}"
                             IsVisible="{TemplateBinding IsBadgeVisible}" />
           </Grid>

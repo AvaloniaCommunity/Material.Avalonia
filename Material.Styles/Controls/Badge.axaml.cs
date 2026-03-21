@@ -7,13 +7,27 @@ namespace Material.Styles.Controls;
 [PseudoClasses(":display-content")]
 public class Badge : ContentControl {
     /// <summary>
-    /// <see cref="DisplayContent"/> StyledProperty definition.
+    /// Identifies the <see cref="ColorMode"/> property.
+    /// </summary>
+    public static readonly StyledProperty<ColorZoneMode> ColorModeProperty = 
+        AvaloniaProperty.Register<Badge, ColorZoneMode>(nameof(ColorMode), ColorZoneMode.Error);
+
+    /// <summary>
+    /// Gets or sets the color zone mode
+    /// </summary>
+    public ColorZoneMode ColorMode {
+        get => GetValue(ColorModeProperty);
+        set => SetValue(ColorModeProperty, value);
+    }
+
+    /// <summary>
+    /// Identifies the <see cref="DisplayContent"/> property.
     /// </summary>
     public static readonly StyledProperty<bool?> DisplayContentProperty =
         AvaloniaProperty.Register<Badge, bool?>(nameof(DisplayContent));
 
     /// <summary>
-    /// Gets or sets the <see cref=""/> property.
+    /// Gets or sets whether the badge content is displayed.
     /// </summary>
     public bool? DisplayContent {
         get => GetValue(DisplayContentProperty);
@@ -27,8 +41,7 @@ public class Badge : ContentControl {
         }
     }
 
-    private void UpdatePseudoClasses()
-    {
+    private void UpdatePseudoClasses() {
         var displayContent = (DisplayContent, Content) switch {
             (true, _) => true,
             (null, 0) => false,
