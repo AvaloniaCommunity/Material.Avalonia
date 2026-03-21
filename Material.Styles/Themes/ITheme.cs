@@ -1,10 +1,8 @@
 ﻿using Avalonia.Media;
 using Material.Colors;
 
-namespace Material.Styles.Themes
-{
-    public interface ITheme : IReadOnlyTheme
-    {
+namespace Material.Styles.Themes {
+    public interface ITheme : IReadOnlyTheme {
         new ColorPair PrimaryLight { get; set; }
         new ColorPair PrimaryMid { get; set; }
         new ColorPair PrimaryDark { get; set; }

@@ -11,7 +11,8 @@ namespace Material.Styles.Controls {
         Accent,
         Light,
         Dark,
-        Custom
+        Custom,
+        Error,
     }
 
     public class ColorZone : ContentControl {

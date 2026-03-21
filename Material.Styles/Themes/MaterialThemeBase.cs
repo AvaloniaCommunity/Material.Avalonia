@@ -119,6 +119,8 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             { "MaterialSecondaryMidBrush", theme => theme.SecondaryMid.Color },
             { "MaterialSecondaryDarkBrush", theme => theme.SecondaryDark.Color },
             { "MaterialValidationErrorBrush", theme => theme.ValidationError },
+            // TODO 4.0 Make ValidationError a ColorPair
+            // { "MaterialValidationErrorForegroundBrush", theme => theme.ValidationError.ForegroundColor },
             { "MaterialBackgroundBrush", theme => theme.Background },
             { "MaterialPaperBrush", theme => theme.Paper },
             { "MaterialCardBackgroundBrush", theme => theme.CardBackground },

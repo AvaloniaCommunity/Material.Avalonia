@@ -112,6 +112,18 @@
             </showMeTheXaml:XamlDisplay>
         </StackPanel>
         
+        <StackPanel>
+          <TextBlock Classes="Headline6 Subheadline2" Text="Error mode" />
+          <showMeTheXaml:XamlDisplay UniqueId="ColorZoneDemo9">
+            <controls:ColorZone Height="56" Padding="12" Mode="Error">
+              <Grid ColumnDefinitions="Auto,24,*">
+                <ToggleButton Grid.Column="0" Theme="{StaticResource MaterialFlatToggleButton}" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Menu}" />
+                <TextBlock Grid.Column="2" Classes="Headline6" VerticalAlignment="Center" Text="Material Design Demo"/>
+              </Grid>
+            </controls:ColorZone>
+          </showMeTheXaml:XamlDisplay>
+        </StackPanel>
+        
         <TextBlock Classes="Headline4 Subheadline" Text="More advanced ColorZones demo" />
         <StackPanel>
             <TextBlock Classes="Headline6 Subheadline2" Text="With menus" />
