@@ -11,11 +11,23 @@ on:
         tags:
             - v**
 
+permissions:
+    id-token: write
+    contents: write
+
 jobs:
-    build-and-test:
-        uses: SKProCH/CommonWorkflows/.github/workflows/build-publish.yml@main
-        secrets:
-            NUGET_KEY: ${{ secrets.NUGET_KEY }}
-        with:
-            publish-nightly: ${{ github.ref_type != 'tag' && (github.ref_name == 'master' || github.ref_name == 'main') }}
-            dotnet-version: 8
+    build:
+        
+        runs-on: ubuntu-latest
+        
+        steps:
+            -   uses: actions/checkout@v4
+            -   name: Setup .NET
+                uses: actions/setup-dotnet@v4
+                with:
+                    dotnet-version: 10
+            -   name: Build and Publish
+                uses: SKProCH/CommonWorkflows/actions/build-publish@main
+                with:
+                    publish-nightly: true
+                    nuget-user: ${{ secrets.NUGET_USER }}

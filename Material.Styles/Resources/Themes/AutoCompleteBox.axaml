@@ -3,8 +3,9 @@
   <ControlTheme x:Key="MaterialAutoCompleteBox" TargetType="AutoCompleteBox">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
-    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Padding" Value="4" />
+    <Setter Property="Margin" Value="4" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
@@ -12,7 +13,9 @@
                    Background="{TemplateBinding Background}"
                    BorderBrush="{TemplateBinding BorderBrush}"
                    BorderThickness="{TemplateBinding BorderThickness}"
+                   CornerRadius="{TemplateBinding CornerRadius}"
                    Padding="{TemplateBinding Padding}"
+                   Margin="{TemplateBinding Margin}"
                    Watermark="{TemplateBinding Watermark}"
                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}" />
 
@@ -25,7 +28,7 @@
                     BorderThickness="1">
               <ListBox Name="PART_SelectingItemsControl"
                        BorderThickness="0"
-                       Background="{TemplateBinding Background}"
+                       Background="{DynamicResource MaterialPaperBrush}"
                        Foreground="{TemplateBinding Foreground}"
                        ItemTemplate="{TemplateBinding ItemTemplate}"
                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -39,4 +42,33 @@
 
   <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox"
                 BasedOn="{StaticResource MaterialAutoCompleteBox}" />
+
+  <ControlTheme x:Key="MaterialFilledAutoCompleteBox"
+                BasedOn="{StaticResource MaterialAutoCompleteBox}"
+                TargetType="AutoCompleteBox">
+    <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
+    <Setter Property="CornerRadius" Value="4,4,0,0" />
+    <Setter Property="Padding" Value="16,8" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="MaterialOutlineAutoCompleteBox"
+                BasedOn="{StaticResource MaterialAutoCompleteBox}"
+                TargetType="AutoCompleteBox">
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="Padding" Value="16,8" />
+
+    <Style Selector="^">
+      <Setter Property="BorderThickness" Value="1" />
+    </Style>
+
+    <Style Selector="^:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      <Setter Property="BorderThickness" Value="2" />
+      <Style Selector="^ /template/ TextBlock#floatingWatermark">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      </Style>
+    </Style>
+  </ControlTheme>
 </ResourceDictionary>
