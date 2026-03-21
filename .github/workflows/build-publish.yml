@@ -26,11 +26,6 @@ jobs:
                 uses: actions/setup-dotnet@v4
                 with:
                     dotnet-version: 10
-            -   name: NuGet login (OIDC → temp API key)
-                uses: NuGet/login@v1
-                id: nuget-login
-                with:
-                    user: SKProCH
             -   name: Build and Publish
                 uses: SKProCH/CommonWorkflows/actions/build-publish@main
                 with:
