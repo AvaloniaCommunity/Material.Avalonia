@@ -79,72 +79,72 @@
         <TextBlock Classes="Headline6 Subheadline2" Text="AutoComplete boxes" />
         <WrapPanel Orientation="Horizontal">
           <WrapPanel.Styles>
-            <Style Selector="ComboBox">
+            <Style Selector="AutoCompleteBox">
               <Setter Property="Width" Value="180" />
             </Style>
           </WrapPanel.Styles>
           <showMeTheXaml:XamlDisplay UniqueId="AutoCompleteBoxes0">
             <AutoCompleteBox Watermark="Select a Item">
               <AutoCompleteBox.ItemsSource>
-					<generic:List x:TypeArguments="x:String">
-						<sys:String>Alabama</sys:String>
-						<sys:String>Alaska</sys:String>
-						<sys:String>Arizona</sys:String>
-						<sys:String>Arkansas</sys:String>
-						<sys:String>California</sys:String>
-						<sys:String>Colorado</sys:String>
-						<sys:String>Connecticut</sys:String>
-						<sys:String>Delaware</sys:String>
-					</generic:List>
-				</AutoCompleteBox.ItemsSource>
+                <generic:List x:TypeArguments="x:String">
+                  <sys:String>Alabama</sys:String>
+                  <sys:String>Alaska</sys:String>
+                  <sys:String>Arizona</sys:String>
+                  <sys:String>Arkansas</sys:String>
+                  <sys:String>California</sys:String>
+                  <sys:String>Colorado</sys:String>
+                  <sys:String>Connecticut</sys:String>
+                  <sys:String>Delaware</sys:String>
+                </generic:List>
+              </AutoCompleteBox.ItemsSource>
             </AutoCompleteBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="AutoCompleteBoxes1">
             <AutoCompleteBox Watermark="Select a Item">
               <AutoCompleteBox.ItemsSource>
-					<generic:List x:TypeArguments="x:String">
-						<sys:String>Alabama</sys:String>
-						<sys:String>Alaska</sys:String>
-						<sys:String>Arizona</sys:String>
-						<sys:String>Arkansas</sys:String>
-						<sys:String>California</sys:String>
-						<sys:String>Colorado</sys:String>
-						<sys:String>Connecticut</sys:String>
-						<sys:String>Delaware</sys:String>
-					</generic:List>
-				</AutoCompleteBox.ItemsSource>
+                <generic:List x:TypeArguments="x:String">
+                  <sys:String>Alabama</sys:String>
+                  <sys:String>Alaska</sys:String>
+                  <sys:String>Arizona</sys:String>
+                  <sys:String>Arkansas</sys:String>
+                  <sys:String>California</sys:String>
+                  <sys:String>Colorado</sys:String>
+                  <sys:String>Connecticut</sys:String>
+                  <sys:String>Delaware</sys:String>
+                </generic:List>
+              </AutoCompleteBox.ItemsSource>
             </AutoCompleteBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="AutoCompleteBoxes2">
             <AutoCompleteBox Theme="{StaticResource MaterialFilledAutoCompleteBox}" Watermark="Select a Item">
               <AutoCompleteBox.ItemsSource>
-					<generic:List x:TypeArguments="x:String">
-						<sys:String>Alabama</sys:String>
-						<sys:String>Alaska</sys:String>
-						<sys:String>Arizona</sys:String>
-						<sys:String>Arkansas</sys:String>
-						<sys:String>California</sys:String>
-						<sys:String>Colorado</sys:String>
-						<sys:String>Connecticut</sys:String>
-						<sys:String>Delaware</sys:String>
-					</generic:List>
-				</AutoCompleteBox.ItemsSource>
+                <generic:List x:TypeArguments="x:String">
+                  <sys:String>Alabama</sys:String>
+                  <sys:String>Alaska</sys:String>
+                  <sys:String>Arizona</sys:String>
+                  <sys:String>Arkansas</sys:String>
+                  <sys:String>California</sys:String>
+                  <sys:String>Colorado</sys:String>
+                  <sys:String>Connecticut</sys:String>
+                  <sys:String>Delaware</sys:String>
+                </generic:List>
+              </AutoCompleteBox.ItemsSource>
             </AutoCompleteBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="AutoCompleteBoxes3">
             <AutoCompleteBox Theme="{StaticResource MaterialOutlineAutoCompleteBox}" Watermark="Select a Item">
               <AutoCompleteBox.ItemsSource>
-					<generic:List x:TypeArguments="x:String">
-						<sys:String>Alabama</sys:String>
-						<sys:String>Alaska</sys:String>
-						<sys:String>Arizona</sys:String>
-						<sys:String>Arkansas</sys:String>
-						<sys:String>California</sys:String>
-						<sys:String>Colorado</sys:String>
-						<sys:String>Connecticut</sys:String>
-						<sys:String>Delaware</sys:String>
-					</generic:List>
-				</AutoCompleteBox.ItemsSource>
+                <generic:List x:TypeArguments="x:String">
+                  <sys:String>Alabama</sys:String>
+                  <sys:String>Alaska</sys:String>
+                  <sys:String>Arizona</sys:String>
+                  <sys:String>Arkansas</sys:String>
+                  <sys:String>California</sys:String>
+                  <sys:String>Colorado</sys:String>
+                  <sys:String>Connecticut</sys:String>
+                  <sys:String>Delaware</sys:String>
+                </generic:List>
+              </AutoCompleteBox.ItemsSource>
             </AutoCompleteBox>
           </showMeTheXaml:XamlDisplay>
         </WrapPanel>
