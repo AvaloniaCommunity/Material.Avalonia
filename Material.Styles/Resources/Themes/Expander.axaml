@@ -3,10 +3,7 @@
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:converters="clr-namespace:Material.Styles.Converters">
-  <converters:BottomMarginConverter x:Key="BottomMarginConverter" />
-  <converters:TopMarginConverter x:Key="TopMarginConverter" />
-  <converters:LeftMarginConverter x:Key="LeftMarginConverter" />
-  <converters:RightMarginConverter x:Key="RightMarginConverter" />
+  <converters:MarginSideConverter x:Key="MarginSideConverter" />
 
   <ControlTheme x:Key="ExpanderToggleButtonPart" TargetType="ToggleButton">
     <Setter Property="Background" Value="Transparent" />
@@ -187,7 +184,8 @@
         <Setter Property="Orientation" Value="Vertical" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="Margin" Value="{TemplateBinding assists:ExpanderAssist.HeaderHeight, 
-                                                          Converter={StaticResource BottomMarginConverter}}" />
+                                                          Converter={StaticResource MarginSideConverter},
+                                                          ConverterParameter=Bottom}" />
       </Style>
 
       <Style Selector="^ /template/ LayoutTransformControl#PART_ToggleTransform">
@@ -204,7 +202,8 @@
         <Setter Property="Orientation" Value="Vertical" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Margin" Value="{TemplateBinding assists:ExpanderAssist.HeaderHeight, 
-                                                          Converter={StaticResource TopMarginConverter}}" />
+                                                          Converter={StaticResource MarginSideConverter},
+                                                          ConverterParameter=Top}" />
       </Style>
 
       <Style Selector="^ /template/ LayoutTransformControl#PART_ToggleTransform">
@@ -221,7 +220,8 @@
         <Setter Property="Orientation" Value="Horizontal" />
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="Margin" Value="{TemplateBinding assists:ExpanderAssist.HeaderHeight, 
-                                                          Converter={StaticResource RightMarginConverter}}" />
+                                                          Converter={StaticResource MarginSideConverter},
+                                                          ConverterParameter=Right}" />
       </Style>
 
       <Style Selector="^ /template/ LayoutTransformControl#PART_ToggleTransform">
@@ -239,7 +239,8 @@
         <Setter Property="Orientation" Value="Horizontal" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="Margin" Value="{TemplateBinding assists:ExpanderAssist.HeaderHeight, 
-                                                          Converter={StaticResource LeftMarginConverter}}" />
+                                                          Converter={StaticResource MarginSideConverter},
+                                                          ConverterParameter=Left}" />
       </Style>
 
       <Style Selector="^ /template/ LayoutTransformControl#PART_ToggleTransform">
