@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
              xmlns:viewModels="clr-namespace:Material.Avalonia.Demo.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Material.Avalonia.Demo.Pages.ExpandersDemo"
@@ -34,6 +35,7 @@
         
         <Expander Header="This expander inflates content from upside!"
                   ExpandDirection="Up"
+                  assists:ExpanderAssist.HeaderHeight="64"
                   Content="{Binding }"
                   ContentTemplate="{StaticResource LoremContentTemplate}"/>
         
