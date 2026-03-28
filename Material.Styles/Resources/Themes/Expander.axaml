@@ -138,6 +138,7 @@
                 <ToggleButton Name="PART_ToggleButton"
                               Content="{TemplateBinding Header}"
                               ContentTemplate="{TemplateBinding HeaderTemplate}"
+                              Cursor="Hand"
                               Foreground="{DynamicResource MaterialBodyBrush}"
                               IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
               </LayoutTransformControl>
