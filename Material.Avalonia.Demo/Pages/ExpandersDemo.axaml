@@ -32,10 +32,16 @@
                   Content="{Binding }"
                   ContentTemplate="{StaticResource LoremContentTemplate}"/>
         
-        <Expander Header="This expander inflates content from upside!"
-                  ExpandDirection="Up"
+        <Expander ExpandDirection="Up"
                   Content="{Binding }"
-                  ContentTemplate="{StaticResource LoremContentTemplate}"/>
+                  ContentTemplate="{StaticResource LoremContentTemplate}">
+          <Expander.Header>
+            <StackPanel Spacing="8">
+              <TextBlock Text="This expander inflates content from upside!" FontSize="20" FontWeight="Bold" />
+              <TextBlock Text="And the header height adjusts dynamically" FontSize="14" />
+            </StackPanel>
+          </Expander.Header>
+        </Expander>
         
         <StackPanel Orientation="Horizontal">
             <Expander Header="Inflates left!"
