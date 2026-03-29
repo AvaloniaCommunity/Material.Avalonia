@@ -35,7 +35,6 @@
         
         <Expander Header="This expander inflates content from upside!"
                   ExpandDirection="Up"
-                  assists:ExpanderAssist.HeaderHeight="64"
                   Content="{Binding }"
                   ContentTemplate="{StaticResource LoremContentTemplate}"/>
         
