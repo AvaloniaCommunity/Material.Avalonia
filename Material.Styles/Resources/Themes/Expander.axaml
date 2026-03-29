@@ -1,8 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:controls="clr-namespace:Material.Styles.Controls"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters">
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
 
   <ControlTheme x:Key="ExpanderToggleButtonPart" TargetType="ToggleButton">
     <Setter Property="Background" Value="Transparent" />
