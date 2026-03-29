@@ -1,11 +1,11 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ControlTheme x:Key="MaterialAutoCompleteBox" TargetType="AutoCompleteBox">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Padding" Value="4" />
-    <Setter Property="Margin" Value="4" />
+    <Setter Property="CornerRadius" Value="0" />
+    <Setter Property="Padding" Value="8,6" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
@@ -15,7 +15,6 @@
                    BorderThickness="{TemplateBinding BorderThickness}"
                    CornerRadius="{TemplateBinding CornerRadius}"
                    Padding="{TemplateBinding Padding}"
-                   Margin="{TemplateBinding Margin}"
                    Watermark="{TemplateBinding Watermark}"
                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}" />
 
@@ -49,6 +48,16 @@
     <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     <Setter Property="CornerRadius" Value="4,4,0,0" />
     <Setter Property="Padding" Value="16,8" />
+
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
+    </Style>
+
+    <Style Selector="^:focus-within">
+      <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+      <Setter Property="BorderThickness" Value="2" />
+    </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="MaterialOutlineAutoCompleteBox"
