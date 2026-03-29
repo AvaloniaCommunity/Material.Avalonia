@@ -44,6 +44,7 @@
                 <Popup Name="PART_Popup"
                        Placement="Bottom"
                        IsLightDismissEnabled="True"
+                       OverlayInputPassThroughElement="{Binding $parent[Menu]}"
                        WindowManagerAddShadowHint="False"
                        IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
                   <controls:Card Padding="0">
