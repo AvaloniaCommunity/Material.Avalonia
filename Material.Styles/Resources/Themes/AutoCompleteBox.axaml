@@ -1,11 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles">
   <ControlTheme x:Key="MaterialAutoCompleteBox" TargetType="AutoCompleteBox">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="CornerRadius" Value="0" />
-    <Setter Property="Padding" Value="8,6" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
@@ -14,8 +10,12 @@
                    BorderBrush="{TemplateBinding BorderBrush}"
                    BorderThickness="{TemplateBinding BorderThickness}"
                    CornerRadius="{TemplateBinding CornerRadius}"
+                   InnerLeftContent="{TemplateBinding InnerLeftContent}"
+                   InnerRightContent="{TemplateBinding InnerRightContent}"
                    Padding="{TemplateBinding Padding}"
+                   UseFloatingWatermark="{TemplateBinding assists:AutoCompleteBoxAssist.UseFloatingWatermark}"
                    Watermark="{TemplateBinding Watermark}"
+                   assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
                    DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}" />
 
           <Popup Name="PART_Popup"
@@ -45,39 +45,22 @@
   <ControlTheme x:Key="MaterialFilledAutoCompleteBox"
                 BasedOn="{StaticResource MaterialAutoCompleteBox}"
                 TargetType="AutoCompleteBox">
-    <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
     <Setter Property="CornerRadius" Value="4,4,0,0" />
-    <Setter Property="Padding" Value="16,8" />
+
+    <Style Selector="^ /template/ TextBox#PART_TextBox">
+      <Setter Property="Theme" Value="{DynamicResource FilledTextBox}" />
+    </Style>
 
     <Style Selector="^:pointerover">
       <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxHoverBackgroundBrush}" />
-    </Style>
-
-    <Style Selector="^:focus-within">
-      <Setter Property="Background" Value="{DynamicResource MaterialTextFieldBoxBackgroundBrush}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-      <Setter Property="BorderThickness" Value="2" />
     </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="MaterialOutlineAutoCompleteBox"
                 BasedOn="{StaticResource MaterialAutoCompleteBox}"
                 TargetType="AutoCompleteBox">
-    <Setter Property="BorderThickness" Value="1" />
-    <Setter Property="BorderBrush" Value="{DynamicResource MaterialTextBoxBorderBrush}" />
-    <Setter Property="CornerRadius" Value="4" />
-    <Setter Property="Padding" Value="16,8" />
-
-    <Style Selector="^">
-      <Setter Property="BorderThickness" Value="1" />
-    </Style>
-
-    <Style Selector="^:focus-within">
-      <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-      <Setter Property="BorderThickness" Value="2" />
-      <Style Selector="^ /template/ TextBlock#floatingWatermark">
-        <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidBrush}" />
-      </Style>
+    <Style Selector="^ /template/ TextBox#PART_TextBox">
+      <Setter Property="Theme" Value="{DynamicResource OutlineTextBox}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>
