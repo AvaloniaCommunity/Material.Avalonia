@@ -109,7 +109,7 @@
               />
      <TextBox Grid.Row="2"
               Grid.Column="1"
-              UseFloatingWatermark="True" />
+              UseFloatingPlaceholder="True" />
      <TextBox Grid.Row="3"
               Grid.Column="1"
               Theme="{StaticResource FilledTextBox}"
@@ -117,7 +117,7 @@
      <TextBox Grid.Row="4"
               Grid.Column="1"
               Theme="{StaticResource OutlineTextBox}"
-              UseFloatingWatermark="True"
+              UseFloatingPlaceholder="True"
               Classes="outline"
               />
 
@@ -130,7 +130,7 @@
               PasswordChar="*"
               Grid.Row="2"
               Grid.Column="2"
-              UseFloatingWatermark="True" />
+              UseFloatingPlaceholder="True" />
      <TextBox Classes="revealPasswordButton"
               PasswordChar="*"
               Grid.Row="3"
@@ -141,7 +141,7 @@
               Grid.Row="4"
               Grid.Column="2"
               Theme="{StaticResource OutlineTextBox}"
-              UseFloatingWatermark="True" />
+              UseFloatingPlaceholder="True" />
 
      <ComboBox Grid.Row="1"
                Grid.Column="3" />

@@ -151,7 +151,7 @@
                         
                         <Panel Grid.Column="3" VerticalAlignment="Center">
                             <controls:Card VerticalAlignment="Center" Padding="0">
-                                <TextBox Margin="0" Classes="Solo" Watermark="Search bar">
+                                <TextBox Margin="0" Classes="Solo" PlaceholderText="Search bar">
                                     <TextBox.Styles>
                                         <Style Selector="TextBox.Solo /template/ Grid#PART_InnerRoot">
                                             <Setter Property="Margin" Value="8,4"/>

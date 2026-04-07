@@ -190,7 +190,7 @@
                       IsVisible="{Binding ShowFilters}"
                       ItemsSource="{Binding Filters}"
                       SelectedItem="{Binding SelectedFilter}" />
-                  <TextBox Text="{Binding FileName}" Watermark="{DynamicResource StringManagedFileChooserFileNameWatermark}" IsVisible="{Binding !SelectingFolder}" />
+                  <TextBox Text="{Binding FileName}" PlaceholderText="{DynamicResource StringManagedFileChooserFileNameWatermark}" IsVisible="{Binding !SelectingFolder}" />
                 </DockPanel>
                 <CheckBox IsChecked="{Binding ShowHiddenFiles}" Content="{DynamicResource StringManagedFileChooserShowHiddenFilesText}" DockPanel.Dock="Left"/>
                 <UniformGrid x:Name="Finalize" HorizontalAlignment="Right" Rows="1">

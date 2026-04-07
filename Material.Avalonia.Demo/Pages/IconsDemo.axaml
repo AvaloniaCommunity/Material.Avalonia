@@ -102,7 +102,7 @@
                          Classes="solo"
                          CornerRadius="32"
                          KeyDown="Search_OnKeyDown"
-                         Watermark="Search"
+                         PlaceholderText="Search"
                          Text="{Binding SearchText}" Margin="0">
                     <TextBox.InnerLeftContent>
                         <avalonia:MaterialIcon Kind="Magnify" Width="20" Height="20"

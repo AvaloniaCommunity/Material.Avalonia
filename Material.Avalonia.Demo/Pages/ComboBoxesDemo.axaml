@@ -84,7 +84,7 @@
             </Style>
           </WrapPanel.Styles>
           <showMeTheXaml:XamlDisplay UniqueId="AutoCompleteBoxes0">
-            <AutoCompleteBox Watermark="Select a Item">
+            <AutoCompleteBox PlaceholderText="Select a Item">
               <AutoCompleteBox.ItemsSource>
                 <generic:List x:TypeArguments="x:String">
                   <sys:String>Alabama</sys:String>
@@ -100,7 +100,7 @@
             </AutoCompleteBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="AutoCompleteBoxes1">
-            <AutoCompleteBox assists:TextFieldAssist.Label="Countries" assists:AutoCompleteBoxAssist.UseFloatingWatermark="True" Watermark="Select a Item">
+            <AutoCompleteBox assists:TextFieldAssist.Label="Countries" assists:AutoCompleteBoxAssist.UseFloatingPlaceholder="True" PlaceholderText="Select a Item">
               <AutoCompleteBox.ItemsSource>
                 <generic:List x:TypeArguments="x:String">
                   <sys:String>Alabama</sys:String>
@@ -116,7 +116,7 @@
             </AutoCompleteBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="AutoCompleteBoxes2">
-            <AutoCompleteBox assists:TextFieldAssist.Label="Countries" assists:AutoCompleteBoxAssist.UseFloatingWatermark="True" Theme="{StaticResource MaterialFilledAutoCompleteBox}" Watermark="Select a Item">
+            <AutoCompleteBox assists:TextFieldAssist.Label="Countries" assists:AutoCompleteBoxAssist.UseFloatingPlaceholder="True" Theme="{StaticResource MaterialFilledAutoCompleteBox}" PlaceholderText="Select a Item">
               <AutoCompleteBox.ItemsSource>
                 <generic:List x:TypeArguments="x:String">
                   <sys:String>Alabama</sys:String>
@@ -132,7 +132,7 @@
             </AutoCompleteBox>
           </showMeTheXaml:XamlDisplay>
           <showMeTheXaml:XamlDisplay UniqueId="AutoCompleteBoxes3">
-            <AutoCompleteBox Theme="{StaticResource MaterialOutlineAutoCompleteBox}" Watermark="Select a Item">
+            <AutoCompleteBox Theme="{StaticResource MaterialOutlineAutoCompleteBox}" PlaceholderText="Select a Item">
               <AutoCompleteBox.ItemsSource>
                 <generic:List x:TypeArguments="x:String">
                   <sys:String>Alabama</sys:String>

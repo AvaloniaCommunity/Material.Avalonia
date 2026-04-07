@@ -160,7 +160,7 @@
                Classes="outline"
                Text="334"
                Theme="{StaticResource OutlineTextBox}"
-               UseFloatingWatermark="True" />
+               UseFloatingPlaceholder="True" />
       <ToggleSwitch x:Name="badgeVisibleToggle"
                     Margin="8"
                     VerticalAlignment="Center"

@@ -181,7 +181,7 @@
               <Panel Name="PART_TextFieldPanel">
                 <Border Name="PART_BackgroundTextField">
                   <Border.Styles>
-                    <Style Selector="TextBox.outline[UseFloatingWatermark=True] /template/
+                    <Style Selector="TextBox.outline[UseFloatingPlaceholder=True] /template/
                                                          Border#PART_BackgroundTextField">
                       <Setter Property="Clip">
                         <MultiBinding Converter="{StaticResource RectangleHollowGeometry}"
@@ -305,7 +305,7 @@
     </Style>
 
     <!-- TODO: Make placeholder text is visible when is not empty and floating label is enabled -->
-    <Style Selector="^:empty[UseFloatingWatermark=False] /template/ TextBlock#PART_PlaceholderText">
+    <Style Selector="^:empty[UseFloatingPlaceholder=False] /template/ TextBlock#PART_PlaceholderText">
       <Setter Property="IsVisible" Value="True" />
     </Style>
 
@@ -320,7 +320,7 @@
     </Style>
 
     <Style Selector="^:focus-within">
-      <Style Selector="^:empty[UseFloatingWatermark=True] /template/ TextBlock#PART_PlaceholderText">
+      <Style Selector="^:empty[UseFloatingPlaceholder=True] /template/ TextBlock#PART_PlaceholderText">
         <Setter Property="IsVisible" Value="True" />
       </Style>
 
@@ -408,7 +408,7 @@
       <Setter Property="Margin" Value="0,20,4,1" />
     </Style>
 
-    <Style Selector="^[UseFloatingWatermark=True] /template/ Panel#PART_TextContainer">
+    <Style Selector="^[UseFloatingPlaceholder=True] /template/ Panel#PART_TextContainer">
       <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
@@ -468,7 +468,7 @@
       <Setter Property="Margin" Value="12,20,4,1" />
     </Style>
 
-    <Style Selector="^[UseFloatingWatermark=True] /template/ Panel#PART_TextContainer">
+    <Style Selector="^[UseFloatingPlaceholder=True] /template/ Panel#PART_TextContainer">
       <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
@@ -510,7 +510,7 @@
       <Setter Property="Margin" Value="12,14,1,1" />
     </Style>
 
-    <Style Selector="^.dense[UseFloatingWatermark=False] /template/ Panel#PART_TextContainer">
+    <Style Selector="^.dense[UseFloatingPlaceholder=False] /template/ Panel#PART_TextContainer">
       <Setter Property="Margin" Value="12,14,4,1" />
     </Style>
 
