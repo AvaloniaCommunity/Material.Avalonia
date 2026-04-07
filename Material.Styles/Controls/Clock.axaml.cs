@@ -136,7 +136,7 @@ public class Clock : TemplatedControl {
             ?.Focus();
     }
 
-    private void InputBoxOnGotFocusHandler(object? sender, GotFocusEventArgs e) {
+    private void InputBoxOnGotFocusHandler(object? sender, FocusChangedEventArgs focusChangedEventArgs) {
         _selectedInputBox = (NumericUpDown)sender!;
         OnSelectedInputBoxChange();
     }

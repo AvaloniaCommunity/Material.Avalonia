@@ -158,7 +158,7 @@
                                         </Style>
                                     </TextBox.Styles>
                                     <TextBox.InnerRightContent>
-                                        <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Search, Size=24}" />
+                                        <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Search, IconSize=24}" />
                                     </TextBox.InnerRightContent>
                                 </TextBox>
                             </controls:Card>

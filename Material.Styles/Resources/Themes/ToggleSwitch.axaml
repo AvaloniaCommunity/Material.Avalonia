@@ -62,23 +62,21 @@
                              Margin="-100"
                              VerticalAlignment="Center"
                              HorizontalAlignment="Center" />
-                    <AdornerLayer>
-                      <Border Name="Thumb"
-                              CornerRadius="10"
-                              Width="20" Height="20"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
-                              assists:ShadowAssist.ShadowDepth="{TemplateBinding (assists:ShadowAssist.ShadowDepth)}">
-                        <Panel Name="PART_ThumbContentContainer">
-                          <ContentPresenter Name="OnContentPresenter"
-                                            Content="{TemplateBinding OnContent}"
-                                            ContentTemplate="{TemplateBinding OnContentTemplate}" />
-                          <ContentPresenter Name="OffContentPresenter"
-                                            Content="{TemplateBinding OffContent}"
-                                            ContentTemplate="{TemplateBinding OffContentTemplate}" />
-                        </Panel>
-                      </Border>
-                    </AdornerLayer>
+                    <Border Name="Thumb"
+                            CornerRadius="10"
+                            Width="20" Height="20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            assists:ShadowAssist.ShadowDepth="{TemplateBinding (assists:ShadowAssist.ShadowDepth)}">
+                      <Panel Name="PART_ThumbContentContainer">
+                        <ContentPresenter Name="OnContentPresenter"
+                                          Content="{TemplateBinding OnContent}"
+                                          ContentTemplate="{TemplateBinding OnContentTemplate}" />
+                        <ContentPresenter Name="OffContentPresenter"
+                                          Content="{TemplateBinding OffContent}"
+                                          ContentTemplate="{TemplateBinding OffContentTemplate}" />
+                      </Panel>
+                    </Border>
                   </Panel>
                 </Canvas>
               </Panel>
@@ -153,7 +151,7 @@
     <!-- Left-right handle variant -->
 
     <Style Selector="^.LeftHeader /template/ DockPanel#PART_RootPanel > Viewbox">
-				<Setter Property="DockPanel.Dock" Value="Right" />
+      <Setter Property="DockPanel.Dock" Value="Right" />
     </Style>
 
     <!-- Accent variant -->
@@ -188,7 +186,7 @@
     <Style Selector="^:pointerover /template/ Ellipse#RippleThumb">
       <Setter Property="Opacity" Value="{StaticResource RippleHoveredOpacity}" />
     </Style>
-    
+
     <Style Selector="^:focus-visible /template/ Ellipse#RippleThumb">
       <Setter Property="Opacity" Value="{StaticResource RippleHoveredOpacity}" />
     </Style>

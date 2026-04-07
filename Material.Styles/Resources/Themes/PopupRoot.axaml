@@ -5,20 +5,24 @@
     <Setter Property="FontSize" Value="{DynamicResource MaterialDesignFontSize}" />
     <Setter Property="FontWeight" Value="Normal" />
     <Setter Property="FontStyle" Value="Normal" />
-    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Background" Value="{x:Null}" />
     <Setter Property="TransparencyLevelHint" Value="Transparent" />
+    <Setter Property="Inline.TextDecorations" Value="" />
     <Setter Property="Template">
       <ControlTemplate>
-        <VisualLayerManager Name="PART_VisualLayer"
-                            IsPopup="True">
-          <Panel Name="PART_RootPanel">
-            <ContentPresenter Name="PART_ContentPresenter"
-                              Background="{TemplateBinding Background}"
-                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                              Content="{TemplateBinding Content}"
-                              Padding="{TemplateBinding Padding}" />
+        <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+          <Panel>
+            <Border Name="PART_TransparencyFallback"
+                    IsHitTestVisible="False" />
+            <VisualLayerManager Name="PART_VisualLayerManager">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </VisualLayerManager>
           </Panel>
-        </VisualLayerManager>
+        </LayoutTransformControl>
       </ControlTemplate>
     </Setter>
   </ControlTheme>

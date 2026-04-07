@@ -280,7 +280,7 @@
                             <TextBox Classes="solo" Theme="{StaticResource SoloTextBox}" Watermark="Solo field with Card">
                                 <TextBox.InnerRightContent>
                                     <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}"
-                                            Content="{avalonia:MaterialIconExt Search, Size=24}" />
+                                            Content="{avalonia:MaterialIconExt Search, IconSize=24}" />
                                 </TextBox.InnerRightContent>
                             </TextBox>
                         </controls:Card>
@@ -290,7 +290,7 @@
                             <TextBox Classes="solo" Theme="{StaticResource SoloTextBox}" Watermark="or with ColorZone">
                                 <TextBox.InnerRightContent>
                                     <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}"
-                                            Content="{avalonia:MaterialIconExt Search, Size=24}" />
+                                            Content="{avalonia:MaterialIconExt Search, IconSize=24}" />
                                 </TextBox.InnerRightContent>
                             </TextBox>
                         </controls:ColorZone>

@@ -8,12 +8,12 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
     </Style>
     
-    <Style Selector="Window[SystemDecorations=None]">
+    <Style Selector="Window[WindowDecorations=None]">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
     </Style>
     
-    <Style Selector="Window[SystemDecorations=Full] controls|EmbeddedDialogControl /template/
+    <Style Selector="Window[WindowDecorations=Full] controls|EmbeddedDialogControl /template/
                      Border#PART_RootBorder">
         <Setter Property="assists:ShadowAssist.ShadowDepth" Value="Depth0"/>
         <Setter Property="CornerRadius" Value="0"/>
