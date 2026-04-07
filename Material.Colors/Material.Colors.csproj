@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Color palette component of Material.Avalonia.</Description>
 
-    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
 </Project>

@@ -119,8 +119,7 @@
 
       <showMeTheXaml:XamlDisplay UniqueId="BadgedButtonFlask">
         <controls:Badged BadgeBackground="{DynamicResource MaterialSecondaryMidBrush}"
-                         BadgeContent="{avalonia:MaterialIconExt Flask,
-                                                                 Size=20}"
+                         BadgeContent="{avalonia:MaterialIconExt Flask, IconSize=20}"
                          BadgeForeground="{DynamicResource MaterialSecondaryMidForegroundBrush}">
           <Button Content="TRY BETA" />
         </controls:Badged>
@@ -161,7 +160,7 @@
                Classes="outline"
                Text="334"
                Theme="{StaticResource OutlineTextBox}"
-               UseFloatingWatermark="True" />
+               UseFloatingPlaceholder="True" />
       <ToggleSwitch x:Name="badgeVisibleToggle"
                     Margin="8"
                     VerticalAlignment="Center"

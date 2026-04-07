@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AvaloniaUI.DiagnosticsSupport" />
     <PackageReference Include="Avalonia.Controls.DataGrid" />
-    <PackageReference Include="Avalonia.Diagnostics" />
     <PackageReference Include="Avalonia.Themes.Simple" />
     <PackageReference Include="Material.Icons.Avalonia" />
     <PackageReference Include="DialogHost.Avalonia" />
@@ -16,11 +16,9 @@
     <PackageReference Include="ShowMeTheXaml.Avalonia.Generator" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Material.Avalonia.TreeDataGrid\Material.Avalonia.TreeDataGrid.csproj" />
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.Avalonia.Dialogs\Material.Avalonia.Dialogs.csproj" />
     <ProjectReference Include="..\Material.Avalonia.DataGrid\Material.Avalonia.DataGrid.csproj" />
-    <ProjectReference Include="..\Material.Avalonia.TreeDataGrid\Material.Avalonia.TreeDataGrid.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,10 +28,6 @@
   <ItemGroup>
     <Compile Update="Styles\ShowMeTheXamlStyles.XamlDisplayAvaloniaEditThemeBehavior.cs">
       <DependentUpon>ShowMeTheXamlStyles.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Pages\TreeDataGridsDemo.axaml.cs">
-      <DependentUpon>TreeDataGridDemo.axaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 </Project>

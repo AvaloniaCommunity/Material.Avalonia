@@ -28,8 +28,8 @@
                               IsVisible="{Binding DialogIcon, Converter={x:Static ObjectConverters.IsNotNull}}" />
               <DockPanel.IsVisible>
                 <MultiBinding Converter="{x:Static BoolConverters.Or}">
-                  <CompiledBinding Converter="{x:Static ObjectConverters.IsNotNull}" Path="DialogIcon" />
-                  <CompiledBinding Converter="{x:Static StringConverters.IsNotNullOrEmpty}" Path="ContentHeader" />
+                  <Binding Converter="{x:Static ObjectConverters.IsNotNull}" Path="DialogIcon" />
+                  <Binding Converter="{x:Static StringConverters.IsNotNullOrEmpty}" Path="ContentHeader" />
                 </MultiBinding>
               </DockPanel.IsVisible>
               <TextBlock Name="PART_HeaderText"

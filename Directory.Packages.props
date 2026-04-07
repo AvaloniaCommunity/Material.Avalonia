@@ -2,36 +2,35 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-    <AvaloniaVersion>11.1.0</AvaloniaVersion>
-    <ShowMeTheXamlVersion>1.5.1</ShowMeTheXamlVersion>
+    <AvaloniaVersion>12.0.0</AvaloniaVersion>
+    <ShowMeTheXamlVersion>1.5.3</ShowMeTheXamlVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" />
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="Avalonia.Controls.TreeDataGrid" Version="11.1.0" />
-    <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="11.0.9" />
+    <PackageVersion Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
+    <PackageVersion Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.0" />
     <PackageVersion Include="Microsoft.NET.WebAssembly.Threading" Version="8.0.0" />
     <!--For Material.Styles-->
-    <PackageVersion Include="System.Reactive" Version="6.0.0" />
+    <PackageVersion Include="System.Reactive" Version="6.1.0" />
     <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.2.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageVersion>
     <!--For Material.Avalonia.Demo-->
-    <PackageVersion Include="Material.Icons.Avalonia" Version="2.0.1" />
-    <PackageVersion Include="DialogHost.Avalonia" Version="0.8.1" />
+    <PackageVersion Include="Material.Icons.Avalonia" Version="3.0.1" />
+    <PackageVersion Include="DialogHost.Avalonia" Version="0.11.1" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.AvaloniaEdit" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="ShowMeTheXaml.Avalonia.Generator" Version="$(ShowMeTheXamlVersion)" />
     <PackageVersion Include="TextMateSharp.Wasm" Version="1.0.60" />
     <!--For _build-->
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.201" />
   </ItemGroup>
 </Project>

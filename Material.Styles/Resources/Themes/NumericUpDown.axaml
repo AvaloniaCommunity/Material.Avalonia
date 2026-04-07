@@ -8,7 +8,7 @@
         <NumericUpDown Minimum="0"
                        Maximum="10"
                        Increment="0.5"
-                       Watermark="Enter text"
+                       PlaceholderText="Enter text"
                        assists:TextFieldAssist.Hints="Here is the hint"
                        assists:TextFieldAssist.Label="Cool label" />
         <NumericUpDown Minimum="0"
@@ -17,12 +17,12 @@
                        VerticalContentAlignment="Center"
                        HorizontalContentAlignment="Center"
                        ButtonSpinnerLocation="Left"
-                       Watermark="Enter text" />
+                       PlaceholderText="Enter text" />
         <NumericUpDown Minimum="0"
                        Maximum="10"
                        Increment="0.5"
                        Theme="{StaticResource OutlineNumericUpDown}"
-                       Watermark="Enter text"
+                       PlaceholderText="Enter text"
                        assists:TextFieldAssist.Hints="Here is the hint"
                        assists:TextFieldAssist.Label="Cool label" />
         <NumericUpDown Minimum="0"
@@ -113,7 +113,7 @@
                          TextBlock.FontWeight="{TemplateBinding FontWeight}"
                          TextBlock.Foreground="{TemplateBinding Foreground}"
                          assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
-                         Watermark="{TemplateBinding Watermark}"
+                         PlaceholderText="{TemplateBinding Watermark}"
                          DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                          IsReadOnly="{TemplateBinding IsReadOnly}"
                          Text="{TemplateBinding Text}"
@@ -195,7 +195,7 @@
                        TextBlock.FontWeight="{TemplateBinding FontWeight}"
                        TextBlock.Foreground="{TemplateBinding Foreground}"
                        assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
-                       Watermark="{TemplateBinding Watermark}"
+                       PlaceholderText="{TemplateBinding Watermark}"
                        DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                        IsReadOnly="{TemplateBinding IsReadOnly}"
                        Text="{TemplateBinding Text}"

@@ -36,7 +36,6 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CaptionButtons.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Carousel.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBox.axaml" />
@@ -62,7 +61,6 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuFlyoutPresenter.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuScrollViewer.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NativeMenuBar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NumericUpDown.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/OverlayPopupHost.axaml" />
@@ -89,7 +87,6 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextSelectionHandle.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ThemeVariantScope.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TimePicker.axaml" />
-        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TitleBar.xaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToggleSwitch.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ToolTip.axaml" />

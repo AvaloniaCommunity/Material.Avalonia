@@ -77,7 +77,7 @@ public class MaterialThemeBase : Avalonia.Styling.Styles, IResourceNode {
             _currentTheme = newTheme;
             SetAndRaise(CurrentThemeProperty, ref _currentTheme, newTheme);
             StartUpdatingTheme(oldTheme, newTheme);
-            Owner?.NotifyHostedResourcesChanged(ResourcesChangedEventArgs.Empty);
+            Owner?.NotifyHostedResourcesChanged(ResourcesChangedEventArgs.Create());
         }
     }
 

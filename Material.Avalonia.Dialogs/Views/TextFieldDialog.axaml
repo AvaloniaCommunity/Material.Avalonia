@@ -31,8 +31,8 @@
                                      HorizontalAlignment="Stretch"
                                      MaxLength="{Binding MaxCountChars}"
                                      Text="{Binding Text, Mode=TwoWay}"
-                                     Watermark="{Binding PlaceholderText}"
-                                     UseFloatingWatermark="True"
+                                     PlaceholderText="{Binding PlaceholderText}"
+                                     UseFloatingPlaceholder="True"
                                      wpf:TextFieldAssist.Hints="{Binding AssistiveText}"
                                      wpf:TextFieldAssist.Label="{Binding Label}" />
                         </DataTemplate>

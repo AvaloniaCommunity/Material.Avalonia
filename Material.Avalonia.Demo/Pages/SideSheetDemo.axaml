@@ -36,7 +36,7 @@
                 <Button Classes="Icon" Width="36" Height="36"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
-                        Content="{avalonia:MaterialIconExt MenuOpen, Size=20}"
+                        Content="{avalonia:MaterialIconExt MenuOpen, IconSize=20}"
                         IsVisible="{Binding !#SideSheet.SideSheetOpened}"
                         Click="OpenSideInfoButton_OnClick" />
             </Panel>

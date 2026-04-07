@@ -3,14 +3,14 @@ using Avalonia.Controls;
 
 namespace Material.Styles.Assists {
     public static class AutoCompleteBoxAssist {
-        public static readonly AttachedProperty<bool> UseFloatingWatermarkProperty =
+        public static readonly AttachedProperty<bool> UseFloatingPlaceholderProperty =
             AvaloniaProperty.RegisterAttached<AutoCompleteBox, bool>(
-                "UseFloatingWatermark", typeof(AutoCompleteBox), false);
+                "UseFloatingPlaceholder", typeof(AutoCompleteBox));
 
-        public static void SetUseFloatingWatermark(AvaloniaObject element, bool value) =>
-            element.SetValue(UseFloatingWatermarkProperty, value);
+        public static void SetUseFloatingPlaceholder(AvaloniaObject element, bool value) =>
+            element.SetValue(UseFloatingPlaceholderProperty, value);
 
-        public static bool GetUseFloatingWatermark(AvaloniaObject element) =>
-            element.GetValue(UseFloatingWatermarkProperty);
+        public static bool UseUseFloatingPlaceholder(AvaloniaObject element) =>
+            element.GetValue(UseFloatingPlaceholderProperty);
     }
 }

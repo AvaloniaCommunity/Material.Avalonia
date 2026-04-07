@@ -151,14 +151,14 @@
                         
                         <Panel Grid.Column="3" VerticalAlignment="Center">
                             <controls:Card VerticalAlignment="Center" Padding="0">
-                                <TextBox Margin="0" Classes="Solo" Watermark="Search bar">
+                                <TextBox Margin="0" Classes="Solo" PlaceholderText="Search bar">
                                     <TextBox.Styles>
                                         <Style Selector="TextBox.Solo /template/ Grid#PART_InnerRoot">
                                             <Setter Property="Margin" Value="8,4"/>
                                         </Style>
                                     </TextBox.Styles>
                                     <TextBox.InnerRightContent>
-                                        <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Search, Size=24}" />
+                                        <Button Classes="Flat" Padding="4" Width="{Binding $self.Bounds.Height}" Content="{icons:MaterialIconExt Search, IconSize=24}" />
                                     </TextBox.InnerRightContent>
                                 </TextBox>
                             </controls:Card>

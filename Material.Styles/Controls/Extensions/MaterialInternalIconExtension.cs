@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia.Markup.Xaml;
+using Avalonia.Metadata;
 
 namespace Material.Styles.Controls.Extensions
 {

@@ -18,7 +18,7 @@ public partial class IconsDemo : UserControl {
             this.Get<Button>("SearchButton").Command!.Execute(textBox.Text);
     }
 
-    private void TextBox_OnGotFocus(object? sender, GotFocusEventArgs e) {
+    private void TextBox_OnGotFocus(object? sender, FocusChangedEventArgs focusChangedEventArgs) {
         var textBox = (TextBox)sender!;
         Dispatcher.UIThread.Post(textBox.SelectAll);
     }

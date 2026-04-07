@@ -4,7 +4,6 @@ using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Media;
-using Avalonia.Utilities;
 
 // ReSharper disable MemberCanBePrivate.Global
 
@@ -211,7 +210,7 @@ namespace Material.Styles.Controls
             switch (Orientation)
             {
                 case Orientation.Horizontal:
-                    if (MathUtilities.GreaterThanOrClose(rSpace, size.Width))
+                    if (GreaterThanOrClose(rSpace, size.Width))
                         return;
 
                     var hHeight = size.Height / 2;
@@ -222,7 +221,7 @@ namespace Material.Styles.Controls
                     break;
 
                 case Orientation.Vertical:
-                    if (MathUtilities.GreaterThanOrClose(rSpace, size.Height))
+                    if (GreaterThanOrClose(rSpace, size.Height))
                         return;
 
                     var hWidth = size.Width / 2;
@@ -293,8 +292,8 @@ namespace Material.Styles.Controls
                         for (var i = 0; i < ticks.Count; i++)
                         {
                             var tick = ticks[i];
-                            if (MathUtilities.LessThanOrClose(tick, Minimum) ||
-                                MathUtilities.GreaterThanOrClose(tick, Maximum))
+                            if (LessThanOrClose(tick, Minimum) ||
+                                GreaterThanOrClose(tick, Maximum))
                                 continue;
 
                             var adjustedTick = tick - Minimum;
@@ -346,8 +345,8 @@ namespace Material.Styles.Controls
                         for (var i = 0; i < ticks.Count; i++)
                         {
                             var tick = ticks[i];
-                            if (MathUtilities.LessThanOrClose(tick, Minimum) ||
-                                MathUtilities.GreaterThanOrClose(tick, Maximum))
+                            if (LessThanOrClose(tick, Minimum) ||
+                                GreaterThanOrClose(tick, Maximum))
                                 continue;
 
                             var adjustedTick = ticks[i] - Minimum;
@@ -375,6 +374,26 @@ namespace Material.Styles.Controls
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+        
+        public static bool LessThanOrClose(double value1, double value2)
+        {
+            return value1 < value2 || AreClose(value1, value2);
+        }
+        
+        public static bool GreaterThanOrClose(double value1, double value2)
+        {
+            return value1 > value2 || AreClose(value1, value2);
+        }
+    
+        public static bool AreClose(double value1, double value2)
+        {
+            // ReSharper disable once CompareOfFloatsByEqualityOperator
+            if (value1 == value2)
+                return true;
+            var num1 = (Math.Abs(value1) + Math.Abs(value2) + 10.0) * 2.220446049250313E-16;
+            var num2 = value1 - value2;
+            return -num1 < num2 && num1 > num2;
         }
     }
 }

@@ -293,9 +293,8 @@ namespace Material.Dialog
             input.ButtonsStackOrientation = @params.ButtonsOrientation;
         }
 
-        private static void SetupWindowParameters(Window window, DialogWindowBuilderParamsBase @params)
-        {
-            window.SystemDecorations = @params.Borderless ? SystemDecorations.None : SystemDecorations.Full;
+        private static void SetupWindowParameters(Window window, DialogWindowBuilderParamsBase @params) {
+            window.WindowDecorations = @params.Borderless ? WindowDecorations.None : WindowDecorations.Full;
             (window as IHasNegativeResult)?.SetNegativeResult(@params.NegativeResult);
         }
 
