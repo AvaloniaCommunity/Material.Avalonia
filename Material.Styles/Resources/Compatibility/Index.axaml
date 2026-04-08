@@ -17,6 +17,8 @@
   <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/TabControlClasses.axaml" />
   <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ProgressBarClasses.axaml" />
   <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/SeparatorClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/ComboBoxClasses.axaml" />
+  <StyleInclude Source="avares://Material.Styles/Resources/Compatibility/AutoCompleteBoxClasses.axaml" />
 
   <Styles.Resources>
     <ResourceDictionary>
