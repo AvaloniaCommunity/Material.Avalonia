@@ -7,14 +7,18 @@
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Background="{TemplateBinding Background}">
-          <VisualLayerManager>
-            <ContentPresenter Name="PART_ContentPresenter"
-                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                              Content="{TemplateBinding Content}"
-                              Margin="{TemplateBinding Padding}" />
-          </VisualLayerManager>
-        </Border>
+        <Panel>
+          <Border Name="PART_TransparencyFallback"
+                  IsHitTestVisible="False" />
+          <Border Background="{TemplateBinding Background}">
+            <VisualLayerManager Name="PART_VisualLayerManager">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </VisualLayerManager>
+          </Border>
+        </Panel>
       </ControlTemplate>
     </Setter>
   </ControlTheme>
