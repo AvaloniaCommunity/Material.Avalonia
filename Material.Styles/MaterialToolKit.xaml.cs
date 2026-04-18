@@ -20,7 +20,7 @@ namespace Material.Styles {
             IncludeDataGridStyles();
         }
 
-        [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor, "MaterialDataGridStyles",
+        [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor, "Material.Avalonia.DataGrid.MaterialDataGridStyles",
             "Material.Avalonia.DataGrid")]
         [UnconditionalSuppressMessage("Trimming",
             "IL2026:Members annotated with 'RequiresUnreferencedCodeAttribute' require dynamic access otherwise can break functionality when trimming application code",
