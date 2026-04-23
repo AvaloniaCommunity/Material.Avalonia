@@ -7,6 +7,6 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Width="1280" Height="720" MinWidth="720"
         Icon="/Assets/FavIcon_128x.png"
-        Title="Material.Avalonia Demo" ExtendClientAreaToDecorationsHint="True">
+        Title="Material.Avalonia Demo">
   <demo:MainView />
 </Window>
