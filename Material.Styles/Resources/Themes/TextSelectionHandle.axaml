@@ -30,20 +30,42 @@
       <Setter.Value>
         <ControlTemplate>
           <Grid>
-            <PathIcon
-              Cursor="Arrow"
-              Name="PART_HandlePathIcon"
-              HorizontalAlignment="Stretch"
-              Height="{DynamicResource TextSelectHandleSize}"
-              Foreground="{TemplateBinding Background}"
-              Data="{DynamicResource TextSelectionHandlePath}"
-            />
+            <Border Padding="0,0,0,10" IsHitTestVisible="True" Background="Transparent">
+              <PathIcon
+                Cursor="Arrow"
+                Name="PART_HandlePathIcon"
+                HorizontalAlignment="Stretch"
+                Height="{DynamicResource TextSelectHandleSize}"
+                Foreground="{TemplateBinding Background}"
+                Data="{DynamicResource TextSelectionHandlePath}"
+              />
+            </Border>
+            <Border Background="Transparent"
+                    Name="PART_Indicator"
+                    HorizontalAlignment="Center"
+                    Width="1"
+                    VerticalAlignment="Top"
+                    Height="5"/>
           </Grid>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
-    <Style Selector="^.caret /template/ PathIcon#PART_HandlePathIcon">
+    <Style Selector="^:caret /template/ PathIcon#PART_HandlePathIcon">
       <Setter Property="Data" Value="{DynamicResource TextCaretHandlePath}" />
+    </Style>
+    <Style Selector="^:start /template/ PathIcon#PART_HandlePathIcon">
+      <Setter Property="RenderTransform">
+        <ScaleTransform ScaleX="-1" ScaleY="1"/>
+      </Setter>
+    </Style>
+    <Style Selector="^:caret /template/ Border#PART_Indicator">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^:end /template/ Border#PART_Indicator">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style Selector="^:start /template/ Border#PART_Indicator">
+      <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>
