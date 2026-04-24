@@ -94,6 +94,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeView.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TreeViewItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Window.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/WindowDrawnDecorations.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/WindowNotificationManager.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
