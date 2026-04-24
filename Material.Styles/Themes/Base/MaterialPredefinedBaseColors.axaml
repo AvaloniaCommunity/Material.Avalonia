@@ -14,6 +14,7 @@
       <Color x:Key="MaterialCheckBoxOffColor">#89000000</Color>
       <Color x:Key="MaterialCheckBoxDisabledColor">#FFBDBDBD</Color>
       <Color x:Key="MaterialTextBoxBorderColor">#89000000</Color>
+      <Color x:Key="MaterialGroupBoxBorderColor">#89000000</Color>
       <Color x:Key="MaterialDividerColor">#1F000000</Color>
       <Color x:Key="MaterialSelectionColor">#FFDEDEDE</Color>
       <Color x:Key="MaterialToolForegroundColor">#FF616161</Color>
@@ -48,6 +49,7 @@
       <SolidColorBrush x:Key="MaterialCheckBoxDisabledBrush"
                        Color="{StaticResource MaterialCheckBoxDisabledColor}" />
       <SolidColorBrush x:Key="MaterialTextBoxBorderBrush" Color="{StaticResource MaterialTextBoxBorderColor}" />
+      <SolidColorBrush x:Key="MaterialGroupBoxBorderBrush" Color="{StaticResource MaterialGroupBoxBorderColor}" />
       <SolidColorBrush x:Key="MaterialDividerBrush" Color="{StaticResource MaterialDividerColor}" />
       <SolidColorBrush x:Key="MaterialSelectionBrush" Color="{StaticResource MaterialSelectionColor}" />
       <SolidColorBrush x:Key="MaterialToolForegroundBrush" Color="{StaticResource MaterialToolForegroundColor}" />
@@ -94,6 +96,7 @@
       <Color x:Key="MaterialCheckBoxOffColor">#89FFFFFF</Color>
       <Color x:Key="MaterialCheckBoxDisabledColor">#FF647076</Color>
       <Color x:Key="MaterialTextBoxBorderColor">#89FFFFFF</Color>
+      <Color x:Key="MaterialGroupBoxBorderColor">#89FFFFFF</Color>
       <Color x:Key="MaterialDividerColor">#1FFFFFFF</Color>
       <Color x:Key="MaterialSelectionColor">#757575</Color>
       <Color x:Key="MaterialToolForegroundColor">#FF616161</Color>
@@ -128,6 +131,7 @@
       <SolidColorBrush x:Key="MaterialCheckBoxDisabledBrush"
                        Color="{StaticResource MaterialCheckBoxDisabledColor}" />
       <SolidColorBrush x:Key="MaterialTextBoxBorderBrush" Color="{StaticResource MaterialTextBoxBorderColor}" />
+      <SolidColorBrush x:Key="MaterialGroupBoxBorderBrush" Color="{StaticResource MaterialGroupBoxBorderColor}" />
       <SolidColorBrush x:Key="MaterialDividerBrush" Color="{StaticResource MaterialDividerColor}" />
       <SolidColorBrush x:Key="MaterialSelectionBrush" Color="{StaticResource MaterialSelectionColor}" />
       <SolidColorBrush x:Key="MaterialToolForegroundBrush" Color="{StaticResource MaterialToolForegroundColor}" />
