@@ -1,0 +1,10 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style Selector="ComboBox.filled">
+    <Setter Property="Theme" Value="{StaticResource MaterialFilledComboBox}" />
+  </Style>
+
+  <Style Selector="ComboBox.outline">
+    <Setter Property="Theme" Value="{StaticResource MaterialOutlineComboBox}" />
+  </Style>
+</Styles>
