@@ -1,0 +1,221 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters">
+
+  <ControlTheme x:Key="MaterialPipsPager" TargetType="PipsPager">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="IsTabStop" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel Name="PART_RootPanel"
+                    Orientation="{TemplateBinding Orientation}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    ClipToBounds="False">
+
+          <Button Name="PART_PreviousButton"
+                  Theme="{StaticResource MaterialFlatButton}"
+                  Width="32"
+                  Height="32"
+                  Padding="0"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  IsVisible="{TemplateBinding IsPreviousButtonVisible}"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Margin="4">
+            <PathIcon Width="12" Height="12"
+                      Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+          </Button>
+
+          <ListBox Name="PART_PipsPagerList"
+                   Background="Transparent"
+                   BorderThickness="0"
+                   Padding="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                   ItemsSource="{Binding TemplateSettings.Pips, RelativeSource={RelativeSource TemplatedParent}}"
+                   SelectedIndex="{Binding SelectedPageIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                   AutoScrollToSelectedItem="False"
+                   ClipToBounds="False">
+            <ListBox.ItemsPanel>
+              <ItemsPanelTemplate>
+                <StackPanel Orientation="{Binding Orientation, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=PipsPager}}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Spacing="4" />
+              </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.Styles>
+              <Style Selector="ScrollViewer">
+                <Setter Property="ClipToBounds" Value="False" />
+              </Style>
+              <Style Selector="ListBoxItem">
+                <Setter Property="Width" Value="12" />
+                <Setter Property="Height" Value="24" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="2,0" />
+                <Setter Property="MinHeight" Value="0" />
+                <Setter Property="MinWidth" Value="0" />
+                <Setter Property="ClipToBounds" Value="False" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Template">
+                  <ControlTemplate>
+                    <Panel Background="Transparent"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center">
+                      <Border Name="Pip"
+                              Width="8" Height="8"
+                              CornerRadius="4"
+                              Background="{DynamicResource MaterialBodyBrush}"
+                              Opacity="0.38">
+                        <TextBlock Name="PipNumber"
+                                   IsVisible="False"
+                                   Text="{Binding DataType=x:Int32}"
+                                   FontSize="11"
+                                   FontWeight="Medium"
+                                   Foreground="{DynamicResource MaterialPaperBrush}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                        <Border.Transitions>
+                          <Transitions>
+                            <BrushTransition Property="Background" Duration="0:0:0.25" />
+                            <DoubleTransition Property="Opacity" Duration="0:0:0.25" />
+                            <DoubleTransition Property="Width" Duration="0:0:0.25" Easing="CubicEaseOut" />
+                            <DoubleTransition Property="Height" Duration="0:0:0.25" Easing="CubicEaseOut" />
+                            <CornerRadiusTransition Property="CornerRadius" Duration="0:0:0.25" />
+                          </Transitions>
+                        </Border.Transitions>
+                      </Border>
+                    </Panel>
+                  </ControlTemplate>
+                </Setter>
+              </Style>
+              <Style Selector="ListBoxItem:pointerover /template/ Border#Pip">
+                <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+                <Setter Property="Opacity" Value="0.6" />
+              </Style>
+              <Style Selector="ListBoxItem:selected /template/ Border#Pip">
+                <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+                <Setter Property="Opacity" Value="1" />
+              </Style>
+              <Style Selector="ListBoxItem:selected:pointerover /template/ Border#Pip">
+                <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+                <Setter Property="Opacity" Value="0.85" />
+              </Style>
+              <Style Selector="PipsPager:vertical ListBoxItem">
+                <Setter Property="Width" Value="24" />
+                <Setter Property="Height" Value="12" />
+                <Setter Property="Margin" Value="0,2" />
+              </Style>
+
+              <!-- Dot shape (default): selected pip scales up -->
+              <Style Selector="PipsPager.pip-dot ListBoxItem:selected /template/ Border#Pip">
+                <Setter Property="Width" Value="10" />
+                <Setter Property="Height" Value="10" />
+                <Setter Property="CornerRadius" Value="5" />
+              </Style>
+
+              <!-- Pill shape: selected pip elongates horizontally -->
+              <Style Selector="PipsPager.pip-pill ListBoxItem">
+                <Setter Property="Width" Value="16" />
+              </Style>
+              <Style Selector="PipsPager.pip-pill ListBoxItem:selected">
+                <Setter Property="Width" Value="28" />
+              </Style>
+              <Style Selector="PipsPager.pip-pill ListBoxItem:selected /template/ Border#Pip">
+                <Setter Property="Width" Value="24" />
+                <Setter Property="Height" Value="8" />
+                <Setter Property="CornerRadius" Value="4" />
+              </Style>
+
+              <!-- Pill shape vertical -->
+              <Style Selector="PipsPager.pip-pill:vertical ListBoxItem">
+                <Setter Property="Height" Value="16" />
+                <Setter Property="Width" Value="24" />
+              </Style>
+              <Style Selector="PipsPager.pip-pill:vertical ListBoxItem:selected">
+                <Setter Property="Height" Value="28" />
+              </Style>
+              <Style Selector="PipsPager.pip-pill:vertical ListBoxItem:selected /template/ Border#Pip">
+                <Setter Property="Width" Value="8" />
+                <Setter Property="Height" Value="24" />
+                <Setter Property="CornerRadius" Value="4" />
+              </Style>
+
+              <!-- Number shape: rounded square with page number -->
+              <Style Selector="PipsPager.pip-number ListBoxItem">
+                <Setter Property="Width" Value="28" />
+                <Setter Property="Height" Value="28" />
+              </Style>
+              <Style Selector="PipsPager.pip-number ListBoxItem /template/ Border#Pip">
+                <Setter Property="Width" Value="24" />
+                <Setter Property="Height" Value="24" />
+                <Setter Property="CornerRadius" Value="6" />
+                <Setter Property="Background" Value="{DynamicResource MaterialDividerBrush}" />
+                <Setter Property="Opacity" Value="1" />
+              </Style>
+              <Style Selector="PipsPager.pip-number ListBoxItem /template/ Border#Pip TextBlock#PipNumber">
+                <Setter Property="IsVisible" Value="True" />
+                <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+              </Style>
+              <Style Selector="PipsPager.pip-number ListBoxItem:selected /template/ Border#Pip">
+                <Setter Property="Width" Value="24" />
+                <Setter Property="Height" Value="24" />
+                <Setter Property="CornerRadius" Value="6" />
+                <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+              </Style>
+              <Style Selector="PipsPager.pip-number ListBoxItem:selected /template/ Border#Pip TextBlock#PipNumber">
+                <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+              </Style>
+
+              <!-- Number shape vertical -->
+              <Style Selector="PipsPager.pip-number:vertical ListBoxItem">
+                <Setter Property="Width" Value="28" />
+                <Setter Property="Height" Value="28" />
+              </Style>
+            </ListBox.Styles>
+          </ListBox>
+
+          <Button Name="PART_NextButton"
+                  Theme="{StaticResource MaterialFlatButton}"
+                  Width="32"
+                  Height="32"
+                  Padding="0"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  IsVisible="{TemplateBinding IsNextButtonVisible}"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Margin="4">
+            <PathIcon Width="12" Height="12"
+                      Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+          </Button>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:vertical /template/ Button#PART_PreviousButton PathIcon">
+      <Setter Property="Data" Value="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+    </Style>
+
+    <Style Selector="^:vertical /template/ Button#PART_NextButton PathIcon">
+      <Setter Property="Data" Value="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+    </Style>
+
+    <Style Selector="^:first-page /template/ Button#PART_PreviousButton">
+      <Setter Property="Opacity" Value="0" />
+      <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+
+    <Style Selector="^:last-page /template/ Button#PART_NextButton">
+      <Setter Property="Opacity" Value="0" />
+      <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type PipsPager}" TargetType="PipsPager"
+                BasedOn="{StaticResource MaterialPipsPager}" />
+</ResourceDictionary>

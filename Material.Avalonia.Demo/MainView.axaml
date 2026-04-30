@@ -65,6 +65,7 @@
                 <ListBoxItem>Home</ListBoxItem>
                 <ListBoxItem>Badges</ListBoxItem>
                 <ListBoxItem>Buttons</ListBoxItem>
+                <ListBoxItem>Carousel</ListBoxItem>
                 <ListBoxItem>Card</ListBoxItem>
                 <ListBoxItem>ColorZones</ListBoxItem>
                 <ListBoxItem>Colors</ListBoxItem>
@@ -161,7 +162,10 @@
 
                 <!-- Buttons -->
                 <pages:ButtonsDemo />
-                
+
+                <!-- Carousel -->
+                <pages:CarouselDemo />
+
                 <!-- Card -->
                 <pages:CardsDemo />
                 

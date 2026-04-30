@@ -1,0 +1,252 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Material.Avalonia.Demo.Pages.CarouselDemo">
+  <StackPanel Margin="16, 0">
+    <TextBlock Classes="Headline4 Subheadline" Text="Carousel" />
+    <TextBlock Classes="Body1 Content" Text="A carousel with PipsPager navigation control." />
+
+    <WrapPanel Orientation="Horizontal" ItemSpacing="30" LineSpacing="30">
+
+      <!-- Basic Carousel with PipsPager -->
+      <StackPanel MaxWidth="500">
+        <TextBlock Classes="Headline6 Subheadline2" Text="Basic (Dot Shape)" />
+        <showMeTheXaml:XamlDisplay UniqueId="CarouselBasic">
+          <controls:Card Padding="0">
+            <DockPanel>
+              <PipsPager Name="PipsPager"
+                         DockPanel.Dock="Bottom"
+                         HorizontalAlignment="Center"
+                         Margin="0,8"
+                         NumberOfPages="4"
+                         SelectedPageIndex="0"
+                         assists:PipsPagerAssist.PipShape="Dot" />
+              <Carousel Name="DemoCarousel"
+                        SelectedIndex="{Binding #PipsPager.SelectedPageIndex}"
+                        Height="200">
+                <Carousel.PageTransition>
+                  <PageSlide Duration="0:0:0.3" SlideOutEasing="CubicEaseOut" SlideInEasing="CubicEaseOut" />
+                </Carousel.PageTransition>
+                <Border Background="{DynamicResource MaterialPrimaryLightBrush}">
+                  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <avalonia:MaterialIcon Kind="Image" Width="48" Height="48" Foreground="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+                    <TextBlock Classes="Headline6" Text="Page 1" Foreground="{DynamicResource MaterialPrimaryLightForegroundBrush}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+                  </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource MaterialSecondaryMidBrush}">
+                  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <avalonia:MaterialIcon Kind="Star" Width="48" Height="48" Foreground="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+                    <TextBlock Classes="Headline6" Text="Page 2" Foreground="{DynamicResource MaterialSecondaryMidForegroundBrush}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+                  </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource MaterialPrimaryMidBrush}">
+                  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <avalonia:MaterialIcon Kind="Heart" Width="48" Height="48" Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+                    <TextBlock Classes="Headline6" Text="Page 3" Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+                  </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource MaterialSecondaryLightBrush}">
+                  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <avalonia:MaterialIcon Kind="Check" Width="48" Height="48" Foreground="{DynamicResource MaterialSecondaryLightForegroundBrush}" />
+                    <TextBlock Classes="Headline6" Text="Page 4" Foreground="{DynamicResource MaterialSecondaryLightForegroundBrush}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+                  </StackPanel>
+                </Border>
+              </Carousel>
+            </DockPanel>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <!-- Pill Shape -->
+      <StackPanel  MaxWidth="500">
+        <TextBlock Classes="Headline6 Subheadline2" Text="Pill Shape" />
+        <showMeTheXaml:XamlDisplay UniqueId="CarouselPill">
+          <controls:Card Padding="0">
+            <DockPanel>
+              <PipsPager Name="PillPipsPager"
+                         DockPanel.Dock="Bottom"
+                         HorizontalAlignment="Center"
+                         Margin="0,8"
+                         NumberOfPages="4"
+                         SelectedPageIndex="0"
+                         assists:PipsPagerAssist.PipShape="Pill" />
+              <Carousel SelectedIndex="{Binding #PillPipsPager.SelectedPageIndex}" Height="200">
+                <Carousel.PageTransition>
+                  <PageSlide Duration="0:0:0.3" SlideOutEasing="CubicEaseOut" SlideInEasing="CubicEaseOut" />
+                </Carousel.PageTransition>
+                <Border Background="{DynamicResource MaterialPrimaryLightBrush}">
+                  <TextBlock Classes="Headline6" Text="Slide 1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+                </Border>
+                <Border Background="{DynamicResource MaterialSecondaryMidBrush}">
+                  <TextBlock Classes="Headline6" Text="Slide 2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+                </Border>
+                <Border Background="{DynamicResource MaterialPrimaryMidBrush}">
+                  <TextBlock Classes="Headline6" Text="Slide 3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+                </Border>
+                <Border Background="{DynamicResource MaterialPrimaryDarkBrush}">
+                  <TextBlock Classes="Headline6" Text="Slide 4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource MaterialPrimaryDarkForegroundBrush}" />
+                </Border>
+              </Carousel>
+            </DockPanel>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <!-- Custom Pip Colors -->
+      <StackPanel MaxWidth="500">
+        <TextBlock Classes="Headline6 Subheadline2" Text="Custom Pip Colors" />
+        <showMeTheXaml:XamlDisplay UniqueId="CarouselCustomColors">
+          <controls:Card Padding="0">
+            <DockPanel>
+              <PipsPager Name="CustomColorPipsPager"
+                         DockPanel.Dock="Bottom"
+                         HorizontalAlignment="Center"
+                         Margin="0,8"
+                         NumberOfPages="4"
+                         SelectedPageIndex="0">
+                <PipsPager.Resources>
+                  <SolidColorBrush x:Key="MaterialBodyBrush" Color="Gold" />
+                  <SolidColorBrush x:Key="MaterialPrimaryMidBrush" Color="Cyan" />
+                </PipsPager.Resources>
+              </PipsPager>
+              <Carousel SelectedIndex="{Binding #CustomColorPipsPager.SelectedPageIndex}" Height="200">
+                <Carousel.PageTransition>
+                  <PageSlide Duration="0:0:0.3" SlideOutEasing="CubicEaseOut" SlideInEasing="CubicEaseOut" />
+                </Carousel.PageTransition>
+                <Border Background="#FCE4EC">
+                  <TextBlock Classes="Headline6" Text="Pink Light" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#880E4F" />
+                </Border>
+                <Border Background="#F8BBD0">
+                  <TextBlock Classes="Headline6" Text="Pink 100" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#880E4F" />
+                </Border>
+                <Border Background="#F48FB1">
+                  <TextBlock Classes="Headline6" Text="Pink 200" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFFFFF" />
+                </Border>
+                <Border Background="#E91E63">
+                  <TextBlock Classes="Headline6" Text="Pink 500" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFFFFF" />
+                </Border>
+              </Carousel>
+            </DockPanel>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <!-- Numbered Pips -->
+      <StackPanel MaxWidth="500">
+        <TextBlock Classes="Headline6 Subheadline2" Text="Numbers" />
+        <showMeTheXaml:XamlDisplay UniqueId="CarouselNumbers">
+          <controls:Card Padding="0">
+            <DockPanel>
+              <PipsPager Name="NumberPipsPager"
+                         DockPanel.Dock="Bottom"
+                         HorizontalAlignment="Center"
+                         Margin="0,8"
+                         NumberOfPages="4"
+                         SelectedPageIndex="0"
+                         assists:PipsPagerAssist.PipShape="Number" />
+              <Carousel SelectedIndex="{Binding #NumberPipsPager.SelectedPageIndex}" Height="200">
+                <Carousel.PageTransition>
+                  <PageSlide Duration="0:0:0.3" SlideOutEasing="CubicEaseOut" SlideInEasing="CubicEaseOut" />
+                </Carousel.PageTransition>
+                <Border Background="#E3F2FD">
+                  <TextBlock Classes="Headline6" Text="Page 1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#1565C0" />
+                </Border>
+                <Border Background="#E8F5E9">
+                  <TextBlock Classes="Headline6" Text="Page 2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#2E7D32" />
+                </Border>
+                <Border Background="#FFF3E0">
+                  <TextBlock Classes="Headline6" Text="Page 3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#E65100" />
+                </Border>
+                <Border Background="#F3E5F5">
+                  <TextBlock Classes="Headline6" Text="Page 4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#6A1B9A" />
+                </Border>
+              </Carousel>
+            </DockPanel>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <!-- Large Collection with Auto-Scrolling Pips -->
+      <StackPanel MaxWidth="500">
+        <TextBlock Classes="Headline6 Subheadline2" Text="Auto-Scrolling Pips (MaxVisiblePips)" />
+        <showMeTheXaml:XamlDisplay UniqueId="CarouselLarge">
+          <controls:Card Padding="0">
+            <DockPanel>
+              <PipsPager Name="LargePipsPager"
+                         DockPanel.Dock="Bottom"
+                         HorizontalAlignment="Center"
+                         Margin="0,8"
+                         NumberOfPages="10"
+                         MaxVisiblePips="5"
+                         SelectedPageIndex="0" />
+              <Carousel SelectedIndex="{Binding #LargePipsPager.SelectedPageIndex}" Height="200">
+                <Carousel.PageTransition>
+                  <PageSlide Duration="0:0:0.3" SlideOutEasing="CubicEaseOut" SlideInEasing="CubicEaseOut" />
+                </Carousel.PageTransition>
+                <Border Background="#E91E63"><TextBlock Classes="Headline5" Text="1 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#9C27B0"><TextBlock Classes="Headline5" Text="2 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#673AB7"><TextBlock Classes="Headline5" Text="3 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#3F51B5"><TextBlock Classes="Headline5" Text="4 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#2196F3"><TextBlock Classes="Headline5" Text="5 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#009688"><TextBlock Classes="Headline5" Text="6 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#4CAF50"><TextBlock Classes="Headline5" Text="7 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#FF9800"><TextBlock Classes="Headline5" Text="8 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#FF5722"><TextBlock Classes="Headline5" Text="9 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+                <Border Background="#795548"><TextBlock Classes="Headline5" Text="10 of 10" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" /></Border>
+              </Carousel>
+            </DockPanel>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <!-- Vertical Orientation -->
+      <StackPanel MaxWidth="500">
+        <TextBlock Classes="Headline6 Subheadline2" Text="Vertical Orientation" />
+        <showMeTheXaml:XamlDisplay UniqueId="CarouselVertical">
+          <controls:Card Padding="0">
+            <StackPanel Orientation="Horizontal">
+              <Carousel Name="VerticalCarousel"
+                        SelectedIndex="{Binding #VerticalPipsPager.SelectedPageIndex}"
+                        Height="250" Width="400">
+                <Carousel.PageTransition>
+                  <PageSlide Duration="0:0:0.3" Orientation="Vertical" SlideOutEasing="CubicEaseOut" SlideInEasing="CubicEaseOut" />
+                </Carousel.PageTransition>
+                <Border Background="{DynamicResource MaterialPrimaryLightBrush}">
+                  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <avalonia:MaterialIcon Kind="ArrowUp" Width="48" Height="48" Foreground="{DynamicResource MaterialPrimaryLightForegroundBrush}" />
+                    <TextBlock Classes="Headline6" Text="Top" Foreground="{DynamicResource MaterialPrimaryLightForegroundBrush}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+                  </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource MaterialSecondaryMidBrush}">
+                  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <avalonia:MaterialIcon Kind="DotsHorizontal" Width="48" Height="48" Foreground="{DynamicResource MaterialSecondaryMidForegroundBrush}" />
+                    <TextBlock Classes="Headline6" Text="Middle" Foreground="{DynamicResource MaterialSecondaryMidForegroundBrush}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+                  </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource MaterialPrimaryDarkBrush}">
+                  <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <avalonia:MaterialIcon Kind="ArrowDown" Width="48" Height="48" Foreground="{DynamicResource MaterialPrimaryDarkForegroundBrush}" />
+                    <TextBlock Classes="Headline6" Text="Bottom" Foreground="{DynamicResource MaterialPrimaryDarkForegroundBrush}" HorizontalAlignment="Center" Margin="0,8,0,0" />
+                  </StackPanel>
+                </Border>
+              </Carousel>
+              <PipsPager Name="VerticalPipsPager"
+                         Orientation="Vertical"
+                         VerticalAlignment="Center"
+                         Margin="8,0"
+                         NumberOfPages="3"
+                         SelectedPageIndex="0" />
+            </StackPanel>
+          </controls:Card>
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+    </WrapPanel>
+  </StackPanel>
+</UserControl>
