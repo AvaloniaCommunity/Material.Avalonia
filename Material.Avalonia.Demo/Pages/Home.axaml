@@ -39,7 +39,7 @@
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
                 <Button Content="SWITCH TRANSITIONS" Classes="primary" Command="{Binding Path=SwitchTransition}" />
-                <Button IsVisible="{OnPlatform Default=False,Windows=True,Linux=True}" Content="WINDOW DECORATIONS" Classes="primary" Command="{Binding Path=ToggleWindowExtendClientAreaToDecorationsHint}" />
+                <Button IsVisible="{OnPlatform Default=False,Windows=True,Linux=True, macOS=True}" Content="WINDOW DECORATIONS" Classes="primary" Command="{Binding Path=ToggleWindowExtendClientAreaToDecorationsHint}" />
                 <Button Content="ABOUT AVALONIAUI" Classes="primary" Command="{Binding Path=ShowAboutAvaloniaUI}" />
             </WrapPanel>
         </StackPanel>
