@@ -5,8 +5,8 @@
   <x:Double x:Key="CaptionButtonHeight">30</x:Double>
 
   <ControlTheme x:Key="MaterialDrawnCaptionButton" TargetType="Button">
-    <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="Background" Value="{DynamicResource MaterialCaptionButtonBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialCaptionButtonBorderBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Width" Value="{DynamicResource CaptionButtonWidth}" />
     <Setter Property="Height" Value="{DynamicResource CaptionButtonHeight}" />

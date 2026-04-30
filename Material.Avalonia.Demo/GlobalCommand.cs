@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
 using Material.Styles.Themes;
 using Material.Styles.Themes.Base;
 
@@ -18,6 +19,23 @@ public static class GlobalCommand
     public static void UseMaterialUILightTheme()
     {
         MaterialThemeStyles.BaseTheme = BaseThemeMode.Light;
+    }
+
+    public static void ToggleWindowExtendClientAreaToDecorationsHint()
+    {
+        if (App.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow != null) 
+        {
+            if (desktop.MainWindow.ExtendClientAreaToDecorationsHint) 
+            {
+                desktop.MainWindow.ExtendClientAreaToDecorationsHint = false;
+                desktop.MainWindow.Title = "Material.Avalonia Demo";
+            }
+            else 
+            {
+                desktop.MainWindow.ExtendClientAreaToDecorationsHint = true;
+                desktop.MainWindow.Title = " ";
+            }
+        }
     }
 
     public static void OpenProjectRepoLink() =>

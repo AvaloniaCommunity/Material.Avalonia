@@ -36,6 +36,9 @@
       <Color x:Key="MaterialHyperlinkColor">#FF1F50D0</Color>
       <Color x:Key="MaterialHyperlinkVisitedColor">#FF681DA8</Color>
 
+      <Color x:Key="MaterialCaptionButtonBackgroundColor">#20000000</Color>
+      <Color x:Key="MaterialCaptionButtonBorderBrushColor">#30000000</Color>
+
       <SolidColorBrush x:Key="MaterialValidationErrorColorBrush" Color="{StaticResource MaterialValidationErrorColor}" />
       <SolidColorBrush x:Key="MaterialBackgroundBrush" Color="{StaticResource MaterialBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialPaperBrush" Color="{StaticResource MaterialPaperColor}" />
@@ -82,6 +85,9 @@
                        Color="{StaticResource MaterialHyperlinkColor}"/>
       <SolidColorBrush x:Key="MaterialHyperlinkVisitedBrush"
                        Color="{StaticResource MaterialHyperlinkVisitedColor}"/>
+
+      <SolidColorBrush x:Key="MaterialCaptionButtonBackground" Color="{StaticResource MaterialCaptionButtonBackgroundColor}" />
+      <SolidColorBrush x:Key="MaterialCaptionButtonBorderBrush" Color="{StaticResource MaterialCaptionButtonBorderBrushColor}" />
     </ResourceDictionary>
 
     <ResourceDictionary x:Key="{x:Static themes:Theme.MaterialDark}">
@@ -118,6 +124,9 @@
       <Color x:Key="MaterialHyperlinkColor">#FF7EAAFF</Color>
       <Color x:Key="MaterialHyperlinkVisitedColor">#FFD19EFA</Color>
 
+      <Color x:Key="MaterialCaptionButtonBackgroundColor">#20FFFFFF</Color>
+      <Color x:Key="MaterialCaptionButtonBorderBrushColor">#30FFFFFF</Color>
+
       <SolidColorBrush x:Key="MaterialValidationErrorColorBrush" Color="{StaticResource MaterialValidationErrorColor}" />
       <SolidColorBrush x:Key="MaterialBackgroundBrush" Color="{StaticResource MaterialBackgroundColor}" />
       <SolidColorBrush x:Key="MaterialPaperBrush" Color="{StaticResource MaterialPaperColor}" />
@@ -164,6 +173,9 @@
                        Color="{StaticResource MaterialHyperlinkColor}"/>
       <SolidColorBrush x:Key="MaterialHyperlinkVisitedBrush"
                        Color="{StaticResource MaterialHyperlinkVisitedColor}"/>
+
+      <SolidColorBrush x:Key="MaterialCaptionButtonBackground" Color="{StaticResource MaterialCaptionButtonBackgroundColor}" />
+      <SolidColorBrush x:Key="MaterialCaptionButtonBorderBrush" Color="{StaticResource MaterialCaptionButtonBorderBrushColor}" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 

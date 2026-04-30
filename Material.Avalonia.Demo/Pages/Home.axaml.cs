@@ -54,6 +54,8 @@ public partial class Home : UserControl {
 
     public void UseMaterialUILightTheme() => GlobalCommand.UseMaterialUILightTheme();
 
+    public void ToggleWindowExtendClientAreaToDecorationsHint() => GlobalCommand.ToggleWindowExtendClientAreaToDecorationsHint();
+
     public void OpenProjectRepoLink() => GlobalCommand.OpenProjectRepoLink();
 
     public void SwitchTransition() {

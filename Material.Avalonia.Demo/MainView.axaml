@@ -94,6 +94,7 @@
         <DockPanel LastChildFill="true">
           <controls:ColorZone Name="PART_AppBarContainer" VerticalAlignment="Top" HorizontalAlignment="Stretch"
                               DockPanel.Dock="Top"
+                              WindowDecorationProperties.ElementRole="TitleBar"
                               Height="56" Mode="PrimaryMid" ZIndex="1">
             <Grid Margin="16">
               <Grid.ColumnDefinitions>
@@ -103,7 +104,8 @@
                 <ColumnDefinition Width="32" />
                 <ColumnDefinition Width="Auto" />
               </Grid.ColumnDefinitions>
-              <ToggleButton Name="NavDrawerSwitch"
+              <ToggleButton Name="NavDrawerSwitch" 
+                            WindowDecorationProperties.ElementRole="DecorationsElement"
                             Theme="{StaticResource MaterialFlatButton}"
                             Width="32" Height="32" Padding="4">
                 <avalonia:MaterialIcon Kind="Menu" Width="24" Height="24" />
