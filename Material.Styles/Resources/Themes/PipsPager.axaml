@@ -63,7 +63,7 @@
                 <Setter Property="VerticalAlignment" Value="Center" />
                 <Setter Property="Template">
                   <ControlTemplate>
-                    <Panel Background="Transparent"
+                    <Panel Background="Transparent"  Cursor="Hand"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center">
                       <Border Name="Pip"
