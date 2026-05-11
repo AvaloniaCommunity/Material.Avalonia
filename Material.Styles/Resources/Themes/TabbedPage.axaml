@@ -1,0 +1,189 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- Material 2 TabbedPage resources -->
+  <SolidColorBrush x:Key="MaterialTabbedPageTabItemBackgroundUnselected" Color="Transparent" />
+  <SolidColorBrush x:Key="MaterialTabbedPageTabItemBackgroundSelected" Color="Transparent" />
+  <SolidColorBrush x:Key="MaterialTabbedPageTabItemBackgroundPointerOver" Color="#0A000000" />
+  <SolidColorBrush x:Key="MaterialTabbedPageTabItemBackgroundPressed" Color="#14000000" />
+
+  <x:Double x:Key="MaterialTabbedPageTabItemMinHeight">48</x:Double>
+  <x:Double x:Key="MaterialTabbedPageTabItemIconSize">24</x:Double>
+  <x:Double x:Key="MaterialTabbedPageTabItemFontSize">14</x:Double>
+  <x:Double x:Key="MaterialTabbedPageTabItemSpacing">4</x:Double>
+  <x:Double x:Key="MaterialTabbedPageIndicatorThickness">2</x:Double>
+  <x:Double x:Key="MaterialTabbedPageVerticalPipeHeight">24</x:Double>
+
+  <Thickness x:Key="MaterialTabbedPageTabItemPadding">16,8</Thickness>
+
+  <!-- TabbedPage TabControl theme -->
+  <ControlTheme x:Key="MaterialTabbedPageTabControlTheme" TargetType="TabControl">
+    <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel>
+          <Border Name="PART_TabStrip"
+                  Background="{TemplateBinding Background}"
+                  BoxShadow="0 2 4 0 #33000000"
+                  DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+            <ItemsPresenter Name="PART_ItemsPresenter">
+              <ItemsPresenter.ItemsPanel>
+                <ItemsPanelTemplate>
+                  <UniformGrid Rows="1" />
+                </ItemsPanelTemplate>
+              </ItemsPresenter.ItemsPanel>
+            </ItemsPresenter>
+          </Border>
+          <Panel ClipToBounds="True">
+            <ContentPresenter Name="PART_SelectedContentHost2"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalContentAlignment="Stretch"
+                              IsVisible="False" />
+            <ContentPresenter Name="PART_SelectedContentHost"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalContentAlignment="Stretch" />
+          </Panel>
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^[TabStripPlacement=Left] /template/ ItemsPresenter#PART_ItemsPresenter > UniformGrid,
+           ^[TabStripPlacement=Right] /template/ ItemsPresenter#PART_ItemsPresenter > UniformGrid">
+      <Setter Property="Rows" Value="0" />
+      <Setter Property="Columns" Value="1" />
+    </Style>
+  </ControlTheme>
+
+  <!-- TabbedPage TabItem theme -->
+  <ControlTheme x:Key="MaterialTabbedPageTabItemTheme" TargetType="TabItem">
+    <Setter Property="FontSize" Value="{DynamicResource MaterialTabbedPageTabItemFontSize}" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Background" Value="{DynamicResource MaterialTabbedPageTabItemBackgroundUnselected}" />
+    <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    <Setter Property="Padding" Value="{DynamicResource MaterialTabbedPageTabItemPadding}" />
+    <Setter Property="MinHeight" Value="{DynamicResource MaterialTabbedPageTabItemMinHeight}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Opacity" Value="0.7" />
+    <Setter Property="IndicatorTemplate">
+      <DataTemplate>
+        <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" />
+      </DataTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_LayoutRoot"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  Padding="{TemplateBinding Padding}">
+            <StackPanel Name="PART_HeaderPanel"
+                        Spacing="{DynamicResource MaterialTabbedPageTabItemSpacing}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+              <ContentPresenter Name="PART_IconPresenter"
+                                Content="{TemplateBinding Icon}"
+                                ContentTemplate="{TemplateBinding IconTemplate}"
+                                HorizontalAlignment="Center"
+                                IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                Width="{DynamicResource MaterialTabbedPageTabItemIconSize}"
+                                Height="{DynamicResource MaterialTabbedPageTabItemIconSize}" />
+              <ContentPresenter Name="PART_ContentPresenter"
+                                HorizontalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Content="{TemplateBinding Header}"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{DynamicResource MaterialTabbedPageTabItemFontSize}"
+                                FontWeight="{TemplateBinding FontWeight}" />
+            </StackPanel>
+          </Border>
+          <ContentPresenter Name="PART_SelectedPipe"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
+                            Content="{TemplateBinding DataContext}"
+                            ContentTemplate="{TemplateBinding IndicatorTemplate}"
+                            IsVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Selected -->
+    <Style Selector="^:selected">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:selected /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <!-- Placement-specific pipe -->
+    <Style Selector="^[TabStripPlacement=Top] /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Height" Value="{DynamicResource MaterialTabbedPageIndicatorThickness}" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Bottom] /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="Height" Value="{DynamicResource MaterialTabbedPageIndicatorThickness}" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right]">
+      <Setter Property="IndicatorTemplate">
+        <DataTemplate>
+          <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                  Width="{DynamicResource MaterialTabbedPageIndicatorThickness}"
+                  Height="{DynamicResource MaterialTabbedPageVerticalPipeHeight}" />
+        </DataTemplate>
+      </Setter>
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right] /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Left]">
+      <Setter Property="IndicatorTemplate">
+        <DataTemplate>
+          <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                  Width="{DynamicResource MaterialTabbedPageIndicatorThickness}"
+                  Height="{DynamicResource MaterialTabbedPageVerticalPipeHeight}" />
+        </DataTemplate>
+      </Setter>
+    </Style>
+    <Style Selector="^[TabStripPlacement=Left] /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- Pointer over -->
+    <Style Selector="^:pointerover /template/ Border#PART_LayoutRoot">
+      <Setter Property="Background" Value="{DynamicResource MaterialTabbedPageTabItemBackgroundPointerOver}" />
+    </Style>
+    <!-- Pressed -->
+    <Style Selector="^:pressed /template/ Border#PART_LayoutRoot">
+      <Setter Property="Background" Value="{DynamicResource MaterialTabbedPageTabItemBackgroundPressed}" />
+    </Style>
+    <!-- Disabled -->
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.38" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="MaterialTabbedPage" TargetType="TabbedPage">
+    <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Background="{TemplateBinding Background}">
+          <TabControl Name="PART_TabControl"
+                      Theme="{StaticResource MaterialTabbedPageTabControlTheme}"
+                      ItemContainerTheme="{StaticResource MaterialTabbedPageTabItemTheme}"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage"
+                BasedOn="{StaticResource MaterialTabbedPage}" />
+</ResourceDictionary>
