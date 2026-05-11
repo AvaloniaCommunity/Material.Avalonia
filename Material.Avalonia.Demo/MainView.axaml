@@ -77,6 +77,7 @@
                 <ListBoxItem>Fields line up</ListBoxItem>
                 <ListBoxItem>Lists</ListBoxItem>
                 <ListBoxItem>Material Icons</ListBoxItem>
+                <ListBoxItem>Pages</ListBoxItem>
                 <ListBoxItem>Progress indicators</ListBoxItem>
                 <ListBoxItem>ScrollViewer</ListBoxItem>
                 <!-- <ListBoxItem>Shadows</ListBoxItem> -->
@@ -200,7 +201,10 @@
                 
                 <!-- Icons -->
                 <pages:IconsDemo ScrollViewer.VerticalScrollBarVisibility="Disabled" />
-                
+
+                <!-- Pages -->
+                <pages:PagesDemo />
+
                 <!-- Progress indicators -->
                 <pages:ProgressIndicatorDemo />
                 

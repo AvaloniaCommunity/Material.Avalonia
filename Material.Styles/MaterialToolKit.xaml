@@ -37,13 +37,16 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Carousel.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CarouselPage.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CheckBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ComboBoxItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentControl.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContentPage.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ContextMenu.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DataValidationErrors.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DatePicker.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DrawerPage.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/DropDownButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/EmbeddableControlRoot.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Expander.axaml" />
@@ -62,6 +65,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuFlyoutPresenter.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/MenuScrollViewer.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NavigationPage.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NotificationCard.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/NumericUpDown.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/OverlayPopupHost.axaml" />
@@ -84,6 +88,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStrip.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabStripItem.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TabbedPage.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBlock.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextBox.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/TextSelectionHandle.axaml" />
