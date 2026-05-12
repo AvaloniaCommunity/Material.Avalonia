@@ -6,6 +6,7 @@
   <ControlTheme x:Key="MaterialDrawerPage" TargetType="DrawerPage">
     <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    <Setter Property="DrawerBackground" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <SplitView Name="PART_SplitView"
@@ -25,6 +26,7 @@
                             HorizontalAlignment="Left"
                             Width="{TemplateBinding CompactDrawerLength}"
                             Height="{TemplateBinding CompactDrawerLength}"
+                             AutomationProperties.Name="Toggle navigation drawer"
                             ToolTip.Tip="Toggle navigation drawer">
                 <Panel>
                   <PathIcon
@@ -75,6 +77,7 @@
                                 Background="Transparent"
                                 Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
                                 DockPanel.Dock="Left"
+                                 AutomationProperties.Name="Toggle navigation drawer"
                                 ToolTip.Tip="Toggle navigation drawer">
                     <Panel>
                       <PathIcon
@@ -118,6 +121,7 @@
                                 Background="Transparent"
                                 Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
                                 DockPanel.Dock="Left"
+                                 AutomationProperties.Name="Toggle navigation drawer"
                                 ToolTip.Tip="Toggle navigation drawer">
                     <Panel>
                       <PathIcon

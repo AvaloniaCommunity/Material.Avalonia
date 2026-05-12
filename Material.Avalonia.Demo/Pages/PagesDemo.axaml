@@ -2,42 +2,79 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+
              x:Class="Material.Avalonia.Demo.Pages.PagesDemo">
   <ScrollViewer>
     <StackPanel Margin="16" Spacing="24">
-      <TextBlock Classes="Headline5" Text="Page Controls (Avalonia 12)" />
-      <TextBlock Classes="Body1" TextWrapping="Wrap"
-                 Text="Page controls." />
+      <TextBlock Classes="Headline5" Text="Page Controls" />
 
-      <!-- ContentPage -->
-      <TextBlock Classes="Headline6" Text="ContentPage" />
-      <Border Height="200" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4">
-        <ContentPage Header="My Content Page">
+
+
+      <!-- DrawerPage -->
+      <TextBlock Classes="Headline6" Text="DrawerPage" />
+      <Border Height="350" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
+        <DrawerPage DrawerHeaderBackground="{DynamicResource SecondaryHueMidBrush}" 
+                    DrawerHeaderForeground="{DynamicResource MaterialDarkForegroundBrush}"
+                    Header="Drawer Demo" DrawerLength="200" IsOpen="False" DrawerLayoutBehavior="Split">
+
+          <!--Header-->
+          <DrawerPage.DrawerHeader >
+            <StackPanel Height="180" >
+              <Image Width="96" Height="120"
+                     HorizontalAlignment="Center" VerticalAlignment="Center"
+                     Source="avares://Material.Avalonia.Demo/Assets/FavIcon_128x.png" Margin="0,0,0,-8"  />
+              <TextBlock Classes="Headline6" Text="Material Design" HorizontalAlignment="Center" />
+              <TextBlock Classes="Subtitle1" Text="with AvaloniaUI" HorizontalAlignment="Center" />
+            </StackPanel>
+          </DrawerPage.DrawerHeader>
+
+          <!--Drawer-->
+          <DrawerPage.Drawer>
+            <StackPanel Margin="0,8">
+              <ListBox>
+                <ListBoxItem>Item 1</ListBoxItem>
+                <ListBoxItem>Item 2</ListBoxItem>
+                <ListBoxItem>Item 3</ListBoxItem>
+              </ListBox>
+            </StackPanel>
+          </DrawerPage.Drawer>
+
+          <!--Footer-->
+          <DrawerPage.DrawerFooter>
+             <TextBlock Classes="Subtitle1" Text="The Footer" HorizontalAlignment="Center" />
+          </DrawerPage.DrawerFooter>
+
+          <!--Content-->
           <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
-            <TextBlock Classes="Headline6" Text="Hello from ContentPage!" HorizontalAlignment="Center" />
-            <TextBlock Classes="Body2" Text="This is the simplest page control." HorizontalAlignment="Center" />
+            <TextBlock Classes="Headline6" Text="Main Content" HorizontalAlignment="Center" />
+            <TextBlock Classes="Body2" Text="Use the hamburger menu to open the drawer." HorizontalAlignment="Center" />
           </StackPanel>
-        </ContentPage>
+
+
+
+        </DrawerPage>
       </Border>
+
 
       <!-- TabbedPage -->
       <TextBlock Classes="Headline6" Text="TabbedPage" />
       <Border Height="300" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
-        <TabbedPage>
-          <ContentPage Header="Home">
+        <TabbedPage TabPlacement="Bottom">
+          <ContentPage Header="Home" Icon="{avalonia:MaterialIconExt Kind=Home}">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
               <TextBlock Classes="Headline6" Text="Home Tab" HorizontalAlignment="Center" />
               <TextBlock Classes="Body2" Text="Welcome to the home tab." HorizontalAlignment="Center" />
             </StackPanel>
           </ContentPage>
-          <ContentPage Header="Favorites">
+          <ContentPage Header="Favorites" Icon="{avalonia:MaterialIconExt Kind=Star}">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
               <TextBlock Classes="Headline6" Text="Favorites Tab" HorizontalAlignment="Center" />
               <TextBlock Classes="Body2" Text="Your favorite items appear here." HorizontalAlignment="Center" />
             </StackPanel>
           </ContentPage>
-          <ContentPage Header="Settings">
+          <ContentPage Header="Settings" Icon="{avalonia:MaterialIconExt Kind=Cog}">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
               <TextBlock Classes="Headline6" Text="Settings Tab" HorizontalAlignment="Center" />
               <TextBlock Classes="Body2" Text="Adjust your preferences." HorizontalAlignment="Center" />
@@ -94,27 +131,18 @@
         </NavigationPage>
       </Border>
 
-      <!-- DrawerPage -->
-      <TextBlock Classes="Headline6" Text="DrawerPage" />
-      <TextBlock Classes="Body2" TextWrapping="Wrap"
-                 Text="DrawerPage provides a navigation drawer (hamburger menu) pattern with a side panel." />
-      <Border Height="350" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
-        <DrawerPage Header="Drawer Demo" DrawerLength="200" IsOpen="False">
-          <DrawerPage.Drawer>
-            <StackPanel Margin="0,8">
-              <TextBlock Classes="Subtitle1" Text="Menu" Margin="16,8" />
-              <ListBox>
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
-              </ListBox>
-            </StackPanel>
-          </DrawerPage.Drawer>
+
+
+
+      <!-- ContentPage -->
+      <TextBlock Classes="Headline6" Text="ContentPage" />
+      <Border Height="200" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4">
+        <ContentPage Header="My Content Page">
           <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
-            <TextBlock Classes="Headline6" Text="Main Content" HorizontalAlignment="Center" />
-            <TextBlock Classes="Body2" Text="Use the hamburger menu to open the drawer." HorizontalAlignment="Center" />
+            <TextBlock Classes="Headline6" Text="Hello from ContentPage!" HorizontalAlignment="Center" />
+            <TextBlock Classes="Body2" Text="This is the simplest page control." HorizontalAlignment="Center" />
           </StackPanel>
-        </DrawerPage>
+        </ContentPage>
       </Border>
     </StackPanel>
   </ScrollViewer>
