@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists">
   <!-- Material 2 TabbedPage resources -->
   <SolidColorBrush x:Key="MaterialTabbedPageTabItemBackgroundUnselected" Color="Transparent" />
   <SolidColorBrush x:Key="MaterialTabbedPageTabItemBackgroundSelected" Color="Transparent" />
@@ -24,7 +25,8 @@
         <DockPanel>
           <Border Name="PART_TabStrip"
                   Background="{TemplateBinding Background}"
-                  DockPanel.Dock="{TemplateBinding TabStripPlacement}">
+                  DockPanel.Dock="{TemplateBinding TabStripPlacement}"
+                  ZIndex="1">
             <ItemsPresenter Name="PART_ItemsPresenter">
               <ItemsPresenter.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -50,6 +52,18 @@
       <Setter Property="Rows" Value="0" />
       <Setter Property="Columns" Value="1" />
     </Style>
+    <Style Selector="^[TabStripPlacement=Top] /template/ Border#PART_TabStrip">
+      <Setter Property="BoxShadow" Value="1.5 1.5 8 0 #4C000000" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Bottom] /template/ Border#PART_TabStrip">
+      <Setter Property="BoxShadow" Value="1.5 -1.5 8 0 #4C000000" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Left] /template/ Border#PART_TabStrip">
+      <Setter Property="BoxShadow" Value="1.5 1.5 8 0 #4C000000" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right] /template/ Border#PART_TabStrip">
+      <Setter Property="BoxShadow" Value="-1.5 1.5 8 0 #4C000000" />
+    </Style>
   </ControlTheme>
 
   <!-- TabbedPage TabItem theme -->
@@ -63,40 +77,101 @@
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Opacity" Value="{DynamicResource MaterialTabbedPageTabItemUnselectedOpacity}" />
+    <Setter Property="IndicatorTemplate">
+      <DataTemplate>
+        <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" />
+      </DataTemplate>
+    </Setter>
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Name="PART_LayoutRoot"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                Padding="{TemplateBinding Padding}">
-          <StackPanel Name="PART_HeaderPanel"
-                      Spacing="{DynamicResource MaterialTabbedPageTabItemSpacing}"
-                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-            <ContentPresenter Name="PART_IconPresenter"
-                              Content="{TemplateBinding Icon}"
-                              ContentTemplate="{TemplateBinding IconTemplate}"
-                              HorizontalAlignment="Center"
-                              IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
-                              Width="{DynamicResource MaterialTabbedPageTabItemIconSize}"
-                              Height="{DynamicResource MaterialTabbedPageTabItemIconSize}" />
-            <ContentPresenter Name="PART_ContentPresenter"
-                              HorizontalAlignment="Center"
-                              HorizontalContentAlignment="Center"
-                              Content="{TemplateBinding Header}"
-                              ContentTemplate="{TemplateBinding HeaderTemplate}"
-                              FontFamily="{TemplateBinding FontFamily}"
-                              FontSize="{DynamicResource MaterialTabbedPageTabItemFontSize}"
-                              FontWeight="{TemplateBinding FontWeight}" />
-          </StackPanel>
-        </Border>
+        <Panel>
+          <Border Name="PART_LayoutRoot"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  Padding="{TemplateBinding Padding}">
+            <StackPanel Name="PART_HeaderPanel"
+                        Spacing="{DynamicResource MaterialTabbedPageTabItemSpacing}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+              <ContentPresenter Name="PART_IconPresenter"
+                                Content="{TemplateBinding Icon}"
+                                HorizontalAlignment="Center"
+                                IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                Width="{DynamicResource MaterialTabbedPageTabItemIconSize}"
+                                Height="{DynamicResource MaterialTabbedPageTabItemIconSize}">
+                <ContentPresenter.ContentTemplate>
+                  <DataTemplate DataType="Geometry">
+                    <Viewbox Stretch="Uniform">
+                      <Path Data="{Binding}" Fill="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+                    </Viewbox>
+                  </DataTemplate>
+                </ContentPresenter.ContentTemplate>
+              </ContentPresenter>
+              <ContentPresenter Name="PART_ContentPresenter"
+                                HorizontalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Content="{TemplateBinding Header}"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{DynamicResource MaterialTabbedPageTabItemFontSize}"
+                                FontWeight="{TemplateBinding FontWeight}" />
+            </StackPanel>
+          </Border>
+          <ContentPresenter Name="PART_SelectedPipe"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
+                            Content="{TemplateBinding DataContext}"
+                            ContentTemplate="{TemplateBinding IndicatorTemplate}"
+                            IsVisible="False" />
+        </Panel>
       </ControlTemplate>
     </Setter>
 
     <!-- Selected -->
     <Style Selector="^:selected">
       <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:selected /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Top] /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Height" Value="{DynamicResource MaterialTabbedPageIndicatorThickness}" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Bottom] /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="Height" Value="{DynamicResource MaterialTabbedPageIndicatorThickness}" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right]">
+      <Setter Property="IndicatorTemplate">
+        <DataTemplate>
+          <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                  Width="{DynamicResource MaterialTabbedPageIndicatorThickness}"
+                  Height="{DynamicResource MaterialTabbedPageVerticalPipeHeight}" />
+        </DataTemplate>
+      </Setter>
+    </Style>
+    <Style Selector="^[TabStripPlacement=Right] /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^[TabStripPlacement=Left]">
+      <Setter Property="IndicatorTemplate">
+        <DataTemplate>
+          <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                  Width="{DynamicResource MaterialTabbedPageIndicatorThickness}"
+                  Height="{DynamicResource MaterialTabbedPageVerticalPipeHeight}" />
+        </DataTemplate>
+      </Setter>
+    </Style>
+    <Style Selector="^[TabStripPlacement=Left] /template/ ContentPresenter#PART_SelectedPipe">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
     <!-- Pointer over -->

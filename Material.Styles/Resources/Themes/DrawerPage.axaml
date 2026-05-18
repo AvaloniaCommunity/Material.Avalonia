@@ -1,15 +1,18 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists">
   <x:Double x:Key="MaterialDrawerPageNavBarHeight">56</x:Double>
   <StreamGeometry x:Key="MaterialDrawerPaneButtonIcon">M3 17h18a1 1 0 0 1 .117 1.993L21 19H3a1 1 0 0 1-.117-1.993L3 17h18H3Zm0-6 18-.002a1 1 0 0 1 .117 1.993l-.117.007L3 13a1 1 0 0 1-.117-1.993L3 11l18-.002L3 11Zm0-6h18a1 1 0 0 1 .117 1.993L21 7H3a1 1 0 0 1-.117-1.993L3 5h18H3Z</StreamGeometry>
+
+  <SolidColorBrush x:Key="MaterialDrawerBackgroundBrush" Color="{DynamicResource MaterialCardBackgroundColor}" />
 
   <ControlTheme x:Key="MaterialDrawerPage" TargetType="DrawerPage">
     <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
-    <Setter Property="DrawerBackground" Value="{DynamicResource MaterialPaperBrush}" />
+    <Setter Property="DrawerBackground" Value="{DynamicResource MaterialDrawerBackgroundBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
-        <SplitView Name="PART_SplitView"
+        <SplitView Name="PART_SplitView" 
                    DisplayMode="{TemplateBinding DisplayMode}"
                    OpenPaneLength="{TemplateBinding DrawerLength}"
                    CompactPaneLength="{TemplateBinding CompactDrawerLength}"
@@ -68,8 +71,9 @@
                       Padding="4"
                       Height="{DynamicResource MaterialDrawerPageNavBarHeight}"
                       Background="{DynamicResource MaterialPrimaryMidBrush}"
-                      BoxShadow="0 2 4 0 #33000000"
-                      DockPanel.Dock="Top">
+                      assists:ShadowAssist.ShadowDepth="Depth2"
+                      DockPanel.Dock="Top"
+                      ZIndex="1">
                 <DockPanel HorizontalAlignment="Stretch">
                   <ToggleButton x:Name="PART_PaneButton"
                                 Theme="{StaticResource MaterialFlatToggleButton}"
@@ -111,8 +115,9 @@
                       Padding="4"
                       Height="{DynamicResource MaterialDrawerPageNavBarHeight}"
                       Background="{DynamicResource MaterialPrimaryMidBrush}"
-                      BoxShadow="0 -2 4 0 #33000000"
+                      assists:ShadowAssist.ShadowDepth="Depth2"
                       DockPanel.Dock="Bottom"
+                      ZIndex="1"
                       IsVisible="False">
                 <DockPanel HorizontalAlignment="Stretch">
                   <ToggleButton x:Name="PART_BottomPaneButton"
