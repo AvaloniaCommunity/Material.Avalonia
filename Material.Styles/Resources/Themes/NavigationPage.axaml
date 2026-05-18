@@ -63,6 +63,7 @@
             <Grid Margin="12,0,0,0" ColumnDefinitions="Auto, *, Auto">
               <Button x:Name="PART_BackButton"
                       Grid.Column="0"
+                      WindowDecorationProperties.ElementRole="DecorationsElement"
                       Theme="{StaticResource MaterialFlatButton}"
                       Background="Transparent"
                       Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
