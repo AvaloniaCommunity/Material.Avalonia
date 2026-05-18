@@ -23,7 +23,7 @@
                      IsCheckedChanged="DrawerSplit_Checked" />
         <RadioButton Content="Persistent Split" GroupName="DrawerMode"
                      IsCheckedChanged="DrawerSplit_Checked" />
-        <CheckBox Name="DemoDrawerRtlCheckBox" Content="RTL" IsCheckedChanged="DrawerRtl_Checked" />
+        <CheckBox Name="DemoDrawerRtlCheckBox" Content="RightToLeft" IsCheckedChanged="DrawerRtl_Checked" />
       </StackPanel>
       <Border Height="350" BorderBrush="{DynamicResource MaterialDividerBrush}" BorderThickness="1" CornerRadius="4" ClipToBounds="True">
         <DrawerPage Name="DemoDrawer"

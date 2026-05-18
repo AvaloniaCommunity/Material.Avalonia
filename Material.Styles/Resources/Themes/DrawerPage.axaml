@@ -223,6 +223,5 @@
       <Setter Property="IsVisible" Value="False" />
     </Style>
   </ControlTheme>
-  <ControlTheme x:Key="{x:Type DrawerPage}" TargetType="DrawerPage"
-                BasedOn="{StaticResource MaterialDrawerPage}" />
+  <ControlTheme x:Key="{x:Type DrawerPage}" TargetType="DrawerPage"    BasedOn="{StaticResource MaterialDrawerPage}" />
 </ResourceDictionary>

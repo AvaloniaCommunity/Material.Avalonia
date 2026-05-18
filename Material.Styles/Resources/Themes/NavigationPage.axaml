@@ -80,9 +80,9 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center" />
                   <ContentPresenter
-                    x:Name="PART_BackButtonContentPresenter"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"/>
+                  x:Name="PART_BackButtonContentPresenter"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"/>
                 </Panel>
               </Button>
               <ContentPresenter Name="PART_Header"
@@ -135,6 +135,5 @@
       <Setter Property="DefaultLabelPosition" Value="Collapsed" />
     </Style>
   </ControlTheme>
-  <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage"
-                BasedOn="{StaticResource MaterialNavigationPage}" />
+  <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage"  BasedOn="{StaticResource MaterialNavigationPage}" />
 </ResourceDictionary>

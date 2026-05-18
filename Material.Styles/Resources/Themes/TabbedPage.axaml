@@ -203,6 +203,5 @@
     </Setter>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage"
-                BasedOn="{StaticResource MaterialTabbedPage}" />
+  <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage" BasedOn="{StaticResource MaterialTabbedPage}" />
 </ResourceDictionary>
