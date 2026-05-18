@@ -22,6 +22,7 @@
             <DockPanel Background="{TemplateBinding DrawerBackground}">
               <ToggleButton Name="PART_CompactPaneToggle"
                             DockPanel.Dock="Top"
+                            WindowDecorationProperties.ElementRole="DecorationsElement"
                             Theme="{StaticResource MaterialFlatToggleButton}"
                             IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                             Background="Transparent"
@@ -29,7 +30,7 @@
                             HorizontalAlignment="Left"
                             Width="{TemplateBinding CompactDrawerLength}"
                             Height="{TemplateBinding CompactDrawerLength}"
-                             AutomationProperties.Name="Toggle navigation drawer"
+                            AutomationProperties.Name="Toggle navigation drawer"
                             ToolTip.Tip="Toggle navigation drawer">
                 <Panel>
                   <PathIcon
@@ -76,6 +77,7 @@
                       ZIndex="1">
                 <DockPanel HorizontalAlignment="Stretch">
                   <ToggleButton x:Name="PART_PaneButton"
+                                                            WindowDecorationProperties.ElementRole="DecorationsElement"
                                 Theme="{StaticResource MaterialFlatToggleButton}"
                                 IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                 Background="Transparent"
