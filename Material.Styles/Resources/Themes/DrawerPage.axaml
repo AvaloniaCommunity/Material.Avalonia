@@ -81,7 +81,7 @@
                                 Theme="{StaticResource MaterialFlatToggleButton}"
                                 IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                 Background="Transparent"
-                                Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                                Foreground="{DynamicResource MaterialBodyBrush}"
                                 DockPanel.Dock="Left"
                                  AutomationProperties.Name="Toggle navigation drawer"
                                 ToolTip.Tip="Toggle navigation drawer">
@@ -89,7 +89,7 @@
                       <PathIcon
                         IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}"
                         Data="{DynamicResource MaterialDrawerPaneButtonIcon}"
-                        Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                        Foreground="{DynamicResource MaterialBodyBrush}"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
                       <ContentPresenter
@@ -104,7 +104,7 @@
                   <ContentPresenter x:Name="PART_TitlePresenter"
                                     Content="{TemplateBinding Header}"
                                     ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                    Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                                    Foreground="{DynamicResource MaterialBodyBrush}"
                                     VerticalAlignment="Center"
                                     VerticalContentAlignment="Center"
                                     FontSize="20"
@@ -126,7 +126,7 @@
                                 Theme="{StaticResource MaterialFlatToggleButton}"
                                 IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                 Background="Transparent"
-                                Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                                Foreground="{DynamicResource MaterialBodyBrush}"
                                 DockPanel.Dock="Left"
                                  AutomationProperties.Name="Toggle navigation drawer"
                                 ToolTip.Tip="Toggle navigation drawer">
@@ -134,7 +134,7 @@
                       <PathIcon
                         IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}"
                         Data="{DynamicResource MaterialDrawerPaneButtonIcon}"
-                        Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                        Foreground="{DynamicResource MaterialBodyBrush}"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
                       <ContentPresenter
@@ -149,7 +149,7 @@
                   <ContentPresenter x:Name="PART_BottomTitlePresenter"
                                     Content="{TemplateBinding Header}"
                                     ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                    Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                                    Foreground="{DynamicResource MaterialBodyBrush}"
                                     VerticalAlignment="Center"
                                     VerticalContentAlignment="Center"
                                     FontSize="20"

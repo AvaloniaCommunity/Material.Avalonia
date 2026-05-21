@@ -20,6 +20,7 @@
   <!-- TabbedPage TabControl theme -->
   <ControlTheme x:Key="MaterialTabbedPageTabControlTheme" TargetType="TabControl">
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
+    <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="Template">
       <ControlTemplate>
         <DockPanel>
@@ -71,7 +72,7 @@
     <Setter Property="FontSize" Value="{DynamicResource MaterialTabbedPageTabItemFontSize}" />
     <Setter Property="FontWeight" Value="Medium" />
     <Setter Property="Background" Value="{DynamicResource MaterialTabbedPageTabItemBackgroundUnselected}" />
-    <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+    <Setter Property="TextBlock.Foreground" Value="{Binding (TextElement.Foreground), RelativeSource={RelativeSource AncestorType=TabControl}}" />
     <Setter Property="Padding" Value="{DynamicResource MaterialTabbedPageTabItemPadding}" />
     <Setter Property="MinHeight" Value="{DynamicResource MaterialTabbedPageTabItemMinHeight}" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -79,7 +80,7 @@
     <Setter Property="Opacity" Value="{DynamicResource MaterialTabbedPageTabItemUnselectedOpacity}" />
     <Setter Property="IndicatorTemplate">
       <DataTemplate>
-        <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+        <Border Background="{Binding (TextElement.Foreground), RelativeSource={RelativeSource AncestorType=TabControl}}"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" />
       </DataTemplate>
@@ -105,7 +106,7 @@
                 <ContentPresenter.ContentTemplate>
                   <DataTemplate DataType="Geometry">
                     <Viewbox Stretch="Uniform">
-                      <Path Data="{Binding}" Fill="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
+                      <Path Data="{Binding}" Fill="{Binding (TextElement.Foreground), RelativeSource={RelativeSource AncestorType=TabControl}}" />
                     </Viewbox>
                   </DataTemplate>
                 </ContentPresenter.ContentTemplate>
@@ -150,7 +151,7 @@
     <Style Selector="^[TabStripPlacement=Right]">
       <Setter Property="IndicatorTemplate">
         <DataTemplate>
-          <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+          <Border Background="{Binding (TextElement.Foreground), RelativeSource={RelativeSource AncestorType=TabControl}}"
                   Width="{DynamicResource MaterialTabbedPageIndicatorThickness}"
                   Height="{DynamicResource MaterialTabbedPageVerticalPipeHeight}" />
         </DataTemplate>
@@ -163,7 +164,7 @@
     <Style Selector="^[TabStripPlacement=Left]">
       <Setter Property="IndicatorTemplate">
         <DataTemplate>
-          <Border Background="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+          <Border Background="{Binding (TextElement.Foreground), RelativeSource={RelativeSource AncestorType=TabControl}}"
                   Width="{DynamicResource MaterialTabbedPageIndicatorThickness}"
                   Height="{DynamicResource MaterialTabbedPageVerticalPipeHeight}" />
         </DataTemplate>

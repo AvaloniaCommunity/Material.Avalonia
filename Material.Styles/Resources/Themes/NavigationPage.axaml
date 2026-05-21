@@ -66,7 +66,7 @@
                       WindowDecorationProperties.ElementRole="DecorationsElement"
                       Theme="{StaticResource MaterialFlatButton}"
                       Background="Transparent"
-                      Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                      Foreground="{DynamicResource MaterialBodyBrush}"
                       IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
                       VerticalAlignment="Stretch"
                       Padding="8,0"
@@ -74,7 +74,7 @@
                 <Panel Background="Transparent">
                   <Path Data="{DynamicResource MaterialNavigationPageBackIcon}"
                         x:Name="PART_BackButtonDefaultIcon"
-                        Fill="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                        Fill="{DynamicResource MaterialBodyBrush}"
                         Width="24"
                         Height="24"
                         Stretch="Uniform"
@@ -90,7 +90,7 @@
                                 Grid.Column="1"
                                 FontSize="20"
                                 FontWeight="Medium"
-                                Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                                Foreground="{DynamicResource MaterialBodyBrush}"
                                 Content="{Binding CurrentPage?.Header, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 ContentTemplate="{Binding CurrentPage?.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 VerticalAlignment="Center"
@@ -101,7 +101,7 @@
                                 Grid.Column="2"
                                 HorizontalAlignment="Right"
                                 VerticalContentAlignment="Stretch"
-                                Foreground="{DynamicResource MaterialPrimaryMidForegroundBrush}"
+                                Foreground="{DynamicResource MaterialBodyBrush}"
                                 Content="{Binding CurrentPage?.(NavigationPage.TopCommandBar), RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}" />
             </Grid>
           </Border>
