@@ -7,7 +7,7 @@
   <SolidColorBrush x:Key="MaterialDrawerBackgroundBrush" Color="{DynamicResource MaterialCardBackgroundColor}" />
 
   <ControlTheme x:Key="MaterialDrawerPage" TargetType="DrawerPage">
-    <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
+    <Setter Property="Background" Value="Transparent" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
     <Setter Property="DrawerBackground" Value="{DynamicResource MaterialDrawerBackgroundBrush}" />
     <Setter Property="Template">

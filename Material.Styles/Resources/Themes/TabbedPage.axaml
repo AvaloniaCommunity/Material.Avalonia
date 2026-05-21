@@ -189,7 +189,7 @@
   </ControlTheme>
 
   <ControlTheme x:Key="MaterialTabbedPage" TargetType="TabbedPage">
-    <Setter Property="Background" Value="{DynamicResource MaterialPaperBrush}" />
+    <Setter Property="Background" Value="Transparent" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel Background="{TemplateBinding Background}">
