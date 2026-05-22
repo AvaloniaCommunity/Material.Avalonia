@@ -38,7 +38,7 @@
 
   <dialogHostAvalonia:DialogHost Identifier="MainDialogHost">
     <controls:SnackbarHost HostName="Root" TemplateApplied="TemplatedControl_OnTemplateApplied">
-      <controls:NavigationDrawer Name="LeftDrawer" Classes="permanent"
+      <controls:NavigationDrawer Name="LeftDrawer" Classes="permanent" LeftDrawerExpandThresholdWidth="1000"
                                  LeftDrawerOpened="{Binding ElementName=NavDrawerSwitch, Path=IsChecked, Mode=TwoWay}">
         <controls:NavigationDrawer.LeftDrawerContent>
           <ScrollViewer>

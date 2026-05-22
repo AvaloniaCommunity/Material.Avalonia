@@ -16,7 +16,6 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="LeftDrawerWidth" Value="320" />
     <Setter Property="RightDrawerWidth" Value="320" />
-    <Setter Property="LeftDrawerExpandThresholdWidth" Value="1000" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_RootBorder"
