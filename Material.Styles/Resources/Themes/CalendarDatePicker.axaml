@@ -1,0 +1,92 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls">
+  <Design.PreviewWith>
+    <StackPanel Margin="20 20 200 600" Spacing="16">
+      <CalendarDatePicker />
+      <CalendarDatePicker SelectedDate="2026-06-30" assists:TextFieldAssist.Label="Birthday" />
+      <CalendarDatePicker IsEnabled="False" assists:TextFieldAssist.Label="Disabled" />
+    </StackPanel>
+  </Design.PreviewWith>
+
+  <ControlTheme x:Key="MaterialCalendarDatePicker" TargetType="CalendarDatePicker">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="MinWidth" Value="120" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="assists:TextFieldAssist.Label" Value="Date" />
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DataValidationErrors>
+          <Panel>
+            <!-- TODO: Make TextBox writeable -->
+            <!-- TODO: allow use different text boxes style-->
+            <TextBox Name="PART_TextBox"
+                     assists:TextFieldAssist.Label="{TemplateBinding assists:TextFieldAssist.Label}"
+                     Foreground="{TemplateBinding Foreground}"
+                     PlaceholderText="{TemplateBinding PlaceholderText}"
+                     UseFloatingPlaceholder="{TemplateBinding UseFloatingPlaceholder}"
+                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+              <TextBox.InnerRightContent>
+                <Button Name="PART_Button"
+                        Theme="{StaticResource MaterialFlatButton}"
+                        Focusable="False"
+                        Width="36" Height="36"
+                        Padding="0"
+                        Margin="8 8 8 6"
+                        Foreground="{DynamicResource MaterialBodyBrush}">
+                  <controls:MaterialInternalIcon Kind="Calendar"
+                                                 Width="20"
+                                                 Height="20" />
+                </Button>
+              </TextBox.InnerRightContent>
+            </TextBox>
+            <Panel Name="PART_PopupContainer">
+              <Popup Name="PART_Popup"
+                     PlacementTarget="{TemplateBinding}"
+                     IsLightDismissEnabled="True"
+                     VerticalOffset="-16">
+                <controls:Card Name="PART_Card" Padding="0" Margin="8">
+                  <Calendar Name="PART_Calendar"
+                            FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
+                            IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
+                            SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}"
+                            DisplayDate="{TemplateBinding DisplayDate}"
+                            DisplayDateStart="{TemplateBinding DisplayDateStart}"
+                            DisplayDateEnd="{TemplateBinding DisplayDateEnd}" />
+                </controls:Card>
+              </Popup>
+            </Panel>
+          </Panel>
+        </DataValidationErrors>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^ /template/ Panel#PART_PopupContainer">
+      <Setter Property="Margin" Value="-8" />
+    </Style>
+
+    <Style Selector="^ /template/ TextBox#PART_TextBox">
+      <Setter Property="Margin" Value="0" />
+      <Setter Property="IsReadOnly" Value="True" />
+    </Style>
+
+    <!-- Disabled State -->
+    <Style Selector="^:disabled /template/ Button#PART_Button">
+      <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+      <Setter Property="Opacity" Value="0.38" />
+    </Style>
+  </ControlTheme>
+
+  <!-- Default theme -->
+  <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker"
+                BasedOn="{StaticResource MaterialCalendarDatePicker}" />
+</ResourceDictionary>
