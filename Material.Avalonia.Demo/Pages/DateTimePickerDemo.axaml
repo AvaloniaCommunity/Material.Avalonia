@@ -45,6 +45,34 @@
       </StackPanel>
     </StackPanel>
 
+    <TextBlock Classes="Headline6 Subheadline2" Text="CalendarDatePicker" />
+    <StackPanel Orientation="Horizontal">
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #CalendarDatePicker0.SelectedDate, FallbackValue=Not selected}" />
+        <showMeTheXaml:XamlDisplay UniqueId="CalendarDatePicker0">
+          <CalendarDatePicker Name="CalendarDatePicker0" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="{Binding #CalendarDatePicker1.SelectedDate}" />
+        <showMeTheXaml:XamlDisplay UniqueId="CalendarDatePicker1">
+          <CalendarDatePicker Name="CalendarDatePicker1"
+                              assists:TextFieldAssist.Label="This is a date actually"
+                              SelectedDate="09/26/2021" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="With watermark" />
+        <showMeTheXaml:XamlDisplay UniqueId="CalendarDatePicker2">
+          <CalendarDatePicker Name="CalendarDatePicker2"
+                              UseFloatingPlaceholder="True"
+                              PlaceholderText="Pick a day" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
+    </StackPanel>
+
     <TextBlock Classes="Headline6 Subheadline2" Text="TimePicker" />
     <StackPanel Orientation="Horizontal">
       <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">

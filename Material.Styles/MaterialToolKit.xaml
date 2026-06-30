@@ -34,6 +34,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/ButtonSpinner.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Calendar.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarButton.axaml" />
+        <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDatePicker.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarDayButton.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/CalendarItem.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Carousel.axaml" />
