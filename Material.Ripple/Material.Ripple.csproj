@@ -6,4 +6,12 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="IgnoresAccessChecksToGenerator" PrivateAssets="All"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <IgnoresAccessChecksTo Include="Avalonia.Controls"/>
+  </ItemGroup>
+
 </Project>

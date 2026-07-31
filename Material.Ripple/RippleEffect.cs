@@ -2,6 +2,7 @@
 using System.Threading;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Utils;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media;
@@ -10,17 +11,19 @@ using Avalonia.Threading;
 
 namespace Material.Ripple {
     public class RippleEffect : ContentControl {
-        private bool _isCancelled;
+        private readonly BorderRenderHelper _borderRenderHelper = new();
 
         private CompositionContainerVisual? _container;
+        private bool _isCancelled;
         private CompositionCustomVisual? _last;
         private int _pointers;
 
         static RippleEffect() {
-            BackgroundProperty.OverrideDefaultValue<RippleEffect>(Brushes.Transparent);
+            ContentControl.BackgroundProperty.OverrideDefaultValue<RippleEffect>(Brushes.Transparent);
         }
 
         public RippleEffect() {
+            AffectsRender<RippleEffect>(BackgroundOpacityProperty);
             AddHandler(LostFocusEvent, LostFocusHandler);
             AddHandler(PointerReleasedEvent, PointerReleasedHandler);
             AddHandler(PointerPressedEvent, PointerPressedHandler);
@@ -58,7 +61,7 @@ namespace Material.Ripple {
         }
 
         private void PointerPressedHandler(object? sender, PointerPressedEventArgs e) {
-            if (_container is not {} c)
+            if (_container is not { } c)
                 return;
 
             var (x, y) = e.GetPosition(this);
@@ -132,12 +135,11 @@ namespace Material.Ripple {
         }
 
         public void RaiseRippleAbsoluteCoord(double x, double y) {
-            
             var c = _container;
-            
+
             if (c is null || !Bounds.Contains(new Point(x, y)))
                 throw new ArgumentOutOfRangeException();
-            
+
             CreateRippleInstancePrivate(c, x, y);
 
             RemoveLastRipple();
@@ -178,10 +180,22 @@ namespace Material.Ripple {
             return visual;
         }
 
+        public override void Render(DrawingContext context) {
+            if (Background is not null && BackgroundOpacity != 0) {
+                using var _ = context.PushOpacity(BackgroundOpacity);
+                context.FillRectangle(Background, Bounds);
+            }
+
+            _borderRenderHelper.Render(context, Bounds.Size, BorderThickness, CornerRadius,
+                BackgroundSizing.InnerBorderEdge, null, BorderBrush, default);
+
+            base.Render(context);
+        }
+
         #region Styled properties
 
         public static readonly StyledProperty<IBrush> RippleFillProperty =
-            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill), 
+            AvaloniaProperty.Register<RippleEffect, IBrush>(nameof(RippleFill),
                 inherits: true, defaultValue: Brushes.White);
 
         public IBrush RippleFill {
@@ -220,13 +234,30 @@ namespace Material.Ripple {
             get => GetValue(UseTransitionsProperty);
             set => SetValue(UseTransitionsProperty, value);
         }
-        
+
         public static readonly StyledProperty<double> FadeOutDurationProperty =
-            AvaloniaProperty.Register<RippleEffect, double>(nameof(FadeOutDuration), defaultValue: 0.450, validate: v => v > 0.0);
+            AvaloniaProperty.Register<RippleEffect, double>(nameof(FadeOutDuration), 0.450,
+                validate: v => v > 0.0);
 
         public double FadeOutDuration {
             get => GetValue(FadeOutDurationProperty);
             set => SetValue(FadeOutDurationProperty, value);
+        }
+
+        public new static readonly StyledProperty<IBrush?> BackgroundProperty =
+            AvaloniaProperty.Register<RippleEffect, IBrush?>(nameof(Background));
+
+        public new IBrush? Background {
+            get => GetValue(BackgroundProperty);
+            set => SetValue(BackgroundProperty, value);
+        }
+
+        public static readonly StyledProperty<double> BackgroundOpacityProperty
+            = AvaloniaProperty.Register<RippleEffect, double>(nameof(BackgroundOpacity), 1d);
+
+        public double BackgroundOpacity {
+            get => GetValue(BackgroundOpacityProperty);
+            set => SetValue(BackgroundOpacityProperty, value);
         }
 
         #endregion Styled properties

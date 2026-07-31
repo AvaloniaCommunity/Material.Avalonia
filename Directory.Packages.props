@@ -17,6 +17,7 @@
     <PackageVersion Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.0" />
     <PackageVersion Include="Microsoft.NET.WebAssembly.Threading" Version="8.0.0" />
+    <PackageVersion Include="IgnoresAccessChecksToGenerator" Version="1.0.0"/>
     <!--For Material.Styles-->
     <PackageVersion Include="System.Reactive" Version="6.1.0" />
     <PackageVersion Include="aqua.tool.polyfill.IsExternalInit" Version="2.2.9">
