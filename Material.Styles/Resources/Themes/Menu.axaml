@@ -15,7 +15,7 @@
 
   <ControlTheme x:Key="MaterialTopLevelMenuItem" TargetType="MenuItem">
     <Setter Property="Height" Value="48" />
-    <Setter Property="FocusAdorner" Value="{x:Null}"/>
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="Padding" Value="16 0" />
@@ -42,7 +42,8 @@
                   </ContentPresenter.DataTemplates>
                 </ContentPresenter>
                 <Popup Name="PART_Popup"
-                       Placement="Bottom"
+                       Placement="BottomEdgeAlignedLeft"
+                       MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                        IsLightDismissEnabled="True"
                        OverlayInputPassThroughElement="{Binding $parent[Menu]}"
                        WindowManagerAddShadowHint="False"
@@ -53,7 +54,8 @@
                       <ScrollViewer>
                         <ItemsPresenter Name="PART_ItemsPresenter"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"
-                                        Margin="0 8" />
+                                        Margin="0 8"
+                                        Grid.IsSharedSizeScope="True" />
                       </ScrollViewer>
                     </Border>
                   </controls:Card>
@@ -72,7 +74,7 @@
     <Style Selector="^:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter">
       <Setter Property="Opacity" Value="0.13" />
     </Style>
-    
+
     <Style Selector="^:not(.Menu):not(:disabled):focus-visible /template/ Border#PART_MenuItemHighlighter">
       <Setter Property="Opacity" Value="0.07" />
     </Style>
