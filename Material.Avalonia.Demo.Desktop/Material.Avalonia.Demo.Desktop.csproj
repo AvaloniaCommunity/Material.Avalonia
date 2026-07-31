@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>false</IsPackable>
 
-    <AvaloniaVersion>12.0.0</AvaloniaVersion>
+    <AvaloniaVersion>12.1.1</AvaloniaVersion>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
@@ -23,6 +23,9 @@
   
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop"/>
+
+    <PackageVersion Update="Avalonia.Controls.ItemsRepeater" Version="12.0.0"/>
+    <PackageVersion Update="Avalonia.Controls.DataGrid" Version="12.1.0"/>
   </ItemGroup>
   
   <ItemGroup>

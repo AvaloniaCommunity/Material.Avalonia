@@ -9,7 +9,7 @@
     <RunAOTCompilation>true</RunAOTCompilation>
     <WasmBuildNative>true</WasmBuildNative>
 
-    <AvaloniaVersion>12.0.0</AvaloniaVersion>
+    <AvaloniaVersion>12.1.1</AvaloniaVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +19,9 @@
   <ItemGroup>
     <PackageReference Include="Avalonia.Browser"/>
     <PackageReference Include="TextMateSharp.Wasm"/>
+
+    <PackageVersion Update="Avalonia.Controls.ItemsRepeater" Version="12.0.0"/>
+    <PackageVersion Update="Avalonia.Controls.DataGrid" Version="12.1.0"/>
   </ItemGroup>
 
   <ItemGroup>
