@@ -106,7 +106,7 @@
                 <ColumnDefinition Width="32" />
                 <ColumnDefinition Width="Auto" />
               </Grid.ColumnDefinitions>
-              <ToggleButton Name="NavDrawerSwitch" 
+              <ToggleButton Name="NavDrawerSwitch"
                             WindowDecorationProperties.ElementRole="DecorationsElement"
                             Theme="{StaticResource MaterialFlatButton}"
                             Width="32" Height="32" Padding="4">
@@ -114,8 +114,8 @@
               </ToggleButton>
               <TextBlock Grid.Column="2" Classes="Headline6" Text="Material.Avalonia Demo"
                          VerticalAlignment="Center" />
-              <Menu Grid.Column="4" Height="32" Padding="0" Margin="0">
-                <MenuItem Height="32" Width="32" Header="{avalonia:MaterialIconExt DotsVertical, IconSize=24}">
+              <Menu Grid.Column="4" Height="32">
+                <MenuItem Height="32" Width="32" Padding="0" Header="{avalonia:MaterialIconExt DotsVertical, IconSize=24}">
                   <MenuItem Header="Hello!" Click="HelloButtonMenuItem_OnClick">
                     <MenuItem.Icon>
                       <avalonia:MaterialIcon Kind="Hand" Width="24" Height="24" />
@@ -171,34 +171,34 @@
 
                 <!-- Card -->
                 <pages:CardsDemo />
-                
+
                 <!-- ColorZones -->
                 <pages:ColorZonesDemo />
-                
+
                 <!-- Colors -->
                 <pages:ColorsDemo />
-                
+
                 <!-- ComboBoxes -->
                 <pages:ComboBoxesDemo />
-                
+
                 <!-- Pickers -->
                 <pages:DateTimePickerDemo />
-                
+
                 <!-- Dialogs -->
                 <pages:DialogDemo />
-                
+
                 <!-- Expanders -->
                 <pages:ExpandersDemo />
-                
+
                 <!-- Fields -->
                 <pages:FieldsDemo />
 
                 <!-- FieldsLline up -->
                 <pages:FieldsLineUpDemo />
-                
+
                 <!-- Lists -->
                 <pages:ListsDemo />
-                
+
                 <!-- Icons -->
                 <pages:IconsDemo ScrollViewer.VerticalScrollBarVisibility="Disabled" />
 
@@ -207,31 +207,31 @@
 
                 <!-- Progress indicators -->
                 <pages:ProgressIndicatorDemo />
-                
+
                 <!-- ScrollViewer -->
                 <pages:ScrollViewerDemo />
-                
+
                 <!-- Shadows -->
                 <!-- <pages:NotReadyDemo /> -->
-                
+
                 <!-- SideSheet -->
                 <pages:SideSheetDemo />
-                
+
                 <!-- Sliders -->
                 <pages:SlidersDemo />
-                
+
                 <!-- Snackbar -->
                 <pages:SnackbarDemo />
-                
+
                 <!-- TabControls -->
                 <pages:TabsDemo />
 
                 <!-- Toggles -->
                 <pages:TogglesDemo />
-                
+
                 <!-- TreeDataGrids -->
                 <!-- <pages:TreeDataGridsDemo /> -->
-                
+
                 <!-- TreeViews -->
                 <pages:TreeViewsDemo />
 

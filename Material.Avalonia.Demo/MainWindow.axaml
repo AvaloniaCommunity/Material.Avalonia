@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:demo="clr-namespace:Material.Avalonia.Demo"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Width="1280" Height="720" MinWidth="720" 
-        Icon="/Assets/FavIcon_128x.png" 
-        Title=" "
-        ExtendClientAreaToDecorationsHint="True">
+        Width="1280" Height="720" MinWidth="720"
+        Icon="/Assets/FavIcon_128x.png"
+        Title="Material.Avalonia Demo">
   <demo:MainView />
 </Window>

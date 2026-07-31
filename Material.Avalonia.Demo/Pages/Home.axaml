@@ -3,48 +3,48 @@
              xmlns:pages="clr-namespace:Material.Avalonia.Demo.Pages"
              x:Class="Material.Avalonia.Demo.Pages.Home"
              x:DataType="pages:Home">
-    <!--UserControl.Resources>
+  <!--UserControl.Resources>
       <conv:EnumDescriptionConverter x:Key="GetDescription"/>
     </UserControl.Resources-->
-    <StackPanel Margin="16, 0" MaxWidth="700">
-        <StackPanel.Styles>
-            <Style Selector="TextBlock.Content, TextBlock.Subheadline">
-                <Setter Property="HorizontalAlignment" Value="Stretch" />
-                <Setter Property="TextAlignment" Value="Center" />
-                <Setter Property="TextWrapping" Value="Wrap" />
-            </Style>
-        </StackPanel.Styles>
-        <Image Width="200" Height="200"
-               HorizontalAlignment="Center" VerticalAlignment="Top"
-               Source="avares://Material.Avalonia.Demo/Assets/FavIcon_200x.png" Margin="32,32,32,24" />
-        <TextBlock Classes="Headline4 Subheadline" Text="👋 Welcome to Material.Avalonia Demo!" />
-        <TextBlock Classes="Content"
-                   Text="Material.Avalonia is a library that could beauty and turning your Avalonia Application from regular design to Material Design like Material Design in XAML! It easy for use to your project! Just install NuGet package, slightly change your App.xaml / App.axaml and your application are ready to go with Material Design!" />
-        <TextBlock Classes="Content"
-                   Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!" />
-        <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!" />
-        <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press F12." />
+  <StackPanel Margin="16, 0" MaxWidth="700">
+    <StackPanel.Styles>
+      <Style Selector="TextBlock.Content, TextBlock.Subheadline">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+      </Style>
+    </StackPanel.Styles>
+    <Image Width="200" Height="200"
+           HorizontalAlignment="Center" VerticalAlignment="Top"
+           Source="avares://Material.Avalonia.Demo/Assets/FavIcon_200x.png" Margin="32,32,32,24" />
+    <TextBlock Classes="Headline4 Subheadline" Text="👋 Welcome to Material.Avalonia Demo!" />
+    <TextBlock Classes="Content"
+               Text="Material.Avalonia is a library that could beauty and turning your Avalonia Application from regular design to Material Design like Material Design in XAML! It easy for use to your project! Just install NuGet package, slightly change your App.xaml / App.axaml and your application are ready to go with Material Design!" />
+    <TextBlock Classes="Content"
+               Text="This project is still in development. Not all controls are ready for use, and could be buggy. Don't worry! some basic controls (Buttons, Switch, TextBox and etc.) are ready for use for now! and other controls will be ready later!" />
+    <TextBlock Classes="Content" Text="Press drawer button to start widgets tours!" />
+    <TextBlock Classes="Content" Text="For attaching AvaloniaUI DevTools - Press F12." />
 
-        <StackPanel Margin="16">
-            <StackPanel.Styles>
-                <Style Selector="Button">
-                    <Setter Property="Margin" Value="4" />
-                    <Setter Property="Theme" Value="{StaticResource MaterialFlatButton}" />
-                </Style>
-            </StackPanel.Styles>
-            <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
-                <Button Content="PROJECT LINK" Classes="primary" Command="{Binding Path=OpenProjectRepoLink}" />
-                <Button Content="USE DARK THEME" Classes="primary" Command="{Binding Path=UseMaterialUIDarkTheme}" />
-                <Button Content="USE LIGHT THEME" Classes="primary" Command="{Binding Path=UseMaterialUILightTheme}" />
-            </WrapPanel>
-            <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
-                <Button Content="SWITCH TRANSITIONS" Classes="primary" Command="{Binding Path=SwitchTransition}" />
-                <Button IsVisible="{OnPlatform Default=False,Windows=True,Linux=True, macOS=True}" Content="Window TitleBar" Classes="primary" Command="{Binding Path=ToggleWindowExtendClientAreaToDecorationsHint}" />
-                <Button Content="ABOUT AVALONIAUI" Classes="primary" Command="{Binding Path=ShowAboutAvaloniaUI}" />
-            </WrapPanel>
-        </StackPanel>
-        <!-- Features listing is disabled. -->
-        <!--
+    <StackPanel Margin="16">
+      <StackPanel.Styles>
+        <Style Selector="Button">
+          <Setter Property="Margin" Value="4" />
+          <Setter Property="Theme" Value="{StaticResource MaterialFlatButton}" />
+        </Style>
+      </StackPanel.Styles>
+      <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
+        <Button Content="PROJECT LINK" Classes="primary" Command="{Binding Path=OpenProjectRepoLink}" />
+        <Button Content="USE DARK THEME" Classes="primary" Command="{Binding Path=UseMaterialUIDarkTheme}" />
+        <Button Content="USE LIGHT THEME" Classes="primary" Command="{Binding Path=UseMaterialUILightTheme}" />
+      </WrapPanel>
+      <WrapPanel HorizontalAlignment="Center" MaxWidth="600">
+        <Button Content="SWITCH TRANSITIONS" Classes="primary" Command="{Binding Path=SwitchTransition}" />
+        <Button IsVisible="{OnPlatform Default=False,Windows=True,Linux=True,macOS=True}" Content="Window TitleBar" Classes="primary" Command="{Binding Path=ToggleWindowExtendClientAreaToDecorationsHint}" />
+        <Button Content="ABOUT AVALONIAUI" Classes="primary" Command="{Binding Path=ShowAboutAvaloniaUI}" />
+      </WrapPanel>
+    </StackPanel>
+    <!-- Features listing is disabled. -->
+    <!--
             <StackPanel Margin="0,24">
               <DataGrid Height="620"
                         IsReadOnly="True"
@@ -83,5 +83,5 @@
               </DataGrid>
             </StackPanel>
             -->
-    </StackPanel>
+  </StackPanel>
 </UserControl>
