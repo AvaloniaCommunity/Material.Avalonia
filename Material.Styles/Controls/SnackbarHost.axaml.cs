@@ -40,6 +40,7 @@ namespace Material.Styles.Controls {
             // Initialize model collection
             _snackbars = new ObservableCollection<SnackbarModel>();
         }
+
         public ObservableCollection<SnackbarModel> SnackbarModels => _snackbars;
 
         /// <summary>
@@ -90,7 +91,10 @@ namespace Material.Styles.Controls {
                 // THIS IS IMPOSSIBLE TO HAPPEN! But I kept this for any reasons.
                 throw new NullReferenceException("Snackbar hosts pool is not initialized!");
 
-            if (SnackbarHostDictionary.Count == 0) throw new InvalidOperationException("No SnackbarHosts found in your application. Add SnackbarHost control to your markup (e.g. wrap all MainWindow content with SnackbarHost control)");
+            if (SnackbarHostDictionary.Count == 0) {
+                throw new InvalidOperationException(
+                    "No SnackbarHosts found in your application. Add SnackbarHost control to your markup (e.g. wrap all MainWindow content with SnackbarHost control)");
+            }
 
             return SnackbarHostDictionary.First().Key;
         }
@@ -110,8 +114,9 @@ namespace Material.Styles.Controls {
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
         /// <param name="priority">the priority of current task.</param>
         public static void Post(string text, string? targetHost,
-                                DispatcherPriority priority) =>
+            DispatcherPriority priority) {
             Post(new SnackbarModel(text), targetHost, priority);
+        }
 
         /// <summary>
         /// Post an snackbar with custom content and button (only one).
@@ -120,7 +125,7 @@ namespace Material.Styles.Controls {
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
         /// <param name="priority">the priority of current task.</param>
         public static void Post(SnackbarModel model, string? targetHost,
-                                DispatcherPriority priority) {
+            DispatcherPriority priority) {
             if (string.IsNullOrEmpty(targetHost))
                 targetHost = GetFirstHostName();
 
@@ -173,7 +178,7 @@ namespace Material.Styles.Controls {
         /// <param name="targetHost">the snackbar host that you wanted to use.</param>
         /// <param name="priority">the priority of current task.</param>
         public static void Remove(SnackbarModel model, string? targetHost,
-                                  DispatcherPriority priority) {
+            DispatcherPriority priority) {
             if (string.IsNullOrEmpty(targetHost))
                 targetHost = GetFirstHostName();
 
@@ -191,18 +196,28 @@ namespace Material.Styles.Controls {
         }
 
         private void RemoveSnackbarModel(SnackbarModel model,
-                                         DispatcherPriority priority) {
+            DispatcherPriority priority) {
             Dispatcher.UIThread.Post(delegate { SnackbarModels.Remove(model); }, priority);
         }
 
         protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e) {
-            SnackbarHostDictionary.Add(HostName, this);
+            if (string.IsNullOrEmpty(HostName)) {
+                throw new ArgumentNullException(nameof(HostName),
+                    "The name of SnackbarHost is null. Please define it.");
+            }
+
+            // The designer can attach the same visual tree more than once.
+            // Replace a stale registration instead of throwing on duplicate keys.
+            SnackbarHostDictionary[HostName] = this;
 
             base.OnAttachedToVisualTree(e);
         }
 
         protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e) {
-            SnackbarHostDictionary.Remove(HostName);
+            if (!string.IsNullOrEmpty(HostName) &&
+                SnackbarHostDictionary.TryGetValue(HostName, out var host) &&
+                ReferenceEquals(host, this))
+                SnackbarHostDictionary.Remove(HostName);
 
             base.OnDetachedFromVisualTree(e);
         }
