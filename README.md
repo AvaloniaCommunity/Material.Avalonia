@@ -4,6 +4,8 @@
 
 [Nuget.Material.Avalonia.TreeDataGrid]: https://www.nuget.org/packages/Material.Avalonia.TreeDataGrid/
 
+[TreeDataGrid]: https://github.com/wieslawsoltes/TreeDataGrid
+
 [Nuget.Material.Avalonia.Dialogs]: https://www.nuget.org/packages/Material.Avalonia.Dialogs/
 
 [icon]: https://raw.githubusercontent.com/AvaloniaCommunity/Material.Avalonia/master/wiki/FavIcon.svg
@@ -65,7 +67,7 @@ Or follow these instructions:
       [![Nuget.Material.Avalonia.DataGrid](https://img.shields.io/nuget/vpre/Material.Avalonia.DataGrid?label=Material.Avalonia.DataGrid&style=flat-square)][Nuget.Material.Avalonia.DataGrid]
       [![Nuget.Material.Avalonia.DataGrid](https://img.shields.io/nuget/dt/Material.Avalonia.DataGrid?color=blue&label=Downloads&style=flat-square)][Nuget.Material.Avalonia.DataGrid]
 
-    - If you want to use `TreeDataGrid` control, add [Material.Avalonia.TreeDataGrid][Nuget.Material.Avalonia.TreeDataGrid] package:
+    - If you want to use the community [TreeDataGrid][TreeDataGrid] control by Wieslaw Soltes, add [Material.Avalonia.TreeDataGrid][Nuget.Material.Avalonia.TreeDataGrid] package:
        ```shell
        dotnet add package Material.Avalonia.TreeDataGrid
        ```

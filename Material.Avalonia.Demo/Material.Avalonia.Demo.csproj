@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Material.Avalonia\Material.Avalonia.csproj" />
     <ProjectReference Include="..\Material.Avalonia.Dialogs\Material.Avalonia.Dialogs.csproj" />
     <ProjectReference Include="..\Material.Avalonia.DataGrid\Material.Avalonia.DataGrid.csproj" />
+    <ProjectReference Include="..\Material.Avalonia.TreeDataGrid\Material.Avalonia.TreeDataGrid.csproj" />
   </ItemGroup>
 
   <ItemGroup>

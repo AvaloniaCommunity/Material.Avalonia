@@ -1,0 +1,133 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             xmlns:viewModels="clr-namespace:Material.Avalonia.Demo.ViewModels"
+             xmlns:models="clr-namespace:Material.Avalonia.Demo.Models"
+             xmlns:treeDataGrid="clr-namespace:Material.Avalonia.Demo.Models.TreeDataGrid"
+             x:Class="Material.Avalonia.Demo.Pages.TreeDataGridsDemo">
+  <StackPanel Margin="16, 0">
+
+    <!-- Content title -->
+    <TextBlock Classes="Headline4 Subheadline" Text="TreeDataGrid" />
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Operation systems tree" />
+    <!-- Demos -->
+    <showMeTheXaml:XamlDisplay UniqueId="TreeDataGrid0"
+                               Grid.Row="0"
+                               HorizontalAlignment="Left">
+      <controls:Card Classes="ChildDemo"
+                     Width="320"
+                     Height="320"
+                     Padding="0">
+        <TreeDataGrid x:Name="TreeDemo"
+                      Grid.Row="1" Grid.Column="0"
+                      x:DataType="viewModels:TreeDataGridsDemoViewModel"
+                      Source="{Binding OsTreeSource, Mode=OneWay}"
+                      ShowColumnHeaders="False"
+                      BorderBrush="Transparent">
+          <TreeDataGrid.Resources>
+            <DataTemplate x:Key="OsCell" x:DataType="treeDataGrid:OsItem">
+              <Grid ColumnDefinitions="Auto 8 *" VerticalAlignment="Center">
+                <avalonia:MaterialIcon Kind="{Binding Icon}" />
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Name}" />
+              </Grid>
+            </DataTemplate>
+          </TreeDataGrid.Resources>
+        </TreeDataGrid>
+      </controls:Card>
+    </showMeTheXaml:XamlDisplay>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Countries table" />
+    <showMeTheXaml:XamlDisplay UniqueId="TreeDataGrid1"
+                                Margin="0 8"
+                                Grid.Row="1"
+                                HorizontalAlignment="Stretch">
+      <controls:Card Classes="ChildDemo"
+                     Height="400"
+                     Padding="0">
+        <TreeDataGrid x:Name="TableDemo"
+                      x:DataType="viewModels:TreeDataGridsDemoViewModel"
+                      Source="{Binding CountriesSource}"
+                      AutoDragDropRows="True">
+          <TreeDataGrid.Resources>
+            <DataTemplate x:Key="RegionCell" DataType="treeDataGrid:Country">
+              <TextBlock Text="{Binding Region}"
+                         VerticalAlignment="Center" />
+            </DataTemplate>
+            <DataTemplate x:Key="RegionEditCell" DataType="treeDataGrid:Country">
+              <ComboBox ItemsSource="{x:Static treeDataGrid:Countries.Regions}"
+                        SelectedItem="{Binding Region}" />
+            </DataTemplate>
+          </TreeDataGrid.Resources>
+        </TreeDataGrid>
+      </controls:Card>
+    </showMeTheXaml:XamlDisplay>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Avalonia 12 XAML columns - flat items" />
+    <showMeTheXaml:XamlDisplay UniqueId="TreeDataGrid2"
+                               Margin="0 8"
+                               HorizontalAlignment="Stretch">
+      <controls:Card Classes="ChildDemo"
+                     Height="320"
+                     Padding="0">
+        <Border BorderBrush="{DynamicResource MaterialDividerBrush}"
+                BorderThickness="1"
+                CornerRadius="4">
+          <TreeDataGrid ItemsSource="{Binding People}"
+                        x:CompileBindings="False">
+            <TreeDataGridTextColumn Header="First name"
+                                    Binding="{Binding FirstName}"
+                                    Width="180" />
+            <TreeDataGridTextColumn Header="Last name"
+                                    Binding="{Binding LastName}"
+                                    Width="180" />
+            <TreeDataGridTextColumn Header="Age"
+                                    Binding="{Binding Age}"
+                                    TextAlignment="Right"
+                                    Width="80" />
+            <TreeDataGridTextColumn Header="City"
+                                    Binding="{Binding City}"
+                                    Width="*" />
+            <TreeDataGridCheckBoxColumn Header="Active"
+                                        Binding="{Binding IsActive}"
+                                        Width="96" />
+          </TreeDataGrid>
+        </Border>
+      </controls:Card>
+    </showMeTheXaml:XamlDisplay>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Avalonia 12 XAML columns - hierarchical items" />
+    <showMeTheXaml:XamlDisplay UniqueId="TreeDataGrid3"
+                               Margin="0 8"
+                               HorizontalAlignment="Stretch">
+      <controls:Card Classes="ChildDemo"
+                     Height="320"
+                     Padding="0">
+        <Border BorderBrush="{DynamicResource MaterialDividerBrush}"
+                BorderThickness="1"
+                CornerRadius="4">
+          <TreeDataGrid ItemsSource="{Binding FileTree}"
+                        x:CompileBindings="False">
+            <TreeDataGridHierarchicalExpanderColumn ChildrenBinding="{Binding Children}">
+              <TreeDataGridTextColumn Header="Name"
+                                      Binding="{Binding Name}"
+                                      Width="*" />
+            </TreeDataGridHierarchicalExpanderColumn>
+            <TreeDataGridTextColumn Header="Kind"
+                                    Binding="{Binding Kind}"
+                                    Width="140" />
+            <TreeDataGridTextColumn Header="Size"
+                                    Binding="{Binding Size}"
+                                    TextAlignment="Right"
+                                    Width="120" />
+          </TreeDataGrid>
+        </Border>
+      </controls:Card>
+    </showMeTheXaml:XamlDisplay>
+  </StackPanel>
+</UserControl>

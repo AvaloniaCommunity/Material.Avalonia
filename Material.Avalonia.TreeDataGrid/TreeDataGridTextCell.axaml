@@ -1,0 +1,51 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type TreeDataGridTextCell}" TargetType="TreeDataGridTextCell">
+    <Setter Property="Padding" Value="16 0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border x:Name="CellBorder"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}">
+          <TextBlock Text="{TemplateBinding Value}"
+                     TextTrimming="{TemplateBinding TextTrimming}"
+                     TextWrapping="{TemplateBinding TextWrapping}"
+                     TextAlignment="{TemplateBinding TextAlignment}"
+                     VerticalAlignment="Center" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:editing">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border x:Name="CellBorder"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}">
+            <TextBox x:Name="PART_Edit"
+                     Classes="dense"
+                     TextAlignment="{TemplateBinding TextAlignment}"
+                     VerticalAlignment="Center"
+                     Text="{TemplateBinding Value, Mode=TwoWay}" />
+          </Border>
+        </ControlTemplate>
+      </Setter>
+    </Style>
+
+    <Style Selector="^:editing /template/ TextBox#PART_Edit">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="^:editing /template/ TextBox#PART_Edit DataValidationErrors">
+      <Setter Property="Template" Value="{DynamicResource TooltipDataValidationContentTemplate}" />
+      <Setter Property="ErrorTemplate" Value="{DynamicResource TooltipDataValidationErrorTemplate}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
