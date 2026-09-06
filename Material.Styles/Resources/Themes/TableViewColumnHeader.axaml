@@ -1,7 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Double x:Key="TableViewColumnResizerWidth">12</x:Double>
-  <Thickness x:Key="TableViewColumnResizerMargin">0,-9,-6,-12</Thickness>
 
   <ControlTemplate x:Key="TableViewColumnHeaderResizerTemplate" TargetType="Thumb">
     <Border Background="Transparent">
@@ -12,6 +11,8 @@
   </ControlTemplate>
 
   <ControlTheme x:Key="MaterialTableViewColumnHeader" TargetType="TableViewColumnHeader">
+    <Setter Property="MinHeight" Value="56" />
+    <Setter Property="Background" Value="Transparent" />
     <Setter Property="FontWeight" Value="SemiBold" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialColumnHeaderBrush}" />
     <Setter Property="Padding" Value="{DynamicResource TableViewCellPadding}" />
@@ -36,11 +37,15 @@
                  Width="{DynamicResource TableViewColumnResizerWidth}"
                  HorizontalAlignment="Right"
                  Cursor="SizeWestEast"
-                 Margin="{DynamicResource TableViewColumnResizerMargin}"
                  IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Column?.CanUserEffectivelyResize, FallbackValue=False}" />
         </Panel>
       </ControlTemplate>
     </Setter>
+
+    <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="TextBlock.TextWrapping" Value="NoWrap" />
+      <Setter Property="TextBlock.TextTrimming" Value="CharacterEllipsis" />
+    </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type TableViewColumnHeader}"

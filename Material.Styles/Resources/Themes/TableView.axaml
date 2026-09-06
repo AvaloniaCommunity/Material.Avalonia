@@ -6,11 +6,7 @@
       <ControlTemplate>
         <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,Auto">
           <DockPanel Name="ContentPanel">
-            <Border Background="{DynamicResource MaterialToolBarBackgroundBrush}"
-                    Padding="{DynamicResource TableViewRowPadding}"
-                    DockPanel.Dock="Top">
-              <TableViewColumnHeadersPresenter />
-            </Border>
+            <TableViewColumnHeadersPresenter DockPanel.Dock="Top" />
             <Rectangle Height="1" Fill="{DynamicResource MaterialDividerBrush}" DockPanel.Dock="Top" />
             <ScrollContentPresenter Name="PART_ContentPresenter"
                                     Background="{TemplateBinding Background}"
@@ -53,7 +49,7 @@
 
   <ControlTheme x:Key="MaterialTableView" TargetType="TableView">
     <Setter Property="Foreground" Value="{DynamicResource MaterialBodyBrush}" />
-    <Setter Property="Background" Value="{DynamicResource MaterialBackgroundBrush}" />
+    <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialDividerBrush}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
