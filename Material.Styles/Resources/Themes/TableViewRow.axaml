@@ -1,0 +1,54 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Thickness x:Key="TableViewRowPadding">6,9,6,12</Thickness>
+
+  <ControlTheme x:Key="MaterialTableViewRow" TargetType="TableViewRow">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="{DynamicResource TableViewRowPadding}" />
+    <Setter Property="MinHeight" Value="52" />
+    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDividerBrush}" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="Border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+          <TableViewCellsPresenter Name="PART_CellsPresenter" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:disabled /template/ Border#Border">
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyLightBrush}" />
+    </Style>
+    <Style Selector="^:pointerover /template/ Border#Border">
+      <Setter Property="Background" Value="{DynamicResource MaterialDataGridRowHoverBackgroundBrush}" />
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    </Style>
+    <Style Selector="^:pressed /template/ Border#Border">
+      <Setter Property="Background" Value="{DynamicResource MaterialDataGridRowHoverBackgroundBrush}" />
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+    </Style>
+    <Style Selector="^:selected">
+      <Style Selector="^ /template/ Border#Border">
+        <Setter Property="Background" Value="{DynamicResource MaterialDataGridRowHoverBackgroundBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyBrush}" />
+      </Style>
+      <Style Selector="^:pointerover /template/ Border#Border">
+        <Setter Property="Background" Value="{DynamicResource MaterialDataGridRowHoverBackgroundBrush}" />
+      </Style>
+      <Style Selector="^:pressed /template/ Border#Border">
+        <Setter Property="Background" Value="{DynamicResource MaterialDataGridRowHoverBackgroundBrush}" />
+      </Style>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TableViewRow}"
+                TargetType="TableViewRow"
+                BasedOn="{StaticResource MaterialTableViewRow}" />
+</ResourceDictionary>

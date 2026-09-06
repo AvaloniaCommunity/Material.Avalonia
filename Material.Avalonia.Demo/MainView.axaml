@@ -85,6 +85,7 @@
                 <ListBoxItem>Sliders</ListBoxItem>
                 <ListBoxItem>Snackbar</ListBoxItem>
                 <ListBoxItem>TabControls</ListBoxItem>
+                <ListBoxItem>TableView</ListBoxItem>
                 <ListBoxItem>Toggles</ListBoxItem>
                 <ListBoxItem>TreeDataGrids</ListBoxItem>
                 <ListBoxItem>TreeViews</ListBoxItem>
@@ -225,6 +226,9 @@
 
                 <!-- TabControls -->
                 <pages:TabsDemo />
+
+                <!-- TableView -->
+                <pages:TableViewDemo />
 
                 <!-- Toggles -->
                 <pages:TogglesDemo />
