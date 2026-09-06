@@ -21,7 +21,7 @@
     <PackageReference Include="TextMateSharp.Wasm"/>
 
     <PackageVersion Update="Avalonia.Controls.ItemsRepeater" Version="12.0.0"/>
-    <PackageVersion Update="Avalonia.Controls.DataGrid" Version="12.1.0"/>
+    <PackageVersion Update="Avalonia.Controls.DataGrid" Version="12.1.1"/>
   </ItemGroup>
 
   <ItemGroup>

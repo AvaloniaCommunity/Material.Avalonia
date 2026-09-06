@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:Material.Avalonia.Demo.Converters"
+             xmlns:viewModels="clr-namespace:Material.Avalonia.Demo.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Material.Avalonia.Demo.Pages.TableViewDemo"
+             x:DataType="viewModels:TableViewDemoViewModel">
+  <UserControl.Resources>
+    <converters:TableViewColumnWidthConverter x:Key="TableViewColumnWidthConverter" />
+    <converters:GdpToBrushConverter x:Key="GdpToBrushConverter" />
+    <ControlTheme x:Key="GdpCellTheme"
+                  TargetType="TableViewCell"
+                  BasedOn="{StaticResource {x:Type TableViewCell}}"
+                  x:DataType="viewModels:TableViewDemoViewModel+Country">
+      <Setter Property="Background" Value="{Binding Gdp, Converter={StaticResource GdpToBrushConverter}}" />
+    </ControlTheme>
+  </UserControl.Resources>
+
+  <Grid RowDefinitions="Auto,*" Margin="16,0">
+    <StackPanel Orientation="Horizontal" Spacing="16">
+      <CheckBox Name="UseStarSizes" Content="Use star-sized columns" IsChecked="True" />
+      <CheckBox Name="CanUserResizeColumns" Content="Allow column resizing" IsChecked="True" />
+    </StackPanel>
+    <Border Grid.Row="1" Margin="0,12,0,16" BorderBrush="{DynamicResource MaterialDividerBrush}"
+            BorderThickness="1" CornerRadius="4" ClipToBounds="True">
+      <TableView ItemsSource="{Binding Countries}"
+                 CanUserResizeColumns="{Binding #CanUserResizeColumns.IsChecked}">
+        <TableView.Columns>
+          <TableViewColumn Header="Name" Binding="{Binding Name}"
+                           Width="{Binding #UseStarSizes.IsChecked, Converter={StaticResource TableViewColumnWidthConverter}, ConverterParameter=3}" />
+          <TableViewColumn Header="Region" Binding="{Binding Region}"
+                           Width="{Binding #UseStarSizes.IsChecked, Converter={StaticResource TableViewColumnWidthConverter}, ConverterParameter=2}" />
+          <TableViewColumn Header="Population" Binding="{Binding Population, StringFormat=N0}"
+                           HorizontalContentAlignment="Right"
+                           Width="{Binding #UseStarSizes.IsChecked, Converter={StaticResource TableViewColumnWidthConverter}, ConverterParameter=1.5}" />
+          <TableViewColumn Header="Area" Binding="{Binding Area, StringFormat=N0}"
+                           HorizontalContentAlignment="Right"
+                           Width="{Binding #UseStarSizes.IsChecked, Converter={StaticResource TableViewColumnWidthConverter}, ConverterParameter=1}" />
+          <TableViewColumn Header="GDP" Binding="{Binding Gdp, StringFormat=N0}"
+                           HorizontalContentAlignment="Right"
+                           CellTheme="{StaticResource GdpCellTheme}"
+                           Width="{Binding #UseStarSizes.IsChecked, Converter={StaticResource TableViewColumnWidthConverter}, ConverterParameter=1}" />
+        </TableView.Columns>
+      </TableView>
+    </Border>
+  </Grid>
+</UserControl>
