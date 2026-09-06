@@ -5,10 +5,11 @@
              xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
              xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:demo="clr-namespace:Material.Avalonia.Demo"
              xmlns:models="clr-namespace:Material.Avalonia.Demo.Models"
-             xmlns:pages="clr-namespace:Material.Avalonia.Demo.Pages"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Material.Avalonia.Demo.MainView">
+             x:Class="Material.Avalonia.Demo.MainView"
+             x:Name="Root">
   <UserControl.Styles>
     <Style Selector="TextBlock.Subheadline">
       <Setter Property="Margin" Value="0, 16" />
@@ -62,34 +63,14 @@
                     <Setter Property="VerticalContentAlignment" Value="Center" />
                   </Style>
                 </ListBox.Styles>
-                <ListBoxItem>Home</ListBoxItem>
-                <ListBoxItem>Badges</ListBoxItem>
-                <ListBoxItem>Buttons</ListBoxItem>
-                <ListBoxItem>Carousel</ListBoxItem>
-                <ListBoxItem>Card</ListBoxItem>
-                <ListBoxItem>ColorZones</ListBoxItem>
-                <ListBoxItem>Colors</ListBoxItem>
-                <ListBoxItem>ComboBoxes</ListBoxItem>
-                <ListBoxItem>Date/Time pickers</ListBoxItem>
-                <ListBoxItem>Dialogs</ListBoxItem>
-                <ListBoxItem>Expanders</ListBoxItem>
-                <ListBoxItem>Fields</ListBoxItem>
-                <ListBoxItem>Fields line up</ListBoxItem>
-                <ListBoxItem>Lists</ListBoxItem>
-                <ListBoxItem>Material Icons</ListBoxItem>
-                <ListBoxItem>Pages</ListBoxItem>
-                <ListBoxItem>Progress indicators</ListBoxItem>
-                <ListBoxItem>ScrollViewer</ListBoxItem>
-                <!-- <ListBoxItem>Shadows</ListBoxItem> -->
-                <ListBoxItem>SideSheet</ListBoxItem>
-                <ListBoxItem>Sliders</ListBoxItem>
-                <ListBoxItem>Snackbar</ListBoxItem>
-                <ListBoxItem>TabControls</ListBoxItem>
-                <ListBoxItem>TableView</ListBoxItem>
-                <ListBoxItem>Toggles</ListBoxItem>
-                <ListBoxItem>TreeDataGrids</ListBoxItem>
-                <ListBoxItem>TreeViews</ListBoxItem>
-                <ListBoxItem>Typography</ListBoxItem>
+                <ListBox.ItemsSource>
+                  <Binding Path="PageDefinitions" ElementName="Root" />
+                </ListBox.ItemsSource>
+                <ListBox.ItemTemplate>
+                  <DataTemplate DataType="demo:DemoPageDefinition">
+                    <TextBlock Text="{Binding Title}" />
+                  </DataTemplate>
+                </ListBox.ItemTemplate>
               </ListBox>
             </StackPanel>
           </ScrollViewer>
@@ -148,100 +129,9 @@
                         HorizontalScrollBarVisibility="Disabled">
             <Border HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch">
-              <Carousel Name="PageCarousel"
-                        HorizontalAlignment="Stretch">
-                <Carousel.Styles>
-                  <Style Selector="Carousel#PageCarousel:not(.no-transitions)">
-                    <Setter Property="PageTransition">
-                      <PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut"
-                                 SlideInEasing="CircularEaseOut" />
-                    </Setter>
-                  </Style>
-                </Carousel.Styles>
-                <!-- Main page -->
-                <pages:Home />
-
-                <!-- Badges -->
-                <pages:BadgesDemo />
-
-                <!-- Buttons -->
-                <pages:ButtonsDemo />
-
-                <!-- Carousel -->
-                <pages:CarouselDemo />
-
-                <!-- Card -->
-                <pages:CardsDemo />
-
-                <!-- ColorZones -->
-                <pages:ColorZonesDemo />
-
-                <!-- Colors -->
-                <pages:ColorsDemo />
-
-                <!-- ComboBoxes -->
-                <pages:ComboBoxesDemo />
-
-                <!-- Pickers -->
-                <pages:DateTimePickerDemo />
-
-                <!-- Dialogs -->
-                <pages:DialogDemo />
-
-                <!-- Expanders -->
-                <pages:ExpandersDemo />
-
-                <!-- Fields -->
-                <pages:FieldsDemo />
-
-                <!-- FieldsLline up -->
-                <pages:FieldsLineUpDemo />
-
-                <!-- Lists -->
-                <pages:ListsDemo />
-
-                <!-- Icons -->
-                <pages:IconsDemo ScrollViewer.VerticalScrollBarVisibility="Disabled" />
-
-                <!-- Pages -->
-                <pages:PagesDemo />
-
-                <!-- Progress indicators -->
-                <pages:ProgressIndicatorDemo />
-
-                <!-- ScrollViewer -->
-                <pages:ScrollViewerDemo />
-
-                <!-- Shadows -->
-                <!-- <pages:NotReadyDemo /> -->
-
-                <!-- SideSheet -->
-                <pages:SideSheetDemo />
-
-                <!-- Sliders -->
-                <pages:SlidersDemo />
-
-                <!-- Snackbar -->
-                <pages:SnackbarDemo />
-
-                <!-- TabControls -->
-                <pages:TabsDemo />
-
-                <!-- TableView -->
-                <pages:TableViewDemo />
-
-                <!-- Toggles -->
-                <pages:TogglesDemo />
-
-                <!-- TreeDataGrids -->
-                <pages:TreeDataGridsDemo />
-
-                <!-- TreeViews -->
-                <pages:TreeViewsDemo />
-
-                <!-- Typography -->
-                <pages:TypographyDemo />
-              </Carousel>
+              <ContentControl Name="PageContent"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalContentAlignment="Stretch" />
             </Border>
           </ScrollViewer>
         </DockPanel>

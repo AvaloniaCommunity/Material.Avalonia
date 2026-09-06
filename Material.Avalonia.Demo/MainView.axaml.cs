@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
+using Material.Avalonia.Demo.Pages;
 using Material.Styles.Controls;
 using Material.Styles.Models;
 using Material.Styles.Themes;
@@ -13,11 +15,44 @@ using Material.Styles.Themes.Base;
 namespace Material.Avalonia.Demo;
 
 public partial class MainView : UserControl {
+    private readonly Dictionary<int, Control> _pageCache = new();
+
     public MainView() {
         InitializeComponent();
         DrawerList.PointerReleased += DrawerSelectionChanged;
         DrawerList.KeyUp += DrawerList_KeyUp;
+        PageContent.Content = GetPage(0);
     }
+
+    public IReadOnlyList<DemoPageDefinition> PageDefinitions { get; } = new[] {
+        new DemoPageDefinition("Home", () => new Home()),
+        new DemoPageDefinition("Badges", () => new BadgesDemo()),
+        new DemoPageDefinition("Buttons", () => new ButtonsDemo()),
+        new DemoPageDefinition("Carousel", () => new CarouselDemo()),
+        new DemoPageDefinition("Card", () => new CardsDemo()),
+        new DemoPageDefinition("ColorZones", () => new ColorZonesDemo()),
+        new DemoPageDefinition("Colors", () => new ColorsDemo()),
+        new DemoPageDefinition("ComboBoxes", () => new ComboBoxesDemo()),
+        new DemoPageDefinition("Date/Time pickers", () => new DateTimePickerDemo()),
+        new DemoPageDefinition("Dialogs", () => new DialogDemo()),
+        new DemoPageDefinition("Expanders", () => new ExpandersDemo()),
+        new DemoPageDefinition("Fields", () => new FieldsDemo()),
+        new DemoPageDefinition("Fields line up", () => new FieldsLineUpDemo()),
+        new DemoPageDefinition("Lists", () => new ListsDemo()),
+        new DemoPageDefinition("Material Icons", () => new IconsDemo(), ScrollBarVisibility.Disabled),
+        new DemoPageDefinition("Pages", () => new PagesDemo()),
+        new DemoPageDefinition("Progress indicators", () => new ProgressIndicatorDemo()),
+        new DemoPageDefinition("ScrollViewer", () => new ScrollViewerDemo()),
+        new DemoPageDefinition("SideSheet", () => new SideSheetDemo()),
+        new DemoPageDefinition("Sliders", () => new SlidersDemo()),
+        new DemoPageDefinition("Snackbar", () => new SnackbarDemo()),
+        new DemoPageDefinition("TabControls", () => new TabsDemo()),
+        new DemoPageDefinition("TableView", () => new TableViewDemo()),
+        new DemoPageDefinition("Toggles", () => new TogglesDemo()),
+        new DemoPageDefinition("TreeDataGrids", () => new TreeDataGridsDemo()),
+        new DemoPageDefinition("TreeViews", () => new TreeViewsDemo()),
+        new DemoPageDefinition("Typography", () => new TypographyDemo())
+    };
 
     private void DrawerList_KeyUp(object? sender, KeyEventArgs e) {
         if (e.Key == Key.Space || e.Key == Key.Enter)
@@ -31,10 +66,13 @@ public partial class MainView : UserControl {
         if (!listBox.IsFocused && !listBox.IsKeyboardFocusWithin)
             return;
         try {
-            PageCarousel.SelectedIndex = listBox.SelectedIndex;
+            if (listBox.SelectedIndex < 0 || listBox.SelectedIndex >= PageDefinitions.Count)
+                return;
+
+            PageContent.Content = GetPage(listBox.SelectedIndex);
             mainScroller.Offset = Vector.Zero;
             mainScroller.VerticalScrollBarVisibility =
-                ((Control)PageCarousel.SelectedItem!).GetValue(ScrollViewer.VerticalScrollBarVisibilityProperty);
+                PageDefinitions[listBox.SelectedIndex].VerticalScrollBarVisibility;
         }
         catch {
             // ignored
@@ -42,6 +80,16 @@ public partial class MainView : UserControl {
 
         LeftDrawer.OptionalCloseLeftDrawer();
     }
+
+    private Control GetPage(int index) {
+        if (!_pageCache.TryGetValue(index, out var page)) {
+            page = PageDefinitions[index].Factory();
+            _pageCache[index] = page;
+        }
+
+        return page;
+    }
+
 
     private void TemplatedControl_OnTemplateApplied(object? sender, TemplateAppliedEventArgs e) {
         SnackbarHost.Post("Welcome to demo of Material.Avalonia!", null, DispatcherPriority.Normal);
@@ -90,3 +138,8 @@ public partial class MainView : UserControl {
             materialTheme.BaseTheme == BaseThemeMode.Light ? BaseThemeMode.Dark : BaseThemeMode.Light;
     }
 }
+
+public sealed record DemoPageDefinition(
+    string Title,
+    Func<Control> Factory,
+    ScrollBarVisibility VerticalScrollBarVisibility = ScrollBarVisibility.Auto);
