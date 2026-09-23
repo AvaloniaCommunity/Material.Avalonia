@@ -19,7 +19,8 @@
 
           <ScrollViewer Name="PART_ScrollViewer">
             <ItemsPresenter Name="PART_ItemsPresenter"
-                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            Grid.IsSharedSizeScope="True" />
           </ScrollViewer>
         </Border>
       </ControlTemplate>
@@ -38,13 +39,13 @@
 
   <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter"
                 BasedOn="{StaticResource MaterialMenuFlyoutPresenter}" />
-  
-  <ControlTheme x:Key="MaterialHorizontalMenuFlyoutPresenter" TargetType="MenuFlyoutPresenter"  BasedOn="{StaticResource MaterialMenuFlyoutPresenter}">
+
+  <ControlTheme x:Key="MaterialHorizontalMenuFlyoutPresenter" TargetType="MenuFlyoutPresenter" BasedOn="{StaticResource MaterialMenuFlyoutPresenter}">
     <Setter Property="MinWidth" Value="32" />
     <Setter Property="Padding" Value="8, 0" />
     <Setter Property="ItemsPanel">
       <ItemsPanelTemplate>
-        <StackPanel Orientation="Horizontal"/>
+        <StackPanel Orientation="Horizontal" />
       </ItemsPanelTemplate>
     </Setter>
   </ControlTheme>
