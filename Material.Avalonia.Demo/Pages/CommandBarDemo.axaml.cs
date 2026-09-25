@@ -3,7 +3,7 @@ using Avalonia.Interactivity;
 
 namespace Material.Avalonia.Demo.Pages;
 
-public class CommandBarDemo : UserControl {
+public partial class CommandBarDemo : UserControl {
     public CommandBarDemo() {
         InitializeComponent();
     }
