@@ -32,6 +32,7 @@ public partial class MainView : UserControl {
         new DemoPageDefinition("Card", () => new CardsDemo()),
         new DemoPageDefinition("ColorZones", () => new ColorZonesDemo()),
         new DemoPageDefinition("Colors", () => new ColorsDemo()),
+        new DemoPageDefinition("CommandBar", () => new CommandBarDemo()),
         new DemoPageDefinition("ComboBoxes", () => new ComboBoxesDemo()),
         new DemoPageDefinition("Date/Time pickers", () => new DateTimePickerDemo()),
         new DemoPageDefinition("Dialogs", () => new DialogDemo()),

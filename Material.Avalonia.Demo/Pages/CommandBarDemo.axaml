@@ -1,0 +1,110 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:showMeTheXaml="clr-namespace:ShowMeTheXaml;assembly=ShowMeTheXaml.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Material.Avalonia.Demo.Pages.CommandBarDemo"
+             x:Name="CommandBarDemoPage">
+  <StackPanel Margin="16,0" Spacing="8">
+    <TextBlock Classes="Headline4 Subheadline" Text="CommandBar" />
+    <TextBlock Classes="Body1"
+               Text="A Material-styled toolbar for primary actions, secondary actions, and responsive overflow." />
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Dynamic overflow" />
+    <TextBlock Classes="Body2"
+               Text="Primary actions use 24dp icons with a 48dp touch target; less common actions keep their labels in the overflow menu." />
+    <CheckBox Content="Move primary commands into overflow when space is limited"
+              IsChecked="{Binding ElementName=DynamicCommandBar, Path=IsDynamicOverflowEnabled, Mode=TwoWay}" />
+
+    <showMeTheXaml:XamlDisplay UniqueId="CommandBarDynamicOverflow">
+      <CommandBar x:Name="DynamicCommandBar"
+                  Width="400"
+                  IsDynamicOverflowEnabled="True">
+        <CommandBar.Content>
+          <TextBlock Text="Quarterly report" Classes="Subtitle1" Margin="8,0" />
+        </CommandBar.Content>
+        <CommandBar.PrimaryCommands>
+          <CommandBarButton Label="New" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="Plus" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarButton Label="Open" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="FolderOpen" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarButton Label="Save" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="ContentSave" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarSeparator />
+          <CommandBarToggleButton Label="Bold" IsChecked="True" Click="OnCommandClick">
+            <CommandBarToggleButton.Icon>
+              <avalonia:MaterialIcon Kind="FormatBold" Width="24" Height="24" />
+            </CommandBarToggleButton.Icon>
+          </CommandBarToggleButton>
+          <CommandBarToggleButton Label="Italic" Click="OnCommandClick">
+            <CommandBarToggleButton.Icon>
+              <avalonia:MaterialIcon Kind="FormatItalic" Width="24" Height="24" />
+            </CommandBarToggleButton.Icon>
+          </CommandBarToggleButton>
+          <CommandBarButton Label="Share" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="ShareVariant" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+        </CommandBar.PrimaryCommands>
+        <CommandBar.SecondaryCommands>
+          <CommandBarButton Label="Print" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="Printer" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarButton Label="Export" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="Download" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarSeparator />
+          <CommandBarButton Label="Delete" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="Delete" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+        </CommandBar.SecondaryCommands>
+      </CommandBar>
+    </showMeTheXaml:XamlDisplay>
+
+    <TextBlock Classes="Headline6 Subheadline2" Text="Labels to the right" />
+    <showMeTheXaml:XamlDisplay UniqueId="CommandBarRightLabels">
+      <CommandBar Width="560" DefaultLabelPosition="Right">
+        <CommandBar.Content>
+          <TextBlock Text="Quick actions" Classes="Subtitle1" Margin="8,0" />
+        </CommandBar.Content>
+        <CommandBar.PrimaryCommands>
+          <CommandBarButton Label="Save" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="ContentSave" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarButton Label="Share" Click="OnCommandClick">
+            <CommandBarButton.Icon>
+              <avalonia:MaterialIcon Kind="ShareVariant" Width="24" Height="24" />
+            </CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarToggleButton Label="Favorite" Click="OnCommandClick">
+            <CommandBarToggleButton.Icon>
+              <avalonia:MaterialIcon Kind="Star" Width="24" Height="24" />
+            </CommandBarToggleButton.Icon>
+          </CommandBarToggleButton>
+        </CommandBar.PrimaryCommands>
+      </CommandBar>
+    </showMeTheXaml:XamlDisplay>
+
+    <TextBlock x:Name="StatusText" Classes="Body2" Text="Select a command to see its action here." />
+  </StackPanel>
+</UserControl>
