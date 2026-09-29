@@ -10,6 +10,7 @@
   <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
 
   <ControlTheme x:Key="MaterialButtonBase" TargetType="Button">
+    <Setter Property="assists:MenuFlyoutAssist.UseOverlayOnMacOS" Value="True" />
     <Setter Property="CornerRadius" Value="4" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
