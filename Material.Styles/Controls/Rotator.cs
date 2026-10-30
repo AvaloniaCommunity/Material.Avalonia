@@ -7,6 +7,8 @@ using Avalonia.Media;
 
 namespace Material.Styles.Controls;
 
+[Obsolete(
+    "Circular progress bar animation stops and it disappears after bringing it back to view https://github.com/AvaloniaCommunity/Material.Avalonia/issues/534. Currently left for backward compatibility, most likely will be removed later.")]
 public class Rotator : Panel {
     public static readonly DirectProperty<Rotator, double> SpeedProperty =
         AvaloniaProperty.RegisterDirect(nameof(Speed),
