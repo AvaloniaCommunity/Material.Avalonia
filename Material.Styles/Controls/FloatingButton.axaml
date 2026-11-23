@@ -1,24 +1,18 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:system="clr-namespace:System;assembly=netstandard">
+                    xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple">
   <ControlTheme x:Key="MaterialFloatingButton" TargetType="controls:FloatingButton">
     <ControlTheme.Resources>
       <ResourceDictionary>
-        <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
-        <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
-        <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
-        <system:Double x:Key="ButtonDisabledOpacity">0.38</system:Double>
         <CornerRadius x:Key="FloatingButtonRoundCorner">32</CornerRadius>
       </ResourceDictionary>
     </ControlTheme.Resources>
 
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
-    <Setter Property="FocusAdorner" Value="{x:Null}"/>
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
     <Setter Property="Background" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryMidBrush}" />
     <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryMidForegroundBrush}" />
@@ -134,11 +128,11 @@
     <Style Selector="^:pointerover:not(.no-material) /template/ Border#PART_HoverIndicator">
       <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
     </Style>
-    
+
     <Style Selector="^:pointerover:not(.no-material) /template/ Border#PART_ButtonRootBorder">
       <Setter Property="assists:ShadowAssist.Darken" Value="True" />
     </Style>
-    
+
     <Style Selector="^:focus-visible:not(.no-material) /template/ Border#PART_HoverIndicator">
       <Setter Property="Opacity" Value="{StaticResource ButtonHoveredOpacity}" />
     </Style>

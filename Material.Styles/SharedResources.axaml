@@ -1,0 +1,17 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Material.Styles.Converters"
+                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+  <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
+  <converters:MarginMultiplyConverter x:Key="MarginCreator" />
+  <SineEaseInOut x:Key="EasingConstant" />
+  <parameters:MarginMultiplyParameter x:Key="LeftMarginCreatorParam" LeftMultiplier="-1" />
+  <parameters:MarginMultiplyParameter x:Key="RightMarginCreatorParam" RightMultiplier="-1" />
+  <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
+  <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
+  <system:Double x:Key="ButtonDisabledOpacity">0.38</system:Double>
+  <system:Double x:Key="ToggleButtonHoveredOpacity">0.05</system:Double>
+  <system:Double x:Key="ToggleButtonPressedOpacity">0.12</system:Double>
+  <system:Double x:Key="ToggleButtonDisabledOpacity">0.38</system:Double>
+</ResourceDictionary>

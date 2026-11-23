@@ -1,13 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:assists="clr-namespace:Material.Styles.Assists"
-                    xmlns:system="clr-namespace:System;assembly=netstandard"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters">
-  <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
-  <system:Double x:Key="ButtonDisabledOpacity">0.38</system:Double>
-  <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
-  <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
+                    xmlns:assists="clr-namespace:Material.Styles.Assists">
 
   <ControlTheme x:Key="MaterialButtonBase" TargetType="Button">
     <Setter Property="CornerRadius" Value="4" />

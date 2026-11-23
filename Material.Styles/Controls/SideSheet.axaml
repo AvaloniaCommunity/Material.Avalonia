@@ -1,7 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:system="clr-namespace:System;assembly=netstandard">
   <Design.PreviewWith>
@@ -49,10 +47,6 @@
     </Border>
   </Design.PreviewWith>
 
-  <SineEaseInOut x:Key="EasingConstant" />
-  <parameters:MarginMultiplyParameter x:Key="LeftMarginCreatorParam" LeftMultiplier="-1" />
-  <parameters:MarginMultiplyParameter x:Key="RightMarginCreatorParam" RightMultiplier="-1" />
-  <converters:MarginMultiplyConverter x:Key="MarginCreator" />
 
   <!-- SideSheet (desktop variant) -->
   <ControlTheme x:Key="MaterialSideSheet" TargetType="controls:SideSheet">
@@ -79,7 +73,7 @@
                     Padding="{TemplateBinding SideSheetPadding}">
               <StackPanel Name="PART_SideSheetPanel">
                 <DockPanel Name="PART_HeaderPanel">
-                  <Button Name="PART_CloseButton" DockPanel.Dock="Right" 
+                  <Button Name="PART_CloseButton" DockPanel.Dock="Right"
                           Theme="{StaticResource MaterialIconButton}"
                           IsVisible="{TemplateBinding SideSheetCanClose}">
                     <controls:MaterialInternalIcon Name="PART_Icon" Kind="Close" />
