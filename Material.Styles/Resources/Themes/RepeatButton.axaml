@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:assists="clr-namespace:Material.Styles.Assists"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:system="clr-namespace:System;assembly=netstandard"
                     xmlns:controls="clr-namespace:Material.Styles.Controls">
   <Design.PreviewWith>
     <StackPanel Spacing="10" Margin="8">
@@ -42,8 +41,6 @@
     </StackPanel>
   </Design.PreviewWith>
 
-  <system:Double x:Key="ButtonHoveredOpacity">0.12</system:Double>
-  <system:Double x:Key="ButtonPressedOpacity">0.26</system:Double>
 
   <!-- Base styles (common properties) -->
   <ControlTheme x:Key="MaterialRepeatButtonBase" TargetType="RepeatButton">
@@ -72,7 +69,7 @@
       <Setter Property="BorderBrush" Value="{DynamicResource MaterialPrimaryDarkBrush}" />
       <Setter Property="Foreground" Value="{DynamicResource MaterialPrimaryForegroundBrush}" />
     </Style>
-    
+
     <Style Selector="^.icon">
       <Setter Property="Padding" Value="12" />
       <Setter Property="CornerRadius" Value="24" />

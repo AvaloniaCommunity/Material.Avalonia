@@ -109,6 +109,7 @@
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/Window.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/WindowDrawnDecorations.axaml" />
         <ResourceInclude Source="avares://Material.Styles/Resources/Themes/WindowNotificationManager.axaml" />
+        <MergeResourceInclude Source="avares://Material.Styles/SharedResources.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

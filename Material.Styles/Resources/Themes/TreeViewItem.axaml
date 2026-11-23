@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ripple="clr-namespace:Material.Ripple;assembly=Material.Ripple"
-                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters">
+                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters">
   <Design.PreviewWith>
     <Border Padding="20"
             MinWidth="300">
@@ -21,8 +20,6 @@
   </Design.PreviewWith>
 
 
-  <converters:BrushRoundConverter x:Key="BrushRoundConverter" />
-  <converters:MarginMultiplyConverter x:Key="MarginCreator" />
   <parameters:MarginMultiplyParameter x:Key="TreeItemContentMargin" LeftMultiplier="28" />
 
   <ControlTheme x:Key="TreeViewItemExpandToggleButton"

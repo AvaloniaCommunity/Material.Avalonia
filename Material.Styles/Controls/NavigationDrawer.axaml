@@ -1,16 +1,8 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
-                    xmlns:parameters="clr-namespace:Material.Styles.Converters.Parameters"
-                    xmlns:converters="clr-namespace:Material.Styles.Converters"
                     xmlns:assists="clr-namespace:Material.Styles.Assists">
 
-  <SineEaseInOut x:Key="EasingConstant" />
-
-  <parameters:MarginMultiplyParameter x:Key="LeftMarginCreatorParam" LeftMultiplier="-1" />
-  <parameters:MarginMultiplyParameter x:Key="RightMarginCreatorParam" RightMultiplier="-1" />
-
-  <converters:MarginMultiplyConverter x:Key="MarginCreator" />
 
   <ControlTheme x:Key="MaterialNavigationDrawer" TargetType="controls:NavigationDrawer">
     <Setter Property="Background" Value="Transparent" />
