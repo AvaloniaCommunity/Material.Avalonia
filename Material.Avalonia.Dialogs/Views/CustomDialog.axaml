@@ -5,24 +5,26 @@
 
         x:Class="Material.Dialog.Views.CustomDialog"
         x:DataType="viewModels:CustomDialogViewModel">
-    <Window.Styles>
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/DialogWindow.axaml"/>
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml"/>
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Icons/DialogIconStyle.axaml" />
-    </Window.Styles>
-    
-    <controls:EmbeddedDialogControl>
-        <ScrollViewer Name="PART_ScrollView">
-            <StackPanel Name="PART_ContentPanel">
-                <TextBlock Name="PART_SupportingText"
-                           Classes="Body1"
-                           IsVisible="{Binding ContentMessage, Converter={x:Static ObjectConverters.IsNotNull}}"
-                           Text="{Binding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}"/>
-            
-                <ContentPresenter Name="PART_ContentPresenter"
-                                  Content="{Binding Content}"
-                                  ContentTemplate="{Binding ContentTemplate}"/>
-            </StackPanel>
-        </ScrollViewer>
-    </controls:EmbeddedDialogControl>
+  <Window.Styles>
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/DialogWindow.axaml" />
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml" />
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Icons/DialogIconStyle.axaml" />
+  </Window.Styles>
+
+  <controls:EmbeddedDialogControl>
+    <InputPaneAwareDecorator Behavior="Pan">
+      <ScrollViewer Name="PART_ScrollView">
+        <StackPanel Name="PART_ContentPanel">
+          <TextBlock Name="PART_SupportingText"
+                     Classes="Body1"
+                     IsVisible="{Binding ContentMessage, Converter={x:Static ObjectConverters.IsNotNull}}"
+                     Text="{Binding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
+
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Content="{Binding Content}"
+                            ContentTemplate="{Binding ContentTemplate}" />
+        </StackPanel>
+      </ScrollViewer>
+    </InputPaneAwareDecorator>
+  </controls:EmbeddedDialogControl>
 </Window>

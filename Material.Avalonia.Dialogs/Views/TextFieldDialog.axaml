@@ -7,38 +7,40 @@
 
         x:Class="Material.Dialog.Views.TextFieldDialog"
         x:DataType="viewModels:TextFieldDialogViewModel">
-    <Window.Styles>
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/DialogWindow.axaml" />
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml" />
-        <StyleInclude Source="avares://Material.Avalonia.Dialogs/Icons/DialogIconStyle.axaml" />
-    </Window.Styles>
-    
-    <controls:EmbeddedDialogControl>
-        <ScrollViewer Name="PART_ScrollView" >
-            <StackPanel Name="PART_ContentPanel"
-                        Margin="24, 0">
-                <TextBlock Name="PART_SupportingText"
-                           Classes="Body1"
-                           IsVisible="{Binding ContentMessage, Converter={x:Static ObjectConverters.IsNotNull}}"
-                           Text="{Binding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
+  <Window.Styles>
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/DialogWindow.axaml" />
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Styles/StyleInclude.axaml" />
+    <StyleInclude Source="avares://Material.Avalonia.Dialogs/Icons/DialogIconStyle.axaml" />
+  </Window.Styles>
 
-                <ItemsControl Name="PART_Fields"
-                              ItemsSource="{Binding TextFields}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="textField:TextFieldViewModel">
-                            <TextBox Name="PART_Field"
-                                     PasswordChar="{Binding MaskChar}"
-                                     HorizontalAlignment="Stretch"
-                                     MaxLength="{Binding MaxCountChars}"
-                                     Text="{Binding Text, Mode=TwoWay}"
-                                     PlaceholderText="{Binding PlaceholderText}"
-                                     UseFloatingPlaceholder="True"
-                                     wpf:TextFieldAssist.Hints="{Binding AssistiveText}"
-                                     wpf:TextFieldAssist.Label="{Binding Label}" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
-        </ScrollViewer>
-    </controls:EmbeddedDialogControl>
+  <controls:EmbeddedDialogControl>
+    <InputPaneAwareDecorator Behavior="Pan">
+      <ScrollViewer Name="PART_ScrollView">
+        <StackPanel Name="PART_ContentPanel"
+                    Margin="24, 0">
+          <TextBlock Name="PART_SupportingText"
+                     Classes="Body1"
+                     IsVisible="{Binding ContentMessage, Converter={x:Static ObjectConverters.IsNotNull}}"
+                     Text="{Binding ContentMessage, FallbackValue='DIALOG_SUPPORTING_TEXT'}" />
+
+          <ItemsControl Name="PART_Fields"
+                        ItemsSource="{Binding TextFields}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate DataType="textField:TextFieldViewModel">
+                <TextBox Name="PART_Field"
+                         PasswordChar="{Binding MaskChar}"
+                         HorizontalAlignment="Stretch"
+                         MaxLength="{Binding MaxCountChars}"
+                         Text="{Binding Text, Mode=TwoWay}"
+                         PlaceholderText="{Binding PlaceholderText}"
+                         UseFloatingPlaceholder="True"
+                         wpf:TextFieldAssist.Hints="{Binding AssistiveText}"
+                         wpf:TextFieldAssist.Label="{Binding Label}" />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </StackPanel>
+      </ScrollViewer>
+    </InputPaneAwareDecorator>
+  </controls:EmbeddedDialogControl>
 </Window>

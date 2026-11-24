@@ -54,9 +54,9 @@
             </DockPanel>
 
             <ContentControl Name="PART_ContentHolder"
-                              DockPanel.Dock="Left"
-                              Content="{TemplateBinding Content}"
-                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            DockPanel.Dock="Left"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
           </DockPanel>
         </Border>
       </ControlTemplate>
@@ -107,20 +107,24 @@
   </Style>
 
 
-  <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > TextBlock#PART_SupportingText">
+  <Style Selector="controls|EmbeddedDialogControl InputPaneAwareDecorator > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > TextBlock#PART_SupportingText">
     <Setter Property="Margin" Value="24,0" />
     <Setter Property="TextWrapping" Value="Wrap" />
   </Style>
 
   <!-- For TextField dialog -->
-  <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > ItemsControl#PART_TextFields">
+  <Style Selector="controls|EmbeddedDialogControl InputPaneAwareDecorator > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > ItemsControl#PART_Fields">
     <Setter Property="Margin" Value="24,4" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
   </Style>
 
   <!-- Origin contribution by dojo90
          https://github.com/AvaloniaCommunity/Material.Avalonia/pull/147 -->
-  <Style Selector="controls|EmbeddedDialogControl > ScrollViewer#PART_ScrollViewer > StackPanel#PART_ContentPanel > ItemsControl#PART_TextFields ItemsPresenter">
+  <Style Selector="controls|EmbeddedDialogControl InputPaneAwareDecorator > ScrollViewer#PART_ScrollView > StackPanel#PART_ContentPanel > ItemsControl#PART_Fields ItemsPresenter">
     <Setter Property="(KeyboardNavigation.TabNavigation)" Value="Continue" />
+  </Style>
+
+  <Style Selector="controls|EmbeddedDialogControl InputPaneAwareDecorator">
+    <Setter Property="Margin" Value="0" />
   </Style>
 </Styles>

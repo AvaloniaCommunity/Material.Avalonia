@@ -2,8 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Material.Styles.Controls"
                     xmlns:system="clr-namespace:System;assembly=netstandard">
+  <x:String x:Key="StringCalendarWeekNumberHeader">#</x:String>
   <ControlTheme x:Key="MaterialCalendarItem" TargetType="CalendarItem">
-    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Stretch" />
     <Setter Property="DayTitleTemplate">
       <Template>
@@ -21,8 +22,9 @@
                 BorderBrush="{TemplateBinding BorderBrush}"
                 CornerRadius="{DynamicResource ControlCornerRadius}">
           <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                RowDefinitions="Auto, *" MinWidth="200">
+                RowDefinitions="Auto, *" ColumnDefinitions="Auto, *" MinWidth="200">
             <Grid Name="CalendarHeader"
+                  Grid.ColumnSpan="2"
                   Margin="8,16,8,12"
                   ColumnDefinitions="*, 24, Auto, 24, Auto">
               <Button Name="PART_HeaderButton"
@@ -47,15 +49,31 @@
               </Button>
             </Grid>
 
+            <Grid Name="PART_ElementWeekNumberLabels"
+                  Grid.Row="1" Grid.Column="0"
+                  Margin="16,8,0,8"
+                  RowDefinitions="32,32,32,32,32,32,32"
+                  IsVisible="False">
+              <TextBlock Name="WeekNumberHeader"
+                         Grid.Row="0"
+                         Text="{DynamicResource StringCalendarWeekNumberHeader}"
+                         FontSize="12"
+                         Margin="0"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"
+                         TextAlignment="Center" />
+            </Grid>
+
             <Grid Name="PART_MonthView"
                   Grid.Row="1"
+                  Grid.Column="1"
                   Classes="material-calendar-view"
                   MinHeight="200"
                   RowDefinitions="32,32,32,32,32,32,32"
                   ColumnDefinitions="32,32,32,32,32,32,32" />
 
             <Grid Name="PART_YearView"
-                  Grid.Row="1"
+                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                   Classes="material-calendar-view"
                   MinHeight="290"
                   RowDefinitions="*,*,*"
@@ -81,6 +99,16 @@
       <Setter Property="Margin" Value="16, 8" />
       <Setter Property="IsVisible" Value="False" />
     </Style>
+    <Style Selector="^ /template/ Grid#PART_ElementWeekNumberLabels ContentControl">
+      <Setter Property="MinWidth" Value="24" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource MaterialBodyLightBrush}" />
+    </Style>
+    <Style Selector="^:hasweeknumbers">
+      <Setter Property="MinWidth" Value="224" />
+    </Style>
+
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem"

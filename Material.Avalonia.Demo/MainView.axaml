@@ -122,18 +122,19 @@
               </Menu>
             </Grid>
           </controls:ColorZone>
-          <ScrollViewer Name="mainScroller"
-                        DockPanel.Dock="Top"
-                        HorizontalContentAlignment="Stretch"
-                        HorizontalAlignment="Stretch"
-                        HorizontalScrollBarVisibility="Disabled">
-            <Border HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
-              <ContentControl Name="PageContent"
-                              HorizontalContentAlignment="Stretch"
-                              VerticalContentAlignment="Stretch" />
-            </Border>
-          </ScrollViewer>
+          <InputPaneAwareDecorator Behavior="Pan" DockPanel.Dock="Top">
+            <ScrollViewer Name="mainScroller"
+                          HorizontalContentAlignment="Stretch"
+                          HorizontalAlignment="Stretch"
+                          HorizontalScrollBarVisibility="Disabled">
+              <Border HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch">
+                <ContentControl Name="PageContent"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch" />
+              </Border>
+            </ScrollViewer>
+          </InputPaneAwareDecorator>
         </DockPanel>
       </controls:NavigationDrawer>
     </controls:SnackbarHost>
