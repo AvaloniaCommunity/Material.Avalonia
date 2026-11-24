@@ -8,7 +8,7 @@
     <IsPackable>false</IsPackable>
 
     <RunAOTCompilation>true</RunAOTCompilation>
-    <WasmBuildNative>true</WasmBuildNative>
+    <WasmBuildNative>false</WasmBuildNative>
 
     <AvaloniaVersion>12.2.0</AvaloniaVersion>
   </PropertyGroup>
