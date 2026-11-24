@@ -7,8 +7,6 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>false</IsPackable>
 
-    <RunAOTCompilation>true</RunAOTCompilation>
-    <WasmBuildNative>false</WasmBuildNative>
 
     <AvaloniaVersion>12.2.0</AvaloniaVersion>
   </PropertyGroup>
