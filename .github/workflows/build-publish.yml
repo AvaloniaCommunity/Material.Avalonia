@@ -24,7 +24,7 @@ jobs:
             - name: Setup .NET
               uses: actions/setup-dotnet@v4
               with:
-                  dotnet-version: 10.0.403
+                  dotnet-version: 11.0.100
             - name: Build and Publish
               uses: SKProCH/CommonWorkflows/actions/build-publish@main
               with:
