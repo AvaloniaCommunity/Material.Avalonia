@@ -71,7 +71,23 @@
                               PlaceholderText="Pick a day" />
         </showMeTheXaml:XamlDisplay>
       </StackPanel>
+      <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+        <TextBlock Text="Week numbers" />
+        <showMeTheXaml:XamlDisplay UniqueId="CalendarDatePickerWeekNumbers">
+          <CalendarDatePicker Name="CalendarDatePickerWeekNumbers"
+                              IsWeekNumberVisible="True"
+                              WeekNumberRule="FirstFourDayWeek"
+                              FirstDayOfWeek="Monday" />
+        </showMeTheXaml:XamlDisplay>
+      </StackPanel>
     </StackPanel>
+    <TextBlock Classes="Headline6 Subheadline2" Text="Calendar week numbers" />
+    <showMeTheXaml:XamlDisplay UniqueId="CalendarWeekNumbers">
+      <Calendar IsWeekNumberVisible="True"
+                WeekNumberRule="FirstFourDayWeek"
+                FirstDayOfWeek="Monday" />
+    </showMeTheXaml:XamlDisplay>
+
 
     <TextBlock Classes="Headline6 Subheadline2" Text="TimePicker" />
     <StackPanel Orientation="Horizontal">
