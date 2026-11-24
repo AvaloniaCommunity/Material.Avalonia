@@ -6,6 +6,8 @@
     <OutputType>Exe</OutputType>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>false</IsPackable>
+    <WasmAppRuntimeFlavor>Mono</WasmAppRuntimeFlavor>
+    <RunAOTCompilation>true</RunAOTCompilation>
 
 
     <AvaloniaVersion>12.2.0</AvaloniaVersion>
