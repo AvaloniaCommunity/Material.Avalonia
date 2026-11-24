@@ -4,8 +4,8 @@ on:
     push:
         branches:
             - '**'
-        paths-ignore:
-            - Material.Avalonia.Demo*/** # Ignore demo projects, do not trigger builds for them
+        paths:
+            - '**'
         tags:
             - v**
     pull_request:
