@@ -11,7 +11,7 @@ concurrency:
     cancel-in-progress: true
 
 env:
-    PUBLISH_DIR: Material.Avalonia.Demo.Browser/bin/Release/net11.0-browser/publish/wwwroot
+    PUBLISH_DIR: Material.Avalonia.Demo.Browser/bin/Release/net11.0-browser/browser-wasm/publish/wwwroot
 
 jobs:
     # Build job
