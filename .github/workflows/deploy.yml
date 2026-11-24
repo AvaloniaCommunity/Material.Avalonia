@@ -11,7 +11,7 @@ concurrency:
     cancel-in-progress: true
 
 env:
-    PUBLISH_DIR: Material.Avalonia.Demo.Browser/bin/Release/net10.0-browser/browser-wasm/AppBundle/
+    PUBLISH_DIR: Material.Avalonia.Demo.Browser/bin/Release/net11.0-browser/publish/
 
 jobs:
     # Build job
@@ -24,7 +24,7 @@ jobs:
                     fetch-depth: 0
             -   uses: actions/setup-dotnet@v4
                 with:
-                    dotnet-version: 10
+                    dotnet-version: 11.0.100
             -   name: 'Cache: .nuke/temp, ~/.nuget/packages'
                 uses: actions/cache@v3
                 with:
@@ -33,7 +33,7 @@ jobs:
                         ~/.nuget/packages
                     key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj', '**/Directory.Packages.props') }}
             -   name: 'Install workload: wasm-tools'
-                run: dotnet workload restore
+                run: dotnet workload install wasm-tools
             -   name: 'Publish Material.Avalonia.Demo.Browser'
                 run: dotnet publish Material.Avalonia.Demo.Browser/Material.Avalonia.Demo.Browser.csproj -c Release
             -   name: Fix permissions
