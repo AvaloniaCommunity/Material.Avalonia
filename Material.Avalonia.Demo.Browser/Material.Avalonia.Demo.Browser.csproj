@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net11.0-browser</TargetFramework>
     <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
     <OutputType>Exe</OutputType>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>false</IsPackable>
